@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://jeromeetienne.github.com/learningthreejs/sitemap.xml 
+Sitemap: http://learningthreejs.com/sitemap.xml 

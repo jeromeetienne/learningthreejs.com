@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: animation | Learning Three.js]]></title>
-  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/animation/atom.xml" rel="self"/>
-  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
-  <updated>2013-03-10T17:49:47+01:00</updated>
-  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <link href="http://learningthreejs.com/blog/categories/animation/atom.xml" rel="self"/>
+  <link href="http://learningthreejs.com/"/>
+  <updated>2013-03-10T18:18:25+01:00</updated>
+  <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Tween.js for Smooth Animation]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/08/17/tweenjs-for-smooth-animation/"/>
+    <link href="http://learningthreejs.com/blog/2011/08/17/tweenjs-for-smooth-animation/"/>
     <updated>2011-08-17T10:16:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/08/17/tweenjs-for-smooth-animation</id>
+    <id>http://learningthreejs.com/blog/2011/08/17/tweenjs-for-smooth-animation</id>
     <content type="html"><![CDATA[<p>This post presents <a href="https://github.com/sole/tween.js">tween.js</a> and how you can use it to easily smooth your animation.
 <strong>tween.js</strong> is a "super simple, fast and easy to use tweening engine" from <a href="https://github.com/sole">sole</a>.
 It provides tweening and full blown animations thanks to chaining. Let's get started!

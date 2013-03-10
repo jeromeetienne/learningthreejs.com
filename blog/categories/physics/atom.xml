@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: physics | Learning Three.js]]></title>
-  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/physics/atom.xml" rel="self"/>
-  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
-  <updated>2013-03-10T17:49:47+01:00</updated>
-  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <link href="http://learningthreejs.com/blog/categories/physics/atom.xml" rel="self"/>
+  <link href="http://learningthreejs.com/"/>
+  <updated>2013-03-10T18:18:25+01:00</updated>
+  <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[3D Physics With Three.js and Physijs]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/06/05/3d-physics-with-three-js-and-physijs/"/>
+    <link href="http://learningthreejs.com/blog/2012/06/05/3d-physics-with-three-js-and-physijs/"/>
     <updated>2012-06-05T12:13:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/06/05/3d-physics-with-three-js-and-physijs</id>
+    <id>http://learningthreejs.com/blog/2012/06/05/3d-physics-with-three-js-and-physijs</id>
     <content type="html"><![CDATA[<p>This is yet another post about physics.
 This one is about
 <a href="https://github.com/chandlerprall/Physijs">physijs</a>
@@ -100,7 +100,7 @@ It may usefull to reimplement the same thing, just to be sure they both perform 
 So we got object falling on the ground and slightly bouncing on it. Let's do just that.</p>
 
 <center>
-    <iframe width="100%" height="420" src="http://jeromeetienne.github.com/learningthreejs/data/2012-06-05-3d-physics-with-three-js-and-physijs/" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+    <iframe width="100%" height="420" src="http://learningthreejs.com/data/2012-06-05-3d-physics-with-three-js-and-physijs/" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
 </center>
 
 
@@ -316,9 +316,9 @@ I will do more on this very soon!</p>
   
   <entry>
     <title type="html"><![CDATA[Lets Make a 3D Game: microphysics.js, even easier]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/11/02/lets-make-a-3d-game-helper-for-microphysics-js/"/>
+    <link href="http://learningthreejs.com/blog/2011/11/02/lets-make-a-3d-game-helper-for-microphysics-js/"/>
     <updated>2011-11-02T18:16:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/11/02/lets-make-a-3d-game-helper-for-microphysics-js</id>
+    <id>http://learningthreejs.com/blog/2011/11/02/lets-make-a-3d-game-helper-for-microphysics-js</id>
     <content type="html"><![CDATA[<p>This post is part of the <a href="/blog/categories/tutorial3dgame/">"Lets make a 3D game"</a> series.
 It is a follow up from the previous article on <a href="/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/">microphysics.js</a>.
 It will describe how to easily include <strong>microphysics.js</strong> in your three.js games.
@@ -448,9 +448,9 @@ That's all for today folks. Have fun :)</p>
   
   <entry>
     <title type="html"><![CDATA[Lets Make a 3D Game: microphysics.js]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/"/>
+    <link href="http://learningthreejs.com/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/"/>
     <updated>2011-10-17T12:36:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/10/17/lets-make-a-3d-game-microphysics-js</id>
+    <id>http://learningthreejs.com/blog/2011/10/17/lets-make-a-3d-game-microphysics-js</id>
     <content type="html"><![CDATA[<p>This post is part of the <a href="/blog/categories/tutorial3dgame/">"Lets make a 3D game"</a> series.
 3D and physics simulation always go well together
 <a href="http://www.youtube.com/watch?v=Rd7TyU9RdQk">even</a>

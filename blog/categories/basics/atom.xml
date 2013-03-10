@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: basics | Learning Three.js]]></title>
-  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/basics/atom.xml" rel="self"/>
-  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
-  <updated>2013-03-10T17:49:47+01:00</updated>
-  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <link href="http://learningthreejs.com/blog/categories/basics/atom.xml" rel="self"/>
+  <link href="http://learningthreejs.com/"/>
+  <updated>2013-03-10T18:18:25+01:00</updated>
+  <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Screenshot in Javascript]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/09/03/screenshot-in-javascript/"/>
+    <link href="http://learningthreejs.com/blog/2011/09/03/screenshot-in-javascript/"/>
     <updated>2011-09-03T10:01:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/09/03/screenshot-in-javascript</id>
+    <id>http://learningthreejs.com/blog/2011/09/03/screenshot-in-javascript</id>
     <content type="html"><![CDATA[<p>Sometime it would be cool if you could take a screenshot of your demo to share with your friends.
 This post will explain how to do that single a single line.
 Additionnaly, <a href="/data/THREEx/THREEx.screenshot.js">THREEx.screenshot</a> helper is provided at the end
@@ -106,9 +106,9 @@ For more details, see the <a href="/data/THREEx/docs/THREEx.screenshot.html">ann
   
   <entry>
     <title type="html"><![CDATA[Lets Do a Sky]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/08/15/lets-do-a-sky/"/>
+    <link href="http://learningthreejs.com/blog/2011/08/15/lets-do-a-sky/"/>
     <updated>2011-08-15T12:26:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/08/15/lets-do-a-sky</id>
+    <id>http://learningthreejs.com/blog/2011/08/15/lets-do-a-sky</id>
     <content type="html"><![CDATA[<p>This tutorial is about doing a sky. It makes a nice panorama with a nice immersive effect.
 This is much simpler than people would expect : only 3 steps for a total around 20 lines.
 You can find a <a href="/data/lets_do_a_sky/lets_do_a_sky.html">live demo</a> of it. It may be a

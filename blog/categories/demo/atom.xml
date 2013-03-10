@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: demo | Learning Three.js]]></title>
-  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/demo/atom.xml" rel="self"/>
-  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
-  <updated>2013-03-10T17:49:47+01:00</updated>
-  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <link href="http://learningthreejs.com/blog/categories/demo/atom.xml" rel="self"/>
+  <link href="http://learningthreejs.com/"/>
+  <updated>2013-03-10T18:18:25+01:00</updated>
+  <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Tunnel Effect for your Demo]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/01/11/tunnel-effect/"/>
+    <link href="http://learningthreejs.com/blog/2012/01/11/tunnel-effect/"/>
     <updated>2012-01-11T13:00:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/01/11/tunnel-effect</id>
+    <id>http://learningthreejs.com/blog/2012/01/11/tunnel-effect</id>
     <content type="html"><![CDATA[<p>This post presents a tunnel effect.
 This is a classic in 3D demo.
 They are visually efficient and easy to code.
@@ -158,9 +158,9 @@ That's all folks, have fun.</p>
   
   <entry>
     <title type="html"><![CDATA[dat-gui - Simple UI for Demos]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/08/14/dat-gui-simple-ui-for-demos/"/>
+    <link href="http://learningthreejs.com/blog/2011/08/14/dat-gui-simple-ui-for-demos/"/>
     <updated>2011-08-14T19:42:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/08/14/dat-gui-simple-ui-for-demos</id>
+    <id>http://learningthreejs.com/blog/2011/08/14/dat-gui-simple-ui-for-demos</id>
     <content type="html"><![CDATA[<p><a href="http://code.google.com/p/dat-gui/">Dat.gui</a>
 is a GUI widget for your demos. It provide way for the user to set parameters of the
 demo to play with it. It is simple to code, yet cool and minimalist on the screen.

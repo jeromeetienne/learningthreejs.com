@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: shadows | Learning Three.js]]></title>
-  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/shadows/atom.xml" rel="self"/>
-  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
-  <updated>2013-03-10T17:49:47+01:00</updated>
-  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <link href="http://learningthreejs.com/blog/categories/shadows/atom.xml" rel="self"/>
+  <link href="http://learningthreejs.com/"/>
+  <updated>2013-03-10T18:18:25+01:00</updated>
+  <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Casting Shadows]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/01/20/casting-shadows/"/>
+    <link href="http://learningthreejs.com/blog/2012/01/20/casting-shadows/"/>
     <updated>2012-01-20T14:44:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/01/20/casting-shadows</id>
+    <id>http://learningthreejs.com/blog/2012/01/20/casting-shadows</id>
     <content type="html"><![CDATA[<p>This post is about
 <a href="http://en.wikipedia.org/wiki/Shadow_mapping">shadow casting</a>,
 a technique which approximates the effect you see in real life everyday.
@@ -37,7 +37,7 @@ to receive the object shadow. The light frustum is left visible in orange.</p>
 
 
 
-<iframe src="http://jeromeetienne.github.com/learningthreejs/data/casting-shadows"
+<iframe src="http://learningthreejs.com/data/casting-shadows"
     webkitallowfullscreen mozallowfullscreen allowfullscreen 
     width="100%" height="420" frameborder="0">
 </iframe>

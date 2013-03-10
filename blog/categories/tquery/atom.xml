@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: tquery | Learning Three.js]]></title>
-  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/tquery/atom.xml" rel="self"/>
-  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
-  <updated>2013-03-10T17:49:47+01:00</updated>
-  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <link href="http://learningthreejs.com/blog/categories/tquery/atom.xml" rel="self"/>
+  <link href="http://learningthreejs.com/"/>
+  <updated>2013-03-10T18:18:25+01:00</updated>
+  <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Minecraft Character in WebGL]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/07/05/minecraft-character-in-webgl/"/>
+    <link href="http://learningthreejs.com/blog/2012/07/05/minecraft-character-in-webgl/"/>
     <updated>2012-07-05T10:22:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/07/05/minecraft-character-in-webgl</id>
+    <id>http://learningthreejs.com/blog/2012/07/05/minecraft-character-in-webgl</id>
     <content type="html"><![CDATA[<p>This post is about Minecraft Character.
 We will play with the minecraft character, learn how to do your own and make it move.
 I recently saw this excelent <a href="http://djazz.mine.nu/lab/minecraft_items/">minecraft items demo</a>
@@ -195,9 +195,9 @@ I so love this field and how it make things easier.</p>
   
   <entry>
     <title type="html"><![CDATA[3D Physics With Three.js and Physijs]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/06/05/3d-physics-with-three-js-and-physijs/"/>
+    <link href="http://learningthreejs.com/blog/2012/06/05/3d-physics-with-three-js-and-physijs/"/>
     <updated>2012-06-05T12:13:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/06/05/3d-physics-with-three-js-and-physijs</id>
+    <id>http://learningthreejs.com/blog/2012/06/05/3d-physics-with-three-js-and-physijs</id>
     <content type="html"><![CDATA[<p>This is yet another post about physics.
 This one is about
 <a href="https://github.com/chandlerprall/Physijs">physijs</a>
@@ -280,7 +280,7 @@ It may usefull to reimplement the same thing, just to be sure they both perform 
 So we got object falling on the ground and slightly bouncing on it. Let's do just that.</p>
 
 <center>
-    <iframe width="100%" height="420" src="http://jeromeetienne.github.com/learningthreejs/data/2012-06-05-3d-physics-with-three-js-and-physijs/" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+    <iframe width="100%" height="420" src="http://learningthreejs.com/data/2012-06-05-3d-physics-with-three-js-and-physijs/" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
 </center>
 
 
@@ -496,9 +496,9 @@ I will do more on this very soon!</p>
   
   <entry>
     <title type="html"><![CDATA[Three.js Sport Car on iOS at 40fps]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/29/three-js-sportcar-on-ios/"/>
+    <link href="http://learningthreejs.com/blog/2012/05/29/three-js-sportcar-on-ios/"/>
     <updated>2012-05-29T13:48:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/05/29/three-js-sportcar-on-ios</id>
+    <id>http://learningthreejs.com/blog/2012/05/29/three-js-sportcar-on-ios</id>
     <content type="html"><![CDATA[<p>This post is about iOS and three.js.
 It may seem surprising, but <a href="http://en.wikipedia.org/wiki/iOS">iOS</a> supports WebGL since version 4.2.
 There is a tough limitation tho, it is available only in their advertisment plateform,
@@ -595,9 +595,9 @@ Meanwhile you can already play with it, and do minigames with it, thus be ready 
   
   <entry>
     <title type="html"><![CDATA[Sport Car in WebGL]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/21/sport-car-in-webgl/"/>
+    <link href="http://learningthreejs.com/blog/2012/05/21/sport-car-in-webgl/"/>
     <updated>2012-05-21T12:16:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/05/21/sport-car-in-webgl</id>
+    <id>http://learningthreejs.com/blog/2012/05/21/sport-car-in-webgl</id>
     <content type="html"><![CDATA[<p>This post is about sport cars and how cool they can be!
 Once again, we gonna expose gems from three.js examples.
 It contains several sport cars which are fun to play with.
@@ -623,7 +623,7 @@ All that in 40-lines of javascript.</p>
 <a href="/data/2012-05-21-sport-car-in-webgl/">Try it out</a>.</p>
 
 <center>
-    <iframe width="100%" height="420" src="http://jeromeetienne.github.com/learningthreejs/data/2012-05-21-sport-car-in-webgl/" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+    <iframe width="100%" height="420" src="http://learningthreejs.com/data/2012-05-21-sport-car-in-webgl/" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
 </center>
 
 
@@ -853,9 +853,9 @@ and learn. WebGL for All!! :)</p>
   
   <entry>
     <title type="html"><![CDATA[Punch A Doom Character in Augmented Reality]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/"/>
+    <link href="http://learningthreejs.com/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/"/>
     <updated>2012-05-15T11:59:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/05/15/punch-a-doom-character-in-augmented-reality</id>
+    <id>http://learningthreejs.com/blog/2012/05/15/punch-a-doom-character-in-augmented-reality</id>
     <content type="html"><![CDATA[<p>Did you ever dreamed of punching a doom character ? They look evil and killed
 you so many time while you were playing the game. It is revenge time! This
 post will help you realize your dream :)

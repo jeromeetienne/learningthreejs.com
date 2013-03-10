@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: webrtc | Learning Three.js]]></title>
-  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/webrtc/atom.xml" rel="self"/>
-  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
-  <updated>2013-03-10T17:49:47+01:00</updated>
-  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <link href="http://learningthreejs.com/blog/categories/webrtc/atom.xml" rel="self"/>
+  <link href="http://learningthreejs.com/"/>
+  <updated>2013-03-10T18:18:25+01:00</updated>
+  <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Punch A Doom Character in Augmented Reality]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/"/>
+    <link href="http://learningthreejs.com/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/"/>
     <updated>2012-05-15T11:59:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/05/15/punch-a-doom-character-in-augmented-reality</id>
+    <id>http://learningthreejs.com/blog/2012/05/15/punch-a-doom-character-in-augmented-reality</id>
     <content type="html"><![CDATA[<p>Did you ever dreamed of punching a doom character ? They look evil and killed
 you so many time while you were playing the game. It is revenge time! This
 post will help you realize your dream :)
@@ -304,9 +304,9 @@ so short.</p>
   
   <entry>
     <title type="html"><![CDATA[Augmented Reality 3D Pong]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/02/augmented-reality-3d-pong/"/>
+    <link href="http://learningthreejs.com/blog/2012/05/02/augmented-reality-3d-pong/"/>
     <updated>2012-05-02T13:38:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/05/02/augmented-reality-3d-pong</id>
+    <id>http://learningthreejs.com/blog/2012/05/02/augmented-reality-3d-pong</id>
     <content type="html"><![CDATA[<p>This post presents a livecoding screencast of <strong>Augmented Reality 3D Pong</strong>.
 This is an experiment to use <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmented gestures</a>
 as a way to interact with game. So i picked a game classic <a href="http://en.wikipedia.org/wiki/Pong">"pong"</a>.
@@ -382,9 +382,9 @@ Anyway publishing it in "publish early, publish often" mood :)</p>
   
   <entry>
     <title type="html"><![CDATA[Video Conference on Top of WebGL]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/04/12/video-conference-on-top-of-webgl/"/>
+    <link href="http://learningthreejs.com/blog/2012/04/12/video-conference-on-top-of-webgl/"/>
     <updated>2012-04-12T13:20:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/04/12/video-conference-on-top-of-webgl</id>
+    <id>http://learningthreejs.com/blog/2012/04/12/video-conference-on-top-of-webgl</id>
     <content type="html"><![CDATA[<p>This post presents
 <a href="http://webglmeeting.appspot.com">WebGL Meeting</a>,
 a very simple WebGL application to do webrtc call.
@@ -485,9 +485,9 @@ cheap to integrate live video conferences to your own sites.</p>
   
   <entry>
     <title type="html"><![CDATA[Fun With Live Video in WebGL]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/02/07/live-video-in-webgl/"/>
+    <link href="http://learningthreejs.com/blog/2012/02/07/live-video-in-webgl/"/>
     <updated>2012-02-07T13:41:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/02/07/live-video-in-webgl</id>
+    <id>http://learningthreejs.com/blog/2012/02/07/live-video-in-webgl</id>
     <content type="html"><![CDATA[<p>This post is about live video in webgl.
 It is possible in today browsers to read the webcam using a new feature from html5, called WebRTC.
 This standard is

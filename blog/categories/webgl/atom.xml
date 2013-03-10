@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: webgl | Learning Three.js]]></title>
-  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/webgl/atom.xml" rel="self"/>
-  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
-  <updated>2013-03-10T17:49:47+01:00</updated>
-  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <link href="http://learningthreejs.com/blog/categories/webgl/atom.xml" rel="self"/>
+  <link href="http://learningthreejs.com/"/>
+  <updated>2013-03-10T18:18:25+01:00</updated>
+  <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Lets Do a Sky]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/08/15/lets-do-a-sky/"/>
+    <link href="http://learningthreejs.com/blog/2011/08/15/lets-do-a-sky/"/>
     <updated>2011-08-15T12:26:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/08/15/lets-do-a-sky</id>
+    <id>http://learningthreejs.com/blog/2011/08/15/lets-do-a-sky</id>
     <content type="html"><![CDATA[<p>This tutorial is about doing a sky. It makes a nice panorama with a nice immersive effect.
 This is much simpler than people would expect : only 3 steps for a total around 20 lines.
 You can find a <a href="/data/lets_do_a_sky/lets_do_a_sky.html">live demo</a> of it. It may be a
@@ -118,9 +118,9 @@ immersive effect. Use it and tweek it for fun :) Examples are there for that.</p
   
   <entry>
     <title type="html"><![CDATA[Lets Do a Cube]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/08/06/lets-do-a-cube/"/>
+    <link href="http://learningthreejs.com/blog/2011/08/06/lets-do-a-cube/"/>
     <updated>2011-08-06T00:00:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/08/06/lets-do-a-cube</id>
+    <id>http://learningthreejs.com/blog/2011/08/06/lets-do-a-cube</id>
     <content type="html"><![CDATA[<p>Here is the first lesson! I started with something real simple, a <strong>cube</strong>.
 I wasnt sure how to present the lesson, so i did
 an <a href="/data/lets_do_a_cube/docs/lets_do_a_cube.html">annotated source of the example</a>
@@ -143,9 +143,9 @@ screencast below.</p>
   
   <entry>
     <title type="html"><![CDATA[Three.js Installation]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/07/15/threejs-installation/"/>
+    <link href="http://learningthreejs.com/blog/2011/07/15/threejs-installation/"/>
     <updated>2011-07-15T00:00:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/07/15/threejs-installation</id>
+    <id>http://learningthreejs.com/blog/2011/07/15/threejs-installation</id>
     <content type="html"><![CDATA[<p><a href="https://github.com/mrdoob/three.js">Three.js</a> is a 3D library in javascript. According
 to <a href="http://mrdoob.com/">mrdoob</a>, its author, three.js is</p>
 

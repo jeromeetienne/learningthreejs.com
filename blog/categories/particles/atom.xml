@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: particles | Learning Three.js]]></title>
-  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/particles/atom.xml" rel="self"/>
-  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
-  <updated>2013-03-10T17:49:47+01:00</updated>
-  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <link href="http://learningthreejs.com/blog/categories/particles/atom.xml" rel="self"/>
+  <link href="http://learningthreejs.com/"/>
+  <updated>2013-03-10T18:18:25+01:00</updated>
+  <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Particles: Online Editor for Sparks.js]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/12/19/particles-online-editor-for-sparks-js/"/>
+    <link href="http://learningthreejs.com/blog/2011/12/19/particles-online-editor-for-sparks-js/"/>
     <updated>2011-12-19T12:11:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/12/19/particles-online-editor-for-sparks-js</id>
+    <id>http://learningthreejs.com/blog/2011/12/19/particles-online-editor-for-sparks-js</id>
     <content type="html"><![CDATA[<p>This post is the second of our <a href="/blog/categories/particles">serie on particles</a>.
 It presents
 <a href="https://github.com/jeromeetienne/sparkseditor">sparkseditor</a>
@@ -119,9 +119,9 @@ That's all folks, have fun :)</p>
   
   <entry>
     <title type="html"><![CDATA[Particles: Introduction to Sparks.js]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/12/14/particles-introduction-to-sparks-js/"/>
+    <link href="http://learningthreejs.com/blog/2011/12/14/particles-introduction-to-sparks-js/"/>
     <updated>2011-12-14T12:08:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/12/14/particles-introduction-to-sparks-js</id>
+    <id>http://learningthreejs.com/blog/2011/12/14/particles-introduction-to-sparks-js</id>
     <content type="html"><![CDATA[<p>This post is the first of a <a href="/blog/categories/particles">serie on particles</a>.
 It specifically is about
 <a href="https://github.com/zz85/sparks.js">sparks.js</a>.

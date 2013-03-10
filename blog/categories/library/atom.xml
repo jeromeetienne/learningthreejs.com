@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: library | Learning Three.js]]></title>
-  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/library/atom.xml" rel="self"/>
-  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
-  <updated>2013-03-10T17:49:47+01:00</updated>
-  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <link href="http://learningthreejs.com/blog/categories/library/atom.xml" rel="self"/>
+  <link href="http://learningthreejs.com/"/>
+  <updated>2013-03-10T18:18:25+01:00</updated>
+  <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Boilerplate Builder for Three.js]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/01/19/boilerplate-builder-for-three-js/"/>
+    <link href="http://learningthreejs.com/blog/2012/01/19/boilerplate-builder-for-three-js/"/>
     <updated>2012-01-19T10:59:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/01/19/boilerplate-builder-for-three-js</id>
+    <id>http://learningthreejs.com/blog/2012/01/19/boilerplate-builder-for-three-js</id>
     <content type="html"><![CDATA[<p>We recently introduced a
 <a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>
 in a
@@ -166,9 +166,9 @@ Have fun.</p>
   
   <entry>
     <title type="html"><![CDATA[Let’s Make a 3D Game: Virtual Joystick]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/12/26/let-s-make-a-3d-game-virtual-joystick/"/>
+    <link href="http://learningthreejs.com/blog/2011/12/26/let-s-make-a-3d-game-virtual-joystick/"/>
     <updated>2011-12-26T12:21:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/12/26/let-s-make-a-3d-game-virtual-joystick</id>
+    <id>http://learningthreejs.com/blog/2011/12/26/let-s-make-a-3d-game-virtual-joystick</id>
     <content type="html"><![CDATA[<p>Here is another article of the "Let's Make a 3D Game"
 <a href="/blog/categories/tutorial3dgame/">series</a>.
 We have already seen how to handle other inputs like
@@ -277,9 +277,9 @@ That's all folks, have fun.</p>
   
   <entry>
     <title type="html"><![CDATA[Boilerplate for Three.js]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/12/20/boilerplate-for-three-js/"/>
+    <link href="http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/"/>
     <updated>2011-12-20T19:09:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/12/20/boilerplate-for-three-js</id>
+    <id>http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js</id>
     <content type="html"><![CDATA[<p>This post presents
 <a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>.
 I looked at
@@ -433,9 +433,9 @@ That's all folks, have fun :)</p>
   
   <entry>
     <title type="html"><![CDATA[Particles: Online Editor for Sparks.js]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/12/19/particles-online-editor-for-sparks-js/"/>
+    <link href="http://learningthreejs.com/blog/2011/12/19/particles-online-editor-for-sparks-js/"/>
     <updated>2011-12-19T12:11:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/12/19/particles-online-editor-for-sparks-js</id>
+    <id>http://learningthreejs.com/blog/2011/12/19/particles-online-editor-for-sparks-js</id>
     <content type="html"><![CDATA[<p>This post is the second of our <a href="/blog/categories/particles">serie on particles</a>.
 It presents
 <a href="https://github.com/jeromeetienne/sparkseditor">sparkseditor</a>
@@ -537,9 +537,9 @@ That's all folks, have fun :)</p>
   
   <entry>
     <title type="html"><![CDATA[Particles: Introduction to Sparks.js]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/12/14/particles-introduction-to-sparks-js/"/>
+    <link href="http://learningthreejs.com/blog/2011/12/14/particles-introduction-to-sparks-js/"/>
     <updated>2011-12-14T12:08:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/12/14/particles-introduction-to-sparks-js</id>
+    <id>http://learningthreejs.com/blog/2011/12/14/particles-introduction-to-sparks-js</id>
     <content type="html"><![CDATA[<p>This post is the first of a <a href="/blog/categories/particles">serie on particles</a>.
 It specifically is about
 <a href="https://github.com/zz85/sparks.js">sparks.js</a>.

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: performance | Learning Three.js]]></title>
-  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/performance/atom.xml" rel="self"/>
-  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
-  <updated>2013-03-10T17:49:47+01:00</updated>
-  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <link href="http://learningthreejs.com/blog/categories/performance/atom.xml" rel="self"/>
+  <link href="http://learningthreejs.com/"/>
+  <updated>2013-03-10T18:18:25+01:00</updated>
+  <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Performance: Merging Geometry]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/10/05/performance-merging-geometry/"/>
+    <link href="http://learningthreejs.com/blog/2011/10/05/performance-merging-geometry/"/>
     <updated>2011-10-05T11:29:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/10/05/performance-merging-geometry</id>
+    <id>http://learningthreejs.com/blog/2011/10/05/performance-merging-geometry</id>
     <content type="html"><![CDATA[<p>This article is about merging geometry and how it can improve performance.
 It is important for perfomance to reduce the number of <a href="http://www.khronos.org/registry/webgl/specs/latest/">WebGL</a> calls as much as possible.
 The rules of thumbs is <em>the less data are exchanged between the cpu and the gpu, the better it is for performance</em>.</p>
@@ -95,9 +95,9 @@ That's all folks. I hope it has been usefull :)</p>
   
   <entry>
     <title type="html"><![CDATA[Performance: Caching Material]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/09/16/performance-caching-material/"/>
+    <link href="http://learningthreejs.com/blog/2011/09/16/performance-caching-material/"/>
     <updated>2011-09-16T10:25:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/09/16/performance-caching-material</id>
+    <id>http://learningthreejs.com/blog/2011/09/16/performance-caching-material</id>
     <content type="html"><![CDATA[<p>This article is about performance and how caching can improve them.
 In WebGL, it is important not to push the same textures multiple times to the GPU.
 It uselessly slow down the rendering.

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: experiment | Learning Three.js]]></title>
-  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/experiment/atom.xml" rel="self"/>
-  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
-  <updated>2013-03-10T17:49:47+01:00</updated>
-  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <link href="http://learningthreejs.com/blog/categories/experiment/atom.xml" rel="self"/>
+  <link href="http://learningthreejs.com/"/>
+  <updated>2013-03-10T18:18:25+01:00</updated>
+  <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Dom Events in 3D Space]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/01/17/dom-events-in-3d-space/"/>
+    <link href="http://learningthreejs.com/blog/2012/01/17/dom-events-in-3d-space/"/>
     <updated>2012-01-17T11:56:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/01/17/dom-events-in-3d-space</id>
+    <id>http://learningthreejs.com/blog/2012/01/17/dom-events-in-3d-space</id>
     <content type="html"><![CDATA[<p>Ever dreamed of a <strong>object3d.on('click', function(){ ... });</strong>?</p>
 
 <p>I have :) This post presents a little experiment.

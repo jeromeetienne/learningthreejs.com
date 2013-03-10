@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Learning Three.js]]></title>
-  <link href="http://jeromeetienne.github.com/learningthreejs/atom.xml" rel="self"/>
-  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
-  <updated>2013-03-10T17:49:47+01:00</updated>
-  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <link href="http://learningthreejs.com/atom.xml" rel="self"/>
+  <link href="http://learningthreejs.com/"/>
+  <updated>2013-03-10T18:18:25+01:00</updated>
+  <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Minecraft Character in WebGL]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/07/05/minecraft-character-in-webgl/"/>
+    <link href="http://learningthreejs.com/blog/2012/07/05/minecraft-character-in-webgl/"/>
     <updated>2012-07-05T10:22:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/07/05/minecraft-character-in-webgl</id>
+    <id>http://learningthreejs.com/blog/2012/07/05/minecraft-character-in-webgl</id>
     <content type="html"><![CDATA[<p>This post is about Minecraft Character.
 We will play with the minecraft character, learn how to do your own and make it move.
 I recently saw this excelent <a href="http://djazz.mine.nu/lab/minecraft_items/">minecraft items demo</a>
@@ -29,7 +29,7 @@ You don&#8217;t need to learn how to use 3d modeling software like
 <a href="http://usa.autodesk.com/maya/">maya</a> and such.
 It is easy to create new model based on this style.</p>
 
-<p>Try the <a href="http://jeromeetienne.github.com/learningthreejs/data/2012-07-05-minecraft-character-in-webgl/">minecraft plugin demo</a>. This is the
+<p>Try the <a href="http://learningthreejs.com/data/2012-07-05-minecraft-character-in-webgl/">minecraft plugin demo</a>. This is the
 one we gonna build. I used <a href="https://twitter.com/#!/daniel_hede">@daniel_hede</a>&#8217;s code
 and did many plugins to make it all simple and fun :)
 In this demo, i introduce
@@ -191,9 +191,9 @@ I so love this field and how it make things easier.</p>
   
   <entry>
     <title type="html"><![CDATA[3D Physics With Three.js and Physijs]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/06/05/3d-physics-with-three-js-and-physijs/"/>
+    <link href="http://learningthreejs.com/blog/2012/06/05/3d-physics-with-three-js-and-physijs/"/>
     <updated>2012-06-05T12:13:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/06/05/3d-physics-with-three-js-and-physijs</id>
+    <id>http://learningthreejs.com/blog/2012/06/05/3d-physics-with-three-js-and-physijs</id>
     <content type="html"><![CDATA[<p>This is yet another post about physics.
 This one is about
 <a href="https://github.com/chandlerprall/Physijs">physijs</a>
@@ -209,7 +209,7 @@ It makes scenes more realistic.
 Additionally, if you simple put your object into the scene, it will move nicely and realisticly.
 So you spend less time tuning each moves. I am quite lazy so it matters :)
 The <a href="http://www.youtube.com/watch?v=THI82Q-P8Fo">screencast</a>
-presents the <a href="http://jeromeetienne.github.com/learningthreejs/data/2012-06-05-3d-physics-with-three-js-and-physijs/">demo we gonna code</a>
+presents the <a href="http://learningthreejs.com/data/2012-06-05-3d-physics-with-three-js-and-physijs/">demo we gonna code</a>
 and various examples of what is possible with
 <a href="https://github.com/kripken/ammo.js/">ammo.js</a>.</p>
 
@@ -272,11 +272,11 @@ from
 <a href="http://chandlerprall.github.com/Physijs/">physijs</a>
 using it thru tQuery API.
 It may usefull to reimplement the same thing, just to be sure they both perform the same way. :)
-<a href="http://jeromeetienne.github.com/learningthreejs/data/2012-06-05-3d-physics-with-three-js-and-physijs/">Try it out</a>.
+<a href="http://learningthreejs.com/data/2012-06-05-3d-physics-with-three-js-and-physijs/">Try it out</a>.
 So we got object falling on the ground and slightly bouncing on it. Let&#8217;s do just that.</p>
 
 <center>
-    <iframe width="100%" height="420" src="http://jeromeetienne.github.com/learningthreejs/data/2012-06-05-3d-physics-with-three-js-and-physijs/" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+    <iframe width="100%" height="420" src="http://learningthreejs.com/data/2012-06-05-3d-physics-with-three-js-and-physijs/" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
 </center>
 
 
@@ -483,9 +483,9 @@ I will do more on this very soon!</p>
   
   <entry>
     <title type="html"><![CDATA[Three.js Sport Car on iOS at 40fps]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/29/three-js-sportcar-on-ios/"/>
+    <link href="http://learningthreejs.com/blog/2012/05/29/three-js-sportcar-on-ios/"/>
     <updated>2012-05-29T13:48:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/05/29/three-js-sportcar-on-ios</id>
+    <id>http://learningthreejs.com/blog/2012/05/29/three-js-sportcar-on-ios</id>
     <content type="html"><![CDATA[<p>This post is about iOS and three.js.
 It may seem surprising, but <a href="http://en.wikipedia.org/wiki/iOS">iOS</a> supports WebGL since version 4.2.
 There is a tough limitation tho, it is available only in their advertisment plateform,
@@ -582,9 +582,9 @@ Meanwhile you can already play with it, and do minigames with it, thus be ready 
   
   <entry>
     <title type="html"><![CDATA[Sport Car in WebGL]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/21/sport-car-in-webgl/"/>
+    <link href="http://learningthreejs.com/blog/2012/05/21/sport-car-in-webgl/"/>
     <updated>2012-05-21T12:16:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/05/21/sport-car-in-webgl</id>
+    <id>http://learningthreejs.com/blog/2012/05/21/sport-car-in-webgl</id>
     <content type="html"><![CDATA[<p>This post is about sport cars and how cool they can be!
 Once again, we gonna expose gems from three.js examples.
 It contains several sport cars which are fun to play with.
@@ -607,10 +607,10 @@ All that in 40-lines of javascript.</p>
 <h2>What We Gonna Build ?</h2>
 
 <p>What you see below is what we gonna build. Pretty nice no ?
-<a href="http://jeromeetienne.github.com/learningthreejs/data/2012-05-21-sport-car-in-webgl/">Try it out</a>.</p>
+<a href="http://learningthreejs.com/data/2012-05-21-sport-car-in-webgl/">Try it out</a>.</p>
 
 <center>
-    <iframe width="100%" height="420" src="http://jeromeetienne.github.com/learningthreejs/data/2012-05-21-sport-car-in-webgl/" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+    <iframe width="100%" height="420" src="http://learningthreejs.com/data/2012-05-21-sport-car-in-webgl/" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
 </center>
 
 
@@ -811,8 +811,8 @@ for 40 lines of javascript.</p>
 
 <p>In this post, i walked you thru a example of <code>tQuery.car.js</code>. It builds a rather
 cool scene in 40lines of js. It seems a nice base for a game. Like the
-<a href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">two</a>
-<a href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl/">previous</a>
+<a href="http://learningthreejs.com/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">two</a>
+<a href="http://learningthreejs.com/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl/">previous</a>
 walk through, we got very short code. I like this, it makes it easier to understand
 and learn. WebGL for All!! :)</p>
 
@@ -822,9 +822,9 @@ and learn. WebGL for All!! :)</p>
   
   <entry>
     <title type="html"><![CDATA[Punch A Doom Character in Augmented Reality]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/"/>
+    <link href="http://learningthreejs.com/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/"/>
     <updated>2012-05-15T11:59:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/05/15/punch-a-doom-character-in-augmented-reality</id>
+    <id>http://learningthreejs.com/blog/2012/05/15/punch-a-doom-character-in-augmented-reality</id>
     <content type="html"><![CDATA[<p>Did you ever dreamed of punching a doom character ? They look evil and killed
 you so many time while you were playing the game. It is revenge time! This
 post will help you realize your dream :)
@@ -835,7 +835,7 @@ because in this game, the player can punch Doom Character in augmented reality :
 The player gestures are recognized thru the webcam by <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmentedgesture.js</a> library.
 It uses <a href="http://webrtc.org">WebRTC</a> <a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a> to get the webcam
 using open standards.
-You can play this minigame <a href="http://jeromeetienne.github.com/learningthreejs/data/2012-05-15-punch-a-doom-character-in-augmented-reality">here</a>.
+You can play this minigame <a href="http://learningthreejs.com/data/2012-05-15-punch-a-doom-character-in-augmented-reality">here</a>.
 In fact, it is an example of <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmentedgesture.js</a> library.
 We will walk you thru the code. Only 60 lines of Javascript.</p>
 
@@ -849,8 +849,8 @@ We will walk you thru the code. Only 60 lines of Javascript.</p>
 <!-- more -->
 
 
-<p>We have seen augmented gesture in <a href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/02/augmented-reality-3d-pong/">&#8220;Augmented Reality 3D Pong&#8221;</a> post
-and MD2 Characters in <a href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/04/tquery-md2character-a-plugin-for-doom-characters/">&#8220;tQuery Plugin for Doom Characters&#8221;</a> post.
+<p>We have seen augmented gesture in <a href="http://learningthreejs.com/blog/2012/05/02/augmented-reality-3d-pong/">&#8220;Augmented Reality 3D Pong&#8221;</a> post
+and MD2 Characters in <a href="http://learningthreejs.com/blog/2012/05/04/tquery-md2character-a-plugin-for-doom-characters/">&#8220;tQuery Plugin for Doom Characters&#8221;</a> post.
 Now we gonna associate them together in our mini game :)
 I presented it at <a href="www.web-5.org">Web-5</a> conference in april.
 At the time, i recorded a preview <a href="http://www.youtube.com/watch?v=hUYM93xaIgg">&#8220;Doom: a new workout for geek?&#8221;</a>.
@@ -1100,9 +1100,9 @@ so short.</p>
   
   <entry>
     <title type="html"><![CDATA[Sound Visualisation: a Vuemeter in WebGL]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl/"/>
+    <link href="http://learningthreejs.com/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl/"/>
     <updated>2012-05-08T10:32:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl</id>
+    <id>http://learningthreejs.com/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl</id>
     <content type="html"><![CDATA[<p>This post is about producing a 3D Vuemeter for real time sound.
 We gonna walk thru the code of a
 <a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a> example.
@@ -1383,13 +1383,13 @@ reduces developement time.</p>
   
   <entry>
     <title type="html"><![CDATA[tQuery plugin for Doom Characters]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/04/tquery-md2character-a-plugin-for-doom-characters/"/>
+    <link href="http://learningthreejs.com/blog/2012/05/04/tquery-md2character-a-plugin-for-doom-characters/"/>
     <updated>2012-05-04T10:26:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/05/04/tquery-md2character-a-plugin-for-doom-characters</id>
+    <id>http://learningthreejs.com/blog/2012/05/04/tquery-md2character-a-plugin-for-doom-characters</id>
     <content type="html"><![CDATA[<p>This post is about
 <a href="https://github.com/jeromeetienne/tquery/tree/dev/plugins/md2character">tQuery.md2Character</a>
 plugin: a cool plugin which allow you to easily play with doom characters. You can see a live demo
-<a href="http://jeromeetienne.github.com/learningthreejs/data/2012-05-04-tquery-md2character-a-plugin-for-doom-characters/examples">here</a>.
+<a href="http://learningthreejs.com/data/2012-05-04-tquery-md2character-a-plugin-for-doom-characters/examples">here</a>.
 I will walk you thru its example. It include a checkerboard for the ground, a fog for the depth, keyboard to
 move your player and obviously plugins for the MD2 characters (doom formats).
 We gonna learn how to move doom characters in webgl in only 50lines of javascript!</p>
@@ -1433,14 +1433,14 @@ It is rather simple. It implies tQuery obviously, and various plugins:
 One for the fog, one for the checkerboard used as ground, one to
 bind the keyboard and obviously plugins for the MD2 Character itself.</p>
 
-<iframe src="http://jeromeetienne.github.com/learningthreejs/data/2012-05-04-tquery-md2character-a-plugin-for-doom-characters/examples"
+<iframe src="http://learningthreejs.com/data/2012-05-04-tquery-md2character-a-plugin-for-doom-characters/examples"
     webkitallowfullscreen mozallowfullscreen allowfullscreen 
     width="100%" height="420" frameborder="0">
 </iframe>
 
 
 <p>Nice demo no ? You can try it
-<a href="http://jeromeetienne.github.com/learningthreejs/data/2012-05-04-tquery-md2character-a-plugin-for-doom-characters/examples">here</a>.
+<a href="http://learningthreejs.com/data/2012-05-04-tquery-md2character-a-plugin-for-doom-characters/examples">here</a>.
 Let&#8217;s code it!</p>
 
 <h2>The 3D World</h2>
@@ -1637,7 +1637,7 @@ Btw all that released under MIT license.
 I think i like the <strong>code walkthru</strong> format.
 I find it efficient to describe tQuery examples and fast for me to generate.
 It is directly derived from <a href="http://jashkenas.github.com/docco/">annoted doc format</a>
-as you can see <a href="http://jeromeetienne.github.com/learningthreejs/data/2012-05-04-tquery-md2character-a-plugin-for-doom-characters/examples/docs/">here</a>.
+as you can see <a href="http://learningthreejs.com/data/2012-05-04-tquery-md2character-a-plugin-for-doom-characters/examples/docs/">here</a>.
 I will likely do more in the future.</p>
 
 <p>That&#8217;s all folks. Have fun :)</p>
@@ -1646,9 +1646,9 @@ I will likely do more in the future.</p>
   
   <entry>
     <title type="html"><![CDATA[Augmented Reality 3D Pong]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/02/augmented-reality-3d-pong/"/>
+    <link href="http://learningthreejs.com/blog/2012/05/02/augmented-reality-3d-pong/"/>
     <updated>2012-05-02T13:38:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/05/02/augmented-reality-3d-pong</id>
+    <id>http://learningthreejs.com/blog/2012/05/02/augmented-reality-3d-pong</id>
     <content type="html"><![CDATA[<p>This post presents a livecoding screencast of <strong>Augmented Reality 3D Pong</strong>.
 This is an experiment to use <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmented gestures</a>
 as a way to interact with game. So i picked a game classic <a href="http://en.wikipedia.org/wiki/Pong">&#8220;pong&#8221;</a>.
@@ -1689,8 +1689,8 @@ is super cool obviously.
 They all requires to buy specific hardware tho&#8230; So the money is <em>a barrier</em>.
 Some even require specific installation on your computer, with code to compile.
 This is <em>another barrier</em>.
-<img class="left" src="http://jeromeetienne.github.com/learningthreejs/data/2012-05-02-augmented-reality-3d-pong/images/Household-Latex-Gloves-HY-H001-1-small.jpg">
-<img class="right" src="http://jeromeetienne.github.com/learningthreejs/data/2012-05-02-augmented-reality-3d-pong/images/postit-small.jpg">
+<img class="left" src="http://learningthreejs.com/data/2012-05-02-augmented-reality-3d-pong/images/Household-Latex-Gloves-HY-H001-1-small.jpg">
+<img class="right" src="http://learningthreejs.com/data/2012-05-02-augmented-reality-3d-pong/images/postit-small.jpg">
 With augmented gestures, you dont need specific devices. I like to use objects
 which are cheap and readily available in our everyday life.
 Thus people got easily access to the content, in a pure web vibe.
@@ -1724,13 +1724,13 @@ Anyway publishing it in &#8220;publish early, publish often&#8221; mood :)</p>
   
   <entry>
     <title type="html"><![CDATA[Video Conference on Top of WebGL]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/04/12/video-conference-on-top-of-webgl/"/>
+    <link href="http://learningthreejs.com/blog/2012/04/12/video-conference-on-top-of-webgl/"/>
     <updated>2012-04-12T13:20:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/04/12/video-conference-on-top-of-webgl</id>
+    <id>http://learningthreejs.com/blog/2012/04/12/video-conference-on-top-of-webgl</id>
     <content type="html"><![CDATA[<p>This post presents
 <a href="http://webglmeeting.appspot.com">WebGL Meeting</a>,
 a very simple WebGL application to do webrtc call.
-It is a follow up of <a href="http://jeromeetienne.github.com/learningthreejs/blog/2012/02/07/live-video-in-webgl/">&#8220;Fun with live video on webgl&#8221;</a>.
+It is a follow up of <a href="http://learningthreejs.com/blog/2012/02/07/live-video-in-webgl/">&#8220;Fun with live video on webgl&#8221;</a>.
 It was presenting how to use the WebCam using
 <a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">WebRTC getUserMedia()</a>.
 This one goes one step further and make an actual
@@ -1770,7 +1770,7 @@ Nevertheless it reduces how widely the technology can spread.
 It is now possible to do it using opensource and mainstream browsers.
 This field advances so fast!</p>
 
-<p><img class="right" src="http://jeromeetienne.github.com/learningthreejs/data/2012-04-12-video-conference-on-top-of-webgl/twoTVsWithWebGLTeam-small.jpg" width="320" height="240"></p>
+<p><img class="right" src="http://learningthreejs.com/data/2012-04-12-video-conference-on-top-of-webgl/twoTVsWithWebGLTeam-small.jpg" width="320" height="240"></p>
 
 <p><a href="http://mozillamediagoddess.org/">Mozilla team</a> is
 <a href="http://hacks.mozilla.org/2012/04/webrtc-efforts-underway-at-mozilla/">working hard</a>
@@ -1827,9 +1827,9 @@ cheap to integrate live video conferences to your own sites.</p>
   
   <entry>
     <title type="html"><![CDATA[tQuery WebAudio for More Realistic 3D]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/03/20/sounds-for-more-realistic-3d/"/>
+    <link href="http://learningthreejs.com/blog/2012/03/20/sounds-for-more-realistic-3d/"/>
     <updated>2012-03-20T01:08:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/03/20/sounds-for-more-realistic-3d</id>
+    <id>http://learningthreejs.com/blog/2012/03/20/sounds-for-more-realistic-3d</id>
     <content type="html"><![CDATA[<p>This post is about
 <a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">Web Audio API</a>.
 It is a new HTML5 api which provide great controls on the audio layer.
@@ -1997,12 +1997,12 @@ as seen
   
   <entry>
     <title type="html"><![CDATA[Augmented Reality in the Browser]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/03/12/augmented-reality-in-the-browser/"/>
+    <link href="http://learningthreejs.com/blog/2012/03/12/augmented-reality-in-the-browser/"/>
     <updated>2012-03-12T11:36:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/03/12/augmented-reality-in-the-browser</id>
+    <id>http://learningthreejs.com/blog/2012/03/12/augmented-reality-in-the-browser</id>
     <content type="html"><![CDATA[<p>This post is about augmented reality in the browser.
 In a recent post, we saw that it is now possible to
-<a href="http://jeromeetienne.github.com/learningthreejs/blog/2012/02/07/live-video-in-webgl/">have live video in webgl</a>
+<a href="http://learningthreejs.com/blog/2012/02/07/live-video-in-webgl/">have live video in webgl</a>
 with
 <a href="http://www.webrtc.org/">WebRTC</a>.
 Due to this,
@@ -2033,7 +2033,7 @@ I took this nice tutorial and packaged the code even easier to reuse.</p>
 </center>
 
 
-<p><img class="right" src="http://jeromeetienne.github.com/learningthreejs/data/2012-03-12-augmented-reality-in-the-browser/images/marker-small.png"></p>
+<p><img class="right" src="http://learningthreejs.com/data/2012-03-12-augmented-reality-in-the-browser/images/marker-small.png"></p>
 
 <p><a href="http://jeromeetienne.github.com/tquery.jsartoolkit/">Try this demo</a>.
 If you got <a href="http://www.webrtc.org/running-the-demos">WebRTC is available</a> in your browser, take
@@ -2137,17 +2137,17 @@ to read the webcam.</p>
   
   <entry>
     <title type="html"><![CDATA[tQuery v0 - Let's get started]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/03/05/tquery-version-0/"/>
+    <link href="http://learningthreejs.com/blog/2012/03/05/tquery-version-0/"/>
     <updated>2012-03-05T10:42:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/03/05/tquery-version-0</id>
+    <id>http://learningthreejs.com/blog/2012/03/05/tquery-version-0</id>
     <content type="html"><![CDATA[<p>This post is an update on
 <a href="https://github.com/jeromeetienne/tquery">tquery</a> progress.
-<a href="http://jeromeetienne.github.com/learningthreejs/blog/categories/tquery/">Our previous posts</a>
+<a href="http://learningthreejs.com/blog/categories/tquery/">Our previous posts</a>
 were previews,
 for example
-<a href="http://jeromeetienne.github.com/learningthreejs/blog/2012/02/15/valentine-card-in-tquery/">valentine card in tQuery</a>
+<a href="http://learningthreejs.com/blog/2012/02/15/valentine-card-in-tquery/">valentine card in tQuery</a>
 or
-<a href="http://jeromeetienne.github.com/learningthreejs/blog/2012/02/27/linkify-tquery-extension/">linkify, a tQuery extension</a>.
+<a href="http://learningthreejs.com/blog/2012/02/27/linkify-tquery-extension/">linkify, a tQuery extension</a>.
 This post is the release of <em>version 0</em>.
 It will walk you thru the website and shows how to run your first tQuery project
 with the boilerplate.
@@ -2276,9 +2276,9 @@ Things will change when tQuery core become more stable.</p>
   
   <entry>
     <title type="html"><![CDATA[Linkify, a tQuery Extension]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/02/27/linkify-tquery-extension/"/>
+    <link href="http://learningthreejs.com/blog/2012/02/27/linkify-tquery-extension/"/>
     <updated>2012-02-27T08:55:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/02/27/linkify-tquery-extension</id>
+    <id>http://learningthreejs.com/blog/2012/02/27/linkify-tquery-extension</id>
     <content type="html"><![CDATA[<p>This post is an update on
 <a href="https://github.com/jeromeetienne/tquery">tquery</a> progress.
 It is about <code>linkify</code>, a first experimental extension.
@@ -2291,7 +2291,7 @@ It is used to incoporate
 in 3D world.
 We saw them a few week back in
 <a href="http://learningthreejs.com/blog/2012/01/17/dom-events-in-3d-space/">&#8216;dom events in 3D space&#8217; post</a>.
-Previous posts on tquery may be found <a href="http://jeromeetienne.github.com/learningthreejs/blog/categories/tquery/">here</a>.</p>
+Previous posts on tquery may be found <a href="http://learningthreejs.com/blog/categories/tquery/">here</a>.</p>
 
 <!-- more -->
 
@@ -2402,10 +2402,10 @@ template.</p>
   
   <entry>
     <title type="html"><![CDATA[a Valentine card in tQuery]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/02/15/valentine-card-in-tquery/"/>
+    <link href="http://learningthreejs.com/blog/2012/02/15/valentine-card-in-tquery/"/>
     <updated>2012-02-15T10:21:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/02/15/valentine-card-in-tquery</id>
-    <content type="html"><![CDATA[<p>The <a href="http://jeromeetienne.github.com/learningthreejs/blog/categories/tquery/">tQuery</a> experimentation is going on.
+    <id>http://learningthreejs.com/blog/2012/02/15/valentine-card-in-tquery</id>
+    <content type="html"><![CDATA[<p>The <a href="http://learningthreejs.com/blog/categories/tquery/">tQuery</a> experimentation is going on.
 It is a lot of fun to code :)
 This post is just a short presentation of two plugins currently in incubation:
 tquery.text and tquery.shape.
@@ -2415,7 +2415,7 @@ so i thought it would be cool to stay in topic.
 The
 <a href="http://www.youtube.com/watch?v=8EHqrAXcKrY">screencast</a>
 is a live coding of a
-<a href="http://jeromeetienne.github.com/learningthreejs/data/2012-02-15-valentine-card-in-tquery/">valentine card</a> in tQuery :)</p>
+<a href="http://learningthreejs.com/data/2012-02-15-valentine-card-in-tquery/">valentine card</a> in tQuery :)</p>
 
 <!-- more -->
 
@@ -2441,7 +2441,7 @@ Here is a simple example.</p>
 
 <h2>Let&#8217;s Easily Create Shape</h2>
 
-<p><img class="right" src="http://jeromeetienne.github.com/learningthreejs/data/2012-02-15-valentine-card-in-tquery/images/shape.triangle-small.png"></p>
+<p><img class="right" src="http://learningthreejs.com/data/2012-02-15-valentine-card-in-tquery/images/shape.triangle-small.png"></p>
 
 <p>tQuery shape is made to easily build and
 <a href="http://en.wikipedia.org/wiki/Extrusion">extrude</a>
@@ -2458,8 +2458,8 @@ This line will build a triangle.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p><img class="left" src="http://jeromeetienne.github.com/learningthreejs/data/2012-02-15-valentine-card-in-tquery/images/shape.fish-small.png">
-<img class="right" src="http://jeromeetienne.github.com/learningthreejs/data/2012-02-15-valentine-card-in-tquery/images/shape.smiley-small.png"></p>
+<p><img class="left" src="http://learningthreejs.com/data/2012-02-15-valentine-card-in-tquery/images/shape.fish-small.png">
+<img class="right" src="http://learningthreejs.com/data/2012-02-15-valentine-card-in-tquery/images/shape.smiley-small.png"></p>
 
 <p>Some shapes are already available, like the triangle above, or a fish, smiley
 and a heart. Here is a smiley.</p>
@@ -2472,12 +2472,12 @@ and a heart. Here is a smiley.</p>
 <h2>The valentince card</h2>
 
 <p>Last but not least, the valentine card!
-<a href="http://jeromeetienne.github.com/learningthreejs/data/2012-02-15-valentine-card-in-tquery/">Try it out</a>!
+<a href="http://learningthreejs.com/data/2012-02-15-valentine-card-in-tquery/">Try it out</a>!
 It uses the plugins above to build an animated valentine card.
 It is done with less than 20lines&#8230;
 tQuery seems to produce short code.</p>
 
-<iframe src="http://jeromeetienne.github.com/learningthreejs/data/2012-02-15-valentine-card-in-tquery/"
+<iframe src="http://learningthreejs.com/data/2012-02-15-valentine-card-in-tquery/"
     webkitallowfullscreen mozallowfullscreen allowfullscreen 
     width="100%" height="349" frameborder="0">
 </iframe>
@@ -2498,9 +2498,9 @@ What&#8217;s next ? likely a series with a step by step on how to build a tunnel
   
   <entry>
     <title type="html"><![CDATA[An Extension System for three.js]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/02/08/extension-system-for-three-js/"/>
+    <link href="http://learningthreejs.com/blog/2012/02/08/extension-system-for-three-js/"/>
     <updated>2012-02-08T15:24:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/02/08/extension-system-for-three-js</id>
+    <id>http://learningthreejs.com/blog/2012/02/08/extension-system-for-three-js</id>
     <content type="html"><![CDATA[<p>  This post an overview of a work-in-progress.
 It is about an extension system on top of three.js which mimics jQuery API.
 I came up with the idea while thinking about how to
@@ -2684,9 +2684,9 @@ It seems all very cute at first sight but only time will tell.</p>
   
   <entry>
     <title type="html"><![CDATA[Fun With Live Video in WebGL]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/02/07/live-video-in-webgl/"/>
+    <link href="http://learningthreejs.com/blog/2012/02/07/live-video-in-webgl/"/>
     <updated>2012-02-07T13:41:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/02/07/live-video-in-webgl</id>
+    <id>http://learningthreejs.com/blog/2012/02/07/live-video-in-webgl</id>
     <content type="html"><![CDATA[<p>This post is about live video in webgl.
 It is possible in today browsers to read the webcam using a new feature from html5, called WebRTC.
 This standard is
@@ -2728,7 +2728,7 @@ Mozilla people are working hard to make it happen as soon as possible.
 So it may be too early to use it for &#8216;serious&#8217; things.
 But way enougth to do cool experiments like the one we gonna do today :)</p>
 
-<p><a href="http://jeromeetienne.github.com/learningthreejs/data/live-video-in-webgl">Try it out</a>!!
+<p><a href="http://learningthreejs.com/data/live-video-in-webgl">Try it out</a>!!
 The first step will be to create a video element.
 We gonna start to make it play either a normal video file
 then to play video from the webcam using
@@ -2863,9 +2863,9 @@ Let&#8217;s all for today folks, have fun :)</p>
   
   <entry>
     <title type="html"><![CDATA[Casting Shadows]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/01/20/casting-shadows/"/>
+    <link href="http://learningthreejs.com/blog/2012/01/20/casting-shadows/"/>
     <updated>2012-01-20T14:44:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/01/20/casting-shadows</id>
+    <id>http://learningthreejs.com/blog/2012/01/20/casting-shadows</id>
     <content type="html"><![CDATA[<p>This post is about
 <a href="http://en.wikipedia.org/wiki/Shadow_mapping">shadow casting</a>,
 a technique which approximates the effect you see in real life everyday.
@@ -2875,7 +2875,7 @@ We will see how they can be used inside
 <a href="https://github.com/mrdoob/three.js/">three.js</a>
 and see more about lights while we are at it.</p>
 
-<p>As usual, there is a <a href="http://jeromeetienne.github.com/learningthreejs/data/casting-shadows/">demo</a>.
+<p>As usual, there is a <a href="http://learningthreejs.com/data/casting-shadows/">demo</a>.
 It is kept it real simple thus you can read the code more easily.
 The scene is a simple object in the middle, a spotlight moving around and a plane
 to receive the object shadow. The light frustum is left visible in orange.</p>
@@ -2885,7 +2885,7 @@ to receive the object shadow. The light frustum is left visible in orange.</p>
 
 
 
-<iframe src="http://jeromeetienne.github.com/learningthreejs/data/casting-shadows"
+<iframe src="http://learningthreejs.com/data/casting-shadows"
     webkitallowfullscreen mozallowfullscreen allowfullscreen 
     width="100%" height="420" frameborder="0">
 </iframe>
@@ -2917,8 +2917,8 @@ to WebGL, performed directly on the <a href="http://en.wikipedia.org/wiki/Graphi
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p><img class="right" src="http://jeromeetienne.github.com/learningthreejs/data/casting-shadows/images/screenshot-withsoftshadow-small.png">
-<img class="left" src="http://jeromeetienne.github.com/learningthreejs/data/casting-shadows/images/screenshot-nosoftshadow-small.png"></p>
+<p><img class="right" src="http://learningthreejs.com/data/casting-shadows/images/screenshot-withsoftshadow-small.png">
+<img class="left" src="http://learningthreejs.com/data/casting-shadows/images/screenshot-nosoftshadow-small.png"></p>
 
 <p>You can smooth produced shadows with <code>shadowMapSoft</code>. It default to false.
 On the left, the shadow is crisp, on the right it is soft.</p>
@@ -2952,8 +2952,8 @@ won&#8217;t be able to receive shadow. So you wont see any
 
 <h2>Tune your Lights</h2>
 
-<p><img class="left" src="http://jeromeetienne.github.com/learningthreejs/data/casting-shadows/images/light-directionallight-small.jpg">
-<img class="right" src="http://jeromeetienne.github.com/learningthreejs/data/casting-shadows/images/light-spotlight-small.jpg" title="" ></p>
+<p><img class="left" src="http://learningthreejs.com/data/casting-shadows/images/light-directionallight-small.jpg">
+<img class="right" src="http://learningthreejs.com/data/casting-shadows/images/light-spotlight-small.jpg" title="" ></p>
 
 <p><a href="https://github.com/mrdoob/three.js/blob/master/src/lights/DirectionalLight.js">THREE.DirectionalLight</a>
 or
@@ -2982,7 +2982,7 @@ It is the opacity of the shadow. 0 means no shadow, 1 means pure back shadow.</p
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p><img class="right" src="http://jeromeetienne.github.com/learningthreejs/data/casting-shadows/images/screenshot-shadowCameraVisible-small.png"></p>
+<p><img class="right" src="http://learningthreejs.com/data/casting-shadows/images/screenshot-shadowCameraVisible-small.png"></p>
 
 <p>In the same vibe, it possible to show the shadow camera on the screen
 with <code>shadowCameraVisible</code>.
@@ -2995,8 +2995,8 @@ A very usefull feature during tuning or debugging.</p>
 
 <h2>More of Directional Lights</h2>
 
-<p><img class="right" src="http://jeromeetienne.github.com/learningthreejs/data/casting-shadows/images/screenshot-fustrum-orthographic-small.png">
-<img class="left" src="http://jeromeetienne.github.com/learningthreejs/data/casting-shadows/images/screenshot-fustrum-perspective-small.png"></p>
+<p><img class="right" src="http://learningthreejs.com/data/casting-shadows/images/screenshot-fustrum-orthographic-small.png">
+<img class="left" src="http://learningthreejs.com/data/casting-shadows/images/screenshot-fustrum-perspective-small.png"></p>
 
 <p>Additionally, when casting shadow with a
 <a href="https://github.com/mrdoob/three.js/blob/master/src/lights/DirectionalLight.js">THREE.DirectionalLight</a>,
@@ -3052,13 +3052,13 @@ produce artifacts. To avoid those require tuning and experience.</p>
   
   <entry>
     <title type="html"><![CDATA[Boilerplate Builder for Three.js]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/01/19/boilerplate-builder-for-three-js/"/>
+    <link href="http://learningthreejs.com/blog/2012/01/19/boilerplate-builder-for-three-js/"/>
     <updated>2012-01-19T10:59:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/01/19/boilerplate-builder-for-three-js</id>
+    <id>http://learningthreejs.com/blog/2012/01/19/boilerplate-builder-for-three-js</id>
     <content type="html"><![CDATA[<p>We recently introduced a
 <a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>
 in a
-<a href="http://jeromeetienne.github.com/learningthreejs/blog/2011/12/20/boilerplate-for-three-js/">previous post</a>.
+<a href="http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/">previous post</a>.
 It aims to ease your first contact with
 <a href="https://github.com/mrdoob/three.js/">three.js</a>.
 It contains a template for a simple project,
@@ -3200,9 +3200,9 @@ Have fun.</p>
   
   <entry>
     <title type="html"><![CDATA[Dom Events in 3D Space]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/01/17/dom-events-in-3d-space/"/>
+    <link href="http://learningthreejs.com/blog/2012/01/17/dom-events-in-3d-space/"/>
     <updated>2012-01-17T11:56:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/01/17/dom-events-in-3d-space</id>
+    <id>http://learningthreejs.com/blog/2012/01/17/dom-events-in-3d-space</id>
     <content type="html"><![CDATA[<p>Ever dreamed of a <strong>object3d.on(&#8216;click&#8217;, function(){ &#8230; });</strong>?</p>
 
 <p>I have :) This post presents a little experiment.
@@ -3224,7 +3224,7 @@ The demo contains 3 teapots.
 Each bind a different type of events.
 When the events are triggered, teapots are animated.
 Animations are made by <a href="https://github.com/sole/tween.js/">tween.js</a>, a nice js tweening engine
-seen in a <a href="http://jeromeetienne.github.com/learningthreejs/blog/2011/08/17/tweenjs-for-smooth-animation/">previous post</a>.
+seen in a <a href="http://learningthreejs.com/blog/2011/08/17/tweenjs-for-smooth-animation/">previous post</a>.
 Play with it to get a feel of it, maybe think about the type of UI you could do in 3D.</p>
 
 <!-- more -->
@@ -3345,9 +3345,9 @@ That&#8217;s all folks. Have fun.</p>
   
   <entry>
     <title type="html"><![CDATA[Tunnel Effect for your Demo]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/01/11/tunnel-effect/"/>
+    <link href="http://learningthreejs.com/blog/2012/01/11/tunnel-effect/"/>
     <updated>2012-01-11T13:00:00+01:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/01/11/tunnel-effect</id>
+    <id>http://learningthreejs.com/blog/2012/01/11/tunnel-effect</id>
     <content type="html"><![CDATA[<p>This post presents a tunnel effect.
 This is a classic in 3D demo.
 They are visually efficient and easy to code.
@@ -3365,7 +3365,7 @@ have
 It has been built using the
 <a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>
 seen in a
-<a href="http://jeromeetienne.github.com/learningthreejs/blog/2011/12/20/boilerplate-for-three-js/">previous post</a>.
+<a href="http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/">previous post</a>.
 The code is simple and small.
 Less than 20lines has been added on top of the boilerplate.
 We will create a

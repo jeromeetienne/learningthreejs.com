@@ -1,271 +1,215 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2011/07/15/threejs-installation/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2011/07/15/threejs-installation/</loc>
         <lastmod>2013-03-06T13:07:24+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2011/07/28/presentation_at_parisjs/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2011/07/28/presentation_at_parisjs/</loc>
         <lastmod>2013-03-06T13:07:24+01:00</lastmod>
     </url>
     <url>
-        <loc>http://jeromeetienne.github.com/learningthreejs/blog/2011/08/06/lets-do-a-cube/</loc>
+        <loc>http://learningthreejs.com/blog/2011/08/06/lets-do-a-cube/</loc>
         <lastmod>2013-03-06T13:07:24+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2011/08/14/dat-gui-simple-ui-for-demos/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2011/08/14/dat-gui-simple-ui-for-demos/</loc>
         <lastmod>2013-03-06T13:07:24+01:00</lastmod>
     </url>
     <url>
-        <loc>http://jeromeetienne.github.com/learningthreejs/blog/2011/08/15/lets-do-a-sky/</loc>
+        <loc>http://learningthreejs.com/blog/2011/08/15/lets-do-a-sky/</loc>
         <lastmod>2013-03-06T13:07:24+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2011/08/17/tweenjs-for-smooth-animation/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2011/08/17/tweenjs-for-smooth-animation/</loc>
         <lastmod>2013-03-06T13:08:03+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2011/08/30/window-resize-for-your-demos/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2011/08/30/window-resize-for-your-demos/</loc>
+        <lastmod>2013-03-06T13:07:24+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://learningthreejs.com/blog/2011/09/03/screenshot-in-javascript/</loc>
+        <lastmod>2013-03-06T13:07:24+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://learningthreejs.com/blog/2011/09/12/lets-Make-a-3D-game-keyboard/</loc>
+        <lastmod>2013-03-06T13:07:24+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://learningthreejs.com/blog/2011/09/14/lets-make-a-3D-game-map-editor/</loc>
+        <lastmod>2013-03-06T13:07:24+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://learningthreejs.com/blog/2011/09/16/performance-caching-material/</loc>
         <lastmod>2013-03-06T13:07:24+01:00</lastmod>
     </url>
     <url>
         <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2011/09/03/screenshot-in-javascript/
-        </loc>
-        <lastmod>2013-03-06T13:07:24+01:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2011/09/12/lets-Make-a-3D-game-keyboard/
-        </loc>
-        <lastmod>2013-03-06T13:07:24+01:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2011/09/14/lets-make-a-3D-game-map-editor/
-        </loc>
-        <lastmod>2013-03-06T13:07:24+01:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2011/09/16/performance-caching-material/
-        </loc>
-        <lastmod>2013-03-06T13:07:24+01:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2011/09/20/lets-make-a-3D-game-device-orientation/
+            http://learningthreejs.com/blog/2011/09/20/lets-make-a-3D-game-device-orientation/
         </loc>
         <lastmod>2013-03-06T13:08:23+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2011/10/05/performance-merging-geometry/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2011/10/05/performance-merging-geometry/</loc>
         <lastmod>2013-03-06T13:08:32+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/</loc>
         <lastmod>2013-03-06T13:08:53+01:00</lastmod>
     </url>
     <url>
         <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2011/11/02/lets-make-a-3d-game-helper-for-microphysics-js/
+            http://learningthreejs.com/blog/2011/11/02/lets-make-a-3d-game-helper-for-microphysics-js/
         </loc>
         <lastmod>2013-03-06T13:09:11+01:00</lastmod>
     </url>
     <url>
         <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2011/11/17/lets-make-a-3d-game-make-it-fullscreen/
+            http://learningthreejs.com/blog/2011/11/17/lets-make-a-3d-game-make-it-fullscreen/
         </loc>
         <lastmod>2013-03-06T13:07:24+01:00</lastmod>
     </url>
     <url>
         <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2011/11/21/lets-make-a-3d-game-make-it-embedded/
+            http://learningthreejs.com/blog/2011/11/21/lets-make-a-3d-game-make-it-embedded/
         </loc>
         <lastmod>2013-03-06T13:10:26+01:00</lastmod>
     </url>
     <url>
         <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2011/12/10/constructive-solid-geometry-with-csg-js/
+            http://learningthreejs.com/blog/2011/12/10/constructive-solid-geometry-with-csg-js/
         </loc>
         <lastmod>2013-03-06T13:07:24+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2011/12/14/particles-introduction-to-sparks-js/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2011/12/14/particles-introduction-to-sparks-js/</loc>
         <lastmod>2013-03-06T13:10:30+01:00</lastmod>
     </url>
     <url>
         <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2011/12/19/particles-online-editor-for-sparks-js/
+            http://learningthreejs.com/blog/2011/12/19/particles-online-editor-for-sparks-js/
         </loc>
         <lastmod>2013-03-06T13:07:24+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2011/12/20/boilerplate-for-three-js/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/</loc>
         <lastmod>2013-03-06T13:07:24+01:00</lastmod>
     </url>
     <url>
         <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2011/12/26/let-s-make-a-3d-game-virtual-joystick/
+            http://learningthreejs.com/blog/2011/12/26/let-s-make-a-3d-game-virtual-joystick/
         </loc>
         <lastmod>2013-03-06T13:10:37+01:00</lastmod>
     </url>
     <url>
         <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2011/12/28/let-s-make-a-3d-game-supporting-mobile/
+            http://learningthreejs.com/blog/2011/12/28/let-s-make-a-3d-game-supporting-mobile/
         </loc>
         <lastmod>2013-03-06T13:10:44+01:00</lastmod>
     </url>
     <url>
-        <loc>http://jeromeetienne.github.com/learningthreejs/blog/2012/01/11/tunnel-effect/</loc>
+        <loc>http://learningthreejs.com/blog/2012/01/11/tunnel-effect/</loc>
         <lastmod>2013-03-06T13:07:24+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2012/01/17/dom-events-in-3d-space/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2012/01/17/dom-events-in-3d-space/</loc>
         <lastmod>2013-03-06T13:07:24+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2012/01/19/boilerplate-builder-for-three-js/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2012/01/19/boilerplate-builder-for-three-js/</loc>
         <lastmod>2013-03-06T13:07:24+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2012/01/20/casting-shadows/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2012/01/20/casting-shadows/</loc>
         <lastmod>2013-03-06T13:07:24+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2012/02/07/live-video-in-webgl/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2012/02/07/live-video-in-webgl/</loc>
         <lastmod>2013-03-06T13:11:10+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2012/02/08/extension-system-for-three-js/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2012/02/08/extension-system-for-three-js/</loc>
         <lastmod>2013-03-06T13:07:24+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2012/02/15/valentine-card-in-tquery/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2012/02/15/valentine-card-in-tquery/</loc>
         <lastmod>2013-03-06T13:07:24+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2012/02/27/linkify-tquery-extension/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2012/02/27/linkify-tquery-extension/</loc>
         <lastmod>2013-03-06T13:11:14+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2012/03/05/tquery-version-0/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2012/03/05/tquery-version-0/</loc>
         <lastmod>2013-03-06T13:07:24+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2012/03/12/augmented-reality-in-the-browser/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2012/03/12/augmented-reality-in-the-browser/</loc>
         <lastmod>2013-03-06T13:11:18+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2012/03/20/sounds-for-more-realistic-3d/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2012/03/20/sounds-for-more-realistic-3d/</loc>
         <lastmod>2013-03-06T13:11:23+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2012/04/12/video-conference-on-top-of-webgl/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2012/04/12/video-conference-on-top-of-webgl/</loc>
+        <lastmod>2013-03-06T13:07:24+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://learningthreejs.com/blog/2012/05/02/augmented-reality-3d-pong/</loc>
         <lastmod>2013-03-06T13:07:24+01:00</lastmod>
     </url>
     <url>
         <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2012/05/02/augmented-reality-3d-pong/
-        </loc>
-        <lastmod>2013-03-06T13:07:24+01:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2012/05/04/tquery-md2character-a-plugin-for-doom-characters/
+            http://learningthreejs.com/blog/2012/05/04/tquery-md2character-a-plugin-for-doom-characters/
         </loc>
         <lastmod>2013-03-06T13:11:29+01:00</lastmod>
     </url>
     <url>
         <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl/
+            http://learningthreejs.com/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl/
         </loc>
         <lastmod>2013-03-06T13:11:55+01:00</lastmod>
     </url>
     <url>
         <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/
+            http://learningthreejs.com/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/
         </loc>
         <lastmod>2013-03-06T13:12:33+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2012/05/21/sport-car-in-webgl/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2012/05/21/sport-car-in-webgl/</loc>
         <lastmod>2013-03-06T13:12:43+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2012/05/29/three-js-sportcar-on-ios/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2012/05/29/three-js-sportcar-on-ios/</loc>
         <lastmod>2013-03-06T13:07:24+01:00</lastmod>
     </url>
     <url>
         <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2012/06/05/3d-physics-with-three-js-and-physijs/
+            http://learningthreejs.com/blog/2012/06/05/3d-physics-with-three-js-and-physijs/
         </loc>
         <lastmod>2013-03-06T13:13:17+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://jeromeetienne.github.com/learningthreejs/blog/2012/07/05/minecraft-character-in-webgl/
-        </loc>
+        <loc>http://learningthreejs.com/blog/2012/07/05/minecraft-character-in-webgl/</loc>
         <lastmod>2013-03-06T13:13:24+01:00</lastmod>
     </url>
     <url>
-        <loc>http://jeromeetienne.github.com/learningthreejs/about/</loc>
+        <loc>http://learningthreejs.com/about/</loc>
         <lastmod>2013-03-06T12:45:11+01:00</lastmod>
     </url>
     <url>
-        <loc>http://jeromeetienne.github.com/learningthreejs/blog/archives/</loc>
+        <loc>http://learningthreejs.com/blog/archives/</loc>
         <lastmod>2013-03-06T13:13:24+01:00</lastmod>
     </url>
     <url>
-        <loc>http://jeromeetienne.github.com/learningthreejs/</loc>
+        <loc>http://learningthreejs.com/</loc>
         <lastmod>2013-03-06T13:13:24+01:00</lastmod>
     </url>
     <url>
-        <loc>http://jeromeetienne.github.com/learningthreejs/robots.txt</loc>
+        <loc>http://learningthreejs.com/robots.txt</loc>
         <lastmod>2013-03-06T12:45:11+01:00</lastmod>
     </url>
 </urlset>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: basic | Learning Three.js]]></title>
-  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/basic/atom.xml" rel="self"/>
-  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
-  <updated>2013-03-10T17:49:47+01:00</updated>
-  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <link href="http://learningthreejs.com/blog/categories/basic/atom.xml" rel="self"/>
+  <link href="http://learningthreejs.com/"/>
+  <updated>2013-03-10T18:18:25+01:00</updated>
+  <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Lets Do a Cube]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/08/06/lets-do-a-cube/"/>
+    <link href="http://learningthreejs.com/blog/2011/08/06/lets-do-a-cube/"/>
     <updated>2011-08-06T00:00:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/08/06/lets-do-a-cube</id>
+    <id>http://learningthreejs.com/blog/2011/08/06/lets-do-a-cube</id>
     <content type="html"><![CDATA[<p>Here is the first lesson! I started with something real simple, a <strong>cube</strong>.
 I wasnt sure how to present the lesson, so i did
 an <a href="/data/lets_do_a_cube/docs/lets_do_a_cube.html">annotated source of the example</a>
@@ -40,9 +40,9 @@ screencast below.</p>
   
   <entry>
     <title type="html"><![CDATA[Three.js Installation]]></title>
-    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/07/15/threejs-installation/"/>
+    <link href="http://learningthreejs.com/blog/2011/07/15/threejs-installation/"/>
     <updated>2011-07-15T00:00:00+02:00</updated>
-    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/07/15/threejs-installation</id>
+    <id>http://learningthreejs.com/blog/2011/07/15/threejs-installation</id>
     <content type="html"><![CDATA[<p><a href="https://github.com/mrdoob/three.js">Three.js</a> is a 3D library in javascript. According
 to <a href="http://mrdoob.com/">mrdoob</a>, its author, three.js is</p>
 
