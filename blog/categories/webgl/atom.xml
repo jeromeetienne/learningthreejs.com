@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: webgl | Learning Three.js]]></title>
+  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/webgl/atom.xml" rel="self"/>
+  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
+  <updated>2013-03-10T17:49:47+01:00</updated>
+  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <author>
+    <name><![CDATA[Jerome Etienne]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Lets Do a Sky]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/08/15/lets-do-a-sky/"/>
+    <updated>2011-08-15T12:26:00+02:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/08/15/lets-do-a-sky</id>
+    <content type="html"><![CDATA[<p>This tutorial is about doing a sky. It makes a nice panorama with a nice immersive effect.
+This is much simpler than people would expect : only 3 steps for a total around 20 lines.
+You can find a <a href="/data/lets_do_a_sky/lets_do_a_sky.html">live demo</a> of it. It may be a
+easy addition to your effects. This is simple and efficient.</p>
+
+<h1>Background</h1>
+
+<p><img class="right" src="/data/lets_do_a_sky/images/Panorama_cube_map.png" title="Close up" >
+Technically this is called a <a href="http://en.wikipedia.org/wiki/Cube_mapping">cube mapping</a>.
+Why that ? because the principle is so simple: we create a large cube, apply some images
+on each face of this cube and put the camera inside it. That's it.</p>
+
+<p>The illustration (from <a href="http://en.wikipedia.org/wiki/User:SharkD/Images">SharkD</a> at <a href="http://en.wikipedia.org/wiki/File:Panorama_cube_map.png">wikipedia</a>)
+on the right, may help understanding.
+On the <em>bottom left</em>, you can see a 3D scene with a dot in the middle... This is
+where the camera will be positionned.
+On the <em>bottom right</em>, you can see the same 3D scene, with the large cube and now the
+camera is inside.
+The kind of cross <em>on the top half</em> are the images used as texture.
+Those are the ones which gonna be applied inside the large sky cube. If you go to
+the <a href="/data/lets_do_a_sky/lets_do_a_sky.html">demo</a>,
+open your browser debugger and look at downloaded images, you will see those 6 images.</p>
+
+<!-- more -->
+
+
+<h1>Lets Code it Now!</h1>
+
+<p>Now that we got an understanding of the background, lets code it. To add a skybox
+to your page is 3 simple steps in around 20 lines. Lets look at them.</p>
+
+<h2>Step 1: Lets load the cube textures</h2>
+
+<p>This will create the texture objects and download all the images. They are usually stored
+in 6 images: <em>posx</em> for the front face on X axis, negx for the back side on the X axis, posy
+for the front on Y axis and so on.</p>
+
+<p>``` javascript</p>
+
+<pre><code>var urlPrefix = "images/Bridge2/";
+var urls = [ urlPrefix + "posx.jpg", urlPrefix + "negx.jpg",
+    urlPrefix + "posy.jpg", urlPrefix + "negy.jpg",
+    urlPrefix + "posz.jpg", urlPrefix + "negz.jpg" ];
+var textureCube = THREE.ImageUtils.loadTextureCube( urls );
+</code></pre>
+
+<p>```</p>
+
+<h2>Step 2: Lets init the shader</h2>
+
+<p>Then we init the shader for the cube.
+A <a href="http://en.wikipedia.org/wiki/Shader">shader</a> is a program which run
+directly on the graphic card. It uses a special C-like language, run
+super fast as it is massively paralelle.
+It is rather standard, dont forget to init <code>tCube</code> uniform
+with your textures.</p>
+
+<p>``` javascript</p>
+
+<pre><code>var shader = THREE.ShaderUtils.lib["cube"];
+var uniforms = THREE.UniformsUtils.clone( shader.uniforms );
+uniforms['tCube'].texture= textureCube; // textureCube has been init before
+var material = new THREE.MeshShaderMaterial({
+    fragmentShader  : shader.fragmentShader,
+    vertexShader    : shader.vertexShader,
+    uniforms    : uniforms
+});
+</code></pre>
+
+<p>```</p>
+
+<h2>Step 3: Lets Create the Cube Itself</h2>
+
+<p>Now we create the large cube. The actual size is up to you. Note that you need to ensure
+your camera is able to see that far.
+The last step is to add it to the scene, and we are done. Rather simple for such a cool effect i would say.</p>
+
+<p>``` javascript</p>
+
+<pre><code>// build the skybox Mesh 
+skyboxMesh  = new THREE.Mesh( new THREE.CubeGeometry( 100000, 100000, 100000, 1, 1, 1, null, true ), material );
+// add it to the scene
+scene.addObject( skyboxMesh );
+</code></pre>
+
+<p>```</p>
+
+<h1>Conclusion</h1>
+
+<p>This tutorial explained how to do a sky using cube mapping. Additionnaly you can look at <a href="/data/lets_do_a_sky/docs/lets_do_a_sky.html">an anotated source of the demo</a>
+especially the <a href="/data/lets_do_a_sky/docs/lets_do_a_sky.html#section-10">skybox section</a>
+of the <a href="/data/lets_do_a_sky/lets_do_a_sky.html">live demo</a>. You may go out with your camera and
+do your own cube images. Just use <a href="http://hugin.sourceforge.net/">Hugin</a> later to stinch them back together.
+It takes around 20 lines, quite small source for such
+immersive effect. Use it and tweek it for fun :) Examples are there for that.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lets Do a Cube]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/08/06/lets-do-a-cube/"/>
+    <updated>2011-08-06T00:00:00+02:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/08/06/lets-do-a-cube</id>
+    <content type="html"><![CDATA[<p>Here is the first lesson! I started with something real simple, a <strong>cube</strong>.
+I wasnt sure how to present the lesson, so i did
+an <a href="/data/lets_do_a_cube/docs/lets_do_a_cube.html">annotated source of the example</a>
+to get things started.
+I kept it small as possible to simplicity sake.
+It is only 70 lines of javascript for a <em>webgl simplistic demo</em>. I hope it shows that webgl
+is quite accessible.</p>
+
+<p>You can see this <a href="/data/lets_do_a_cube/lets_do_a_cube.html">example live</a> or in the
+screencast below.</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/8PrXCBOllTg" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Three.js Installation]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/07/15/threejs-installation/"/>
+    <updated>2011-07-15T00:00:00+02:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/07/15/threejs-installation</id>
+    <content type="html"><![CDATA[<p><a href="https://github.com/mrdoob/three.js">Three.js</a> is a 3D library in javascript. According
+to <a href="http://mrdoob.com/">mrdoob</a>, its author, three.js is</p>
+
+<p><blockquote><p>The aim of the project is to create a lightweight 3D engine with a very low level of<br/>complexity — in other words, for dummies. The engine can render using canvas, svg and WebGL.</p><footer><strong>mrdoob</strong> <cite>tree.js Author</cite></footer></blockquote></p>
+
+<h2>Step 1: get the source</h2>
+
+<p>The source are available <a href="https://github.com/mrdoob/three.js">here</a>. Use
+the following command</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>how to get the source - example.sh </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>git clone https://github.com/mrdoob/three.js.git
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>It will provide the whole source on your local disk. You are done, just point
+a web server on it, and go in <code>/examples</code>.</p>
+
+<!--more-->
+
+
+<h2>Step 2: Description of the folder structure</h2>
+
+<ul>
+<li><code>/utils</code> it is a bunch of utilities (see <a href="https://github.com/mrdoob/three.js/tree/master/utils">here</a>).
+You can find the script to <a href="https://github.com/mrdoob/three.js/blob/master/utils/build.sh">build the releases</a>
+(concatenate the files, minify them, all that).</li>
+<li><code>/build</code> It is an administrative directory where the build release is stored. Not really important
+for a user, it is more for a developper of the library itself.</li>
+<li><code>/src</code> It is the library code in itself. We will study that in more details later. Meanwhile dont hesitate
+to go look: it is rather small and clean.</li>
+<li><code>/examples</code> It is a list of all the examples. They kinda are the documentation of three.js, try
+them. They are the meat, if you like something, just do view-source:
+
+<ul>
+<li>some of them are for &lt;canvas> rendering, most of them are for WebGL. Three.js is able to render 3D scene
+on canvas, Dom, SVG and obviously WebGL (with various level of support). See <a href="https://github.com/mrdoob/three.js/tree/master/src/renderers">here</a>
+for details.</li>
+<li>Some are focused on <a href="https://github.com/mrdoob/three.js/tree/master/src/extras/geometries">geometry</a> i.e.
+the shape of the objects. See <a href="http://mrdoob.github.com/three.js/examples/webgl_geometry_colors.html">here</a>
+, <a href="http://mrdoob.github.com/three.js/examples/canvas_geometry_cube.html">here</a>
+and <a href="http://mrdoob.github.com/three.js/examples/canvas_geometry_cube.html">here</a></li>
+<li>Some are focused on the <a href="https://github.com/mrdoob/three.js/tree/master/src/materials">material</a> i.e.
+kindof the colors and the texture of the objects. See
+<a href="http://mrdoob.github.com/three.js/examples/webgl_materials_texture_filters.html">here</a>,
+<a href="http://mrdoob.github.com/three.js/examples/webgl_materials_texture_filters.html">here</a> and
+<a href="http://mrdoob.github.com/three.js/examples/webgl_materials_normalmap.html">here</a>.</li>
+<li>Others are focused on <a href="https://github.com/mrdoob/three.js/tree/master/src/lights">light</a>, there are different
+type of light sources. See
+<a href="http://mrdoob.github.com/three.js/examples/canvas_lights_pointlights.html">here</a>,
+<a href="http://mrdoob.github.com/three.js/examples/canvas_lights_pointlights_smooth.html">here</a> and
+<a href="http://mrdoob.github.com/three.js/examples/webgl_lights_pointlights.html">here</a></li>
+<li>Some are focused on <a href="https://github.com/mrdoob/three.js/tree/master/src/extras/physics">collisions</a>. See
+<a href="http://mrdoob.github.com/three.js/examples/webgl_collisions_trigger.html">here</a>,
+<a href="http://mrdoob.github.com/three.js/examples/webgl_collisions_reaction.html">here</a> and
+<a href="http://mrdoob.github.com/three.js/examples//webgl_collisions_mesh.html">here</a>.</li>
+</ul>
+</li>
+</ul>
+
+
+<p>Point a web server on <code>three.js</code> source tree and go in <code>/examples</code> to try them. It is fun!</p>
+]]></content>
+  </entry>
+  
+</feed>

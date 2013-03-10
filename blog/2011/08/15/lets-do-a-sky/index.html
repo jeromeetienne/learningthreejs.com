@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Lets Do a Sky - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This tutorial is about doing a sky. It makes a nice panorama with a nice immersive effect.
+This is much simpler than people would expect : only 3 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/2011/08/15/lets-do-a-sky/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Lets Do a Sky</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-08-15T12:26:00+02:00" pubdate data-updated="true">Aug 15<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This tutorial is about doing a sky. It makes a nice panorama with a nice immersive effect.
+This is much simpler than people would expect : only 3 steps for a total around 20 lines.
+You can find a <a href="/data/lets_do_a_sky/lets_do_a_sky.html">live demo</a> of it. It may be a
+easy addition to your effects. This is simple and efficient.</p>
+
+<h1>Background</h1>
+
+<p><img class="right" src="/data/lets_do_a_sky/images/Panorama_cube_map.png" title="Close up" >
+Technically this is called a <a href="http://en.wikipedia.org/wiki/Cube_mapping">cube mapping</a>.
+Why that ? because the principle is so simple: we create a large cube, apply some images
+on each face of this cube and put the camera inside it. That&#8217;s it.</p>
+
+<p>The illustration (from <a href="http://en.wikipedia.org/wiki/User:SharkD/Images">SharkD</a> at <a href="http://en.wikipedia.org/wiki/File:Panorama_cube_map.png">wikipedia</a>)
+on the right, may help understanding.
+On the <em>bottom left</em>, you can see a 3D scene with a dot in the middle&#8230; This is
+where the camera will be positionned.
+On the <em>bottom right</em>, you can see the same 3D scene, with the large cube and now the
+camera is inside.
+The kind of cross <em>on the top half</em> are the images used as texture.
+Those are the ones which gonna be applied inside the large sky cube. If you go to
+the <a href="/data/lets_do_a_sky/lets_do_a_sky.html">demo</a>,
+open your browser debugger and look at downloaded images, you will see those 6 images.</p>
+
+<!-- more -->
+
+
+<h1>Lets Code it Now!</h1>
+
+<p>Now that we got an understanding of the background, lets code it. To add a skybox
+to your page is 3 simple steps in around 20 lines. Lets look at them.</p>
+
+<h2>Step 1: Lets load the cube textures</h2>
+
+<p>This will create the texture objects and download all the images. They are usually stored
+in 6 images: <em>posx</em> for the front face on X axis, negx for the back side on the X axis, posy
+for the front on Y axis and so on.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">urlPrefix</span> <span class="o">=</span> <span class="s2">&quot;images/Bridge2/&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">urls</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">urlPrefix</span> <span class="o">+</span> <span class="s2">&quot;posx.jpg&quot;</span><span class="p">,</span> <span class="nx">urlPrefix</span> <span class="o">+</span> <span class="s2">&quot;negx.jpg&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">urlPrefix</span> <span class="o">+</span> <span class="s2">&quot;posy.jpg&quot;</span><span class="p">,</span> <span class="nx">urlPrefix</span> <span class="o">+</span> <span class="s2">&quot;negy.jpg&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">urlPrefix</span> <span class="o">+</span> <span class="s2">&quot;posz.jpg&quot;</span><span class="p">,</span> <span class="nx">urlPrefix</span> <span class="o">+</span> <span class="s2">&quot;negz.jpg&quot;</span> <span class="p">];</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">textureCube</span> <span class="o">=</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">ImageUtils</span><span class="p">.</span><span class="nx">loadTextureCube</span><span class="p">(</span> <span class="nx">urls</span> <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Step 2: Lets init the shader</h2>
+
+<p>Then we init the shader for the cube.
+A <a href="http://en.wikipedia.org/wiki/Shader">shader</a> is a program which run
+directly on the graphic card. It uses a special C-like language, run
+super fast as it is massively paralelle.
+It is rather standard, dont forget to init <code>tCube</code> uniform
+with your textures.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">shader</span> <span class="o">=</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">ShaderUtils</span><span class="p">.</span><span class="nx">lib</span><span class="p">[</span><span class="s2">&quot;cube&quot;</span><span class="p">];</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">uniforms</span> <span class="o">=</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">UniformsUtils</span><span class="p">.</span><span class="nx">clone</span><span class="p">(</span> <span class="nx">shader</span><span class="p">.</span><span class="nx">uniforms</span> <span class="p">);</span>
+</span><span class='line'><span class="nx">uniforms</span><span class="p">[</span><span class="s1">&#39;tCube&#39;</span><span class="p">].</span><span class="nx">texture</span><span class="o">=</span> <span class="nx">textureCube</span><span class="p">;</span>   <span class="c1">// textureCube has been init before</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">material</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshShaderMaterial</span><span class="p">({</span>
+</span><span class='line'>    <span class="nx">fragmentShader</span>    <span class="o">:</span> <span class="nx">shader</span><span class="p">.</span><span class="nx">fragmentShader</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">vertexShader</span>  <span class="o">:</span> <span class="nx">shader</span><span class="p">.</span><span class="nx">vertexShader</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">uniforms</span>  <span class="o">:</span> <span class="nx">uniforms</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Step 3: Lets Create the Cube Itself</h2>
+
+<p>Now we create the large cube. The actual size is up to you. Note that you need to ensure
+your camera is able to see that far.
+The last step is to add it to the scene, and we are done. Rather simple for such a cool effect i would say.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// build the skybox Mesh </span>
+</span><span class='line'><span class="nx">skyboxMesh</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">CubeGeometry</span><span class="p">(</span> <span class="mi">100000</span><span class="p">,</span> <span class="mi">100000</span><span class="p">,</span> <span class="mi">100000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">true</span> <span class="p">),</span> <span class="nx">material</span> <span class="p">);</span>
+</span><span class='line'><span class="c1">// add it to the scene</span>
+</span><span class='line'><span class="nx">scene</span><span class="p">.</span><span class="nx">addObject</span><span class="p">(</span> <span class="nx">skyboxMesh</span> <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>Conclusion</h1>
+
+<p>This tutorial explained how to do a sky using cube mapping. Additionnaly you can look at <a href="/data/lets_do_a_sky/docs/lets_do_a_sky.html">an anotated source of the demo</a>
+especially the <a href="/data/lets_do_a_sky/docs/lets_do_a_sky.html#section-10">skybox section</a>
+of the <a href="/data/lets_do_a_sky/lets_do_a_sky.html">live demo</a>. You may go out with your camera and
+do your own cube images. Just use <a href="http://hugin.sourceforge.net/">Hugin</a> later to stinch them back together.
+It takes around 20 lines, quite small source for such
+immersive effect. Use it and tweek it for fun :) Examples are there for that.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-08-15T12:26:00+02:00" pubdate data-updated="true">Aug 15<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/basics/'>basics</a>, <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>, <a class='category' href='/blog/categories/webgl/'>webgl</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jeromeetienne.github.com/learningthreejs/blog/2011/08/15/lets-do-a-sky/" data-via="LearningThreejs" data-counturl="http://jeromeetienne.github.com/learningthreejs/blog/2011/08/15/lets-do-a-sky/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/08/14/dat-gui-simple-ui-for-demos/" title="Previous Post: dat-gui - Simple UI for Demos">&laquo; dat-gui - Simple UI for Demos</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2011/08/17/tweenjs-for-smooth-animation/" title="Next Post: Tween.js for Smooth Animation">Tween.js for Smooth Animation &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jeromeetienne.github.com/learningthreejs/blog/2011/08/15/lets-do-a-sky/';
+        var disqus_url = 'http://jeromeetienne.github.com/learningthreejs/blog/2011/08/15/lets-do-a-sky/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

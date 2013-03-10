@@ -1,0 +1,1170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: three.js | Learning Three.js]]></title>
+  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/three-dot-js/atom.xml" rel="self"/>
+  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
+  <updated>2013-03-10T17:49:47+01:00</updated>
+  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <author>
+    <name><![CDATA[Jerome Etienne]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Minecraft Character in WebGL]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/07/05/minecraft-character-in-webgl/"/>
+    <updated>2012-07-05T10:22:00+02:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/07/05/minecraft-character-in-webgl</id>
+    <content type="html"><![CDATA[<p>This post is about Minecraft Character.
+We will play with the minecraft character, learn how to do your own and make it move.
+I recently saw this excelent <a href="http://djazz.mine.nu/lab/minecraft_items/">minecraft items demo</a>
+by <a href="https://twitter.com/#!/daniel_hede">@daniel_hede</a>. It triggered a switch in my head :)
+I felt in love with minecraft style of 3d.
+It makes modeling so simple.
+You don't need to learn how to use 3d modeling software like
+<a href="http://www.blender.org/">blender</a>,
+<a href="http://usa.autodesk.com/maya/">maya</a> and such.
+It is easy to create new model based on this style.</p>
+
+<p>Try the <a href="/data/2012-07-05-minecraft-character-in-webgl/">minecraft plugin demo</a>. This is the
+one we gonna build. I used <a href="https://twitter.com/#!/daniel_hede">@daniel_hede</a>'s code
+and did many plugins to make it all simple and fun :)
+In this demo, i introduce
+<a href="https://github.com/mrdoob/three.js/tree/master/examples/js/postprocessing">three.js post processing</a>
+for the first time.
+This is the
+<a href="http://en.wikipedia.org/wiki/Vignetting">Vignetting</a>
+and
+<a href="http://en.wikipedia.org/wiki/Sepia_(color)">sepia color</a>
+that you see.
+Additionnaly, you can easily change the skins with the UI within the demo.
+Now let's get started!</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/eg0qshn4VC0" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+<!-- more -->
+
+
+<h2>Let's start coding</h2>
+
+<p>We start to create our world as usual. This initialize the renderer, the camera,
+its controls and a rendering loop.
+We setup the
+<a href="http://learningthreejs.com/blog/2012/01/19/boilerplate-builder-for-three-js/">boilerplate for three.js</a>
+and add a page title with some info on our little 3D demo.
+We just put the camera a little closer to scene center. Thus the character
+will be bigger on screen. We just can't get enougth of it, can we ;)</p>
+
+<p>```</p>
+
+<pre><code>var world   = tQuery.createWorld().boilerplate().pageTitle('#info').start();
+world.tCamera().position.z  = 1.8;
+</code></pre>
+
+<p>```</p>
+
+<p>Now we add a bit of post processing. It is the first time
+we talk about this, so let's details it a bit.
+What is post processing (in a 3d context) ?
+Post processing is performed after rendering the 3D, hence the name.
+It applies on the screen as a whole. So the effects are in 2D.
+What's it not ?
+It isn't for 3d effect on specific objects in your world.</p>
+
+<p> <code>tquery.effectcomposer.js</code> plugin provides a simple api to add
+postprocessing to our world. It is a chained API on top of
+<a href="https://github.com/mrdoob/three.js/tree/master/examples/js/postprocessing">three.js effect composer</a>.
+In our case, we first apply <code>.sepia()</code> to change the colors toward
+<a href="http://en.wikipedia.org/wiki/Sepia_(color)">sepia color</a>.
+Then we apply <code>.vignette()</code> for
+<a href="http://en.wikipedia.org/wiki/Vignetting">Vignetting</a>
+and mark the effects list
+as finished.</p>
+
+<p>```</p>
+
+<pre><code>world.addEffectComposer().sepia().vignette().finish();
+</code></pre>
+
+<p>```</p>
+
+<p>Not too hard hey ;)</p>
+
+<h2>Hello Steve!</h2>
+
+<p>Now that we go a world. We will create a minecraft character.
+In fact, minecraft main character is called <a href="http://www.minecraftwiki.net/wiki/The_Player">'steve'</a>.
+ <code>tQuery.MinecraftChar</code> is the main class. It will create
+a character model and expose all its limbs too e.g right legs or right arms.
+More on that later.
+As you can see, we specify <code>skinUrl</code> parameter. It should point to the
+image of the skin texture. You can change it anytime with <code>character.loadSkin(skinUrl)</code></p>
+
+<p>```</p>
+
+<pre><code>var character   = new tQuery.MinecraftChar({
+    skinUrl : 'images/3djesus.png'
+}); 
+</code></pre>
+
+<p>```</p>
+
+<p>Now that we got our character setup, we just need to include it in our 3D world.</p>
+
+<p>```</p>
+
+<pre><code>character.model.addTo(world);
+</code></pre>
+
+<p>```</p>
+
+<h2>Make this model move</h2>
+
+<p>So we talked about exposed limbs... kinda gross, almost disturbing :)
+In fact it just means each part of our model is exposed for you to
+play with. It has the head, legs right and left, and the same for the arms.
+It is all in <code>character.parts</code>.</p>
+
+<p>So the first step is to hook a function in the world rendering loop.
+two parameters are passed <code>delta</code> and <code>now</code>. <code>delta</code> is the number
+of seconds since the last iteration of the rendering loop. <code>now</code> is the absolute
+time in seconds.
+We use those values to tune the animation. Thus it will be animated at the same
+speed no matter the <a href="http://en.wikipedia.org/wiki/Frame_rate">fps</a> rate of your computer.
+Here is simple animation of the head. So we hook the function and change
+the <code>headGroup</code> rotation to fit our taste.
+We will make it do an
+<a href="http://en.wikipedia.org/wiki/8_(number)">eight</a>
+or
+<a href="http://en.wikipedia.org/wiki/Infinity#Infinity_symbol">infinite synbol</a></p>
+
+<p>```</p>
+
+<pre><code>world.loop().hook(function(delta, now){
+    character.parts.headGroup.rotation.x    = Math.sin(now*1.5)/3;
+    character.parts.headGroup.rotation.y    = Math.sin(now)/3;
+}); 
+</code></pre>
+
+<p>```</p>
+
+<p>This is nice but the body would appear rather static if we move only the head.
+Let's make see how to make it walk.
+When people walks or run, they swing theirs arm and legs.
+So we need to change the rotation X of each of those limbs. First we get
+an angle relative to current time. It will determine the position of the arms/legs.
+The amplitude of the move has been tuned to <code>1.4</code>, play with it and find the
+value you like. Then you move the legs and arms by setting the rotation.
+Just take care of balancing legs and arms thus his can keep his balance :)</p>
+
+<p>```</p>
+
+<pre><code>world.loop().hook(function(delta, now){
+    var angle   = 1/2 * now*Math.PI*2;
+    // move the arms
+    character.parts.armR.rotation.x = 1.4 * Math.cos(angle + Math.PI);
+    character.parts.armL.rotation.x = 1.4 * Math.cos(angle);
+    // move the legs
+    character.parts.legR.rotation.x = 1.4 * Math.cos(angle);
+    character.parts.legL.rotation.x = 1.4 * Math.cos(angle + Math.PI);
+});
+</code></pre>
+
+<p>```</p>
+
+<p>And we are done! Pretty cool no ? :)</p>
+
+<h3>Conclusion</h3>
+
+<p>So we did a little character ala minecraft.
+We got a basic animations of it. Nevertheless it would be neat to make animations
+more robusts and generic. A new post will likely focus on this.
+I so love this field and how it make things easier.</p>
+
+<p>That's all folks. Have fun :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[3D Physics With Three.js and Physijs]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/06/05/3d-physics-with-three-js-and-physijs/"/>
+    <updated>2012-06-05T12:13:00+02:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/06/05/3d-physics-with-three-js-and-physijs</id>
+    <content type="html"><![CDATA[<p>This is yet another post about physics.
+This one is about
+<a href="https://github.com/chandlerprall/Physijs">physijs</a>
+by
+<a href="https://twitter.com/#!/chandlerprall">Chandler Prall</a>.
+It easily bind
+<a href="https://github.com/kripken/ammo.js/">ammo.js</a>
+and
+<a href="http://mrdoob.github.com/three.js/">three.js</a>.
+We will walk thru an example using it.
+Physics is always important in 3D graphics.
+It makes scenes more realistic.
+Additionally, if you simple put your object into the scene, it will move nicely and realisticly.
+So you spend less time tuning each moves. I am quite lazy so it matters :)
+The <a href="http://www.youtube.com/watch?v=THI82Q-P8Fo">screencast</a>
+presents the <a href="/data/2012-06-05-3d-physics-with-three-js-and-physijs/">demo we gonna code</a>
+and various examples of what is possible with
+<a href="https://github.com/kripken/ammo.js/">ammo.js</a>.</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/THI82Q-P8Fo" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+<!-- more -->
+
+
+<h2>What About Physics Engines ?</h2>
+
+<p>We already did physics with three.js.
+It was with <a href="https://github.com/jeromeetienne/microphysics.js">microphysics.js</a> for <a href="http://marblesoccer.com">marblesoccer</a> minigame.
+It is a micro library implementing 3D physics.
+We talked quite a bit about it in
+<a href="http://learningthreejs.com/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/">"Lets Make a 3D Game: microphysics.js"</a>
+and
+<a href="http://learningthreejs.com/blog/2011/11/02/lets-make-a-3d-game-helper-for-microphysics-js/">"Lets Make a 3D Game: microphysics.js, Even Easier"</a>.
+It is only 500lines!
+Unfortunatly, this tiny size comes limitations.</p>
+
+<p>Today we gonna use <a href="https://github.com/chandlerprall/Physijs">physijs</a> by <a href="https://twitter.com/#!/chandlerprall">Chandler Prall</a>.
+This is a nice library which make it easy to use
+<a href="https://github.com/kripken/ammo.js/">ammo.js</a>
+with
+<a href="http://mrdoob.github.com/three.js/">three.js</a>.
+ammo.js is "Direct port of the Bullet physics engine to JavaScript using
+<a href="https://github.com/kripken/emscripten">Emscripten</a>.
+The source code is translated directly to JavaScript, without human rewriting, so functionality should be identical to the original Bullet."</p>
+
+<p><a href="http://bulletphysics.org/">bullet</a> is a full-blown physics engine well-known in the 3D community.
+It can do a lot as you can see in its <a href="http://bulletphysics.com/Bullet/BulletFull/">docs</a>.
+<a href="https://github.com/kripken/ammo.js/">ammo.js</a>
+supports all the features you can expect from a mature 3D physics engine.
+Charles J. Cliffe, aka <a href="https://twitter.com/#!/ccliffe">@ccliffe</a>,
+did several demos using ammo.js.
+This one is a <a href="http://cjcliffe.github.com/CubicVR.js/cubicvr/samples/physics/physics_heightfield.html">heighfield</a>
+And look at this <a href="http://cjcliffe.github.com/CubicVR.js/cubicvr/samples/vehicle_physics_demo/stunt_track1.html">stunt track</a>!
+Both are on top of <a href="http://www.cubicvr.org/">cubicvr</a>, <a href="https://twitter.com/#!/ccliffe">@ccliffe</a> own library.</p>
+
+<p><a href="https://github.com/chandlerprall/Physijs">physijs</a> has been written with performance in mind.
+<a href="https://github.com/kripken/ammo.js/">ammo.js</a> is running in a
+<a href="https://developer.mozilla.org/En/Using_web_workers">webworker</a>.
+So it most likely run on a second CPU. This is twice more cpu power for your javascript!
+Coordinates are exchanged with
+<a href="http://updates.html5rocks.com/2011/12/Transferable-Objects-Lightning-Fast">transferable objects</a>
+when available.
+Transferable objects is a special type of object which can be transfered between the main thread and the worker <strong>without copying</strong>
+the data. Thus no matter how large the data are, it will be very low latency.</p>
+
+<h2>Lets Get Started</h2>
+
+<p>The code of today is a copy of the
+<a href="http://chandlerprall.github.com/Physijs/examples/collisions.html">collision example</a>
+from
+<a href="http://chandlerprall.github.com/Physijs/">physijs</a>
+using it thru tQuery API.
+It may usefull to reimplement the same thing, just to be sure they both perform the same way. :)
+<a href="/data/2012-06-05-3d-physics-with-three-js-and-physijs/">Try it out</a>.
+So we got object falling on the ground and slightly bouncing on it. Let's do just that.</p>
+
+<center>
+    <iframe width="100%" height="420" src="http://jeromeetienne.github.com/learningthreejs/data/2012-06-05-3d-physics-with-three-js-and-physijs/" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+</center>
+
+
+<p>First a classic. We create a tQuery.World. So you immediatly got
+a scene, a renderer, camera and its controls. All that already
+setup according to reasonable default.
+ <code>.boilerplate()</code> adds
+the <a href="http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/">"three.js boilerplate"</a>
+we did last year. We disable the camera controls as it will stay still in this scene.
+Then we <code>.start()</code> to launch the render loop.</p>
+
+<p>```</p>
+
+<pre><code>var world   = tQuery.createWorld().boilerplate({cameraControls: false}).start();
+</code></pre>
+
+<p>```</p>
+
+<p>Now we setup the camera to be a bit far from the scene center. Thus
+we got room to display larger objects</p>
+
+<p>```</p>
+
+<pre><code>world.tCamera().position.set( 70, 40, 70 );
+world.tCamera().lookAt( world.tScene().position );
+</code></pre>
+
+<p>```</p>
+
+<p>Now we need to tell the renderer that shadow has to be casted. This is done by the simple lines below.
+We saw the details in <a href="http://learningthreejs.com/blog/2012/01/20/casting-shadows/">"Casting Shadows"</a> post.</p>
+
+<p>```</p>
+
+<pre><code>world.tRenderer().shadowMapEnabled  = true;
+world.tRenderer().shadowMapSoft     = true;
+world.tRenderer().setClearColorHex( 0xffffff, 1 );
+</code></pre>
+
+<p>```</p>
+
+<p>Now we enable the physics into the world.
+this is important. From now on, all the physics-enabled object
+of this world will move according to realistic physics rules.</p>
+
+<p>```</p>
+
+<pre><code>world.enablePhysics();
+</code></pre>
+
+<p>```</p>
+
+<h2>Enlight your world</h2>
+
+<p>Here we setup the lights. For simplicity sake, we will use only one directional light.
+First we tune the position and color to fit our tastes. Dont be shy, play with those parameters to get a feel of it.
+Then we tune shadow parameters.
+Those can be tricky to tune.
+You can find more details in <a href="http://learningthreejs.com/blog/2012/01/20/casting-shadows/">"Casting Shadow"</a> post.
+It helps if you make the shaddow camera visible. You can do so with <code>.shadowCameraVisible(true)</code>.</p>
+
+<p>```</p>
+
+<pre><code>tQuery.createDirectionalLight().addTo(world)
+    .position(20, 40, -15).color(0xffffff)
+    .castShadow(true).shadowMap(512*2,512*2)
+    .shadowCamera(60, -60, 60, -60, 20, 200)
+    .shadowDarkness(0.7).shadowBias(.002)
+</code></pre>
+
+<p>```</p>
+
+<h2>Let's create a ground to stand on</h2>
+
+<p>First we create the texture for our ground. We use <code>rocks.jpg</code> to have like a rock
+effect. We use <code>.RepeatWrapping</code> to repeat the texture on the faces and get a
+proper scale.</p>
+
+<p>```</p>
+
+<pre><code>var texture = THREE.ImageUtils.loadTexture( "images/rocks.jpg" );
+texture.wrapS   = texture.wrapT = THREE.RepeatWrapping;
+texture.repeat.set( 3, 3 );
+</code></pre>
+
+<p>```</p>
+
+<p>In fact, the ground is only a cube which is wide and flat, a bit like
+the <a href="http://en.wikipedia.org/wiki/Flat_Earth">old-vision of earth</a> :)
+It is usual now, we setup the position, material and shadow.</p>
+
+<p>```</p>
+
+<pre><code>var ground  = tQuery.createCube(100, 1, 100).addTo(world)
+    .position(0, -10, 0)
+    .setLambertMaterial().map(texture).back()
+    .receiveShadow(true)
+</code></pre>
+
+<p>```</p>
+
+<p>Now we just have to setup the physics for the ground. This is done
+by <code>.enablePhysics()</code>. The <code>mass</code> parameter define the mass
+of the object in the physics.
+By default, it is automatically computed depending on the volume of the object.
+Here zeroing the mass is a special case, which say
+"the mass is infinite, dont move, ever" :)</p>
+
+<p>```</p>
+
+<pre><code>ground.enablePhysics({
+    mass    : 0
+});
+</code></pre>
+
+<p>```</p>
+
+<h2>Spawning object in a 3D world</h2>
+
+<p>Spawning is always a delicate matter in our world.
+But first let's load the texture for the spawned objects.
+It is done outside of the loop thus it get reused. Aka it is sent
+only once to the GPU for all the objects. This is an important
+point from performance point of view. Last year,
+<a href="http://learningthreejs.com/blog/2011/09/16/performance-caching-material/">"Performance: Caching Material"</a>
+post was about this very topic.</p>
+
+<p>```</p>
+
+<pre><code>var cTexture    = THREE.ImageUtils.loadTexture( "images/plywood.jpg" );
+</code></pre>
+
+<p>```</p>
+
+<p>Now we declare <code>spawnObject()</code> which gonna take care of spawning one object.
+So we create a cube, setup its position, rotation and material. This is all good. Oh dont
+forget to use <code>.castShadow()</code> as got <a href="http://en.wikipedia.org/wiki/Shadow_mapping">shadow mapping</a> going on :)</p>
+
+<p>```</p>
+
+<pre><code>var spawnObject = function(){
+    var object  = tQuery.createCube(4,4,4).addTo(world)
+        .rotation(Math.random()*Math.PI*2, Math.random()*Math.PI*2, Math.random()*Math.PI*2)
+        .position(Math.random()*15-7.5, 25, Math.random()*15-7.5)
+        .setLambertMaterial().map(cTexture).back()
+        .castShadow(true)
+</code></pre>
+
+<p>```</p>
+
+<p>Here we enable the physics on this object. So the world will handle all its move from now on.
+It will object to physics laws according to the parameters you setup.
+<a href="http://en.wikipedia.org/wiki/Friction">friction</a> is the force resisting when 2 objects slides against each other.
+<a href="http://en.wikipedia.org/wiki/Coefficient_of_restitution">resititution</a> is how bouncy the object is.
+For scientific definition, go read a book :)</p>
+
+<p>```</p>
+
+<pre><code>    object.enablePhysics({
+        friction    : 0.4,
+        restitution : 0.6
+    });
+</code></pre>
+
+<p>```</p>
+
+<p>Now we gonna play with the 'collision' event. Physijs is able to notify
+you when an object collide with another. Just use <code>.addEventListener()</code> on 'collision'.
+Here we gonna change the color of the object depending on the number of collisions
+they got.</p>
+
+<p>```</p>
+
+<pre><code>    var nCollisions = 0;
+    object.physics().addEventListener('collision', function(){
+        var colliColors = [0xcc8855, 0xbb9955, 0xaaaa55, 0x99bb55, 0x88cc55, 0x77dd55];
+        if( ++nCollisions &lt; colliColors.length ){
+            var color   = colliColors[nCollisions];
+            object.get(0).material.color.setHex( color );
+        }
+    })
+}
+</code></pre>
+
+<p>```</p>
+
+<p>Now we simply use <a href="https://developer.mozilla.org/en/DOM/window.setInterval"><code>setInterval()</code></a> to
+spawn an object every seconds.</p>
+
+<p>```</p>
+
+<pre><code>setInterval(spawnObject, 1000);
+</code></pre>
+
+<p>```</p>
+
+<p>And we are DONE! We got a realistic physics in our 3D world! not bad hey :)</p>
+
+<h2>Conclusion</h2>
+
+<p>So, thanks to <a href="https://github.com/chandlerprall/Physijs">physijs</a>,
+it is now possible to get full blown realistic physics
+using
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+and
+<a href="https://github.com/jeromeetienne/tquery">tQuery</a>.
+It is a simple way to make scene more realistic. It is nice to experiment with.
+I will do more on this very soon!</p>
+
+<p>Thanks all folks! have fun :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sport Car in WebGL]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/21/sport-car-in-webgl/"/>
+    <updated>2012-05-21T12:16:00+02:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/05/21/sport-car-in-webgl</id>
+    <content type="html"><![CDATA[<p>This post is about sport cars and how cool they can be!
+Once again, we gonna expose gems from three.js examples.
+It contains several sport cars which are fun to play with.
+You can drive them around and all.
+This is a good base for a game.
+We made tQuery plugins on top to make them easily reusable.
+Our scene will be a nice sport car, a grass ground, a sunset sky with shadow casting.
+All that in 40-lines of javascript.</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/KxRfFd9SM5s" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+<!-- more -->
+
+
+<h2>What We Gonna Build ?</h2>
+
+<p>What you see below is what we gonna build. Pretty nice no ?
+<a href="/data/2012-05-21-sport-car-in-webgl/">Try it out</a>.</p>
+
+<center>
+    <iframe width="100%" height="420" src="http://jeromeetienne.github.com/learningthreejs/data/2012-05-21-sport-car-in-webgl/" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+</center>
+
+
+<p>It shows what is possible with <code>tquery.car.js</code>.
+It is a plugin provides rendering and controls of sport cars.
+It is heavily based on some examples by <a href="http://alteredqualia.com/">alteredq</a> in
+<a href="http://github.com/mrdoob/three.js/">three.js</a>.
+You can find them
+<a href="http://mrdoob.github.com/three.js/examples/webgl_materials_cars.html">here</a>
+and
+<a href="http://mrdoob.github.com/three.js/examples/webgl_materials_cubemap_dynamic.html">here</a>.
+The car is a Bugatti Veyron model by
+<a href="http://artist-3d.com/free_3d_models/dnm/model_disp.php?uid=1129">Troyano</a>.
+Now let's get started.</p>
+
+<h2>Let's start coding</h2>
+
+<p>We start to create our world as usual. We enable the
+<a href="http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/">boilerplate for three.js</a>.
+It is a fast way start, avoids repetitive tasks, following DRY principles and includes all those good practices which are so easy to forget.
+Then we just have to <code>.start()</code> the rendering loop on this world.</p>
+
+<p>```</p>
+
+<pre><code>var world   = tQuery.createWorld().boilerplate().start();
+</code></pre>
+
+<p>```</p>
+
+<p>Now we setup the renderer.
+In this scene, we want to cast shadows as if it cames from the sun.
+This is a nice way to improve the realism in our 3D scene
+We already talked about it in <a href="http://learningthreejs.com/blog/2012/01/20/casting-shadows/">"Casting Shadow"</a>
+The renderer needs to be notified so we set <code>.shadowMapEnabled</code> and <code>.shadowMapSoft</code> to true.</p>
+
+<p>```</p>
+
+<pre><code>world.renderer().shadowMapEnabled   = true;
+world.renderer().shadowMapSoft      = true;
+</code></pre>
+
+<p>```</p>
+
+<h2>The Sky</h2>
+
+<p>Now we add a sky to the 3D scene.
+It will fill the space and make the scene more realistic.
+We use a skymap for that. It is WebGL trick which take a cube, make it so large that it seems infinite.
+On it, we map a 360degeree texture shaped as a cube, and use a special shader to display it. All is in this
+shader, it makes the cube appear as if we were in a gigantic sphere. Exactly like we would feel with a sky above
+our head.
+We already saw skymaps in <a href="http://learningthreejs.com/blog/2011/08/15/lets-do-a-sky/">"let's do a sky"</a> post.
+We just added a new plugins <code>tquery.skymap.js</code>.
+It avoids repeative code when you do skymap or environement map.</p>
+
+<p>```</p>
+
+<pre><code>tQuery.createSkymap('skybox').addTo(world);
+</code></pre>
+
+<p>```</p>
+
+<h2>The Lights</h2>
+
+<p>Here we setup the lights. We put one ambient and 2 directional lights.</p>
+
+<p>```</p>
+
+<pre><code>tQuery.createAmbientLight().addTo(world).color(0xFFFFFF);
+tQuery.createDirectionalLight().addTo(world).position(1,1,-1).color(0xffffff).intensity(2);
+</code></pre>
+
+<p>```</p>
+
+<p>It is rather simple so lets focus on the last one, the one casting shadow.
+We want it to appear as coming from the sun.
+So we look at the skymap and approximatly localized the sun at <code>(-10, 20, 30)</code>.
+Then we tune shadow parameters to fit our tastes.
+You can find more details in <a href="http://learningthreejs.com/blog/2012/01/20/casting-shadows/">"Casting Shadow"</a> post.
+Those parameters can be tricky to tune. It helps if you make the shaddow
+camera visible. You can do so with <code>.shadowCameraVisible(true)</code>.</p>
+
+<p>```</p>
+
+<pre><code>tQuery.createDirectionalLight().addTo(world).position(-10, 20, 30).color(0xffffff).intensity(4)
+    .castShadow(true).shadowDarkness(0.8)
+    .shadowMap(512*2,512*2)
+    .shadowCamera(10, -10, 20, -20, 0.1, 50);
+</code></pre>
+
+<p>```</p>
+
+<h2>The Ground</h2>
+
+<p>Now we add the ground. A car needs a ground to stand on :)
+For that, we got a little helper <code>tquery.grassground.js</code>.
+This is just building a <code>THREE.Plane</code> and mapping a grass
+texture into it.
+It does the job for a simple and fast ground.
+We have seen something similar with <code>tquery.checkerboard.js</code> in
+<a href="http://learningthreejs.com/blog/2012/05/04/tquery-md2character-a-plugin-for-doom-characters/">"tQuery Plugin for Doom Characters"</a>
+post.</p>
+
+<p>```</p>
+
+<pre><code>var ground  = tQuery.createGrassGround({
+    textureUrl  : '../../grassground/images/grasslight-big.jpg',
+    textureRepeatX  : 30,
+    textureRepeatY  : 30,       
+}).addTo(world).receiveShadow(true).scaleBy(100);
+</code></pre>
+
+<p>```</p>
+
+<h2>The Car</h2>
+
+<p>First we instanciate a <code>tQuery.Car</code> object with <code>tQuery.createCar()</code>.
+It will load the models, then material will be setup.
+ <code>tQuery.Car</code> handles the displacement of the car too.
+You can make the car turn, go forward and backward, using <code>car.controls()</code>.
+you can even switch on/off the lights with <code>.flareVisible()</code></p>
+
+<p>```</p>
+
+<pre><code>var car = tQuery.createCar();
+</code></pre>
+
+<p>```</p>
+
+<p>Then we had the car model in our world scene. Important if you want to see it :)</p>
+
+<p>```</p>
+
+<pre><code>world.add(car.model())
+</code></pre>
+
+<p>```</p>
+
+<p>Now we got the car on the scene, this is all good.
+But we need the camera to follow this car. We create a camera controls specific
+to mimic the usual camera in car game. The camera is placed a bit behind the car and looks forward.
+The faster you go, the further you look. This is always nice to see what is coming at you :)</p>
+
+<p>```</p>
+
+<pre><code>tQuery.Car.createCameraControls(car, world);
+</code></pre>
+
+<p>```</p>
+
+<h2>Car Controls</h2>
+
+<p>Now we hook the controls to the car. This determines how the player will control the
+car. It can be controlled by the keyboard, so users press arrows on keyboard
+and the car moves.
+It can be controlled by the <a href="http://dev.w3.org/geo/api/spec-source-orientation.html">device orientation</a>.
+We already talked device orientation in game in
+<a href="http://learningthreejs.com/blog/2011/09/20/lets-make-a-3D-game-device-orientation/">this post</a>.</p>
+
+<p>```</p>
+
+<pre><code>var hasTouchEvent   = "ontouchstart" in window;
+if( hasTouchEvent ) car.hookDeviceOrientation();
+else            car.hookKeyboard();
+</code></pre>
+
+<p>```</p>
+
+<p>Now maybe you wonder "why this devices orientation" ?
+I ported tQuery to IOS. So since tQuery r49.1, it is possible to run
+tquery on your iphones or ipads.
+It is possible to render with <a href="http://www.w3.org/TR/2dcontext/">canvas 2D</a> in the regular browser.
+Even possible to render WebGL using
+<a href="https://github.com/benvanik/WebGLBrowser">WebGL Browser</a> by <a href="https://twitter.com/#!/benvanik">Ben Vanik</a>.</p>
+
+<h2>The Road</h2>
+
+<p>In a scene, it is cool to create a goal, something for the user to do.
+A road seems like a perfect goal for a car :)
+First we create the material we gonna use. This is a <a href="http://en.wikipedia.org/wiki/Lambertian_reflectance">lambert</a>
+with a <a href="http://en.wikipedia.org/wiki/Reflection_mapping">reflection</a>. You put a cube texture in the
+ <code>envMap</code> parameter and you got your reflection :) Here again, we use tquery.skymap.js to create the cube texture.</p>
+
+<p>```</p>
+
+<pre><code>var material    = new THREE.MeshLambertMaterial({
+    ambient : 0x444444,
+    color   : 0x666666,
+    envMap  : tQuery.createCubeTexture('skybox')
+});
+</code></pre>
+
+<p>```</p>
+
+<p>Now we add the arches. In fact, they are torus which are half in the ground, so the
+visible part looks like an arche.
+We put 5 of them along the Z axis.
+They are all aligned to give a kindof road.
+ <code>.castShadow(true)</code> make the 3D object as casting shadow. Always a nice trick to enhance realism.</p>
+
+<p>```</p>
+
+<pre><code>for(var i = 0; i &lt; 5; i++){
+    tQuery.createTorus(1.25-0.25, 0.25, 8, 6*4, material).addTo(world)
+        .castShadow(true).translateZ( 2 + i * 5 );      
+}
+</code></pre>
+
+<p>```</p>
+
+<p>And we are <strong>DONE</strong>! We got a nice looking car, driving on grass with a sun set. It is
+controlled by keyboard and the camera controls is suitable for a game. Not bad
+for 40 lines of javascript.</p>
+
+<h2>Conclusion</h2>
+
+<p>In this post, i walked you thru a example of <code>tQuery.car.js</code>. It builds a rather
+cool scene in 40lines of js. It seems a nice base for a game. Like the
+<a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">two</a>
+<a href="/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl/">previous</a>
+walk through, we got very short code. I like this, it makes it easier to understand
+and learn. WebGL for All!! :)</p>
+
+<p>That's all folks! have fun.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sound Visualisation: a Vuemeter in WebGL]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl/"/>
+    <updated>2012-05-08T10:32:00+02:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl</id>
+    <content type="html"><![CDATA[<p>This post is about producing a 3D Vuemeter for real time sound.
+We gonna walk thru the code of a
+<a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a> example.
+This example will show you how to create a WebGL vuemetter with
+<a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a>.
+It should be simple to understand, only 40-lines of javascript.
+<a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a> is a web audio library
+for game. We gonna use it to reach <a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">Web Audio API</a>.
+We gonna use <a href="https://github.com/jeromeetienne/tquery">tQuery</a>
+to reach <a href="http://github.com/mrdoob/three.js/">three.js 3D engine</a>.</p>
+
+<p> <code>webaudio.js</code> has been first coded as a tQuery plugin.
+You can find a <a href="http://learningthreejs.com/blog/2012/03/20/sounds-for-more-realistic-3d/">post about it</a>
+on <a href="http://learningthreejs.com">learningthreejs</a> blog.
+But this technology is so nice, it deserved its <a href="https://github.com/jeromeetienne/webaudio.js">own repository</a>.
+The library gained in flexibility in the process: It is now possible to display histogram in canvas2D
+of simply play sound, with no 3D at all :) see <a href="http://jeromeetienne.github.com/webaudio.js/#examples">here</a> for a list of
+webaudio.js examples.</p>
+
+<p><a href="http://jeromeetienne.github.com/webaudio.js/examples/histotquery.html">Try the demo</a>.
+This is the result that we gonna build together.
+Below is a small <a href="http://www.youtube.com/watch?v=--Gv2EI2a-U">screencast</a> of me presenting the code.</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/--Gv2EI2a-U" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+<!-- more -->
+
+
+<h2>Background Knowledge</h2>
+
+<p><strong>Web Audio API</strong> is aimed for games and based on openAL.
+Its API is real nice tho. It is Efficient and flexible.
+It is efficient because most processing happen in native code,
+still you configure it in js, your favorite language :)
+It is flexible as it is based on a routing concept which
+give you great controls on the sounds you play.</p>
+
+<p>You can find
+<a href="http://www.html5rocks.com/en/tutorials/#technology:multimedia">many good tutorials</a>
+on the matter on
+<a href="http://www.html5rocks.com/en/">html5rocks</a>.
+I recently did a presentation at <a href="http://www.musichackparis.org">musichackparis</a> on Web Audio API.
+If you want to know more, slides are <a href="http://jeromeetienne.github.com/slides/webaudioapi">here</a>.
+This API is available on WebKit based browser, so safari and chrome and its derivative.
+Unfortunatly this API isn't compatible with major webgl browsers e.g. firefox and opera.
+The <strong>Web Audio API</strong> is real nice tho. Efficient flexible
+Sound is still the poor lone child of the web :(
+Well let's have fun with what we have.</p>
+
+<h2>Let's get started</h2>
+
+<p>Ok the very begining is real simple. We init a basic html page.
+Then we include the dependancies in javascript.
+We include <a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a> to handle the sound playing and analysis.
+Then we just have to include <a href="https://github.com/jeromeetienne/tquery">tquery</a>.
+tquery-bundle.js is <a href="https://github.com/jeromeetienne/tquery">tquery</a>
+bundled with
+<a href="http://github.com/mrdoob/three.js/">three.js</a> in a single file for convenience.</p>
+
+<p>```</p>
+
+<pre><code>&lt;!doctype html&gt;&lt;title&gt;webaudio example: histo3d&lt;/title&gt;
+&lt;script src="../build/webaudio.js"&gt;&lt;/script&gt;
+&lt;script src="vendor/tquery/tquery-bundle.js"&gt;&lt;/script&gt;
+&lt;body&gt;&lt;script&gt;
+</code></pre>
+
+<p>```</p>
+
+<h2>Let's Code in JS</h2>
+
+<p>First we gonna intenciate <code>WebAudio</code>. This will initialize the layer.
+It will create the <a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html#AudioNode-section">AudioNode</a>`s
+for the end of the chain.
+By default it contains a
+<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html#AudioGainNode">gainNode</a>
+and a
+<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html#DynamicsCompressorNode">compressorNode</a>.
+The gainNode is used to tune the volume. and the compressNode to smooth the peaks we could
+hit in the sound.</p>
+
+<p>```</p>
+
+<pre><code>var webaudio    = new WebAudio();
+</code></pre>
+
+<p>```</p>
+
+<p>Now that we go webaudio available, let's use it to create the sound we gonna play.
+ <code>.createSound()</code> will create a <code>WebAudio.Sound</code>. Then we <code>.load()</code> it
+from this url 'sounds/perfume.mp3'. The callback will be notified as soon as the sound
+is loaded. Then we simply start to play it. Don't forget to get <code>.loop(true)</code>
+thus the sound will loop forever.</p>
+
+<p>```</p>
+
+<pre><code>var sound   = webaudio.createSound().load('sounds/perfume.mp3', function(sound){
+    sound.loop(true).play();
+});
+</code></pre>
+
+<p>```</p>
+
+<h2>Initialize the 3D World</h2>
+
+<p>First we initialize the world in 3D.
+With <code>tQuery.createWorld()</code>, we create a <code>tQuery.World</code>.
+With <code>.boilerplate()</code>, we setup a boilerplate on this world. A boilerplate is
+a fast way to get you started on the right foot. It is the
+<a href="http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/">learningthreejs boilerplate for three.js</a>
+With <code>.start()</code>, we start the rendering loop. So from now on, the world scene
+gonna be rendered periodically, typically 60time per seconds.</p>
+
+<p>```</p>
+
+<pre><code>var world   = tQuery.createWorld().boilerplate().start();
+</code></pre>
+
+<p>```</p>
+
+<p>We Change the background color. This confusing line ensure the background of the
+3D scene will be rendered as <code>0x000000</code> color, aka black.</p>
+
+<p>```</p>
+
+<pre><code>world.renderer().setClearColorHex( 0x000000, world.renderer().getClearAlpha() );
+</code></pre>
+
+<p>```</p>
+
+<p>Here we setup the lights of our scene. This is a key factor for the look and feel
+of your scene. We add a ambient light and 2 directional lights.</p>
+
+<p>```</p>
+
+<pre><code>tQuery.createAmbientLight().addTo(world).color(0x888888);
+tQuery.createDirectionalLight().addTo(world).position(+1,+1,1).color(0x88FF88);
+tQuery.createDirectionalLight().addTo(world).position(-1,-1, 1).color(0x8888FF);
+</code></pre>
+
+<p>```</p>
+
+<h2>Some constants</h2>
+
+<p>First we initialize <code>nBar</code> to store number of bars in our 3D vuemeter.
+This number MUST be odd, thus the vuemeter is symteric with the middle</p>
+
+<p>```</p>
+
+<pre><code>var nBar    = 41;
+console.assert(nBar%2, "nBar MUST be a odd number.")
+</code></pre>
+
+<p>```</p>
+
+<p>Now we need to compute the width of each 3D bar. The whole vuemeter is
+ 80 wide. So each bar is <code>80/nBar</code> wide.</p>
+
+<p>```</p>
+
+<pre><code>var barW    = 80/nBar;
+</code></pre>
+
+<p>```</p>
+
+<p>We create an array <code>bars3d</code>. We will use it to store the object3D
+for all bars of the  histogram.</p>
+
+<p>```</p>
+
+<pre><code>var bars3d  = [];
+</code></pre>
+
+<p>```</p>
+
+<h2>Build the 3D VueMeter</h2>
+
+<p>First we create the container group3D which gonna regroup all the bar3D. It is the
+container of the whole 3D Vuemeter</p>
+
+<p>```</p>
+
+<pre><code>var group3d = tQuery.createObject3D().scale(1/20).addTo(world);
+</code></pre>
+
+<p>```</p>
+
+<p>We gonna build each bar and add it to <code>group3d</code>.
+We loop to create <code>nBar</code> with <code>tQuery.createCube()</code>. In fact a bar
+is a rectangular box, so like a cube with different dimensions.
+a bar got a width of <code>barW</code>, an height of 10 and a depth of 5.
+The material is a simple <a href="http://en.wikipedia.org/wiki/Lambertian_reflection">lambert</a>.
+Once the bar is create, we add it to <code>group3d</code> and set it to the correct
+position in space.
+We push every bar3d into <code>bars3d</code> for future reference.</p>
+
+<p>```</p>
+
+<pre><code>for(var i = 0; i &lt; nBar; i++){
+    var bar3d   = tQuery.createCube(barW, 10, 5, new THREE.MeshLambertMaterial({
+        ambient : 0x888888,
+        color   : 0xFFFFFF
+    }));
+    bar3d.addTo(group3d).position((i-nBar/2)*barW, 0, 0);
+    bars3d.push(bar3d);
+}
+</code></pre>
+
+<p>```</p>
+
+<h2>Update Vuemeter From Sound Analyser</h2>
+
+<p>Here we hook a function to tQuery rendering loop, <code>tQuery.Loop</code>. Thus
+this function gonna be executed everytime our 3D scene is rendered.
+if the sound isnt yet loaded, do nothing.</p>
+
+<p>```</p>
+
+<pre><code>world.loop().hook(function(){
+    if( sound.isPlayable() === false )  return;
+</code></pre>
+
+<p>```</p>
+
+<p>build the histogram of the sound based on
+<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html#RealtimeAnalyserNode">RealtimeAnalyserNode</a>
+ <code>.getByteFrequencyData()</code></p>
+
+<p>```</p>
+
+<pre><code>var nBarHalf    = Math.ceil(nBar/2)
+var histo   = sound.makeHistogram(nBarHalf);
+</code></pre>
+
+<p>```</p>
+
+<p>We gonna loop over each bar3D of our vuemeter. We gonna update
+each of them based on the sound histogram we just computed.</p>
+
+<p>```</p>
+
+<pre><code>bars3d.forEach(function(bar3d, barIdx){
+</code></pre>
+
+<p>```</p>
+
+<p>We need to determine which value in the histogram match this vuemeter bar.
+As our vuemeter is symetric, the vuemeter bar on the far left got the same
+histogram value as the one on the far right. This make this computation
+a bit confusing.</p>
+
+<p>```</p>
+
+<pre><code>        var histoIdx        = barIdx &lt; nBarHalf ? nBarHalf-1-barIdx : barIdx - nBarHalf;
+</code></pre>
+
+<p>```</p>
+
+<p>Now we need to compute the height of the vuemeter bar based on histogram value.
+This is simple scaling from one to the other: vuemeter height === histo height / 256</p>
+
+<p>```</p>
+
+<pre><code>        var height      = histo[histoIdx] / 256;
+</code></pre>
+
+<p>```</p>
+
+<p>Now that we computed all that, we update the <code>bar3d</code>. We update <code>.scale.y</code>
+to change its size and <code>.material.color</code> to change its color. The formulas
+i used "worked for me". Up to you to be creative and find the one that fit
+your own needs</p>
+
+<p>```</p>
+
+<pre><code>        bar3d.get(0).scale.y    = height*3;
+        bar3d.get(0).material.color.setHSV(0.3+height*0.7,1,1)
+    });
+});
+</code></pre>
+
+<p>```</p>
+
+<h2>Conclusion</h2>
+
+<p>So we used
+<a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a>
+to play a sound and analyses in real time.
+We used this information to change 3D objects based on this
+analysis.
+We leveraged <a href="https://github.com/jeromeetienne/tquery">tQuery</a>
+to reach <a href="http://github.com/mrdoob/three.js/">three.js 3D engine</a>.
+Now you can imagine any visual effect based on sound analysis.
+The road to winamp effects is open to you :)
+We got a rather nice looking WebGL output of a 3D Vuemeter in Real Time
+for only 40 lines of javascript. I love how short code
+reduces developement time.</p>
+
+<p>That's all folks. Have fun :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Video Conference on Top of WebGL]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/04/12/video-conference-on-top-of-webgl/"/>
+    <updated>2012-04-12T13:20:00+02:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/04/12/video-conference-on-top-of-webgl</id>
+    <content type="html"><![CDATA[<p>This post presents
+<a href="http://webglmeeting.appspot.com">WebGL Meeting</a>,
+a very simple WebGL application to do webrtc call.
+It is a follow up of <a href="/blog/2012/02/07/live-video-in-webgl/">"Fun with live video on webgl"</a>.
+It was presenting how to use the WebCam using
+<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">WebRTC getUserMedia()</a>.
+This one goes one step further and make an actual
+<a href="http://www.webrtc.org/">WebRTC call</a>
+displayed in a WebGL scene.</p>
+
+<p>In fact, it has already been done a month ago! As you can see
+<a href="http://www.youtube.com/watch?v=em5RWcstfI0&amp;feature=watch_response">here</a>
+:)
+The video from the first post, <a href="http://www.youtube.com/watch?v=vnNihxl3taE">'being on tv, watching tv'</a> has been answered
+by <a href="https://plus.google.com/109216128632357967445/posts">Ethan Hugg</a> from cisco.
+My very first video reponse btw! He
+<a href="http://www.youtube.com/watch?v=em5RWcstfI0&amp;feature=watch_response">shows a SIP video call</a>
+using an version of Chromium hacked by
+<a href="https://plus.google.com/102821430095362232437/posts">Suhas Nandakumar</a>.
+Definitly cool stuff!
+<a href="http://webglmeeting.appspot.com">WebGL Meeting</a> is similar but run on unmodified browsers.
+The
+<a href="http://youtu.be/Fjb7xBnxq9k">screencast</a>
+below is short demo of it.</p>
+
+<!-- more -->
+
+
+
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/Fjb7xBnxq9k" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>WebRTC progress</h2>
+
+<p>Using a modified browser is cool for make nice demo like
+<a href="https://plus.google.com/109216128632357967445/posts/QkFu7cxmbzi">this one</a>.
+Nevertheless it reduces how widely the technology can spread.
+It is now possible to do it using opensource and mainstream browsers.
+This field advances so fast!</p>
+
+<p><img class="right" src="/data/2012-04-12-video-conference-on-top-of-webgl/twoTVsWithWebGLTeam-small.jpg" width="320" height="240"></p>
+
+<p><a href="http://mozillamediagoddess.org/">Mozilla team</a> is
+<a href="http://hacks.mozilla.org/2012/04/webrtc-efforts-underway-at-mozilla/">working hard</a>
+to make it happen as soon as possible.
+It is even available on mobile with
+<a href="http://weblog.bocoup.com/javascript-webrtc-opera-mobile-12/">Opera Mobile 12</a>.
+Some <a href="http://www.youtube.com/watch?v=wpwjtzXgNFQ]">"protothon"</a> are happening about it.
+<a href="http://www.webrtc.org/">WebRTC</a>
+is on the edge but it is definitly coming hard.
+The picture on the right is Chrome WebRTC team doing thumb up on
+<a href="webglmeeting.appspot.com">WebGLMeeting</a>
+at an WebRTC event for
+<a href="http://www.ietf.org/meeting/83/index.html">IETF 83</a>
+:)</p>
+
+<h2>What about the code ?</h2>
+
+<p><a href="https://github.com/jeromeetienne/webglmeeting">WebGLMeeting source</a>
+is available on Github under MIT license.
+It uses three.js to handle the WebGL.
+It is the <a href="http://code.google.com/p/webrtc-samples/source/browse/trunk/apprtc/">AppRTC app</a>
+mostly unmodified, with a simple WebGL skin on top.</p>
+
+<p>A post from Chrome WebRTC team recently announced
+<a href="http://www.webrtc.org/blog/sourcecodetoapprtcappspotcomexampleappavailable">"Source code to apprtc.appspot.com example app available"</a>.
+The post releases the
+<a href="http://code.google.com/p/webrtc-samples/source/browse/trunk/apprtc/">source</a>
+on google code.
+The <a href="https://apprtc.appspot.com">apprtc demo</a>
+is a very simple, one-to-one, webrtc call.
+Go look at the <a href="http://code.google.com/p/webrtc-samples/source/browse/trunk/apprtc/">source</a>, dont be shy :)
+It is very small, the whole code client+server, is less than 15kbyte.
+It is easy to understand and deploy thanks too google App Engine.</p>
+
+<h2>Face tracker seeking love ?</h2>
+
+<p>Surprising hey ? Well the source contains a face tracker,
+<a href="http://code.google.com/p/webrtc-samples/source/browse/trunk/apprtc/html/face.html">face.html</a>.
+It works rather well but it is slow. If somebody could give it more love...
+It is a rather naive implementation which works well but got many rooms for speed improvement.
+It could make face tracking, less clumsy than wearing augmented reality marker on top
+of your head like
+<a href="http://learningthreejs.com/blog/2012/03/12/augmented-reality-in-the-browser/">i did a while back</a>
+:)</p>
+
+<h2>Conclusion</h2>
+
+<p>I got the feeling WebRTC gonna change a lot of things soon. The peer-to-peer aspect makes it super
+cheap to integrate live video conferences to your own sites.</p>
+
+<p>That's all folks, have fun!</p>
+]]></content>
+  </entry>
+  
+</feed>

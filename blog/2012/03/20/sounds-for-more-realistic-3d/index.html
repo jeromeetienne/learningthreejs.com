@@ -1,0 +1,446 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>tQuery WebAudio for More Realistic 3D - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This post is about
+Web Audio API.
+It is a new HTML5 api which provide great controls on the audio layer.
+It is much better than the
+audio tag.
+It is &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/2012/03/20/sounds-for-more-realistic-3d/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">tQuery WebAudio for More Realistic 3D</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-20T01:08:00+01:00" pubdate data-updated="true">Mar 20<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This post is about
+<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">Web Audio API</a>.
+It is a new HTML5 api which provide great controls on the audio layer.
+It is much better than the
+<a href="http://www.w3.org/TR/html5/the-iframe-element.html#the-audio-element">audio tag</a>.
+It is more suitable for games or music software.
+As 3D lovers, the one feature that we care about is
+<a href="http://en.wikipedia.org/wiki/3D_audio_effect">audio spacialization</a>.
+This makes Web Audio a complement to webgl.
+It implements positional sounds, so you
+get
+<a href="http://en.wikipedia.org/wiki/Panning_(audio)">panning</a>,
+<a href="http://en.wikipedia.org/wiki/Doppler_effect">dopler</a>
+and all.
+It makes the scene so much more realistic.</p>
+
+<p>The user tends to associate 3D to reality, so efficient 3D is a lot about realism.
+The brain identifies 2D as artificial while 3D seems immediatly more natural.
+Anything which appears close to reality increase this effect.
+Feeding this illusion creates a more immersive experience to the user.
+Realistic physics is one (stay tuned :).
+Web Audio audio spacialization is another.</p>
+
+<p>The
+<a href="http://youtu.be/QjRF0_KENQ8">screencast</a>
+below is a live coding session using <code>tQuery.WebAudio</code>.
+If you want, you can experiment with this code in our playground. Just click
+<a href="http://bit.ly/GApgWg">here</a>
+and start coding :)</p>
+
+<!-- more -->
+
+
+
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/QjRF0_KENQ8" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>Background on WebAudio API</h2>
+
+<p>To learn about WebAudio API is a large subject.
+It is out of the scope of this introduction.
+You can refere to many dedicated tutorials tho.
+The <a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">specification</a>
+itself is clear and very readable.</p>
+
+<p>You can find more comprehensive documentation at <a href="html://html5rocks.com">html5rocks</a>.
+It contains several very usefull tutorials to learn Web Audio API.
+They go from
+<a href="http://www.html5rocks.com/en/tutorials/webaudio/intro/">&#8220;Getting started with the web audio API&#8221;</a>
+to
+<a href="http://www.html5rocks.com/en/tutorials/webaudio/positional_audio/">&#8220;mixing positional audio and webgl&#8221;</a>
+or
+<a href="http://www.html5rocks.com/en/tutorials/webaudio/games/">&#8220;developing game audio&#8221;</a>.
+If you want, you can find demos in
+<a href="http://chromium.googlecode.com/svn/trunk/samples/audio/index.html">chromium samples</a>.</p>
+
+<p>Now let&#8217;s start coding :)</p>
+
+<h2>Let&#8217;s get Started</h2>
+
+<p>First you need to enable WebAudio into your world.
+Thus you will be able to play sound in it.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">world</span><span class="p">.</span><span class="nx">enableWebAudio</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now that the world is able to do sound, let&#8217;s create one</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">sound</span> <span class="o">=</span> <span class="nx">tQuery</span><span class="p">.</span><span class="nx">createSound</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now we need to load a sound file and to start playing it. The callback
+is notified when the file is downloaded. At this point, the sound
+it ready to play.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">sound</span><span class="p">.</span><span class="nx">load</span><span class="p">(</span><span class="s1">&#39;techno.mp3&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">sound</span><span class="p">){</span>
+</span><span class='line'>    <span class="nx">sound</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you want to know more, the full API is documented
+<a href="http://jeromeetienne.github.com/tquery/docs/symbols/tQuery.WebAudio.Sound.html">here</a>
+and
+<a href="http://jeromeetienne.github.com/tquery/docs/symbols/tQuery.WebAudio.html">here</a>
+thanks to jsdoc.</p>
+
+<h2>Spacialization and Animation</h2>
+
+<p>Now that we can play a sound, what else can we do ? One definitively interesting part for
+<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">webaudio API</a>
+is the ability to spacialize the sound.
+The easiest way to do that is to use <code>.follow()</code> function.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">sound</span><span class="p">.</span><span class="nx">follow</span><span class="p">(</span><span class="nx">object3d</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you want more controls, you can check
+ <code>.updateWithObject3d()</code> or <code>.updateWithMatrix4()</code>.
+You may want to animate your 3D object based on the sound you hear.
+For that, a simple function <code>.amplitude()</code> has been written.
+It is likely a naive implementation but it does the trick, i think.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">amplitude</span> <span class="o">=</span> <span class="nx">sound</span><span class="p">.</span><span class="nx">amplitude</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It returns an average of low frequencies of the sound.
+Note that i dunno if it is the proper term in audio world.
+Most likely not :) If you know the proper term, please leave a comment.</p>
+
+<h2>Want more info ?</h2>
+
+<p>You get two examples in
+<a href="https://github.com/jeromeetienne/tquery/tree/master/plugins/webaudio/examples">the source</a>.
+The
+<a href="http://jeromeetienne.github.com/tquery/plugins/webaudio/examples/">minimal one</a>
+simply play a sound.
+The other is more interactive. It is the
+<a href="http://jeromeetienne.github.com/tquery/plugins/webaudio/examples/playground">playground</a>.
+It allows to play with various parameters.
+tQuery API documentation is provided via
+<a href="http://code.google.com/p/jsdoc-toolkit/">jsdoc</a>.
+You can find the whole API
+<a href="http://jeromeetienne.github.com/tquery/">here</a>.
+The plan is to do the same for the plugins.</p>
+
+<p>So for tQuery WebAudio plugin, you get API documentation of each class: the main class
+<a href="http://jeromeetienne.github.com/tquery/docs/symbols/tQuery.WebAudio.html">tQuery.WebAudio</a>
+and the
+<a href="http://jeromeetienne.github.com/tquery/docs/symbols/tQuery.WebAudio.Sound.html">Sound class</a>.
+You can even check the
+<a href="http://jeromeetienne.github.com/tquery/docs/symbols/tQuery.WebAudio.NodeChainBuilder.html">Node chain builder</a>
+doc if you want to go deep and configure your own audio nodes chain :)</p>
+
+<h2>Conclusion</h2>
+
+<p>Ok so now you can play sounds in your 3D scene. You can make the sound follows a given
+object3d with realistic sound spatialization. All that in just a few lines. Rather cool
+if you ask me :)
+<a href="http://en.wikipedia.org/wiki/Winamp">Winamp</a> effects are back !!
+Later i will likely implement
+click detection as seen
+<a href="http://www.html5rocks.com/en/tutorials/webaudio/games/#toc-clip-detect">here</a>
+and environmental effect like &#8216;cathedral&#8217;, &#8216;telephone&#8217; etc&#8230;
+as seen
+<a href="http://www.html5rocks.com/en/tutorials/webaudio/positional_audio/#toc-enveffects">here</a>.</p>
+
+<p>I love how sound make our 3D scene more realistic. That&#8217;s all for today, have fun :)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-20T01:08:00+01:00" pubdate data-updated="true">Mar 20<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/audio/'>audio,</a>, <a class='category' href='/blog/categories/threejs/'>threejs,</a>, <a class='category' href='/blog/categories/tquery/'>tquery</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jeromeetienne.github.com/learningthreejs/blog/2012/03/20/sounds-for-more-realistic-3d/" data-via="LearningThreejs" data-counturl="http://jeromeetienne.github.com/learningthreejs/blog/2012/03/20/sounds-for-more-realistic-3d/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/03/12/augmented-reality-in-the-browser/" title="Previous Post: Augmented Reality in the Browser">&laquo; Augmented Reality in the Browser</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/04/12/video-conference-on-top-of-webgl/" title="Next Post: Video Conference on Top of WebGL">Video Conference on Top of WebGL &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/03/20/sounds-for-more-realistic-3d/';
+        var disqus_url = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/03/20/sounds-for-more-realistic-3d/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

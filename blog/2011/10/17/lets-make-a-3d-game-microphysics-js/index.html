@@ -1,0 +1,557 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Lets Make a 3D Game: microphysics.js - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This post is part of the &#8220;Lets make a 3D game&#8221; series.
+3D and physics simulation always go well together
+even
+more
+so
+with
+marble
+games. &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Lets Make a 3D Game: microphysics.js</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-17T12:36:00+02:00" pubdate data-updated="true">Oct 17<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This post is part of the <a href="/blog/categories/tutorial3dgame/">&#8220;Lets make a 3D game&#8221;</a> series.
+3D and physics simulation always go well together
+<a href="http://www.youtube.com/watch?v=Rd7TyU9RdQk">even</a>
+<a href="http://www.youtube.com/watch?v=o_xr8Htj9GI">more</a>
+<a href="http://www.youtube.com/watch?v=Xfrzi-yVcsM">so</a>
+<a href="http://www.youtube.com/watch?v=uvCbc8vFUMo">with</a>
+<a href="http://www.youtube.com/watch?v=7lBUBBW_sF0">marble</a>
+<a href="http://www.youtube.com/watch?v=c7npJ3E-ydA">games</a>.
+One is required for <a href="http://marblesoccer.com">marblesoccer</a> but i wasnt
+convinced by current 3d physics engines. I explain why at the end.
+Fortunatly, <a href="http://twitter.com/#!/pyalot">@pyalot</a> from <a href="http://codeflow.org/">codeflow.org</a>
+has been kind enough to write one taylor-made for us: <strong>microphysics.js</strong>!!</p>
+
+<p>It is bite-sized, elegant and efficient.
+Less than 500 lines at the moment!!
+It is small engouh to be understood, important feature for a tutorial blog.
+It is a work in progress tho.
+We aren&#8217;t aware of any bugs.
+New features will be added and the API is expected to move.
+Currently it implements moving spheres and static boxes (or <a href="http://en.wikipedia.org/wiki/Axis-aligned_bounding_box">AABB</a> as we like to say).
+This is all we need for <a href="http://marblesoccer.com">marblesoccer</a>, the good thing about tailor-made.
+<em>We are in business!!!</em></p>
+
+<p>Below is a screencast of me doing a short introduction of the
+<a href="http://jeromeetienne.github.com/microphysics.js/playground/">playground</a>.
+This just a page for you to experiment with microphysics.js.</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/DI5PV2_sLoM" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>Let&#8217;s get started</h2>
+
+<p>So lets see how to use it.
+First step, you download it <a href="https://raw.github.com/jeromeetienne/microphysics.js/master/codeflow/physics.js">here</a>.
+Then include it in your own code with this line.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;physics.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- more -->
+
+
+<h2>Let&#8217;s Create a World</h2>
+
+<p><img class="right" src="/data/lets-make-a-3d-game-microphysics-js/images/galactus.png"></p>
+
+<p>Quite a title hey ?
+Dont you feel like <a href="http://en.wikipedia.org/wiki/Galactus">galactus</a> when you say it ?
+First you instanciate the physics <code>world</code> like this.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">world</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">vphy</span><span class="p">.</span><span class="nx">World</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now you start it. Dont forget to give it the date as you see it.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">world</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="o">/</span><span class="mi">1000</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The <code>world</code> is now fully initialized.
+You just have to periodically update it in your game/render loop.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">timeStep</span>   <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">180</span><span class="p">;</span>
+</span><span class='line'><span class="nx">world</span><span class="p">.</span><span class="nx">step</span><span class="p">(</span><span class="nx">timeStep</span><span class="p">,</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="o">/</span><span class="mi">1000</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The <code>timeStep</code> parameter is the precision of the physics engine, expressed in seconds.
+Quite a subtle tradeoff.
+The smaller it is, the more accurate is the physics, but the slower it is to compute.
+Up to you to find the balance that fit your needs.</p>
+
+<h2>Let&#8217;s Add Bodies</h2>
+
+<p><img class="left" src="/data/lets-make-a-3d-game-microphysics-js/images/The_shining_heres_johnny.jpg"></p>
+
+<p>Don&#8217;t worry, this is not about killing people and dispose of their dead bodies :)
+In physics, A <a href="http://en.wikipedia.org/wiki/Rigid_body">body</a> is a solid object that you put in your world.
+microphysics bodies can be spheres or static boxes.
+Lets start right away by creating a sphere.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">sphere</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">vphy</span><span class="p">.</span><span class="nx">Sphere</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">x</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">y</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">z</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">restitution</span> <span class="o">:</span> <span class="mf">0.6</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">radius</span> <span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will position it at <code>(10,10,10)</code> in the world.
+<a href="http://en.wikipedia.org/wiki/Coefficient_of_restitution">restitution</a> will determine how
+bouncy is this during a collision.
+A bouncing ball restitutes a lot.
+A falling eggs restitutes less :)
+This declaration seems quite verbose at first.
+Don&#8217;t worry those parameters got sensible defaults, no need to specify them all.</p>
+
+<p>Now lets add it to our world</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">world</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">sphere</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you need to remove it, just do <code>world.remove(sphere)</code>. Not too hard hey ?
+Now lets create a static box.
+Boxes are called <em>AABB</em>.
+It stands for <a href="http://en.wikipedia.org/wiki/Axis-aligned_bounding_box">Axis-aligned bounding box</a>.
+It is graphic jarguon for the smallest box containing your object.
+ <code>vphy.Sphere</code>and <code>vphy.AABB</code> both derived from <code>vphy.Body</code>.
+ <code>x, y, z, resitution</code> are <code>vphy.Body</code> parameters, common to both.
+So we wont review them again.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">vphy</span><span class="p">.</span><span class="nx">AABB</span><span class="p">({</span>
+</span><span class='line'>    <span class="nx">width</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">height</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">depth</span> <span class="o">:</span> <span class="mi">1</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p> <code>width</code>, <code>height</code> and <code>depth</code> gives the dimensions of the box.
+After <code>world.step()</code>, you can read the new position of each body. Quite usefull
+to push back the resulting physics in your 3D scene :)</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">pos</span>    <span class="o">=</span> <span class="nx">body</span><span class="p">.</span><span class="nx">getPosition</span><span class="p">();</span>  <span class="c1">// x = pos[0], y = pos[1], z = pos[2]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ok, so we got a <code>world</code> with solid objects in it, all bound to <a href="http://en.wikipedia.org/wiki/Physical_law">physical law</a>.
+Now what about moving them ?</p>
+
+<h2>Let&#8217;s move our Bodies</h2>
+
+<p><img class="right" src="/data/lets-make-a-3d-game-microphysics-js/images/aerobic-small.jpg"></p>
+
+<p>Lets make our sphere moves.
+The bodies you added to the world will move according to the <a href="http://en.wikipedia.org/wiki/Force">forces</a> applied on them.
+All that according to
+<a href="http://en.wikipedia.org/wiki/Newton%27s_laws_of_motion">laws of motion</a>
+from <a href="http://en.wikipedia.org/wiki/Isaac_Newton">Newton</a>.
+He discovered that by receiving an <a href="http://en.wikipedia.org/wiki/Isaac_Newton#Apple_analogy">apple on the head</a>,
+creativity can take strange paths sometime :)</p>
+
+<p>Ok let&#8217;s add <a href="http://en.wikipedia.org/wiki/Gravity_of_Earth">gravity</a>, the force which moved this falling apple.
+This force is applied along a given direction to all our objects.
+The library already contains an helper just for that. Simply do</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">world</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">vphy</span><span class="p">.</span><span class="nx">LinearAccelerator</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">x</span>   <span class="o">:</span>  <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">y</span>   <span class="o">:</span> <span class="o">-</span><span class="mf">9.8</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">z</span>   <span class="o">:</span>  <span class="mi">0</span>
+</span><span class='line'><span class="p">}));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Quite easy, no? Now lets see a custom accelerator, for example a player moving
+according to the keyboard. The player will be a <code>vphy.Sphere</code> and we will
+reuse the <a href="http://learningthreejs.com/data/THREEx/THREEx.KeyboardState.js">keyboard helper</a> we
+did in this <a href="http://learningthreejs.com/blog/2011/09/12/lets-Make-a-3D-game-keyboard/">post</a>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">player</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">vphy</span><span class="p">.</span><span class="nx">Sphere</span><span class="p">({</span> <span class="nx">radius</span> <span class="o">:</span> <span class="mi">20</span> <span class="p">});</span>
+</span><span class='line'><span class="nx">world</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">type</span><span class="o">:</span> <span class="nx">vphy</span><span class="p">.</span><span class="nx">types</span><span class="p">.</span><span class="nx">ACCELERATOR</span><span class="p">,</span>   <span class="c1">// let the lib know it is an accelerator</span>
+</span><span class='line'>  <span class="nx">perform</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">bodies</span><span class="p">){</span>      <span class="c1">// bodies is the array of all vphy.Body</span>
+</span><span class='line'>      <span class="k">if</span><span class="p">(</span> <span class="nx">keyboard</span><span class="p">.</span><span class="nx">pressed</span><span class="p">(</span><span class="s1">&#39;right&#39;</span><span class="p">)</span> <span class="p">)</span>   <span class="nx">player</span><span class="p">.</span><span class="nx">accelerate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</span><span class='line'>      <span class="k">if</span><span class="p">(</span> <span class="nx">keyboard</span><span class="p">.</span><span class="nx">pressed</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span> <span class="p">)</span>    <span class="nx">player</span><span class="p">.</span><span class="nx">accelerate</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</span><span class='line'>      <span class="k">if</span><span class="p">(</span> <span class="nx">keyboard</span><span class="p">.</span><span class="nx">pressed</span><span class="p">(</span><span class="s1">&#39;up&#39;</span><span class="p">)</span> <span class="p">)</span>  <span class="nx">player</span><span class="p">.</span><span class="nx">accelerate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+</span><span class='line'>      <span class="k">if</span><span class="p">(</span> <span class="nx">keyboard</span><span class="p">.</span><span class="nx">pressed</span><span class="p">(</span><span class="s1">&#39;down&#39;</span><span class="p">)</span> <span class="p">)</span>    <span class="nx">player</span><span class="p">.</span><span class="nx">accelerate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p> <code>.perform()</code> will be called at every world step.
+It accesses <code>player</code> via
+<a href="https://developer.mozilla.org/en/JavaScript/Guide/Closures">closure</a>
+, read current keyboard state and accelerate in the proper direction.</p>
+
+<h2>Motivation</h2>
+
+<p>The need for 3D physics is clear for <a href="http://marblesoccer.com">marblesoccer</a>.
+Marble in physics are fun, generic and instinctive for the player.
+Ok so how to get a 3D physics engine ?</p>
+
+<ul>
+<li><strong>Do it yourself ? </strong>
+Well no, it is hard, long and im lazy :)</li>
+<li><strong>Use an existing one ? </strong>
+i tried some and left unimpressed. All those are new experimental stuff.
+Documentation is inexistant.
+They are issued from existing libraries in other languages and convert them to js, sometime multiple conversions in a row.
+I experienced major bugs when i tried. Were those bugs ? Was it me misusing it ?
+Quite possible as the doc is inexistant.
+All in all, i didnt feel it would be a reliable dependancy for our game.</li>
+<li><strong>Used a 2D one, like Box2D ? </strong>
+Box2D is kind of special.
+<a href="http://blog.sethladd.com/">Seth Ladd</a> recently did
+<a href="http://blog.sethladd.com/2011/09/box2d-collision-damage-for-javascript.html">a</a>
+<a href="http://blog.sethladd.com/2011/09/box2d-impulse-and-javascript.html">lot</a>
+<a href="http://blog.sethladd.com/2011/09/box2d-with-complex-and-concave-objects.html">of</a>
+<a href="http://blog.sethladd.com/2011/09/box2d-and-polygons-for-javascript.html">good</a>
+<a href="http://blog.sethladd.com/2011/09/box2d-web-workers-better-performance.html">things</a>
+to explain box2D. Ok, box2D is a converted one but it is of very good quality.
+So why not using box2D ?
+Well because it is 2D and we do 3D.
+Quite an insight, hey :)
+It would be such a tough limitation.
+This webgl + box2D strategy can produce excelent results tho, like this
+<a href="http://game.2x.io/">game demo</a> from <a href="http://twitter.com/#!/einaros">@einaros</a>.
+Take a close look at the physics when object move, it is amazingly
+realistic and it is all box2D.</li>
+<li><strong>Ask somebody else to do it ? </strong>
+We got a <em>winner!</em> <a href="http://twitter.com/#!/pyalot">@pyalot</a> from <a href="http://codeflow.org/">codeflow.org</a></li>
+</ul>
+
+
+<h2>Credits</h2>
+
+<p>All images are from <a href="http://en.wikipedia.org">wikipedia</a>. All hard work is from <a href="http://twitter.com/#!/pyalot">@pyalot</a></p>
+
+<h2>Conclusion</h2>
+
+<p>This is the first post about physics.
+It presented microphysics.js API.
+Thus you can start playing with it immediatly.
+More posts will come shortly.
+At least, one about performance and another one on how to easily bind microphysics to your three.js game.
+That&#8217;s all folks.
+Have fun with microphysics.js :)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-17T12:36:00+02:00" pubdate data-updated="true">Oct 17<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/physics/'>physics</a>, <a class='category' href='/blog/categories/tutorial3dgame/'>tutorial3dgame</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jeromeetienne.github.com/learningthreejs/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/" data-via="LearningThreejs" data-counturl="http://jeromeetienne.github.com/learningthreejs/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/10/05/performance-merging-geometry/" title="Previous Post: Performance: Merging Geometry">&laquo; Performance: Merging Geometry</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2011/11/02/lets-make-a-3d-game-helper-for-microphysics-js/" title="Next Post: Lets Make a 3D Game: microphysics.js, even easier">Lets Make a 3D Game: microphysics.js, even easier &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jeromeetienne.github.com/learningthreejs/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/';
+        var disqus_url = 'http://jeromeetienne.github.com/learningthreejs/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

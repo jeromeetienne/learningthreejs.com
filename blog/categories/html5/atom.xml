@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: html5 | Learning Three.js]]></title>
+  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/html5/atom.xml" rel="self"/>
+  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
+  <updated>2013-03-10T17:49:47+01:00</updated>
+  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <author>
+    <name><![CDATA[Jerome Etienne]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Fun With Live Video in WebGL]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/02/07/live-video-in-webgl/"/>
+    <updated>2012-02-07T13:41:00+01:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/02/07/live-video-in-webgl</id>
+    <content type="html"><![CDATA[<p>This post is about live video in webgl.
+It is possible in today browsers to read the webcam using a new feature from html5, called WebRTC.
+This standard is
+about real-time communications such video conferences.
+It is an open source project supported by Google, Mozilla and Opera.
+Quite neat hey!</p>
+
+<p>I think live video has a lot of potential usages in 3D.
+It is so cool for interactivity.
+The player sees himself on the screen. It becomes part of the actions.
+Quite immersive effect.
+We can imagine something like <a href="http://secondlife.com/">second life</a>, where
+people wander around and interact live with each other in a virtual world.
+Our demo is about TV... Another obvious use may be
+<a href="http://en.wikipedia.org/wiki/Reflection_(physics)">reflections</a>
+like
+<a href="http://en.wikipedia.org/wiki/Mirror">mirror</a>
+or
+<a href="http://en.wikipedia.org/wiki/Specular_reflection">water</a>.
+What about your face from the webcam reflecting in water with animated waves ?
+Would be nice!</p>
+
+<!-- more -->
+
+
+
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/vnNihxl3taE" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<p>It is surely nice but WebRTC is still quite on the edge.
+To enable webrtc on your computer, see how to
+<a href="http://www.webrtc.org/running-the-demos">run webrtc demos</a>.
+It is currently available only in
+<a href="http://tools.google.com/dlpage/chromesxs">Canari</a>.
+Mozilla people are working hard to make it happen as soon as possible.
+So it may be too early to use it for 'serious' things.
+But way enougth to do cool experiments like the one we gonna do today :)</p>
+
+<p><a href="/data/live-video-in-webgl">Try it out</a>!!
+The first step will be to create a video element.
+We gonna start to make it play either a normal video file
+then to play video from the webcam using
+<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/streams/StreamProcessing.html">mediastream API</a>.
+After that, we gonna map this video to a normal texture.
+And we will be done !
+It is that simple, now let's get started.</p>
+
+<h2>Let's create the video element</h2>
+
+<p>The
+<a href="http://en.wikipedia.org/wiki/HTML5_video">video element</a>
+is the DOM way to handle video in webpage.
+Let's create the video element.
+Later we will use it as texture and display it in WebGL.</p>
+
+<p>```javascript</p>
+
+<pre><code>video       = document.createElement('video');
+video.width = 320;
+video.height    = 240;
+video.autoplay  = true;
+</code></pre>
+
+<p>```</p>
+
+<p>It you wish to create a video from a file webm, mp4 or ogv, just set
+its <code>.src</code> property.</p>
+
+<p>```javascript</p>
+
+<pre><code>video.src = "http://example.com/supercatvideo.webm";
+</code></pre>
+
+<p>```</p>
+
+<p>It wasn't too hard, hey :) So now we know how to get a video from a file.
+Let's see if we can use the webcam and get this nice immersive effect for our
+users.</p>
+
+<h2>Let's Use the Webcam if Available</h2>
+
+<p>Our first step is to detect if the media stream API is available.
+The following line will do the job nicely.
+ <code>hasUserMedia</code> will be true if it is available, false otherwise.</p>
+
+<p>```javascript</p>
+
+<pre><code>var hasUserMedia = navigator.webkitGetUserMedia ? true : false;
+</code></pre>
+
+<p>```</p>
+
+<p>If it isn't, you may point the users to
+<a href="http://www.webrtc.org/running-the-demos">this doc</a>
+on how to get it
+and/or using a normal video file.
+Now we need to check if we can read the webcam.
+For that, we use the following lines.</p>
+
+<p>```javascript</p>
+
+<pre><code>navigator.webkitGetUserMedia('video', function(stream){
+    video.src   = webkitURL.createObjectURL(stream);
+}, function(error){
+    console.log("Failed to get a stream due to", error);
+});
+</code></pre>
+
+<p>```</p>
+
+<p>A pseudo URL will be created by <code>.createObjectURL</code>.
+It would allows the video element to automagically read the webcam.
+It looks a bit like that.</p>
+
+<p>```</p>
+
+<pre><code>blob:http%3A//learningthreejs.com/e33eb278-08a8-4052-9dca-3c7663c88bc0
+</code></pre>
+
+<p>```</p>
+
+<h2>Handle the textures</h2>
+
+<p>Now we got the <a href="https://developer.mozilla.org/En/HTML/Element/Video">video element</a> ready.
+Let's create a texture using it as source.
+The last step before seeing the video moving on screen :)
+Use this simple line. It is enougth.</p>
+
+<p>```javascript</p>
+
+<pre><code>var videoTexture = new THREE.Texture( video );
+</code></pre>
+
+<p>```</p>
+
+<p>This texture is a normal texture and can be used as usual in materials.
+For example, in a <a href="http://en.wikipedia.org/wiki/Lambertian_reflectance">lambert</a> material.</p>
+
+<p>```javascript</p>
+
+<pre><code>var material    = new THREE.MeshLambertMaterial({
+    map : videoTexture
+});
+</code></pre>
+
+<p>```</p>
+
+<p>But this texture is special, it is a video. So it need to be constantly updated.
+In your render loop, add those lines. They monitor the state of your video.
+Every time the video got enougth data to be display, the texture is updated
+and sent to the GPU.</p>
+
+<p>```javascript</p>
+
+<pre><code>if( video.readyState === video.HAVE_ENOUGH_DATA ){
+    videoTexture.needsUpdate = true;
+}
+</code></pre>
+
+<p>```</p>
+
+<h2>Conclusion</h2>
+
+<p>Now you can display your webcam inside your webgl !!
+This is simple and cool.
+Browser support will increase with time.
+Live video is a very powerfull tool.
+The image from the webcam is a normal one.
+On it, you can perform
+<a href="https://github.com/mrdoob/three.js/tree/master/examples/js/postprocessing">post processing</a>,
+<a href="http://en.wikipedia.org/wiki/Edge_detection">edge detection</a>,
+and many other crazy things. Up to you to experiment.
+Let's all for today folks, have fun :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lets Make a 3D Game: Make It Embedded]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/11/21/lets-make-a-3d-game-make-it-embedded/"/>
+    <updated>2011-11-21T16:32:00+01:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/11/21/lets-make-a-3d-game-make-it-embedded</id>
+    <content type="html"><![CDATA[<iframe src="http://marblesoccer.com"
+    allowfullscreen webkitallowfullscreen mozallowfullscreen
+    width="420" height="315" frameborder="0" style="float: right; margin-left: 1em;">
+</iframe>
+
+
+<p>This post is part of the <a href="/blog/categories/tutorial3dgame/">"Let's make a 3D game"</a> series.
+The previous post was on
+<a href="/blog/2011/11/17/lets-make-a-3d-game-make-it-fullscreen/">fullscreen API</a>.
+Here is another one on resizing the display area.
+This post is about embedding your game in another page.
+It is usefull to include it in a blog, in facebook, iGoogle or other game plateforms.</p>
+
+<p><a href="http://marblesoccer.com">MarbleSoccer</a>
+now contains all the tricks explained in this post.
+<em>Show dont tell</em>, you can see it embedded on the left.
+Embedding your game implies various things.
+As your game is hosted in another page, it likely got a smaller display area.
+HTML5
+<a href="http://www.w3.org/TR/css3-mediaqueries/">CSS media query</a>
+makes it easy to fit various sizes.
+Another part are the
+<a href="http://en.wikipedia.org/wiki/DOM_events">DOM events</a>
+from the iframe.
+They will be propagated to the host page and may produce undesirable effects.
+We see how to shield them.
+But first let's see about
+<a href="http://en.wikipedia.org/wiki/HTML_element#Frames">iframe</a></p>
+
+<h2>Let's go play in an iframe</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/HTML_element#Frames">iframe</a>
+is an easy and secure way to embed a page in another.
+Let's declare it.</p>
+
+<p>```html</p>
+
+<pre><code>&lt;iframe src="http://marblesoccer.com"
+    allowfullscreen webkitallowfullscreen mozallowfullscreen
+    width="480" height="320" frameborder="0"&gt;
+&lt;/iframe&gt;
+</code></pre>
+
+<p>```</p>
+
+<!-- more -->
+
+
+<p>The attributes are pretty classics: <code>frameborder</code> to remove an ugly default border,
+ <code>width</code> and <code>height</code> for size and <code>src</code> for your game page.
+The ones ending with <code>allowfullscreen</code> tell the browser that this iframe is
+allowed to go fullscreen. More about fullscreen in this
+<a href="/blog/2011/11/17/lets-make-a-3d-game-make-it-fullscreen/">previous post</a>
+or in the <a href="http://dvcs.w3.org/hg/fullscreen/raw-file/tip/Overview.html">spec</a>.</p>
+
+<p>You may need to determined if your game is embedded or not.
+Use this line will tell if it is in a iframe or not.</p>
+
+<p>```javascript</p>
+
+<pre><code>var isInIframe  = (window != window.top);
+</code></pre>
+
+<p>```</p>
+
+<h2>Fit in a smaller display area</h2>
+
+<p>When your game is embedded, it is likely to have a smaller display area.
+How to deal with this ?
+First, we have 2 types of rendering in our game:
+a 3D display where
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+displays the
+<a href="http://en.wikipedia.org/wiki/WebGL">WebGL</a>, and
+a DOM display for
+<a href="http://en.wikipedia.org/wiki/On-screen_display">OSD</a>
+such as score, timers and other popups.</p>
+
+<p>For <em>3D rendering</em>, we have already seen window resizing in
+<a href="/blog/2011/08/30/window-resize-for-your-demos/">this post</a>.
+Just download
+<a href="/data/THREEx/THREEx.WindowResize.js">THREEx.WindowResize</a>
+and add this line and you are done. Not too hard, hey.</p>
+
+<p>```javascript</p>
+
+<pre><code>THREEx.WindowResize(renderer, camera);
+</code></pre>
+
+<p>```</p>
+
+<p>Now <em>the DOM display</em>. It may simply be done via CSS
+and
+<a href="http://www.w3.org/TR/css3-mediaqueries/">media queries</a>.
+Typically, you may reduce the size of your font or icons.
+I won't try to teach css, other do that much
+<a href="https://developer.mozilla.org/en/CSS/Media_queries">better</a>
+<a href="http://www.html5rocks.com/en/mobile/mobifying.html#toc-mediaqueries">than</a>
+<a href="http://thinkvitamin.com/code/media-queries-width-and-height-video-tutorial/">me</a>.
+Just a pick of what i did, not sure at all it is the best way.
+I reduce the OSD display if your game page is 640px or less.</p>
+
+<p>```css</p>
+
+<pre><code>@media all and (max-width: 640px) {
+    /* here put your style specific for embedded case */
+    body { font-size : 60%; }
+    img { width : 48px; }
+}
+</code></pre>
+
+<p>```</p>
+
+<h2>Shield Events</h2>
+
+<p>Strange section title, hey.
+It means <em>prevents DOM events from the iframe to interfere with the host page</em>.
+Not much clearer...
+Maybe with an example ? Let's see the arrows+scroll case.
+Show dont tell.
+Below are 2 iframes: on the left, no shielding happens, on the right shielding happens.
+Try to click on them and use arrows up/down.</p>
+
+<iframe src="http://jeromeetienne.github.com/learningthreejs/data/THREEx/examples/threex.embedded/noshield-iframe.html" width='50%' height='120px'></iframe>
+
+
+<iframe src="http://jeromeetienne.github.com/learningthreejs/data/THREEx/examples/threex.embedded/withshield-iframe.html" width='49%' height='120px'></iframe>
+
+
+<p>On the left, the host page scrolls, but not on the right.
+Why does this happen ? good question :)
+If our game iframe got the focus and users press up or down, the iframe will received
+<a href="http://www.quirksmode.org/dom/events/keys.html">keydown/keyup events</a>.
+Up to now, all is ok...
+Troubles appear when those events are bubbling to the host page, they may trigger a scrolling.</p>
+
+<p>Imagine the page going up and down while you play, the game becomes unplayable very fast :)
+So here is the code which prevents this behavior. It listens to arrows
+<a href="http://www.quirksmode.org/dom/events/keys.html">keydown events</a>.
+and prevent their default.</p>
+
+<p>```javascript</p>
+
+<pre><code>document.addEventListener('keydown', function(event){
+    // if it is keydown on a arrow, prevent default
+    if( event.keyCode &gt;= 37 &amp;&amp; event.keyCode &lt;= 40 ){
+        event.preventDefault();
+    }
+}, true);
+</code></pre>
+
+<p>```</p>
+
+<h2>Conclusion</h2>
+
+<p>I gathered the code in
+<a href="/data/THREEx/threex.embedded.js">threex.embedded</a>,
+see its
+<a href="/data/THREEx/docs/threex.embedded.html">annoted source</a>.
+Iframe is a easy and secure way to make your game embeddable.
+We have seen how to handle smaller display area
+with
+<a href="/data/THREEx/THREEx.WindowResize.js">THREEx.WindowResize</a>
+and
+<a href="http://www.w3.org/TR/css3-mediaqueries/">media queries</a>.
+Additionnaly we even shield DOM events, so we can use arrow keys for player control.
+You are all set! Go embed your game now :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lets Make a 3D Game: Make It Fullscreen]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/11/17/lets-make-a-3d-game-make-it-fullscreen/"/>
+    <updated>2011-11-17T07:59:00+01:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/11/17/lets-make-a-3d-game-make-it-fullscreen</id>
+    <content type="html"><![CDATA[<p>This post is part of the <a href="/blog/categories/tutorial3dgame/">"Lets make a 3D game"</a> series.
+It is about the <a href="http://dvcs.w3.org/hg/fullscreen/raw-file/tip/Overview.html">fullscreen API</a>.
+This API allows to make DOM elements fullscreen.
+Fullscreen is quite important for games.
+It provides a larger display so a more immersive experience for your players.
+All that from javascript, so no more needed to ask "please f11" to your
+players, isnt that sweet ? :)</p>
+
+<p><img class="right" src="/data/lets-make-a-3d-game-make-it-fullscreen/images/fullscreen-icon.png"></p>
+
+<p>The <a href="http://dvcs.w3.org/hg/fullscreen/raw-file/tip/Overview.html">fullscreen API</a>
+is still in discussion, but the basics are settled. At the time of this writing,
+it is available in
+<a href="http://blog.pearce.org.nz/2011/11/firefoxs-html-full-screen-api-enabled.html">firefox nightly</a>,
+<a href="http://peter.sh/2011/01/javascript-full-screen-api-navigation-timing-and-repeating-css-gradients/">webkit nightly</a>and
+<a href="http://updates.html5rocks.com/2011/10/Let-Your-Content-Do-the-Talking-Fullscreen-API">chrome stable</a>.
+It has been already added in <a href="http://marblesoccer.com">marbleSoccer</a>.
+The icon is from <a href="http://thenounproject.com/">The Noun Project</a>, a source of nice and clean icons.
+Try it out! Click on it to toggle fullscreen state. If you dont see the icon, your browser
+doesn't yet have the fullscreen API.</p>
+
+<center>
+    <iframe webkitallowfullscreen mozallowfullscreen allowfullscreen width="100%" height="320" src="http://marblesoccer.com" frameborder="0"></iframe>
+</center>
+
+
+<p>Ok now is time for code :)</p>
+
+<h2>Let's get started</h2>
+
+<p>As usual, i provide a little helper to make it easier for you to include it in
+your games. It is called <a href="/data/THREEx/THREEx.FullScreen.js">THREEx.FullScreen.js</a>.
+It hides the prefix of each vendor and the little discrepencies between their API
+implementation.
+You download this file from <a href="/data/THREEx/THREEx.FullScreen.js">here</a> and include
+it in your page like this</p>
+
+<p>```html</p>
+
+<pre><code>&lt;script src='THREEx.FullScreen.js'&gt;&lt;/script&gt;
+</code></pre>
+
+<p>```</p>
+
+<!-- more -->
+
+
+<h2>How to use it ?</h2>
+
+<p>The API is simple, only 4 calls. Lets see them one by one.
+To test if it is possible to have fullscreen on your system, do</p>
+
+<p>```javascript</p>
+
+<pre><code>THREEx.FullScreen.available();
+</code></pre>
+
+<p>```</p>
+
+<p>To test if fullscreen is currently activated on your page</p>
+
+<p>```javascript</p>
+
+<pre><code>THREEx.FullScreen.activated();
+</code></pre>
+
+<p>```</p>
+
+<p>To Request fullscreen on a given element, just do</p>
+
+<p>```javascript</p>
+
+<pre><code>THREEx.FullScreen.request(element);
+</code></pre>
+
+<p>```</p>
+
+<p>If element isnt provided, it defaults to <code>document.body</code>.
+To cancel fullscreen on your page, use this line.</p>
+
+<p>```javascript</p>
+
+<pre><code>THREEx.FullScreen.cancel();
+</code></pre>
+
+<p>```</p>
+
+<p>Quite straight forward, no ? :) As an example, let's make a toggle, the same used
+in <a href="http://marblesoccer.com">marbleSoccer</a>.</p>
+
+<p>```javascript</p>
+
+<pre><code>if( THREEx.FullScreen.activated() ){
+    THREEx.FullScreen.cancel();
+}else{
+    THREEx.FullScreen.request();
+}
+</code></pre>
+
+<p>```</p>
+
+<h2>What about the standard ?</h2>
+
+<p>There is a <a href="http://dvcs.w3.org/hg/fullscreen/raw-file/tip/Overview.html">w3c proposal</a> in dicussion.
+John dyer has written an in-depth <a href="http://johndyer.name/native-fullscreen-javascript-api-plus-jquery-plugin/">summary</a>.
+Mozilla provides details on <a href="https://wiki.mozilla.org/Gecko:FullScreenAPI">their API</a>.
+At the time of this writing
+It is available in
+<a href="http://blog.pearce.org.nz/2011/11/firefoxs-html-full-screen-api-enabled.html">firefox nightly</a>,
+<a href="http://peter.sh/2011/01/javascript-full-screen-api-navigation-timing-and-repeating-css-gradients/">webkit nightly</a>
+and
+<a href="http://updates.html5rocks.com/2011/10/Let-Your-Content-Do-the-Talking-Fullscreen-API">chrome stable</a>.</p>
+
+<h2>Conclusion</h2>
+
+<p>For more details on <a href="/data/THREEx/THREEx.FullScreen.js">THREEx.FullScreen</a>,
+see its <a href="/data/THREEx/docs/THREEx.FullScreen.html">annoted source</a>.
+It is a simple to add in your game.
+It provides a more immersive experience to your players.
+On a related subject, we will soon likely do a post about embedding your game in another page.
+It is usefull when you want to include it in a blog, in facebook or other game plateforms.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Let's Make a 3D Game: Device Orientation]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/09/20/lets-make-a-3D-game-device-orientation/"/>
+    <updated>2011-09-20T10:35:00+02:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/09/20/lets-make-a-3D-game-device-orientation</id>
+    <content type="html"><![CDATA[<p>Here is another article of the "Let's Make a 3D Game" <a href="/blog/categories/tutorial3dgame/">series</a>.
+It is about <strong>device orientation</strong>, another input you can use for your games.
+We have already seen how to handle the <a href="/blog/2011/09/12/lets-Make-a-3D-game-keyboard/">keyboard</a> input.
+Device orientation input is more instinctive tho. The user doesnt need to learn controls.
+It is already enabled in our game <a href="http://marblesoccer.com">marblesoccer</a>.
+Here is a <a href="http://www.youtube.com/watch?v=kW4oHaHCilo">video</a> of me playing with it.</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/kW4oHaHCilo" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+<!-- more -->
+
+
+<p>You need a computer which support WebGL <em>and</em> device orientation to actually play
+with it. Unfortunatly, macbook is the only computer i know able to do that.
+On one hand, most smartphones already support <em>device orientation API</em>.
+On the other hand, smartphones support for WebGL is sparse at best.
+So this input will become very usefull if we start supporting
+<a href="https://github.com/mrdoob/three.js/tree/master/src/renderers">three.js renderers</a>
+available on phones, such as canvas or DOM.</p>
+
+<h2>Let's get started</h2>
+
+<p>As usual, i did a little helper to make it easier for you to include it in
+your games. It is called <a href="/data/THREEx/THREEx.DeviceOrientationState.js">THREEx.DeviceOrientationState</a>.
+You download this API from <a href="/data/THREEx/THREEx.DeviceOrientationState.js">here</a> and include
+it in your page like this</p>
+
+<p>```html</p>
+
+<pre><code>&lt;script src='THREEx.DeviceOrientationState.js'&gt;&lt;/script&gt;
+</code></pre>
+
+<p>```</p>
+
+<h2>How to use it ?</h2>
+
+<p>Now that the script is included, create a <code>device</code> variable like this.</p>
+
+<p>```javascript</p>
+
+<pre><code>var device = new THREEx.DeviceOrientationState();
+</code></pre>
+
+<p>```</p>
+
+<p>After that, if you want the angle the device with the x axis, just use
+ <code>.angleX()</code> function. You can use <code>.angleY()</code> and <code>.angleZ()</code>, you
+guessed which angle they provide.
+Suppose you want a <code>THREE.Mesh</code> to stay still on y axis while you are moving the device,
+just copy this line</p>
+
+<p>```javascript</p>
+
+<pre><code>mesh.rotation.y = device.angleY();
+</code></pre>
+
+<p>```</p>
+
+<p>If you ever want to stop listening to the device orientation, just use this line</p>
+
+<p>```javascript</p>
+
+<pre><code>device.destroy()
+</code></pre>
+
+<p>```</p>
+
+<h2>What about the standard ?</h2>
+
+<p>Sometime it may be interesting to understand the root of things.
+Let's do a rapid introduction of the device orientation API itself.
+For authoritative details, the <a href="http://www.w3.org/TR/orientation-event/">spec</a>
+is always a nice place.
+If you want more info on it, <a href="http://www.html5rocks.com/en/tutorials/device/orientation/">html5rocks</a>
+or <a href="https://developer.mozilla.org/en/detecting_device_orientation">mdn</a>
+articles are a good start.
+First let's bind the event.</p>
+
+<p>```javascript</p>
+
+<pre><code>window.addEventListener('deviceorientation',  callback, false);
+</code></pre>
+
+<p>```</p>
+
+<p>Here is an example of callback</p>
+
+<p>```javascript</p>
+
+<pre><code>function callback(event){
+    console.log("orientation gamma:", event.gamma, "beta", event.beta, "alpha", event.alpha);
+}
+</code></pre>
+
+<p>```</p>
+
+<p>Be carefull tho, gamma, beta, alpha may not be set depending on the device your game is
+running on. For example on macbook, <code>alpha</code> is always <code>null</code>.</p>
+
+<h2>Conclusion</h2>
+
+<p>For more details on <a href="/data/THREEx/THREEx.DeviceOrientationState.js">THREEx.DeviceOrientationState</a>,
+see its <a href="/data/THREEx/docs/THREEx.DeviceOrientationState.html">annoted source</a>.
+It is a simple and instinctive way to control the player.
+It is closer to real-life and thus provides a more immersive experience.
+In the future we will likely do be
+a <a href="http://www.youtube.com/watch?v=-sEJ4Lo0cm8">virtual joystick</a> for touch enabled device.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: shadows | Learning Three.js]]></title>
+  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/shadows/atom.xml" rel="self"/>
+  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
+  <updated>2013-03-10T17:49:47+01:00</updated>
+  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <author>
+    <name><![CDATA[Jerome Etienne]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Casting Shadows]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/01/20/casting-shadows/"/>
+    <updated>2012-01-20T14:44:00+01:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/01/20/casting-shadows</id>
+    <content type="html"><![CDATA[<p>This post is about
+<a href="http://en.wikipedia.org/wiki/Shadow_mapping">shadow casting</a>,
+a technique which approximates the effect you see in real life everyday.
+They may be tricky to tune but they looks so good, it worths it.
+Shadows are an efficient tool when you to make your scene more realistic.
+We will see how they can be used inside
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+and see more about lights while we are at it.</p>
+
+<p>As usual, there is a <a href="/data/casting-shadows/">demo</a>.
+It is kept it real simple thus you can read the code more easily.
+The scene is a simple object in the middle, a spotlight moving around and a plane
+to receive the object shadow. The light frustum is left visible in orange.</p>
+
+<!-- more -->
+
+
+
+
+<iframe src="http://jeromeetienne.github.com/learningthreejs/data/casting-shadows"
+    webkitallowfullscreen mozallowfullscreen allowfullscreen 
+    width="100%" height="420" frameborder="0">
+</iframe>
+
+
+<h2>Let's Code Shadows</h2>
+
+<p>Casting shadows in
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+involves 3 parts: the
+<a href="https://github.com/mrdoob/three.js/blob/master/src/renderers/WebGLRenderer.js">renderer</a>
+which does the computation, the
+<a href="https://github.com/mrdoob/three.js/tree/master/src/lights">lights</a>
+which cast shadows, and
+<a href="https://github.com/mrdoob/three.js/blob/master/src/core/Object3D.js">objects</a>
+which receives lights and shadows.</p>
+
+<h2>Set up the Renderer</h2>
+
+<p>The renderer is the one which will compute the shadows positions for your 3D scene.
+Shadow casting is quite expensive. It is only supported by
+<a href="https://github.com/mrdoob/three.js/blob/master/src/renderers/WebGLRenderer.js">WebGLRenderer</a>.
+It uses
+<a href="http://en.wikipedia.org/wiki/Shadow_mapping">Shadow mapping</a>, a technique specific
+to WebGL, performed directly on the <a href="http://en.wikipedia.org/wiki/Graphics_processing_unit">GPU</a>.</p>
+
+<p>```javascript</p>
+
+<pre><code>renderer.shadowMapEnabled = true;
+</code></pre>
+
+<p>```</p>
+
+<p><img class="right" src="/data/casting-shadows/images/screenshot-withsoftshadow-small.png">
+<img class="left" src="/data/casting-shadows/images/screenshot-nosoftshadow-small.png"></p>
+
+<p>You can smooth produced shadows with <code>shadowMapSoft</code>. It default to false.
+On the left, the shadow is crisp, on the right it is soft.</p>
+
+<p>```javascript</p>
+
+<pre><code>// to antialias the shadow
+renderer.shadowMapSoft = true;
+</code></pre>
+
+<p>```</p>
+
+<h2>Configure your objects</h2>
+
+<p>For
+<a href="https://github.com/mrdoob/three.js/blob/master/src/core/Object3D.js">Object3D</a>,
+two parameters controls how they interact with lights and shadows.
+Set <code>.castShadow</code> to true if the object occludes light, so to cast a shadow.
+Set <code>.receiveShadow</code> to true if the object is supposed to receive shadows.
+Both default to false</p>
+
+<p>```javascript</p>
+
+<pre><code>object3d.castShadow = true;
+object3d.receiveShadow  = false;
+</code></pre>
+
+<p>```</p>
+
+<p>This is the configuration for the central object in the demo. It will occlude lights but
+won't be able to receive shadow. So you wont see any
+<a href="http://en.wikipedia.org/wiki/Self-shadowing">self shadow</a>.</p>
+
+<h2>Tune your Lights</h2>
+
+<p><img class="left" src="/data/casting-shadows/images/light-directionallight-small.jpg" title="" >
+<img class="right" src="/data/casting-shadows/images/light-spotlight-small.jpg" title="" ></p>
+
+<p><a href="https://github.com/mrdoob/three.js/blob/master/src/lights/DirectionalLight.js">THREE.DirectionalLight</a>
+or
+<a href="https://github.com/mrdoob/three.js/blob/master/src/lights/SpotLight.js">THREE.SpotLight</a>
+are able to cast shadows.
+Let's details them.
+A directional light is when light rays are parallel.
+A bit like when you look at the sun rays on the left.
+It mostly behaves like a light source very far from us.
+A spot light is when light rays seems to originate from a single point, and
+spreads outward in a coned direction, like in the dance club on the right
+(Images are from wikipedia).
+To enable the shadow casting on a light,
+just use this line.</p>
+
+<p>```javascript</p>
+
+<pre><code>light.castShadow = true;
+</code></pre>
+
+<p>```</p>
+
+<p>You can tune the <code>shadowDarkness</code>.
+It is the opacity of the shadow. 0 means no shadow, 1 means pure back shadow.</p>
+
+<p>```javascript</p>
+
+<pre><code>light.shadowDarkness = 0.5;
+</code></pre>
+
+<p>```</p>
+
+<p><img class="right" src="/data/casting-shadows/images/screenshot-shadowCameraVisible-small.png"></p>
+
+<p>In the same vibe, it possible to show the shadow camera on the screen
+with <code>shadowCameraVisible</code>.
+A very usefull feature during tuning or debugging.</p>
+
+<p>```javascript</p>
+
+<pre><code>light.shadowCameraVisible = true;
+</code></pre>
+
+<p>```</p>
+
+<h2>More of Directional Lights</h2>
+
+<p><img class="right" src="/data/casting-shadows/images/screenshot-fustrum-orthographic-small.png">
+<img class="left" src="/data/casting-shadows/images/screenshot-fustrum-perspective-small.png" title="" ></p>
+
+<p>Additionally, when casting shadow with a
+<a href="https://github.com/mrdoob/three.js/blob/master/src/lights/DirectionalLight.js">THREE.DirectionalLight</a>,
+you need to setup an orthographic camera.
+What is that ? it is a different form of
+<a href="http://en.wikipedia.org/wiki/3D_projection">3D projection</a>.
+<a href="http://en.wikipedia.org/wiki/Perspective_(graphical)">Perspective</a>
+is the way we see things in real life.
+So it seems more natural to us than
+<a href="http://en.wikipedia.org/wiki/Orthographic_projection">orthographic projection</a>.
+On the left, an illustration shows a perspective projection.
+You can see what is inside the orange shape.
+On the right, the same for a orthographic one.</p>
+
+<p>Recent
+<a href="https://github.com/mrdoob/three.js/commit/32b581f24fddeaf9e91b7825aa93ec0ad3a45c83">three.js r47 release</a>
+includes a
+<a href="http://mrdoob.github.com/three.js/examples/webgl_camera.html">very didactic example</a>
+from
+<a href="http://alteredqualia.com/">alteredq</a>.
+Play with it, it may understand the difference between
+<a href="https://github.com/mrdoob/three.js/blob/master/src/cameras/OrthographicCamera.js">orthographic</a>
+and
+<a href="https://github.com/mrdoob/three.js/blob/master/src/cameras/PerspectiveCamera.js">perspective</a>
+cameras.
+Here is a possible configuration of the frustum for the orthographic camera of our light.</p>
+
+<p>```javascript</p>
+
+<pre><code>light.shadowCameraRight     =  5;
+light.shadowCameraLeft      = -5;
+light.shadowCameraTop       =  5;
+light.shadowCameraBottom    = -5;
+</code></pre>
+
+<p>```</p>
+
+<h2>Conclusion</h2>
+
+<p>This is it, you can code shadow casting in three.js now :)
+Go ahead and play with them. They are hard to master but very efficient visually.
+Keep in mind that those shadows aren't real.
+They only uses
+<a href="http://en.wikipedia.org/wiki/Shadow_mapping">'some tricks'</a>
+to make them appears as real. And they do so in real time !!
+To achieve this result, they take significant shortcuts which
+produce artifacts. To avoid those require tuning and experience.</p>
+
+<p>That's all for today folks. Have fun.</p>
+]]></content>
+  </entry>
+  
+</feed>

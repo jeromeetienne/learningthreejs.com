@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Let's Make a 3D Game: Keyboard - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This post is the first of a series Let&#8217;s Make a 3d game.
+The series will walk you down the path of
+game developement.
+It will describe the &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/2011/09/12/lets-Make-a-3D-game-keyboard/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Let's Make a 3D Game: Keyboard</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-12T17:31:00+02:00" pubdate data-updated="true">Sep 12<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This post is the first of a series <strong>Let&#8217;s Make a 3d game</strong>.
+The <a href="/blog/categories/tutorial3dgame/">series</a> will walk you down the path of
+game developement.
+It will describe the various parts of a web game: input handling, map generation,
+collision, physics, sounds, graphics etc&#8230;
+Obviously we will glue them to make an actual game. Quite a bit of work
+but im super excited !</p>
+
+<p>It will be a <a href="http://en.wikipedia.org/wiki/Marble_Madness">marble</a>
+game. Not sure which kind yet, but they are
+<a href="http://www.youtube.com/results?search_query=marble+video+game">many</a>.
+I did <a href="http://pacmaze.com">pacmaze</a>, a pacman in 3D  and <a href="http://buddymaze.com">buddymaze</a>,
+a multi-player first personn shooter. But this one gonna be from scratch, thus we will
+discover things as together :)</p>
+
+<p>We will try to code each part of the game to be as reusable as possible.
+The first part will be the <strong>keyboard handling</strong>. It isnt the hardest, nor the most important, but it is
+super simple. Perfect to get us started.</p>
+
+<h2>Let&#8217;s get started</h2>
+
+<p>In a game, a keyboard handler is a bit special. Usually this is done with events
+, e.g. <a href="http://api.jquery.com/bind/">jQuery.bind()</a>
+or <a href="https://github.com/jeresig/jquery.hotkeys">hotkeys</a>.
+But we are doing a game and all games revolve around a <a href="http://en.wikipedia.org/wiki/Game_programming#Game_structure">game loop</a>.
+So the keyboard must be queryable at any time during this loop, as opposed
+to <a href="http://en.wikipedia.org/wiki/Event-driven_architecture">event-driven</a>.
+Our code should keep tracks of which key and which modifier is pressed.
+Let&#8217;s call it <em>KeyboardState</em>.</p>
+
+<h2>Let&#8217;s include the script</h2>
+
+<p>You download it from <a href="/data/THREEx/THREEx.KeyboardState.js">here</a> and include
+it in your page like this</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;THREEx.KeyboardState.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- more -->
+
+
+<h2>How to use it ?</h2>
+
+<p>Now that the script is included, create a <code>keyboard</code> variable like this.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">keyboard</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">KeyboardState</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After that you can query the current status of the keyboard with <code>.pressed("W")</code>. For
+example if you want shift+H to display help, do the following.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">if</span><span class="p">(</span> <span class="nx">keyboard</span><span class="p">.</span><span class="nx">pressed</span><span class="p">(</span><span class="s2">&quot;shift+H&quot;</span><span class="p">)</span> <span class="p">)</span>     <span class="nx">displayHelp</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you ever want to stop listening to the keyboard, just use this line</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">keyboard</span><span class="p">.</span><span class="nx">destroy</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Conclusion</h2>
+
+<p>For more details on <a href="/data/THREEx/THREEx.KeyboardState.js">THREEx.KeyboardState</a>,
+see its <a href="/data/THREEx/docs/THREEx.KeyboardState.html">annoted source</a>.
+We have seen it is quite simple to use.
+Ok now we got the keyboard handling for our game. Nice but it seems a bit virtual for now.
+But i think the game will become more concret when we gonna have stuff moving on the screen.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-12T17:31:00+02:00" pubdate data-updated="true">Sep 12<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>, <a class='category' href='/blog/categories/tutorial3dgame/'>tutorial3dgame</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jeromeetienne.github.com/learningthreejs/blog/2011/09/12/lets-Make-a-3D-game-keyboard/" data-via="LearningThreejs" data-counturl="http://jeromeetienne.github.com/learningthreejs/blog/2011/09/12/lets-Make-a-3D-game-keyboard/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/09/03/screenshot-in-javascript/" title="Previous Post: Screenshot in Javascript">&laquo; Screenshot in Javascript</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2011/09/14/lets-make-a-3D-game-map-editor/" title="Next Post: Let's Make a 3D Game: Map Editor">Let's Make a 3D Game: Map Editor &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jeromeetienne.github.com/learningthreejs/blog/2011/09/12/lets-Make-a-3D-game-keyboard/';
+        var disqus_url = 'http://jeromeetienne.github.com/learningthreejs/blog/2011/09/12/lets-Make-a-3D-game-keyboard/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

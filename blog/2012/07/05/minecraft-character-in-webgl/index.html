@@ -1,0 +1,447 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Minecraft Character in WebGL - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This post is about Minecraft Character.
+We will play with the minecraft character, learn how to do your own and make it move.
+I recently saw this &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/2012/07/05/minecraft-character-in-webgl/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Minecraft Character in WebGL</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-05T10:22:00+02:00" pubdate data-updated="true">Jul 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This post is about Minecraft Character.
+We will play with the minecraft character, learn how to do your own and make it move.
+I recently saw this excelent <a href="http://djazz.mine.nu/lab/minecraft_items/">minecraft items demo</a>
+by <a href="https://twitter.com/#!/daniel_hede">@daniel_hede</a>. It triggered a switch in my head :)
+I felt in love with minecraft style of 3d.
+It makes modeling so simple.
+You don&#8217;t need to learn how to use 3d modeling software like
+<a href="http://www.blender.org/">blender</a>,
+<a href="http://usa.autodesk.com/maya/">maya</a> and such.
+It is easy to create new model based on this style.</p>
+
+<p>Try the <a href="/data/2012-07-05-minecraft-character-in-webgl/">minecraft plugin demo</a>. This is the
+one we gonna build. I used <a href="https://twitter.com/#!/daniel_hede">@daniel_hede</a>&#8217;s code
+and did many plugins to make it all simple and fun :)
+In this demo, i introduce
+<a href="https://github.com/mrdoob/three.js/tree/master/examples/js/postprocessing">three.js post processing</a>
+for the first time.
+This is the
+<a href="http://en.wikipedia.org/wiki/Vignetting">Vignetting</a>
+and
+<a href="http://en.wikipedia.org/wiki/Sepia_(color)">sepia color</a>
+that you see.
+Additionnaly, you can easily change the skins with the UI within the demo.
+Now let&#8217;s get started!</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/eg0qshn4VC0" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+<!-- more -->
+
+
+<h2>Let&#8217;s start coding</h2>
+
+<p>We start to create our world as usual. This initialize the renderer, the camera,
+its controls and a rendering loop.
+We setup the
+<a href="http://learningthreejs.com/blog/2012/01/19/boilerplate-builder-for-three-js/">boilerplate for three.js</a>
+and add a page title with some info on our little 3D demo.
+We just put the camera a little closer to scene center. Thus the character
+will be bigger on screen. We just can&#8217;t get enougth of it, can we ;)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var world    = tQuery.createWorld().boilerplate().pageTitle('#info').start();
+</span><span class='line'>world.tCamera().position.z    = 1.8;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now we add a bit of post processing. It is the first time
+we talk about this, so let&#8217;s details it a bit.
+What is post processing (in a 3d context) ?
+Post processing is performed after rendering the 3D, hence the name.
+It applies on the screen as a whole. So the effects are in 2D.
+What&#8217;s it not ?
+It isn&#8217;t for 3d effect on specific objects in your world.</p>
+
+<p> <code>tquery.effectcomposer.js</code> plugin provides a simple api to add
+postprocessing to our world. It is a chained API on top of
+<a href="https://github.com/mrdoob/three.js/tree/master/examples/js/postprocessing">three.js effect composer</a>.
+In our case, we first apply <code>.sepia()</code> to change the colors toward
+<a href="http://en.wikipedia.org/wiki/Sepia_(color)">sepia color</a>.
+Then we apply <code>.vignette()</code> for
+<a href="http://en.wikipedia.org/wiki/Vignetting">Vignetting</a>
+and mark the effects list
+as finished.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>world.addEffectComposer().sepia().vignette().finish();</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Not too hard hey ;)</p>
+
+<h2>Hello Steve!</h2>
+
+<p>Now that we go a world. We will create a minecraft character.
+In fact, minecraft main character is called <a href="http://www.minecraftwiki.net/wiki/The_Player">&#8216;steve&#8217;</a>.
+ <code>tQuery.MinecraftChar</code> is the main class. It will create
+a character model and expose all its limbs too e.g right legs or right arms.
+More on that later.
+As you can see, we specify <code>skinUrl</code> parameter. It should point to the
+image of the skin texture. You can change it anytime with <code>character.loadSkin(skinUrl)</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var character    = new tQuery.MinecraftChar({
+</span><span class='line'>  skinUrl : 'images/3djesus.png'
+</span><span class='line'>}); </span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now that we got our character setup, we just need to include it in our 3D world.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>character.model.addTo(world);</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Make this model move</h2>
+
+<p>So we talked about exposed limbs&#8230; kinda gross, almost disturbing :)
+In fact it just means each part of our model is exposed for you to
+play with. It has the head, legs right and left, and the same for the arms.
+It is all in <code>character.parts</code>.</p>
+
+<p>So the first step is to hook a function in the world rendering loop.
+two parameters are passed <code>delta</code> and <code>now</code>. <code>delta</code> is the number
+of seconds since the last iteration of the rendering loop. <code>now</code> is the absolute
+time in seconds.
+We use those values to tune the animation. Thus it will be animated at the same
+speed no matter the <a href="http://en.wikipedia.org/wiki/Frame_rate">fps</a> rate of your computer.
+Here is simple animation of the head. So we hook the function and change
+the <code>headGroup</code> rotation to fit our taste.
+We will make it do an
+<a href="http://en.wikipedia.org/wiki/8_(number)">eight</a>
+or
+<a href="http://en.wikipedia.org/wiki/Infinity#Infinity_symbol">infinite synbol</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>world.loop().hook(function(delta, now){
+</span><span class='line'>  character.parts.headGroup.rotation.x    = Math.sin(now*1.5)/3;
+</span><span class='line'>  character.parts.headGroup.rotation.y    = Math.sin(now)/3;
+</span><span class='line'>}); </span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is nice but the body would appear rather static if we move only the head.
+Let&#8217;s make see how to make it walk.
+When people walks or run, they swing theirs arm and legs.
+So we need to change the rotation X of each of those limbs. First we get
+an angle relative to current time. It will determine the position of the arms/legs.
+The amplitude of the move has been tuned to <code>1.4</code>, play with it and find the
+value you like. Then you move the legs and arms by setting the rotation.
+Just take care of balancing legs and arms thus his can keep his balance :)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>world.loop().hook(function(delta, now){
+</span><span class='line'>  var angle   = 1/2 * now*Math.PI*2;
+</span><span class='line'>  // move the arms
+</span><span class='line'>  character.parts.armR.rotation.x = 1.4 * Math.cos(angle + Math.PI);
+</span><span class='line'>  character.parts.armL.rotation.x = 1.4 * Math.cos(angle);
+</span><span class='line'>  // move the legs
+</span><span class='line'>  character.parts.legR.rotation.x = 1.4 * Math.cos(angle);
+</span><span class='line'>  character.parts.legL.rotation.x = 1.4 * Math.cos(angle + Math.PI);
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And we are done! Pretty cool no ? :)</p>
+
+<h3>Conclusion</h3>
+
+<p>So we did a little character ala minecraft.
+We got a basic animations of it. Nevertheless it would be neat to make animations
+more robusts and generic. A new post will likely focus on this.
+I so love this field and how it make things easier.</p>
+
+<p>That&#8217;s all folks. Have fun :)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-05T10:22:00+02:00" pubdate data-updated="true">Jul 5<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/minecraft/'>minecraft</a>, <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>, <a class='category' href='/blog/categories/tquery/'>tquery</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jeromeetienne.github.com/learningthreejs/blog/2012/07/05/minecraft-character-in-webgl/" data-via="LearningThreejs" data-counturl="http://jeromeetienne.github.com/learningthreejs/blog/2012/07/05/minecraft-character-in-webgl/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/" title="Previous Post: 3D Physics With Three.js and Physijs">&laquo; 3D Physics With Three.js and Physijs</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/07/05/minecraft-character-in-webgl/';
+        var disqus_url = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/07/05/minecraft-character-in-webgl/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

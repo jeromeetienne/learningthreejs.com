@@ -1,0 +1,811 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This post is about augmented reality in the browser.
+In a recent post, we saw that it is now possible to
+have live video in webgl
+with
+WebRTC.
+Due to &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/page/2/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/03/12/augmented-reality-in-the-browser/">Augmented Reality in the Browser</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-12T11:36:00+01:00" pubdate data-updated="true">Mar 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is about augmented reality in the browser.
+In a recent post, we saw that it is now possible to
+<a href="/blog/2012/02/07/live-video-in-webgl/">have live video in webgl</a>
+with
+<a href="http://www.webrtc.org/">WebRTC</a>.
+Due to this,
+<a href="http://en.wikipedia.org/wiki/Augmented_reality">augmented reality</a>
+is under the spotlight. Recently
+<a href="http://www.html5rocks.com/">html5rock</a> published a
+tutorial
+by
+<a href="http://www.html5rocks.com/en/profiles/#ilmari">ilmari heikkinen</a>
+about
+&#8221;<a href="http://www.html5rocks.com/en/tutorials/webgl/jsartoolkit_webrtc/">writting augmented reality application using jsartoolkit</a>&#8221;.
+Ilmari is
+<a href="https://plus.google.com/115293744081058969329/about">google devrel for webgl</a>
+and the author of
+<a href="http://github.com/kig/JSARToolKit">JSARToolKit</a>
+too. So we are in good hands :)
+The tutorial even include a part about binding it with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>.
+I took this nice tutorial and packaged the code even easier to reuse.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/03/12/augmented-reality-in-the-browser/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/03/05/tquery-version-0/">tQuery V0 - Let&#8217;s Get Started</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-05T10:42:00+01:00" pubdate data-updated="true">Mar 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is an update on
+<a href="https://github.com/jeromeetienne/tquery">tquery</a> progress.
+<a href="/blog/categories/tquery/">Our previous posts</a>
+were previews,
+for example
+<a href="/blog/2012/02/15/valentine-card-in-tquery/">valentine card in tQuery</a>
+or
+<a href="/blog/2012/02/27/linkify-tquery-extension/">linkify, a tQuery extension</a>.
+This post is the release of <em>version 0</em>.
+It will walk you thru the website and shows how to run your first tQuery project
+with the boilerplate.
+You should be able to play with tQuery after that :)</p>
+
+<p>Ok It is still experimental.
+I have been paddling hard to make it usable by other people tho.
+The <a href="http://jeromeetienne.github.com/tquery/www/playground/">playground</a>
+is the easiest way to start experimenting. It is all online.
+no install, no download, simple and understandable.
+tQuery code is all on <a href="https://github.com/jeromeetienne/tquery">github repository</a>.
+The
+<a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=iby6kijX5Zw">screencast</a>
+below will walk you thru the
+<a href="http://jeromeetienne.github.com/tquery/www/">website</a>.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/03/05/tquery-version-0/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/02/27/linkify-tquery-extension/">Linkify, a tQuery Extension</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-27T08:55:00+01:00" pubdate data-updated="true">Feb 27<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is an update on
+<a href="https://github.com/jeromeetienne/tquery">tquery</a> progress.
+It is about <code>linkify</code>, a first experimental extension.
+Thanks to it, any 3D object may become a link.
+So  3D objects act as a <code>&lt;a&gt;</code> tag, i.e. the object becomes
+clickable and clicking on it open a new url.
+It is built on top of domEvents.
+It is used to incoporate
+<a href="http://www.w3.org/TR/DOM-Level-2-Events/events.html">dom kindof events</a>
+in 3D world.
+We saw them a few week back in
+<a href="http://learningthreejs.com/blog/2012/01/17/dom-events-in-3d-space/">&#8216;dom events in 3D space&#8217; post</a>.
+Previous posts on tquery may be found <a href="/blog/categories/tquery/">here</a>.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/02/27/linkify-tquery-extension/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/02/15/valentine-card-in-tquery/">A Valentine Card in tQuery</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-15T10:21:00+01:00" pubdate data-updated="true">Feb 15<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The <a href="/blog/categories/tquery/">tQuery</a> experimentation is going on.
+It is a lot of fun to code :)
+This post is just a short presentation of two plugins currently in incubation:
+tquery.text and tquery.shape.
+Yesterday was
+<a href="http://en.wikipedia.org/wiki/Valentine's_Day">valentine day</a>,
+so i thought it would be cool to stay in topic.
+The
+<a href="http://www.youtube.com/watch?v=8EHqrAXcKrY">screencast</a>
+is a live coding of a
+<a href="/data/2012-02-15-valentine-card-in-tquery/">valentine card</a> in tQuery :)</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/02/15/valentine-card-in-tquery/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/02/08/extension-system-for-three-js/">An Extension System for three.js</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-08T15:24:00+01:00" pubdate data-updated="true">Feb 8<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>  This post an overview of a work-in-progress.
+It is about an extension system on top of three.js which mimics jQuery API.
+I came up with the idea while thinking about how to
+trim three.js and make it easier to maintain. I have always been impressed
+with jQuery plugin ecosystem. It is lively, varied,
+and contains impressive specimens. I would love to have such
+a rich ecosystem for three.js&#8217;s plugins.</p>
+
+<p>  Let&#8217;s call this experiment <strong>tQuery</strong> as in &#8220;three.js + jQuery&#8221;.
+It makes it easier to understand if you already known this library.
+This is a v0 in the
+<a href="http://catb.org/~esr/writings/homesteading/cathedral-bazaar/ar01s04.html">&#8220;publish early, publish often&#8221;</a>
+vibe.
+The goal of this little project is to see if we can mix
+to mix three.js power with jquery API usability&#8230;
+How far this concept can fly ? We will see.</p>
+
+<p>So what do we want ? The code must make <strong>three.js easy to extend</strong>
+and should <strong>mimics jQuery whenever possible</strong>.
+In order to see if the system hold under load, i wrote several extensions already.
+It is very early. The architecture of it all is far from stable.
+Code is advancing at fast pace tho :)
+The screencast below is short live coding session. Just to give an idea of the current
+status.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/02/08/extension-system-for-three-js/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/02/07/live-video-in-webgl/">Fun With Live Video in WebGL</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-07T13:41:00+01:00" pubdate data-updated="true">Feb 7<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is about live video in webgl.
+It is possible in today browsers to read the webcam using a new feature from html5, called WebRTC.
+This standard is
+about real-time communications such video conferences.
+It is an open source project supported by Google, Mozilla and Opera.
+Quite neat hey!</p>
+
+<p>I think live video has a lot of potential usages in 3D.
+It is so cool for interactivity.
+The player sees himself on the screen. It becomes part of the actions.
+Quite immersive effect.
+We can imagine something like <a href="http://secondlife.com/">second life</a>, where
+people wander around and interact live with each other in a virtual world.
+Our demo is about TV&#8230; Another obvious use may be
+<a href="http://en.wikipedia.org/wiki/Reflection_(physics)">reflections</a>
+like
+<a href="http://en.wikipedia.org/wiki/Mirror">mirror</a>
+or
+<a href="http://en.wikipedia.org/wiki/Specular_reflection">water</a>.
+What about your face from the webcam reflecting in water with animated waves ?
+Would be nice!</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/02/07/live-video-in-webgl/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/01/20/casting-shadows/">Casting Shadows</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-20T14:44:00+01:00" pubdate data-updated="true">Jan 20<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is about
+<a href="http://en.wikipedia.org/wiki/Shadow_mapping">shadow casting</a>,
+a technique which approximates the effect you see in real life everyday.
+They may be tricky to tune but they looks so good, it worths it.
+Shadows are an efficient tool when you to make your scene more realistic.
+We will see how they can be used inside
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+and see more about lights while we are at it.</p>
+
+<p>As usual, there is a <a href="/data/casting-shadows/">demo</a>.
+It is kept it real simple thus you can read the code more easily.
+The scene is a simple object in the middle, a spotlight moving around and a plane
+to receive the object shadow. The light frustum is left visible in orange.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/01/20/casting-shadows/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/01/19/boilerplate-builder-for-three-js/">Boilerplate Builder for Three.js</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-19T10:59:00+01:00" pubdate data-updated="true">Jan 19<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>We recently introduced a
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>
+in a
+<a href="/blog/2011/12/20/boilerplate-for-three-js/">previous post</a>.
+It aims to ease your first contact with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>.
+It contains a template for a simple project,
+a sample on which we already applied good practices.
+You download it and run it in a matter of minutes.
+Thus you can immediatly focus on your own things.
+In short, it aims for <em>Fast bootstrap + Good Practices</em>.</p>
+
+<p>It seems nice, hey ?
+Well there is a glitch.
+The
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>
+needs more flexibily.
+In a way, it acts as a ground on top of which you start your own thing.
+We do our best to provide good defaults, but they are only defaults.
+What if you got specific requirements ?
+How to start your project then ?
+The
+<a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">boilerplate builder</a>
+has been written for you :)</p>
+
+<p><a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">Try it out</a>.
+Go ahead, play with the options,
+discover what they do and customize your own boilerplate.
+The
+<a href="http://www.youtube.com/watch?v=ANnPWZGRsGk">screencast</a>
+below is short introduction where i describe the
+<a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">boilerplate builder</a>.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/01/19/boilerplate-builder-for-three-js/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/01/17/dom-events-in-3d-space/">Dom Events in 3D Space</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-17T11:56:00+01:00" pubdate data-updated="true">Jan 17<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Ever dreamed of a <strong>object3d.on(&#8216;click&#8217;, function(){ &#8230; });</strong>?</p>
+
+<p>I have :) This post presents a little experiment.
+What about implementing the concept of
+<a href="http://www.w3.org/TR/DOM-Level-2-Events/events.html">dom events</a>
+in 3D Space.
+In a web page, a
+<a href="http://www.quirksmode.org/dom/events/click.html">click</a>
+event is trigger when a user click on a
+<a href="http://en.wikipedia.org/wiki/HTML_element">element</a>.
+This is common knowledge in web development.
+What about having that but in a three.js scene ?
+Maybe people will start do 3D user interface with that, who knows.
+How great would that be ?!?
+So let&#8217;s do that.</p>
+
+<p><a href="http://jeromeetienne.github.com/threex/examples/threex.domevent/">Try it out</a>.
+The demo contains 3 teapots.
+Each bind a different type of events.
+When the events are triggered, teapots are animated.
+Animations are made by <a href="https://github.com/sole/tween.js/">tween.js</a>, a nice js tweening engine
+seen in a <a href="/blog/2011/08/17/tweenjs-for-smooth-animation/">previous post</a>.
+Play with it to get a feel of it, maybe think about the type of UI you could do in 3D.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/01/17/dom-events-in-3d-space/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/01/11/tunnel-effect/">Tunnel Effect for Your Demo</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-11T13:00:00+01:00" pubdate data-updated="true">Jan 11<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post presents a tunnel effect.
+This is a classic in 3D demo.
+They are visually efficient and easy to code.
+In fact, tunnels are so trendy that
+even
+<a href="http://en.wikipedia.org/wiki/Doctor_Who">doctor who</a>
+and
+<a href="http://en.wikipedia.org/wiki/Stargate">stargate</a>
+have
+<a href="http://www.youtube.com/watch?v=IKo9f5npLNM">fun</a>
+<a href="http://www.youtube.com/watch?v=KDIdJtW0vN4">in them</a>
+:)</p>
+
+<p><a href="http://jeromeetienne.github.com/tunnelgl/">Try the demo</a>.
+It has been built using the
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>
+seen in a
+<a href="/blog/2011/12/20/boilerplate-for-three-js/">previous post</a>.
+The code is simple and small.
+Less than 20lines has been added on top of the boilerplate.
+We will create a
+<a href="https://github.com/mrdoob/three.js/blob/master/src/core/Geometry.js">THREE.Geometry</a>
+to get the shape of tunnel.
+Then we will use a
+<a href="https://github.com/mrdoob/three.js/blob/master/src/textures/Texture.js">texture</a>
+trick to create the
+<a href="http://en.wikipedia.org/wiki/Optical_illusion">visual illusion</a>
+of moving.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/01/11/tunnel-effect/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/3/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

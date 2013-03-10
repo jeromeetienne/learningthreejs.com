@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: audio, | Learning Three.js]]></title>
+  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/audio/atom.xml" rel="self"/>
+  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
+  <updated>2013-03-10T17:49:47+01:00</updated>
+  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <author>
+    <name><![CDATA[Jerome Etienne]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[tQuery WebAudio for More Realistic 3D]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/03/20/sounds-for-more-realistic-3d/"/>
+    <updated>2012-03-20T01:08:00+01:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/03/20/sounds-for-more-realistic-3d</id>
+    <content type="html"><![CDATA[<p>This post is about
+<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">Web Audio API</a>.
+It is a new HTML5 api which provide great controls on the audio layer.
+It is much better than the
+<a href="http://www.w3.org/TR/html5/the-iframe-element.html#the-audio-element">audio tag</a>.
+It is more suitable for games or music software.
+As 3D lovers, the one feature that we care about is
+<a href="http://en.wikipedia.org/wiki/3D_audio_effect">audio spacialization</a>.
+This makes Web Audio a complement to webgl.
+It implements positional sounds, so you
+get
+<a href="http://en.wikipedia.org/wiki/Panning_(audio)">panning</a>,
+<a href="http://en.wikipedia.org/wiki/Doppler_effect">dopler</a>
+and all.
+It makes the scene so much more realistic.</p>
+
+<p>The user tends to associate 3D to reality, so efficient 3D is a lot about realism.
+The brain identifies 2D as artificial while 3D seems immediatly more natural.
+Anything which appears close to reality increase this effect.
+Feeding this illusion creates a more immersive experience to the user.
+Realistic physics is one (stay tuned :).
+Web Audio audio spacialization is another.</p>
+
+<p>The
+<a href="http://youtu.be/QjRF0_KENQ8">screencast</a>
+below is a live coding session using <code>tQuery.WebAudio</code>.
+If you want, you can experiment with this code in our playground. Just click
+<a href="http://bit.ly/GApgWg">here</a>
+and start coding :)</p>
+
+<!-- more -->
+
+
+
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/QjRF0_KENQ8" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>Background on WebAudio API</h2>
+
+<p>To learn about WebAudio API is a large subject.
+It is out of the scope of this introduction.
+You can refere to many dedicated tutorials tho.
+The <a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">specification</a>
+itself is clear and very readable.</p>
+
+<p>You can find more comprehensive documentation at <a href="html://html5rocks.com">html5rocks</a>.
+It contains several very usefull tutorials to learn Web Audio API.
+They go from
+<a href="http://www.html5rocks.com/en/tutorials/webaudio/intro/">"Getting started with the web audio API"</a>
+to
+<a href="http://www.html5rocks.com/en/tutorials/webaudio/positional_audio/">"mixing positional audio and webgl"</a>
+or
+<a href="http://www.html5rocks.com/en/tutorials/webaudio/games/">"developing game audio"</a>.
+If you want, you can find demos in
+<a href="http://chromium.googlecode.com/svn/trunk/samples/audio/index.html">chromium samples</a>.</p>
+
+<p>Now let's start coding :)</p>
+
+<h2>Let's get Started</h2>
+
+<p>First you need to enable WebAudio into your world.
+Thus you will be able to play sound in it.</p>
+
+<p>```javascript</p>
+
+<pre><code>world.enableWebAudio();
+</code></pre>
+
+<p>```</p>
+
+<p>Now that the world is able to do sound, let's create one</p>
+
+<p>```javascript</p>
+
+<pre><code>var sound = tQuery.createSound();
+</code></pre>
+
+<p>```</p>
+
+<p>Now we need to load a sound file and to start playing it. The callback
+is notified when the file is downloaded. At this point, the sound
+it ready to play.</p>
+
+<p>```javascript</p>
+
+<pre><code>sound.load('techno.mp3', function(sound){
+    sound.play();
+});
+</code></pre>
+
+<p>```</p>
+
+<p>If you want to know more, the full API is documented
+<a href="http://jeromeetienne.github.com/tquery/docs/symbols/tQuery.WebAudio.Sound.html">here</a>
+and
+<a href="http://jeromeetienne.github.com/tquery/docs/symbols/tQuery.WebAudio.html">here</a>
+thanks to jsdoc.</p>
+
+<h2>Spacialization and Animation</h2>
+
+<p>Now that we can play a sound, what else can we do ? One definitively interesting part for
+<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">webaudio API</a>
+is the ability to spacialize the sound.
+The easiest way to do that is to use <code>.follow()</code> function.</p>
+
+<p>```javascript</p>
+
+<pre><code>sound.follow(object3d);
+</code></pre>
+
+<p>```</p>
+
+<p>If you want more controls, you can check
+ <code>.updateWithObject3d()</code> or <code>.updateWithMatrix4()</code>.
+You may want to animate your 3D object based on the sound you hear.
+For that, a simple function <code>.amplitude()</code> has been written.
+It is likely a naive implementation but it does the trick, i think.</p>
+
+<p>```javascript</p>
+
+<pre><code>var amplitude = sound.amplitude();
+</code></pre>
+
+<p>```</p>
+
+<p>It returns an average of low frequencies of the sound.
+Note that i dunno if it is the proper term in audio world.
+Most likely not :) If you know the proper term, please leave a comment.</p>
+
+<h2>Want more info ?</h2>
+
+<p>You get two examples in
+<a href="https://github.com/jeromeetienne/tquery/tree/master/plugins/webaudio/examples">the source</a>.
+The
+<a href="http://jeromeetienne.github.com/tquery/plugins/webaudio/examples/">minimal one</a>
+simply play a sound.
+The other is more interactive. It is the
+<a href="http://jeromeetienne.github.com/tquery/plugins/webaudio/examples/playground">playground</a>.
+It allows to play with various parameters.
+tQuery API documentation is provided via
+<a href="http://code.google.com/p/jsdoc-toolkit/">jsdoc</a>.
+You can find the whole API
+<a href="http://jeromeetienne.github.com/tquery/">here</a>.
+The plan is to do the same for the plugins.</p>
+
+<p>So for tQuery WebAudio plugin, you get API documentation of each class: the main class
+<a href="http://jeromeetienne.github.com/tquery/docs/symbols/tQuery.WebAudio.html">tQuery.WebAudio</a>
+and the
+<a href="http://jeromeetienne.github.com/tquery/docs/symbols/tQuery.WebAudio.Sound.html">Sound class</a>.
+You can even check the
+<a href="http://jeromeetienne.github.com/tquery/docs/symbols/tQuery.WebAudio.NodeChainBuilder.html">Node chain builder</a>
+doc if you want to go deep and configure your own audio nodes chain :)</p>
+
+<h2>Conclusion</h2>
+
+<p>Ok so now you can play sounds in your 3D scene. You can make the sound follows a given
+object3d with realistic sound spatialization. All that in just a few lines. Rather cool
+if you ask me :)
+<a href="http://en.wikipedia.org/wiki/Winamp">Winamp</a> effects are back !!
+Later i will likely implement
+click detection as seen
+<a href="http://www.html5rocks.com/en/tutorials/webaudio/games/#toc-clip-detect">here</a>
+and environmental effect like 'cathedral', 'telephone' etc...
+as seen
+<a href="http://www.html5rocks.com/en/tutorials/webaudio/positional_audio/#toc-enveffects">here</a>.</p>
+
+<p>I love how sound make our 3D scene more realistic. That's all for today, have fun :)</p>
+]]></content>
+  </entry>
+  
+</feed>

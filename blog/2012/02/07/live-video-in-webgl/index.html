@@ -1,0 +1,452 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Fun With Live Video in WebGL - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This post is about live video in webgl.
+It is possible in today browsers to read the webcam using a new feature from html5, called WebRTC.
+This &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/2012/02/07/live-video-in-webgl/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Fun With Live Video in WebGL</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-07T13:41:00+01:00" pubdate data-updated="true">Feb 7<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This post is about live video in webgl.
+It is possible in today browsers to read the webcam using a new feature from html5, called WebRTC.
+This standard is
+about real-time communications such video conferences.
+It is an open source project supported by Google, Mozilla and Opera.
+Quite neat hey!</p>
+
+<p>I think live video has a lot of potential usages in 3D.
+It is so cool for interactivity.
+The player sees himself on the screen. It becomes part of the actions.
+Quite immersive effect.
+We can imagine something like <a href="http://secondlife.com/">second life</a>, where
+people wander around and interact live with each other in a virtual world.
+Our demo is about TV&#8230; Another obvious use may be
+<a href="http://en.wikipedia.org/wiki/Reflection_(physics)">reflections</a>
+like
+<a href="http://en.wikipedia.org/wiki/Mirror">mirror</a>
+or
+<a href="http://en.wikipedia.org/wiki/Specular_reflection">water</a>.
+What about your face from the webcam reflecting in water with animated waves ?
+Would be nice!</p>
+
+<!-- more -->
+
+
+
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/vnNihxl3taE" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<p>It is surely nice but WebRTC is still quite on the edge.
+To enable webrtc on your computer, see how to
+<a href="http://www.webrtc.org/running-the-demos">run webrtc demos</a>.
+It is currently available only in
+<a href="http://tools.google.com/dlpage/chromesxs">Canari</a>.
+Mozilla people are working hard to make it happen as soon as possible.
+So it may be too early to use it for &#8216;serious&#8217; things.
+But way enougth to do cool experiments like the one we gonna do today :)</p>
+
+<p><a href="/data/live-video-in-webgl">Try it out</a>!!
+The first step will be to create a video element.
+We gonna start to make it play either a normal video file
+then to play video from the webcam using
+<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/streams/StreamProcessing.html">mediastream API</a>.
+After that, we gonna map this video to a normal texture.
+And we will be done !
+It is that simple, now let&#8217;s get started.</p>
+
+<h2>Let&#8217;s create the video element</h2>
+
+<p>The
+<a href="http://en.wikipedia.org/wiki/HTML5_video">video element</a>
+is the DOM way to handle video in webpage.
+Let&#8217;s create the video element.
+Later we will use it as texture and display it in WebGL.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">video</span>      <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;video&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nx">video</span><span class="p">.</span><span class="nx">width</span>    <span class="o">=</span> <span class="mi">320</span><span class="p">;</span>
+</span><span class='line'><span class="nx">video</span><span class="p">.</span><span class="nx">height</span>   <span class="o">=</span> <span class="mi">240</span><span class="p">;</span>
+</span><span class='line'><span class="nx">video</span><span class="p">.</span><span class="nx">autoplay</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It you wish to create a video from a file webm, mp4 or ogv, just set
+its <code>.src</code> property.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">video</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;http://example.com/supercatvideo.webm&quot;</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It wasn&#8217;t too hard, hey :) So now we know how to get a video from a file.
+Let&#8217;s see if we can use the webcam and get this nice immersive effect for our
+users.</p>
+
+<h2>Let&#8217;s Use the Webcam if Available</h2>
+
+<p>Our first step is to detect if the media stream API is available.
+The following line will do the job nicely.
+ <code>hasUserMedia</code> will be true if it is available, false otherwise.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">hasUserMedia</span> <span class="o">=</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">webkitGetUserMedia</span> <span class="o">?</span> <span class="kc">true</span> <span class="o">:</span> <span class="kc">false</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If it isn&#8217;t, you may point the users to
+<a href="http://www.webrtc.org/running-the-demos">this doc</a>
+on how to get it
+and/or using a normal video file.
+Now we need to check if we can read the webcam.
+For that, we use the following lines.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">navigator</span><span class="p">.</span><span class="nx">webkitGetUserMedia</span><span class="p">(</span><span class="s1">&#39;video&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">stream</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">video</span><span class="p">.</span><span class="nx">src</span>    <span class="o">=</span> <span class="nx">webkitURL</span><span class="p">.</span><span class="nx">createObjectURL</span><span class="p">(</span><span class="nx">stream</span><span class="p">);</span>
+</span><span class='line'><span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Failed to get a stream due to&quot;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>A pseudo URL will be created by <code>.createObjectURL</code>.
+It would allows the video element to automagically read the webcam.
+It looks a bit like that.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">blob</span><span class="o">:</span><span class="nx">http</span><span class="o">%</span><span class="mi">3</span><span class="nx">A</span><span class="c1">//learningthreejs.com/e33eb278-08a8-4052-9dca-3c7663c88bc0</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Handle the textures</h2>
+
+<p>Now we got the <a href="https://developer.mozilla.org/En/HTML/Element/Video">video element</a> ready.
+Let&#8217;s create a texture using it as source.
+The last step before seeing the video moving on screen :)
+Use this simple line. It is enougth.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">videoTexture</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Texture</span><span class="p">(</span> <span class="nx">video</span> <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This texture is a normal texture and can be used as usual in materials.
+For example, in a <a href="http://en.wikipedia.org/wiki/Lambertian_reflectance">lambert</a> material.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">material</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshLambertMaterial</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">map</span> <span class="o">:</span> <span class="nx">videoTexture</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>But this texture is special, it is a video. So it need to be constantly updated.
+In your render loop, add those lines. They monitor the state of your video.
+Every time the video got enougth data to be display, the texture is updated
+and sent to the GPU.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">if</span><span class="p">(</span> <span class="nx">video</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="nx">video</span><span class="p">.</span><span class="nx">HAVE_ENOUGH_DATA</span> <span class="p">){</span>
+</span><span class='line'>  <span class="nx">videoTexture</span><span class="p">.</span><span class="nx">needsUpdate</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Conclusion</h2>
+
+<p>Now you can display your webcam inside your webgl !!
+This is simple and cool.
+Browser support will increase with time.
+Live video is a very powerfull tool.
+The image from the webcam is a normal one.
+On it, you can perform
+<a href="https://github.com/mrdoob/three.js/tree/master/examples/js/postprocessing">post processing</a>,
+<a href="http://en.wikipedia.org/wiki/Edge_detection">edge detection</a>,
+and many other crazy things. Up to you to experiment.
+Let&#8217;s all for today folks, have fun :)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-07T13:41:00+01:00" pubdate data-updated="true">Feb 7<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/html5/'>html5</a>, <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>, <a class='category' href='/blog/categories/webrtc/'>webrtc</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jeromeetienne.github.com/learningthreejs/blog/2012/02/07/live-video-in-webgl/" data-via="LearningThreejs" data-counturl="http://jeromeetienne.github.com/learningthreejs/blog/2012/02/07/live-video-in-webgl/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/01/20/casting-shadows/" title="Previous Post: Casting Shadows">&laquo; Casting Shadows</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/02/08/extension-system-for-three-js/" title="Next Post: An Extension System for three.js">An Extension System for three.js &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/02/07/live-video-in-webgl/';
+        var disqus_url = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/02/07/live-video-in-webgl/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

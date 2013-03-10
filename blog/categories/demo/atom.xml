@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: demo | Learning Three.js]]></title>
+  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/demo/atom.xml" rel="self"/>
+  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
+  <updated>2013-03-10T17:49:47+01:00</updated>
+  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <author>
+    <name><![CDATA[Jerome Etienne]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Tunnel Effect for your Demo]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/01/11/tunnel-effect/"/>
+    <updated>2012-01-11T13:00:00+01:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/01/11/tunnel-effect</id>
+    <content type="html"><![CDATA[<p>This post presents a tunnel effect.
+This is a classic in 3D demo.
+They are visually efficient and easy to code.
+In fact, tunnels are so trendy that
+even
+<a href="http://en.wikipedia.org/wiki/Doctor_Who">doctor who</a>
+and
+<a href="http://en.wikipedia.org/wiki/Stargate">stargate</a>
+have
+<a href="http://www.youtube.com/watch?v=IKo9f5npLNM">fun</a>
+<a href="http://www.youtube.com/watch?v=KDIdJtW0vN4">in them</a>
+:)</p>
+
+<p><a href="http://jeromeetienne.github.com/tunnelgl/">Try the demo</a>.
+It has been built using the
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>
+seen in a
+<a href="/blog/2011/12/20/boilerplate-for-three-js/">previous post</a>.
+The code is simple and small.
+Less than 20lines has been added on top of the boilerplate.
+We will create a
+<a href="https://github.com/mrdoob/three.js/blob/master/src/core/Geometry.js">THREE.Geometry</a>
+to get the shape of tunnel.
+Then we will use a
+<a href="https://github.com/mrdoob/three.js/blob/master/src/textures/Texture.js">texture</a>
+trick to create the
+<a href="http://en.wikipedia.org/wiki/Optical_illusion">visual illusion</a>
+of moving.</p>
+
+<!-- more -->
+
+
+
+
+<iframe src="http://jeromeetienne.github.com/tunnelgl/"
+    webkitallowfullscreen mozallowfullscreen allowfullscreen 
+    width="100%" height="420px" frameborder="0">
+</iframe>
+
+
+<h2>Let's build the walls</h2>
+
+<p>The first step is to build the <em>walls</em> of the tunnel.
+It is easier that one would expect.
+A tunnel may be seen as a cylinder with the camera inside.
+Once you realized that, most of the work is done.
+Luckily for us,
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+got an easy way to build cylinders, called
+<a href="https://github.com/mrdoob/three.js/blob/master/src/extras/geometries/CylinderGeometry.js">CylinderGeometry</a>.
+Nevertheless our tunnel / cylinder got 2 special points.</p>
+
+<p>First, it is open-ended. So we must not build its top and bottom.
+We need this to see thru its extremities.
+This is handled by a parameter in
+<a href="https://github.com/mrdoob/three.js/blob/master/src/extras/geometries/CylinderGeometry.js">CylinderGeometry</a>.
+We just set <code>openended</code> parameter to true and the rest is done for us :)</p>
+
+<p>Second, the camera is usually located outside of objects.
+But our tunnel/cylinder has the camera inside it.
+To make our object visible from the inside, we need to turn it inside out.
+For that, just use <code>mesh.flipSided = true</code></p>
+
+<h2>Let's go forward</h2>
+
+<p>Now we need to go forward in this tunnel
+For that we will use an old trick.
+We won't move the tunnel walls themselves, only their appearance.
+It gives the visual illusion that we are moving.
+Remember what they say in matrix ?
+<a href="http://www.youtube.com/watch?v=dzm8kTIj_0M">"there is no spoon"</a>.
+It is all the same, we are moving while staying still :)</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/dzm8kTIj_0M?hl=en&fs=1" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>A Texture isn't a spoon</h2>
+
+<p>First we want to move the appearance of the cylinder, thus the player got the illusion to go forward.
+We will use <a href="https://github.com/mrdoob/three.js/blob/master/src/textures/Texture.js">THREE.Texture</a> for that.
+We wont move the actual pixels of the textures, only its coordinates.
+Additionnaly we want the texture to repeat on the cylinder, thus it appears as continuous.
+WebGL texture is a powerfull and flexible tool.
+You can tweak so many features.</p>
+
+<p>First let's make this texture move.
+Suppose we want the texture to loop once every 10 seconds.
+So the coordinate <code>.offset.y</code> needs to go from 0 to 1 in 10 seconds.
+This line is enougth to make the tunnel move forward.
+You can change your speed within the tunnel by changing this number.</p>
+
+<p>```javascript</p>
+
+<pre><code>texture.offset.y    += 0.1 * seconds;
+</code></pre>
+
+<p>```</p>
+
+<p>Now the texture repetition.
+For that we will use a texture parameter called <em>wrap</em>.
+It indicates how the gpu repeat the texture on a face.
+Here is a good
+<a href="http://lucera-project.blogspot.com/2010/06/opengl-wrap.html">tutorial on opengl wrap</a>.
+By default, wrapS / wrapT are set to <code>THREE.ClampToEdgeWrapping</code>.
+So the texture is scaled to match exactly the size of the face.
+In our case, we want to repeat the texture and not scale it.
+So we use <code>THREE.RepeatWrapping</code>.</p>
+
+<p>```javascript</p>
+
+<pre><code>texture.wrapT   = THREE.RepeatWrapping;
+</code></pre>
+
+<p>```</p>
+
+<h2>Conclusion</h2>
+
+<p>We have seen how to do a tunnel with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>.
+This is very simple to code and awesome on the screen.
+It is less than 20 lines added to the <a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate</a>.
+The cylinder geometry was already provided.
+We used
+<a href="https://github.com/mrdoob/three.js/blob/master/src/textures/Texture.js">THREE.Texture</a>
+offsets to provide the optical illusion of moving.</p>
+
+<p>Later, we may add a <a href="http://en.wikipedia.org/wiki/TARDIS">blue phonebooth</a>
+and play <em>doctor who</em> :)
+The code is available on
+<a href="https://github.com/jeromeetienne/tunnelgl">github</a>
+under MIT license.
+Feel free to fork and modify.
+That's all folks, have fun.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[dat-gui - Simple UI for Demos]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/08/14/dat-gui-simple-ui-for-demos/"/>
+    <updated>2011-08-14T19:42:00+02:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/08/14/dat-gui-simple-ui-for-demos</id>
+    <content type="html"><![CDATA[<p><a href="http://code.google.com/p/dat-gui/">Dat.gui</a>
+is a GUI widget for your demos. It provide way for the user to set parameters of the
+demo to play with it. It is simple to code, yet cool and minimalist on the screen.
+It is the blue vuemeters on the screenshot below. This post is a presentation of
+the library.</p>
+
+<p><img class="right" src="/data/dat_gui_simple_ui_for_demos/datgui_integrated.png" title="Integrated" ></p>
+
+<h2>How to include it</h2>
+
+<p>Simply include the library file in your page. Download it <a href="http://code.google.com/p/dat-gui">there</a></p>
+
+<p>``` html</p>
+
+<pre><code>&lt;script type='text/javascript' src='DAT.GUI.min.js'&gt;&lt;/script&gt;
+</code></pre>
+
+<p>```</p>
+
+<!--more-->
+
+
+<h2>How to use it</h2>
+
+<p>First initialize the object itself. It will create the widget and display it on the
+screen top right corner. You can change this position if you wish (see <code>autoplace</code>)
+<img class="right" src="/data/dat_gui_simple_ui_for_demos/datgui_closeup.png" title="Close up" ></p>
+
+<p>``` javascript</p>
+
+<pre><code>var gui = new DAT.GUI({
+    height : 5 * 32 - 1
+});
+</code></pre>
+
+<p>```</p>
+
+<p>Here is the visual result on the right.
+The misterious <code>height</code>parameter is the height of the widget. You have to set it manually.
+In our case, we get 5 lines plus the close button.
+The formula which worked for me has been <code>nline * 32 - 1</code>.</p>
+
+<h2>Lets configure it and add some variables</h2>
+
+<p>First we need to store the values of the variables, lets call that <code>params</code>. It may be <code>this</code> too, it depends
+of your personal style of code.</p>
+
+<p>``` javascript</p>
+
+<pre><code>var params = {
+    interation: 5000
+};
+</code></pre>
+
+<p>```</p>
+
+<p>Let add a variable name <code>interation</code> to the widget.</p>
+
+<p>``` javascript</p>
+
+<pre><code>gui.add(params, 'interation')
+</code></pre>
+
+<p>```</p>
+
+<p>It will add a line in the GUI widget.
+<em>dat.gui</em> will see <code>params.iteration</code> is a Number and thus <em>guess</em> you want to display a slider for it.
+If it is a function, it will be interpreted as a button and call params.foobar() on click.
+If the user changes the value with the mouse, the value of <code>params.iteration</code>
+will be changed accordingly. Up to you to know what to do with it.</p>
+
+<h2>Lets Custom it Some More</h2>
+
+<p>You may be easy be notified of user changes with callbacks.  <code>onFinishChange</code> is triggered once the value is changed.</p>
+
+<p>``` javascript</p>
+
+<pre><code>gui.add(params, 'interation').onFinishChange(function(){
+    // refresh based on the new value of params.interation
+})
+</code></pre>
+
+<p>```</p>
+
+<p>You can customize further if needed. To change the label displayed on the variable line, use <code>.name("better label")</code></p>
+
+<p>``` javascript</p>
+
+<pre><code>gui.add(params, 'interation').name('Intertions')
+</code></pre>
+
+<p>```</p>
+
+<p>You can set up min/max limits and steps. This one will allows values from
+128 to 256, only if they are multiple of 16</p>
+
+<p>``` javascript</p>
+
+<pre><code>gui.add(params, 'width').min(128).max(256).step(16)
+</code></pre>
+
+<p>```</p>
+
+<h2>Conclusion</h2>
+
+<p>I hope this introduction got you excited about DAT.GUI. I find nice for simple demos parameters, simple to code and good
+looking on the screen at that. For more informations and authoritative
+answer, <a href="http://code.google.com/p/dat-gui/">see details</a> here.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,425 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Boilerplate Builder for Three.js - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="We recently introduced a
+boilerplate for three.js
+in a
+previous post.
+It aims to ease your first contact with
+three.js.
+It contains a template for a &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/2012/01/19/boilerplate-builder-for-three-js/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Boilerplate Builder for Three.js</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-19T10:59:00+01:00" pubdate data-updated="true">Jan 19<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>We recently introduced a
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>
+in a
+<a href="/blog/2011/12/20/boilerplate-for-three-js/">previous post</a>.
+It aims to ease your first contact with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>.
+It contains a template for a simple project,
+a sample on which we already applied good practices.
+You download it and run it in a matter of minutes.
+Thus you can immediatly focus on your own things.
+In short, it aims for <em>Fast bootstrap + Good Practices</em>.</p>
+
+<p>It seems nice, hey ?
+Well there is a glitch.
+The
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>
+needs more flexibily.
+In a way, it acts as a ground on top of which you start your own thing.
+We do our best to provide good defaults, but they are only defaults.
+What if you got specific requirements ?
+How to start your project then ?
+The
+<a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">boilerplate builder</a>
+has been written for you :)</p>
+
+<p><a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">Try it out</a>.
+Go ahead, play with the options,
+discover what they do and customize your own boilerplate.
+The
+<a href="http://www.youtube.com/watch?v=ANnPWZGRsGk">screencast</a>
+below is short introduction where i describe the
+<a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">boilerplate builder</a>.</p>
+
+<!-- more -->
+
+
+
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/ANnPWZGRsGk?hl=en&fs=1" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>Making-Of the Builder</h2>
+
+<p>The
+<a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">builder</a>
+itself was interesting to build.
+It uses various nice features from the current web.
+It is a pure-browser webapp with a file download,
+a preview of a webgl project
+and a nice looking visual appearance.</p>
+
+<h3>Pure Browser Download</h3>
+
+<p>I like to write pure-browser application.
+They dont require a server to run, only static files.
+It makes it much easier to host your application.
+So
+<a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">boilerplate builder</a>
+has been written as a pure-browser application :)
+It uses
+<a href="http://jszip.stuartk.co.uk/">jszip</a>
+, a library which create .zip files with Javascript.
+Its creates the boilerplater.zip that you download.
+Additionally, it uses
+<a href="https://github.com/dcneiner/Downloadify">downloadify</a>
+, a small library to create and download files without server.</p>
+
+<p>Together,
+<a href="http://jszip.stuartk.co.uk/">jszip</a>
+and
+<a href="https://github.com/dcneiner/Downloadify">downloadify</a>
+makes it easy to pack several files together,
+and allow the user to download it.
+All that in pure-browser, neat no?
+I love what the web is becoming!</p>
+
+<h3>Boilerplate Preview</h3>
+
+<p>The preview is a bit different.
+We start to load the <em>index.html</em> template for the boilerplate.
+We apply all the options you configured and produce the final version.
+To actually preview this file, we encode it in
+<a href="http://en.wikipedia.org/wiki/Base64">base64</a>
+to build a
+<a href="http://en.wikipedia.org/wiki/Data_URI_scheme">data url</a>
+with it.
+Only then, we create an iframe with this data uri
+and you can see the webgl preview :)</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Data_URI_scheme">Data url</a>
+is <a href="http://tools.ietf.org/html/rfc2397">an old thing from 1998</a>
+which is back in spotlight due to HTML5.
+It allows to encode data directly in the URL.
+It may be used to include image directly in css for examples.
+Very usefull but not for human consumption.
+To give you an idea, here is
+<a href="http://pastebin.com/yF3XDSFW">index.html</a>
+as a data url in
+<a href="http://en.wikipedia.org/wiki/Base64">base64</a>.
+You could encode it as text if you
+<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/encodeURI">escape</a>
+it
+<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/encodeURIComponent">properly</a>.
+It looks like long ugly random string.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>data:text/html;base64,PCFkb2N0eXBlIGh0....</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Visual Appearance</h3>
+
+<p>It includes
+<a href="http://twitter.github.com/bootstrap/">twitter bootstrap</a> for css.
+I am quite grateful for this framework.
+Without it, the
+<a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">builder page</a>
+will be so ugly, that people run away without even trying the application itself.
+<a href="http://twitter.github.com/bootstrap/">twitter bootstrap</a>
+makes it so easy to write a webapp which looks good on the screen.
+I think all the css-impaired of the world should thanks twitter for this framework :)</p>
+
+<h2>Conclusion</h2>
+
+<p>It has been quite fun to write it.
+I learned some web skills,
+discovered new part of three.js,
+and on top of that, it looks good on screen.
+I could not ask for more.
+The goal of
+<a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">boilerplate builder for three.js</a>
+is to add more <em>flexibility</em> to the <em>fast bootstrap + good practices</em> from the
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate</a>.
+I hope it will help people starting lots of new
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+projects :)</p>
+
+<p>That&#8217;s all folks.
+Have fun.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-19T10:59:00+01:00" pubdate data-updated="true">Jan 19<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/boilerplate/'>boilerplate</a>, <a class='category' href='/blog/categories/library/'>library</a>, <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jeromeetienne.github.com/learningthreejs/blog/2012/01/19/boilerplate-builder-for-three-js/" data-via="LearningThreejs" data-counturl="http://jeromeetienne.github.com/learningthreejs/blog/2012/01/19/boilerplate-builder-for-three-js/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/01/17/dom-events-in-3d-space/" title="Previous Post: Dom Events in 3D Space">&laquo; Dom Events in 3D Space</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/01/20/casting-shadows/" title="Next Post: Casting Shadows">Casting Shadows &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/01/19/boilerplate-builder-for-three-js/';
+        var disqus_url = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/01/19/boilerplate-builder-for-three-js/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

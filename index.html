@@ -1,1 +1,826 @@
-My Octopress Page is coming soon &hellip;
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This post is about Minecraft Character.
+We will play with the minecraft character, learn how to do your own and make it move.
+I recently saw this &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-05T10:22:00+02:00" pubdate data-updated="true">Jul 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is about Minecraft Character.
+We will play with the minecraft character, learn how to do your own and make it move.
+I recently saw this excelent <a href="http://djazz.mine.nu/lab/minecraft_items/">minecraft items demo</a>
+by <a href="https://twitter.com/#!/daniel_hede">@daniel_hede</a>. It triggered a switch in my head :)
+I felt in love with minecraft style of 3d.
+It makes modeling so simple.
+You don&#8217;t need to learn how to use 3d modeling software like
+<a href="http://www.blender.org/">blender</a>,
+<a href="http://usa.autodesk.com/maya/">maya</a> and such.
+It is easy to create new model based on this style.</p>
+
+<p>Try the <a href="/data/2012-07-05-minecraft-character-in-webgl/">minecraft plugin demo</a>. This is the
+one we gonna build. I used <a href="https://twitter.com/#!/daniel_hede">@daniel_hede</a>&#8217;s code
+and did many plugins to make it all simple and fun :)
+In this demo, i introduce
+<a href="https://github.com/mrdoob/three.js/tree/master/examples/js/postprocessing">three.js post processing</a>
+for the first time.
+This is the
+<a href="http://en.wikipedia.org/wiki/Vignetting">Vignetting</a>
+and
+<a href="http://en.wikipedia.org/wiki/Sepia_(color)">sepia color</a>
+that you see.
+Additionnaly, you can easily change the skins with the UI within the demo.
+Now let&#8217;s get started!</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/eg0qshn4VC0" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/07/05/minecraft-character-in-webgl/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-05T12:13:00+02:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This is yet another post about physics.
+This one is about
+<a href="https://github.com/chandlerprall/Physijs">physijs</a>
+by
+<a href="https://twitter.com/#!/chandlerprall">Chandler Prall</a>.
+It easily bind
+<a href="https://github.com/kripken/ammo.js/">ammo.js</a>
+and
+<a href="http://mrdoob.github.com/three.js/">three.js</a>.
+We will walk thru an example using it.
+Physics is always important in 3D graphics.
+It makes scenes more realistic.
+Additionally, if you simple put your object into the scene, it will move nicely and realisticly.
+So you spend less time tuning each moves. I am quite lazy so it matters :)
+The <a href="http://www.youtube.com/watch?v=THI82Q-P8Fo">screencast</a>
+presents the <a href="/data/2012-06-05-3d-physics-with-three-js-and-physijs/">demo we gonna code</a>
+and various examples of what is possible with
+<a href="https://github.com/kripken/ammo.js/">ammo.js</a>.</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/THI82Q-P8Fo" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T13:48:00+02:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is about iOS and three.js.
+It may seem surprising, but <a href="http://en.wikipedia.org/wiki/iOS">iOS</a> supports WebGL since version 4.2.
+There is a tough limitation tho, it is available only in their advertisment plateform,
+<a href="http://en.wikipedia.org/wiki/IAd">iAds</a>, not in safari browser.
+I got a ipad2 so i experimented a bit with three.js on iOS to see what is going on.
+Most WebGL examples from
+<a href="https://github.com/mrdoob/three.js/">three.js</a> and
+<a href="https://github.com/jeromeetienne/tquery">tQuery</a>
+are working nicely on iOS.</p>
+
+<p>The
+<a href="http://www.youtube.com/watch?v=3yc4qhP87oY">screencast</a>
+below shows an ipad2 running the car demo we did last week in
+<a href="http://learningthreejs.com/blog/2012/05/21/sport-car-in-webgl/">&#8220;Sport Car in WebGL&#8221;</a> post.
+It runs at 40fps on the video. Rather good!
+Especially when you know the demo isn&#8217;t optimized.
+This car is way too detailed.
+One could reduce the size of this model by half without loosing much.
+So on mobile, the Good part is that <em>fps are good</em>.
+The Bad part is that <em>speed is slower</em> and <em>balanced differently</em>.
+This unbalanced part worries me a bit i admit. We need to better understand the mobile plateform.
+But hey, 40fps is quite good, way enougth to make a game!</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/3yc4qhP87oY" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/29/three-js-sportcar-on-ios/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-21T12:16:00+02:00" pubdate data-updated="true">May 21<span>st</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is about sport cars and how cool they can be!
+Once again, we gonna expose gems from three.js examples.
+It contains several sport cars which are fun to play with.
+You can drive them around and all.
+This is a good base for a game.
+We made tQuery plugins on top to make them easily reusable.
+Our scene will be a nice sport car, a grass ground, a sunset sky with shadow casting.
+All that in 40-lines of javascript.</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/KxRfFd9SM5s" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/21/sport-car-in-webgl/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch a Doom Character in Augmented Reality</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-15T11:59:00+02:00" pubdate data-updated="true">May 15<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Did you ever dreamed of punching a doom character ? They look evil and killed
+you so many time while you were playing the game. It is revenge time! This
+post will help you realize your dream :)
+It is about a minigame called &#8220;Punch A Doom Character in Augmented Reality&#8221;
+because in this game, the player can punch Doom Character in augmented reality :)</p>
+
+<p>The character is displayed in 3D with WebGL with <a href="http://github.com/mrdoob/three.js/">three.js</a>.
+The player gestures are recognized thru the webcam by <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmentedgesture.js</a> library.
+It uses <a href="http://webrtc.org">WebRTC</a> <a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a> to get the webcam
+using open standards.
+You can play this minigame <a href="/data/2012-05-15-punch-a-doom-character-in-augmented-reality">here</a>.
+In fact, it is an example of <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmentedgesture.js</a> library.
+We will walk you thru the code. Only 60 lines of Javascript.</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/Aa9945MGRL0" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl/">Sound Visualisation: A Vuemeter in WebGL</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-08T10:32:00+02:00" pubdate data-updated="true">May 8<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is about producing a 3D Vuemeter for real time sound.
+We gonna walk thru the code of a
+<a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a> example.
+This example will show you how to create a WebGL vuemetter with
+<a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a>.
+It should be simple to understand, only 40-lines of javascript.
+<a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a> is a web audio library
+for game. We gonna use it to reach <a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">Web Audio API</a>.
+We gonna use <a href="https://github.com/jeromeetienne/tquery">tQuery</a>
+to reach <a href="http://github.com/mrdoob/three.js/">three.js 3D engine</a>.</p>
+
+<p> <code>webaudio.js</code> has been first coded as a tQuery plugin.
+You can find a <a href="http://learningthreejs.com/blog/2012/03/20/sounds-for-more-realistic-3d/">post about it</a>
+on <a href="http://learningthreejs.com">learningthreejs</a> blog.
+But this technology is so nice, it deserved its <a href="https://github.com/jeromeetienne/webaudio.js">own repository</a>.
+The library gained in flexibility in the process: It is now possible to display histogram in canvas2D
+of simply play sound, with no 3D at all :) see <a href="http://jeromeetienne.github.com/webaudio.js/#examples">here</a> for a list of
+webaudio.js examples.</p>
+
+<p><a href="http://jeromeetienne.github.com/webaudio.js/examples/histotquery.html">Try the demo</a>.
+This is the result that we gonna build together.
+Below is a small <a href="http://www.youtube.com/watch?v=--Gv2EI2a-U">screencast</a> of me presenting the code.</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/--Gv2EI2a-U" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/04/tquery-md2character-a-plugin-for-doom-characters/">tQuery Plugin for Doom Characters</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-04T10:26:00+02:00" pubdate data-updated="true">May 4<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is about
+<a href="https://github.com/jeromeetienne/tquery/tree/dev/plugins/md2character">tQuery.md2Character</a>
+plugin: a cool plugin which allow you to easily play with doom characters. You can see a live demo
+<a href="/data/2012-05-04-tquery-md2character-a-plugin-for-doom-characters/examples">here</a>.
+I will walk you thru its example. It include a checkerboard for the ground, a fog for the depth, keyboard to
+move your player and obviously plugins for the MD2 characters (doom formats).
+We gonna learn how to move doom characters in webgl in only 50lines of javascript!</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/BaCEKbWXbfM" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/04/tquery-md2character-a-plugin-for-doom-characters/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/02/augmented-reality-3d-pong/">Augmented Reality 3D Pong</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-02T13:38:00+02:00" pubdate data-updated="true">May 2<span>nd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post presents a livecoding screencast of <strong>Augmented Reality 3D Pong</strong>.
+This is an experiment to use <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmented gestures</a>
+as a way to interact with game. So i picked a game classic <a href="http://en.wikipedia.org/wiki/Pong">&#8220;pong&#8221;</a>.
+We gonna learn how to code a pong in augmented reality with webgl. The result code
+is only
+<a href="https://github.com/jeromeetienne/augmentedgesture.js/blob/master/examples/augmentedpong/index.html">100lines</a>!!
+Nice for augmented reality + webgl + a game :)</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/ZTwhHwAHc3c" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/02/augmented-reality-3d-pong/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/04/12/video-conference-on-top-of-webgl/">Video Conference on Top of WebGL</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-12T13:20:00+02:00" pubdate data-updated="true">Apr 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post presents
+<a href="http://webglmeeting.appspot.com">WebGL Meeting</a>,
+a very simple WebGL application to do webrtc call.
+It is a follow up of <a href="/blog/2012/02/07/live-video-in-webgl/">&#8220;Fun with live video on webgl&#8221;</a>.
+It was presenting how to use the WebCam using
+<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">WebRTC getUserMedia()</a>.
+This one goes one step further and make an actual
+<a href="http://www.webrtc.org/">WebRTC call</a>
+displayed in a WebGL scene.</p>
+
+<p>In fact, it has already been done a month ago! As you can see
+<a href="http://www.youtube.com/watch?v=em5RWcstfI0&amp;feature=watch_response">here</a>
+:)
+The video from the first post, <a href="http://www.youtube.com/watch?v=vnNihxl3taE">&#8216;being on tv, watching tv&#8217;</a> has been answered
+by <a href="https://plus.google.com/109216128632357967445/posts">Ethan Hugg</a> from cisco.
+My very first video reponse btw! He
+<a href="http://www.youtube.com/watch?v=em5RWcstfI0&amp;feature=watch_response">shows a SIP video call</a>
+using an version of Chromium hacked by
+<a href="https://plus.google.com/102821430095362232437/posts">Suhas Nandakumar</a>.
+Definitly cool stuff!
+<a href="http://webglmeeting.appspot.com">WebGL Meeting</a> is similar but run on unmodified browsers.
+The
+<a href="http://youtu.be/Fjb7xBnxq9k">screencast</a>
+below is short demo of it.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/04/12/video-conference-on-top-of-webgl/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/03/20/sounds-for-more-realistic-3d/">tQuery WebAudio for More Realistic 3D</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-20T01:08:00+01:00" pubdate data-updated="true">Mar 20<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is about
+<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">Web Audio API</a>.
+It is a new HTML5 api which provide great controls on the audio layer.
+It is much better than the
+<a href="http://www.w3.org/TR/html5/the-iframe-element.html#the-audio-element">audio tag</a>.
+It is more suitable for games or music software.
+As 3D lovers, the one feature that we care about is
+<a href="http://en.wikipedia.org/wiki/3D_audio_effect">audio spacialization</a>.
+This makes Web Audio a complement to webgl.
+It implements positional sounds, so you
+get
+<a href="http://en.wikipedia.org/wiki/Panning_(audio)">panning</a>,
+<a href="http://en.wikipedia.org/wiki/Doppler_effect">dopler</a>
+and all.
+It makes the scene so much more realistic.</p>
+
+<p>The user tends to associate 3D to reality, so efficient 3D is a lot about realism.
+The brain identifies 2D as artificial while 3D seems immediatly more natural.
+Anything which appears close to reality increase this effect.
+Feeding this illusion creates a more immersive experience to the user.
+Realistic physics is one (stay tuned :).
+Web Audio audio spacialization is another.</p>
+
+<p>The
+<a href="http://youtu.be/QjRF0_KENQ8">screencast</a>
+below is a live coding session using <code>tQuery.WebAudio</code>.
+If you want, you can experiment with this code in our playground. Just click
+<a href="http://bit.ly/GApgWg">here</a>
+and start coding :)</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/03/20/sounds-for-more-realistic-3d/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/2/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

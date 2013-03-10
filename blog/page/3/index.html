@@ -1,0 +1,892 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This post is about supporting mobile.
+We will try to port marblesoccer on mobile.
+When doing a
+boilerplate for three.js,
+mobile had to be supported &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/page/3/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/12/28/let-s-make-a-3d-game-supporting-mobile/">Let’s Make a 3D Game: Supporting Mobile</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-28T13:46:00+01:00" pubdate data-updated="true">Dec 28<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is about supporting mobile.
+We will try to port <a href="http://marblesoccer.com">marblesoccer</a> on mobile.
+When doing a
+<a href="http://127.0.0.1:8000/blog/2011/12/20/boilerplate-for-three-js/">boilerplate for three.js</a>,
+mobile had to be supported for compatibility.
+So it gave me the idea of this post.
+What about porting our game on mobile ?
+Porting a 3D web game to mobile ? crazy :)</p>
+
+<p>The desktop version looks kindof ok.
+What would be the result of this experiment ?
+Is that even possible ?
+What about usable ?
+This is the purpose of this experiment to find out.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/12/28/let-s-make-a-3d-game-supporting-mobile/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/12/26/let-s-make-a-3d-game-virtual-joystick/">Let’s Make a 3D Game: Virtual Joystick</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-26T12:21:00+01:00" pubdate data-updated="true">Dec 26<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Here is another article of the &#8220;Let&#8217;s Make a 3D Game&#8221;
+<a href="/blog/categories/tutorial3dgame/">series</a>.
+We have already seen how to handle other inputs like
+<a href="/blog/2011/09/12/lets-Make-a-3D-game-keyboard/">keyboard</a>
+and
+<a href="/blog/2011/09/20/lets-make-a-3D-game-device-orientation/">device orientation</a>.
+This post is about <a href="https://github.com/jeromeetienne/virtualjoystick.js">virtualjoystick.js</a>
+It <strong>virtual joystick</strong>, another input you can use for your games.
+A virtual joystick emulates a joystick behaviour on a touch screen.
+<a href="https://github.com/jeromeetienne/virtualjoystick.js">virtualjoystick.js</a>
+has been coded in a effort to port
+<a href="http://marblesoccer.com">marblesoccer</a>
+to mobile device.
+Show, dont tell,
+<a href="http://jeromeetienne.github.com/virtualjoystick.js/">Try it out</a>.</p>
+
+<p>This
+<a href="http://jeromeetienne.github.com/virtualjoystick.js/">demo</a>
+works with mouse events too thus, it is easier to test/debug.
+<a href="https://github.com/jeromeetienne/virtualjoystick.js">virtualjoystick.js</a>
+has been widely inpired by
+<a href="http://sebleedelisle.com/2011/04/multi-touch-game-controller-in-javascripthtml5-for-ipad/">this post</a>
+by
+<a href="http://sebleedelisle.com/">Seb Lee-Delisle</a>.
+The screencast below is short introduction about
+<a href="https://github.com/jeromeetienne/virtualjoystick.js">virtualjoystick.js</a></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/12/26/let-s-make-a-3d-game-virtual-joystick/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/12/20/boilerplate-for-three-js/">Boilerplate for Three.js</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-20T19:09:00+01:00" pubdate data-updated="true">Dec 20<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post presents
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>.
+I looked at
+<a href="http://html5boilerplate.com/">html5 boilerplate</a>
+and found
+<a href="http://www.youtube.com/watch?v=NMEB78VX2P0">it</a>
+<a href="http://www.youtube.com/watch?v=oDlsOyPKUTM">awesome</a>.
+<a href="http://html5boilerplate.com/">html5 boilerplate</a>
+is a fast way start a clean project.
+It avoids repetitive tasks, following <a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">DRY</a> principles.
+It includes all those good practices, which are so easy to forget.
+It seems all good to me :)
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a> tries to apply similar principles.
+I frequently write simple three.js demo for tutorials, and repeat the first steps way too often for my tastes :)
+It has been done in effort to make 3D on the web even easier.</p>
+
+<p><a href="http://jeromeetienne.github.com/threejsboilerplate/">Try it</a> out.
+&#8220;Boilerplate for three.js is a web template for a fast, robust and future-proof site.
+Boilerplate is not a framework, nor does it prescribe any philosophy of
+development, it&#8217;s just got some tricks to get your project off the ground
+quickly and right-footed.&#8221;
+- freely adapted from <a href="http://html5boilerplate.com/">html5 boilerplate site</a>.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/12/20/boilerplate-for-three-js/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/12/19/particles-online-editor-for-sparks-js/">Particles: Online Editor for Sparks.js</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-19T12:11:00+01:00" pubdate data-updated="true">Dec 19<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is the second of our <a href="/blog/categories/particles">serie on particles</a>.
+It presents
+<a href="https://github.com/jeromeetienne/sparkseditor">sparkseditor</a>
+, an online editor for
+<a href="https://github.com/zz85/sparks.js">sparks.js</a>
+with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>.
+In a few word, it is a webpage which provide an text editor
+with a
+<a href="https://github.com/zz85/sparks.js">sparks.js</a>
+effect.
+You got the code in the editor
+and
+you see <em>live</em> the resulting particles effect.
+I like this <em>live</em> aspect a lot :)
+I think it makes your design more direct, lower latency, less overhead.
+More creative in a way.
+<a href="http://jeromeetienne.github.com/sparkseditor/">Try it out</a>.</p>
+
+<p>This editor has been made to lower the barrier of entry on
+<a href="https://github.com/zz85/sparks.js">sparks.js</a>
+with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+particles.
+The UI is rather simple and obvious. You can find a small presentation in the
+screencast below.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/12/19/particles-online-editor-for-sparks-js/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/12/14/particles-introduction-to-sparks-js/">Particles: Introduction to Sparks.js</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-14T12:08:00+01:00" pubdate data-updated="true">Dec 14<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is the first of a <a href="/blog/categories/particles">serie on particles</a>.
+It specifically is about
+<a href="https://github.com/zz85/sparks.js">sparks.js</a>.
+<em>sparks.js</em> is lightweight 3d
+<a href="http://en.wikipedia.org/wiki/Particle_system">Particle system</a>
+in javascript, for use with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+and
+<a href="https://github.com/sole/tween.js">tween.js</a>.
+It is from
+<a href="http://www.lab4games.net/zz85/blog/">zz85</a>
+who already did
+<a href="http://mrdoob.github.com/three.js/examples/webgl_geometry_text.html">3D text</a>
+and
+<a href="http://mrdoob.github.com/three.js/examples/webgl_geometry_subdivison.html">Catmull Clark subdivision</a>.
+a productive guy :)</p>
+
+<p>The <a href="http://mrdoob.github.com/three.js/examples/webgl_particles_shapes.html">demo</a>
+below is one of the many <a href="https://github.com/mrdoob/three.js/tree/master/examples">three.js examples</a>.
+While im on it, the <a href="https://github.com/mrdoob/three.js/tree/master/examples">example directory</a> is a gold mine.
+Go dig in it to understand how to code three.js :)
+Back to the point, this
+<a href="http://mrdoob.github.com/three.js/examples/webgl_particles_shapes.html">demo</a>
+is rather cool no ?
+You want to do the same ?
+During this short post, let me walk you walk thru the code for particles in this example.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/12/14/particles-introduction-to-sparks-js/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/12/10/constructive-solid-geometry-with-csg-js/">Constructive Solid Geometry With csg.js</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-10T16:30:00+01:00" pubdate data-updated="true">Dec 10<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is about
+<a href="http://en.wikipedia.org/wiki/Constructive_solid_geometry">constructive solid geometry</a>
+, an impressive word :)
+In fact, it is just a way to build complex objects from simpler ones.
+Those simple objects are assembled using
+<a href="http://en.wikipedia.org/wiki/Algebra_of_sets">operations</a>
+such as union, difference and intersection.</p>
+
+<p>Recently
+<a href="http://madebyevan.com/">Evan Wallas</a>
+released
+<a href="http://evanw.github.com/csg.js/">csg.js</a>,
+a clean self-contained library to do
+<a href="http://en.wikipedia.org/wiki/Constructive_solid_geometry">constructive solid geometry</a>.
+So <a href="http://chandler.prallfamily.com/">Chandler Prall</a>
+wrote a
+<a href="http://chandler.prallfamily.com/2011/12/constructive-solid-geometry-with-three-js/">bridge</a>
+to make it easy to use with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>.</p>
+
+<p>With all this nice code, i wrote the little
+<a href="/data/constructive-solid-geometry-with-csg-js/">demo of a dice</a>
+you can see on the right. Thus you can click to change the operations, play
+with it and have a feel of the various operations.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/12/10/constructive-solid-geometry-with-csg-js/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/11/21/lets-make-a-3d-game-make-it-embedded/">Lets Make a 3D Game: Make It Embedded</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-21T16:32:00+01:00" pubdate data-updated="true">Nov 21<span>st</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><iframe src="http://marblesoccer.com"
+    allowfullscreen webkitallowfullscreen mozallowfullscreen
+    width="420" height="315" frameborder="0" style="float: right; margin-left: 1em;">
+</iframe>
+
+
+<p>This post is part of the <a href="/blog/categories/tutorial3dgame/">&#8220;Let&#8217;s make a 3D game&#8221;</a> series.
+The previous post was on
+<a href="/blog/2011/11/17/lets-make-a-3d-game-make-it-fullscreen/">fullscreen API</a>.
+Here is another one on resizing the display area.
+This post is about embedding your game in another page.
+It is usefull to include it in a blog, in facebook, iGoogle or other game plateforms.</p>
+
+<p><a href="http://marblesoccer.com">MarbleSoccer</a>
+now contains all the tricks explained in this post.
+<em>Show dont tell</em>, you can see it embedded on the left.
+Embedding your game implies various things.
+As your game is hosted in another page, it likely got a smaller display area.
+HTML5
+<a href="http://www.w3.org/TR/css3-mediaqueries/">CSS media query</a>
+makes it easy to fit various sizes.
+Another part are the
+<a href="http://en.wikipedia.org/wiki/DOM_events">DOM events</a>
+from the iframe.
+They will be propagated to the host page and may produce undesirable effects.
+We see how to shield them.
+But first let&#8217;s see about
+<a href="http://en.wikipedia.org/wiki/HTML_element#Frames">iframe</a></p>
+
+<h2>Let&#8217;s go play in an iframe</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/HTML_element#Frames">iframe</a>
+is an easy and secure way to embed a page in another.
+Let&#8217;s declare it.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;iframe</span> <span class="na">src=</span><span class="s">&quot;http://marblesoccer.com&quot;</span>
+</span><span class='line'>  <span class="na">allowfullscreen</span> <span class="na">webkitallowfullscreen</span> <span class="na">mozallowfullscreen</span>
+</span><span class='line'>  <span class="na">width=</span><span class="s">&quot;480&quot;</span> <span class="na">height=</span><span class="s">&quot;320&quot;</span> <span class="na">frameborder=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'><span class="nt">&lt;/iframe&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/11/21/lets-make-a-3d-game-make-it-embedded/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/11/17/lets-make-a-3d-game-make-it-fullscreen/">Lets Make a 3D Game: Make It Fullscreen</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-17T07:59:00+01:00" pubdate data-updated="true">Nov 17<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is part of the <a href="/blog/categories/tutorial3dgame/">&#8220;Lets make a 3D game&#8221;</a> series.
+It is about the <a href="http://dvcs.w3.org/hg/fullscreen/raw-file/tip/Overview.html">fullscreen API</a>.
+This API allows to make DOM elements fullscreen.
+Fullscreen is quite important for games.
+It provides a larger display so a more immersive experience for your players.
+All that from javascript, so no more needed to ask &#8220;please f11&#8221; to your
+players, isnt that sweet ? :)</p>
+
+<p><img class="right" src="/data/lets-make-a-3d-game-make-it-fullscreen/images/fullscreen-icon.png"></p>
+
+<p>The <a href="http://dvcs.w3.org/hg/fullscreen/raw-file/tip/Overview.html">fullscreen API</a>
+is still in discussion, but the basics are settled. At the time of this writing,
+it is available in
+<a href="http://blog.pearce.org.nz/2011/11/firefoxs-html-full-screen-api-enabled.html">firefox nightly</a>,
+<a href="http://peter.sh/2011/01/javascript-full-screen-api-navigation-timing-and-repeating-css-gradients/">webkit nightly</a>and
+<a href="http://updates.html5rocks.com/2011/10/Let-Your-Content-Do-the-Talking-Fullscreen-API">chrome stable</a>.
+It has been already added in <a href="http://marblesoccer.com">marbleSoccer</a>.
+The icon is from <a href="http://thenounproject.com/">The Noun Project</a>, a source of nice and clean icons.
+Try it out! Click on it to toggle fullscreen state. If you dont see the icon, your browser
+doesn&#8217;t yet have the fullscreen API.</p>
+
+<center>
+    <iframe webkitallowfullscreen mozallowfullscreen allowfullscreen width="100%" height="320" src="http://marblesoccer.com" frameborder="0"></iframe>
+</center>
+
+
+<p>Ok now is time for code :)</p>
+
+<h2>Let&#8217;s get started</h2>
+
+<p>As usual, i provide a little helper to make it easier for you to include it in
+your games. It is called <a href="/data/THREEx/THREEx.FullScreen.js">THREEx.FullScreen.js</a>.
+It hides the prefix of each vendor and the little discrepencies between their API
+implementation.
+You download this file from <a href="/data/THREEx/THREEx.FullScreen.js">here</a> and include
+it in your page like this</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;THREEx.FullScreen.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/11/17/lets-make-a-3d-game-make-it-fullscreen/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/11/02/lets-make-a-3d-game-helper-for-microphysics-js/">Lets Make a 3D Game: microphysics.js, Even Easier</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-02T18:16:00+01:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is part of the <a href="/blog/categories/tutorial3dgame/">&#8220;Lets make a 3D game&#8221;</a> series.
+It is a follow up from the previous article on <a href="/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/">microphysics.js</a>.
+It will describe how to easily include <strong>microphysics.js</strong> in your three.js games.
+<a href="https://raw.github.com/jeromeetienne/microphysics.js/master/THREEx.microphysics.js">THREEx.microphysics.js</a> is a THREEx wrapper for microphysics.js.
+It helps binding <a href="https://github.com/mrdoob/three.js/">three.js</a> objects to <a href="/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/">microphysics.js</a>.
+The API is chained for convenience.</p>
+
+<h2>Let&#8217;s get started</h2>
+
+<p>So lets see how to use it.
+First step, you download it
+<a href="https://raw.github.com/jeromeetienne/microphysics.js/master/THREEx.microphysics.js">here</a>.
+Then include it in your own code with this line.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;THREEx.microphysics.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/11/02/lets-make-a-3d-game-helper-for-microphysics-js/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/">Lets Make a 3D Game: microphysics.js</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-17T12:36:00+02:00" pubdate data-updated="true">Oct 17<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is part of the <a href="/blog/categories/tutorial3dgame/">&#8220;Lets make a 3D game&#8221;</a> series.
+3D and physics simulation always go well together
+<a href="http://www.youtube.com/watch?v=Rd7TyU9RdQk">even</a>
+<a href="http://www.youtube.com/watch?v=o_xr8Htj9GI">more</a>
+<a href="http://www.youtube.com/watch?v=Xfrzi-yVcsM">so</a>
+<a href="http://www.youtube.com/watch?v=uvCbc8vFUMo">with</a>
+<a href="http://www.youtube.com/watch?v=7lBUBBW_sF0">marble</a>
+<a href="http://www.youtube.com/watch?v=c7npJ3E-ydA">games</a>.
+One is required for <a href="http://marblesoccer.com">marblesoccer</a> but i wasnt
+convinced by current 3d physics engines. I explain why at the end.
+Fortunatly, <a href="http://twitter.com/#!/pyalot">@pyalot</a> from <a href="http://codeflow.org/">codeflow.org</a>
+has been kind enough to write one taylor-made for us: <strong>microphysics.js</strong>!!</p>
+
+<p>It is bite-sized, elegant and efficient.
+Less than 500 lines at the moment!!
+It is small engouh to be understood, important feature for a tutorial blog.
+It is a work in progress tho.
+We aren&#8217;t aware of any bugs.
+New features will be added and the API is expected to move.
+Currently it implements moving spheres and static boxes (or <a href="http://en.wikipedia.org/wiki/Axis-aligned_bounding_box">AABB</a> as we like to say).
+This is all we need for <a href="http://marblesoccer.com">marblesoccer</a>, the good thing about tailor-made.
+<em>We are in business!!!</em></p>
+
+<p>Below is a screencast of me doing a short introduction of the
+<a href="http://jeromeetienne.github.com/microphysics.js/playground/">playground</a>.
+This just a page for you to experiment with microphysics.js.</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/DI5PV2_sLoM" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>Let&#8217;s get started</h2>
+
+<p>So lets see how to use it.
+First step, you download it <a href="https://raw.github.com/jeromeetienne/microphysics.js/master/codeflow/physics.js">here</a>.
+Then include it in your own code with this line.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;physics.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/4/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/2/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

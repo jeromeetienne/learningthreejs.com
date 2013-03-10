@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Particles: Online Editor for Sparks.js - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This post is the second of our serie on particles.
+It presents
+sparkseditor
+, an online editor for
+sparks.js
+with
+three.js.
+In a few word, it is a &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/2011/12/19/particles-online-editor-for-sparks-js/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Particles: Online Editor for Sparks.js</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-19T12:11:00+01:00" pubdate data-updated="true">Dec 19<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This post is the second of our <a href="/blog/categories/particles">serie on particles</a>.
+It presents
+<a href="https://github.com/jeromeetienne/sparkseditor">sparkseditor</a>
+, an online editor for
+<a href="https://github.com/zz85/sparks.js">sparks.js</a>
+with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>.
+In a few word, it is a webpage which provide an text editor
+with a
+<a href="https://github.com/zz85/sparks.js">sparks.js</a>
+effect.
+You got the code in the editor
+and
+you see <em>live</em> the resulting particles effect.
+I like this <em>live</em> aspect a lot :)
+I think it makes your design more direct, lower latency, less overhead.
+More creative in a way.
+<a href="http://jeromeetienne.github.com/sparkseditor/">Try it out</a>.</p>
+
+<p>This editor has been made to lower the barrier of entry on
+<a href="https://github.com/zz85/sparks.js">sparks.js</a>
+with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+particles.
+The UI is rather simple and obvious. You can find a small presentation in the
+screencast below.</p>
+
+<!-- more -->
+
+
+
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/nu00FhIW5bc?hl=en&fs=1" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>Live editor rocks</h2>
+
+<p><a href="http://jeromeetienne.github.com/sparkseditor/">Sparkseditor</a>
+is widely inpired by
+<a href="http://glsl.heroku.com/e">glsl editor</a>
+from
+<a href="http://mrdoob.com/">mrdoob</a>
+and
+<a href="http://www.iquilezles.org/apps/shadertoy/">shadertoy</a>
+from
+<a href="http://www.iquilezles.org/">Inigo Quilez</a>.
+On the same vibe,
+<a href="http://lea.verou.me/">lea verou</a>
+recently
+released
+<a href="http://lea.verou.me/2011/12/introducing-dabblet-an-interactive-css-playground/">dablet</a>,
+an online editor for
+<a href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets">css</a>.
+There is a clear trend here&#8230;
+What is it about those live editors ?
+A live editor produces a result immediatly.
+This helps design your effect faster.
+Be light on your foot kindof style.
+Very agile way to design.</p>
+
+<p>Additionally, it is easy to share with others because we have <em>bookmarkability</em>.
+We do that by storing state in url.
+On the down side, it makes super long+ugly urls&#8230;
+<a href="http://en.wikipedia.org/wiki/URL_shortening">url shortening</a>
+helps us reduces this issue.
+In our case, we use
+<a href="https://bitly.com/">bitly</a>
+service.</p>
+
+<p>This editor is purely static files.
+No specific server to run, no need to admin and no risk to go offline.
+Oh and by the way i dont not even have to pay for hosting this application.
+I think it shows html5 in all its power.
+The web is becoming something real nice :) html5 i love you!</p>
+
+<h2>conclusion</h2>
+
+<p>Under the hood,
+<a href="https://github.com/jeromeetienne/sparkseditor">sparkseditor</a>
+uses
+<a href="https://github.com/jeromeetienne/threex/blob/master/threex.sparks.js">threex.sparks.js</a>, a
+<a href="https://github.com/jeromeetienne/threex">threex</a>
+helper, to make
+<a href="https://github.com/zz85/sparks.js/">sparks.js</a>
+even easier to use.
+This helper will be the subject of a future post of our
+<a href="/blog/categories/particles">particles series</a>.</p>
+
+<p>The source is open-source under
+<a href="https://github.com/jeromeetienne/sparkseditor/blob/master/MIT-LICENSE.txt">MIT</a>.
+You can get it in its <a href="https://github.com/jeromeetienne/sparkseditor">git repository</a>.
+If you hit bugs, fill issues on github.
+Feel free to fork and modify it!
+That&#8217;s all folks, have fun :)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-19T12:11:00+01:00" pubdate data-updated="true">Dec 19<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/library/'>library</a>, <a class='category' href='/blog/categories/particles/'>particles</a>, <a class='category' href='/blog/categories/sparks-dot-js/'>sparks.js</a>, <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jeromeetienne.github.com/learningthreejs/blog/2011/12/19/particles-online-editor-for-sparks-js/" data-via="LearningThreejs" data-counturl="http://jeromeetienne.github.com/learningthreejs/blog/2011/12/19/particles-online-editor-for-sparks-js/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/12/14/particles-introduction-to-sparks-js/" title="Previous Post: Particles: Introduction to Sparks.js">&laquo; Particles: Introduction to Sparks.js</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2011/12/20/boilerplate-for-three-js/" title="Next Post: Boilerplate for Three.js">Boilerplate for Three.js &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jeromeetienne.github.com/learningthreejs/blog/2011/12/19/particles-online-editor-for-sparks-js/';
+        var disqus_url = 'http://jeromeetienne.github.com/learningthreejs/blog/2011/12/19/particles-online-editor-for-sparks-js/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+body {
+	overflow	: hidden;
+	padding		: 0;
+	margin		: 0;
+
+	color		: #ccc;
+	background-color: #BBB;
+	font-family	: arial;
+	font-size	: 100%;
+}
+
+#container {
+	/* Scale out 2X from the corner */
+/*	-webkit-transform: scale3d(2.0, 2.0, 1.0);
+*/
+/*-webkit-transform-origin: 0 0 0;
+*/}
+
+#info .top {
+	position	: absolute;
+	top		: 0px;
+	width		: 100%;
+	padding		: 5px;
+	text-align	: center;
+}
+#info a {
+	color		: #66F;
+	text-decoration	: none;
+}
+#info a:hover {
+	text-decoration	: underline;
+}
+#info .bottom {
+	position	: absolute;
+	bottom		: 0px;
+	right		: 5px;
+	padding		: 5px;
+}

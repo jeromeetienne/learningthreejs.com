@@ -1,0 +1,413 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Tunnel Effect for your Demo - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This post presents a tunnel effect.
+This is a classic in 3D demo.
+They are visually efficient and easy to code.
+In fact, tunnels are so trendy that &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/2012/01/11/tunnel-effect/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Tunnel Effect for Your Demo</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-11T13:00:00+01:00" pubdate data-updated="true">Jan 11<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This post presents a tunnel effect.
+This is a classic in 3D demo.
+They are visually efficient and easy to code.
+In fact, tunnels are so trendy that
+even
+<a href="http://en.wikipedia.org/wiki/Doctor_Who">doctor who</a>
+and
+<a href="http://en.wikipedia.org/wiki/Stargate">stargate</a>
+have
+<a href="http://www.youtube.com/watch?v=IKo9f5npLNM">fun</a>
+<a href="http://www.youtube.com/watch?v=KDIdJtW0vN4">in them</a>
+:)</p>
+
+<p><a href="http://jeromeetienne.github.com/tunnelgl/">Try the demo</a>.
+It has been built using the
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>
+seen in a
+<a href="/blog/2011/12/20/boilerplate-for-three-js/">previous post</a>.
+The code is simple and small.
+Less than 20lines has been added on top of the boilerplate.
+We will create a
+<a href="https://github.com/mrdoob/three.js/blob/master/src/core/Geometry.js">THREE.Geometry</a>
+to get the shape of tunnel.
+Then we will use a
+<a href="https://github.com/mrdoob/three.js/blob/master/src/textures/Texture.js">texture</a>
+trick to create the
+<a href="http://en.wikipedia.org/wiki/Optical_illusion">visual illusion</a>
+of moving.</p>
+
+<!-- more -->
+
+
+
+
+<iframe src="http://jeromeetienne.github.com/tunnelgl/"
+    webkitallowfullscreen mozallowfullscreen allowfullscreen 
+    width="100%" height="420px" frameborder="0">
+</iframe>
+
+
+<h2>Let&#8217;s build the walls</h2>
+
+<p>The first step is to build the <em>walls</em> of the tunnel.
+It is easier that one would expect.
+A tunnel may be seen as a cylinder with the camera inside.
+Once you realized that, most of the work is done.
+Luckily for us,
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+got an easy way to build cylinders, called
+<a href="https://github.com/mrdoob/three.js/blob/master/src/extras/geometries/CylinderGeometry.js">CylinderGeometry</a>.
+Nevertheless our tunnel / cylinder got 2 special points.</p>
+
+<p>First, it is open-ended. So we must not build its top and bottom.
+We need this to see thru its extremities.
+This is handled by a parameter in
+<a href="https://github.com/mrdoob/three.js/blob/master/src/extras/geometries/CylinderGeometry.js">CylinderGeometry</a>.
+We just set <code>openended</code> parameter to true and the rest is done for us :)</p>
+
+<p>Second, the camera is usually located outside of objects.
+But our tunnel/cylinder has the camera inside it.
+To make our object visible from the inside, we need to turn it inside out.
+For that, just use <code>mesh.flipSided = true</code></p>
+
+<h2>Let&#8217;s go forward</h2>
+
+<p>Now we need to go forward in this tunnel
+For that we will use an old trick.
+We won&#8217;t move the tunnel walls themselves, only their appearance.
+It gives the visual illusion that we are moving.
+Remember what they say in matrix ?
+<a href="http://www.youtube.com/watch?v=dzm8kTIj_0M">&#8220;there is no spoon&#8221;</a>.
+It is all the same, we are moving while staying still :)</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/dzm8kTIj_0M?hl=en&fs=1" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>A Texture isn&#8217;t a spoon</h2>
+
+<p>First we want to move the appearance of the cylinder, thus the player got the illusion to go forward.
+We will use <a href="https://github.com/mrdoob/three.js/blob/master/src/textures/Texture.js">THREE.Texture</a> for that.
+We wont move the actual pixels of the textures, only its coordinates.
+Additionnaly we want the texture to repeat on the cylinder, thus it appears as continuous.
+WebGL texture is a powerfull and flexible tool.
+You can tweak so many features.</p>
+
+<p>First let&#8217;s make this texture move.
+Suppose we want the texture to loop once every 10 seconds.
+So the coordinate <code>.offset.y</code> needs to go from 0 to 1 in 10 seconds.
+This line is enougth to make the tunnel move forward.
+You can change your speed within the tunnel by changing this number.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">texture</span><span class="p">.</span><span class="nx">offset</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="nx">seconds</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now the texture repetition.
+For that we will use a texture parameter called <em>wrap</em>.
+It indicates how the gpu repeat the texture on a face.
+Here is a good
+<a href="http://lucera-project.blogspot.com/2010/06/opengl-wrap.html">tutorial on opengl wrap</a>.
+By default, wrapS / wrapT are set to <code>THREE.ClampToEdgeWrapping</code>.
+So the texture is scaled to match exactly the size of the face.
+In our case, we want to repeat the texture and not scale it.
+So we use <code>THREE.RepeatWrapping</code>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">texture</span><span class="p">.</span><span class="nx">wrapT</span>   <span class="o">=</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">RepeatWrapping</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Conclusion</h2>
+
+<p>We have seen how to do a tunnel with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>.
+This is very simple to code and awesome on the screen.
+It is less than 20 lines added to the <a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate</a>.
+The cylinder geometry was already provided.
+We used
+<a href="https://github.com/mrdoob/three.js/blob/master/src/textures/Texture.js">THREE.Texture</a>
+offsets to provide the optical illusion of moving.</p>
+
+<p>Later, we may add a <a href="http://en.wikipedia.org/wiki/TARDIS">blue phonebooth</a>
+and play <em>doctor who</em> :)
+The code is available on
+<a href="https://github.com/jeromeetienne/tunnelgl">github</a>
+under MIT license.
+Feel free to fork and modify.
+That&#8217;s all folks, have fun.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-11T13:00:00+01:00" pubdate data-updated="true">Jan 11<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/demo/'>demo</a>, <a class='category' href='/blog/categories/threejs/'>threejs</a>, <a class='category' href='/blog/categories/tunnel/'>tunnel</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jeromeetienne.github.com/learningthreejs/blog/2012/01/11/tunnel-effect/" data-via="LearningThreejs" data-counturl="http://jeromeetienne.github.com/learningthreejs/blog/2012/01/11/tunnel-effect/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/12/28/let-s-make-a-3d-game-supporting-mobile/" title="Previous Post: Let’s Make a 3D Game: Supporting Mobile">&laquo; Let’s Make a 3D Game: Supporting Mobile</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/01/17/dom-events-in-3d-space/" title="Next Post: Dom Events in 3D Space">Dom Events in 3D Space &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/01/11/tunnel-effect/';
+        var disqus_url = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/01/11/tunnel-effect/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

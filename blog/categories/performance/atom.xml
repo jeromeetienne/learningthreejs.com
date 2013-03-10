@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: performance | Learning Three.js]]></title>
+  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/performance/atom.xml" rel="self"/>
+  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
+  <updated>2013-03-10T17:49:47+01:00</updated>
+  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <author>
+    <name><![CDATA[Jerome Etienne]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Performance: Merging Geometry]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/10/05/performance-merging-geometry/"/>
+    <updated>2011-10-05T11:29:00+02:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/10/05/performance-merging-geometry</id>
+    <content type="html"><![CDATA[<p>This article is about merging geometry and how it can improve performance.
+It is important for perfomance to reduce the number of <a href="http://www.khronos.org/registry/webgl/specs/latest/">WebGL</a> calls as much as possible.
+The rules of thumbs is <em>the less data are exchanged between the cpu and the gpu, the better it is for performance</em>.</p>
+
+<p>The <a href="/data/performance-merging-geometry/">demo</a> is rendering many cubes and put them randomly in the space.
+<img class="left" src="/data/performance-merging-geometry/images/demo-screenshot-2000.png" width="240" height="120">
+<img class="right" src="/data/performance-merging-geometry/images/demo-screenshot-120000.png" width="240" height="120">
+It is a simplictic way to measure the performance, but it will do for us.
+If the geometries arent merged, my computer is able to display <em>2000</em> cubes at 30fps. See on the left.
+But if the geometry are merged, it displays <em>120000</em> cubes at 30fps. See on the right.
+Screenshots make it pretty obvious :) This is <strong>60 times</strong> more cubes!!!</p>
+
+<!-- more -->
+
+
+<h2>So Let's Merge Geometries</h2>
+
+<p>A geometry is the shape of the 3D object. three.js got already
+<a href="https://github.com/mrdoob/three.js/tree/master/src/extras/geometries">several predefined</a> for you.
+<a href="https://github.com/mrdoob/three.js/blob/master/src/extras/geometries/PlaneGeometry.js">plane</a>,
+<a href="https://github.com/mrdoob/three.js/blob/master/src/extras/geometries/CubeGeometry.js">cube</a> or
+<a href="https://github.com/mrdoob/three.js/blob/master/src/extras/geometries/SphereGeometry.js">sphere</a>
+are the common ones.
+This post is about merging them, so lets do that.
+This line will merge <code>otherGeometry</code> into <code>geometry</code>.</p>
+
+<p>```javascript</p>
+
+<pre><code>THREE.GeometryUtils.merge(geometry, otherGeometry);
+</code></pre>
+
+<p>```</p>
+
+<p> <code>THREE.GeometryUtils.merge()</code> is in <a href="https://github.com/mrdoob/three.js/blob/master/src/extras/GeometryUtils.js">THREE.GeometryUtils</a> with other geometry related functions.
+Btw it is more a concatenation than an actual merge them. No duplicate is removed in the process.</p>
+
+<h2>Combo: merging geometry with mesh</h2>
+
+<p> <code>THREE.GeometryUtils.merge()</code> supports to merge geometries with meshes too.
+In this case, the function will honor the mesh position/orientation.
+As a bonus, if your mesh uses <code>THREE.MeshFaceMaterial</code>, materials will be copied along.
+It is quite convenient when building a large geometry, or when optimising existing scenes with meshes.</p>
+
+<p>```javascript</p>
+
+<pre><code>var mesh = new THREE.Mesh(new THREE.CubeGeometry(10,10,10), new THREE.MeshNormalMaterial());
+mesh.position.x = 30;
+mesh.rotation.y = Math.PI/3;
+THREE.GeometryUtils.merge(geometry, mesh);
+</code></pre>
+
+<p>```</p>
+
+<p>This will merge a <code>THREE.CubeGeometry</code> with a translation of <code>30</code> on <code>x</code>
+and a rotation of <code>Math.PI/3</code> on <code>y</code>.
+Simple enougth hey ? what about Limitations ?</p>
+
+<h2>When to use it ?</h2>
+
+<p>The answer is <em>whenever possible</em> due to the performance improvement.
+The merged geometry will act as a single atomic shape.
+So it is perfect with static geometry.
+But it may not be suitable in all cases.
+For example, it won't be possible to move the merged objects independantly from each other.
+Or you can no more remove or add a object without recomputing the whole geometry.</p>
+
+<h2>Conclusion</h2>
+
+<p>So merging geometry reduces the amount of webgl calls, so dramatically improve
+performance (x60 time in our little demo). It is simple enougth to add to your
+demos or games when they have large static geometries. So use it as much as possible.
+That's all folks. I hope it has been usefull :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Performance: Caching Material]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/09/16/performance-caching-material/"/>
+    <updated>2011-09-16T10:25:00+02:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/09/16/performance-caching-material</id>
+    <content type="html"><![CDATA[<p>This article is about performance and how caching can improve them.
+In WebGL, it is important not to push the same textures multiple times to the GPU.
+It uselessly slow down the rendering.
+As a rules of thumbs, the less data are exchanged between the cpu and the gpu, the better
+it is for performance.</p>
+
+<h2>A Basic Caching</h2>
+
+<p><a href="https://github.com/mrdoob/three.js/">three.js</a> handles cache cleanly and
+eleguantly. If you instanciate
+a javascript object
+<a href="https://github.com/mrdoob/three.js/blob/master/src/textures/Texture.js">THREE.texture</a>
+or
+a <a href="https://github.com/mrdoob/three.js/blob/master/src/materials/Material.js">THREE.Material</a>
+only once, it will be pushed only once to the GPU.
+It is the simplest way to avoid pushing them multiple times.</p>
+
+<p>```javascript</p>
+
+<pre><code>var material = new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture( 'foo.jpg')});
+</code></pre>
+
+<p>```</p>
+
+<p>Then you use this material as many times as you want, <code>foo.jpg</code> will be sent
+only once to the GPU. For example, let's create many
+<a href="https://github.com/mrdoob/three.js/blob/master/src/extras/geometries/SphereGeometry.js">spheres</a>.</p>
+
+<p>```javascript</p>
+
+<pre><code>var mesh = new THREE.Mesh( new THREE.SphereGeometry( 75, 20, 10 ), material );
+</code></pre>
+
+<p>```</p>
+
+<p>This solution is simple and eleguant but may not be practical with a large code,
+like a <a href="/blog/categories/tutorial3dgame/">game</a>.
+In such case, you can use <a href="https://github.com/jeromeetienne/MicroCache.js">microcache.js</a>.
+It is a micro library to handle in-memory cache which works in node and browser.</p>
+
+<!-- more -->
+
+
+<h2>So Let's Cache with microcache.js</h2>
+
+<p>It needs only 3 lines. To install <a href="https://github.com/jeromeetienne/MicroCache.js">microcache.js</a>,
+download it and copy this line.</p>
+
+<p>```html</p>
+
+<pre><code>&lt;script src="microcache.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>```</p>
+
+<p>To instanciate a cache, use the following line.</p>
+
+<p>```javascript</p>
+
+<pre><code>renderer._microCache = new MicroCache();
+</code></pre>
+
+<p>```</p>
+
+<p>As you likely noticed, it is attaching the cache to the renderer.
+Why do we do that ?
+First, it is required to support multiple renderers on the same page, each with it own cache.
+Additionnaly if you stop using a renderer, the cache will be automatically dropped
+by javascript <a href="http://en.wikipedia.org/wiki/Garbage_collection_(computer_science)">garbage collector</a>.
+Two nice features.
+Now lets create a texture and cache it.</p>
+
+<p>```javascript</p>
+
+<pre><code>var texture = renderer._microCache.getSet('heavy', THREE.ImageUtils.loadTexture('foo.png'));
+</code></pre>
+
+<p>```</p>
+
+<p>This is it. It is <em>as simple as that</em>.
+Now maybe you wonder "yeah but how do i know what need to be cached"...
+I completly agree, it is always nice to get diagnostics from the system when
+optimizing performance.</p>
+
+<h2>Now Let's Diagnose</h2>
+
+<p><img class="right" src="/data/performance-tip-caching-material/webgl-inspector-texture.png" title="Example" ></p>
+
+<p>You can check what is pushed to the GPU with
+<a href="http://benvanik.github.com/WebGL-Inspector/">WebGL inspector</a>.
+It is a firebug-like to "debug, diagnose, and explore WebGL scenes".
+You can see the texture tabs on the right. If you spot
+duplicates in there, you found rooms for optimization :)
+You can embed it in your own page application with a single line.</p>
+
+<p>```html</p>
+
+<pre><code>&lt;script src="https://raw.github.com/benvanik/WebGL-Inspector/master/core/embed.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>```</p>
+
+<h2>That's All Folks</h2>
+
+<p>As Terje Mathisen said, "All programming is an exercise in caching."
+Caching is a efficient way to optimize your code.
+It is simple with <a href="https://github.com/jeromeetienne/MicroCache.js">microcache.js</a>.
+The code is available on github <a href="https://github.com/jeromeetienne/MicroCache.js">here</a> under MIT license.
+If you hit bugs, fill issues on github. Feel free to fork, modify and have fun with it :)</p>
+]]></content>
+  </entry>
+  
+</feed>

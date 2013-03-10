@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Video Conference on Top of WebGL - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This post presents
+WebGL Meeting,
+a very simple WebGL application to do webrtc call.
+It is a follow up of &#8220;Fun with live video on webgl&#8221 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/2012/04/12/video-conference-on-top-of-webgl/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Video Conference on Top of WebGL</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-12T13:20:00+02:00" pubdate data-updated="true">Apr 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This post presents
+<a href="http://webglmeeting.appspot.com">WebGL Meeting</a>,
+a very simple WebGL application to do webrtc call.
+It is a follow up of <a href="/blog/2012/02/07/live-video-in-webgl/">&#8220;Fun with live video on webgl&#8221;</a>.
+It was presenting how to use the WebCam using
+<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">WebRTC getUserMedia()</a>.
+This one goes one step further and make an actual
+<a href="http://www.webrtc.org/">WebRTC call</a>
+displayed in a WebGL scene.</p>
+
+<p>In fact, it has already been done a month ago! As you can see
+<a href="http://www.youtube.com/watch?v=em5RWcstfI0&amp;feature=watch_response">here</a>
+:)
+The video from the first post, <a href="http://www.youtube.com/watch?v=vnNihxl3taE">&#8216;being on tv, watching tv&#8217;</a> has been answered
+by <a href="https://plus.google.com/109216128632357967445/posts">Ethan Hugg</a> from cisco.
+My very first video reponse btw! He
+<a href="http://www.youtube.com/watch?v=em5RWcstfI0&amp;feature=watch_response">shows a SIP video call</a>
+using an version of Chromium hacked by
+<a href="https://plus.google.com/102821430095362232437/posts">Suhas Nandakumar</a>.
+Definitly cool stuff!
+<a href="http://webglmeeting.appspot.com">WebGL Meeting</a> is similar but run on unmodified browsers.
+The
+<a href="http://youtu.be/Fjb7xBnxq9k">screencast</a>
+below is short demo of it.</p>
+
+<!-- more -->
+
+
+
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/Fjb7xBnxq9k" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>WebRTC progress</h2>
+
+<p>Using a modified browser is cool for make nice demo like
+<a href="https://plus.google.com/109216128632357967445/posts/QkFu7cxmbzi">this one</a>.
+Nevertheless it reduces how widely the technology can spread.
+It is now possible to do it using opensource and mainstream browsers.
+This field advances so fast!</p>
+
+<p><img class="right" src="/data/2012-04-12-video-conference-on-top-of-webgl/twoTVsWithWebGLTeam-small.jpg" width="320" height="240"></p>
+
+<p><a href="http://mozillamediagoddess.org/">Mozilla team</a> is
+<a href="http://hacks.mozilla.org/2012/04/webrtc-efforts-underway-at-mozilla/">working hard</a>
+to make it happen as soon as possible.
+It is even available on mobile with
+<a href="http://weblog.bocoup.com/javascript-webrtc-opera-mobile-12/">Opera Mobile 12</a>.
+Some <a href="http://www.youtube.com/watch?v=wpwjtzXgNFQ]">&#8220;protothon&#8221;</a> are happening about it.
+<a href="http://www.webrtc.org/">WebRTC</a>
+is on the edge but it is definitly coming hard.
+The picture on the right is Chrome WebRTC team doing thumb up on
+<a href="webglmeeting.appspot.com">WebGLMeeting</a>
+at an WebRTC event for
+<a href="http://www.ietf.org/meeting/83/index.html">IETF 83</a>
+:)</p>
+
+<h2>What about the code ?</h2>
+
+<p><a href="https://github.com/jeromeetienne/webglmeeting">WebGLMeeting source</a>
+is available on Github under MIT license.
+It uses three.js to handle the WebGL.
+It is the <a href="http://code.google.com/p/webrtc-samples/source/browse/trunk/apprtc/">AppRTC app</a>
+mostly unmodified, with a simple WebGL skin on top.</p>
+
+<p>A post from Chrome WebRTC team recently announced
+<a href="http://www.webrtc.org/blog/sourcecodetoapprtcappspotcomexampleappavailable">&#8220;Source code to apprtc.appspot.com example app available&#8221;</a>.
+The post releases the
+<a href="http://code.google.com/p/webrtc-samples/source/browse/trunk/apprtc/">source</a>
+on google code.
+The <a href="https://apprtc.appspot.com">apprtc demo</a>
+is a very simple, one-to-one, webrtc call.
+Go look at the <a href="http://code.google.com/p/webrtc-samples/source/browse/trunk/apprtc/">source</a>, dont be shy :)
+It is very small, the whole code client+server, is less than 15kbyte.
+It is easy to understand and deploy thanks too google App Engine.</p>
+
+<h2>Face tracker seeking love ?</h2>
+
+<p>Surprising hey ? Well the source contains a face tracker,
+<a href="http://code.google.com/p/webrtc-samples/source/browse/trunk/apprtc/html/face.html">face.html</a>.
+It works rather well but it is slow. If somebody could give it more love&#8230;
+It is a rather naive implementation which works well but got many rooms for speed improvement.
+It could make face tracking, less clumsy than wearing augmented reality marker on top
+of your head like
+<a href="http://learningthreejs.com/blog/2012/03/12/augmented-reality-in-the-browser/">i did a while back</a>
+:)</p>
+
+<h2>Conclusion</h2>
+
+<p>I got the feeling WebRTC gonna change a lot of things soon. The peer-to-peer aspect makes it super
+cheap to integrate live video conferences to your own sites.</p>
+
+<p>That&#8217;s all folks, have fun!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-12T13:20:00+02:00" pubdate data-updated="true">Apr 12<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>, <a class='category' href='/blog/categories/webrtc/'>webrtc</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jeromeetienne.github.com/learningthreejs/blog/2012/04/12/video-conference-on-top-of-webgl/" data-via="LearningThreejs" data-counturl="http://jeromeetienne.github.com/learningthreejs/blog/2012/04/12/video-conference-on-top-of-webgl/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/03/20/sounds-for-more-realistic-3d/" title="Previous Post: tQuery WebAudio for More Realistic 3D">&laquo; tQuery WebAudio for More Realistic 3D</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/05/02/augmented-reality-3d-pong/" title="Next Post: Augmented Reality 3D Pong">Augmented Reality 3D Pong &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/04/12/video-conference-on-top-of-webgl/';
+        var disqus_url = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/04/12/video-conference-on-top-of-webgl/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

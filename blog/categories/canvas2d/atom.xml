@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: canvas2d | Learning Three.js]]></title>
+  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/canvas2d/atom.xml" rel="self"/>
+  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
+  <updated>2013-03-10T17:49:47+01:00</updated>
+  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <author>
+    <name><![CDATA[Jerome Etienne]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Let’s Make a 3D Game: Supporting Mobile]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/12/28/let-s-make-a-3d-game-supporting-mobile/"/>
+    <updated>2011-12-28T13:46:00+01:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/12/28/let-s-make-a-3d-game-supporting-mobile</id>
+    <content type="html"><![CDATA[<p>This post is about supporting mobile.
+We will try to port <a href="http://marblesoccer.com">marblesoccer</a> on mobile.
+When doing a
+<a href="http://127.0.0.1:8000/blog/2011/12/20/boilerplate-for-three-js/">boilerplate for three.js</a>,
+mobile had to be supported for compatibility.
+So it gave me the idea of this post.
+What about porting our game on mobile ?
+Porting a 3D web game to mobile ? crazy :)</p>
+
+<p>The desktop version looks kindof ok.
+What would be the result of this experiment ?
+Is that even possible ?
+What about usable ?
+This is the purpose of this experiment to find out.</p>
+
+<!-- more -->
+
+
+
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/Ow_ceac1aEE?hl=en&fs=1" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>Mobile isn't desktop</h2>
+
+<p>Indeed... desktop and mobile are quite different plateforms.
+Which differences are relevant to us ?
+First, mobile network is bad, especially latency.
+So avoid download of long files, such as texture or sound.
+Here is a good talk on
+<a href="http://www.youtube.com/watch?v=L2YqfVNHQO4">Mobile Web Performance</a>.
+Another thing, mobile got no keyboard, no mouse, but a touch screen
+We need to get a game controller for this environement.
+We use <a href="https://github.com/jeromeetienne/virtualjoystick.js">virtualjoystick.js</a>.
+See details in our <a href="/blog/2011/12/26/let-s-make-a-3d-game-virtual-joystick/">previous post</a>.</p>
+
+<p>One big thing is that currently, on mobile, WebGL hasnt reached mainstream to say the least.
+No major vendor is shipping phone with webgl, so nobody or close get webgl on phone.
+So for our little experiment, we will display in
+<a href="http://www.w3.org/TR/2010/WD-2dcontext-20100304/">Canvas 2D</a>
+with
+<a href="https://github.com/mrdoob/three.js/blob/master/src/renderers/CanvasRenderer.js">THREE.CanvasRenderer</a>.</p>
+
+<h2>Porting to canvas 2D</h2>
+
+<p>So what need to be done ?
+First step is to use the proper renderer when suitable.
+Second is fixing material and geometry to fit canvas2D renderer capability.
+Last step is to look for room of optimisations.
+Ok now let's intanciate the renderer. If webgl is available, use
+ <code>THREE.WebGLRenderer</code>
+else use
+ <code>THREE.CanvasRenderer</code>.
+Not too hard hey ?
+We already did that in the
+<a href="/blog/2011/12/20/boilerplate-for-three-js/">boilerplate for three.js</a></p>
+
+<iframe src="http://marblesoccer.com?render=canvas&bypasslanding=1"
+    webkitallowfullscreen mozallowfullscreen allowfullscreen 
+    width="420" height="315" frameborder="0" style="float: right; margin-left: 1em;">
+</iframe>
+
+
+<p>We simplify geometry to reduce the number of polygon.
+For marble geometry, the sphere got 512 faces on webgl, and only 9 on canvas2d.
+Drastic :)
+What about material ? For webgl, we used
+<a href="http://en.wikipedia.org/wiki/Phong_shading">phong</a>
+for fancy lightings,
+We used
+<a href="http://en.wikipedia.org/wiki/Texture_mapping">textures</a>
+for realistic effects.
+But with canvas2D, those technics cant be used.
+They are way too slow.</p>
+
+<p>This is enougth to get it working.
+It display something reasonable on the screen at least.
+We sacrifice a lot tho, no more texture not fancy lighting.
+And now the bad new, it results in 3fps on my ipad2 ios4... ouch.</p>
+
+<h2>More measures</h2>
+
+<p>How come performances are so bad ? So i did more measures.
+I disabled the display of map and marbles to see how they impact performance.
+If we display the map and the marbles, we got 3fps on my ipad2.
+If we display only marbles, no more maps, we got 23fps, much better.
+but still not great... Considere that we are only displaying marbles and they are real simple.</p>
+
+<p>If we display no marble, and no map. we got only 30fps. So all the rest, all the non display
+part is already using a big part of time ? what are we doing ? not much...
+Still we run
+<a href="/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/">realistic 3D physics</a>
+and ipad2 cpu isnt as fast as usual desktop ones.</p>
+
+<h2>Time to optimize</h2>
+
+<p>Ok it is slow but this is a first try.
+I admit the code isnt not too optimized.
+<a href="http://en.wikipedia.org/wiki/Central_processing_unit">cpu</a>
+/
+<a href="http://en.wikipedia.org/wiki/Graphics_processing_unit">gpu</a>
+performance are so good on desktop, i may have been sloppy here and there :)
+There are areas of optimisations.
+We need to draw less polygons.</p>
+
+<p>First we need to <em>reduce the geometry</em> of the map.
+We can do that by clustering voxels:
+if 2 voxels got the same color and touch each other, display one large box, instead of 2 small boxes.
+We did it to optimize our physics.
+See details in <a href="/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/">microphysics post</a>.
+Additionnaly we could use marblesoccer's
+<a href="http://127.0.0.1:8000/blog/2011/09/14/lets-make-a-3D-game-map-editor/">map editor</a>
+to redesign a map with a simpler geometry.</p>
+
+<p>Another low-hanging fruit is to remove faces which are never seen, like in
+<a href="http://mrdoob.github.com/three.js/examples/webgl_geometry_minecraft_ao.html">minecraft example</a>
+from
+<a href="https://github.com/mrdoob/three.js/">three.js</a>.
+We could try to 2D sprites instead of 3D spheres for marble.
+We wont use
+<a href="https://github.com/mrdoob/three.js/blob/master/src/objects/Sprite.js">THREE.Sprite</a>.
+It isnt supported
+<a href="https://github.com/mrdoob/three.js/blob/master/src/renderers/CanvasRenderer.js">THREE.CanvasRenderer</a>.
+But dont worry, it is possible with the particle system.
+See how <code>THREE.Particle</code> is used in
+<a href="http://mrdoob.github.com/three.js/examples/canvas_particles_sprites.html">canvas_particles_sprites.html</a>
+example.</p>
+
+<h2>Conclusion</h2>
+
+<p>And after all that, what can you expect ?
+Will that run at 60fps ? 30fps ? Not likely or it will require a lot of effort.
+<img class="left" src="/data/lets-make-a-3d-game-supporting-mobile/images/screenshot-webgl-small.png" title="" >
+<img class="right" src="/data/lets-make-a-3d-game-supporting-mobile/images/screenshot-canvas-small.png" title="" >
+So animations arent smooth, what about the look?
+Watch what you got on the screen...
+On the right, a canvas version. <a href="http://marblesoccer.com/?render=canvas">live here</a>.
+On the left you can see a webgl version. <a href="http://marblesoccer.com">live here</a>.
+Lets face it... <em>canvas version is ugly</em>.</p>
+
+<p>After a significant work, you get poor performance and crappy look.
+Not many players would accept that...
+currently canvas performance doesnt seems suitable to display 3D on mobile.
+It is a good way to monitor performances and see how they evolve with time.</p>
+]]></content>
+  </entry>
+  
+</feed>

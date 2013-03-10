@@ -1,0 +1,443 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Particles: Introduction to Sparks.js - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This post is the first of a serie on particles.
+It specifically is about
+sparks.js.
+sparks.js is lightweight 3d
+Particle system
+in javascript, for &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/2011/12/14/particles-introduction-to-sparks-js/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Particles: Introduction to Sparks.js</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-14T12:08:00+01:00" pubdate data-updated="true">Dec 14<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This post is the first of a <a href="/blog/categories/particles">serie on particles</a>.
+It specifically is about
+<a href="https://github.com/zz85/sparks.js">sparks.js</a>.
+<em>sparks.js</em> is lightweight 3d
+<a href="http://en.wikipedia.org/wiki/Particle_system">Particle system</a>
+in javascript, for use with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+and
+<a href="https://github.com/sole/tween.js">tween.js</a>.
+It is from
+<a href="http://www.lab4games.net/zz85/blog/">zz85</a>
+who already did
+<a href="http://mrdoob.github.com/three.js/examples/webgl_geometry_text.html">3D text</a>
+and
+<a href="http://mrdoob.github.com/three.js/examples/webgl_geometry_subdivison.html">Catmull Clark subdivision</a>.
+a productive guy :)</p>
+
+<p>The <a href="http://mrdoob.github.com/three.js/examples/webgl_particles_shapes.html">demo</a>
+below is one of the many <a href="https://github.com/mrdoob/three.js/tree/master/examples">three.js examples</a>.
+While im on it, the <a href="https://github.com/mrdoob/three.js/tree/master/examples">example directory</a> is a gold mine.
+Go dig in it to understand how to code three.js :)
+Back to the point, this
+<a href="http://mrdoob.github.com/three.js/examples/webgl_particles_shapes.html">demo</a>
+is rather cool no ?
+You want to do the same ?
+During this short post, let me walk you walk thru the code for particles in this example.</p>
+
+<!-- more -->
+
+
+
+
+<iframe src="http://mrdoob.github.com/three.js/examples/webgl_particles_shapes.html" width="100%" height="420" frameborder="0"></iframe>
+
+
+<h2>Lets Get Started</h2>
+
+<p>So lets see how to use it. First step, you download
+<a href="https://raw.github.com/zz85/sparks.js/master/Sparks.js">sparks.js</a>
+from
+<a href="https://github.com/zz85/sparks.js">its github</a>.
+Then include it in your own code.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;Sparks.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>First a few words on what is a <a href="http://en.wikipedia.org/wiki/Particle_system">particle system</a>.
+It is usually composed of 2 big parts: the <em>emitter</em> and the <em>particle</em> itself.
+Emitter creates particles.
+Particles are usually smallish objects on the screen.
+As you got many particles at the same time, they appears a single mass.</p>
+
+<!-- more -->
+
+
+<h2>Let&#8217;s create an emitter</h2>
+
+<p>First we create the emitter like this.
+ <code>emitter</code> is the main object we will play with.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">counter</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">SPARKS</span><span class="p">.</span><span class="nx">SteadyCounter</span><span class="p">(</span> <span class="mi">500</span> <span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">emitter</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">SPARKS</span><span class="p">.</span><span class="nx">Emitter</span><span class="p">(</span> <span class="nx">counter</span> <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p> <code>counter</code> controls how frequently particles are created. Here it will
+emit 500 particles per seconds.
+Now let&#8217;s start emit particles.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">emitter</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Sparks.js has a very flexible core.
+It mainly uses two stacks of functions.
+<em>Initializers</em> is the stack run at the creation of a particle.
+<em>Actions</em> is another stack which is run at every step of a particle life.
+Those functions are run in order.
+Up to you to configure them to fit your needs.
+You can easily code your own <em>initializer</em> or <em>action</em>.
+Dont worry it got a bunch of predefined ones.</p>
+
+<h2>Let&#8217;s initialize</h2>
+
+<p>Lets me walk you thru the ones used in our example. The whole stack is below.
+ <code>emitter.addInitializer()</code> to push a new initializer, and <code>emitter.removeInitializer()</code>
+to remove it, not too hard :)</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">emitterpos</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Vector3</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
+</span><span class='line'><span class="nx">emitter</span><span class="p">.</span><span class="nx">addInitializer</span><span class="p">(</span> <span class="k">new</span> <span class="nx">SPARKS</span><span class="p">.</span><span class="nx">Position</span><span class="p">(</span> <span class="k">new</span> <span class="nx">SPARKS</span><span class="p">.</span><span class="nx">PointZone</span><span class="p">(</span> <span class="nx">emitterpos</span> <span class="p">)</span> <span class="p">)</span> <span class="p">);</span>
+</span><span class='line'><span class="nx">emitter</span><span class="p">.</span><span class="nx">addInitializer</span><span class="p">(</span> <span class="k">new</span> <span class="nx">SPARKS</span><span class="p">.</span><span class="nx">Lifetime</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">15</span> <span class="p">));</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">vector</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Vector3</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span> <span class="p">);</span>
+</span><span class='line'><span class="nx">emitter</span><span class="p">.</span><span class="nx">addInitializer</span><span class="p">(</span> <span class="k">new</span> <span class="nx">SPARKS</span><span class="p">.</span><span class="nx">Velocity</span><span class="p">(</span> <span class="k">new</span> <span class="nx">SPARKS</span><span class="p">.</span><span class="nx">PointZone</span><span class="p">(</span> <span class="nx">vector</span> <span class="p">)</span> <span class="p">)</span> <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p> <code>SPARKS.Position(zone)</code> initializer set the original position of the particle.
+A <code>zone</code> provide a location in space.
+ <code>new SPARKS.PointZone( emitterpos )</code> means the particles will always start from this specific point in space.
+It is possible to have other zones.
+For example, <code>SPARKS.LineZone( startVector3, endVector3 )</code> represents a line between 2 points, so
+your particle would start anywhere on this line.</p>
+
+<p> <code>SPARKS.Lifetime(mintime, maxtime)</code> initializer set particle&#8217;s lifetime.
+You can specify a range and a random value will be assigned.
+Don&#8217;t forget to add <code>SPARKS.Age</code> action to handle its lifetime.
+And the last one.
+ <code>SPARKS.Velocity(zone)</code> set particle&#8217;s velocity based on a <code>zone</code> location.
+The initializer stack is setup the particle at the begining of its life.
+Let&#8217;s see what happen during this life.</p>
+
+<h2>Let&#8217;s do some actions</h2>
+
+<p>Actions are performed at every step of a particle life.
+Same as with initializers, <code>emitter.addAction()</code> to push a new action,
+ <code>emitter.removeAction()</code> to remove it.
+For our examples the whole action stack is this.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">emitter</span><span class="p">.</span><span class="nx">addAction</span><span class="p">(</span> <span class="k">new</span> <span class="nx">SPARKS</span><span class="p">.</span><span class="nx">Age</span><span class="p">()</span> <span class="p">);</span>
+</span><span class='line'><span class="nx">emitter</span><span class="p">.</span><span class="nx">addAction</span><span class="p">(</span> <span class="k">new</span> <span class="nx">SPARKS</span><span class="p">.</span><span class="nx">Accelerate</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span> <span class="p">)</span> <span class="p">);</span>
+</span><span class='line'><span class="nx">emitter</span><span class="p">.</span><span class="nx">addAction</span><span class="p">(</span> <span class="k">new</span> <span class="nx">SPARKS</span><span class="p">.</span><span class="nx">Move</span><span class="p">()</span> <span class="p">);</span>
+</span><span class='line'><span class="nx">emitter</span><span class="p">.</span><span class="nx">addAction</span><span class="p">(</span> <span class="k">new</span> <span class="nx">SPARKS</span><span class="p">.</span><span class="nx">RandomDrift</span><span class="p">(</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2000</span> <span class="p">)</span> <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now lets details it.
+We have already seen <code>SPARKS.Age()</code>. It is handle the lifetime of each particle.
+ <code>SPARKS.Accelerate(x,y,z)</code> changes the velocity by adding a fixed amount at every step.
+This one produces a gravity effect with a negative <code>y</code>.
+ <code>SPARKS.Move()</code> makes the particles move in our 3D space.
+ <code>SPARKS.RandomDrift(x,y,z)</code> changes the velocity by adding a random amount at every step.</p>
+
+<h2>Conclusion</h2>
+
+<p>I hope this short introduction got you excited about
+<a href="https://github.com/zz85/sparks.js/">sparks.js</a>.
+Next posts on the
+<a href="/blog/categories/particles">particle series</a>
+may be a UI editor, stay tuned!
+I find sparks.js clean and flexible.
+Flexibility is very important for particles.
+It helps provide a wide variety of effect in your games/demos.
+For more informations and authoritative answer, see the
+<a href="https://github.com/zz85/sparks.js/">github repository</a>.
+That&#8217;s all for today folks, have fun.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-14T12:08:00+01:00" pubdate data-updated="true">Dec 14<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/library/'>library</a>, <a class='category' href='/blog/categories/particles/'>particles</a>, <a class='category' href='/blog/categories/sparks-dot-js/'>sparks.js</a>, <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jeromeetienne.github.com/learningthreejs/blog/2011/12/14/particles-introduction-to-sparks-js/" data-via="LearningThreejs" data-counturl="http://jeromeetienne.github.com/learningthreejs/blog/2011/12/14/particles-introduction-to-sparks-js/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/12/10/constructive-solid-geometry-with-csg-js/" title="Previous Post: Constructive Solid Geometry With csg.js">&laquo; Constructive Solid Geometry With csg.js</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2011/12/19/particles-online-editor-for-sparks-js/" title="Next Post: Particles: Online Editor for Sparks.js">Particles: Online Editor for Sparks.js &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jeromeetienne.github.com/learningthreejs/blog/2011/12/14/particles-introduction-to-sparks-js/';
+        var disqus_url = 'http://jeromeetienne.github.com/learningthreejs/blog/2011/12/14/particles-introduction-to-sparks-js/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Let's Make a 3D Game: Device Orientation - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="Here is another article of the &#8220;Let&#8217;s Make a 3D Game&#8221; series.
+It is about device orientation, another input you can use for your &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/2011/09/20/lets-make-a-3D-game-device-orientation/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Let's Make a 3D Game: Device Orientation</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-20T10:35:00+02:00" pubdate data-updated="true">Sep 20<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Here is another article of the &#8220;Let&#8217;s Make a 3D Game&#8221; <a href="/blog/categories/tutorial3dgame/">series</a>.
+It is about <strong>device orientation</strong>, another input you can use for your games.
+We have already seen how to handle the <a href="/blog/2011/09/12/lets-Make-a-3D-game-keyboard/">keyboard</a> input.
+Device orientation input is more instinctive tho. The user doesnt need to learn controls.
+It is already enabled in our game <a href="http://marblesoccer.com">marblesoccer</a>.
+Here is a <a href="http://www.youtube.com/watch?v=kW4oHaHCilo">video</a> of me playing with it.</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/kW4oHaHCilo" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+<!-- more -->
+
+
+<p>You need a computer which support WebGL <em>and</em> device orientation to actually play
+with it. Unfortunatly, macbook is the only computer i know able to do that.
+On one hand, most smartphones already support <em>device orientation API</em>.
+On the other hand, smartphones support for WebGL is sparse at best.
+So this input will become very usefull if we start supporting
+<a href="https://github.com/mrdoob/three.js/tree/master/src/renderers">three.js renderers</a>
+available on phones, such as canvas or DOM.</p>
+
+<h2>Let&#8217;s get started</h2>
+
+<p>As usual, i did a little helper to make it easier for you to include it in
+your games. It is called <a href="/data/THREEx/THREEx.DeviceOrientationState.js">THREEx.DeviceOrientationState</a>.
+You download this API from <a href="/data/THREEx/THREEx.DeviceOrientationState.js">here</a> and include
+it in your page like this</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;THREEx.DeviceOrientationState.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>How to use it ?</h2>
+
+<p>Now that the script is included, create a <code>device</code> variable like this.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">device</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">DeviceOrientationState</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After that, if you want the angle the device with the x axis, just use
+ <code>.angleX()</code> function. You can use <code>.angleY()</code> and <code>.angleZ()</code>, you
+guessed which angle they provide.
+Suppose you want a <code>THREE.Mesh</code> to stay still on y axis while you are moving the device,
+just copy this line</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">mesh</span><span class="p">.</span><span class="nx">rotation</span><span class="p">.</span><span class="nx">y</span>  <span class="o">=</span> <span class="nx">device</span><span class="p">.</span><span class="nx">angleY</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you ever want to stop listening to the device orientation, just use this line</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">device</span><span class="p">.</span><span class="nx">destroy</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>What about the standard ?</h2>
+
+<p>Sometime it may be interesting to understand the root of things.
+Let&#8217;s do a rapid introduction of the device orientation API itself.
+For authoritative details, the <a href="http://www.w3.org/TR/orientation-event/">spec</a>
+is always a nice place.
+If you want more info on it, <a href="http://www.html5rocks.com/en/tutorials/device/orientation/">html5rocks</a>
+or <a href="https://developer.mozilla.org/en/detecting_device_orientation">mdn</a>
+articles are a good start.
+First let&#8217;s bind the event.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;deviceorientation&#39;</span><span class="p">,</span>  <span class="nx">callback</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here is an example of callback</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">callback</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+</span><span class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;orientation gamma:&quot;</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">gamma</span><span class="p">,</span> <span class="s2">&quot;beta&quot;</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">beta</span><span class="p">,</span> <span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">alpha</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Be carefull tho, gamma, beta, alpha may not be set depending on the device your game is
+running on. For example on macbook, <code>alpha</code> is always <code>null</code>.</p>
+
+<h2>Conclusion</h2>
+
+<p>For more details on <a href="/data/THREEx/THREEx.DeviceOrientationState.js">THREEx.DeviceOrientationState</a>,
+see its <a href="/data/THREEx/docs/THREEx.DeviceOrientationState.html">annoted source</a>.
+It is a simple and instinctive way to control the player.
+It is closer to real-life and thus provides a more immersive experience.
+In the future we will likely do be
+a <a href="http://www.youtube.com/watch?v=-sEJ4Lo0cm8">virtual joystick</a> for touch enabled device.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-20T10:35:00+02:00" pubdate data-updated="true">Sep 20<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/html5/'>html5</a>, <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>, <a class='category' href='/blog/categories/tutorial3dgame/'>tutorial3dgame</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jeromeetienne.github.com/learningthreejs/blog/2011/09/20/lets-make-a-3D-game-device-orientation/" data-via="LearningThreejs" data-counturl="http://jeromeetienne.github.com/learningthreejs/blog/2011/09/20/lets-make-a-3D-game-device-orientation/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/09/16/performance-caching-material/" title="Previous Post: Performance: Caching Material">&laquo; Performance: Caching Material</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2011/10/05/performance-merging-geometry/" title="Next Post: Performance: Merging Geometry">Performance: Merging Geometry &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

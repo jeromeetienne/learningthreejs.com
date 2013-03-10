@@ -1,0 +1,417 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>tQuery v0 - Let's get started - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This post is an update on
+tquery progress.
+Our previous posts
+were previews,
+for example
+valentine card in tQuery
+or
+linkify, a tQuery extension. &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/2012/03/05/tquery-version-0/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">tQuery V0 - Let's Get Started</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-05T10:42:00+01:00" pubdate data-updated="true">Mar 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This post is an update on
+<a href="https://github.com/jeromeetienne/tquery">tquery</a> progress.
+<a href="/blog/categories/tquery/">Our previous posts</a>
+were previews,
+for example
+<a href="/blog/2012/02/15/valentine-card-in-tquery/">valentine card in tQuery</a>
+or
+<a href="/blog/2012/02/27/linkify-tquery-extension/">linkify, a tQuery extension</a>.
+This post is the release of <em>version 0</em>.
+It will walk you thru the website and shows how to run your first tQuery project
+with the boilerplate.
+You should be able to play with tQuery after that :)</p>
+
+<p>Ok It is still experimental.
+I have been paddling hard to make it usable by other people tho.
+The <a href="http://jeromeetienne.github.com/tquery/www/playground/">playground</a>
+is the easiest way to start experimenting. It is all online.
+no install, no download, simple and understandable.
+tQuery code is all on <a href="https://github.com/jeromeetienne/tquery">github repository</a>.
+The
+<a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=iby6kijX5Zw">screencast</a>
+below will walk you thru the
+<a href="http://jeromeetienne.github.com/tquery/www/">website</a>.</p>
+
+<!-- more -->
+
+
+
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/iby6kijX5Zw" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>Solid Ground to Build On</h2>
+
+<p>I would like tQuery to be a solid ground. Thus people can easily build
+their three.js extensions on top of it. So the code is
+documented, tested and performance is monitored. Here is some principles that
+i consider important for tQuery.
+Note that those principles are the theory.
+It doesnt imply i implement them well in practice :)</p>
+
+<p><strong>Code must be tested</strong>. It helps detect bugs earlier.
+Our <a href="http://jeromeetienne.github.com/tquery/tests/">tests</a>
+are done with
+<a href="http://visionmedia.github.com/mocha/">mocha</a>.
+<strong>API must be documented</strong>. It helps new users to use the library.
+<a href="http://jeromeetienne.github.com/tquery/docs/">API documentation</a>
+is done with
+<a href="http://code.google.com/p/jsdoc-toolkit/">jsdoc</a>.
+<strong>Performance must be monitored</strong>. Thus developpers are immediatly aware of performance
+change when the code is modified.
+Our
+<a href="http://jeromeetienne.github.com/tquery/bench/">benchmarks</a>
+are done with
+<a href="http://benchmarkjs.com/">benchmark.js</a>
+and displayed by
+<a href="https://github.com/jeromeetienne/benchrunner">benchrunner</a>.</p>
+
+<h2>How to Get Started</h2>
+
+<p>or how to get the boilerplate :)
+tQuery Boilerplate is a template to get you started. You download it and
+modify it until it fits your needs. It is a fast way to start a
+clean project with tquery.
+The running boilerplate looks <a href="http://jeromeetienne.github.com/tqueryboilerplate/">like that</a>.
+The
+<a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=YOsnKMesyRk">screencast</a>
+below shows how to use it.</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/YOsnKMesyRk" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>Running tQuery Boilerplate</h2>
+
+<p>You can try the boilerplate online with the <a href="http://jeromeetienne.github.com/tquery/www/playground/">playground</a>.
+Want to run it on your computer ?
+First you get boilerplate&#8217;s files
+<a href="https://github.com/downloads/jeromeetienne/tquery/tqueryboilerplate.zip">here</a>.
+Then you launch the http server to serve them. Here is a little shell script which does it all for you.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -OL https://github.com/downloads/jeromeetienne/tquery/tqueryboilerplate.zip
+</span><span class='line'>unzip tqueryboilerplate.zip
+</span><span class='line'><span class="nb">cd </span>tqueryboilerplate
+</span><span class='line'>make server
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then you open a browser on <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a> to
+see it running. Up to you to modify <code>index.html</code> until it fits your needs. <code>index.html</code>
+looks like the code below&#8230; Quite short.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!doctype html&gt;</span><span class="nt">&lt;title&gt;</span>Minimal tQuery Page<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;./tquery-all.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;body&gt;&lt;script&gt;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">world</span>   <span class="o">=</span> <span class="nx">tQuery</span><span class="p">.</span><span class="nx">createWorld</span><span class="p">().</span><span class="nx">boilerplate</span><span class="p">().</span><span class="nx">start</span><span class="p">();</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">object</span>  <span class="o">=</span> <span class="nx">tQuery</span><span class="p">.</span><span class="nx">createTorus</span><span class="p">().</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">world</span><span class="p">);</span>
+</span><span class='line'><span class="nt">&lt;/script&gt;&lt;/body&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Conclusion</h2>
+
+<p>This is the initial release of tQuery.
+I like how it looks.
+API is documented,
+code is tested, and performance measured.
+The code produced by the API seems short and quite understandable.
+Nice foundations especially for a version 0.</p>
+
+<p>The next step is about stabilizing tquery.js itself, cleaning it up.
+I am currently quite busy doing just that.
+So please dont hammer me with feature requests at the moment, i won&#8217;t have
+time to handle them.
+Pull requests are welcomed tho.
+Things will change when tQuery core become more stable.</p>
+
+<p>That&#8217;s all folks, have fun :)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-05T10:42:00+01:00" pubdate data-updated="true">Mar 5<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>, <a class='category' href='/blog/categories/tquery/'>tquery</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jeromeetienne.github.com/learningthreejs/blog/2012/03/05/tquery-version-0/" data-via="LearningThreejs" data-counturl="http://jeromeetienne.github.com/learningthreejs/blog/2012/03/05/tquery-version-0/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/02/27/linkify-tquery-extension/" title="Previous Post: Linkify, a tQuery Extension">&laquo; Linkify, a tQuery Extension</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/03/12/augmented-reality-in-the-browser/" title="Next Post: Augmented Reality in the Browser">Augmented Reality in the Browser &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/03/05/tquery-version-0/';
+        var disqus_url = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/03/05/tquery-version-0/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

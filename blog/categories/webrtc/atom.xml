@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: webrtc | Learning Three.js]]></title>
+  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/webrtc/atom.xml" rel="self"/>
+  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
+  <updated>2013-03-10T17:49:47+01:00</updated>
+  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <author>
+    <name><![CDATA[Jerome Etienne]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Punch A Doom Character in Augmented Reality]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/"/>
+    <updated>2012-05-15T11:59:00+02:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/05/15/punch-a-doom-character-in-augmented-reality</id>
+    <content type="html"><![CDATA[<p>Did you ever dreamed of punching a doom character ? They look evil and killed
+you so many time while you were playing the game. It is revenge time! This
+post will help you realize your dream :)
+It is about a minigame called "Punch A Doom Character in Augmented Reality"
+because in this game, the player can punch Doom Character in augmented reality :)</p>
+
+<p>The character is displayed in 3D with WebGL with <a href="http://github.com/mrdoob/three.js/">three.js</a>.
+The player gestures are recognized thru the webcam by <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmentedgesture.js</a> library.
+It uses <a href="http://webrtc.org">WebRTC</a> <a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a> to get the webcam
+using open standards.
+You can play this minigame <a href="/data/2012-05-15-punch-a-doom-character-in-augmented-reality">here</a>.
+In fact, it is an example of <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmentedgesture.js</a> library.
+We will walk you thru the code. Only 60 lines of Javascript.</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/Aa9945MGRL0" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+<!-- more -->
+
+
+<p>We have seen augmented gesture in <a href="/blog/2012/05/02/augmented-reality-3d-pong/">"Augmented Reality 3D Pong"</a> post
+and MD2 Characters in <a href="/blog/2012/05/04/tquery-md2character-a-plugin-for-doom-characters/">"tQuery Plugin for Doom Characters"</a> post.
+Now we gonna associate them together in our mini game :)
+I presented it at <a href="www.web-5.org">Web-5</a> conference in april.
+At the time, i recorded a preview <a href="http://www.youtube.com/watch?v=hUYM93xaIgg">"Doom: a new workout for geek?"</a>.
+Now let's get started!</p>
+
+<h2>The 3D World</h2>
+
+<p>First we initialize the world in 3D.
+With <code>tQuery.createWorld()</code>, we create a <code>tQuery.World</code>.
+With <code>.boilerplate()</code>, we setup a boilerplate on this world. A boilerplate is
+a fast way to get you started on the right foot. It is the
+<a href="http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/">learningthreejs boilerplate for three.js</a>.
+With <code>.start()</code>, we start the rendering loop. So from now on, the world scene
+gonna be rendered periodically, typically 60time per seconds.</p>
+
+<p>```</p>
+
+<pre><code>var world   = tQuery.createWorld().boilerplate().start();
+</code></pre>
+
+<p>```</p>
+
+<p>We setup the camera now. We remove the default camera controls from the boilerplate.
+Then we put the camera at <code>(0,1.5,5)</code> and looking toward <code>(0,1,-1)</code></p>
+
+<p>```</p>
+
+<pre><code>world.removeCameraControls()
+world.camera().position.set(0,1.5, 4);
+world.camera().lookAt(new THREE.Vector3(0,1,-1));
+</code></pre>
+
+<p>```</p>
+
+<p>Now we change the background color. This confusing line ensure the background of the
+3D scene will be rendered as <code>0x000000</code> color, aka black. We set a black
+background to give an impression of night.</p>
+
+<p>```</p>
+
+<pre><code>world.renderer().setClearColorHex( 0x000000, world.renderer().getClearAlpha() );
+</code></pre>
+
+<p>```</p>
+
+<p>We had a fog to the scene. For that, we use <code>tquery.world.createfog.js</code> plugins.</p>
+
+<p>```</p>
+
+<pre><code>world.addFogExp2({density : 0.15});
+</code></pre>
+
+<p>```</p>
+
+<h3>The Lights</h3>
+
+<p>Here we setup the lights of our scene. This is important as it determine how
+your scene looks. We add a ambient light and a directional light.</p>
+
+<p>```</p>
+
+<pre><code>tQuery.createAmbientLight().addTo(world).color(0x444444);
+tQuery.createDirectionalLight().addTo(world).position(-1,1,1).color(0xFFFFFF).intensity(3);
+</code></pre>
+
+<p>```</p>
+
+<h3>The Ground</h3>
+
+<p>We create a large checkerboard with <code>tquery.checkerboard.js</code> plugin.
+We scale the checkerboard to 100 per 100 units in the 3D world. Thus it is
+quite large and disappears into the fog. It gives the cheap impression of
+an infinite checkerboard.</p>
+
+<p>```</p>
+
+<pre><code>tQuery.createCheckerboard({
+    segmentsW   : 100,  // number of segment in width
+    segmentsH   : 100   // number of segment in Height
+}).addTo(world).scaleBy(100);
+</code></pre>
+
+<p>```</p>
+
+<h3>The Character</h3>
+
+<p>We use <code>tQuery.RatamahattaMD2Character</code> plugin. Its inherits from
+ <code>tQuery.MD2Character</code> plugin. All the configuration for this particular
+character <code>ratamahatta</code> is already done for you.
+We attach it to tQuery world.</p>
+
+<p>```</p>
+
+<pre><code>var character   = new tQuery.RatamahattaMD2Character().attach(world);
+</code></pre>
+
+<p>```</p>
+
+<p>When an animation is completed, switch to animation 'stand'.</p>
+
+<p>```</p>
+
+<pre><code>character.bind('animationCompleted', function(character, animationName){
+    console.log("anim completed", animationName);
+    this.animation('stand');
+});
+</code></pre>
+
+<p>```</p>
+
+<h2>Recognize Augmented Gestures</h2>
+
+<p>First we instanciate an object of <strong>AugmentedGesture</strong> class.
+ <code>.enableDatGui()</code> will add a <a href="http://workshop.chromeexperiments.com/examples/gui">Dat.GUI</a>.
+This is a nice library to tune parameters. We use it to tune augmentedgesture pointers.
+You can read more about it in <a href="http://learningthreejs.com/blog/2011/08/14/dat-gui-simple-ui-for-demos/">"Dat-gui - Simple UI for Demos"</a> post.
+ <code>.start()</code> asks it to begin monitoring the webcam and see if it finds markers.
+ <code>.domElementThumbnail()</code> put the webcam view as a thumbnail on the screen. This is what you
+see on top-left.
+This is usefull for the user, it is used as feedback to know what is happening</p>
+
+<p>```</p>
+
+<pre><code>var aGesture    = new AugmentedGesture().enableDatGui().start().domElementThumbnail();
+</code></pre>
+
+<p>```</p>
+
+<h3>The Pointers</h3>
+
+<p>Now that we got our AugmentedGesture instance, we gonna configure the pointers.
+One for the right hand, one for the left hand. For each, we setup the options
+to adapt each hand colors.
+In my case, the right hand is containing a green ball and the left hand contains a red ball.</p>
+
+<p>```</p>
+
+<pre><code>var pointerOpts = new AugmentedGesture.OptionPointer();
+pointerOpts.pointer.crossColor  = {r:    0, g: 255, b:   0};
+pointerOpts.colorFilter.r   = {min:   0, max:  95};
+pointerOpts.colorFilter.g   = {min: 115, max: 255};
+pointerOpts.colorFilter.b   = {min:  25, max: 150};
+aGesture.addPointer("right", pointerOpts);
+</code></pre>
+
+<p>```</p>
+
+<p>Now we do the same for the left pointer.</p>
+
+<p>```</p>
+
+<pre><code>var pointerOpts = new AugmentedGesture.OptionPointer();
+pointerOpts.pointer.crossColor  = {r:    255, g:   0, b: 128};
+pointerOpts.colorFilter.r   = {min: 190, max: 255};
+pointerOpts.colorFilter.g   = {min:  30, max: 255};
+pointerOpts.colorFilter.b   = {min:   0, max: 100};
+aGesture.addPointer("left", pointerOpts);
+</code></pre>
+
+<p>```</p>
+
+<h3>Gesture Analysis</h3>
+
+<p>Now that augmentedgesture.js is giving us the position of each hand, we gonna
+convert that into events. <code>punchingRight</code> when the user gives a punch with
+the right hand and <code>punchingLeft</code> for the left hand.
+We establish a variable to store the user moves. It is quite simple
+ <code>.punchingRight</code> is true when the use is punching with his right hand.
+ <code>.punchingLeft</code> is the same for the left hand.
+and <code>.changed</code> is true when values change.</p>
+
+<p>```</p>
+
+<pre><code>var userMove    = {
+    punchingRight   : false,
+    punchingLeft    : false,
+    changed     : false
+};
+</code></pre>
+
+<p>```</p>
+
+<p>we bind the event <code>mousemove.left</code> thus we are notified when the user moves his
+left hand. The algo we use is very simple: if the left hand is on the right part of
+the screen, then the user is considered "punchingLeft". Dont forget
+to <code>.changed</code> to true</p>
+
+<p>```</p>
+
+<pre><code>aGesture.bind("mousemove.left", function(event){
+    var state   = event.x &gt; 1 - 1/3;
+    if( state === userMove.punchingLeft )   return;
+    userMove.punchingLeft   = state;
+    userMove.changed    = true;
+});
+</code></pre>
+
+<p>```</p>
+
+<p>Now we need the same thing for the other hand. all the the same.</p>
+
+<p>```</p>
+
+<pre><code>aGesture.bind("mousemove.right", function(event){
+    var state   = event.x &lt; 1/3;
+    if( state === userMove.punchingRight )  return;
+    userMove.punchingRight  = state;
+    userMove.changed    = true;
+});
+</code></pre>
+
+<p>```</p>
+
+<h2>Bind Character and Augmented Gestures</h2>
+
+<p>Now we hook a function to the rendering loop. This function will be executed
+every time the scene is renderered. The first thing we do in this function
+is to check that userMove has <code>.changed</code>. If not, we do nothing.</p>
+
+<p>```</p>
+
+<pre><code>world.loop().hook(function(){
+    if( userMove.changed === false )    return;
+    userMove.changed = false;
+</code></pre>
+
+<p>```</p>
+
+<p>Now we process each move of the user. If the user is <code>punchingRight</code>, play
+the animation <code>crdeath</code> of the character. If he is <code>punchingLeft</code>,
+play <code>crplain</code>.</p>
+
+<p>```</p>
+
+<pre><code>    if( userMove.punchingRight )        character.animation('crdeath');
+    else if( userMove.punchingLeft )    character.animation('crpain');
+});
+</code></pre>
+
+<p>```</p>
+
+<p>And you are <strong>DONE</strong>! Pretty nice no ? :)</p>
+
+<h2>Conclusion</h2>
+
+<p>In this post we built a mini-game where users can punch doom character in augmented reality.
+All that in 60 lines of javascript.
+The Character is displayed in WebGL with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+and the augmented reality is handled
+by <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmentedgesture.js</a>.
+I like how those libraries makes the code so small, and the developement time
+so short.</p>
+
+<p>That's all folks, have fun :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Augmented Reality 3D Pong]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/02/augmented-reality-3d-pong/"/>
+    <updated>2012-05-02T13:38:00+02:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/05/02/augmented-reality-3d-pong</id>
+    <content type="html"><![CDATA[<p>This post presents a livecoding screencast of <strong>Augmented Reality 3D Pong</strong>.
+This is an experiment to use <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmented gestures</a>
+as a way to interact with game. So i picked a game classic <a href="http://en.wikipedia.org/wiki/Pong">"pong"</a>.
+We gonna learn how to code a pong in augmented reality with webgl. The result code
+is only
+<a href="https://github.com/jeromeetienne/augmentedgesture.js/blob/master/examples/augmentedpong/index.html">100lines</a>!!
+Nice for augmented reality + webgl + a game :)</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/ZTwhHwAHc3c" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+<!-- more -->
+
+
+<p>But First... What is <em>augmented gestures</em> ?
+I made <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmentedgesture.js</a>.
+This is a library which use <a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a>
+and <a href="http://www.webrtc.org/">WebRTC</a> to grab the webcam.
+It analizes the image with <a href="https://github.com/jeromeetienne/imageprocessing.js">imageprocessing.js</a>
+and extract the location of flashy balls.
+I presented it first at <a href="http://www.web-5.org/">Web-5 conference</a> with me punching
+Doom characters in augmented reality :)
+<a href="http://www.youtube.com/watch?v=hUYM93xaIgg">'Doom: a new workout for geek?'</a> on youtube
+is preview of it. For the webgl, we obviously gonna use
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+and
+<a href="http://jeromeetienne.github.com/tquery/">tQuery</a>.</p>
+
+<p>Controllers for the <a href="http://en.wikipedia.org/wiki/Wii_Remote">Wii</a>
+or
+<a href="http://us.playstation.com/ps3/playstation-move/">PS3</a> did good as game controllers.
+<a href="http://en.wikipedia.org/wiki/Kinect">kinect</a>
+is super cool obviously.
+They all requires to buy specific hardware tho... So the money is <em>a barrier</em>.
+Some even require specific installation on your computer, with code to compile.
+This is <em>another barrier</em>.
+<img class="left" src="/data/2012-05-02-augmented-reality-3d-pong/images/Household-Latex-Gloves-HY-H001-1-small.jpg">
+<img class="right" src="/data/2012-05-02-augmented-reality-3d-pong/images/postit-small.jpg">
+With augmented gestures, you dont need specific devices. I like to use objects
+which are cheap and readily available in our everyday life.
+Thus people got easily access to the content, in a pure web vibe.
+I use children toys that i paid 3euro per ball.
+Another possibility is to use <a href="http://en.wikipedia.org/wiki/Post-it_note">post it</a>.
+They work well thanks to their flashy colors as you can see
+in <a href="http://www.youtube.com/watch?v=k8R1y0oqiic">this video</a>.
+They are available in most offices.
+Another is to use <a href="http://en.wikipedia.org/wiki/Rubber_glove">dish gloves</a>. They are
+readily available and cheap.</p>
+
+<p><a href="http://jeromeetienne.github.com/augmentedgesture.js/examples/augmentedpong/">Try it</a>!
+This <a href="http://www.youtube.com/watch?v=iunNd5lmAVE">screencast</a>
+is a presentation on how to code
+<a href="http://jeromeetienne.github.com/augmentedgesture.js/examples/augmentedpong/">augmented reality pong 3D</a>.
+The code is on <a href="https://github.com/jeromeetienne/augmentedgesture.js/tree/master/examples/augmentedpong">github</a>
+under <a href="https://github.com/jeromeetienne/augmentedgesture.js/blob/master/MIT-LICENSE.txt">MIT license</a>.
+The slides of the presentation are
+<a href="http://jeromeetienne.github.com/augmentedgesture.js/examples/augmentedpong/slides">here</a>.
+Im not sure about the format of this video... the mix live coding + slides + screencast is usual.
+Anyway publishing it in "publish early, publish often" mood :)</p>
+
+<p>Enjoy</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/iunNd5lmAVE" frameborder="0" allowfullscreen></iframe>
+</center>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Video Conference on Top of WebGL]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/04/12/video-conference-on-top-of-webgl/"/>
+    <updated>2012-04-12T13:20:00+02:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/04/12/video-conference-on-top-of-webgl</id>
+    <content type="html"><![CDATA[<p>This post presents
+<a href="http://webglmeeting.appspot.com">WebGL Meeting</a>,
+a very simple WebGL application to do webrtc call.
+It is a follow up of <a href="/blog/2012/02/07/live-video-in-webgl/">"Fun with live video on webgl"</a>.
+It was presenting how to use the WebCam using
+<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">WebRTC getUserMedia()</a>.
+This one goes one step further and make an actual
+<a href="http://www.webrtc.org/">WebRTC call</a>
+displayed in a WebGL scene.</p>
+
+<p>In fact, it has already been done a month ago! As you can see
+<a href="http://www.youtube.com/watch?v=em5RWcstfI0&amp;feature=watch_response">here</a>
+:)
+The video from the first post, <a href="http://www.youtube.com/watch?v=vnNihxl3taE">'being on tv, watching tv'</a> has been answered
+by <a href="https://plus.google.com/109216128632357967445/posts">Ethan Hugg</a> from cisco.
+My very first video reponse btw! He
+<a href="http://www.youtube.com/watch?v=em5RWcstfI0&amp;feature=watch_response">shows a SIP video call</a>
+using an version of Chromium hacked by
+<a href="https://plus.google.com/102821430095362232437/posts">Suhas Nandakumar</a>.
+Definitly cool stuff!
+<a href="http://webglmeeting.appspot.com">WebGL Meeting</a> is similar but run on unmodified browsers.
+The
+<a href="http://youtu.be/Fjb7xBnxq9k">screencast</a>
+below is short demo of it.</p>
+
+<!-- more -->
+
+
+
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/Fjb7xBnxq9k" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>WebRTC progress</h2>
+
+<p>Using a modified browser is cool for make nice demo like
+<a href="https://plus.google.com/109216128632357967445/posts/QkFu7cxmbzi">this one</a>.
+Nevertheless it reduces how widely the technology can spread.
+It is now possible to do it using opensource and mainstream browsers.
+This field advances so fast!</p>
+
+<p><img class="right" src="/data/2012-04-12-video-conference-on-top-of-webgl/twoTVsWithWebGLTeam-small.jpg" width="320" height="240"></p>
+
+<p><a href="http://mozillamediagoddess.org/">Mozilla team</a> is
+<a href="http://hacks.mozilla.org/2012/04/webrtc-efforts-underway-at-mozilla/">working hard</a>
+to make it happen as soon as possible.
+It is even available on mobile with
+<a href="http://weblog.bocoup.com/javascript-webrtc-opera-mobile-12/">Opera Mobile 12</a>.
+Some <a href="http://www.youtube.com/watch?v=wpwjtzXgNFQ]">"protothon"</a> are happening about it.
+<a href="http://www.webrtc.org/">WebRTC</a>
+is on the edge but it is definitly coming hard.
+The picture on the right is Chrome WebRTC team doing thumb up on
+<a href="webglmeeting.appspot.com">WebGLMeeting</a>
+at an WebRTC event for
+<a href="http://www.ietf.org/meeting/83/index.html">IETF 83</a>
+:)</p>
+
+<h2>What about the code ?</h2>
+
+<p><a href="https://github.com/jeromeetienne/webglmeeting">WebGLMeeting source</a>
+is available on Github under MIT license.
+It uses three.js to handle the WebGL.
+It is the <a href="http://code.google.com/p/webrtc-samples/source/browse/trunk/apprtc/">AppRTC app</a>
+mostly unmodified, with a simple WebGL skin on top.</p>
+
+<p>A post from Chrome WebRTC team recently announced
+<a href="http://www.webrtc.org/blog/sourcecodetoapprtcappspotcomexampleappavailable">"Source code to apprtc.appspot.com example app available"</a>.
+The post releases the
+<a href="http://code.google.com/p/webrtc-samples/source/browse/trunk/apprtc/">source</a>
+on google code.
+The <a href="https://apprtc.appspot.com">apprtc demo</a>
+is a very simple, one-to-one, webrtc call.
+Go look at the <a href="http://code.google.com/p/webrtc-samples/source/browse/trunk/apprtc/">source</a>, dont be shy :)
+It is very small, the whole code client+server, is less than 15kbyte.
+It is easy to understand and deploy thanks too google App Engine.</p>
+
+<h2>Face tracker seeking love ?</h2>
+
+<p>Surprising hey ? Well the source contains a face tracker,
+<a href="http://code.google.com/p/webrtc-samples/source/browse/trunk/apprtc/html/face.html">face.html</a>.
+It works rather well but it is slow. If somebody could give it more love...
+It is a rather naive implementation which works well but got many rooms for speed improvement.
+It could make face tracking, less clumsy than wearing augmented reality marker on top
+of your head like
+<a href="http://learningthreejs.com/blog/2012/03/12/augmented-reality-in-the-browser/">i did a while back</a>
+:)</p>
+
+<h2>Conclusion</h2>
+
+<p>I got the feeling WebRTC gonna change a lot of things soon. The peer-to-peer aspect makes it super
+cheap to integrate live video conferences to your own sites.</p>
+
+<p>That's all folks, have fun!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Fun With Live Video in WebGL]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/02/07/live-video-in-webgl/"/>
+    <updated>2012-02-07T13:41:00+01:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/02/07/live-video-in-webgl</id>
+    <content type="html"><![CDATA[<p>This post is about live video in webgl.
+It is possible in today browsers to read the webcam using a new feature from html5, called WebRTC.
+This standard is
+about real-time communications such video conferences.
+It is an open source project supported by Google, Mozilla and Opera.
+Quite neat hey!</p>
+
+<p>I think live video has a lot of potential usages in 3D.
+It is so cool for interactivity.
+The player sees himself on the screen. It becomes part of the actions.
+Quite immersive effect.
+We can imagine something like <a href="http://secondlife.com/">second life</a>, where
+people wander around and interact live with each other in a virtual world.
+Our demo is about TV... Another obvious use may be
+<a href="http://en.wikipedia.org/wiki/Reflection_(physics)">reflections</a>
+like
+<a href="http://en.wikipedia.org/wiki/Mirror">mirror</a>
+or
+<a href="http://en.wikipedia.org/wiki/Specular_reflection">water</a>.
+What about your face from the webcam reflecting in water with animated waves ?
+Would be nice!</p>
+
+<!-- more -->
+
+
+
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/vnNihxl3taE" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<p>It is surely nice but WebRTC is still quite on the edge.
+To enable webrtc on your computer, see how to
+<a href="http://www.webrtc.org/running-the-demos">run webrtc demos</a>.
+It is currently available only in
+<a href="http://tools.google.com/dlpage/chromesxs">Canari</a>.
+Mozilla people are working hard to make it happen as soon as possible.
+So it may be too early to use it for 'serious' things.
+But way enougth to do cool experiments like the one we gonna do today :)</p>
+
+<p><a href="/data/live-video-in-webgl">Try it out</a>!!
+The first step will be to create a video element.
+We gonna start to make it play either a normal video file
+then to play video from the webcam using
+<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/streams/StreamProcessing.html">mediastream API</a>.
+After that, we gonna map this video to a normal texture.
+And we will be done !
+It is that simple, now let's get started.</p>
+
+<h2>Let's create the video element</h2>
+
+<p>The
+<a href="http://en.wikipedia.org/wiki/HTML5_video">video element</a>
+is the DOM way to handle video in webpage.
+Let's create the video element.
+Later we will use it as texture and display it in WebGL.</p>
+
+<p>```javascript</p>
+
+<pre><code>video       = document.createElement('video');
+video.width = 320;
+video.height    = 240;
+video.autoplay  = true;
+</code></pre>
+
+<p>```</p>
+
+<p>It you wish to create a video from a file webm, mp4 or ogv, just set
+its <code>.src</code> property.</p>
+
+<p>```javascript</p>
+
+<pre><code>video.src = "http://example.com/supercatvideo.webm";
+</code></pre>
+
+<p>```</p>
+
+<p>It wasn't too hard, hey :) So now we know how to get a video from a file.
+Let's see if we can use the webcam and get this nice immersive effect for our
+users.</p>
+
+<h2>Let's Use the Webcam if Available</h2>
+
+<p>Our first step is to detect if the media stream API is available.
+The following line will do the job nicely.
+ <code>hasUserMedia</code> will be true if it is available, false otherwise.</p>
+
+<p>```javascript</p>
+
+<pre><code>var hasUserMedia = navigator.webkitGetUserMedia ? true : false;
+</code></pre>
+
+<p>```</p>
+
+<p>If it isn't, you may point the users to
+<a href="http://www.webrtc.org/running-the-demos">this doc</a>
+on how to get it
+and/or using a normal video file.
+Now we need to check if we can read the webcam.
+For that, we use the following lines.</p>
+
+<p>```javascript</p>
+
+<pre><code>navigator.webkitGetUserMedia('video', function(stream){
+    video.src   = webkitURL.createObjectURL(stream);
+}, function(error){
+    console.log("Failed to get a stream due to", error);
+});
+</code></pre>
+
+<p>```</p>
+
+<p>A pseudo URL will be created by <code>.createObjectURL</code>.
+It would allows the video element to automagically read the webcam.
+It looks a bit like that.</p>
+
+<p>```</p>
+
+<pre><code>blob:http%3A//learningthreejs.com/e33eb278-08a8-4052-9dca-3c7663c88bc0
+</code></pre>
+
+<p>```</p>
+
+<h2>Handle the textures</h2>
+
+<p>Now we got the <a href="https://developer.mozilla.org/En/HTML/Element/Video">video element</a> ready.
+Let's create a texture using it as source.
+The last step before seeing the video moving on screen :)
+Use this simple line. It is enougth.</p>
+
+<p>```javascript</p>
+
+<pre><code>var videoTexture = new THREE.Texture( video );
+</code></pre>
+
+<p>```</p>
+
+<p>This texture is a normal texture and can be used as usual in materials.
+For example, in a <a href="http://en.wikipedia.org/wiki/Lambertian_reflectance">lambert</a> material.</p>
+
+<p>```javascript</p>
+
+<pre><code>var material    = new THREE.MeshLambertMaterial({
+    map : videoTexture
+});
+</code></pre>
+
+<p>```</p>
+
+<p>But this texture is special, it is a video. So it need to be constantly updated.
+In your render loop, add those lines. They monitor the state of your video.
+Every time the video got enougth data to be display, the texture is updated
+and sent to the GPU.</p>
+
+<p>```javascript</p>
+
+<pre><code>if( video.readyState === video.HAVE_ENOUGH_DATA ){
+    videoTexture.needsUpdate = true;
+}
+</code></pre>
+
+<p>```</p>
+
+<h2>Conclusion</h2>
+
+<p>Now you can display your webcam inside your webgl !!
+This is simple and cool.
+Browser support will increase with time.
+Live video is a very powerfull tool.
+The image from the webcam is a normal one.
+On it, you can perform
+<a href="https://github.com/mrdoob/three.js/tree/master/examples/js/postprocessing">post processing</a>,
+<a href="http://en.wikipedia.org/wiki/Edge_detection">edge detection</a>,
+and many other crazy things. Up to you to experiment.
+Let's all for today folks, have fun :)</p>
+]]></content>
+  </entry>
+  
+</feed>

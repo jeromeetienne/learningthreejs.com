@@ -1,0 +1,285 @@
+<!doctype html>
+<html>
+	<head>
+		<title>learningthree.js boiler plate for three.js</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		
+			
+		<script src="vendor/three.js/Three.js"></script>
+		<script src="vendor/three.js/Detector.js"></script>
+		<!-- https://github.com/mrdoob/stats.js -->
+		<script src="vendor/three.js/Stats.js"></script>
+
+		<script src="vendor/threex/THREEx.screenshot.js"></script>
+		<script src="vendor/threex/THREEx.FullScreen.js"></script>
+		<script src="vendor/threex/THREEx.WindowResize.js"></script>
+		<script src="vendor/threex.dragpancontrols.js"></script>
+
+		<link  href="css/main.css" rel="stylesheet"/>
+	</head>
+<body>
+	<!-- three.js container -->
+    	<div id="container"></div>
+	<!-- info on screen display -->
+	<div id="info">
+		<div class="top">
+			<a href="/blog/2012/02/07/live-video-in-webgl/" target="_blank">LearningThree.js</a>
+			demo
+			- how to 
+			<a href="http://www.webrtc.org/running-the-demos" target="_blank">run WebRTC demos</a>
+			<br/>
+			<strong style='font-size: 150%;'>Being on tv | Watching tv</strong>
+		</div>
+		<div class="bottom" id="inlineDoc" >
+			- <i>p</i> for screenshot
+		</div> 
+	</div> 
+	<script type="text/javascript">
+		var stats, scene, renderer;
+		var camera, tvset;
+
+		var cameraRTT, sceneRTT;
+
+		//var element	= buildGetWebrtcCanvas();
+		//document.body.appendChild(element)
+
+		if( !init() )	animate();
+
+		// init the scene
+		function init(){
+
+			if( Detector.webgl ){
+				renderer = new THREE.WebGLRenderer({
+					antialias		: true,	// to get smoother output
+					preserveDrawingBuffer	: true	// to allow screenshot
+				});
+				renderer.setClearColorHex( 0x000000, 1 );
+				renderer.autoClear = false
+			}else{
+				Detector.addGetWebGLMessage();
+				return true;
+			}
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.getElementById('container').appendChild(renderer.domElement);
+
+			// add Stats.js - https://github.com/mrdoob/stats.js
+			stats = new Stats();
+			stats.domElement.style.position	= 'absolute';
+			stats.domElement.style.bottom	= '0px';
+			document.body.appendChild( stats.domElement );
+
+
+			// create a scene
+			scene = new THREE.Scene();
+
+			// put a camera in the scene
+			camera	= new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 1, 10000 );
+			camera.position.set(0, 1, 6);
+			scene.add(camera);
+
+			// create a camera contol
+			cameraControls	= new THREEx.DragPanControls(camera)
+			cameraControls.rangeX	= -15;
+			cameraControls.rangeY	= +10;
+
+			// transparently support window resize
+			THREEx.WindowResize.bind(renderer, camera);
+			// allow 'p' to make screenshot
+			THREEx.Screenshot.bindKey(renderer);
+			// allow 'f' to go fullscreen where this feature is supported
+			if( THREEx.FullScreen.available() ){
+				THREEx.FullScreen.bindKey();		
+				document.getElementById('inlineDoc').innerHTML	+= "- <i>f</i> for fullscreen";
+			}
+
+			// here you add your objects
+			// - you will most likely replace this part by your own
+
+			var light	= new THREE.AmbientLight( 0x444444 );
+			scene.add( light );			
+
+			var light	= new THREE.DirectionalLight( 0xff8000, 1.5 );
+			light.position.set( 1, 0, 1 ).normalize();
+			scene.add( light );
+			
+			var light	= new THREE.DirectionalLight( 0xff8000, 1.5 );
+			light.position.set( -1, 1, 0 ).normalize();
+			scene.add( light );
+
+			video		= document.createElement('video');
+			video.width	= 320;
+			video.height	= 240;
+			video.autoplay	= true;
+			video.loop	= true;
+
+			var hasUserMedia = navigator.webkitGetUserMedia ? true : false;
+			console.log("UserMedia is detected", hasUserMedia);
+			if( hasUserMedia ){
+				navigator.webkitGetUserMedia('video',
+					function(stream){
+						video.src	= webkitURL.createObjectURL(stream);
+						console.log("pseudo object URL", video.src);
+					}, function(error){
+						alert('you got no WebRTC webcam');
+						video.src	= "videos/sintel.ogv";
+					}
+				);
+				videoTexture	= new THREE.Texture( video );
+			}else{
+				videoTexture	= new THREE.Texture( buildGetWebrtcCanvas() );				
+				videoTexture.needsUpdate = true;
+			}
+
+
+			var tvset1	= new THREE.Object3D();
+			tvset1.position.x	= -1.6;
+			tvset1.position.y	= -0.7;
+			tvset1.position.z	= 0;
+			tvset1.rotation.y	=  Math.PI/4;
+			tvset1.scale.multiplyScalar(0.9);
+			scene.add(tvset1);
+			var url	= 'models/Old Television Set 01/models/Old Television Set 01.dae';
+			new THREE.ColladaLoader().load(url, function(collada){
+				var object3d		= collada.scene;
+				object3d.scale.multiplyScalar(1/200);
+				object3d.position.y	= -2;
+				object3d.rotation.x	= -Math.PI/2;
+				tvset1.add(object3d);
+
+				var geometry	= new THREE.PlaneGeometry( 1, 1 );
+				var material	= new THREE.MeshLambertMaterial({
+					ambient	: 0x444444,
+					color	: 0xffffff,
+					map	: videoTexture
+				});
+				var mesh	= new THREE.Mesh( geometry, material );
+				mesh.scale.set(2.1, 1.6, 1);
+				mesh.position.x	= 0;
+				mesh.position.y	= 1.55;
+				mesh.position.z	= 0.8;
+				tvset1.add( mesh );
+			});
+
+
+			video2		= document.createElement('video');
+			video2.width	= 320;
+			video2.height	= 240;
+			video2.volume	= 0;
+			video2.autoplay	= true;
+			video2.loop	= true;
+			video2.src	= "videos/sintel.ogv";
+			video2Texture	= new THREE.Texture( video2 );
+
+			var tvset2	= new THREE.Object3D();
+			tvset2.position.x	=  1.6;
+			tvset2.position.y	= -0.7;
+			tvset2.position.z	= 0;
+			tvset2.rotation.y	= -Math.PI/4;
+			tvset2.scale.multiplyScalar(0.9);
+			scene.add(tvset2);
+			var url	= 'models/Old Television Set 01/models/Old Television Set 01.dae';
+			new THREE.ColladaLoader().load(url, function(collada){
+				var object3d		= collada.scene;
+				object3d.scale.multiplyScalar(1/200);
+				object3d.position.y	= -2;
+				object3d.rotation.x	= -Math.PI/2;
+				tvset2.add(object3d);
+
+				var geometry	= new THREE.PlaneGeometry( 1, 1 );
+				var material	= new THREE.MeshLambertMaterial({
+					ambient	: 0x444444,
+					color	: 0xffffff,
+					map	: video2Texture
+				});
+				var mesh	= new THREE.Mesh( geometry, material );
+				mesh.scale.set(2.1, 1.6, 1);
+				mesh.position.x	= 0;
+				mesh.position.y	= 1.55;
+				mesh.position.z	= 0.8;
+				tvset2.add( mesh );
+			});
+		}
+		
+		function buildGetWebrtcCanvas(){
+			var canvasW	= 256;
+			var canvas	= document.createElement('canvas');
+			canvas.width	= canvas.height	= canvasW;
+			var ctx		= canvas.getContext('2d'); 
+
+			ctx.fillStyle	= "rgba(255, 128, 128, 1)";
+			ctx.font	= "32px Arial";
+			
+			ctx.save()
+				var text	= "No WebRTC";
+				var fontH	= 32;
+				var len		= ctx.measureText(text);
+				ctx.translate((canvas.width - len.width)/2, 0);  
+				ctx.fillText(text, 0, fontH*2.5);  
+			ctx.restore();
+			
+			ctx.save()
+				var text	= "Available";
+				var fontH	= 32;
+				var len		= ctx.measureText(text);  
+				ctx.translate((canvas.width - len.width)/2, 0);  
+				ctx.fillText(text, 0, fontH*3.5);
+			ctx.restore();
+			
+			ctx.fillStyle	= "rgba(128, 255, 128, 1)";
+			ctx.font	= "20px Arial";
+			
+			ctx.save()
+				var text	= "see top of the page";
+				var fontH	= 32;
+				var len		= ctx.measureText(text);  
+				ctx.translate((canvas.width - len.width)/2, 0);  
+				ctx.fillText(text, 0, fontH*5);
+			ctx.restore();
+			
+			ctx.save()
+				var text	= "'run WebRTC demos'";
+				var fontH	= 32;
+				var len		= ctx.measureText(text);  
+				ctx.translate((canvas.width - len.width)/2, 0);  
+				ctx.fillText(text, 0, fontH*6);
+			ctx.restore();
+
+			return canvas;
+		}
+
+		// animation loop
+		function animate() {
+
+			// loop on request animation loop
+			// - it has to be at the begining of the function
+			// - see details at http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
+			requestAnimationFrame( animate );
+
+			// do the render
+			render();
+
+			// update stats
+			stats.update();
+		}
+
+		// render the scene
+		function render() {
+			// update camera controls
+			cameraControls.update();
+			
+			if( video.readyState === video.HAVE_ENOUGH_DATA ){
+				videoTexture.needsUpdate = true;
+			}
+
+			if( video2.readyState === video.HAVE_ENOUGH_DATA ){
+				video2Texture.needsUpdate = true;
+			}
+			
+			// actually render the scene
+			renderer.clear();
+			renderer.render(scene, camera);
+		}
+	</script>
+</body>
+</html>

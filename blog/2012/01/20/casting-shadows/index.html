@@ -1,0 +1,463 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Casting Shadows - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This post is about
+shadow casting,
+a technique which approximates the effect you see in real life everyday.
+They may be tricky to tune but they looks &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/2012/01/20/casting-shadows/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Casting Shadows</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-20T14:44:00+01:00" pubdate data-updated="true">Jan 20<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This post is about
+<a href="http://en.wikipedia.org/wiki/Shadow_mapping">shadow casting</a>,
+a technique which approximates the effect you see in real life everyday.
+They may be tricky to tune but they looks so good, it worths it.
+Shadows are an efficient tool when you to make your scene more realistic.
+We will see how they can be used inside
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+and see more about lights while we are at it.</p>
+
+<p>As usual, there is a <a href="/data/casting-shadows/">demo</a>.
+It is kept it real simple thus you can read the code more easily.
+The scene is a simple object in the middle, a spotlight moving around and a plane
+to receive the object shadow. The light frustum is left visible in orange.</p>
+
+<!-- more -->
+
+
+
+
+<iframe src="/data/casting-shadows"
+    webkitallowfullscreen mozallowfullscreen allowfullscreen 
+    width="100%" height="420" frameborder="0">
+</iframe>
+
+
+<h2>Let&#8217;s Code Shadows</h2>
+
+<p>Casting shadows in
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+involves 3 parts: the
+<a href="https://github.com/mrdoob/three.js/blob/master/src/renderers/WebGLRenderer.js">renderer</a>
+which does the computation, the
+<a href="https://github.com/mrdoob/three.js/tree/master/src/lights">lights</a>
+which cast shadows, and
+<a href="https://github.com/mrdoob/three.js/blob/master/src/core/Object3D.js">objects</a>
+which receives lights and shadows.</p>
+
+<h2>Set up the Renderer</h2>
+
+<p>The renderer is the one which will compute the shadows positions for your 3D scene.
+Shadow casting is quite expensive. It is only supported by
+<a href="https://github.com/mrdoob/three.js/blob/master/src/renderers/WebGLRenderer.js">WebGLRenderer</a>.
+It uses
+<a href="http://en.wikipedia.org/wiki/Shadow_mapping">Shadow mapping</a>, a technique specific
+to WebGL, performed directly on the <a href="http://en.wikipedia.org/wiki/Graphics_processing_unit">GPU</a>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">renderer</span><span class="p">.</span><span class="nx">shadowMapEnabled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img class="right" src="/data/casting-shadows/images/screenshot-withsoftshadow-small.png">
+<img class="left" src="/data/casting-shadows/images/screenshot-nosoftshadow-small.png"></p>
+
+<p>You can smooth produced shadows with <code>shadowMapSoft</code>. It default to false.
+On the left, the shadow is crisp, on the right it is soft.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// to antialias the shadow</span>
+</span><span class='line'><span class="nx">renderer</span><span class="p">.</span><span class="nx">shadowMapSoft</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Configure your objects</h2>
+
+<p>For
+<a href="https://github.com/mrdoob/three.js/blob/master/src/core/Object3D.js">Object3D</a>,
+two parameters controls how they interact with lights and shadows.
+Set <code>.castShadow</code> to true if the object occludes light, so to cast a shadow.
+Set <code>.receiveShadow</code> to true if the object is supposed to receive shadows.
+Both default to false</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">object3d</span><span class="p">.</span><span class="nx">castShadow</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class='line'><span class="nx">object3d</span><span class="p">.</span><span class="nx">receiveShadow</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is the configuration for the central object in the demo. It will occlude lights but
+won&#8217;t be able to receive shadow. So you wont see any
+<a href="http://en.wikipedia.org/wiki/Self-shadowing">self shadow</a>.</p>
+
+<h2>Tune your Lights</h2>
+
+<p><img class="left" src="/data/casting-shadows/images/light-directionallight-small.jpg">
+<img class="right" src="/data/casting-shadows/images/light-spotlight-small.jpg" title="" ></p>
+
+<p><a href="https://github.com/mrdoob/three.js/blob/master/src/lights/DirectionalLight.js">THREE.DirectionalLight</a>
+or
+<a href="https://github.com/mrdoob/three.js/blob/master/src/lights/SpotLight.js">THREE.SpotLight</a>
+are able to cast shadows.
+Let&#8217;s details them.
+A directional light is when light rays are parallel.
+A bit like when you look at the sun rays on the left.
+It mostly behaves like a light source very far from us.
+A spot light is when light rays seems to originate from a single point, and
+spreads outward in a coned direction, like in the dance club on the right
+(Images are from wikipedia).
+To enable the shadow casting on a light,
+just use this line.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">light</span><span class="p">.</span><span class="nx">castShadow</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can tune the <code>shadowDarkness</code>.
+It is the opacity of the shadow. 0 means no shadow, 1 means pure back shadow.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">light</span><span class="p">.</span><span class="nx">shadowDarkness</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img class="right" src="/data/casting-shadows/images/screenshot-shadowCameraVisible-small.png"></p>
+
+<p>In the same vibe, it possible to show the shadow camera on the screen
+with <code>shadowCameraVisible</code>.
+A very usefull feature during tuning or debugging.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">light</span><span class="p">.</span><span class="nx">shadowCameraVisible</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>More of Directional Lights</h2>
+
+<p><img class="right" src="/data/casting-shadows/images/screenshot-fustrum-orthographic-small.png">
+<img class="left" src="/data/casting-shadows/images/screenshot-fustrum-perspective-small.png"></p>
+
+<p>Additionally, when casting shadow with a
+<a href="https://github.com/mrdoob/three.js/blob/master/src/lights/DirectionalLight.js">THREE.DirectionalLight</a>,
+you need to setup an orthographic camera.
+What is that ? it is a different form of
+<a href="http://en.wikipedia.org/wiki/3D_projection">3D projection</a>.
+<a href="http://en.wikipedia.org/wiki/Perspective_(graphical)">Perspective</a>
+is the way we see things in real life.
+So it seems more natural to us than
+<a href="http://en.wikipedia.org/wiki/Orthographic_projection">orthographic projection</a>.
+On the left, an illustration shows a perspective projection.
+You can see what is inside the orange shape.
+On the right, the same for a orthographic one.</p>
+
+<p>Recent
+<a href="https://github.com/mrdoob/three.js/commit/32b581f24fddeaf9e91b7825aa93ec0ad3a45c83">three.js r47 release</a>
+includes a
+<a href="http://mrdoob.github.com/three.js/examples/webgl_camera.html">very didactic example</a>
+from
+<a href="http://alteredqualia.com/">alteredq</a>.
+Play with it, it may understand the difference between
+<a href="https://github.com/mrdoob/three.js/blob/master/src/cameras/OrthographicCamera.js">orthographic</a>
+and
+<a href="https://github.com/mrdoob/three.js/blob/master/src/cameras/PerspectiveCamera.js">perspective</a>
+cameras.
+Here is a possible configuration of the frustum for the orthographic camera of our light.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">light</span><span class="p">.</span><span class="nx">shadowCameraRight</span>     <span class="o">=</span>  <span class="mi">5</span><span class="p">;</span>
+</span><span class='line'><span class="nx">light</span><span class="p">.</span><span class="nx">shadowCameraLeft</span>     <span class="o">=</span> <span class="o">-</span><span class="mi">5</span><span class="p">;</span>
+</span><span class='line'><span class="nx">light</span><span class="p">.</span><span class="nx">shadowCameraTop</span>      <span class="o">=</span>  <span class="mi">5</span><span class="p">;</span>
+</span><span class='line'><span class="nx">light</span><span class="p">.</span><span class="nx">shadowCameraBottom</span>   <span class="o">=</span> <span class="o">-</span><span class="mi">5</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Conclusion</h2>
+
+<p>This is it, you can code shadow casting in three.js now :)
+Go ahead and play with them. They are hard to master but very efficient visually.
+Keep in mind that those shadows aren&#8217;t real.
+They only uses
+<a href="http://en.wikipedia.org/wiki/Shadow_mapping">&#8216;some tricks&#8217;</a>
+to make them appears as real. And they do so in real time !!
+To achieve this result, they take significant shortcuts which
+produce artifacts. To avoid those require tuning and experience.</p>
+
+<p>That&#8217;s all for today folks. Have fun.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-20T14:44:00+01:00" pubdate data-updated="true">Jan 20<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/shadows/'>shadows</a>, <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jeromeetienne.github.com/learningthreejs/blog/2012/01/20/casting-shadows/" data-via="LearningThreejs" data-counturl="http://jeromeetienne.github.com/learningthreejs/blog/2012/01/20/casting-shadows/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/01/19/boilerplate-builder-for-three-js/" title="Previous Post: Boilerplate Builder for Three.js">&laquo; Boilerplate Builder for Three.js</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/02/07/live-video-in-webgl/" title="Next Post: Fun With Live Video in WebGL">Fun With Live Video in WebGL &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/01/20/casting-shadows/';
+        var disqus_url = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/01/20/casting-shadows/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

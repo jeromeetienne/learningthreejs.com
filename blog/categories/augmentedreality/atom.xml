@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: augmentedreality | Learning Three.js]]></title>
+  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/augmentedreality/atom.xml" rel="self"/>
+  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
+  <updated>2013-03-10T17:49:47+01:00</updated>
+  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <author>
+    <name><![CDATA[Jerome Etienne]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Punch A Doom Character in Augmented Reality]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/"/>
+    <updated>2012-05-15T11:59:00+02:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/05/15/punch-a-doom-character-in-augmented-reality</id>
+    <content type="html"><![CDATA[<p>Did you ever dreamed of punching a doom character ? They look evil and killed
+you so many time while you were playing the game. It is revenge time! This
+post will help you realize your dream :)
+It is about a minigame called "Punch A Doom Character in Augmented Reality"
+because in this game, the player can punch Doom Character in augmented reality :)</p>
+
+<p>The character is displayed in 3D with WebGL with <a href="http://github.com/mrdoob/three.js/">three.js</a>.
+The player gestures are recognized thru the webcam by <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmentedgesture.js</a> library.
+It uses <a href="http://webrtc.org">WebRTC</a> <a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a> to get the webcam
+using open standards.
+You can play this minigame <a href="/data/2012-05-15-punch-a-doom-character-in-augmented-reality">here</a>.
+In fact, it is an example of <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmentedgesture.js</a> library.
+We will walk you thru the code. Only 60 lines of Javascript.</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/Aa9945MGRL0" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+<!-- more -->
+
+
+<p>We have seen augmented gesture in <a href="/blog/2012/05/02/augmented-reality-3d-pong/">"Augmented Reality 3D Pong"</a> post
+and MD2 Characters in <a href="/blog/2012/05/04/tquery-md2character-a-plugin-for-doom-characters/">"tQuery Plugin for Doom Characters"</a> post.
+Now we gonna associate them together in our mini game :)
+I presented it at <a href="www.web-5.org">Web-5</a> conference in april.
+At the time, i recorded a preview <a href="http://www.youtube.com/watch?v=hUYM93xaIgg">"Doom: a new workout for geek?"</a>.
+Now let's get started!</p>
+
+<h2>The 3D World</h2>
+
+<p>First we initialize the world in 3D.
+With <code>tQuery.createWorld()</code>, we create a <code>tQuery.World</code>.
+With <code>.boilerplate()</code>, we setup a boilerplate on this world. A boilerplate is
+a fast way to get you started on the right foot. It is the
+<a href="http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/">learningthreejs boilerplate for three.js</a>.
+With <code>.start()</code>, we start the rendering loop. So from now on, the world scene
+gonna be rendered periodically, typically 60time per seconds.</p>
+
+<p>```</p>
+
+<pre><code>var world   = tQuery.createWorld().boilerplate().start();
+</code></pre>
+
+<p>```</p>
+
+<p>We setup the camera now. We remove the default camera controls from the boilerplate.
+Then we put the camera at <code>(0,1.5,5)</code> and looking toward <code>(0,1,-1)</code></p>
+
+<p>```</p>
+
+<pre><code>world.removeCameraControls()
+world.camera().position.set(0,1.5, 4);
+world.camera().lookAt(new THREE.Vector3(0,1,-1));
+</code></pre>
+
+<p>```</p>
+
+<p>Now we change the background color. This confusing line ensure the background of the
+3D scene will be rendered as <code>0x000000</code> color, aka black. We set a black
+background to give an impression of night.</p>
+
+<p>```</p>
+
+<pre><code>world.renderer().setClearColorHex( 0x000000, world.renderer().getClearAlpha() );
+</code></pre>
+
+<p>```</p>
+
+<p>We had a fog to the scene. For that, we use <code>tquery.world.createfog.js</code> plugins.</p>
+
+<p>```</p>
+
+<pre><code>world.addFogExp2({density : 0.15});
+</code></pre>
+
+<p>```</p>
+
+<h3>The Lights</h3>
+
+<p>Here we setup the lights of our scene. This is important as it determine how
+your scene looks. We add a ambient light and a directional light.</p>
+
+<p>```</p>
+
+<pre><code>tQuery.createAmbientLight().addTo(world).color(0x444444);
+tQuery.createDirectionalLight().addTo(world).position(-1,1,1).color(0xFFFFFF).intensity(3);
+</code></pre>
+
+<p>```</p>
+
+<h3>The Ground</h3>
+
+<p>We create a large checkerboard with <code>tquery.checkerboard.js</code> plugin.
+We scale the checkerboard to 100 per 100 units in the 3D world. Thus it is
+quite large and disappears into the fog. It gives the cheap impression of
+an infinite checkerboard.</p>
+
+<p>```</p>
+
+<pre><code>tQuery.createCheckerboard({
+    segmentsW   : 100,  // number of segment in width
+    segmentsH   : 100   // number of segment in Height
+}).addTo(world).scaleBy(100);
+</code></pre>
+
+<p>```</p>
+
+<h3>The Character</h3>
+
+<p>We use <code>tQuery.RatamahattaMD2Character</code> plugin. Its inherits from
+ <code>tQuery.MD2Character</code> plugin. All the configuration for this particular
+character <code>ratamahatta</code> is already done for you.
+We attach it to tQuery world.</p>
+
+<p>```</p>
+
+<pre><code>var character   = new tQuery.RatamahattaMD2Character().attach(world);
+</code></pre>
+
+<p>```</p>
+
+<p>When an animation is completed, switch to animation 'stand'.</p>
+
+<p>```</p>
+
+<pre><code>character.bind('animationCompleted', function(character, animationName){
+    console.log("anim completed", animationName);
+    this.animation('stand');
+});
+</code></pre>
+
+<p>```</p>
+
+<h2>Recognize Augmented Gestures</h2>
+
+<p>First we instanciate an object of <strong>AugmentedGesture</strong> class.
+ <code>.enableDatGui()</code> will add a <a href="http://workshop.chromeexperiments.com/examples/gui">Dat.GUI</a>.
+This is a nice library to tune parameters. We use it to tune augmentedgesture pointers.
+You can read more about it in <a href="http://learningthreejs.com/blog/2011/08/14/dat-gui-simple-ui-for-demos/">"Dat-gui - Simple UI for Demos"</a> post.
+ <code>.start()</code> asks it to begin monitoring the webcam and see if it finds markers.
+ <code>.domElementThumbnail()</code> put the webcam view as a thumbnail on the screen. This is what you
+see on top-left.
+This is usefull for the user, it is used as feedback to know what is happening</p>
+
+<p>```</p>
+
+<pre><code>var aGesture    = new AugmentedGesture().enableDatGui().start().domElementThumbnail();
+</code></pre>
+
+<p>```</p>
+
+<h3>The Pointers</h3>
+
+<p>Now that we got our AugmentedGesture instance, we gonna configure the pointers.
+One for the right hand, one for the left hand. For each, we setup the options
+to adapt each hand colors.
+In my case, the right hand is containing a green ball and the left hand contains a red ball.</p>
+
+<p>```</p>
+
+<pre><code>var pointerOpts = new AugmentedGesture.OptionPointer();
+pointerOpts.pointer.crossColor  = {r:    0, g: 255, b:   0};
+pointerOpts.colorFilter.r   = {min:   0, max:  95};
+pointerOpts.colorFilter.g   = {min: 115, max: 255};
+pointerOpts.colorFilter.b   = {min:  25, max: 150};
+aGesture.addPointer("right", pointerOpts);
+</code></pre>
+
+<p>```</p>
+
+<p>Now we do the same for the left pointer.</p>
+
+<p>```</p>
+
+<pre><code>var pointerOpts = new AugmentedGesture.OptionPointer();
+pointerOpts.pointer.crossColor  = {r:    255, g:   0, b: 128};
+pointerOpts.colorFilter.r   = {min: 190, max: 255};
+pointerOpts.colorFilter.g   = {min:  30, max: 255};
+pointerOpts.colorFilter.b   = {min:   0, max: 100};
+aGesture.addPointer("left", pointerOpts);
+</code></pre>
+
+<p>```</p>
+
+<h3>Gesture Analysis</h3>
+
+<p>Now that augmentedgesture.js is giving us the position of each hand, we gonna
+convert that into events. <code>punchingRight</code> when the user gives a punch with
+the right hand and <code>punchingLeft</code> for the left hand.
+We establish a variable to store the user moves. It is quite simple
+ <code>.punchingRight</code> is true when the use is punching with his right hand.
+ <code>.punchingLeft</code> is the same for the left hand.
+and <code>.changed</code> is true when values change.</p>
+
+<p>```</p>
+
+<pre><code>var userMove    = {
+    punchingRight   : false,
+    punchingLeft    : false,
+    changed     : false
+};
+</code></pre>
+
+<p>```</p>
+
+<p>we bind the event <code>mousemove.left</code> thus we are notified when the user moves his
+left hand. The algo we use is very simple: if the left hand is on the right part of
+the screen, then the user is considered "punchingLeft". Dont forget
+to <code>.changed</code> to true</p>
+
+<p>```</p>
+
+<pre><code>aGesture.bind("mousemove.left", function(event){
+    var state   = event.x &gt; 1 - 1/3;
+    if( state === userMove.punchingLeft )   return;
+    userMove.punchingLeft   = state;
+    userMove.changed    = true;
+});
+</code></pre>
+
+<p>```</p>
+
+<p>Now we need the same thing for the other hand. all the the same.</p>
+
+<p>```</p>
+
+<pre><code>aGesture.bind("mousemove.right", function(event){
+    var state   = event.x &lt; 1/3;
+    if( state === userMove.punchingRight )  return;
+    userMove.punchingRight  = state;
+    userMove.changed    = true;
+});
+</code></pre>
+
+<p>```</p>
+
+<h2>Bind Character and Augmented Gestures</h2>
+
+<p>Now we hook a function to the rendering loop. This function will be executed
+every time the scene is renderered. The first thing we do in this function
+is to check that userMove has <code>.changed</code>. If not, we do nothing.</p>
+
+<p>```</p>
+
+<pre><code>world.loop().hook(function(){
+    if( userMove.changed === false )    return;
+    userMove.changed = false;
+</code></pre>
+
+<p>```</p>
+
+<p>Now we process each move of the user. If the user is <code>punchingRight</code>, play
+the animation <code>crdeath</code> of the character. If he is <code>punchingLeft</code>,
+play <code>crplain</code>.</p>
+
+<p>```</p>
+
+<pre><code>    if( userMove.punchingRight )        character.animation('crdeath');
+    else if( userMove.punchingLeft )    character.animation('crpain');
+});
+</code></pre>
+
+<p>```</p>
+
+<p>And you are <strong>DONE</strong>! Pretty nice no ? :)</p>
+
+<h2>Conclusion</h2>
+
+<p>In this post we built a mini-game where users can punch doom character in augmented reality.
+All that in 60 lines of javascript.
+The Character is displayed in WebGL with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+and the augmented reality is handled
+by <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmentedgesture.js</a>.
+I like how those libraries makes the code so small, and the developement time
+so short.</p>
+
+<p>That's all folks, have fun :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Augmented Reality 3D Pong]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/02/augmented-reality-3d-pong/"/>
+    <updated>2012-05-02T13:38:00+02:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/05/02/augmented-reality-3d-pong</id>
+    <content type="html"><![CDATA[<p>This post presents a livecoding screencast of <strong>Augmented Reality 3D Pong</strong>.
+This is an experiment to use <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmented gestures</a>
+as a way to interact with game. So i picked a game classic <a href="http://en.wikipedia.org/wiki/Pong">"pong"</a>.
+We gonna learn how to code a pong in augmented reality with webgl. The result code
+is only
+<a href="https://github.com/jeromeetienne/augmentedgesture.js/blob/master/examples/augmentedpong/index.html">100lines</a>!!
+Nice for augmented reality + webgl + a game :)</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/ZTwhHwAHc3c" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+<!-- more -->
+
+
+<p>But First... What is <em>augmented gestures</em> ?
+I made <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmentedgesture.js</a>.
+This is a library which use <a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a>
+and <a href="http://www.webrtc.org/">WebRTC</a> to grab the webcam.
+It analizes the image with <a href="https://github.com/jeromeetienne/imageprocessing.js">imageprocessing.js</a>
+and extract the location of flashy balls.
+I presented it first at <a href="http://www.web-5.org/">Web-5 conference</a> with me punching
+Doom characters in augmented reality :)
+<a href="http://www.youtube.com/watch?v=hUYM93xaIgg">'Doom: a new workout for geek?'</a> on youtube
+is preview of it. For the webgl, we obviously gonna use
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+and
+<a href="http://jeromeetienne.github.com/tquery/">tQuery</a>.</p>
+
+<p>Controllers for the <a href="http://en.wikipedia.org/wiki/Wii_Remote">Wii</a>
+or
+<a href="http://us.playstation.com/ps3/playstation-move/">PS3</a> did good as game controllers.
+<a href="http://en.wikipedia.org/wiki/Kinect">kinect</a>
+is super cool obviously.
+They all requires to buy specific hardware tho... So the money is <em>a barrier</em>.
+Some even require specific installation on your computer, with code to compile.
+This is <em>another barrier</em>.
+<img class="left" src="/data/2012-05-02-augmented-reality-3d-pong/images/Household-Latex-Gloves-HY-H001-1-small.jpg">
+<img class="right" src="/data/2012-05-02-augmented-reality-3d-pong/images/postit-small.jpg">
+With augmented gestures, you dont need specific devices. I like to use objects
+which are cheap and readily available in our everyday life.
+Thus people got easily access to the content, in a pure web vibe.
+I use children toys that i paid 3euro per ball.
+Another possibility is to use <a href="http://en.wikipedia.org/wiki/Post-it_note">post it</a>.
+They work well thanks to their flashy colors as you can see
+in <a href="http://www.youtube.com/watch?v=k8R1y0oqiic">this video</a>.
+They are available in most offices.
+Another is to use <a href="http://en.wikipedia.org/wiki/Rubber_glove">dish gloves</a>. They are
+readily available and cheap.</p>
+
+<p><a href="http://jeromeetienne.github.com/augmentedgesture.js/examples/augmentedpong/">Try it</a>!
+This <a href="http://www.youtube.com/watch?v=iunNd5lmAVE">screencast</a>
+is a presentation on how to code
+<a href="http://jeromeetienne.github.com/augmentedgesture.js/examples/augmentedpong/">augmented reality pong 3D</a>.
+The code is on <a href="https://github.com/jeromeetienne/augmentedgesture.js/tree/master/examples/augmentedpong">github</a>
+under <a href="https://github.com/jeromeetienne/augmentedgesture.js/blob/master/MIT-LICENSE.txt">MIT license</a>.
+The slides of the presentation are
+<a href="http://jeromeetienne.github.com/augmentedgesture.js/examples/augmentedpong/slides">here</a>.
+Im not sure about the format of this video... the mix live coding + slides + screencast is usual.
+Anyway publishing it in "publish early, publish often" mood :)</p>
+
+<p>Enjoy</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/iunNd5lmAVE" frameborder="0" allowfullscreen></iframe>
+</center>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Augmented Reality in the Browser]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/03/12/augmented-reality-in-the-browser/"/>
+    <updated>2012-03-12T11:36:00+01:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/03/12/augmented-reality-in-the-browser</id>
+    <content type="html"><![CDATA[<p>This post is about augmented reality in the browser.
+In a recent post, we saw that it is now possible to
+<a href="/blog/2012/02/07/live-video-in-webgl/">have live video in webgl</a>
+with
+<a href="http://www.webrtc.org/">WebRTC</a>.
+Due to this,
+<a href="http://en.wikipedia.org/wiki/Augmented_reality">augmented reality</a>
+is under the spotlight. Recently
+<a href="http://www.html5rocks.com/">html5rock</a> published a
+tutorial
+by
+<a href="http://www.html5rocks.com/en/profiles/#ilmari">ilmari heikkinen</a>
+about
+"<a href="http://www.html5rocks.com/en/tutorials/webgl/jsartoolkit_webrtc/">writting augmented reality application using jsartoolkit</a>".
+Ilmari is
+<a href="https://plus.google.com/115293744081058969329/about">google devrel for webgl</a>
+and the author of
+<a href="http://github.com/kig/JSARToolKit">JSARToolKit</a>
+too. So we are in good hands :)
+The tutorial even include a part about binding it with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>.
+I took this nice tutorial and packaged the code even easier to reuse.</p>
+
+<!-- more -->
+
+
+
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/rzLuJxTraos" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<p><img class="right" src="/data/2012-03-12-augmented-reality-in-the-browser/images/marker-small.png"></p>
+
+<p><a href="http://jeromeetienne.github.com/tquery.jsartoolkit/">Try this demo</a>.
+If you got <a href="http://www.webrtc.org/running-the-demos">WebRTC is available</a> in your browser, take
+<a href="http://jeromeetienne.github.com/tquery.jsartoolkit/marker/marker.png">this marker</a>,
+and put it in front on your webcam.
+It is the same you see on the right.
+It is best to print it on paper.
+If you can't, point your phone to
+<a href="http://jeromeetienne.github.com/tquery.jsartoolkit/marker">this page</a> instead.
+Phone screens tend to reflect lights from your environment tho. They may
+reduce the accuracy of the marker detection.</p>
+
+<p>Now let's see how you can to use all this to build your own demos :)</p>
+
+<h2>You Include it</h2>
+
+<p>First you include it as usual in your page. The code is available
+<a href="https://github.com/jeromeetienne/tquery.jsartoolkit">here</a>.
+Note that
+<a href="http://github.com/kig/JSARToolKit">JSARToolKit</a>
+is released under GPL, so some restrictions apply.
+The threex is under MIT license as usual.</p>
+
+<p>```html</p>
+
+<pre><code>&lt;script src="JSARToolKit.js"&gt;&lt;/script&gt;
+&lt;script src="threex.jsartoolkit.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>```</p>
+
+<h2>You Initialize It</h2>
+
+<p>Once you get the code, you instanciate the object like this.</p>
+
+<p>```javascript</p>
+
+<pre><code>var threexAR    = new THREEx.JSARToolKit({
+    srcElement  : srcElement,
+    threshold   : threshold,
+    callback    : function(event){}
+});
+</code></pre>
+
+<p>```</p>
+
+<p>The <code>srcElement</code> may be a
+<a href="http://en.wikipedia.org/wiki/HTML5_video">video</a>, an
+<a href="http://www.w3.org/TR/html401/struct/objects.html#h-13.2">image</a>
+or a
+<a href="http://www.w3.org/TR/html5/the-canvas-element.html">canvas</a>.
+When the video is shoot in a uncontrolled environement,
+the marker detection may be less reliable, due to variations of lighting.
+ <code>threshold</code> is a value between 0 and 255 to adapt your detection to those variations.
+To detect the augmented reality markers in the <code>srcElement</code>, just use this line in your
+rendering loop.</p>
+
+<p>```javascript</p>
+
+<pre><code>threexAR.update();
+</code></pre>
+
+<p>```</p>
+
+<p>No rocket science here.</p>
+
+<h2>You Use It</h2>
+
+<p>During <code>.update()</code>, the callback is notified with events.
+They describe the markers present on the srcElement.
+Each event got various fields:
+A <code>.markerId</code> which tell you which marker has been recognized.
+The
+<a href="http://jeromeetienne.github.com/tquery.jsartoolkit/marker">one used above</a>
+is the <em>64</em>. You can find the whole list
+<a href="https://github.com/kig/JSARToolKit/tree/master/demos/markers">in JSARToolKit repository</a>.</p>
+
+<p>The <code>.type</code> field describe what is happening to this marker.
+It may be <em>create</em>, <em>update</em> or <em>delete</em>.
+<em>create</em> if the marker has just been detected,
+<em>update</em> if the marker was present before.
+and <em>delete</em> if the marker is no more present.
+Rather obvious :)
+The <code>.matrix</code> field is a
+<a href="https://github.com/mrdoob/three.js/blob/master/src/core/Matrix4.js">THREE.Matrix4</a>.
+It is a transform which matches the position of the marker in space.</p>
+
+<h2>Conclusion</h2>
+
+<p>So now we can do augmented reality in a browser.
+The code of the demo is <a href="https://github.com/jeromeetienne/tquery.jsartoolkit">here</a>.
+Up to us to find actual application of this technology.
+Currently most browsers with webcam are running on desktop/laptop tho.
+As most their webcam is directly attached to screens, It limits the flexibility of
+what you could put on front of the camera.
+As for mobile, only opera 12 is currently the only mobile browser able
+to read the webcam.</p>
+
+<p>That's all folks. Have fun :)</p>
+]]></content>
+  </entry>
+  
+</feed>

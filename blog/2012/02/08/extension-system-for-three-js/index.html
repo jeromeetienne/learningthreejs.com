@@ -1,0 +1,459 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>An Extension System for three.js - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This post an overview of a work-in-progress.
+It is about an extension system on top of three.js which mimics jQuery API.
+I came up with the idea &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/2012/02/08/extension-system-for-three-js/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">An Extension System for three.js</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-08T15:24:00+01:00" pubdate data-updated="true">Feb 8<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>  This post an overview of a work-in-progress.
+It is about an extension system on top of three.js which mimics jQuery API.
+I came up with the idea while thinking about how to
+trim three.js and make it easier to maintain. I have always been impressed
+with jQuery plugin ecosystem. It is lively, varied,
+and contains impressive specimens. I would love to have such
+a rich ecosystem for three.js&#8217;s plugins.</p>
+
+<p>  Let&#8217;s call this experiment <strong>tQuery</strong> as in &#8220;three.js + jQuery&#8221;.
+It makes it easier to understand if you already known this library.
+This is a v0 in the
+<a href="http://catb.org/~esr/writings/homesteading/cathedral-bazaar/ar01s04.html">&#8220;publish early, publish often&#8221;</a>
+vibe.
+The goal of this little project is to see if we can mix
+to mix three.js power with jquery API usability&#8230;
+How far this concept can fly ? We will see.</p>
+
+<p>So what do we want ? The code must make <strong>three.js easy to extend</strong>
+and should <strong>mimics jQuery whenever possible</strong>.
+In order to see if the system hold under load, i wrote several extensions already.
+It is very early. The architecture of it all is far from stable.
+Code is advancing at fast pace tho :)
+The screencast below is short live coding session. Just to give an idea of the current
+status.</p>
+
+<!-- more -->
+
+
+
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/Aa7sHUE224A" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>DOM</h2>
+
+<p>With jQuery and the
+<a href="http://en.wikipedia.org/wiki/Document_Object_Model">DOM</a>, you
+get a tree of
+<a href="https://developer.mozilla.org/en/DOM/element">elements</a>
+from the page.
+In fact, three.js got this tree as well. Surprising hey ?
+We just name it a
+<a href="https://github.com/mrdoob/three.js/blob/master/src/scenes/Scene.js">scene</a>
+instead of a tree.
+And our element are called
+<a href="https://github.com/mrdoob/three.js/blob/master/src/core/Object3D.js">Object3D</a>.
+But all that is just a matter of vocabulary.</p>
+
+<p>One one hand, jquery one, you got the dom and its tree of element.
+on the other hand, three.js one, you got the scene and its tree of object3D.
+Same Thing!</p>
+
+<h2>Chained API</h2>
+
+<p>jQuery got a chained API, so tQuery got a chained API. When we said
+<em>copy jQuery whenever possible</em>, we were not kidding :)</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">tQuery</span><span class="p">(</span><span class="s1">&#39;.fooKlass&#39;</span><span class="p">).</span><span class="nx">scale</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="nx">translate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>IDs and classes</h2>
+
+<p>They got
+<a href="http://api.jquery.com/id-selector/">Ids</a>
+and
+<a href="http://api.jquery.com/class-selector/">classes</a>
+, or more recently
+<a href="http://api.jquery.com/data/">data</a>.
+So we did all the same with tQuery.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">cube</span>   <span class="o">=</span> <span class="nx">tQuery</span><span class="p">().</span><span class="nx">createCube</span><span class="p">();</span>
+</span><span class='line'><span class="nx">cube</span><span class="p">.</span><span class="nx">id</span><span class="p">(</span><span class="s2">&quot;myId&quot;</span><span class="p">);</span>   <span class="c1">// set the id of this element</span>
+</span><span class='line'><span class="nx">cube</span><span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;fooKlass&#39;</span><span class="p">);</span>   <span class="c1">// add &#39;fooKlass&#39; class to this cube</span>
+</span><span class='line'><span class="nx">cube</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;goom&#39;</span><span class="p">,</span> <span class="s1">&#39;baa&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Selector</h2>
+
+<p>jQuery got selectors so tQuery got selectors too.
+Here are the selector based on geometry, they are similar to the
+[element selector] in jQuery, e.g. <code>jQuery('span')</code>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">tQuery</span><span class="p">(</span><span class="s1">&#39;sphere&#39;</span><span class="p">);</span>    <span class="c1">// select all objects with a sphere gemotry</span>
+</span><span class='line'><span class="nx">tQuery</span><span class="p">(</span><span class="s1">&#39;cube&#39;</span><span class="p">);</span> <span class="c1">// smae with a cube gemotry</span>
+</span><span class='line'><span class="c1">// and so on</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here are the one for classes and id.
+Note how the syntax is similar to css selector.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">tQuery</span><span class="p">(</span><span class="s1">&#39;#myId&#39;</span><span class="p">)</span>  <span class="c1">// to get the object with the &#39;myId&#39; id</span>
+</span><span class='line'><span class="nx">tQuery</span><span class="p">(</span><span class="s1">&#39;.fooklass&#39;</span><span class="p">)</span> <span class="c1">// to get objects with the class &#39;fooklass&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>obvious we got compose them like with jQuery</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">tQuery</span><span class="p">(</span><span class="s1">&#39;.bar.foo&#39;</span><span class="p">)</span>   <span class="c1">// objets with the class &#39;bar&#39; and &#39;foo&#39;</span>
+</span><span class='line'><span class="nx">tQuery</span><span class="p">(</span><span class="s1">&#39;.bar cube&#39;</span><span class="p">)</span> <span class="c1">// objets with the class &#39;bar&#39; with a cube as descandant</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Events</h2>
+
+<p>Obviously jQuery got events, so we got events in tQuery.
+we use <em>domEvents</em> we saw a few week back in
+<a href="http://learningthreejs.com/blog/2012/01/17/dom-events-in-3d-space/">&#8216;dom events in 3D space&#8217; post</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">tQuery</span><span class="p">(</span><span class="s1">&#39;cube&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;mouseover&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;somebody put the mouse over a cube&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>A Basic Page</h2>
+
+<iframe src="http://jeromeetienne.github.com/tquery/plugins/minimal/examples"
+    webkitallowfullscreen mozallowfullscreen allowfullscreen 
+    width="260" height="280" frameborder="0" style="float: right; margin-left: 1em;">
+</iframe>
+
+
+<p>This is a minimal page. the code is below, the preview on the right.
+Quite short.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!doctype html&gt;</span><span class="nt">&lt;title&gt;</span>tQuery Basic Page<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;tquery-bundle.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;body&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;script&gt;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">world</span> <span class="o">=</span> <span class="nx">tQuery</span><span class="p">.</span><span class="nx">createWorld</span><span class="p">().</span><span class="nx">fullpage</span><span class="p">().</span><span class="nx">start</span><span class="p">();</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">object</span> <span class="o">=</span> <span class="nx">tQuery</span><span class="p">.</span><span class="nx">createTorus</span><span class="p">().</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">world</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nt">&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;/body&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Conclusion</h2>
+
+<p>This was early presentation of tQuery. I like the idea, we will see how it goes.
+The purpose of this experiement is to help those who know jQuery to use three.js.
+So they reuse jquery syntax but inside a webgl context.
+This is a very early project.
+How far is it possible to push this concept of <em>&#8220;three.js power + jQuery API usuability&#8221;</em>.
+It seems all very cute at first sight but only time will tell.</p>
+
+<p>That&#8217;s all folks. More on tQuery soon. Have fun :)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-08T15:24:00+01:00" pubdate data-updated="true">Feb 8<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>, <a class='category' href='/blog/categories/tquery/'>tquery</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jeromeetienne.github.com/learningthreejs/blog/2012/02/08/extension-system-for-three-js/" data-via="LearningThreejs" data-counturl="http://jeromeetienne.github.com/learningthreejs/blog/2012/02/08/extension-system-for-three-js/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/02/07/live-video-in-webgl/" title="Previous Post: Fun With Live Video in WebGL">&laquo; Fun With Live Video in WebGL</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/02/15/valentine-card-in-tquery/" title="Next Post: a Valentine card in tQuery">a Valentine card in tQuery &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/02/08/extension-system-for-three-js/';
+        var disqus_url = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/02/08/extension-system-for-three-js/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

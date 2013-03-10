@@ -1,0 +1,513 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Sport Car in WebGL - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This post is about sport cars and how cool they can be!
+Once again, we gonna expose gems from three.js examples.
+It contains several sport cars which &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/21/sport-car-in-webgl/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Sport Car in WebGL</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-21T12:16:00+02:00" pubdate data-updated="true">May 21<span>st</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This post is about sport cars and how cool they can be!
+Once again, we gonna expose gems from three.js examples.
+It contains several sport cars which are fun to play with.
+You can drive them around and all.
+This is a good base for a game.
+We made tQuery plugins on top to make them easily reusable.
+Our scene will be a nice sport car, a grass ground, a sunset sky with shadow casting.
+All that in 40-lines of javascript.</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/KxRfFd9SM5s" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+<!-- more -->
+
+
+<h2>What We Gonna Build ?</h2>
+
+<p>What you see below is what we gonna build. Pretty nice no ?
+<a href="/data/2012-05-21-sport-car-in-webgl/">Try it out</a>.</p>
+
+<center>
+    <iframe width="100%" height="420" src="/data/2012-05-21-sport-car-in-webgl/" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+</center>
+
+
+<p>It shows what is possible with <code>tquery.car.js</code>.
+It is a plugin provides rendering and controls of sport cars.
+It is heavily based on some examples by <a href="http://alteredqualia.com/">alteredq</a> in
+<a href="http://github.com/mrdoob/three.js/">three.js</a>.
+You can find them
+<a href="http://mrdoob.github.com/three.js/examples/webgl_materials_cars.html">here</a>
+and
+<a href="http://mrdoob.github.com/three.js/examples/webgl_materials_cubemap_dynamic.html">here</a>.
+The car is a Bugatti Veyron model by
+<a href="http://artist-3d.com/free_3d_models/dnm/model_disp.php?uid=1129">Troyano</a>.
+Now let&#8217;s get started.</p>
+
+<h2>Let&#8217;s start coding</h2>
+
+<p>We start to create our world as usual. We enable the
+<a href="http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/">boilerplate for three.js</a>.
+It is a fast way start, avoids repetitive tasks, following DRY principles and includes all those good practices which are so easy to forget.
+Then we just have to <code>.start()</code> the rendering loop on this world.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var world    = tQuery.createWorld().boilerplate().start();</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now we setup the renderer.
+In this scene, we want to cast shadows as if it cames from the sun.
+This is a nice way to improve the realism in our 3D scene
+We already talked about it in <a href="http://learningthreejs.com/blog/2012/01/20/casting-shadows/">&#8220;Casting Shadow&#8221;</a>
+The renderer needs to be notified so we set <code>.shadowMapEnabled</code> and <code>.shadowMapSoft</code> to true.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>world.renderer().shadowMapEnabled    = true;
+</span><span class='line'>world.renderer().shadowMapSoft        = true;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>The Sky</h2>
+
+<p>Now we add a sky to the 3D scene.
+It will fill the space and make the scene more realistic.
+We use a skymap for that. It is WebGL trick which take a cube, make it so large that it seems infinite.
+On it, we map a 360degeree texture shaped as a cube, and use a special shader to display it. All is in this
+shader, it makes the cube appear as if we were in a gigantic sphere. Exactly like we would feel with a sky above
+our head.
+We already saw skymaps in <a href="http://learningthreejs.com/blog/2011/08/15/lets-do-a-sky/">&#8220;let&#8217;s do a sky&#8221;</a> post.
+We just added a new plugins <code>tquery.skymap.js</code>.
+It avoids repeative code when you do skymap or environement map.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tQuery.createSkymap('skybox').addTo(world);</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>The Lights</h2>
+
+<p>Here we setup the lights. We put one ambient and 2 directional lights.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tQuery.createAmbientLight().addTo(world).color(0xFFFFFF);
+</span><span class='line'>tQuery.createDirectionalLight().addTo(world).position(1,1,-1).color(0xffffff).intensity(2);</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It is rather simple so lets focus on the last one, the one casting shadow.
+We want it to appear as coming from the sun.
+So we look at the skymap and approximatly localized the sun at <code>(-10, 20, 30)</code>.
+Then we tune shadow parameters to fit our tastes.
+You can find more details in <a href="http://learningthreejs.com/blog/2012/01/20/casting-shadows/">&#8220;Casting Shadow&#8221;</a> post.
+Those parameters can be tricky to tune. It helps if you make the shaddow
+camera visible. You can do so with <code>.shadowCameraVisible(true)</code>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tQuery.createDirectionalLight().addTo(world).position(-10, 20, 30).color(0xffffff).intensity(4)
+</span><span class='line'>  .castShadow(true).shadowDarkness(0.8)
+</span><span class='line'>  .shadowMap(512*2,512*2)
+</span><span class='line'>  .shadowCamera(10, -10, 20, -20, 0.1, 50);</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>The Ground</h2>
+
+<p>Now we add the ground. A car needs a ground to stand on :)
+For that, we got a little helper <code>tquery.grassground.js</code>.
+This is just building a <code>THREE.Plane</code> and mapping a grass
+texture into it.
+It does the job for a simple and fast ground.
+We have seen something similar with <code>tquery.checkerboard.js</code> in
+<a href="http://learningthreejs.com/blog/2012/05/04/tquery-md2character-a-plugin-for-doom-characters/">&#8220;tQuery Plugin for Doom Characters&#8221;</a>
+post.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var ground   = tQuery.createGrassGround({
+</span><span class='line'>  textureUrl  : '../../grassground/images/grasslight-big.jpg',
+</span><span class='line'>  textureRepeatX  : 30,
+</span><span class='line'>  textureRepeatY  : 30,       
+</span><span class='line'>}).addTo(world).receiveShadow(true).scaleBy(100);</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>The Car</h2>
+
+<p>First we instanciate a <code>tQuery.Car</code> object with <code>tQuery.createCar()</code>.
+It will load the models, then material will be setup.
+ <code>tQuery.Car</code> handles the displacement of the car too.
+You can make the car turn, go forward and backward, using <code>car.controls()</code>.
+you can even switch on/off the lights with <code>.flareVisible()</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var car  = tQuery.createCar();</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then we had the car model in our world scene. Important if you want to see it :)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>world.add(car.model())</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now we got the car on the scene, this is all good.
+But we need the camera to follow this car. We create a camera controls specific
+to mimic the usual camera in car game. The camera is placed a bit behind the car and looks forward.
+The faster you go, the further you look. This is always nice to see what is coming at you :)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tQuery.Car.createCameraControls(car, world);</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Car Controls</h2>
+
+<p>Now we hook the controls to the car. This determines how the player will control the
+car. It can be controlled by the keyboard, so users press arrows on keyboard
+and the car moves.
+It can be controlled by the <a href="http://dev.w3.org/geo/api/spec-source-orientation.html">device orientation</a>.
+We already talked device orientation in game in
+<a href="http://learningthreejs.com/blog/2011/09/20/lets-make-a-3D-game-device-orientation/">this post</a>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var hasTouchEvent    = "ontouchstart" in window;
+</span><span class='line'>if( hasTouchEvent )   car.hookDeviceOrientation();
+</span><span class='line'>else          car.hookKeyboard();</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now maybe you wonder &#8220;why this devices orientation&#8221; ?
+I ported tQuery to IOS. So since tQuery r49.1, it is possible to run
+tquery on your iphones or ipads.
+It is possible to render with <a href="http://www.w3.org/TR/2dcontext/">canvas 2D</a> in the regular browser.
+Even possible to render WebGL using
+<a href="https://github.com/benvanik/WebGLBrowser">WebGL Browser</a> by <a href="https://twitter.com/#!/benvanik">Ben Vanik</a>.</p>
+
+<h2>The Road</h2>
+
+<p>In a scene, it is cool to create a goal, something for the user to do.
+A road seems like a perfect goal for a car :)
+First we create the material we gonna use. This is a <a href="http://en.wikipedia.org/wiki/Lambertian_reflectance">lambert</a>
+with a <a href="http://en.wikipedia.org/wiki/Reflection_mapping">reflection</a>. You put a cube texture in the
+ <code>envMap</code> parameter and you got your reflection :) Here again, we use tquery.skymap.js to create the cube texture.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var material = new THREE.MeshLambertMaterial({
+</span><span class='line'>  ambient : 0x444444,
+</span><span class='line'>  color   : 0x666666,
+</span><span class='line'>  envMap  : tQuery.createCubeTexture('skybox')
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now we add the arches. In fact, they are torus which are half in the ground, so the
+visible part looks like an arche.
+We put 5 of them along the Z axis.
+They are all aligned to give a kindof road.
+ <code>.castShadow(true)</code> make the 3D object as casting shadow. Always a nice trick to enhance realism.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>for(var i = 0; i &lt; 5; i++){
+</span><span class='line'>  tQuery.createTorus(1.25-0.25, 0.25, 8, 6*4, material).addTo(world)
+</span><span class='line'>      .castShadow(true).translateZ( 2 + i * 5 );      
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And we are <strong>DONE</strong>! We got a nice looking car, driving on grass with a sun set. It is
+controlled by keyboard and the camera controls is suitable for a game. Not bad
+for 40 lines of javascript.</p>
+
+<h2>Conclusion</h2>
+
+<p>In this post, i walked you thru a example of <code>tQuery.car.js</code>. It builds a rather
+cool scene in 40lines of js. It seems a nice base for a game. Like the
+<a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">two</a>
+<a href="/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl/">previous</a>
+walk through, we got very short code. I like this, it makes it easier to understand
+and learn. WebGL for All!! :)</p>
+
+<p>That&#8217;s all folks! have fun.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-21T12:16:00+02:00" pubdate data-updated="true">May 21<span>st</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>, <a class='category' href='/blog/categories/tquery/'>tquery</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/21/sport-car-in-webgl/" data-via="LearningThreejs" data-counturl="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/21/sport-car-in-webgl/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/" title="Previous Post: Punch A Doom Character in Augmented Reality">&laquo; Punch A Doom Character in Augmented Reality</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/05/29/three-js-sportcar-on-ios/" title="Next Post: Three.js Sport Car on iOS at 40fps">Three.js Sport Car on iOS at 40fps &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/05/21/sport-car-in-webgl/';
+        var disqus_url = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/05/21/sport-car-in-webgl/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

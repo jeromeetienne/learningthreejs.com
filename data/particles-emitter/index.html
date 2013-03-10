@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>LearningThree.js - Funky Dots</title>
+		<meta charset="utf-8">
+		<style type="text/css">
+			body {
+				background-color: #000000;
+				margin		: 0px;
+				overflow	: hidden;
+			}
+			#info {
+				color		: #f0f0f0;
+				text-align	: center;
+				z-index		: 1;
+				position	: absolute;
+				top		: 0px;
+				width		: 100%;
+				padding		: 5px;
+			} 
+			a {
+				color		: #0080bb;
+			}
+		</style>
+	</head>
+	<body>
+<!--		<div id="info"><a href="/blog/2011/08/06/lets-do-a-cube/" target="_blank">LearningThree.js</a> - Funky Dots</div> 
+-->		<!-- include javascript files -->
+		<script type="text/javascript" src="https://raw.github.com/mrdoob/three.js/r44/build/Three.js"></script>
+		<script type="text/javascript" src="https://raw.github.com/mrdoob/three.js/r44/examples/js/RequestAnimationFrame.js"></script>
+		<script type="text/javascript" src="https://raw.github.com/mrdoob/three.js/r44/examples/js/Detector.js"></script>
+		<script type="text/javascript" src="https://raw.github.com/mrdoob/three.js/r44/examples/js/Stats.js"></script>
+		<script type="text/javascript" src="dat-gui/build/DAT.GUI.js"></script>
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>		
+		<script type="text/javascript" src="../THREEx/THREEx.screenshot.js"></script>
+		<script type="text/javascript" src="THREEx.ImageDrop.js"></script>
+
+		<script type="x-shader/x-vertex" id="vertexshader"> 
+			attribute	float	aSize;
+			attribute	float	aRotation;
+			attribute	vec3	aColor;
+			attribute	float	aOpacity;
+ 
+			varying		float	vRotation;
+			varying		vec3	vColor;
+			varying		float	vOpacity;
+ 
+			void main() {
+				gl_PointSize	= aSize;
+				// pass the color to the fragment shader
+ 				vRotation	= aRotation;
+				vColor		= aColor;
+ 				vOpacity	= aOpacity;
+ 
+				vec4 mvPosition	= modelViewMatrix * vec4( position, 1.0 );
+				gl_Position	= projectionMatrix * mvPosition;
+			}
+		</script> 
+ 
+		<script type="x-shader/x-fragment" id="fragmentshader"> 
+			uniform vec3	color;
+			uniform sampler2D texture;
+ 
+			varying	vec3	vColor;
+			varying float	vOpacity;
+			varying float	vRotation;
+
+			vec2 autoRotation(vec2 p, float angle){
+				const vec2 offset	= vec2(0.5, 0.5);
+				vec2 t 	= p - offset;
+				p.x	= t.x * cos(angle) - t.y * sin(angle);
+				p.y 	= t.y * cos(angle) + t.x * sin(angle);
+				return p + offset;
+			}
+ 
+			void main() {
+				vec2 coord	= autoRotation(gl_PointCoord, vRotation);
+				gl_FragColor	= vec4( color * vColor, vOpacity );
+				gl_FragColor	= gl_FragColor * texture2D( texture, coord );
+			}
+		</script> 
+
+		<script type="text/javascript" src="../THREEx/THREEx.WindowResize.js"></script>
+
+		<script type="text/javascript" src="THREEx.ParticleEmitter.js"></script>
+		<script type="text/javascript" src="THREEx.ParticleItem.js"></script>
+		<script type="text/javascript" src="particle-demo.js"></script>
+	</body>
+</html>

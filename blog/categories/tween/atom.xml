@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: tween | Learning Three.js]]></title>
+  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/tween/atom.xml" rel="self"/>
+  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
+  <updated>2013-03-10T17:49:47+01:00</updated>
+  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <author>
+    <name><![CDATA[Jerome Etienne]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Tween.js for Smooth Animation]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/08/17/tweenjs-for-smooth-animation/"/>
+    <updated>2011-08-17T10:16:00+02:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/08/17/tweenjs-for-smooth-animation</id>
+    <content type="html"><![CDATA[<p>This post presents <a href="https://github.com/sole/tween.js">tween.js</a> and how you can use it to easily smooth your animation.
+<strong>tween.js</strong> is a "super simple, fast and easy to use tweening engine" from <a href="https://github.com/sole">sole</a>.
+It provides tweening and full blown animations thanks to chaining. Let's get started!
+But first, here is a <a href="/data/tweenjs_for_smooth_animation/tweenjs_for_smooth_animation.html">demo</a>
+using tween.js. It has basic parameters for you to play with and get a feel of what tweening
+may be.</p>
+
+<h2>Tweening... what's that?</h2>
+
+<p><img class="right" src="/data/tweenjs_for_smooth_animation/images/tweenjs-linear-easenone.png" title="Linear" ></p>
+
+<p>From <a href="http://en.wikipedia.org/wiki/Tweening">wikipedia article</a>, <em>tweening</em> is an abreviation of <em>inbetweening</em>, i
+dont know why but i find that funny maybe because <em>inbetweening</em> isnt a word to begin with.
+Let's get back to business, what is a tween? It is a interpolation between 2 values,
+from the <code>source</code> to the <code>target</code>.
+The tween will simply generate the needed values needed inbetween those 2 limits. The key is <strong>where</strong>
+are those values.
+This is done with the <strong>ease function</strong>. The most obvious one is to go straight from <code>source</code>
+to <code>target</code>. This is the linear function you see on on the right.</p>
+
+<p><img class="right" src="/data/tweenjs_for_smooth_animation/images/tweenjs-cubic-easeinout.png" title="Cubic EaseInOut" >
+<img class="left" src="/data/tweenjs_for_smooth_animation/images/tweenjs-elastic-easeinout.png" title="Elastic EaseInOut" >
+But some are more funky, you can
+see <em>Elastic EaseInOut</em> on the left
+and
+see <em>Cubic EaseInOut</em> on the right.
+Many others exist for our delight as you can see <a href="http://sole.github.com/tween.js/examples/03_graphs.html">here</a>.</p>
+
+<!--more -->
+
+
+<h2>First include the library</h2>
+
+<p>Now that we got some understanding of concept, let's see how to use it.
+We start by simply including the library file in the page.
+Download it <a href="https://github.com/sole/tween.js">there</a></p>
+
+<p>``` html</p>
+
+<pre><code>&lt;script type='text/javascript' src='tween.js'&gt;&lt;/script&gt;
+</code></pre>
+
+<p>```</p>
+
+<h2>Now Let's Create a Tween</h2>
+
+<p>Let's see how it is used in the <a href="/data/tweenjs_for_smooth_animation/tweenjs_for_smooth_animation.html">demo</a>.
+A practical case is less dry than a theorical explaination, and you can tweak the demo after that.
+So our case will be to move a sphere <code>x</code> position back and forth, say between 0 to 400, and
+ <code>y</code> between 300 to 50.</p>
+
+<p>First we define the original <code>position</code> and the <code>target</code>.
+This <code>position</code> variable will be updated by tween.js with new values until it is equal to <code>target</code>values.
+Then we create the tween object which do the job for us.</p>
+
+<p>``` javascript</p>
+
+<pre><code>var position = { x : 0, y: 300 }; 
+var target = { x : 400, y: 50 };
+var tween = new TWEEN.Tween(position).to(target, 2000);
+</code></pre>
+
+<p>```</p>
+
+<p>Noticed the 2000 at the end? It means the tween will last 2 seconds.
+Ok so <code>tween</code> variable will make position.x goes from 0 to 400 and position.y
+from 300 to 50 in 2 seconds. To make the 3D object moves along, we need to be
+notified at every modification. This is done with <code>onUpdate()</code>.
+If you want to be notified at the end of the tween, use <code>onComplete()</code>.</p>
+
+<p>``` javascript</p>
+
+<pre><code>tween.onUpdate(function(){
+    mesh.position.x = position.x;
+    mesh.position.y = position.y;
+});
+</code></pre>
+
+<p>```</p>
+
+<h2>Want to Tweak it?</h2>
+
+<p>Let's customise it some more.
+what is about delaying the begining of the tween by say 500 milliseconds
+for the fun of it.</p>
+
+<p>``` javascript</p>
+
+<pre><code>tween.delay(500)
+</code></pre>
+
+<p>```</p>
+
+<p><img class="right" src="/data/tweenjs_for_smooth_animation/images/tweenjs-elastic-easeinout.png" title="Elastic EaseInOut" >
+Obviously you can change the ease function too.
+Choose any one you like among <a href="http://sole.github.com/tween.js/examples/03_graphs.html">the 31 from tween.js</a>.
+Let's pick the funny one on the right, it is <code>TWEEN.Easing.Elastic.EaseInOut</code>.</p>
+
+<p>``` javascript</p>
+
+<pre><code>tween.ease(TWEEN.Easing.Elastic.EaseInOut)
+</code></pre>
+
+<p>```</p>
+
+<h2>Let's run!</h2>
+
+<p>Ok now the tween is fully configured, let's run it. First we tell the library the
+configuration is over and it can start the tween.</p>
+
+<p>``` javascript</p>
+
+<pre><code>tween.start();
+</code></pre>
+
+<p>```</p>
+
+<p>Then we periodically update the tweens we got. This code fits well in the render loop.</p>
+
+<p>``` javascript</p>
+
+<pre><code>TWEEN.update();
+</code></pre>
+
+<p>```</p>
+
+<p>And you are done. Now you can go crazy and put tweening everywhere! In object
+position like we did here, in colors, or in scale, anywhere, feel free to use/abuse it.</p>
+
+<h2>Chaining Tweens for Animation</h2>
+
+<p>The <a href="/data/tweenjs_for_smooth_animation/tweenjs_for_smooth_animation.html">demo</a>
+has an endless animation, the sphere going back and forth until the end of time.
+How do we do that? we chain tweens. They
+will be executed one after the other. <code>chain()</code> provides a easy way
+to build longer, more varied animations. Suppose we got <code>tweenHead</code>
+and <code>tweenBack</code>.</p>
+
+<p>``` javascript</p>
+
+<pre><code>// after tweenHead, do tweenBack
+tweenHead.chain(tweenBack);
+// And after tweenBack, do tweenHead, so it is cycling
+tweenBack.chain(tweenHead);
+</code></pre>
+
+<p>```</p>
+
+<h2>That's All Folks</h2>
+
+<p>So <a href="https://github.com/sole/tween.js">tween.js</a> is a nice small library which
+provides an easy way to animate things in your demos. You can get a play with
+the parameters of the <a href="/data/tweenjs_for_smooth_animation/tweenjs_for_smooth_animation.html">example</a> or
+look at its <a href="/data/tweenjs_for_smooth_animation/docs/tweenjs_for_smooth_animation.html">annotated code</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

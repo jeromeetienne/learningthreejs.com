@@ -1,0 +1,550 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Punch A Doom Character in Augmented Reality - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="Did you ever dreamed of punching a doom character ? They look evil and killed
+you so many time while you were playing the game. It is revenge time! &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Punch a Doom Character in Augmented Reality</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-15T11:59:00+02:00" pubdate data-updated="true">May 15<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Did you ever dreamed of punching a doom character ? They look evil and killed
+you so many time while you were playing the game. It is revenge time! This
+post will help you realize your dream :)
+It is about a minigame called &#8220;Punch A Doom Character in Augmented Reality&#8221;
+because in this game, the player can punch Doom Character in augmented reality :)</p>
+
+<p>The character is displayed in 3D with WebGL with <a href="http://github.com/mrdoob/three.js/">three.js</a>.
+The player gestures are recognized thru the webcam by <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmentedgesture.js</a> library.
+It uses <a href="http://webrtc.org">WebRTC</a> <a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a> to get the webcam
+using open standards.
+You can play this minigame <a href="/data/2012-05-15-punch-a-doom-character-in-augmented-reality">here</a>.
+In fact, it is an example of <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmentedgesture.js</a> library.
+We will walk you thru the code. Only 60 lines of Javascript.</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/Aa9945MGRL0" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+<!-- more -->
+
+
+<p>We have seen augmented gesture in <a href="/blog/2012/05/02/augmented-reality-3d-pong/">&#8220;Augmented Reality 3D Pong&#8221;</a> post
+and MD2 Characters in <a href="/blog/2012/05/04/tquery-md2character-a-plugin-for-doom-characters/">&#8220;tQuery Plugin for Doom Characters&#8221;</a> post.
+Now we gonna associate them together in our mini game :)
+I presented it at <a href="www.web-5.org">Web-5</a> conference in april.
+At the time, i recorded a preview <a href="http://www.youtube.com/watch?v=hUYM93xaIgg">&#8220;Doom: a new workout for geek?&#8221;</a>.
+Now let&#8217;s get started!</p>
+
+<h2>The 3D World</h2>
+
+<p>First we initialize the world in 3D.
+With <code>tQuery.createWorld()</code>, we create a <code>tQuery.World</code>.
+With <code>.boilerplate()</code>, we setup a boilerplate on this world. A boilerplate is
+a fast way to get you started on the right foot. It is the
+<a href="http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/">learningthreejs boilerplate for three.js</a>.
+With <code>.start()</code>, we start the rendering loop. So from now on, the world scene
+gonna be rendered periodically, typically 60time per seconds.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var world    = tQuery.createWorld().boilerplate().start();</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We setup the camera now. We remove the default camera controls from the boilerplate.
+Then we put the camera at <code>(0,1.5,5)</code> and looking toward <code>(0,1,-1)</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>world.removeCameraControls()
+</span><span class='line'>world.camera().position.set(0,1.5, 4);
+</span><span class='line'>world.camera().lookAt(new THREE.Vector3(0,1,-1));</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now we change the background color. This confusing line ensure the background of the
+3D scene will be rendered as <code>0x000000</code> color, aka black. We set a black
+background to give an impression of night.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>world.renderer().setClearColorHex( 0x000000, world.renderer().getClearAlpha() );</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We had a fog to the scene. For that, we use <code>tquery.world.createfog.js</code> plugins.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>world.addFogExp2({density : 0.15});</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>The Lights</h3>
+
+<p>Here we setup the lights of our scene. This is important as it determine how
+your scene looks. We add a ambient light and a directional light.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tQuery.createAmbientLight().addTo(world).color(0x444444);
+</span><span class='line'>tQuery.createDirectionalLight().addTo(world).position(-1,1,1).color(0xFFFFFF).intensity(3);</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>The Ground</h3>
+
+<p>We create a large checkerboard with <code>tquery.checkerboard.js</code> plugin.
+We scale the checkerboard to 100 per 100 units in the 3D world. Thus it is
+quite large and disappears into the fog. It gives the cheap impression of
+an infinite checkerboard.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tQuery.createCheckerboard({
+</span><span class='line'>  segmentsW   : 100,  // number of segment in width
+</span><span class='line'>  segmentsH   : 100   // number of segment in Height
+</span><span class='line'>}).addTo(world).scaleBy(100);</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>The Character</h3>
+
+<p>We use <code>tQuery.RatamahattaMD2Character</code> plugin. Its inherits from
+ <code>tQuery.MD2Character</code> plugin. All the configuration for this particular
+character <code>ratamahatta</code> is already done for you.
+We attach it to tQuery world.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var character    = new tQuery.RatamahattaMD2Character().attach(world);</span></code></pre></td></tr></table></div></figure>
+
+
+<p>When an animation is completed, switch to animation &#8216;stand&#8217;.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>character.bind('animationCompleted', function(character, animationName){
+</span><span class='line'>  console.log("anim completed", animationName);
+</span><span class='line'>  this.animation('stand');
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Recognize Augmented Gestures</h2>
+
+<p>First we instanciate an object of <strong>AugmentedGesture</strong> class.
+ <code>.enableDatGui()</code> will add a <a href="http://workshop.chromeexperiments.com/examples/gui">Dat.GUI</a>.
+This is a nice library to tune parameters. We use it to tune augmentedgesture pointers.
+You can read more about it in <a href="http://learningthreejs.com/blog/2011/08/14/dat-gui-simple-ui-for-demos/">&#8220;Dat-gui - Simple UI for Demos&#8221;</a> post.
+ <code>.start()</code> asks it to begin monitoring the webcam and see if it finds markers.
+ <code>.domElementThumbnail()</code> put the webcam view as a thumbnail on the screen. This is what you
+see on top-left.
+This is usefull for the user, it is used as feedback to know what is happening</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var aGesture = new AugmentedGesture().enableDatGui().start().domElementThumbnail();</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>The Pointers</h3>
+
+<p>Now that we got our AugmentedGesture instance, we gonna configure the pointers.
+One for the right hand, one for the left hand. For each, we setup the options
+to adapt each hand colors.
+In my case, the right hand is containing a green ball and the left hand contains a red ball.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var pointerOpts  = new AugmentedGesture.OptionPointer();
+</span><span class='line'>pointerOpts.pointer.crossColor    = {r:    0, g: 255, b:   0};
+</span><span class='line'>pointerOpts.colorFilter.r = {min:   0, max:  95};
+</span><span class='line'>pointerOpts.colorFilter.g = {min: 115, max: 255};
+</span><span class='line'>pointerOpts.colorFilter.b = {min:  25, max: 150};
+</span><span class='line'>aGesture.addPointer("right", pointerOpts);</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now we do the same for the left pointer.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var pointerOpts  = new AugmentedGesture.OptionPointer();
+</span><span class='line'>pointerOpts.pointer.crossColor    = {r:    255, g:   0, b: 128};
+</span><span class='line'>pointerOpts.colorFilter.r = {min: 190, max: 255};
+</span><span class='line'>pointerOpts.colorFilter.g = {min:  30, max: 255};
+</span><span class='line'>pointerOpts.colorFilter.b = {min:   0, max: 100};
+</span><span class='line'>aGesture.addPointer("left", pointerOpts);</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Gesture Analysis</h3>
+
+<p>Now that augmentedgesture.js is giving us the position of each hand, we gonna
+convert that into events. <code>punchingRight</code> when the user gives a punch with
+the right hand and <code>punchingLeft</code> for the left hand.
+We establish a variable to store the user moves. It is quite simple
+ <code>.punchingRight</code> is true when the use is punching with his right hand.
+ <code>.punchingLeft</code> is the same for the left hand.
+and <code>.changed</code> is true when values change.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var userMove = {
+</span><span class='line'>  punchingRight   : false,
+</span><span class='line'>  punchingLeft    : false,
+</span><span class='line'>  changed     : false
+</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
+
+
+<p>we bind the event <code>mousemove.left</code> thus we are notified when the user moves his
+left hand. The algo we use is very simple: if the left hand is on the right part of
+the screen, then the user is considered &#8220;punchingLeft&#8221;. Dont forget
+to <code>.changed</code> to true</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>aGesture.bind("mousemove.left", function(event){
+</span><span class='line'>  var state   = event.x &gt; 1 - 1/3;
+</span><span class='line'>  if( state === userMove.punchingLeft )   return;
+</span><span class='line'>  userMove.punchingLeft   = state;
+</span><span class='line'>  userMove.changed    = true;
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now we need the same thing for the other hand. all the the same.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>aGesture.bind("mousemove.right", function(event){
+</span><span class='line'>  var state   = event.x &lt; 1/3;
+</span><span class='line'>  if( state === userMove.punchingRight )  return;
+</span><span class='line'>  userMove.punchingRight  = state;
+</span><span class='line'>  userMove.changed    = true;
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Bind Character and Augmented Gestures</h2>
+
+<p>Now we hook a function to the rendering loop. This function will be executed
+every time the scene is renderered. The first thing we do in this function
+is to check that userMove has <code>.changed</code>. If not, we do nothing.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>world.loop().hook(function(){
+</span><span class='line'>  if( userMove.changed === false )    return;
+</span><span class='line'>  userMove.changed = false;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now we process each move of the user. If the user is <code>punchingRight</code>, play
+the animation <code>crdeath</code> of the character. If he is <code>punchingLeft</code>,
+play <code>crplain</code>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> if( userMove.punchingRight )        character.animation('crdeath');
+</span><span class='line'>  else if( userMove.punchingLeft )    character.animation('crpain');
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And you are <strong>DONE</strong>! Pretty nice no ? :)</p>
+
+<h2>Conclusion</h2>
+
+<p>In this post we built a mini-game where users can punch doom character in augmented reality.
+All that in 60 lines of javascript.
+The Character is displayed in WebGL with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+and the augmented reality is handled
+by <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmentedgesture.js</a>.
+I like how those libraries makes the code so small, and the developement time
+so short.</p>
+
+<p>That&#8217;s all folks, have fun :)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-15T11:59:00+02:00" pubdate data-updated="true">May 15<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/augmentedreality/'>augmentedreality</a>, <a class='category' href='/blog/categories/threejs/'>threejs</a>, <a class='category' href='/blog/categories/tquery/'>tquery</a>, <a class='category' href='/blog/categories/webrtc/'>webrtc</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/" data-via="LearningThreejs" data-counturl="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl/" title="Previous Post: Sound Visualisation: a Vuemeter in WebGL">&laquo; Sound Visualisation: a Vuemeter in WebGL</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/05/21/sport-car-in-webgl/" title="Next Post: Sport Car in WebGL">Sport Car in WebGL &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/';
+        var disqus_url = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

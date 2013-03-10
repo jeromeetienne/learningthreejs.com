@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Tween.js for Smooth Animation - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This post presents tween.js and how you can use it to easily smooth your animation.
+tween.js is a &#8220;super simple, fast and easy to use tweening &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/2011/08/17/tweenjs-for-smooth-animation/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Tween.js for Smooth Animation</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-08-17T10:16:00+02:00" pubdate data-updated="true">Aug 17<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This post presents <a href="https://github.com/sole/tween.js">tween.js</a> and how you can use it to easily smooth your animation.
+<strong>tween.js</strong> is a &#8220;super simple, fast and easy to use tweening engine&#8221; from <a href="https://github.com/sole">sole</a>.
+It provides tweening and full blown animations thanks to chaining. Let&#8217;s get started!
+But first, here is a <a href="/data/tweenjs_for_smooth_animation/tweenjs_for_smooth_animation.html">demo</a>
+using tween.js. It has basic parameters for you to play with and get a feel of what tweening
+may be.</p>
+
+<h2>Tweening&#8230; what&#8217;s that?</h2>
+
+<p><img class="right" src="/data/tweenjs_for_smooth_animation/images/tweenjs-linear-easenone.png" title="Linear" ></p>
+
+<p>From <a href="http://en.wikipedia.org/wiki/Tweening">wikipedia article</a>, <em>tweening</em> is an abreviation of <em>inbetweening</em>, i
+dont know why but i find that funny maybe because <em>inbetweening</em> isnt a word to begin with.
+Let&#8217;s get back to business, what is a tween? It is a interpolation between 2 values,
+from the <code>source</code> to the <code>target</code>.
+The tween will simply generate the needed values needed inbetween those 2 limits. The key is <strong>where</strong>
+are those values.
+This is done with the <strong>ease function</strong>. The most obvious one is to go straight from <code>source</code>
+to <code>target</code>. This is the linear function you see on on the right.</p>
+
+<p><img class="right" src="/data/tweenjs_for_smooth_animation/images/tweenjs-cubic-easeinout.png" title="Cubic EaseInOut" >
+<img class="left" src="/data/tweenjs_for_smooth_animation/images/tweenjs-elastic-easeinout.png" title="Elastic EaseInOut" >
+But some are more funky, you can
+see <em>Elastic EaseInOut</em> on the left
+and
+see <em>Cubic EaseInOut</em> on the right.
+Many others exist for our delight as you can see <a href="http://sole.github.com/tween.js/examples/03_graphs.html">here</a>.</p>
+
+<!--more -->
+
+
+<h2>First include the library</h2>
+
+<p>Now that we got some understanding of concept, let&#8217;s see how to use it.
+We start by simply including the library file in the page.
+Download it <a href="https://github.com/sole/tween.js">there</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&#39;text/javascript&#39;</span> <span class="na">src=</span><span class="s">&#39;tween.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Now Let&#8217;s Create a Tween</h2>
+
+<p>Let&#8217;s see how it is used in the <a href="/data/tweenjs_for_smooth_animation/tweenjs_for_smooth_animation.html">demo</a>.
+A practical case is less dry than a theorical explaination, and you can tweak the demo after that.
+So our case will be to move a sphere <code>x</code> position back and forth, say between 0 to 400, and
+ <code>y</code> between 300 to 50.</p>
+
+<p>First we define the original <code>position</code> and the <code>target</code>.
+This <code>position</code> variable will be updated by tween.js with new values until it is equal to <code>target</code>values.
+Then we create the tween object which do the job for us.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">position</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">x</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">300</span> <span class="p">};</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">target</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">x</span> <span class="o">:</span> <span class="mi">400</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">50</span> <span class="p">};</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">tween</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TWEEN</span><span class="p">.</span><span class="nx">Tween</span><span class="p">(</span><span class="nx">position</span><span class="p">).</span><span class="nx">to</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="mi">2000</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Noticed the 2000 at the end? It means the tween will last 2 seconds.
+Ok so <code>tween</code> variable will make position.x goes from 0 to 400 and position.y
+from 300 to 50 in 2 seconds. To make the 3D object moves along, we need to be
+notified at every modification. This is done with <code>onUpdate()</code>.
+If you want to be notified at the end of the tween, use <code>onComplete()</code>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">tween</span><span class="p">.</span><span class="nx">onUpdate</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="nx">mesh</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">mesh</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Want to Tweak it?</h2>
+
+<p>Let&#8217;s customise it some more.
+what is about delaying the begining of the tween by say 500 milliseconds
+for the fun of it.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">tween</span><span class="p">.</span><span class="nx">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img class="right" src="/data/tweenjs_for_smooth_animation/images/tweenjs-elastic-easeinout.png" title="Elastic EaseInOut" >
+Obviously you can change the ease function too.
+Choose any one you like among <a href="http://sole.github.com/tween.js/examples/03_graphs.html">the 31 from tween.js</a>.
+Let&#8217;s pick the funny one on the right, it is <code>TWEEN.Easing.Elastic.EaseInOut</code>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">tween</span><span class="p">.</span><span class="nx">ease</span><span class="p">(</span><span class="nx">TWEEN</span><span class="p">.</span><span class="nx">Easing</span><span class="p">.</span><span class="nx">Elastic</span><span class="p">.</span><span class="nx">EaseInOut</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Let&#8217;s run!</h2>
+
+<p>Ok now the tween is fully configured, let&#8217;s run it. First we tell the library the
+configuration is over and it can start the tween.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">tween</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then we periodically update the tweens we got. This code fits well in the render loop.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">TWEEN</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And you are done. Now you can go crazy and put tweening everywhere! In object
+position like we did here, in colors, or in scale, anywhere, feel free to use/abuse it.</p>
+
+<h2>Chaining Tweens for Animation</h2>
+
+<p>The <a href="/data/tweenjs_for_smooth_animation/tweenjs_for_smooth_animation.html">demo</a>
+has an endless animation, the sphere going back and forth until the end of time.
+How do we do that? we chain tweens. They
+will be executed one after the other. <code>chain()</code> provides a easy way
+to build longer, more varied animations. Suppose we got <code>tweenHead</code>
+and <code>tweenBack</code>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// after tweenHead, do tweenBack</span>
+</span><span class='line'><span class="nx">tweenHead</span><span class="p">.</span><span class="nx">chain</span><span class="p">(</span><span class="nx">tweenBack</span><span class="p">);</span>
+</span><span class='line'><span class="c1">// And after tweenBack, do tweenHead, so it is cycling</span>
+</span><span class='line'><span class="nx">tweenBack</span><span class="p">.</span><span class="nx">chain</span><span class="p">(</span><span class="nx">tweenHead</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>That&#8217;s All Folks</h2>
+
+<p>So <a href="https://github.com/sole/tween.js">tween.js</a> is a nice small library which
+provides an easy way to animate things in your demos. You can get a play with
+the parameters of the <a href="/data/tweenjs_for_smooth_animation/tweenjs_for_smooth_animation.html">example</a> or
+look at its <a href="/data/tweenjs_for_smooth_animation/docs/tweenjs_for_smooth_animation.html">annotated code</a>.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-08-17T10:16:00+02:00" pubdate data-updated="true">Aug 17<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/animation/'>animation</a>, <a class='category' href='/blog/categories/library/'>library</a>, <a class='category' href='/blog/categories/tween/'>tween</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jeromeetienne.github.com/learningthreejs/blog/2011/08/17/tweenjs-for-smooth-animation/" data-via="LearningThreejs" data-counturl="http://jeromeetienne.github.com/learningthreejs/blog/2011/08/17/tweenjs-for-smooth-animation/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/08/15/lets-do-a-sky/" title="Previous Post: Lets Do a Sky">&laquo; Lets Do a Sky</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2011/08/30/window-resize-for-your-demos/" title="Next Post: Window Resize For Your Demos">Window Resize For Your Demos &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jeromeetienne.github.com/learningthreejs/blog/2011/08/17/tweenjs-for-smooth-animation/';
+        var disqus_url = 'http://jeromeetienne.github.com/learningthreejs/blog/2011/08/17/tweenjs-for-smooth-animation/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

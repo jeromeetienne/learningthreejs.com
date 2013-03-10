@@ -1,0 +1,372 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Three.js Sport Car on iOS at 40fps - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This post is about iOS and three.js.
+It may seem surprising, but iOS supports WebGL since version 4.2.
+There is a tough limitation tho, it is &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/29/three-js-sportcar-on-ios/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Three.js Sport Car on iOS at 40fps</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T13:48:00+02:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This post is about iOS and three.js.
+It may seem surprising, but <a href="http://en.wikipedia.org/wiki/iOS">iOS</a> supports WebGL since version 4.2.
+There is a tough limitation tho, it is available only in their advertisment plateform,
+<a href="http://en.wikipedia.org/wiki/IAd">iAds</a>, not in safari browser.
+I got a ipad2 so i experimented a bit with three.js on iOS to see what is going on.
+Most WebGL examples from
+<a href="https://github.com/mrdoob/three.js/">three.js</a> and
+<a href="https://github.com/jeromeetienne/tquery">tQuery</a>
+are working nicely on iOS.</p>
+
+<p>The
+<a href="http://www.youtube.com/watch?v=3yc4qhP87oY">screencast</a>
+below shows an ipad2 running the car demo we did last week in
+<a href="http://learningthreejs.com/blog/2012/05/21/sport-car-in-webgl/">&#8220;Sport Car in WebGL&#8221;</a> post.
+It runs at 40fps on the video. Rather good!
+Especially when you know the demo isn&#8217;t optimized.
+This car is way too detailed.
+One could reduce the size of this model by half without loosing much.
+So on mobile, the Good part is that <em>fps are good</em>.
+The Bad part is that <em>speed is slower</em> and <em>balanced differently</em>.
+This unbalanced part worries me a bit i admit. We need to better understand the mobile plateform.
+But hey, 40fps is quite good, way enougth to make a game!</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/3yc4qhP87oY" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+<!-- more -->
+
+
+<h2>Experimenting with WebGL on iOS</h2>
+
+<p>Yesterday,
+<a href="http://news.ycombinator.com/user?id=daeken">daeken</a>
+published a
+<a href="http://demoseen.com/webglenabler/#">WebGL Enabler</a>
+for iOS.
+It enables WebGL in the browser for jailbroken iOS devices.
+Or if you prefere a less invasive solution, not requiring to jailbreak your devices.
+You can use
+<a href="https://github.com/benvanik/WebGLBrowser">WebGL Browser</a>
+made by
+<a href="http://noxa.org/">Ben Vanik</a>
+, aka <a href="https://twitter.com/#!/benvanik">@benvanik</a> on twitter.
+He is wellknow for <a href="https://github.com/benvanik/WebGL-Inspector">WebGL Inspector</a>.</p>
+
+<p>By the way,
+<a href="https://github.com/benvanik/WebGLBrowser">WebGL Browser</a>
+and
+<a href="http://demoseen.com/webglenabler/#">WebGL Enabler</a>,
+are both based on a similar trick.
+It has been discovered by
+<a href="https://twitter.com/#!/atnan">Nathan de Vries</a>
+who told about it in this
+<a href="http://atnan.com/blog/2011/11/03/enabling-and-using-webgl-on-ios/">excelent post</a>.
+A very good read to understand the underlying details!
+Unfortuntly this is using an unofficial API&#8230; so it is
+impossible to get it for the apps store unfortunatly.</p>
+
+<h2>WebGL Status on Mobile</h2>
+
+<p>WebGL is starting to be hot on mobile.
+<a href="http://www.blackberry.com/playbook">blackberry playbook2</a>
+got it
+<a href="http://devblog.blackberry.com/2012/02/playbook-native-webgl-development/">by default</a>.
+<a href="http://www.mozilla.org/en-US/b2g/">boot on gecko</a> got it too with firefox mobile.
+It isn&#8217;t enabled on android and iOS tho, the 2 majors.
+Maybe we will have more info in june with
+<a href="https://developers.google.com/events/io/">google.io</a>
+and
+<a href="https://developer.apple.com/wwdc/">apple event</a>.
+google got <a href="http://www.google.com/intl/en/chrome/android/">chrome on android</a>.
+iOS already got <a href="http://atnan.com/blog/2011/11/03/enabling-and-using-webgl-on-ios/">support</a>, this is more a matter of policy.
+So lets hope google will announce WebGL support for chrome mobile.
+and apple will announce they accepts WebGL on apps store applications.
+I am an optimist personn, i hope :)</p>
+
+<h2>Conclusion</h2>
+
+<p>WebGL is coming hard on mobile.
+<a href="https://github.com/mrdoob/three.js/">three.js</a> and
+<a href="https://github.com/jeromeetienne/tquery">tQuery</a>
+already work on it.
+We need the 2 majors mobile OS to support it tho.
+It think having it on android and ios would significantly change WebGL landscape.
+Meanwhile you can already play with it, and do minigames with it, thus be ready when needed :)</p>
+
+<p>That&#8217;s all to today folks. Have fun :)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T13:48:00+02:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ios/'>ios</a>, <a class='category' href='/blog/categories/threejs/'>threejs</a>, <a class='category' href='/blog/categories/tquery/'>tquery</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/29/three-js-sportcar-on-ios/" data-via="LearningThreejs" data-counturl="http://jeromeetienne.github.com/learningthreejs/blog/2012/05/29/three-js-sportcar-on-ios/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/05/21/sport-car-in-webgl/" title="Previous Post: Sport Car in WebGL">&laquo; Sport Car in WebGL</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/" title="Next Post: 3D Physics With Three.js and Physijs">3D Physics With Three.js and Physijs &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/05/29/three-js-sportcar-on-ios/';
+        var disqus_url = 'http://jeromeetienne.github.com/learningthreejs/blog/2012/05/29/three-js-sportcar-on-ios/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

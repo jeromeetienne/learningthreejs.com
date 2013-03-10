@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Let's Make a 3D Game: Map Editor - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This is a new article of the &#8220;Let&#8217;s Make a 3D Game&#8221; series.
+In the previous one, we focused
+on keyboard. We will
+focus on map &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/2011/09/14/lets-make-a-3D-game-map-editor/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Let's Make a 3D Game: Map Editor</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-14T19:07:00+02:00" pubdate data-updated="true">Sep 14<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This is a new article of the &#8220;Let&#8217;s Make a 3D Game&#8221; <a href="/blog/categories/tutorial3dgame/">series</a>.
+In the previous one, we focused
+on <a href="/blog/2011/09/12/lets-Make-a-3D-game-keyboard/">keyboard</a>. We will
+focus on <em>map editor</em> for this one.
+In most games, the player moves around a map, sometime they are
+called <a href="http://en.wikipedia.org/wiki/Level_(video_gaming)">levels</a>.
+<em>Maps</em> are a key part of a game. They describes the world the player lives in,
+its rules, its limits, its geography.
+Additionnaly when a player completes a map, he
+goes in another better/harder map. It gives a sense
+progression which is fun. Players like fun things :)</p>
+
+<h2>So let&#8217;s make a map editor</h2>
+
+<p><img class="right" src="/data/lets_make_a_game_map_editor/images/200px-Voxels.svg.png" title="Example" ></p>
+
+<p>So i searched for a way to do map for our <em>marble game</em>.
+I wanted something <strong>very reusable and hackable</strong>,
+something you could easily use in your own games.
+I picked <a href="http://en.wikipedia.org/wiki/Voxel">voxels</a>.
+The illustration from <a href="http://en.wikipedia.org/wiki/File:Voxels.svg">wikipedia</a>
+on the right, may help understanding.
+They are easy to code, simple to understand, yet efficient and flexible.
+On top of that, one of <a href="https://github.com/mrdoob/three.js/tree/master/examples">three.js examples</a> is a
+<a href="http://mrdoob.github.com/three.js/examples/webgl_interactive_voxelpainter.html">voxel painter</a>
+in WebGL. So most of the work was already done for us!</p>
+
+<p>Only two features were missing to make it a <a href="http://en.wikipedia.org/wiki/Level_editor">map editor</a>.
+<strong>First</strong>, we need to load and save those maps.
+Thus we can edit those maps, and tune them until to get a good <a href="http://en.wikipedia.org/wiki/Gameplay">gameplay</a>.
+<strong>Second</strong>, the map must be composed of various type of cubes.
+Different type of cubes will have different purposes in the game. e.g. one cube
+may be wood or be water, one may make your explode on contact, one may
+make you teleport, anything you want.
+So i did those modifications and came up with
+this <a href="http://jeromeetienne.github.com/marbleGame/editor">editor</a>.</p>
+
+<!-- more -->
+
+
+<h2>Now Let&#8217;s Use This Editor</h2>
+
+<p><img class="right" src="/data/lets_make_a_game_map_editor/images/webgl-rocks.png" title="Example" ></p>
+
+<p>The <a href="http://jeromeetienne.github.com/marbleGame/editor">editor</a>
+got an inline help on top. So it should be rather simple.
+Once you are done, you save the map, the editor
+will open a window containing a string
+describing the saved data. Just copy this data in a file.
+To load it back, you just have to drag/drop this file on the
+editor window. It is as simple as that.</p>
+
+<h2>How To Use Saved Maps</h2>
+
+<p>You load the file you saved into your javascript.
+Maps are stored in <a href="http://en.wikipedia.org/wiki/JSON">JSON</a>. It is a data format
+which fits well with javascript.
+&#8220;Everything should be made as simple as possible, but no simpler&#8221;
+as a <a href="http://en.wikipedia.org/wiki/Albert_Einstein">cool guy</a> said.
+So following the <a href="http://en.wikipedia.org/wiki/Occam%27s_razor">occam razor</a>,
+this format is just
+an <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array">Array</a> with
+each element is one <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object">Object</a>
+representing a voxel.
+The object properties are: <code>x</code>, <code>y</code>, <code>z</code>being the
+coordinates of this voxel, and <code>t</code> being its type.</p>
+
+<h2>Progress</h2>
+
+<p>Yesterday, i started coding <a href="http://jeromeetienne.github.com/marbleGame">early visuals</a>
+for the game. Ok it takes some imaginations to see where it will goes. But it
+will improve i promise :)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-14T19:07:00+02:00" pubdate data-updated="true">Sep 14<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>, <a class='category' href='/blog/categories/tutorial3dgame/'>tutorial3dgame</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jeromeetienne.github.com/learningthreejs/blog/2011/09/14/lets-make-a-3D-game-map-editor/" data-via="LearningThreejs" data-counturl="http://jeromeetienne.github.com/learningthreejs/blog/2011/09/14/lets-make-a-3D-game-map-editor/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/09/12/lets-Make-a-3D-game-keyboard/" title="Previous Post: Let's Make a 3D Game: Keyboard">&laquo; Let's Make a 3D Game: Keyboard</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2011/09/16/performance-caching-material/" title="Next Post: Performance: Caching Material">Performance: Caching Material &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jeromeetienne.github.com/learningthreejs/blog/2011/09/14/lets-make-a-3D-game-map-editor/';
+        var disqus_url = 'http://jeromeetienne.github.com/learningthreejs/blog/2011/09/14/lets-make-a-3D-game-map-editor/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

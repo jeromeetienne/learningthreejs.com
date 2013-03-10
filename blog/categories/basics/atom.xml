@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: basics | Learning Three.js]]></title>
+  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/basics/atom.xml" rel="self"/>
+  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
+  <updated>2013-03-10T17:49:47+01:00</updated>
+  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <author>
+    <name><![CDATA[Jerome Etienne]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Screenshot in Javascript]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/09/03/screenshot-in-javascript/"/>
+    <updated>2011-09-03T10:01:00+02:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/09/03/screenshot-in-javascript</id>
+    <content type="html"><![CDATA[<p>Sometime it would be cool if you could take a screenshot of your demo to share with your friends.
+This post will explain how to do that single a single line.
+Additionnaly, <a href="/data/THREEx/THREEx.screenshot.js">THREEx.screenshot</a> helper is provided at the end
+if you want to add printscreen key in your demos without hasles.</p>
+
+<h2>Let's get started</h2>
+
+<p>So as usual you got a <code>renderer</code> variable to render your 3D scene. This renderer
+contains a <code>domElement</code> property.
+It is a <a href="http://en.wikipedia.org/wiki/Document_Object_Model">DOM element</a> on which it renders,
+who would have guessed ?
+We will use the <code>.toDataURL()</code>
+<a href="http://www.w3.org/TR/html5/the-canvas-element.html#dom-canvas-todataurl">method</a>
+on this element to get the screenshot.</p>
+
+<p>```javascript</p>
+
+<pre><code>var dataUrl = renderer.domElement.toDataURL("image/png");
+</code></pre>
+
+<p>```</p>
+
+<!-- more -->
+
+
+<p>A single line and you are <strong>done</strong>! not too hard hey ?
+This line will return a url of the screenshot image in
+png format.
+This url is a <a href="http://en.wikipedia.org/wiki/Data_URI_scheme">data url</a>, a special url which encode
+the content in base64. It looks like that <em>data:image/png;base64,iVBORw0KGgo</em> ...
+Not too readable but quite usefull :)</p>
+
+<p>Btw have you spotted he <code>image/png</code> parameter ? It is the mimetype of the image we will get. If you want
+a <a href="http://en.wikipedia.org/wiki/JPEG">jpeg</a>, just put <code>image/jpeg</code> instead.</p>
+
+<h2>WebGLRenderer special case</h2>
+
+<p>If your scene is renderered with WebGL, you should declare it like that.</p>
+
+<p>```javascript</p>
+
+<pre><code>var renderer    = new THREE.WebGLRenderer({
+    preserveDrawingBuffer   : true  // required to support .toDataURL()
+});
+</code></pre>
+
+<p>```</p>
+
+<p>Notice the option <code>preserveDrawingBuffer</code> ? It is <code>WebGLRenderer</code> specific.
+This is required to support <code>.toDataURL()</code> as explained in the <a href="http://www.khronos.org/registry/webgl/specs/latest/#2.2">spec</a>.
+Other <a href="https://github.com/mrdoob/three.js/tree/master/src/renderers">renderers</a> dont need it.</p>
+
+<h2>THREEx helper to make it even simpler</h2>
+
+<p>I wrote <a href="/data/THREEx/THREEx.screenshot.js">THREEx.screenshot</a>, a THREEx helper to
+automatize the process and makes it as simple as possible.
+You download it from <a href="/data/THREEx/THREEx.screenshot.js">here</a> and include
+it in your page like this</p>
+
+<p>```html</p>
+
+<pre><code>&lt;script type="text/javascript" src="THREEx.screenshot.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>```</p>
+
+<p>Would it be cool if got your own <a href="http://en.wikipedia.org/wiki/Print_screen">printscreen</a>
+key for your 3D ? The following line will do exactly that.
+Everytime you press <em>p</em>, it does a screenshot of the renderer, and open a window containing it.</p>
+
+<p>```javascript</p>
+
+<pre><code>THREEx.Screenshot.bindKey(renderer);
+</code></pre>
+
+<p>```</p>
+
+<p>Note the <a href="http://en.wikipedia.org/wiki/Aspect_ratio_(image)">aspect</a> of the original image is preserved.
+The default callback behavior is to open a window containing the screenshot, so be carefull it may be
+stopped by popup blockers.
+It is possible to customize the default behaviors thru options.
+For more details, see the <a href="/data/THREEx/docs/THREEx.screenshot.html">annoted source</a> of
+<a href="/data/THREEx/THREEx.screenshot.js">THREEx.screenshot</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lets Do a Sky]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/08/15/lets-do-a-sky/"/>
+    <updated>2011-08-15T12:26:00+02:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/08/15/lets-do-a-sky</id>
+    <content type="html"><![CDATA[<p>This tutorial is about doing a sky. It makes a nice panorama with a nice immersive effect.
+This is much simpler than people would expect : only 3 steps for a total around 20 lines.
+You can find a <a href="/data/lets_do_a_sky/lets_do_a_sky.html">live demo</a> of it. It may be a
+easy addition to your effects. This is simple and efficient.</p>
+
+<h1>Background</h1>
+
+<p><img class="right" src="/data/lets_do_a_sky/images/Panorama_cube_map.png" title="Close up" >
+Technically this is called a <a href="http://en.wikipedia.org/wiki/Cube_mapping">cube mapping</a>.
+Why that ? because the principle is so simple: we create a large cube, apply some images
+on each face of this cube and put the camera inside it. That's it.</p>
+
+<p>The illustration (from <a href="http://en.wikipedia.org/wiki/User:SharkD/Images">SharkD</a> at <a href="http://en.wikipedia.org/wiki/File:Panorama_cube_map.png">wikipedia</a>)
+on the right, may help understanding.
+On the <em>bottom left</em>, you can see a 3D scene with a dot in the middle... This is
+where the camera will be positionned.
+On the <em>bottom right</em>, you can see the same 3D scene, with the large cube and now the
+camera is inside.
+The kind of cross <em>on the top half</em> are the images used as texture.
+Those are the ones which gonna be applied inside the large sky cube. If you go to
+the <a href="/data/lets_do_a_sky/lets_do_a_sky.html">demo</a>,
+open your browser debugger and look at downloaded images, you will see those 6 images.</p>
+
+<!-- more -->
+
+
+<h1>Lets Code it Now!</h1>
+
+<p>Now that we got an understanding of the background, lets code it. To add a skybox
+to your page is 3 simple steps in around 20 lines. Lets look at them.</p>
+
+<h2>Step 1: Lets load the cube textures</h2>
+
+<p>This will create the texture objects and download all the images. They are usually stored
+in 6 images: <em>posx</em> for the front face on X axis, negx for the back side on the X axis, posy
+for the front on Y axis and so on.</p>
+
+<p>``` javascript</p>
+
+<pre><code>var urlPrefix = "images/Bridge2/";
+var urls = [ urlPrefix + "posx.jpg", urlPrefix + "negx.jpg",
+    urlPrefix + "posy.jpg", urlPrefix + "negy.jpg",
+    urlPrefix + "posz.jpg", urlPrefix + "negz.jpg" ];
+var textureCube = THREE.ImageUtils.loadTextureCube( urls );
+</code></pre>
+
+<p>```</p>
+
+<h2>Step 2: Lets init the shader</h2>
+
+<p>Then we init the shader for the cube.
+A <a href="http://en.wikipedia.org/wiki/Shader">shader</a> is a program which run
+directly on the graphic card. It uses a special C-like language, run
+super fast as it is massively paralelle.
+It is rather standard, dont forget to init <code>tCube</code> uniform
+with your textures.</p>
+
+<p>``` javascript</p>
+
+<pre><code>var shader = THREE.ShaderUtils.lib["cube"];
+var uniforms = THREE.UniformsUtils.clone( shader.uniforms );
+uniforms['tCube'].texture= textureCube; // textureCube has been init before
+var material = new THREE.MeshShaderMaterial({
+    fragmentShader  : shader.fragmentShader,
+    vertexShader    : shader.vertexShader,
+    uniforms    : uniforms
+});
+</code></pre>
+
+<p>```</p>
+
+<h2>Step 3: Lets Create the Cube Itself</h2>
+
+<p>Now we create the large cube. The actual size is up to you. Note that you need to ensure
+your camera is able to see that far.
+The last step is to add it to the scene, and we are done. Rather simple for such a cool effect i would say.</p>
+
+<p>``` javascript</p>
+
+<pre><code>// build the skybox Mesh 
+skyboxMesh  = new THREE.Mesh( new THREE.CubeGeometry( 100000, 100000, 100000, 1, 1, 1, null, true ), material );
+// add it to the scene
+scene.addObject( skyboxMesh );
+</code></pre>
+
+<p>```</p>
+
+<h1>Conclusion</h1>
+
+<p>This tutorial explained how to do a sky using cube mapping. Additionnaly you can look at <a href="/data/lets_do_a_sky/docs/lets_do_a_sky.html">an anotated source of the demo</a>
+especially the <a href="/data/lets_do_a_sky/docs/lets_do_a_sky.html#section-10">skybox section</a>
+of the <a href="/data/lets_do_a_sky/lets_do_a_sky.html">live demo</a>. You may go out with your camera and
+do your own cube images. Just use <a href="http://hugin.sourceforge.net/">Hugin</a> later to stinch them back together.
+It takes around 20 lines, quite small source for such
+immersive effect. Use it and tweek it for fun :) Examples are there for that.</p>
+]]></content>
+  </entry>
+  
+</feed>

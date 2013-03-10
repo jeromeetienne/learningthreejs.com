@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: library | Learning Three.js]]></title>
+  <link href="http://jeromeetienne.github.com/learningthreejs/blog/categories/library/atom.xml" rel="self"/>
+  <link href="http://jeromeetienne.github.com/learningthreejs/"/>
+  <updated>2013-03-10T17:49:47+01:00</updated>
+  <id>http://jeromeetienne.github.com/learningthreejs/</id>
+  <author>
+    <name><![CDATA[Jerome Etienne]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Boilerplate Builder for Three.js]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2012/01/19/boilerplate-builder-for-three-js/"/>
+    <updated>2012-01-19T10:59:00+01:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2012/01/19/boilerplate-builder-for-three-js</id>
+    <content type="html"><![CDATA[<p>We recently introduced a
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>
+in a
+<a href="/blog/2011/12/20/boilerplate-for-three-js/">previous post</a>.
+It aims to ease your first contact with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>.
+It contains a template for a simple project,
+a sample on which we already applied good practices.
+You download it and run it in a matter of minutes.
+Thus you can immediatly focus on your own things.
+In short, it aims for <em>Fast bootstrap + Good Practices</em>.</p>
+
+<p>It seems nice, hey ?
+Well there is a glitch.
+The
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>
+needs more flexibily.
+In a way, it acts as a ground on top of which you start your own thing.
+We do our best to provide good defaults, but they are only defaults.
+What if you got specific requirements ?
+How to start your project then ?
+The
+<a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">boilerplate builder</a>
+has been written for you :)</p>
+
+<p><a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">Try it out</a>.
+Go ahead, play with the options,
+discover what they do and customize your own boilerplate.
+The
+<a href="http://www.youtube.com/watch?v=ANnPWZGRsGk">screencast</a>
+below is short introduction where i describe the
+<a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">boilerplate builder</a>.</p>
+
+<!-- more -->
+
+
+
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/ANnPWZGRsGk?hl=en&fs=1" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>Making-Of the Builder</h2>
+
+<p>The
+<a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">builder</a>
+itself was interesting to build.
+It uses various nice features from the current web.
+It is a pure-browser webapp with a file download,
+a preview of a webgl project
+and a nice looking visual appearance.</p>
+
+<h3>Pure Browser Download</h3>
+
+<p>I like to write pure-browser application.
+They dont require a server to run, only static files.
+It makes it much easier to host your application.
+So
+<a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">boilerplate builder</a>
+has been written as a pure-browser application :)
+It uses
+<a href="http://jszip.stuartk.co.uk/">jszip</a>
+, a library which create .zip files with Javascript.
+Its creates the boilerplater.zip that you download.
+Additionally, it uses
+<a href="https://github.com/dcneiner/Downloadify">downloadify</a>
+, a small library to create and download files without server.</p>
+
+<p>Together,
+<a href="http://jszip.stuartk.co.uk/">jszip</a>
+and
+<a href="https://github.com/dcneiner/Downloadify">downloadify</a>
+makes it easy to pack several files together,
+and allow the user to download it.
+All that in pure-browser, neat no?
+I love what the web is becoming!</p>
+
+<h3>Boilerplate Preview</h3>
+
+<p>The preview is a bit different.
+We start to load the <em>index.html</em> template for the boilerplate.
+We apply all the options you configured and produce the final version.
+To actually preview this file, we encode it in
+<a href="http://en.wikipedia.org/wiki/Base64">base64</a>
+to build a
+<a href="http://en.wikipedia.org/wiki/Data_URI_scheme">data url</a>
+with it.
+Only then, we create an iframe with this data uri
+and you can see the webgl preview :)</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Data_URI_scheme">Data url</a>
+is <a href="http://tools.ietf.org/html/rfc2397">an old thing from 1998</a>
+which is back in spotlight due to HTML5.
+It allows to encode data directly in the URL.
+It may be used to include image directly in css for examples.
+Very usefull but not for human consumption.
+To give you an idea, here is
+<a href="http://pastebin.com/yF3XDSFW">index.html</a>
+as a data url in
+<a href="http://en.wikipedia.org/wiki/Base64">base64</a>.
+You could encode it as text if you
+<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/encodeURI">escape</a>
+it
+<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/encodeURIComponent">properly</a>.
+It looks like long ugly random string.</p>
+
+<p>```</p>
+
+<pre><code>data:text/html;base64,PCFkb2N0eXBlIGh0....
+</code></pre>
+
+<p>```</p>
+
+<h3>Visual Appearance</h3>
+
+<p>It includes
+<a href="http://twitter.github.com/bootstrap/">twitter bootstrap</a> for css.
+I am quite grateful for this framework.
+Without it, the
+<a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">builder page</a>
+will be so ugly, that people run away without even trying the application itself.
+<a href="http://twitter.github.com/bootstrap/">twitter bootstrap</a>
+makes it so easy to write a webapp which looks good on the screen.
+I think all the css-impaired of the world should thanks twitter for this framework :)</p>
+
+<h2>Conclusion</h2>
+
+<p>It has been quite fun to write it.
+I learned some web skills,
+discovered new part of three.js,
+and on top of that, it looks good on screen.
+I could not ask for more.
+The goal of
+<a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">boilerplate builder for three.js</a>
+is to add more <em>flexibility</em> to the <em>fast bootstrap + good practices</em> from the
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate</a>.
+I hope it will help people starting lots of new
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+projects :)</p>
+
+<p>That's all folks.
+Have fun.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Let’s Make a 3D Game: Virtual Joystick]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/12/26/let-s-make-a-3d-game-virtual-joystick/"/>
+    <updated>2011-12-26T12:21:00+01:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/12/26/let-s-make-a-3d-game-virtual-joystick</id>
+    <content type="html"><![CDATA[<p>Here is another article of the "Let's Make a 3D Game"
+<a href="/blog/categories/tutorial3dgame/">series</a>.
+We have already seen how to handle other inputs like
+<a href="/blog/2011/09/12/lets-Make-a-3D-game-keyboard/">keyboard</a>
+and
+<a href="/blog/2011/09/20/lets-make-a-3D-game-device-orientation/">device orientation</a>.
+This post is about <a href="https://github.com/jeromeetienne/virtualjoystick.js">virtualjoystick.js</a>
+It <strong>virtual joystick</strong>, another input you can use for your games.
+A virtual joystick emulates a joystick behaviour on a touch screen.
+<a href="https://github.com/jeromeetienne/virtualjoystick.js">virtualjoystick.js</a>
+has been coded in a effort to port
+<a href="http://marblesoccer.com">marblesoccer</a>
+to mobile device.
+Show, dont tell,
+<a href="http://jeromeetienne.github.com/virtualjoystick.js/">Try it out</a>.</p>
+
+<p>This
+<a href="http://jeromeetienne.github.com/virtualjoystick.js/">demo</a>
+works with mouse events too thus, it is easier to test/debug.
+<a href="https://github.com/jeromeetienne/virtualjoystick.js">virtualjoystick.js</a>
+has been widely inpired by
+<a href="http://sebleedelisle.com/2011/04/multi-touch-game-controller-in-javascripthtml5-for-ipad/">this post</a>
+by
+<a href="http://sebleedelisle.com/">Seb Lee-Delisle</a>.
+The screencast below is short introduction about
+<a href="https://github.com/jeromeetienne/virtualjoystick.js">virtualjoystick.js</a></p>
+
+<!-- more -->
+
+
+
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/viyr_W0z1U8?hl=en&fs=1" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>Let's Get Started</h2>
+
+<p>First step, you download
+<a href="https://raw.github.com/jeromeetienne/virtualjoystick.js/master/virtualjoystick.js">virtualjoystick.js</a>
+from its
+<a href="https://github.com/jeromeetienne/virtualjoystick.js">github</a>
+Then include it in your own code.</p>
+
+<p>```html</p>
+
+<pre><code>&lt;script src="virtualjoystick.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>```</p>
+
+<p>The joystick is composed of 2 parts: the <em>base</em> and the <em>stick</em>.
+First the plare touch the screen, it gives the position of the <em>base</em>.
+Then it drags its fingers to gives the position of the <em>stick</em></p>
+
+<h2>Let's Use it</h2>
+
+<iframe src="http://jeromeetienne.github.com/virtualjoystick.js/"
+    webkitallowfullscreen mozallowfullscreen allowfullscreen 
+    width="420" height="315" frameborder="0" style="float: right; margin-left: 1em;">
+</iframe>
+
+
+<p>First step is to create the object from <code>VirtualJoystick</code> class.</p>
+
+<p>```javascript</p>
+
+<pre><code>var joystick = new VirtualJoystick()
+</code></pre>
+
+<p>```</p>
+
+<p>The constructor has some options.
+They have sensible default.
+You can change them to fit your specific needs.
+See
+<a href="https://github.com/jeromeetienne/virtualjoystick.js#readme">github README</a>
+for a full API description.
+You may look at the <a href="https://github.com/jeromeetienne/virtualjoystick.js/blob/master/index.html">index.html</a>.
+It is an example which uses the library.</p>
+
+<p>It is possible to read
+<a href="http://en.wikipedia.org/wiki/Analog_stick">analogic</a>
+coordinates.
+ <code>joystick.deltaX()</code> gives the <em>delta x</em> between the base and the stick in pixel.
+ <code>joystick.deltaY()</code> gives the <em>delta y</em>.
+Those analogic coordinates may be interpreted as a
+<a href="http://www.slagcoin.com/joystick/restrictors.html">joystick with 4 switches</a>.
+Similar to
+<a href="http://en.wikipedia.org/wiki/Arrow_keys">arrow keys</a>
+in a way.
+ <code>joystick.up()</code> tells you if your joystick is up or not.
+You guessed the meaning of <code>.down()</code>, <code>.right()</code> and <code>.left()</code>.</p>
+
+<h2>Conclusion</h2>
+
+<p>The source is available on
+<a href="https://github.com/jeromeetienne/virtualjoystick.js">github</a>
+under MIT license.
+Later, a button may be implemented as well.
+It is alway usefull to able to fire in video games :)
+That's all folks, have fun.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Boilerplate for Three.js]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/12/20/boilerplate-for-three-js/"/>
+    <updated>2011-12-20T19:09:00+01:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/12/20/boilerplate-for-three-js</id>
+    <content type="html"><![CDATA[<p>This post presents
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>.
+I looked at
+<a href="http://html5boilerplate.com/">html5 boilerplate</a>
+and found
+<a href="http://www.youtube.com/watch?v=NMEB78VX2P0">it</a>
+<a href="http://www.youtube.com/watch?v=oDlsOyPKUTM">awesome</a>.
+<a href="http://html5boilerplate.com/">html5 boilerplate</a>
+is a fast way start a clean project.
+It avoids repetitive tasks, following <a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">DRY</a> principles.
+It includes all those good practices, which are so easy to forget.
+It seems all good to me :)
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a> tries to apply similar principles.
+I frequently write simple three.js demo for tutorials, and repeat the first steps way too often for my tastes :)
+It has been done in effort to make 3D on the web even easier.</p>
+
+<p><a href="http://jeromeetienne.github.com/threejsboilerplate/">Try it</a> out.
+"Boilerplate for three.js is a web template for a fast, robust and future-proof site.
+Boilerplate is not a framework, nor does it prescribe any philosophy of
+development, it's just got some tricks to get your project off the ground
+quickly and right-footed."
+- freely adapted from <a href="http://html5boilerplate.com/">html5 boilerplate site</a>.</p>
+
+<!-- more -->
+
+
+<h2>Walkthrough</h2>
+
+<p>This project is at an early stage.
+Dont hesitate to suggest improvements or
+bug fixes in
+<a href="https://github.com/jeromeetienne/threejsboilerplate/issues">github issues</a>.
+It has been done to run everywhere, and to promote good practices.
+The
+<a href="http://www.youtube.com/watch?v=kOReCN5t2Eo">screencast</a>
+below will walk you through the source of the project.
+22min... a long one :)</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/kOReCN5t2Eo?hl=en&fs=1" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>Compatibility is key</h2>
+
+<p>It has to run everywhere.
+We believe that compatibility is crucial on the web.
+The boilerplate seamlessly works on desktop and mobile.
+It is working on webgl/canvas2d and supports mouse/touch events.</p>
+
+<p>It renders on
+<a href="http://en.wikipedia.org/wiki/WebGL">webgl</a>
+if available, else it fallbacks on
+<a href="http://html5doctor.com/an-introduction-to-the-canvas-2d-api/">canvas2D</a>.
+It is often forgotten, but <a href="">three.js</a> is able render on various backends,
+they are called <a href="https://github.com/mrdoob/three.js/tree/master/src/renderers">renderers</a>.
+It isnt always possible to fallback tho.
+Materials are especially sensible to the type of renderer you use.
+For examples, many materials are webgl specific as they contains shaders and canvas2D got no shaders.
+Up to you to find the balance that fit your needs.</p>
+
+<p>The camera controls is rather basic.
+If you need a different controls for your camera, pick one in
+<a href="https://github.com/mrdoob/three.js/tree/master/src/extras/controls">this list</a>.
+This one is simple to use and understand, a nice feature for a boilerplate.
+It supports
+<a href="http://www.quirksmode.org/js/events_mouse.html">mouse events</a>
+and
+<a href="https://developer.mozilla.org/en/DOM/Touch_events">touch events</a>.
+So you can run with a touch screen with a glitch.</p>
+
+<h2>Good Practices</h2>
+
+<p>Some features have been added: fullscreen, screenshot and window resize.
+I consider them <a href="http://en.wikipedia.org/wiki/Best_practice">good pratices</a> which are often forgotten.
+Some numbers based on <a href="https://github.com/mrdoob/three.js/tree/master/examples">three.js examples</a>:
+128 examples total,
+26 of them handle touch events,
+11 handle window resize,
+2 handle screenshot,
+0 handle fullscreen.</p>
+
+<iframe src="http://jeromeetienne.github.com/threejsboilerplate"
+    webkitallowfullscreen mozallowfullscreen allowfullscreen 
+    width="420" height="315" frameborder="0" style="float: right; margin-left: 1em;">
+</iframe>
+
+
+<p><strong>Fullscreen</strong> is supported to enjoy your 3D on a large display
+without visual distraction.
+If you press <em>f</em>, your demo will go fullscreen.
+For technical details, see "<a href="/blog/2011/11/17/lets-make-a-3d-game-make-it-fullscreen/">Make It Fullscreen</a>" post.</p>
+
+<p><strong>Screenshot</strong> makes it easy to share the image
+as what you see on the screen at a given moment.
+If you press <em>p</em>, a new tab will open with a screenshot of the rendered content.
+For technical details, see "<a href="/blog/2011/09/03/screenshot-in-javascript/">screenhot in javascript</a>" post.
+It it usefull to share nice images and to help debug on various plateforms.</p>
+
+<p><strong>Window resize</strong> is supported because it is required. Without it, your 3D scene will loose scaleing and center
+when you resize the window or go fullscreen.
+For technical details, see "<a href="/blog/2011/08/30/window-resize-for-your-demos/">window resize your demos</a>" post.</p>
+
+<h2>How to use it ?</h2>
+
+<p>It is quite simple, first you download the code as
+a <a href="https://github.com/jeromeetienne/threejsboilerplate/zipball/master">.zip file</a>
+or with the <a href="http://git-scm.com/">git</a> command line below.</p>
+
+<p>```</p>
+
+<pre><code>git clone git://github.com/jeromeetienne/threejsboilerplate.git
+</code></pre>
+
+<p>```</p>
+
+<p>then start updating <a href="https://github.com/jeromeetienne/threejsboilerplate/blob/master/index.html">index.html</a> to
+fit your needs.
+Below is a screencast where i use the
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate</a>
+to display a
+<a href="http://en.wikipedia.org/wiki/Utah_teapot">teapot</a>
+in only 3min!
+Why a teapot ? Because it is the "hello world" of 3D :)
+Be warned, the video is a bit speedy, im just starting at doing screencast.
+Next ones will hopefully be slower.</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/0XPOCi6FJX0?hl=en&fs=1" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>Conclusion</h2>
+
+<p>Later, it may be cool to have a builder.
+I think it may be possible to make it client only.
+<a href="http://jszip.stuartk.co.uk/">jszip</a> library would create the zip containing all the files.
+<a href="https://github.com/jeromeetienne/shorttag.js">shorttag.js</a> library would compile templates according to user needs.
+A builder would produce a cleaner and smaller result for you to play with.</p>
+
+<p>I gave a short talk at <a href="http://parisjs.org">parisjs</a> about it, here are the <a href="http://jeromeetienne.github.com/slides-3jsbp-parisjs14">slides</a>.
+I hope
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>.
+will help make
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+even easier to use.
+This project is quite new and will likely improve soon.
+That's all folks, have fun :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Particles: Online Editor for Sparks.js]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/12/19/particles-online-editor-for-sparks-js/"/>
+    <updated>2011-12-19T12:11:00+01:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/12/19/particles-online-editor-for-sparks-js</id>
+    <content type="html"><![CDATA[<p>This post is the second of our <a href="/blog/categories/particles">serie on particles</a>.
+It presents
+<a href="https://github.com/jeromeetienne/sparkseditor">sparkseditor</a>
+, an online editor for
+<a href="https://github.com/zz85/sparks.js">sparks.js</a>
+with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>.
+In a few word, it is a webpage which provide an text editor
+with a
+<a href="https://github.com/zz85/sparks.js">sparks.js</a>
+effect.
+You got the code in the editor
+and
+you see <em>live</em> the resulting particles effect.
+I like this <em>live</em> aspect a lot :)
+I think it makes your design more direct, lower latency, less overhead.
+More creative in a way.
+<a href="http://jeromeetienne.github.com/sparkseditor/">Try it out</a>.</p>
+
+<p>This editor has been made to lower the barrier of entry on
+<a href="https://github.com/zz85/sparks.js">sparks.js</a>
+with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+particles.
+The UI is rather simple and obvious. You can find a small presentation in the
+screencast below.</p>
+
+<!-- more -->
+
+
+
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/nu00FhIW5bc?hl=en&fs=1" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>Live editor rocks</h2>
+
+<p><a href="http://jeromeetienne.github.com/sparkseditor/">Sparkseditor</a>
+is widely inpired by
+<a href="http://glsl.heroku.com/e">glsl editor</a>
+from
+<a href="http://mrdoob.com/">mrdoob</a>
+and
+<a href="http://www.iquilezles.org/apps/shadertoy/">shadertoy</a>
+from
+<a href="http://www.iquilezles.org/">Inigo Quilez</a>.
+On the same vibe,
+<a href="http://lea.verou.me/">lea verou</a>
+recently
+released
+<a href="http://lea.verou.me/2011/12/introducing-dabblet-an-interactive-css-playground/">dablet</a>,
+an online editor for
+<a href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets">css</a>.
+There is a clear trend here...
+What is it about those live editors ?
+A live editor produces a result immediatly.
+This helps design your effect faster.
+Be light on your foot kindof style.
+Very agile way to design.</p>
+
+<p>Additionally, it is easy to share with others because we have <em>bookmarkability</em>.
+We do that by storing state in url.
+On the down side, it makes super long+ugly urls...
+<a href="http://en.wikipedia.org/wiki/URL_shortening">url shortening</a>
+helps us reduces this issue.
+In our case, we use
+<a href="https://bitly.com/">bitly</a>
+service.</p>
+
+<p>This editor is purely static files.
+No specific server to run, no need to admin and no risk to go offline.
+Oh and by the way i dont not even have to pay for hosting this application.
+I think it shows html5 in all its power.
+The web is becoming something real nice :) html5 i love you!</p>
+
+<h2>conclusion</h2>
+
+<p>Under the hood,
+<a href="https://github.com/jeromeetienne/sparkseditor">sparkseditor</a>
+uses
+<a href="https://github.com/jeromeetienne/threex/blob/master/threex.sparks.js">threex.sparks.js</a>, a
+<a href="https://github.com/jeromeetienne/threex">threex</a>
+helper, to make
+<a href="https://github.com/zz85/sparks.js/">sparks.js</a>
+even easier to use.
+This helper will be the subject of a future post of our
+<a href="/blog/categories/particles">particles series</a>.</p>
+
+<p>The source is open-source under
+<a href="https://github.com/jeromeetienne/sparkseditor/blob/master/MIT-LICENSE.txt">MIT</a>.
+You can get it in its <a href="https://github.com/jeromeetienne/sparkseditor">git repository</a>.
+If you hit bugs, fill issues on github.
+Feel free to fork and modify it!
+That's all folks, have fun :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Particles: Introduction to Sparks.js]]></title>
+    <link href="http://jeromeetienne.github.com/learningthreejs/blog/2011/12/14/particles-introduction-to-sparks-js/"/>
+    <updated>2011-12-14T12:08:00+01:00</updated>
+    <id>http://jeromeetienne.github.com/learningthreejs/blog/2011/12/14/particles-introduction-to-sparks-js</id>
+    <content type="html"><![CDATA[<p>This post is the first of a <a href="/blog/categories/particles">serie on particles</a>.
+It specifically is about
+<a href="https://github.com/zz85/sparks.js">sparks.js</a>.
+<em>sparks.js</em> is lightweight 3d
+<a href="http://en.wikipedia.org/wiki/Particle_system">Particle system</a>
+in javascript, for use with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+and
+<a href="https://github.com/sole/tween.js">tween.js</a>.
+It is from
+<a href="http://www.lab4games.net/zz85/blog/">zz85</a>
+who already did
+<a href="http://mrdoob.github.com/three.js/examples/webgl_geometry_text.html">3D text</a>
+and
+<a href="http://mrdoob.github.com/three.js/examples/webgl_geometry_subdivison.html">Catmull Clark subdivision</a>.
+a productive guy :)</p>
+
+<p>The <a href="http://mrdoob.github.com/three.js/examples/webgl_particles_shapes.html">demo</a>
+below is one of the many <a href="https://github.com/mrdoob/three.js/tree/master/examples">three.js examples</a>.
+While im on it, the <a href="https://github.com/mrdoob/three.js/tree/master/examples">example directory</a> is a gold mine.
+Go dig in it to understand how to code three.js :)
+Back to the point, this
+<a href="http://mrdoob.github.com/three.js/examples/webgl_particles_shapes.html">demo</a>
+is rather cool no ?
+You want to do the same ?
+During this short post, let me walk you walk thru the code for particles in this example.</p>
+
+<!-- more -->
+
+
+
+
+<iframe src="http://mrdoob.github.com/three.js/examples/webgl_particles_shapes.html" width="100%" height="420" frameborder="0"></iframe>
+
+
+<h2>Lets Get Started</h2>
+
+<p>So lets see how to use it. First step, you download
+<a href="https://raw.github.com/zz85/sparks.js/master/Sparks.js">sparks.js</a>
+from
+<a href="https://github.com/zz85/sparks.js">its github</a>.
+Then include it in your own code.</p>
+
+<p>```html</p>
+
+<pre><code>&lt;script src="Sparks.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>```</p>
+
+<p>First a few words on what is a <a href="http://en.wikipedia.org/wiki/Particle_system">particle system</a>.
+It is usually composed of 2 big parts: the <em>emitter</em> and the <em>particle</em> itself.
+Emitter creates particles.
+Particles are usually smallish objects on the screen.
+As you got many particles at the same time, they appears a single mass.</p>
+
+<!-- more -->
+
+
+<h2>Let's create an emitter</h2>
+
+<p>First we create the emitter like this.
+ <code>emitter</code> is the main object we will play with.</p>
+
+<p>```javascript</p>
+
+<pre><code>var counter = new SPARKS.SteadyCounter( 500 );
+var emitter = new SPARKS.Emitter( counter );
+</code></pre>
+
+<p>```</p>
+
+<p> <code>counter</code> controls how frequently particles are created. Here it will
+emit 500 particles per seconds.
+Now let's start emit particles.</p>
+
+<p>```javascript</p>
+
+<pre><code>emitter.start();
+</code></pre>
+
+<p>```</p>
+
+<p>Sparks.js has a very flexible core.
+It mainly uses two stacks of functions.
+<em>Initializers</em> is the stack run at the creation of a particle.
+<em>Actions</em> is another stack which is run at every step of a particle life.
+Those functions are run in order.
+Up to you to configure them to fit your needs.
+You can easily code your own <em>initializer</em> or <em>action</em>.
+Dont worry it got a bunch of predefined ones.</p>
+
+<h2>Let's initialize</h2>
+
+<p>Lets me walk you thru the ones used in our example. The whole stack is below.
+ <code>emitter.addInitializer()</code> to push a new initializer, and <code>emitter.removeInitializer()</code>
+to remove it, not too hard :)</p>
+
+<p>```javascript</p>
+
+<pre><code>emitterpos = new THREE.Vector3( 0, 0, 0 );
+emitter.addInitializer( new SPARKS.Position( new SPARKS.PointZone( emitterpos ) ) );
+emitter.addInitializer( new SPARKS.Lifetime( 1, 15 ));
+var vector = new THREE.Vector3( 0, -5, 1 );
+emitter.addInitializer( new SPARKS.Velocity( new SPARKS.PointZone( vector ) ) );
+</code></pre>
+
+<p>```</p>
+
+<p> <code>SPARKS.Position(zone)</code> initializer set the original position of the particle.
+A <code>zone</code> provide a location in space.
+ <code>new SPARKS.PointZone( emitterpos )</code> means the particles will always start from this specific point in space.
+It is possible to have other zones.
+For example, <code>SPARKS.LineZone( startVector3, endVector3 )</code> represents a line between 2 points, so
+your particle would start anywhere on this line.</p>
+
+<p> <code>SPARKS.Lifetime(mintime, maxtime)</code> initializer set particle's lifetime.
+You can specify a range and a random value will be assigned.
+Don't forget to add <code>SPARKS.Age</code> action to handle its lifetime.
+And the last one.
+ <code>SPARKS.Velocity(zone)</code> set particle's velocity based on a <code>zone</code> location.
+The initializer stack is setup the particle at the begining of its life.
+Let's see what happen during this life.</p>
+
+<h2>Let's do some actions</h2>
+
+<p>Actions are performed at every step of a particle life.
+Same as with initializers, <code>emitter.addAction()</code> to push a new action,
+ <code>emitter.removeAction()</code> to remove it.
+For our examples the whole action stack is this.</p>
+
+<p>```javascript</p>
+
+<pre><code>emitter.addAction( new SPARKS.Age() );
+emitter.addAction( new SPARKS.Accelerate( 0, 0, -50 ) );
+emitter.addAction( new SPARKS.Move() );
+emitter.addAction( new SPARKS.RandomDrift( 90, 100, 2000 ) );
+</code></pre>
+
+<p>```</p>
+
+<p>Now lets details it.
+We have already seen <code>SPARKS.Age()</code>. It is handle the lifetime of each particle.
+ <code>SPARKS.Accelerate(x,y,z)</code> changes the velocity by adding a fixed amount at every step.
+This one produces a gravity effect with a negative <code>y</code>.
+ <code>SPARKS.Move()</code> makes the particles move in our 3D space.
+ <code>SPARKS.RandomDrift(x,y,z)</code> changes the velocity by adding a random amount at every step.</p>
+
+<h2>Conclusion</h2>
+
+<p>I hope this short introduction got you excited about
+<a href="https://github.com/zz85/sparks.js/">sparks.js</a>.
+Next posts on the
+<a href="/blog/categories/particles">particle series</a>
+may be a UI editor, stay tuned!
+I find sparks.js clean and flexible.
+Flexibility is very important for particles.
+It helps provide a wide variety of effect in your games/demos.
+For more informations and authoritative answer, see the
+<a href="https://github.com/zz85/sparks.js/">github repository</a>.
+That's all for today folks, have fun.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Boilerplate for Three.js - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This post presents
+boilerplate for three.js.
+I looked at
+html5 boilerplate
+and found
+it
+awesome.
+html5 boilerplate
+is a fast way start a clean &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jeromeetienne.github.com/learningthreejs/blog/2011/12/20/boilerplate-for-three-js/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jeromeetienne.github.com/learningthreejs" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Boilerplate for Three.js</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-20T19:09:00+01:00" pubdate data-updated="true">Dec 20<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This post presents
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>.
+I looked at
+<a href="http://html5boilerplate.com/">html5 boilerplate</a>
+and found
+<a href="http://www.youtube.com/watch?v=NMEB78VX2P0">it</a>
+<a href="http://www.youtube.com/watch?v=oDlsOyPKUTM">awesome</a>.
+<a href="http://html5boilerplate.com/">html5 boilerplate</a>
+is a fast way start a clean project.
+It avoids repetitive tasks, following <a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">DRY</a> principles.
+It includes all those good practices, which are so easy to forget.
+It seems all good to me :)
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a> tries to apply similar principles.
+I frequently write simple three.js demo for tutorials, and repeat the first steps way too often for my tastes :)
+It has been done in effort to make 3D on the web even easier.</p>
+
+<p><a href="http://jeromeetienne.github.com/threejsboilerplate/">Try it</a> out.
+&#8220;Boilerplate for three.js is a web template for a fast, robust and future-proof site.
+Boilerplate is not a framework, nor does it prescribe any philosophy of
+development, it&#8217;s just got some tricks to get your project off the ground
+quickly and right-footed.&#8221;
+- freely adapted from <a href="http://html5boilerplate.com/">html5 boilerplate site</a>.</p>
+
+<!-- more -->
+
+
+<h2>Walkthrough</h2>
+
+<p>This project is at an early stage.
+Dont hesitate to suggest improvements or
+bug fixes in
+<a href="https://github.com/jeromeetienne/threejsboilerplate/issues">github issues</a>.
+It has been done to run everywhere, and to promote good practices.
+The
+<a href="http://www.youtube.com/watch?v=kOReCN5t2Eo">screencast</a>
+below will walk you through the source of the project.
+22min&#8230; a long one :)</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/kOReCN5t2Eo?hl=en&fs=1" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>Compatibility is key</h2>
+
+<p>It has to run everywhere.
+We believe that compatibility is crucial on the web.
+The boilerplate seamlessly works on desktop and mobile.
+It is working on webgl/canvas2d and supports mouse/touch events.</p>
+
+<p>It renders on
+<a href="http://en.wikipedia.org/wiki/WebGL">webgl</a>
+if available, else it fallbacks on
+<a href="http://html5doctor.com/an-introduction-to-the-canvas-2d-api/">canvas2D</a>.
+It is often forgotten, but <a href="">three.js</a> is able render on various backends,
+they are called <a href="https://github.com/mrdoob/three.js/tree/master/src/renderers">renderers</a>.
+It isnt always possible to fallback tho.
+Materials are especially sensible to the type of renderer you use.
+For examples, many materials are webgl specific as they contains shaders and canvas2D got no shaders.
+Up to you to find the balance that fit your needs.</p>
+
+<p>The camera controls is rather basic.
+If you need a different controls for your camera, pick one in
+<a href="https://github.com/mrdoob/three.js/tree/master/src/extras/controls">this list</a>.
+This one is simple to use and understand, a nice feature for a boilerplate.
+It supports
+<a href="http://www.quirksmode.org/js/events_mouse.html">mouse events</a>
+and
+<a href="https://developer.mozilla.org/en/DOM/Touch_events">touch events</a>.
+So you can run with a touch screen with a glitch.</p>
+
+<h2>Good Practices</h2>
+
+<p>Some features have been added: fullscreen, screenshot and window resize.
+I consider them <a href="http://en.wikipedia.org/wiki/Best_practice">good pratices</a> which are often forgotten.
+Some numbers based on <a href="https://github.com/mrdoob/three.js/tree/master/examples">three.js examples</a>:
+128 examples total,
+26 of them handle touch events,
+11 handle window resize,
+2 handle screenshot,
+0 handle fullscreen.</p>
+
+<iframe src="http://jeromeetienne.github.com/threejsboilerplate"
+    webkitallowfullscreen mozallowfullscreen allowfullscreen 
+    width="420" height="315" frameborder="0" style="float: right; margin-left: 1em;">
+</iframe>
+
+
+<p><strong>Fullscreen</strong> is supported to enjoy your 3D on a large display
+without visual distraction.
+If you press <em>f</em>, your demo will go fullscreen.
+For technical details, see &#8221;<a href="/blog/2011/11/17/lets-make-a-3d-game-make-it-fullscreen/">Make It Fullscreen</a>&#8221; post.</p>
+
+<p><strong>Screenshot</strong> makes it easy to share the image
+as what you see on the screen at a given moment.
+If you press <em>p</em>, a new tab will open with a screenshot of the rendered content.
+For technical details, see &#8221;<a href="/blog/2011/09/03/screenshot-in-javascript/">screenhot in javascript</a>&#8221; post.
+It it usefull to share nice images and to help debug on various plateforms.</p>
+
+<p><strong>Window resize</strong> is supported because it is required. Without it, your 3D scene will loose scaleing and center
+when you resize the window or go fullscreen.
+For technical details, see &#8221;<a href="/blog/2011/08/30/window-resize-for-your-demos/">window resize your demos</a>&#8221; post.</p>
+
+<h2>How to use it ?</h2>
+
+<p>It is quite simple, first you download the code as
+a <a href="https://github.com/jeromeetienne/threejsboilerplate/zipball/master">.zip file</a>
+or with the <a href="http://git-scm.com/">git</a> command line below.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone git://github.com/jeromeetienne/threejsboilerplate.git</span></code></pre></td></tr></table></div></figure>
+
+
+<p>then start updating <a href="https://github.com/jeromeetienne/threejsboilerplate/blob/master/index.html">index.html</a> to
+fit your needs.
+Below is a screencast where i use the
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate</a>
+to display a
+<a href="http://en.wikipedia.org/wiki/Utah_teapot">teapot</a>
+in only 3min!
+Why a teapot ? Because it is the &#8220;hello world&#8221; of 3D :)
+Be warned, the video is a bit speedy, im just starting at doing screencast.
+Next ones will hopefully be slower.</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/0XPOCi6FJX0?hl=en&fs=1" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>Conclusion</h2>
+
+<p>Later, it may be cool to have a builder.
+I think it may be possible to make it client only.
+<a href="http://jszip.stuartk.co.uk/">jszip</a> library would create the zip containing all the files.
+<a href="https://github.com/jeromeetienne/shorttag.js">shorttag.js</a> library would compile templates according to user needs.
+A builder would produce a cleaner and smaller result for you to play with.</p>
+
+<p>I gave a short talk at <a href="http://parisjs.org">parisjs</a> about it, here are the <a href="http://jeromeetienne.github.com/slides-3jsbp-parisjs14">slides</a>.
+I hope
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>.
+will help make
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+even easier to use.
+This project is quite new and will likely improve soon.
+That&#8217;s all folks, have fun :)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-20T19:09:00+01:00" pubdate data-updated="true">Dec 20<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/boilerplate/'>boilerplate</a>, <a class='category' href='/blog/categories/library/'>library</a>, <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jeromeetienne.github.com/learningthreejs/blog/2011/12/20/boilerplate-for-three-js/" data-via="LearningThreejs" data-counturl="http://jeromeetienne.github.com/learningthreejs/blog/2011/12/20/boilerplate-for-three-js/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/12/19/particles-online-editor-for-sparks-js/" title="Previous Post: Particles: Online Editor for Sparks.js">&laquo; Particles: Online Editor for Sparks.js</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2011/12/26/let-s-make-a-3d-game-virtual-joystick/" title="Next Post: Let’s Make a 3D Game: Virtual Joystick">Let’s Make a 3D Game: Virtual Joystick &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">Punch A Doom Character in Augmented Reality</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jeromeetienne.github.com/learningthreejs/blog/2011/12/20/boilerplate-for-three-js/';
+        var disqus_url = 'http://jeromeetienne.github.com/learningthreejs/blog/2011/12/20/boilerplate-for-three-js/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
