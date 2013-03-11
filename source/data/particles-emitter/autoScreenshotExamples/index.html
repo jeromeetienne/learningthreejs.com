@@ -1,0 +1,39 @@
+<html>
+
+	<head>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>				
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			var inIndex	= true;
+			console.log("index")
+		</script>
+		<script type="text/javascript">
+			console.log("index", inIndex)
+		</script>
+		<iframe width='1024' height='768' src="http://localhost/~jerome/three.js/examples/canvas_particles_sprites.html"></iframe>
+		<script type="text/javascript">
+			var onLoad	= function(){
+				var iframeElement	= jQuery('iframe').get(0);
+				console.log("iframeElement");
+				var imageUrl	= iframeElement.contentWindow.renderer.domElement.toDataURL("image/png");
+				window.open(imageUrl);
+
+				// http://stackoverflow.com/questions/4573956/taking-screenshot-using-javascript-for-chrome-extensions
+
+				// https://developer.mozilla.org/en/DOM/CanvasRenderingContext2D#drawWindow()
+				if(false){
+					var canvas	= document.createElement('canvas');
+					canvas.width	= 100;
+					canvas.height	= 200;
+					var ctx		= canvas.getContext('2d');				
+					ctx.drawWindow(window, 0, 0, 100, 200, "rgb(255,255,255)");
+					jQuery('body').append(canvas)					
+				}
+			};
+			setTimeout(onLoad, 3000);
+		</script>
+	</body>
+
+</html>

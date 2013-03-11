@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>learningtreejs - Merging Geometry</title>
+		<meta charset="utf-8">
+		<style type="text/css">
+			body {
+				background:#fff;
+				padding:0;
+				margin:0;
+				font-weight: bold;
+				overflow:hidden;
+			}
+			#info {
+				color		: #202020;
+				text-align	: center;
+				z-index		: 1;
+				position	: absolute;
+				top		: 0px;
+				width		: 100%;
+				padding		: 5px;
+			} 
+			a {
+				color		: #FF69B4;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="info">
+			<a href="/blog/2011/10/05/performance-merging-geometry/" target="_blank">LearningThree.js</a> - Performance: Merging Geometry
+			(based on three.js <a href="http://mrdoob.github.com/three.js/examples/webgl_geometry_hierarchy.html">example</a>)
+			<br/>
+			<span id="generationMsg"></span>
+			<br/>
+			demo:
+			<a href="./#%7B%22nCubes%22%3A2000%2C%22doMerge%22%3Afalse%7D" onclick="window.location.href=this.href;window.location.reload();">2000 not merged</a>
+			-
+			<a href="./#%7B%22nCubes%22%3A3000%2C%22doMerge%22%3Afalse%7D" onclick="window.location.href=this.href;window.location.reload();">3000 not merged</a>
+			-
+			<a href="./#%7B%22nCubes%22%3A50000%2C%22doMerge%22%3Atrue%7D" onclick="window.location.href=this.href;window.location.reload();">50000 merged</a>
+			-
+			<a href="./#%7B%22nCubes%22%3A120000%2C%22doMerge%22%3Atrue%7D" onclick="window.location.href=this.href;window.location.reload();">120000 merged</a>
+			
+		</div>
+		<script type="text/javascript" src="https://raw.github.com/mrdoob/three.js/r44/build/Three.js"></script>
+		<script type="text/javascript" src="https://raw.github.com/mrdoob/three.js/r44/examples/js/RequestAnimationFrame.js"></script>
+		<script type="text/javascript" src="https://raw.github.com/mrdoob/three.js/r44/examples/js/Stats.js"></script>
+
+		<script type="text/javascript">
+
+			var container, stats;
+
+			var camera, scene, renderer;
+
+			var mergedGeo;
+
+			var geometry, group;
+
+			var mouseX = 0, mouseY = 0;
+
+			var windowHalfX = window.innerWidth / 2;
+			var windowHalfY = window.innerHeight / 2;
+
+			document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+
+			var urlHashJSON	= {
+				read	: function(){
+					if( !window.location.hash )	return undefined;
+					var hashStr	= window.location.hash.substring(1);
+					var options	= JSON.parse(decodeURIComponent(hashStr));
+					return options;
+				},
+				write	: function(options){
+					var hashStr	= encodeURIComponent(JSON.stringify(options));
+					window.location.hash	= '#'+hashStr;
+				}
+			}
+			function generateCube(nCubes, doMerge, generated){
+				var geometry 	= new THREE.CubeGeometry( 50, 50, 50 );
+				var material 	= new THREE.MeshNormalMaterial();
+				var mesh	= new THREE.Mesh( geometry, material );
+
+				document.getElementById("generationMsg").innerHTML	= (nCubes-generated)+ " cubes to generate";
+
+				for ( var i = 0; i < 1000 && nCubes > generated; i++, generated++ ) {
+
+					if( !doMerge ){
+						mesh	= new THREE.Mesh( geometry, material );
+					}
+					mesh.position.x = Math.random() * 3000 - 1500;
+					mesh.position.y = Math.random() * 3000 - 1500;
+					mesh.position.z = Math.random() * 3000 - 1500;
+					mesh.rotation.x = Math.random() * 360 * ( Math.PI / 180 );
+					mesh.rotation.y = Math.random() * 360 * ( Math.PI / 180 );
+					
+					if( doMerge ){
+						THREE.GeometryUtils.merge(mergedGeo, mesh);
+					}else{
+						mesh.matrixAutoUpdate = false;
+						mesh.updateMatrix();
+						group.addChild( mesh );	
+					}
+				
+				}
+				if( nCubes !== generated){
+					setTimeout(function(){	generateCube(nCubes, doMerge, generated);	}, 0)
+					
+				}
+
+				if( nCubes === generated ){
+					document.getElementById("generationMsg").innerHTML	= generated+ " cubes generated";
+
+					if( doMerge ){
+						mergedGeo.computeFaceNormals();
+						group	= new THREE.Mesh( mergedGeo, material );
+						group.matrixAutoUpdate = false;
+						group.updateMatrix();
+					}
+	
+					scene.addObject( group );					
+				}
+			}
+
+			init();
+			animate();
+			
+
+			function init() {
+
+				container = document.createElement( 'div' );
+				document.body.appendChild( container );
+
+				camera = new THREE.Camera( 60, window.innerWidth / window.innerHeight, 1, 10000 );
+				camera.position.z = 1000;
+
+				scene = new THREE.Scene();
+				scene.fog = new THREE.Fog( 0xffffff, 1, 10000 );
+
+				var options	= urlHashJSON.read()	|| {};
+				options.nCubes	= options.nCubes !== undefined	? options.nCubes	: 2000;
+				options.doMerge	= options.doMerge !== undefined	? options.doMerge	: false;
+
+				var nCubes	= options.nCubes;
+				var doMerge	= options.doMerge;
+				
+				urlHashJSON.write(options)
+				
+				group 		= new THREE.Object3D();					
+				mergedGeo	= new THREE.Geometry();
+				setTimeout(function(){	generateCube(nCubes, doMerge, 0);	}, 0)
+
+				renderer = new THREE.WebGLRenderer();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				renderer.sortObjects = false;
+				container.appendChild( renderer.domElement );
+
+				stats = new Stats();
+				stats.domElement.style.position = 'absolute';
+				stats.domElement.style.top = '0px';
+				stats.domElement.style.zIndex = 100;
+				container.appendChild( stats.domElement );
+
+			}
+
+			function onDocumentMouseMove(event) {
+
+				mouseX = ( event.clientX - windowHalfX ) * 10;
+				mouseY = ( event.clientY - windowHalfY ) * 10;
+
+			}
+
+			//
+
+			function animate() {
+
+				requestAnimationFrame( animate );
+
+				render();
+				stats.update();
+
+			}
+
+			function render() {
+
+				var rx = Math.sin( new Date().getTime() * 0.0007 ) * 0.5;
+				var ry = Math.sin( new Date().getTime() * 0.0003 ) * 0.5;
+				var rz = Math.sin( new Date().getTime() * 0.0002 ) * 0.5;
+
+				camera.position.x += 150 + (   mouseX - camera.position.x ) * .05;
+				camera.position.y += ( - mouseY - camera.position.y ) * .05;
+
+				group.rotation.x = rx;
+				group.rotation.y = ry;
+				group.rotation.z = rz;
+
+				renderer.render( scene, camera );
+
+			}
+
+		</script>
+
+	</body>
+</html>

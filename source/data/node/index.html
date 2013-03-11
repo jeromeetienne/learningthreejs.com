@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>Lets Write Something - LearningThreejs blog</title>
+		<meta charset="utf-8">
+		<style type="text/css">
+			body {
+				background-color: #101010;
+				margin		: 0px;
+				overflow	: hidden;
+			}
+			#nodeBackgroundCanvas {
+				z-index	: -1;
+				position: absolute;
+				top	: 0px; width: 100%;
+			}
+			#info {
+				text-align:center;
+				z-index	: 1;
+				position: absolute;
+				top: 0px; width: 100%;
+				padding: 5px;
+			} 
+			a {
+				color: #0080bb;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="info"><a href="/blog/2011/08/06/lets-do-a-cube/" target="_blank">LearningThree.js</a> - Lets write something</div> 
+		<!-- include javascript files -->
+		<script type="text/javascript" src="http://localhost/~jerome/three.js//build/Three.js"></script>
+		<script type="text/javascript" src="http://localhost/~jerome/three.js//examples/js/RequestAnimationFrame.js"></script>
+		<script type="text/javascript" src="http://localhost/~jerome/three.js//examples/js/Detector.js"></script>
+		<script type="text/javascript" src="http://localhost/~jerome/three.js//examples/js/Stats.js"></script>
+		<script type="text/javascript" src="http://localhost/~jerome/three.js//examples/js/Tween.js"></script>
+
+		<script type="text/javascript" src="http://localhost/~jerome/three.js//examples/fonts/gentilis_bold.typeface.js"></script>
+		<script type="text/javascript" src="http://localhost/~jerome/three.js//examples/fonts/gentilis_regular.typeface.js"></script>
+		<script type="text/javascript" src="http://localhost/~jerome/three.js//examples/fonts/optimer_bold.typeface.js"></script>
+		<script type="text/javascript" src="http://localhost/~jerome/three.js//examples/fonts/optimer_regular.typeface.js"></script>
+		<script type="text/javascript" src="http://localhost/~jerome/three.js//examples/fonts/helvetiker_bold.typeface.js"></script>
+		<script type="text/javascript" src="http://localhost/~jerome/three.js//examples/fonts/helvetiker_regular.typeface.js"></script>
+		<script type="text/javascript" src="http://localhost/~jerome/three.js//examples/fonts/droid/droid_sans_regular.typeface.js"></script>
+		<script type="text/javascript" src="http://localhost/~jerome/three.js//examples/fonts/droid/droid_sans_bold.typeface.js"></script>
+		<script type="text/javascript" src="http://localhost/~jerome/three.js//examples/fonts/droid/droid_serif_regular.typeface.js"></script>
+		<script type="text/javascript" src="http://localhost/~jerome/three.js//examples/fonts/droid/droid_serif_bold.typeface.js"></script>
+
+		<script type="text/javascript" src="../THREEx/THREEx.LogoTurtle.js"></script>
+		<script type="text/javascript" src="../THREEx/THREEx.GeometryUtils.js"></script>
+
+<!-- TODO put that in a single file ? all dependant from logoShape -->
+		<script type="text/javascript" src="nodeLogo/nodeLogo.js"></script>
+		<script type="text/javascript" src="nodeLogo/nodeLogo-n.js"></script>
+		<script type="text/javascript" src="nodeLogo/nodeLogo-o.js"></script>
+		<script type="text/javascript" src="nodeLogo/nodeLogo-d.js"></script>
+		<script type="text/javascript" src="nodeLogo/nodeLogo-e.js"></script>
+
+		<script type="text/javascript" src="nodeBackground.js"></script>
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<script type="text/javascript" src="lets_write_something.js"></script>
+	</body>
+</html>
