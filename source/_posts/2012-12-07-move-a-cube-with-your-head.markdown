@@ -1,28 +1,27 @@
 ---
 layout: post
-title: "Playing with headtrackr.js"
-date: 2012-12-07 13:28
+title: "Move a Cube With Your Head or Head-Tracking with WebGL"
+date: 2013-03-12 13:28
 comments: true
-published: false
-categories: 
+published: true
+categories: [three.js, tquery]
 ---
 
 This post is about head tracking and how to use it in 3D.
 It is surprisingly easy to do with the suitable libraries.
-In this post, 
-we will experiment with 
+We will experiment with 
 [headtrackr.js](https://github.com/auduno/headtrackr) and
 [three.js](http://github.com/mrdoob/three.js/).
 [headtrackr.js](https://github.com/auduno/headtrackr)
 is a nice library from 
 [auduno](https://github.com/auduno) to do head tracking in the browser. 
-In this post, you will learn how to do head tracking in webgl in only 20lines of javascript. 
-I love the web :)
+You will learn how to do head tracking in webgl in only 20lines of javascript. 
+I love the web and how easy it is :)
 
-<center>
+<!-- <center>
 	<iframe width="425" height="349" src="http://www.youtube.com/embed/eg0qshn4VC0" frameborder="0" allowfullscreen></iframe>
 </center>
-
+ -->
 <!-- more -->
 
 WebRTC starts to get traction. I love that! We have seen
@@ -40,6 +39,8 @@ It is
 [already in chrome stable](http://www.webrtc.org/blog/seeyouontheweb)
 , and will be in firefox
 [real soon](https://hacks.mozilla.org/2012/11/progress-update-on-webrtc-for-firefox-on-desktop/).
+They already 
+[talk to each other](https://hacks.mozilla.org/2013/02/hello-chrome-its-firefox-calling/).
 Here we don't need the network part of webrtc. 
 We only need get the webcam video, so 
 [getUserMedia](http://dev.w3.org/2011/webrtc/editor/getusermedia.html)
