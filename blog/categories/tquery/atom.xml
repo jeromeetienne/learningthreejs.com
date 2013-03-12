@@ -4,7 +4,7 @@
   <title><![CDATA[Category: tquery | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/tquery/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2013-03-10T18:18:25+01:00</updated>
+  <updated>2013-03-12T15:05:01+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,243 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Move a Cube With Your Head or Head-Tracking with WebGL]]></title>
+    <link href="http://learningthreejs.com/blog/2013/03/12/move-a-cube-with-your-head/"/>
+    <updated>2013-03-12T13:28:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2013/03/12/move-a-cube-with-your-head</id>
+    <content type="html"><![CDATA[<p>This post is about head tracking and how to use it in 3D.
+It is surprisingly easy to do with the suitable libraries.
+We will experiment with
+<a href="https://github.com/auduno/headtrackr">headtrackr.js</a> and
+<a href="http://github.com/mrdoob/three.js/">three.js</a>.
+<a href="https://github.com/auduno/headtrackr">headtrackr.js</a>
+is a nice library from
+<a href="https://github.com/auduno">auduno</a> to do head tracking in the browser.
+You will learn how to do head tracking in webgl in only 20lines of javascript.
+I love the web and how easy it is :)</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/eg0qshn4VC0" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+<!-- more -->
+
+
+<p>WebRTC starts to get traction. I love that! We have seen
+<a href="http://www.webrtc.org/">WebRTC</a>
+and
+<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a>
+several times in the past: in
+<a href="http://learningthreejs.com/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">"Punch a Doom Character in Augmented Reality"</a>
+post, in
+<a href="http://learningthreejs.com/blog/2012/02/07/live-video-in-webgl/">"Fun With Live Video in WebGL"</a>
+post and
+<a href="http://learningthreejs.com/blog/2012/05/02/augmented-reality-3d-pong/">"Augmented Reality 3D Pong"</a>
+post.
+It is
+<a href="http://www.webrtc.org/blog/seeyouontheweb">already in chrome stable</a>
+, and will be in firefox
+<a href="https://hacks.mozilla.org/2012/11/progress-update-on-webrtc-for-firefox-on-desktop/">real soon</a>.
+They already
+<a href="https://hacks.mozilla.org/2013/02/hello-chrome-its-firefox-calling/">talk to each other</a>.
+Here we don't need the network part of webrtc.
+We only need get the webcam video, so
+<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a>
+is enougth. It is in
+<a href="http://www.opera.com/browser/">opera 12</a>
+too as you can read
+<a href="http://dev.opera.com/articles/view/head-tracking-with-webrtc/">here</a>.</p>
+
+<p><a href="https://github.com/auduno">auduno</a> is part of
+<a href="http://opera.com">Opera</a> team.
+He wrote it as a demo for
+<a href="http://www.opera.com/browser/">opera 12</a>
+release  which contained
+<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a>.
+For more info on the library, <a href="https://github.com/auduno">auduno</a>
+blogged
+about internals of
+<a href="https://github.com/auduno/headtrackr">his library</a>. You can find details in his
+<a href="http://auduno.tumblr.com/post/25125149521/head-tracking-with-webrtc">blog post</a>.
+Additionnal info are available in the
+<a href="http://auduno.github.com/headtrackr/documentation/reference.html">reference documentation</a>.
+Some examples are already in three.js, like
+<a href="http://auduno.github.com/headtrackr/examples/targets.html">targets</a>
+or
+<a href="http://www.shinydemos.com/facekat/">facekat</a>.</p>
+
+<h2>Demo Time !!</h2>
+
+<p><img class="left" src="/data/2012-12-07-playing-with-headtrackr-dot-js/screenshots/screenshot-box3d-small.png">
+As usual we did a plugin for
+<a href="http://jeromeetienne.github.com/tquery">tQuery API</a>
+to make it easy to use in our environement.
+One can find 2 examples for it:
+A <a href="http://jeromeetienne.github.com/tquery/plugins/headtrackr/examples/index.html">educational example</a>
+where your heads controls a box in 3d.
+For best result, <em>make sure your face is well and evenly lighted</em></p>
+
+<p><img class="right" src="/data/2012-12-07-playing-with-headtrackr-dot-js/screenshots/screenshot-demo-small.png">
+Another <a href="http://jeromeetienne.github.com/tquery/plugins/headtrackr/examples/demo.html">demo</a>
+where the camera follows your head.
+The whole scene moves as you move your head, providing quite an immersive experience.
+You can play with it <a href="http://jsfiddle.net/jetienne/tSQQ8/">thru jsfiddle</a> too.</p>
+
+<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/jetienne/tSQQ8/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+
+<h2>Let's Get Started</h2>
+
+<p>Ok now lets see how to use this library with
+<a href="http://jeromeetienne.github.com/tquery">tQuery API</a>.
+First, we include the <code>tquery.headtrackr</code> files in your code.
+tQuery plugins supports
+<a href="http://requirejs.com">require.js</a>.
+It makes dependancies much easier to handle. <code>tquery.headtrackr</code> is no exception, so to include it you can do</p>
+
+<p>```javascript
+require(['tquery.headtrackr'], function(){</p>
+
+<pre><code>// Your code ...    
+</code></pre>
+
+<p>});
+```</p>
+
+<p>Or if you use the good old <code>&lt;script&gt;</code>, do something like that
+to include
+<a href="https://github.com/auduno/headtrackr">headtrackr.js</a> itself, the library which handle the head tracking. Then you just include the plugin itself, and you are done.</p>
+
+<p>```html</p>
+
+<script src="headtrackr.js"></script>
+
+
+<script src="tquery.headtrackr.js"></script>
+
+
+<p>```</p>
+
+<h3>Start Tracking Heads</h3>
+
+<p>First, you instanciate the object with this simple line.
+You can pass various options to <code>.createHeadtrackr(opts)</code>.
+Here, <code>opts</code> is an
+<a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object">Object</a>
+with those properties</p>
+
+<ul>
+<li><strong>opts.width :</strong> width of the image containing the face. default to 320px</li>
+<li><strong>opts.height :</strong> height of the image containing the face. default to 240px</li>
+<li><strong>opts.headtrackrOpts :</strong> options passed directly to headtrackr.js. default to <code>{}</code></li>
+</ul>
+
+
+<p><code>javascript
+var headTracker = tQuery.createHeadtrackr();
+</code></p>
+
+<p>Default are reasonable, so chances are you dont need to specify anything. To start tracking the head on the webcam, just do the following</p>
+
+<p><code>javascript
+headTracker.start();
+</code></p>
+
+<p>It is possible to stop it with <code>.stop()</code> or to reset it via <code>.reset()</code>.</p>
+
+<h3>Debug View is Cool For User Feedback</h3>
+
+<p><img class="right" src="/data/2012-12-07-playing-with-headtrackr-dot-js/screenshots/screenshot-debugview-small.png">
+If you wish enable the debugView, aka the little visualisation the headtracker result.
+It gives feedback to the user on what is happening.
+Thus the user can move his head accordingly or to change lighting of the room.</p>
+
+<p><code>
+headTracker.debugView(true);
+</code></p>
+
+<h3>Face Position Notified thru Events</h3>
+
+<p>When a face is found, events are dispatched to notify the detected positions.</p>
+
+<p>```
+headTracker.addEventListener("found", function(event){</p>
+
+<pre><code>// Your code ...
+</code></pre>
+
+<p>});
+```</p>
+
+<p><code>event</code> contains normalized coordinates of the detected face.
+They use the same axis as WebGL.
+If the head is on the center, <code>event.x</code> and <code>event.y</code> will be 0.
+And if the head is vertical, <code>event.angle</code> is 0. More precisely</p>
+
+<ul>
+<li><code>.x</code> and <code>.y</code> : It is the center position. it varies from [-1,+1], from left to right
+and bottom to top.</li>
+<li><code>.width</code> and <code>.height</code>: the width and height :) If it is half of whole image, it is equal to 1.</li>
+<li><code>.angle</code>: the Z rotation of the detected head. It is in radian as usual.</li>
+<li><code>.headtrackrEvent</code>: the original facetrackingEvent event from
+<a href="https://github.com/auduno/headtrackr">headtrackr.js</a>
+(see
+<a href="http://auduno.github.com/headtrackr/documentation/reference.html">reference</a>
+)</li>
+</ul>
+
+
+<h2>Head tracking... Kesaco ?</h2>
+
+<p>Head tracking is a <a href="http://example.com">well known concept</a>. One can find
+<a href="http://www.youtube.com/watch?v=bBQQEcfkHoE">head tracking on ipad</a>.
+One can find <a href="http://www.youtube.com/watch?v=Jd3-eiid-Uw">head tracking on wii</a>.
+They got impressive result using the informations from the <a href="http://en.wikipedia.org/wiki/Wii_Remote">wiimote</a> or even the <a href="http://example.com">device orientation</a>.
+With the <a href="http://en.wikipedia.org/wiki/Kinect">kinect</a>, they even
+track the <a href="http://example.com">features</a> of the face itself (e.g. mouth, noze, eyes etc...)</p>
+
+<p>In our case, we use the image from the webcam.
+Unfortunatly face localisation from an image isn't exactly 100% accurate to say the least :)
+See <a href="http://auduno.github.com/headtrackr/examples/targets.html">here</a>,
+this is the same demo as the
+<a href="http://www.youtube.com/watch?v=Jd3-eiid-Uw">wii one</a>
+or the
+<a href="http://www.youtube.com/watch?v=bBQQEcfkHoE">ipad one</a>.
+Yet the result isn't as convincing.
+With <a href="https://github.com/auduno/headtrackr">headtrackr.js</a> and
+<a href="http://webrtc.org">webrtc</a>
+, we use only the webcam in a uncontrolled environement.
+So the accuracy is in consequences.</p>
+
+<p>You can improve efficiency by following a few simples advices:
+Avoid hats or a too crazy haircut. Being bold with a beard doesn't help :)
+Make sure your face is well and evenly lighted and you should be fine.</p>
+
+<h2>Conclusion</h2>
+
+<p>In this post, we have seen it is now possible to do head tracking in a web browser !!
+Impressive if you ask me!
+Even better, it is easy if you use suitable libraries. Coupled with
+<a href="http://github.com/mrdoob/three.js/">three.js</a>
+and
+<a href="http://jeromeetienne.github.com/tquery">tQuery API</a>,
+it is possible provide new immersive experience in
+<a href="http://jsfiddle.net/jetienne/tSQQ8/">20lines of javascript</a>.
+Im so excited.
+This kind of things was academic research 5 years ago, and now everybody can easily use it.
+We will likely do more with
+<a href="https://github.com/auduno/headtrackr">headtrackr.js</a>.
+This is a very nice library with lots of possibilities.
+For example, one can use it the head as a game controller, or in a artistic exposition. Stay tuned!</p>
+
+<p>That's all folks, have fun :)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Minecraft Character in WebGL]]></title>
@@ -848,295 +1085,6 @@ walk through, we got very short code. I like this, it makes it easier to underst
 and learn. WebGL for All!! :)</p>
 
 <p>That's all folks! have fun.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Punch A Doom Character in Augmented Reality]]></title>
-    <link href="http://learningthreejs.com/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/"/>
-    <updated>2012-05-15T11:59:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2012/05/15/punch-a-doom-character-in-augmented-reality</id>
-    <content type="html"><![CDATA[<p>Did you ever dreamed of punching a doom character ? They look evil and killed
-you so many time while you were playing the game. It is revenge time! This
-post will help you realize your dream :)
-It is about a minigame called "Punch A Doom Character in Augmented Reality"
-because in this game, the player can punch Doom Character in augmented reality :)</p>
-
-<p>The character is displayed in 3D with WebGL with <a href="http://github.com/mrdoob/three.js/">three.js</a>.
-The player gestures are recognized thru the webcam by <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmentedgesture.js</a> library.
-It uses <a href="http://webrtc.org">WebRTC</a> <a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a> to get the webcam
-using open standards.
-You can play this minigame <a href="/data/2012-05-15-punch-a-doom-character-in-augmented-reality">here</a>.
-In fact, it is an example of <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmentedgesture.js</a> library.
-We will walk you thru the code. Only 60 lines of Javascript.</p>
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/Aa9945MGRL0" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-
-
-<!-- more -->
-
-
-<p>We have seen augmented gesture in <a href="/blog/2012/05/02/augmented-reality-3d-pong/">"Augmented Reality 3D Pong"</a> post
-and MD2 Characters in <a href="/blog/2012/05/04/tquery-md2character-a-plugin-for-doom-characters/">"tQuery Plugin for Doom Characters"</a> post.
-Now we gonna associate them together in our mini game :)
-I presented it at <a href="www.web-5.org">Web-5</a> conference in april.
-At the time, i recorded a preview <a href="http://www.youtube.com/watch?v=hUYM93xaIgg">"Doom: a new workout for geek?"</a>.
-Now let's get started!</p>
-
-<h2>The 3D World</h2>
-
-<p>First we initialize the world in 3D.
-With <code>tQuery.createWorld()</code>, we create a <code>tQuery.World</code>.
-With <code>.boilerplate()</code>, we setup a boilerplate on this world. A boilerplate is
-a fast way to get you started on the right foot. It is the
-<a href="http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/">learningthreejs boilerplate for three.js</a>.
-With <code>.start()</code>, we start the rendering loop. So from now on, the world scene
-gonna be rendered periodically, typically 60time per seconds.</p>
-
-<p>```</p>
-
-<pre><code>var world   = tQuery.createWorld().boilerplate().start();
-</code></pre>
-
-<p>```</p>
-
-<p>We setup the camera now. We remove the default camera controls from the boilerplate.
-Then we put the camera at <code>(0,1.5,5)</code> and looking toward <code>(0,1,-1)</code></p>
-
-<p>```</p>
-
-<pre><code>world.removeCameraControls()
-world.camera().position.set(0,1.5, 4);
-world.camera().lookAt(new THREE.Vector3(0,1,-1));
-</code></pre>
-
-<p>```</p>
-
-<p>Now we change the background color. This confusing line ensure the background of the
-3D scene will be rendered as <code>0x000000</code> color, aka black. We set a black
-background to give an impression of night.</p>
-
-<p>```</p>
-
-<pre><code>world.renderer().setClearColorHex( 0x000000, world.renderer().getClearAlpha() );
-</code></pre>
-
-<p>```</p>
-
-<p>We had a fog to the scene. For that, we use <code>tquery.world.createfog.js</code> plugins.</p>
-
-<p>```</p>
-
-<pre><code>world.addFogExp2({density : 0.15});
-</code></pre>
-
-<p>```</p>
-
-<h3>The Lights</h3>
-
-<p>Here we setup the lights of our scene. This is important as it determine how
-your scene looks. We add a ambient light and a directional light.</p>
-
-<p>```</p>
-
-<pre><code>tQuery.createAmbientLight().addTo(world).color(0x444444);
-tQuery.createDirectionalLight().addTo(world).position(-1,1,1).color(0xFFFFFF).intensity(3);
-</code></pre>
-
-<p>```</p>
-
-<h3>The Ground</h3>
-
-<p>We create a large checkerboard with <code>tquery.checkerboard.js</code> plugin.
-We scale the checkerboard to 100 per 100 units in the 3D world. Thus it is
-quite large and disappears into the fog. It gives the cheap impression of
-an infinite checkerboard.</p>
-
-<p>```</p>
-
-<pre><code>tQuery.createCheckerboard({
-    segmentsW   : 100,  // number of segment in width
-    segmentsH   : 100   // number of segment in Height
-}).addTo(world).scaleBy(100);
-</code></pre>
-
-<p>```</p>
-
-<h3>The Character</h3>
-
-<p>We use <code>tQuery.RatamahattaMD2Character</code> plugin. Its inherits from
- <code>tQuery.MD2Character</code> plugin. All the configuration for this particular
-character <code>ratamahatta</code> is already done for you.
-We attach it to tQuery world.</p>
-
-<p>```</p>
-
-<pre><code>var character   = new tQuery.RatamahattaMD2Character().attach(world);
-</code></pre>
-
-<p>```</p>
-
-<p>When an animation is completed, switch to animation 'stand'.</p>
-
-<p>```</p>
-
-<pre><code>character.bind('animationCompleted', function(character, animationName){
-    console.log("anim completed", animationName);
-    this.animation('stand');
-});
-</code></pre>
-
-<p>```</p>
-
-<h2>Recognize Augmented Gestures</h2>
-
-<p>First we instanciate an object of <strong>AugmentedGesture</strong> class.
- <code>.enableDatGui()</code> will add a <a href="http://workshop.chromeexperiments.com/examples/gui">Dat.GUI</a>.
-This is a nice library to tune parameters. We use it to tune augmentedgesture pointers.
-You can read more about it in <a href="http://learningthreejs.com/blog/2011/08/14/dat-gui-simple-ui-for-demos/">"Dat-gui - Simple UI for Demos"</a> post.
- <code>.start()</code> asks it to begin monitoring the webcam and see if it finds markers.
- <code>.domElementThumbnail()</code> put the webcam view as a thumbnail on the screen. This is what you
-see on top-left.
-This is usefull for the user, it is used as feedback to know what is happening</p>
-
-<p>```</p>
-
-<pre><code>var aGesture    = new AugmentedGesture().enableDatGui().start().domElementThumbnail();
-</code></pre>
-
-<p>```</p>
-
-<h3>The Pointers</h3>
-
-<p>Now that we got our AugmentedGesture instance, we gonna configure the pointers.
-One for the right hand, one for the left hand. For each, we setup the options
-to adapt each hand colors.
-In my case, the right hand is containing a green ball and the left hand contains a red ball.</p>
-
-<p>```</p>
-
-<pre><code>var pointerOpts = new AugmentedGesture.OptionPointer();
-pointerOpts.pointer.crossColor  = {r:    0, g: 255, b:   0};
-pointerOpts.colorFilter.r   = {min:   0, max:  95};
-pointerOpts.colorFilter.g   = {min: 115, max: 255};
-pointerOpts.colorFilter.b   = {min:  25, max: 150};
-aGesture.addPointer("right", pointerOpts);
-</code></pre>
-
-<p>```</p>
-
-<p>Now we do the same for the left pointer.</p>
-
-<p>```</p>
-
-<pre><code>var pointerOpts = new AugmentedGesture.OptionPointer();
-pointerOpts.pointer.crossColor  = {r:    255, g:   0, b: 128};
-pointerOpts.colorFilter.r   = {min: 190, max: 255};
-pointerOpts.colorFilter.g   = {min:  30, max: 255};
-pointerOpts.colorFilter.b   = {min:   0, max: 100};
-aGesture.addPointer("left", pointerOpts);
-</code></pre>
-
-<p>```</p>
-
-<h3>Gesture Analysis</h3>
-
-<p>Now that augmentedgesture.js is giving us the position of each hand, we gonna
-convert that into events. <code>punchingRight</code> when the user gives a punch with
-the right hand and <code>punchingLeft</code> for the left hand.
-We establish a variable to store the user moves. It is quite simple
- <code>.punchingRight</code> is true when the use is punching with his right hand.
- <code>.punchingLeft</code> is the same for the left hand.
-and <code>.changed</code> is true when values change.</p>
-
-<p>```</p>
-
-<pre><code>var userMove    = {
-    punchingRight   : false,
-    punchingLeft    : false,
-    changed     : false
-};
-</code></pre>
-
-<p>```</p>
-
-<p>we bind the event <code>mousemove.left</code> thus we are notified when the user moves his
-left hand. The algo we use is very simple: if the left hand is on the right part of
-the screen, then the user is considered "punchingLeft". Dont forget
-to <code>.changed</code> to true</p>
-
-<p>```</p>
-
-<pre><code>aGesture.bind("mousemove.left", function(event){
-    var state   = event.x &gt; 1 - 1/3;
-    if( state === userMove.punchingLeft )   return;
-    userMove.punchingLeft   = state;
-    userMove.changed    = true;
-});
-</code></pre>
-
-<p>```</p>
-
-<p>Now we need the same thing for the other hand. all the the same.</p>
-
-<p>```</p>
-
-<pre><code>aGesture.bind("mousemove.right", function(event){
-    var state   = event.x &lt; 1/3;
-    if( state === userMove.punchingRight )  return;
-    userMove.punchingRight  = state;
-    userMove.changed    = true;
-});
-</code></pre>
-
-<p>```</p>
-
-<h2>Bind Character and Augmented Gestures</h2>
-
-<p>Now we hook a function to the rendering loop. This function will be executed
-every time the scene is renderered. The first thing we do in this function
-is to check that userMove has <code>.changed</code>. If not, we do nothing.</p>
-
-<p>```</p>
-
-<pre><code>world.loop().hook(function(){
-    if( userMove.changed === false )    return;
-    userMove.changed = false;
-</code></pre>
-
-<p>```</p>
-
-<p>Now we process each move of the user. If the user is <code>punchingRight</code>, play
-the animation <code>crdeath</code> of the character. If he is <code>punchingLeft</code>,
-play <code>crplain</code>.</p>
-
-<p>```</p>
-
-<pre><code>    if( userMove.punchingRight )        character.animation('crdeath');
-    else if( userMove.punchingLeft )    character.animation('crpain');
-});
-</code></pre>
-
-<p>```</p>
-
-<p>And you are <strong>DONE</strong>! Pretty nice no ? :)</p>
-
-<h2>Conclusion</h2>
-
-<p>In this post we built a mini-game where users can punch doom character in augmented reality.
-All that in 60 lines of javascript.
-The Character is displayed in WebGL with
-<a href="https://github.com/mrdoob/three.js/">three.js</a>
-and the augmented reality is handled
-by <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmentedgesture.js</a>.
-I like how those libraries makes the code so small, and the developement time
-so short.</p>
-
-<p>That's all folks, have fun :)</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2013-03-10T18:18:25+01:00</updated>
+  <updated>2013-03-12T15:05:01+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,243 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Move a Cube With Your Head or Head-Tracking with WebGL]]></title>
+    <link href="http://learningthreejs.com/blog/2013/03/12/move-a-cube-with-your-head/"/>
+    <updated>2013-03-12T13:28:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2013/03/12/move-a-cube-with-your-head</id>
+    <content type="html"><![CDATA[<p>This post is about head tracking and how to use it in 3D.
+It is surprisingly easy to do with the suitable libraries.
+We will experiment with
+<a href="https://github.com/auduno/headtrackr">headtrackr.js</a> and
+<a href="http://github.com/mrdoob/three.js/">three.js</a>.
+<a href="https://github.com/auduno/headtrackr">headtrackr.js</a>
+is a nice library from
+<a href="https://github.com/auduno">auduno</a> to do head tracking in the browser.
+You will learn how to do head tracking in webgl in only 20lines of javascript.
+I love the web and how easy it is :)</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/eg0qshn4VC0" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+<!-- more -->
+
+
+<p>WebRTC starts to get traction. I love that! We have seen
+<a href="http://www.webrtc.org/">WebRTC</a>
+and
+<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a>
+several times in the past: in
+<a href="http://learningthreejs.com/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">&#8220;Punch a Doom Character in Augmented Reality&#8221;</a>
+post, in
+<a href="http://learningthreejs.com/blog/2012/02/07/live-video-in-webgl/">&#8220;Fun With Live Video in WebGL&#8221;</a>
+post and
+<a href="http://learningthreejs.com/blog/2012/05/02/augmented-reality-3d-pong/">&#8220;Augmented Reality 3D Pong&#8221;</a>
+post.
+It is
+<a href="http://www.webrtc.org/blog/seeyouontheweb">already in chrome stable</a>
+, and will be in firefox
+<a href="https://hacks.mozilla.org/2012/11/progress-update-on-webrtc-for-firefox-on-desktop/">real soon</a>.
+They already
+<a href="https://hacks.mozilla.org/2013/02/hello-chrome-its-firefox-calling/">talk to each other</a>.
+Here we don&#8217;t need the network part of webrtc.
+We only need get the webcam video, so
+<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a>
+is enougth. It is in
+<a href="http://www.opera.com/browser/">opera 12</a>
+too as you can read
+<a href="http://dev.opera.com/articles/view/head-tracking-with-webrtc/">here</a>.</p>
+
+<p><a href="https://github.com/auduno">auduno</a> is part of
+<a href="http://opera.com">Opera</a> team.
+He wrote it as a demo for
+<a href="http://www.opera.com/browser/">opera 12</a>
+release  which contained
+<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a>.
+For more info on the library, <a href="https://github.com/auduno">auduno</a>
+blogged
+about internals of
+<a href="https://github.com/auduno/headtrackr">his library</a>. You can find details in his
+<a href="http://auduno.tumblr.com/post/25125149521/head-tracking-with-webrtc">blog post</a>.
+Additionnal info are available in the
+<a href="http://auduno.github.com/headtrackr/documentation/reference.html">reference documentation</a>.
+Some examples are already in three.js, like
+<a href="http://auduno.github.com/headtrackr/examples/targets.html">targets</a>
+or
+<a href="http://www.shinydemos.com/facekat/">facekat</a>.</p>
+
+<h2>Demo Time !!</h2>
+
+<p><img class="left" src="http://learningthreejs.com/data/2012-12-07-playing-with-headtrackr-dot-js/screenshots/screenshot-box3d-small.png">
+As usual we did a plugin for
+<a href="http://jeromeetienne.github.com/tquery">tQuery API</a>
+to make it easy to use in our environement.
+One can find 2 examples for it:
+A <a href="http://jeromeetienne.github.com/tquery/plugins/headtrackr/examples/index.html">educational example</a>
+where your heads controls a box in 3d.
+For best result, <em>make sure your face is well and evenly lighted</em></p>
+
+<p><img class="right" src="http://learningthreejs.com/data/2012-12-07-playing-with-headtrackr-dot-js/screenshots/screenshot-demo-small.png">
+Another <a href="http://jeromeetienne.github.com/tquery/plugins/headtrackr/examples/demo.html">demo</a>
+where the camera follows your head.
+The whole scene moves as you move your head, providing quite an immersive experience.
+You can play with it <a href="http://jsfiddle.net/jetienne/tSQQ8/">thru jsfiddle</a> too.</p>
+
+<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/jetienne/tSQQ8/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+
+<h2>Let&#8217;s Get Started</h2>
+
+<p>Ok now lets see how to use this library with
+<a href="http://jeromeetienne.github.com/tquery">tQuery API</a>.
+First, we include the <code>tquery.headtrackr</code> files in your code.
+tQuery plugins supports
+<a href="http://requirejs.com">require.js</a>.
+It makes dependancies much easier to handle. <code>tquery.headtrackr</code> is no exception, so to include it you can do</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">require</span><span class="p">([</span><span class="s1">&#39;tquery.headtrackr&#39;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>  <span class="c1">// Your code ...   </span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or if you use the good old <code>&lt;script&gt;</code>, do something like that
+to include
+<a href="https://github.com/auduno/headtrackr">headtrackr.js</a> itself, the library which handle the head tracking. Then you just include the plugin itself, and you are done.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;headtrackr.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;tquery.headtrackr.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Start Tracking Heads</h3>
+
+<p>First, you instanciate the object with this simple line.
+You can pass various options to <code>.createHeadtrackr(opts)</code>.
+Here, <code>opts</code> is an
+<a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object">Object</a>
+with those properties</p>
+
+<ul>
+<li><strong>opts.width :</strong> width of the image containing the face. default to 320px</li>
+<li><strong>opts.height :</strong> height of the image containing the face. default to 240px</li>
+<li><strong>opts.headtrackrOpts :</strong> options passed directly to headtrackr.js. default to <code>{}</code></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">headTracker</span>    <span class="o">=</span> <span class="nx">tQuery</span><span class="p">.</span><span class="nx">createHeadtrackr</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Default are reasonable, so chances are you dont need to specify anything. To start tracking the head on the webcam, just do the following</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">headTracker</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It is possible to stop it with <code>.stop()</code> or to reset it via <code>.reset()</code>.</p>
+
+<h3>Debug View is Cool For User Feedback</h3>
+
+<p><img class="right" src="http://learningthreejs.com/data/2012-12-07-playing-with-headtrackr-dot-js/screenshots/screenshot-debugview-small.png">
+If you wish enable the debugView, aka the little visualisation the headtracker result.
+It gives feedback to the user on what is happening.
+Thus the user can move his head accordingly or to change lighting of the room.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">headTracker</span><span class="p">.</span><span class="nx">debugView</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Face Position Notified thru Events</h3>
+
+<p>When a face is found, events are dispatched to notify the detected positions.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">headTracker</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;found&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+</span><span class='line'>  <span class="c1">// Your code ...</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>event</code> contains normalized coordinates of the detected face.
+They use the same axis as WebGL.
+If the head is on the center, <code>event.x</code> and <code>event.y</code> will be 0.
+And if the head is vertical, <code>event.angle</code> is 0. More precisely</p>
+
+<ul>
+<li><code>.x</code> and <code>.y</code> : It is the center position. it varies from [-1,+1], from left to right
+and bottom to top.</li>
+<li><code>.width</code> and <code>.height</code>: the width and height :) If it is half of whole image, it is equal to 1.</li>
+<li><code>.angle</code>: the Z rotation of the detected head. It is in radian as usual.</li>
+<li><code>.headtrackrEvent</code>: the original facetrackingEvent event from
+<a href="https://github.com/auduno/headtrackr">headtrackr.js</a>
+(see
+<a href="http://auduno.github.com/headtrackr/documentation/reference.html">reference</a>
+)</li>
+</ul>
+
+
+<h2>Head tracking&#8230; Kesaco ?</h2>
+
+<p>Head tracking is a <a href="http://example.com">well known concept</a>. One can find
+<a href="http://www.youtube.com/watch?v=bBQQEcfkHoE">head tracking on ipad</a>.
+One can find <a href="http://www.youtube.com/watch?v=Jd3-eiid-Uw">head tracking on wii</a>.
+They got impressive result using the informations from the <a href="http://en.wikipedia.org/wiki/Wii_Remote">wiimote</a> or even the <a href="http://example.com">device orientation</a>.
+With the <a href="http://en.wikipedia.org/wiki/Kinect">kinect</a>, they even
+track the <a href="http://example.com">features</a> of the face itself (e.g. mouth, noze, eyes etc&#8230;)</p>
+
+<p>In our case, we use the image from the webcam.
+Unfortunatly face localisation from an image isn&#8217;t exactly 100% accurate to say the least :)
+See <a href="http://auduno.github.com/headtrackr/examples/targets.html">here</a>,
+this is the same demo as the
+<a href="http://www.youtube.com/watch?v=Jd3-eiid-Uw">wii one</a>
+or the
+<a href="http://www.youtube.com/watch?v=bBQQEcfkHoE">ipad one</a>.
+Yet the result isn&#8217;t as convincing.
+With <a href="https://github.com/auduno/headtrackr">headtrackr.js</a> and
+<a href="http://webrtc.org">webrtc</a>
+, we use only the webcam in a uncontrolled environement.
+So the accuracy is in consequences.</p>
+
+<p>You can improve efficiency by following a few simples advices:
+Avoid hats or a too crazy haircut. Being bold with a beard doesn&#8217;t help :)
+Make sure your face is well and evenly lighted and you should be fine.</p>
+
+<h2>Conclusion</h2>
+
+<p>In this post, we have seen it is now possible to do head tracking in a web browser !!
+Impressive if you ask me!
+Even better, it is easy if you use suitable libraries. Coupled with
+<a href="http://github.com/mrdoob/three.js/">three.js</a>
+and
+<a href="http://jeromeetienne.github.com/tquery">tQuery API</a>,
+it is possible provide new immersive experience in
+<a href="http://jsfiddle.net/jetienne/tSQQ8/">20lines of javascript</a>.
+Im so excited.
+This kind of things was academic research 5 years ago, and now everybody can easily use it.
+We will likely do more with
+<a href="https://github.com/auduno/headtrackr">headtrackr.js</a>.
+This is a very nice library with lots of possibilities.
+For example, one can use it the head as a game controller, or in a artistic exposition. Stay tuned!</p>
+
+<p>That&#8217;s all folks, have fun :)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Minecraft Character in WebGL]]></title>
@@ -2715,7 +2952,7 @@ Would be nice!</p>
 
 
 <center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/vnNihxl3taE" frameborder="0" allowfullscreen></iframe>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/gnVfqfjXxmM" frameborder="0" allowfullscreen></iframe>
 </center>
 
 
@@ -3340,145 +3577,6 @@ There is an
 <a href="http://jeromeetienne.github.com/threex/docs/threex.domevent.html">annoted source</a>
 for implementation details.
 That&#8217;s all folks. Have fun.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Tunnel Effect for your Demo]]></title>
-    <link href="http://learningthreejs.com/blog/2012/01/11/tunnel-effect/"/>
-    <updated>2012-01-11T13:00:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2012/01/11/tunnel-effect</id>
-    <content type="html"><![CDATA[<p>This post presents a tunnel effect.
-This is a classic in 3D demo.
-They are visually efficient and easy to code.
-In fact, tunnels are so trendy that
-even
-<a href="http://en.wikipedia.org/wiki/Doctor_Who">doctor who</a>
-and
-<a href="http://en.wikipedia.org/wiki/Stargate">stargate</a>
-have
-<a href="http://www.youtube.com/watch?v=IKo9f5npLNM">fun</a>
-<a href="http://www.youtube.com/watch?v=KDIdJtW0vN4">in them</a>
-:)</p>
-
-<p><a href="http://jeromeetienne.github.com/tunnelgl/">Try the demo</a>.
-It has been built using the
-<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>
-seen in a
-<a href="http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/">previous post</a>.
-The code is simple and small.
-Less than 20lines has been added on top of the boilerplate.
-We will create a
-<a href="https://github.com/mrdoob/three.js/blob/master/src/core/Geometry.js">THREE.Geometry</a>
-to get the shape of tunnel.
-Then we will use a
-<a href="https://github.com/mrdoob/three.js/blob/master/src/textures/Texture.js">texture</a>
-trick to create the
-<a href="http://en.wikipedia.org/wiki/Optical_illusion">visual illusion</a>
-of moving.</p>
-
-<!-- more -->
-
-
-
-
-<iframe src="http://jeromeetienne.github.com/tunnelgl/"
-    webkitallowfullscreen mozallowfullscreen allowfullscreen 
-    width="100%" height="420px" frameborder="0">
-</iframe>
-
-
-<h2>Let&#8217;s build the walls</h2>
-
-<p>The first step is to build the <em>walls</em> of the tunnel.
-It is easier that one would expect.
-A tunnel may be seen as a cylinder with the camera inside.
-Once you realized that, most of the work is done.
-Luckily for us,
-<a href="https://github.com/mrdoob/three.js/">three.js</a>
-got an easy way to build cylinders, called
-<a href="https://github.com/mrdoob/three.js/blob/master/src/extras/geometries/CylinderGeometry.js">CylinderGeometry</a>.
-Nevertheless our tunnel / cylinder got 2 special points.</p>
-
-<p>First, it is open-ended. So we must not build its top and bottom.
-We need this to see thru its extremities.
-This is handled by a parameter in
-<a href="https://github.com/mrdoob/three.js/blob/master/src/extras/geometries/CylinderGeometry.js">CylinderGeometry</a>.
-We just set <code>openended</code> parameter to true and the rest is done for us :)</p>
-
-<p>Second, the camera is usually located outside of objects.
-But our tunnel/cylinder has the camera inside it.
-To make our object visible from the inside, we need to turn it inside out.
-For that, just use <code>mesh.flipSided = true</code></p>
-
-<h2>Let&#8217;s go forward</h2>
-
-<p>Now we need to go forward in this tunnel
-For that we will use an old trick.
-We won&#8217;t move the tunnel walls themselves, only their appearance.
-It gives the visual illusion that we are moving.
-Remember what they say in matrix ?
-<a href="http://www.youtube.com/watch?v=dzm8kTIj_0M">&#8220;there is no spoon&#8221;</a>.
-It is all the same, we are moving while staying still :)</p>
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/dzm8kTIj_0M?hl=en&fs=1" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-<h2>A Texture isn&#8217;t a spoon</h2>
-
-<p>First we want to move the appearance of the cylinder, thus the player got the illusion to go forward.
-We will use <a href="https://github.com/mrdoob/three.js/blob/master/src/textures/Texture.js">THREE.Texture</a> for that.
-We wont move the actual pixels of the textures, only its coordinates.
-Additionnaly we want the texture to repeat on the cylinder, thus it appears as continuous.
-WebGL texture is a powerfull and flexible tool.
-You can tweak so many features.</p>
-
-<p>First let&#8217;s make this texture move.
-Suppose we want the texture to loop once every 10 seconds.
-So the coordinate <code>.offset.y</code> needs to go from 0 to 1 in 10 seconds.
-This line is enougth to make the tunnel move forward.
-You can change your speed within the tunnel by changing this number.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">texture</span><span class="p">.</span><span class="nx">offset</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="nx">seconds</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now the texture repetition.
-For that we will use a texture parameter called <em>wrap</em>.
-It indicates how the gpu repeat the texture on a face.
-Here is a good
-<a href="http://lucera-project.blogspot.com/2010/06/opengl-wrap.html">tutorial on opengl wrap</a>.
-By default, wrapS / wrapT are set to <code>THREE.ClampToEdgeWrapping</code>.
-So the texture is scaled to match exactly the size of the face.
-In our case, we want to repeat the texture and not scale it.
-So we use <code>THREE.RepeatWrapping</code>.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">texture</span><span class="p">.</span><span class="nx">wrapT</span>   <span class="o">=</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">RepeatWrapping</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Conclusion</h2>
-
-<p>We have seen how to do a tunnel with
-<a href="https://github.com/mrdoob/three.js/">three.js</a>.
-This is very simple to code and awesome on the screen.
-It is less than 20 lines added to the <a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate</a>.
-The cylinder geometry was already provided.
-We used
-<a href="https://github.com/mrdoob/three.js/blob/master/src/textures/Texture.js">THREE.Texture</a>
-offsets to provide the optical illusion of moving.</p>
-
-<p>Later, we may add a <a href="http://en.wikipedia.org/wiki/TARDIS">blue phonebooth</a>
-and play <em>doctor who</em> :)
-The code is available on
-<a href="https://github.com/jeromeetienne/tunnelgl">github</a>
-under MIT license.
-Feel free to fork and modify.
-That&#8217;s all folks, have fun.</p>
 ]]></content>
   </entry>
   

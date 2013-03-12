@@ -1,0 +1,508 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Move a Cube With Your Head or Head-Tracking with WebGL - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This post is about head tracking and how to use it in 3D.
+It is surprisingly easy to do with the suitable libraries.
+We will experiment with &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://learningthreejs.com/blog/2013/03/12/move-a-cube-with-your-head/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:learningthreejs.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Move a Cube With Your Head or Head-Tracking With WebGL</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-12T13:28:00+01:00" pubdate data-updated="true">Mar 12<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This post is about head tracking and how to use it in 3D.
+It is surprisingly easy to do with the suitable libraries.
+We will experiment with
+<a href="https://github.com/auduno/headtrackr">headtrackr.js</a> and
+<a href="http://github.com/mrdoob/three.js/">three.js</a>.
+<a href="https://github.com/auduno/headtrackr">headtrackr.js</a>
+is a nice library from
+<a href="https://github.com/auduno">auduno</a> to do head tracking in the browser.
+You will learn how to do head tracking in webgl in only 20lines of javascript.
+I love the web and how easy it is :)</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/eg0qshn4VC0" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+<!-- more -->
+
+
+<p>WebRTC starts to get traction. I love that! We have seen
+<a href="http://www.webrtc.org/">WebRTC</a>
+and
+<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a>
+several times in the past: in
+<a href="http://learningthreejs.com/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">&#8220;Punch a Doom Character in Augmented Reality&#8221;</a>
+post, in
+<a href="http://learningthreejs.com/blog/2012/02/07/live-video-in-webgl/">&#8220;Fun With Live Video in WebGL&#8221;</a>
+post and
+<a href="http://learningthreejs.com/blog/2012/05/02/augmented-reality-3d-pong/">&#8220;Augmented Reality 3D Pong&#8221;</a>
+post.
+It is
+<a href="http://www.webrtc.org/blog/seeyouontheweb">already in chrome stable</a>
+, and will be in firefox
+<a href="https://hacks.mozilla.org/2012/11/progress-update-on-webrtc-for-firefox-on-desktop/">real soon</a>.
+They already
+<a href="https://hacks.mozilla.org/2013/02/hello-chrome-its-firefox-calling/">talk to each other</a>.
+Here we don&#8217;t need the network part of webrtc.
+We only need get the webcam video, so
+<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a>
+is enougth. It is in
+<a href="http://www.opera.com/browser/">opera 12</a>
+too as you can read
+<a href="http://dev.opera.com/articles/view/head-tracking-with-webrtc/">here</a>.</p>
+
+<p><a href="https://github.com/auduno">auduno</a> is part of
+<a href="http://opera.com">Opera</a> team.
+He wrote it as a demo for
+<a href="http://www.opera.com/browser/">opera 12</a>
+release  which contained
+<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a>.
+For more info on the library, <a href="https://github.com/auduno">auduno</a>
+blogged
+about internals of
+<a href="https://github.com/auduno/headtrackr">his library</a>. You can find details in his
+<a href="http://auduno.tumblr.com/post/25125149521/head-tracking-with-webrtc">blog post</a>.
+Additionnal info are available in the
+<a href="http://auduno.github.com/headtrackr/documentation/reference.html">reference documentation</a>.
+Some examples are already in three.js, like
+<a href="http://auduno.github.com/headtrackr/examples/targets.html">targets</a>
+or
+<a href="http://www.shinydemos.com/facekat/">facekat</a>.</p>
+
+<h2>Demo Time !!</h2>
+
+<p><img class="left" src="/data/2012-12-07-playing-with-headtrackr-dot-js/screenshots/screenshot-box3d-small.png">
+As usual we did a plugin for
+<a href="http://jeromeetienne.github.com/tquery">tQuery API</a>
+to make it easy to use in our environement.
+One can find 2 examples for it:
+A <a href="http://jeromeetienne.github.com/tquery/plugins/headtrackr/examples/index.html">educational example</a>
+where your heads controls a box in 3d.
+For best result, <em>make sure your face is well and evenly lighted</em></p>
+
+<p><img class="right" src="/data/2012-12-07-playing-with-headtrackr-dot-js/screenshots/screenshot-demo-small.png">
+Another <a href="http://jeromeetienne.github.com/tquery/plugins/headtrackr/examples/demo.html">demo</a>
+where the camera follows your head.
+The whole scene moves as you move your head, providing quite an immersive experience.
+You can play with it <a href="http://jsfiddle.net/jetienne/tSQQ8/">thru jsfiddle</a> too.</p>
+
+<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/jetienne/tSQQ8/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+
+<h2>Let&#8217;s Get Started</h2>
+
+<p>Ok now lets see how to use this library with
+<a href="http://jeromeetienne.github.com/tquery">tQuery API</a>.
+First, we include the <code>tquery.headtrackr</code> files in your code.
+tQuery plugins supports
+<a href="http://requirejs.com">require.js</a>.
+It makes dependancies much easier to handle. <code>tquery.headtrackr</code> is no exception, so to include it you can do</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">require</span><span class="p">([</span><span class="s1">&#39;tquery.headtrackr&#39;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>  <span class="c1">// Your code ...   </span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or if you use the good old <code>&lt;script&gt;</code>, do something like that
+to include
+<a href="https://github.com/auduno/headtrackr">headtrackr.js</a> itself, the library which handle the head tracking. Then you just include the plugin itself, and you are done.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;headtrackr.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;tquery.headtrackr.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Start Tracking Heads</h3>
+
+<p>First, you instanciate the object with this simple line.
+You can pass various options to <code>.createHeadtrackr(opts)</code>.
+Here, <code>opts</code> is an
+<a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object">Object</a>
+with those properties</p>
+
+<ul>
+<li><strong>opts.width :</strong> width of the image containing the face. default to 320px</li>
+<li><strong>opts.height :</strong> height of the image containing the face. default to 240px</li>
+<li><strong>opts.headtrackrOpts :</strong> options passed directly to headtrackr.js. default to <code>{}</code></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">headTracker</span>    <span class="o">=</span> <span class="nx">tQuery</span><span class="p">.</span><span class="nx">createHeadtrackr</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Default are reasonable, so chances are you dont need to specify anything. To start tracking the head on the webcam, just do the following</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">headTracker</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It is possible to stop it with <code>.stop()</code> or to reset it via <code>.reset()</code>.</p>
+
+<h3>Debug View is Cool For User Feedback</h3>
+
+<p><img class="right" src="/data/2012-12-07-playing-with-headtrackr-dot-js/screenshots/screenshot-debugview-small.png">
+If you wish enable the debugView, aka the little visualisation the headtracker result.
+It gives feedback to the user on what is happening.
+Thus the user can move his head accordingly or to change lighting of the room.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">headTracker</span><span class="p">.</span><span class="nx">debugView</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Face Position Notified thru Events</h3>
+
+<p>When a face is found, events are dispatched to notify the detected positions.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">headTracker</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;found&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+</span><span class='line'>  <span class="c1">// Your code ...</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>event</code> contains normalized coordinates of the detected face.
+They use the same axis as WebGL.
+If the head is on the center, <code>event.x</code> and <code>event.y</code> will be 0.
+And if the head is vertical, <code>event.angle</code> is 0. More precisely</p>
+
+<ul>
+<li><code>.x</code> and <code>.y</code> : It is the center position. it varies from [-1,+1], from left to right
+and bottom to top.</li>
+<li><code>.width</code> and <code>.height</code>: the width and height :) If it is half of whole image, it is equal to 1.</li>
+<li><code>.angle</code>: the Z rotation of the detected head. It is in radian as usual.</li>
+<li><code>.headtrackrEvent</code>: the original facetrackingEvent event from
+<a href="https://github.com/auduno/headtrackr">headtrackr.js</a>
+(see
+<a href="http://auduno.github.com/headtrackr/documentation/reference.html">reference</a>
+)</li>
+</ul>
+
+
+<h2>Head tracking&#8230; Kesaco ?</h2>
+
+<p>Head tracking is a <a href="http://example.com">well known concept</a>. One can find
+<a href="http://www.youtube.com/watch?v=bBQQEcfkHoE">head tracking on ipad</a>.
+One can find <a href="http://www.youtube.com/watch?v=Jd3-eiid-Uw">head tracking on wii</a>.
+They got impressive result using the informations from the <a href="http://en.wikipedia.org/wiki/Wii_Remote">wiimote</a> or even the <a href="http://example.com">device orientation</a>.
+With the <a href="http://en.wikipedia.org/wiki/Kinect">kinect</a>, they even
+track the <a href="http://example.com">features</a> of the face itself (e.g. mouth, noze, eyes etc&#8230;)</p>
+
+<p>In our case, we use the image from the webcam.
+Unfortunatly face localisation from an image isn&#8217;t exactly 100% accurate to say the least :)
+See <a href="http://auduno.github.com/headtrackr/examples/targets.html">here</a>,
+this is the same demo as the
+<a href="http://www.youtube.com/watch?v=Jd3-eiid-Uw">wii one</a>
+or the
+<a href="http://www.youtube.com/watch?v=bBQQEcfkHoE">ipad one</a>.
+Yet the result isn&#8217;t as convincing.
+With <a href="https://github.com/auduno/headtrackr">headtrackr.js</a> and
+<a href="http://webrtc.org">webrtc</a>
+, we use only the webcam in a uncontrolled environement.
+So the accuracy is in consequences.</p>
+
+<p>You can improve efficiency by following a few simples advices:
+Avoid hats or a too crazy haircut. Being bold with a beard doesn&#8217;t help :)
+Make sure your face is well and evenly lighted and you should be fine.</p>
+
+<h2>Conclusion</h2>
+
+<p>In this post, we have seen it is now possible to do head tracking in a web browser !!
+Impressive if you ask me!
+Even better, it is easy if you use suitable libraries. Coupled with
+<a href="http://github.com/mrdoob/three.js/">three.js</a>
+and
+<a href="http://jeromeetienne.github.com/tquery">tQuery API</a>,
+it is possible provide new immersive experience in
+<a href="http://jsfiddle.net/jetienne/tSQQ8/">20lines of javascript</a>.
+Im so excited.
+This kind of things was academic research 5 years ago, and now everybody can easily use it.
+We will likely do more with
+<a href="https://github.com/auduno/headtrackr">headtrackr.js</a>.
+This is a very nice library with lots of possibilities.
+For example, one can use it the head as a game controller, or in a artistic exposition. Stay tuned!</p>
+
+<p>That&#8217;s all folks, have fun :)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-12T13:28:00+01:00" pubdate data-updated="true">Mar 12<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>, <a class='category' href='/blog/categories/tquery/'>tquery</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2013/03/12/move-a-cube-with-your-head/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2013/03/12/move-a-cube-with-your-head/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/07/05/minecraft-character-in-webgl/" title="Previous Post: Minecraft Character in WebGL">&laquo; Minecraft Character in WebGL</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/03/12/move-a-cube-with-your-head/">Move a Cube With Your Head or Head-Tracking with WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://learningthreejs.com/blog/2013/03/12/move-a-cube-with-your-head/';
+        var disqus_url = 'http://learningthreejs.com/blog/2013/03/12/move-a-cube-with-your-head/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

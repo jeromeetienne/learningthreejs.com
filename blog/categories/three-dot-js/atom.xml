@@ -4,7 +4,7 @@
   <title><![CDATA[Category: three.js | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/three-dot-js/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2013-03-10T18:18:25+01:00</updated>
+  <updated>2013-03-12T15:05:01+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,243 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Move a Cube With Your Head or Head-Tracking with WebGL]]></title>
+    <link href="http://learningthreejs.com/blog/2013/03/12/move-a-cube-with-your-head/"/>
+    <updated>2013-03-12T13:28:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2013/03/12/move-a-cube-with-your-head</id>
+    <content type="html"><![CDATA[<p>This post is about head tracking and how to use it in 3D.
+It is surprisingly easy to do with the suitable libraries.
+We will experiment with
+<a href="https://github.com/auduno/headtrackr">headtrackr.js</a> and
+<a href="http://github.com/mrdoob/three.js/">three.js</a>.
+<a href="https://github.com/auduno/headtrackr">headtrackr.js</a>
+is a nice library from
+<a href="https://github.com/auduno">auduno</a> to do head tracking in the browser.
+You will learn how to do head tracking in webgl in only 20lines of javascript.
+I love the web and how easy it is :)</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/eg0qshn4VC0" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+<!-- more -->
+
+
+<p>WebRTC starts to get traction. I love that! We have seen
+<a href="http://www.webrtc.org/">WebRTC</a>
+and
+<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a>
+several times in the past: in
+<a href="http://learningthreejs.com/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">"Punch a Doom Character in Augmented Reality"</a>
+post, in
+<a href="http://learningthreejs.com/blog/2012/02/07/live-video-in-webgl/">"Fun With Live Video in WebGL"</a>
+post and
+<a href="http://learningthreejs.com/blog/2012/05/02/augmented-reality-3d-pong/">"Augmented Reality 3D Pong"</a>
+post.
+It is
+<a href="http://www.webrtc.org/blog/seeyouontheweb">already in chrome stable</a>
+, and will be in firefox
+<a href="https://hacks.mozilla.org/2012/11/progress-update-on-webrtc-for-firefox-on-desktop/">real soon</a>.
+They already
+<a href="https://hacks.mozilla.org/2013/02/hello-chrome-its-firefox-calling/">talk to each other</a>.
+Here we don't need the network part of webrtc.
+We only need get the webcam video, so
+<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a>
+is enougth. It is in
+<a href="http://www.opera.com/browser/">opera 12</a>
+too as you can read
+<a href="http://dev.opera.com/articles/view/head-tracking-with-webrtc/">here</a>.</p>
+
+<p><a href="https://github.com/auduno">auduno</a> is part of
+<a href="http://opera.com">Opera</a> team.
+He wrote it as a demo for
+<a href="http://www.opera.com/browser/">opera 12</a>
+release  which contained
+<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a>.
+For more info on the library, <a href="https://github.com/auduno">auduno</a>
+blogged
+about internals of
+<a href="https://github.com/auduno/headtrackr">his library</a>. You can find details in his
+<a href="http://auduno.tumblr.com/post/25125149521/head-tracking-with-webrtc">blog post</a>.
+Additionnal info are available in the
+<a href="http://auduno.github.com/headtrackr/documentation/reference.html">reference documentation</a>.
+Some examples are already in three.js, like
+<a href="http://auduno.github.com/headtrackr/examples/targets.html">targets</a>
+or
+<a href="http://www.shinydemos.com/facekat/">facekat</a>.</p>
+
+<h2>Demo Time !!</h2>
+
+<p><img class="left" src="/data/2012-12-07-playing-with-headtrackr-dot-js/screenshots/screenshot-box3d-small.png">
+As usual we did a plugin for
+<a href="http://jeromeetienne.github.com/tquery">tQuery API</a>
+to make it easy to use in our environement.
+One can find 2 examples for it:
+A <a href="http://jeromeetienne.github.com/tquery/plugins/headtrackr/examples/index.html">educational example</a>
+where your heads controls a box in 3d.
+For best result, <em>make sure your face is well and evenly lighted</em></p>
+
+<p><img class="right" src="/data/2012-12-07-playing-with-headtrackr-dot-js/screenshots/screenshot-demo-small.png">
+Another <a href="http://jeromeetienne.github.com/tquery/plugins/headtrackr/examples/demo.html">demo</a>
+where the camera follows your head.
+The whole scene moves as you move your head, providing quite an immersive experience.
+You can play with it <a href="http://jsfiddle.net/jetienne/tSQQ8/">thru jsfiddle</a> too.</p>
+
+<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/jetienne/tSQQ8/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+
+<h2>Let's Get Started</h2>
+
+<p>Ok now lets see how to use this library with
+<a href="http://jeromeetienne.github.com/tquery">tQuery API</a>.
+First, we include the <code>tquery.headtrackr</code> files in your code.
+tQuery plugins supports
+<a href="http://requirejs.com">require.js</a>.
+It makes dependancies much easier to handle. <code>tquery.headtrackr</code> is no exception, so to include it you can do</p>
+
+<p>```javascript
+require(['tquery.headtrackr'], function(){</p>
+
+<pre><code>// Your code ...    
+</code></pre>
+
+<p>});
+```</p>
+
+<p>Or if you use the good old <code>&lt;script&gt;</code>, do something like that
+to include
+<a href="https://github.com/auduno/headtrackr">headtrackr.js</a> itself, the library which handle the head tracking. Then you just include the plugin itself, and you are done.</p>
+
+<p>```html</p>
+
+<script src="headtrackr.js"></script>
+
+
+<script src="tquery.headtrackr.js"></script>
+
+
+<p>```</p>
+
+<h3>Start Tracking Heads</h3>
+
+<p>First, you instanciate the object with this simple line.
+You can pass various options to <code>.createHeadtrackr(opts)</code>.
+Here, <code>opts</code> is an
+<a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object">Object</a>
+with those properties</p>
+
+<ul>
+<li><strong>opts.width :</strong> width of the image containing the face. default to 320px</li>
+<li><strong>opts.height :</strong> height of the image containing the face. default to 240px</li>
+<li><strong>opts.headtrackrOpts :</strong> options passed directly to headtrackr.js. default to <code>{}</code></li>
+</ul>
+
+
+<p><code>javascript
+var headTracker = tQuery.createHeadtrackr();
+</code></p>
+
+<p>Default are reasonable, so chances are you dont need to specify anything. To start tracking the head on the webcam, just do the following</p>
+
+<p><code>javascript
+headTracker.start();
+</code></p>
+
+<p>It is possible to stop it with <code>.stop()</code> or to reset it via <code>.reset()</code>.</p>
+
+<h3>Debug View is Cool For User Feedback</h3>
+
+<p><img class="right" src="/data/2012-12-07-playing-with-headtrackr-dot-js/screenshots/screenshot-debugview-small.png">
+If you wish enable the debugView, aka the little visualisation the headtracker result.
+It gives feedback to the user on what is happening.
+Thus the user can move his head accordingly or to change lighting of the room.</p>
+
+<p><code>
+headTracker.debugView(true);
+</code></p>
+
+<h3>Face Position Notified thru Events</h3>
+
+<p>When a face is found, events are dispatched to notify the detected positions.</p>
+
+<p>```
+headTracker.addEventListener("found", function(event){</p>
+
+<pre><code>// Your code ...
+</code></pre>
+
+<p>});
+```</p>
+
+<p><code>event</code> contains normalized coordinates of the detected face.
+They use the same axis as WebGL.
+If the head is on the center, <code>event.x</code> and <code>event.y</code> will be 0.
+And if the head is vertical, <code>event.angle</code> is 0. More precisely</p>
+
+<ul>
+<li><code>.x</code> and <code>.y</code> : It is the center position. it varies from [-1,+1], from left to right
+and bottom to top.</li>
+<li><code>.width</code> and <code>.height</code>: the width and height :) If it is half of whole image, it is equal to 1.</li>
+<li><code>.angle</code>: the Z rotation of the detected head. It is in radian as usual.</li>
+<li><code>.headtrackrEvent</code>: the original facetrackingEvent event from
+<a href="https://github.com/auduno/headtrackr">headtrackr.js</a>
+(see
+<a href="http://auduno.github.com/headtrackr/documentation/reference.html">reference</a>
+)</li>
+</ul>
+
+
+<h2>Head tracking... Kesaco ?</h2>
+
+<p>Head tracking is a <a href="http://example.com">well known concept</a>. One can find
+<a href="http://www.youtube.com/watch?v=bBQQEcfkHoE">head tracking on ipad</a>.
+One can find <a href="http://www.youtube.com/watch?v=Jd3-eiid-Uw">head tracking on wii</a>.
+They got impressive result using the informations from the <a href="http://en.wikipedia.org/wiki/Wii_Remote">wiimote</a> or even the <a href="http://example.com">device orientation</a>.
+With the <a href="http://en.wikipedia.org/wiki/Kinect">kinect</a>, they even
+track the <a href="http://example.com">features</a> of the face itself (e.g. mouth, noze, eyes etc...)</p>
+
+<p>In our case, we use the image from the webcam.
+Unfortunatly face localisation from an image isn't exactly 100% accurate to say the least :)
+See <a href="http://auduno.github.com/headtrackr/examples/targets.html">here</a>,
+this is the same demo as the
+<a href="http://www.youtube.com/watch?v=Jd3-eiid-Uw">wii one</a>
+or the
+<a href="http://www.youtube.com/watch?v=bBQQEcfkHoE">ipad one</a>.
+Yet the result isn't as convincing.
+With <a href="https://github.com/auduno/headtrackr">headtrackr.js</a> and
+<a href="http://webrtc.org">webrtc</a>
+, we use only the webcam in a uncontrolled environement.
+So the accuracy is in consequences.</p>
+
+<p>You can improve efficiency by following a few simples advices:
+Avoid hats or a too crazy haircut. Being bold with a beard doesn't help :)
+Make sure your face is well and evenly lighted and you should be fine.</p>
+
+<h2>Conclusion</h2>
+
+<p>In this post, we have seen it is now possible to do head tracking in a web browser !!
+Impressive if you ask me!
+Even better, it is easy if you use suitable libraries. Coupled with
+<a href="http://github.com/mrdoob/three.js/">three.js</a>
+and
+<a href="http://jeromeetienne.github.com/tquery">tQuery API</a>,
+it is possible provide new immersive experience in
+<a href="http://jsfiddle.net/jetienne/tSQQ8/">20lines of javascript</a>.
+Im so excited.
+This kind of things was academic research 5 years ago, and now everybody can easily use it.
+We will likely do more with
+<a href="https://github.com/auduno/headtrackr">headtrackr.js</a>.
+This is a very nice library with lots of possibilities.
+For example, one can use it the head as a game controller, or in a artistic exposition. Stay tuned!</p>
+
+<p>That's all folks, have fun :)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Minecraft Character in WebGL]]></title>
@@ -1061,109 +1298,6 @@ for only 40 lines of javascript. I love how short code
 reduces developement time.</p>
 
 <p>That's all folks. Have fun :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Video Conference on Top of WebGL]]></title>
-    <link href="http://learningthreejs.com/blog/2012/04/12/video-conference-on-top-of-webgl/"/>
-    <updated>2012-04-12T13:20:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2012/04/12/video-conference-on-top-of-webgl</id>
-    <content type="html"><![CDATA[<p>This post presents
-<a href="http://webglmeeting.appspot.com">WebGL Meeting</a>,
-a very simple WebGL application to do webrtc call.
-It is a follow up of <a href="/blog/2012/02/07/live-video-in-webgl/">"Fun with live video on webgl"</a>.
-It was presenting how to use the WebCam using
-<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">WebRTC getUserMedia()</a>.
-This one goes one step further and make an actual
-<a href="http://www.webrtc.org/">WebRTC call</a>
-displayed in a WebGL scene.</p>
-
-<p>In fact, it has already been done a month ago! As you can see
-<a href="http://www.youtube.com/watch?v=em5RWcstfI0&amp;feature=watch_response">here</a>
-:)
-The video from the first post, <a href="http://www.youtube.com/watch?v=vnNihxl3taE">'being on tv, watching tv'</a> has been answered
-by <a href="https://plus.google.com/109216128632357967445/posts">Ethan Hugg</a> from cisco.
-My very first video reponse btw! He
-<a href="http://www.youtube.com/watch?v=em5RWcstfI0&amp;feature=watch_response">shows a SIP video call</a>
-using an version of Chromium hacked by
-<a href="https://plus.google.com/102821430095362232437/posts">Suhas Nandakumar</a>.
-Definitly cool stuff!
-<a href="http://webglmeeting.appspot.com">WebGL Meeting</a> is similar but run on unmodified browsers.
-The
-<a href="http://youtu.be/Fjb7xBnxq9k">screencast</a>
-below is short demo of it.</p>
-
-<!-- more -->
-
-
-
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/Fjb7xBnxq9k" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-<h2>WebRTC progress</h2>
-
-<p>Using a modified browser is cool for make nice demo like
-<a href="https://plus.google.com/109216128632357967445/posts/QkFu7cxmbzi">this one</a>.
-Nevertheless it reduces how widely the technology can spread.
-It is now possible to do it using opensource and mainstream browsers.
-This field advances so fast!</p>
-
-<p><img class="right" src="/data/2012-04-12-video-conference-on-top-of-webgl/twoTVsWithWebGLTeam-small.jpg" width="320" height="240"></p>
-
-<p><a href="http://mozillamediagoddess.org/">Mozilla team</a> is
-<a href="http://hacks.mozilla.org/2012/04/webrtc-efforts-underway-at-mozilla/">working hard</a>
-to make it happen as soon as possible.
-It is even available on mobile with
-<a href="http://weblog.bocoup.com/javascript-webrtc-opera-mobile-12/">Opera Mobile 12</a>.
-Some <a href="http://www.youtube.com/watch?v=wpwjtzXgNFQ]">"protothon"</a> are happening about it.
-<a href="http://www.webrtc.org/">WebRTC</a>
-is on the edge but it is definitly coming hard.
-The picture on the right is Chrome WebRTC team doing thumb up on
-<a href="webglmeeting.appspot.com">WebGLMeeting</a>
-at an WebRTC event for
-<a href="http://www.ietf.org/meeting/83/index.html">IETF 83</a>
-:)</p>
-
-<h2>What about the code ?</h2>
-
-<p><a href="https://github.com/jeromeetienne/webglmeeting">WebGLMeeting source</a>
-is available on Github under MIT license.
-It uses three.js to handle the WebGL.
-It is the <a href="http://code.google.com/p/webrtc-samples/source/browse/trunk/apprtc/">AppRTC app</a>
-mostly unmodified, with a simple WebGL skin on top.</p>
-
-<p>A post from Chrome WebRTC team recently announced
-<a href="http://www.webrtc.org/blog/sourcecodetoapprtcappspotcomexampleappavailable">"Source code to apprtc.appspot.com example app available"</a>.
-The post releases the
-<a href="http://code.google.com/p/webrtc-samples/source/browse/trunk/apprtc/">source</a>
-on google code.
-The <a href="https://apprtc.appspot.com">apprtc demo</a>
-is a very simple, one-to-one, webrtc call.
-Go look at the <a href="http://code.google.com/p/webrtc-samples/source/browse/trunk/apprtc/">source</a>, dont be shy :)
-It is very small, the whole code client+server, is less than 15kbyte.
-It is easy to understand and deploy thanks too google App Engine.</p>
-
-<h2>Face tracker seeking love ?</h2>
-
-<p>Surprising hey ? Well the source contains a face tracker,
-<a href="http://code.google.com/p/webrtc-samples/source/browse/trunk/apprtc/html/face.html">face.html</a>.
-It works rather well but it is slow. If somebody could give it more love...
-It is a rather naive implementation which works well but got many rooms for speed improvement.
-It could make face tracking, less clumsy than wearing augmented reality marker on top
-of your head like
-<a href="http://learningthreejs.com/blog/2012/03/12/augmented-reality-in-the-browser/">i did a while back</a>
-:)</p>
-
-<h2>Conclusion</h2>
-
-<p>I got the feeling WebRTC gonna change a lot of things soon. The peer-to-peer aspect makes it super
-cheap to integrate live video conferences to your own sites.</p>
-
-<p>That's all folks, have fun!</p>
 ]]></content>
   </entry>
   
