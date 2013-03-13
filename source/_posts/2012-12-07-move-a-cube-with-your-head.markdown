@@ -22,7 +22,7 @@ I love the web and how easy it is :)
 
 * For a simple example. see the ["move a cube with your head"](http://jeromeetienne.github.com/tquery/plugins/headtrackr/examples/index.html) demo
 * To mess with the code now without any installation, see this [jsfiddle example](http://jsfiddle.net/jetienne/tSQQ8/)
-* for a attempts to make 3d more immersive by using head tracking, see this [demo](http://jeromeetienne.github.com/tquery/plugins/headtrackr/examples/demo.html)
+* for an attempt to make 3d more immersive by using head tracking, see this [demo](http://jeromeetienne.github.com/tquery/plugins/headtrackr/examples/demo.html)
 
 <center>
 	<iframe width="425" height="349" src="http://www.youtube.com/embed/gnVfqfjXxmM" frameborder="0" allowfullscreen></iframe>
