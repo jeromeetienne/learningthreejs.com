@@ -18,11 +18,19 @@ is a nice library from
 You will learn how to do head tracking in webgl in only 20lines of javascript. 
 I love the web and how easy it is :)
 
-<!-- <center>
-	<iframe width="425" height="349" src="http://www.youtube.com/embed/eg0qshn4VC0" frameborder="0" allowfullscreen></iframe>
+## tl;dr; links 
+
+* For a simple example. see the ["move a cube with your head"](http://jeromeetienne.github.com/tquery/plugins/headtrackr/examples/index.html) demo
+* To mess with the code now without any installation, see this [jsfiddle example](http://jsfiddle.net/jetienne/tSQQ8/)
+* for a attempts to make 3d more immersive by using head tracking, see this [demo](http://jeromeetienne.github.com/tquery/plugins/headtrackr/examples/demo.html)
+
+<center>
+	<iframe width="425" height="349" src="http://www.youtube.com/embed/gnVfqfjXxmM" frameborder="0" allowfullscreen></iframe>
 </center>
- -->
+
 <!-- more -->
+
+## WebRTC is great!
 
 WebRTC starts to get traction. I love that! We have seen
 [WebRTC](http://www.webrtc.org/)
