@@ -1,17 +1,25 @@
 ---
 layout: post
-title: "Load Your Game Faster with appcache"
-date: 2013-03-20 05:31
+title: "Load Your Game Faster with AppCache"
+date: 2013-03-22 05:31
 comments: true
 categories: 
 ---
 
 This post is about loading your game faster. 
 appcache may be great help on this.
-In this post i will explain how i got from 2.4mbyte to 0byte of download in 5min of work.
-It provides faster access to your users, and less bandwidth cost to you. A well used time :)
+In this post, i will use a little game of mine called
+['Marble Labyrinth'](http://jeromeetienne.github.com/demo.poollabyrinth/)
+as an example to show how i got from 2.4mbyte to 0byte of download in 5min of work.
+appcache provides faster access to your users, and less bandwidth cost to you. A well used time :)
 
-# What Is Appcache
+<center>
+  <iframe width="425" height="349" src="http://www.youtube.com/embed/gnVfqfjXxmM" frameborder="0" allowfullscreen></iframe>
+</center>
+
+<!-- more -->
+
+### What Is Appcache
 This is a way to cache the files more efficiently and with support for offline.
 Other already explained it better that i could. 
 ["A Beginner's Guide to Using the Application Cache"](http://www.html5rocks.com/en/tutorials/appcache/beginner/)
@@ -25,10 +33,12 @@ and the [specification](http://www.whatwg.org/specs/web-apps/current-work/multip
 
 ### Let's Get Started
 First, we install a little utility which gonna generate the appcache for us.
-It is called *har2appcache*
+It is called *har2appcache*.
+It is available on a 
+[github repository](https://github.com/jeromeetienne/har2appcache) as usual.
 
 
-```
+```bash
 sudo npm install -g har2appcache
 ```
 
@@ -54,36 +64,48 @@ create a file named ```sample.har```
 and paste the HAR you just copied.
 This is a rather large JSON structure.
 
-### let's generate this file
+### Let's Generate This File
 
-```
+```bash
 har2appcache sample.har > manifest.appcache
 ```
 
-There you got your appcache file, rather easy no ? you just need to 
-change the html tag of your page.
+There you got your appcache file, rather easy no ?
+You may need to edit it a bit to fit your needs,
+e.g. to remove the url of dynamic content.
+Now you just need to change the html tag of your page
+and you are **DONE!**
 
-```
+```html
  <html manifest='manifest.appcache'>
 ```
-
-and you are **DONE!**
 
 ### Smooth Workflow
 appcache is so efficient to cache that it may become hard to disable it :)
 When the page load, the browser will check if ```manifest.appcache``` has changed.
 If there is no update, it won't reload what has been cached, not even the original HTML page.
-It may be bothering while your develop. Personnaly, i simply rename the file during 
-developement and it does the job.
+It may be bothering while your develop. 
+Personnaly, i rename the file during developement.
 
-```
+```bash
 mv manifest.appcache manifest.appcache.dev
 ```
 
+and comment the attribute in the html.
+
+```html
+<!-- <html manifest='manifest.appcache'> -->
+<html>
+```
+
+It does the job smoothly.
+ 
 ### Conclusion
 With this technic, you gain a lot of time to download.
 So Your user got faster access and you get less bandwidth cost.
-A nice win-win situation :)
+A nice win-win situation! All that in 5min top. It definitly worth it.
+
+That's all for today, have fun :)
 
 
 
