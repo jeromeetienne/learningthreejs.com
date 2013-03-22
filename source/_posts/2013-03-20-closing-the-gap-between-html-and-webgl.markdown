@@ -6,13 +6,18 @@ comments: true
 categories: 
 ---
 
+TODO make a three.js example for it
 
-## closing the gap between html and webgl or how to include actual webpages in webgl
+then comment it here
+
+
+## or how to include actual webpages in webgl
 
 
 ## how to do it.
 * how to code it in three.js
 * not tquery
+* code an examples
 
 ## how is it different from what existed before ?
 
@@ -21,17 +26,22 @@ The first one is to put the DOM element element in front of WebGL canvas, or beh
 The second is to do a screenshot of DOM element and to use it as texture.
 Unfortunatly both got serious issues. Let's see...
 
-### playing with domElement ordering
-* you can put the dom element in front of the canvas
-* then when something appears on front of it in the scene, it looks buggy
-* (do screenshot of minecraft close to the screen, then in front, then behind)
-* so i put the dome element behind the canvas ?
-* well unfortunatly it doesnt work either
-* you can the same kind of bug but in the opposite direction
-* ok ok so what about i take a screenshot of the dom element and use it as normal texture
-* well not that simple.
+### Playing With DOM Element Ordering
+* If you play with DOM element ordering, you got only 2 possibilities.
+* Either you put it in front of the canvas.
+* But then when something appears on front of it in the scene, it looks buggy to the user.
+* Look on the right, the first image looks ok. but when the character 
+should in front of the screen,  it appears behind...
+* (TODO do screenshot of minecraft close to the screen, then in front, then behind)
+* So we should put the DOM element behind the canvas ?
+* well unfortunatly it doesnt work either.
+* you can the same kind of bug but in the opposite direction.
+* TODO put some screenshot
 
-### Screenshot of html content
+OK... so what about i take a screenshot of the DOM element and use it as normal texture.
+Well not that simple.
+
+### Screenshot Of HTML Content
 First, it isn't possible to take a screenshot of a dom element if you follow 
   [w3c specifications](http://www.w3.org/TR/).
 This is [for security reasons](https://code.google.com/p/chromium/issues/detail?id=81126#c9).
@@ -60,7 +70,7 @@ But most of all, you can't interact with an image as you do with a html page.
   when the window is resized.
   The page can not be dynamic. so no live update, no ajax, none of that.
 
-## what is the potential of it
+## how far can we go ?
 * able to integrate any DOM in your 3d scene.
 * thru iframe one can include any third party page (assuming they are ok with it)
 * video players
@@ -77,22 +87,31 @@ You can't have
 [stylesheet](http://en.wikipedia.org/wiki/Style_sheet_\(web_development\))
 to change canvas content
 You can't put dom element inside your canvas. 
-Those two doesnt talk to each other
+Those two doesnt talk to each other.
 
-## what are the limitation
-* browser bugs
-* it only appears as a part of 3d... but this remains plain DOM
-* doesnt benefit from webgl specific
-* no lighting on the face
-* no post processing
+## What are the limitations ?
+Unfortunatly it isn't all pink, WebGL and HTML aren't really merged.
+This is only a nice trick. It has some limitations.
+For example, the dom element is rotated using [css 3d](http://example.com/TODO). 
+This is a fairly new technology. 
+so you may hit bugs.
+
+Moreover, it only appears as a part of 3d... but this remains plain DOM.
+So it doesnt benefit from webgl specific display.
+For example, it is impossible to get 
+[post processing](http://example.com/TODO)
+on the dom element.
+Indeed, this technic is applied in 2d on the rendered scene and the DOM element is not in it.
+Additionally the dom element wont share the lighting as the rest of your webgl scene.
+Nevertheless, [css shader](http://example.com/TODO) allows to apply shader on normal DOM element,
+so it may be possible to make a coherent lighting.
+The web is so beautifull nowadays!
 
 ## how does this relate to the rest of my work
-* try to make webgl easier for a while
-* trying to make it closer to what is known by webdevs today
-* copying jQuery API on top of three.js 
-  with [tQuery](http://jeromeetienne.github.com/tquery/)
-* emulating dom events in 3d as you can
-  see [here](http://learningthreejs.com/blog/2012/01/17/dom-events-in-3d-space/)
-* making 3d text act as web links
-  with [linkify](http://learningthreejs.com/blog/2012/02/27/linkify-tquery-extension/)
-* integrating actual web pages inside webgl scene is the continuity of it 
+I love this new trick.
+I'm trying to make webgl easier for while now.
+My strategy has been to make it closer to what webdevs know today,
+copying [jQuery API on top of three.js](http://jeromeetienne.github.com/tquery/),
+emulating [dom events inside webgl scene](http://learningthreejs.com/blog/2012/01/17/dom-events-in-3d-space/)
+or even making [3d text act as web links](http://learningthreejs.com/blog/2012/02/27/linkify-tquery-extension/).
+To integrate actual web pages inside webgl scene definitly matches this same vibe!
