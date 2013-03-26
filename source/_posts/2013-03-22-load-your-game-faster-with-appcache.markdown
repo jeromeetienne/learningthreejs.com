@@ -14,8 +14,9 @@ as an example to show how i got from 2.4mbyte to 0byte of download in 5min of wo
 Appcache provides faster access to your users, and less bandwidth cost to you. A well used time :)
 
 <center>
-  <iframe width="425" height="349" src="http://www.youtube.com/embed/XCVIogjUsQc" frameborder="0" allowfullscreen></iframe>
+  <iframe width="425" height="349" src="http://www.youtube.com/embed/FY4UQpu1ijM" frameborder="0" allowfullscreen></iframe>
 </center>
+
 
 <!-- more -->
 
@@ -55,10 +56,11 @@ To get this HAR file, we will use Chrome.
 
 ### Let's Play With Chrome Devtools
 
+{% img right /data/2013-03-22-load-your-game-faster-with-appcache/devtool-network-small.png %}
+
 So first, you open chrome devtool, go in the network tab and reload your game.
 You press right button of your mouse and you should see 'Copy ALL as HAR'
 in the popup menu.
-
 Then you take your [favorite editor](http://www.sublimetext.com/2),
 create a file named ```sample.har```
 and paste the HAR you just copied.
@@ -99,14 +101,7 @@ and comment the attribute in the html.
 ```
 
 It does the job smoothly.
- 
-### The Walk Thru
 
-Here is a screencast of me doing it in 4min... Hold your socks, it is fast :)
-
-<center>
-  <iframe width="425" height="349" src="http://www.youtube.com/embed/FY4UQpu1ijM" frameborder="0" allowfullscreen></iframe>
-</center>
  
 ### Conclusion
 With this technic, you gain a lot of time to download.
