@@ -4,7 +4,7 @@
   <title><![CDATA[Category: animation | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/animation/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2013-03-26T14:15:32+01:00</updated>
+  <updated>2013-03-26T17:10:21+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -114,11 +114,11 @@ for the fun of it.</p>
 <p><img class="right" src="/data/tweenjs_for_smooth_animation/images/tweenjs-elastic-easeinout.png" title="Elastic EaseInOut" >
 Obviously you can change the ease function too.
 Choose any one you like among <a href="http://sole.github.com/tween.js/examples/03_graphs.html">the 31 from tween.js</a>.
-Let's pick the funny one on the right, it is <code>TWEEN.Easing.Elastic.EaseInOut</code>.</p>
+Let's pick the funny one on the right, it is <code>TWEEN.Easing.Elastic.InOut</code>.</p>
 
 <p>``` javascript</p>
 
-<pre><code>tween.ease(TWEEN.Easing.Elastic.EaseInOut)
+<pre><code>tween.ease(TWEEN.Easing.Elastic.InOut)
 </code></pre>
 
 <p>```</p>
