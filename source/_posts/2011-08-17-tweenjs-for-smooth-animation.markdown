@@ -89,10 +89,10 @@ for the fun of it.
 {% img right /data/tweenjs_for_smooth_animation/images/tweenjs-elastic-easeinout.png Elastic EaseInOut %}
 Obviously you can change the ease function too.
 Choose any one you like among [the 31 from tween.js](http://sole.github.com/tween.js/examples/03_graphs.html).
-Let's pick the funny one on the right, it is ```TWEEN.Easing.Elastic.EaseInOut```.
+Let's pick the funny one on the right, it is ```TWEEN.Easing.Elastic.InOut```.
 
 ``` javascript
-    tween.ease(TWEEN.Easing.Elastic.EaseInOut)
+    tween.ease(TWEEN.Easing.Elastic.InOut)
 ```
 
 ## Let's run!
