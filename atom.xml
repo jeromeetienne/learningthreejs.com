@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2013-03-13T05:16:03+01:00</updated>
+  <updated>2013-03-26T14:15:32+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,128 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Load Your Game Faster with AppCache]]></title>
+    <link href="http://learningthreejs.com/blog/2013/03/22/load-your-game-faster-with-appcache/"/>
+    <updated>2013-03-22T05:31:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2013/03/22/load-your-game-faster-with-appcache</id>
+    <content type="html"><![CDATA[<p>This post is about loading your game faster.
+Appcache may be great help on this.
+In this post, i will use a little game of mine called
+<a href="http://jeromeetienne.github.com/demo.poollabyrinth/">&#8216;Marble Labyrinth&#8217;</a>
+as an example to show how i got from 2.4mbyte to 0byte of download in 5min of work.
+Appcache provides faster access to your users, and less bandwidth cost to you. A well used time :)</p>
+
+<center>
+  <iframe width="425" height="349" src="http://www.youtube.com/embed/FY4UQpu1ijM" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+<!-- more -->
+
+
+<h3>What Is Appcache</h3>
+
+<p>This is a way to cache the files more efficiently and with support for offline.
+Other already explained it better that i could.
+<a href="http://www.html5rocks.com/en/tutorials/appcache/beginner/">&#8220;A Beginner&#8217;s Guide to Using the Application Cache&#8221;</a>
+by
+<a href="https://twitter.com/ebidel">Eric Bidelman</a>
+on
+<a href="http://www.html5rocks.com/">html5rocks</a> is a very nice intro.
+This site got plenty of data about <a href="http://www.html5rocks.com/en/features/offline">offline support</a>.
+Here is a <a href="http://appcachefacts.info/">appcache factsheet</a>
+and the <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#appcache">specification</a>.</p>
+
+<h3>Let&#8217;s Get Started</h3>
+
+<p>First, we install a little utility which gonna generate the appcache for us.
+It is called <em>har2appcache</em>.
+It is available on a
+<a href="https://github.com/jeromeetienne/har2appcache">github repository</a> as usual.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo npm install -g har2appcache
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This one got the advantage to use the info from the HAR file.
+So you will get all the dynamic request too. All the models that
+you load with <code>THREE.OBJMTLLoader</code> or your textures
+with <code>THREE.ImageUtils.loadTexture</code> are all loaded dynamically
+without insertion in the DOM.</p>
+
+<p>btw HAR stands for &#8216;HTTP Archive&#8217;.
+You can read <a href="https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/HAR/Overview.html">HTTP Archive specification</a>
+if you are so inclined.
+To get this HAR file, we will use Chrome.</p>
+
+<h3>Let&#8217;s Play With Chrome Devtools</h3>
+
+<p><img class="right" src="http://learningthreejs.com/data/2013-03-22-load-your-game-faster-with-appcache/devtool-network-small.png"></p>
+
+<p>So first, you open chrome devtool, go in the network tab and reload your game.
+You press right button of your mouse and you should see &#8216;Copy ALL as HAR&#8217;
+in the popup menu.
+Then you take your <a href="http://www.sublimetext.com/2">favorite editor</a>,
+create a file named <code>sample.har</code>
+and paste the HAR you just copied.
+This is a rather large JSON structure.</p>
+
+<h3>Let&#8217;s Generate This File</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>har2appcache sample.har &gt; manifest.appcache
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There you got your appcache file, rather easy no ?
+You may need to edit it a bit to fit your needs,
+e.g. to remove the url of dynamic content.
+Now you just need to change the html tag of your page
+and you are <strong>DONE!</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'> <span class="nt">&lt;html</span> <span class="na">manifest=</span><span class="s">&#39;manifest.appcache&#39;</span><span class="nt">&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Smooth Workflow</h3>
+
+<p>Appcache is so efficient to cache that it may become hard to disable it :)
+When the page load, the browser will check if <code>manifest.appcache</code> has changed.
+If there is no update, it won&#8217;t reload what has been cached, not even the original HTML page.
+It may be bothering while your develop.
+Personnaly, i rename the file during developement.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>mv manifest.appcache manifest.appcache.dev
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and comment the attribute in the html.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="c">&lt;!-- &lt;html manifest=&#39;manifest.appcache&#39;&gt; --&gt;</span>
+</span><span class='line'><span class="nt">&lt;html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It does the job smoothly.</p>
+
+<h3>Conclusion</h3>
+
+<p>With this technic, you gain a lot of time to download.
+So your user got faster access and you get less bandwidth cost.
+A nice win-win situation! All that in 5min top. It definitly worth it.</p>
+
+<p>That&#8217;s all for today, have fun :)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Move a Cube With Your Head or Head-Tracking with WebGL]]></title>
@@ -3443,151 +3565,6 @@ projects :)</p>
 
 <p>That&#8217;s all folks.
 Have fun.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Dom Events in 3D Space]]></title>
-    <link href="http://learningthreejs.com/blog/2012/01/17/dom-events-in-3d-space/"/>
-    <updated>2012-01-17T11:56:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2012/01/17/dom-events-in-3d-space</id>
-    <content type="html"><![CDATA[<p>Ever dreamed of a <strong>object3d.on(&#8216;click&#8217;, function(){ &#8230; });</strong>?</p>
-
-<p>I have :) This post presents a little experiment.
-What about implementing the concept of
-<a href="http://www.w3.org/TR/DOM-Level-2-Events/events.html">dom events</a>
-in 3D Space.
-In a web page, a
-<a href="http://www.quirksmode.org/dom/events/click.html">click</a>
-event is trigger when a user click on a
-<a href="http://en.wikipedia.org/wiki/HTML_element">element</a>.
-This is common knowledge in web development.
-What about having that but in a three.js scene ?
-Maybe people will start do 3D user interface with that, who knows.
-How great would that be ?!?
-So let&#8217;s do that.</p>
-
-<p><a href="http://jeromeetienne.github.com/threex/examples/threex.domevent/">Try it out</a>.
-The demo contains 3 teapots.
-Each bind a different type of events.
-When the events are triggered, teapots are animated.
-Animations are made by <a href="https://github.com/sole/tween.js/">tween.js</a>, a nice js tweening engine
-seen in a <a href="http://learningthreejs.com/blog/2011/08/17/tweenjs-for-smooth-animation/">previous post</a>.
-Play with it to get a feel of it, maybe think about the type of UI you could do in 3D.</p>
-
-<!-- more -->
-
-
-
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/c2KLj8sie9Q?hl=en&fs=1" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-<h2>Let&#8217;s Get Started</h2>
-
-<p>First let&#8217;s include the source.
-You download <a href="https://github.com/jeromeetienne/threex/blob/master/threex.domevent.js">threex.domevent.js</a>.
-and copy this line in your page.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.domevent.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Let&#8217;s Use It</h2>
-
-<iframe src="http://jeromeetienne.github.com/threex/examples/threex.domevent"
-    webkitallowfullscreen mozallowfullscreen allowfullscreen 
-    width="420" height="315" frameborder="0" style="float: right; margin-left: 1em;">
-</iframe>
-
-
-<p>Let&#8217;s say we want do to an action when the user is clicking on a object.
-We just do the following.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">mesh</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
-</span><span class='line'>    <span class="nx">mesh</span><span class="p">.</span><span class="nx">scale</span><span class="p">.</span><span class="nx">x</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This short line means &#8221;<em>if the user click on this mesh, make it twice wider</em>&#8221;.
-Eloquent meaning, short syntax &#8230; pretty sweet in my book.
-If you wish to stop listening just do as usual.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">mesh</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>In fact, there is 2 naming for those functions:
-one is
-<a href="https://developer.mozilla.org/en/DOM/element.addEventListener">addEventListener</a>
-/
-<a href="https://developer.mozilla.org/en/DOM/element.removeEventListener">removeEventListener</a>
-from
-<a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html">HTMLElement</a>
-The other is copied on
-<a href="http://jquery.com/">jQuery</a> api:
-<a href="http://api.jquery.com/on/">on</a>
-/
-<a href="http://api.jquery.com/off/">off</a>
-Pick the one you like. They are doing the same thing.</p>
-
-<p>Always in a effort to stay close to usual pratices, the events name are the same as in DOM.
-The semantic is the same too.
-Currently, the available events are
-<a href="http://www.quirksmode.org/dom/events/click.html">click, dblclick, mouseup, mousedown</a>,
-<a href="http://www.quirksmode.org/dom/events/mouseover.html">mouseover and mouse out</a>.</p>
-
-<h2>Some Internals</h2>
-
-<p><a href="https://github.com/mrdoob/three.js/">three.js</a>
-already has the ability to interact with the mouse.
-You can see it in action
-<a href="http://mrdoob.github.com/three.js/examples/webgl_interactive_cubes.html">here</a>
-and
-<a href="http://mrdoob.github.com/three.js/examples/webgl_interactive_voxelpainter.html">here</a>.
-Internally they use 2 three.js classes:
-<a href="https://github.com/mrdoob/three.js/blob/master/src/core/Projector.js">THREE.Projector</a>
-and
-<a href="https://github.com/mrdoob/three.js/blob/master/src/core/Ray.js">THREE.Ray</a>.
-<a href="https://github.com/jeromeetienne/threex/blob/master/threex.domevent.js">threex.domevent.js</a>
-is an higher level api on top of those functions,
-an interface which mimic dom events,
-something closer to the usual web developper.</p>
-
-<p>It is a nice api. clean, short, object oriented and feels familiar to web developpers.
-A little hichup tho, it modifies THREE.Object3D class.
-It is a global class, so it may be legitimatly considered unclean by some people.
-If this bother you, simply do <code>THREEx.DomEvent.noConflict()</code> and use the
-standalone API. It is documented in the
-<a href="http://jeromeetienne.github.com/threex/docs/threex.domevent.html">annoted source</a>.
-In fact, the object oriented API is just a thin wrapper
-on top of the standalone API.</p>
-
-<h2>Conclusion</h2>
-
-<p>We all know the click event when the user click on a webpage.
-This experiment wishes to provide to web developpers the same experience in 3D.
-I hope people will do crazy innovations by using 3D in user interfaces.
-This is a first version. Maybe we will implement
-<a href="http://www.quirksmode.org/js/events_order.html">bubbling</a>
-in the future, even events like
-<a href="http://www.quirksmode.org/dom/events/change.html">&#8216;change&#8217;</a>.</p>
-
-<p>As usual, <a href="https://github.com/jeromeetienne/threex/blob/master/threex.domevent.js">threex.domevent.js</a>
-source is available on
-<a href="https://github.com/jeromeetienne/threex/blob/master/threex.domevent.js">github</a>.
-There is an
-<a href="http://jeromeetienne.github.com/threex/docs/threex.domevent.html">annoted source</a>
-for implementation details.
-That&#8217;s all folks. Have fun.</p>
 ]]></content>
   </entry>
   

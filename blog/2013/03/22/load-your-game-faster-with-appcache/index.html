@@ -5,13 +5,14 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>a Valentine card in tQuery - Learning Three.js</title>
+  <title>Load Your Game Faster with AppCache - Learning Three.js</title>
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="The tQuery experimentation is going on.
-It is a lot of fun to code :)
-This post is just a short presentation of two plugins currently in incubation: &hellip;">
+  <meta name="description" content="This post is about loading your game faster.
+Appcache may be great help on this.
+In this post, i will use a little game of mine called
+&#8216;Marble &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +21,7 @@ This post is just a short presentation of two plugins currently in incubation: &
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://learningthreejs.com/blog/2012/02/15/valentine-card-in-tquery/">
+  <link rel="canonical" href="http://learningthreejs.com/blog/2013/03/22/load-your-game-faster-with-appcache/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
@@ -82,7 +83,7 @@ This post is just a short presentation of two plugins currently in incubation: &
   
   <header>
     
-      <h1 class="entry-title">A Valentine Card in tQuery</h1>
+      <h1 class="entry-title">Load Your Game Faster With AppCache</h1>
     
     
       <p class="meta">
@@ -98,101 +99,127 @@ This post is just a short presentation of two plugins currently in incubation: &
   
 
 
-<time datetime="2012-02-15T10:21:00+01:00" pubdate data-updated="true">Feb 15<span>th</span>, 2012</time>
+<time datetime="2013-03-22T05:31:00+01:00" pubdate data-updated="true">Mar 22<span>nd</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>The <a href="/blog/categories/tquery/">tQuery</a> experimentation is going on.
-It is a lot of fun to code :)
-This post is just a short presentation of two plugins currently in incubation:
-tquery.text and tquery.shape.
-Yesterday was
-<a href="http://en.wikipedia.org/wiki/Valentine's_Day">valentine day</a>,
-so i thought it would be cool to stay in topic.
-The
-<a href="http://www.youtube.com/watch?v=8EHqrAXcKrY">screencast</a>
-is a live coding of a
-<a href="/data/2012-02-15-valentine-card-in-tquery/">valentine card</a> in tQuery :)</p>
+<div class="entry-content"><p>This post is about loading your game faster.
+Appcache may be great help on this.
+In this post, i will use a little game of mine called
+<a href="http://jeromeetienne.github.com/demo.poollabyrinth/">&#8216;Marble Labyrinth&#8217;</a>
+as an example to show how i got from 2.4mbyte to 0byte of download in 5min of work.
+Appcache provides faster access to your users, and less bandwidth cost to you. A well used time :)</p>
+
+<center>
+  <iframe width="425" height="349" src="http://www.youtube.com/embed/FY4UQpu1ijM" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
 
 <!-- more -->
 
 
+<h3>What Is Appcache</h3>
 
+<p>This is a way to cache the files more efficiently and with support for offline.
+Other already explained it better that i could.
+<a href="http://www.html5rocks.com/en/tutorials/appcache/beginner/">&#8220;A Beginner&#8217;s Guide to Using the Application Cache&#8221;</a>
+by
+<a href="https://twitter.com/ebidel">Eric Bidelman</a>
+on
+<a href="http://www.html5rocks.com/">html5rocks</a> is a very nice intro.
+This site got plenty of data about <a href="http://www.html5rocks.com/en/features/offline">offline support</a>.
+Here is a <a href="http://appcachefacts.info/">appcache factsheet</a>
+and the <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#appcache">specification</a>.</p>
 
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/8EHqrAXcKrY" frameborder="0" allowfullscreen></iframe>
-</center>
+<h3>Let&#8217;s Get Started</h3>
 
-
-<h2>Let&#8217;s Write Text in 3D</h2>
-
-<p>tQuery.text plugin writes text in 3D.
-It is based on
-<a href="https://github.com/mrdoob/three.js/blob/master/src/extras/geometries/TextGeometry.js">TextGeometry</a>.
-Here is a simple example.</p>
+<p>First, we install a little utility which gonna generate the appcache for us.
+It is called <em>har2appcache</em>.
+It is available on a
+<a href="https://github.com/jeromeetienne/har2appcache">github repository</a> as usual.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">tQuery</span><span class="p">.</span><span class="nx">createText</span><span class="p">(</span><span class="s2">&quot;tQuery is Fun!&quot;</span><span class="p">).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">world</span><span class="p">);</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo npm install -g har2appcache
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Let&#8217;s Easily Create Shape</h2>
+<p>This one got the advantage to use the info from the HAR file.
+So you will get all the dynamic request too. All the models that
+you load with <code>THREE.OBJMTLLoader</code> or your textures
+with <code>THREE.ImageUtils.loadTexture</code> are all loaded dynamically
+without insertion in the DOM.</p>
 
-<p><img class="right" src="/data/2012-02-15-valentine-card-in-tquery/images/shape.triangle-small.png"></p>
+<p>btw HAR stands for &#8216;HTTP Archive&#8217;.
+You can read <a href="https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/HAR/Overview.html">HTTP Archive specification</a>
+if you are so inclined.
+To get this HAR file, we will use Chrome.</p>
 
-<p>tQuery shape is made to easily build and
-<a href="http://en.wikipedia.org/wiki/Extrusion">extrude</a>
-shapes in javascript.
-It is based on
-<a href="https://github.com/mrdoob/three.js/blob/master/src/extras/core/Shape.js">THREE.Shape</a>.
-tquery.shape is cool because it uses a API very similar to
-<a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#complex-shapes-(paths)">canvas 2D</a>
-<a href="https://developer.mozilla.org/en/Canvas_tutorial/Drawing_shapes">path</a>.
-This line will build a triangle.</p>
+<h3>Let&#8217;s Play With Chrome Devtools</h3>
+
+<p><img class="right" src="/data/2013-03-22-load-your-game-faster-with-appcache/devtool-network-small.png"></p>
+
+<p>So first, you open chrome devtool, go in the network tab and reload your game.
+You press right button of your mouse and you should see &#8216;Copy ALL as HAR&#8217;
+in the popup menu.
+Then you take your <a href="http://www.sublimetext.com/2">favorite editor</a>,
+create a file named <code>sample.har</code>
+and paste the HAR you just copied.
+This is a rather large JSON structure.</p>
+
+<h3>Let&#8217;s Generate This File</h3>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">tQuery</span><span class="p">.</span><span class="nx">createShape</span><span class="p">().</span><span class="nx">moveTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">).</span><span class="nx">lineTo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">).</span><span class="nx">lineTo</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">).</span><span class="nx">lineTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>har2appcache sample.har &gt; manifest.appcache
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p><img class="left" src="/data/2012-02-15-valentine-card-in-tquery/images/shape.fish-small.png">
-<img class="right" src="/data/2012-02-15-valentine-card-in-tquery/images/shape.smiley-small.png"></p>
-
-<p>Some shapes are already available, like the triangle above, or a fish, smiley
-and a heart. Here is a smiley.</p>
+<p>There you got your appcache file, rather easy no ?
+You may need to edit it a bit to fit your needs,
+e.g. to remove the url of dynamic content.
+Now you just need to change the html tag of your page
+and you are <strong>DONE!</strong></p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">shape</span> <span class="o">=</span> <span class="nx">tQuery</span><span class="p">.</span><span class="nx">createSmileyShape</span><span class="p">();</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'> <span class="nt">&lt;html</span> <span class="na">manifest=</span><span class="s">&#39;manifest.appcache&#39;</span><span class="nt">&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>The valentince card</h2>
+<h3>Smooth Workflow</h3>
 
-<p>Last but not least, the valentine card!
-<a href="/data/2012-02-15-valentine-card-in-tquery/">Try it out</a>!
-It uses the plugins above to build an animated valentine card.
-It is done with less than 20lines&#8230;
-tQuery seems to produce short code.</p>
+<p>Appcache is so efficient to cache that it may become hard to disable it :)
+When the page load, the browser will check if <code>manifest.appcache</code> has changed.
+If there is no update, it won&#8217;t reload what has been cached, not even the original HTML page.
+It may be bothering while your develop.
+Personnaly, i rename the file during developement.</p>
 
-<iframe src="/data/2012-02-15-valentine-card-in-tquery/"
-    webkitallowfullscreen mozallowfullscreen allowfullscreen 
-    width="100%" height="349" frameborder="0">
-</iframe>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>mv manifest.appcache manifest.appcache.dev
+</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Conclusion</h2>
+<p>and comment the attribute in the html.</p>
 
-<p>Today we saw 2 plugins still in progress.
-tQuery experiment seems to go well for now.
-The code is moving at fast pace.
-I am currently experimenting with <a href="http://requirejs.org/">require.js</a>
-to automatically resolve dependancies between plugins.
-What&#8217;s next ? likely a series with a step by step on how to build a tunnel game.</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="c">&lt;!-- &lt;html manifest=&#39;manifest.appcache&#39;&gt; --&gt;</span>
+</span><span class='line'><span class="nt">&lt;html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>That&#8217;s all folks! have fun :)</p>
+
+<p>It does the job smoothly.</p>
+
+<h3>Conclusion</h3>
+
+<p>With this technic, you gain a lot of time to download.
+So your user got faster access and you get less bandwidth cost.
+A nice win-win situation! All that in 5min top. It definitly worth it.</p>
+
+<p>That&#8217;s all for today, have fun :)</p>
 </div>
 
 
@@ -215,21 +242,15 @@ What&#8217;s next ? likely a series with a step by step on how to build a tunnel
   
 
 
-<time datetime="2012-02-15T10:21:00+01:00" pubdate data-updated="true">Feb 15<span>th</span>, 2012</time>
+<time datetime="2013-03-22T05:31:00+01:00" pubdate data-updated="true">Mar 22<span>nd</span>, 2013</time>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>, <a class='category' href='/blog/categories/tquery/'>tquery</a>
-  
-</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2012/02/15/valentine-card-in-tquery/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2012/02/15/valentine-card-in-tquery/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2013/03/22/load-your-game-faster-with-appcache/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2013/03/22/load-your-game-faster-with-appcache/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -240,10 +261,8 @@ What&#8217;s next ? likely a series with a step by step on how to build a tunnel
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/02/08/extension-system-for-three-js/" title="Previous Post: An Extension System for three.js">&laquo; An Extension System for three.js</a>
+        <a class="basic-alignment left" href="/blog/2013/03/12/move-a-cube-with-your-head/" title="Previous Post: Move a Cube With Your Head or Head-Tracking with WebGL">&laquo; Move a Cube With Your Head or Head-Tracking with WebGL</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/02/27/linkify-tquery-extension/" title="Next Post: Linkify, a tQuery Extension">Linkify, a tQuery Extension &raquo;</a>
       
     </p>
   </footer>
@@ -326,8 +345,8 @@ What&#8217;s next ? likely a series with a step by step on how to build a tunnel
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://learningthreejs.com/blog/2012/02/15/valentine-card-in-tquery/';
-        var disqus_url = 'http://learningthreejs.com/blog/2012/02/15/valentine-card-in-tquery/';
+        var disqus_identifier = 'http://learningthreejs.com/blog/2013/03/22/load-your-game-faster-with-appcache/';
+        var disqus_url = 'http://learningthreejs.com/blog/2013/03/22/load-your-game-faster-with-appcache/';
         var disqus_script = 'embed.js';
       
     (function () {

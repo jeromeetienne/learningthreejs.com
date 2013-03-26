@@ -9,12 +9,10 @@
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="This post is about
-Web Audio API.
-It is a new HTML5 api which provide great controls on the audio layer.
-It is much better than the
-audio tag.
-It is &hellip;">
+  <meta name="description" content="This post presents
+WebGL Meeting,
+a very simple WebGL application to do webrtc call.
+It is a follow up of &#8220;Fun with live video on webgl&#8221 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +80,70 @@ It is &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/04/12/video-conference-on-top-of-webgl/">Video Conference on Top of WebGL</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-12T13:20:00+02:00" pubdate data-updated="true">Apr 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post presents
+<a href="http://webglmeeting.appspot.com">WebGL Meeting</a>,
+a very simple WebGL application to do webrtc call.
+It is a follow up of <a href="/blog/2012/02/07/live-video-in-webgl/">&#8220;Fun with live video on webgl&#8221;</a>.
+It was presenting how to use the WebCam using
+<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">WebRTC getUserMedia()</a>.
+This one goes one step further and make an actual
+<a href="http://www.webrtc.org/">WebRTC call</a>
+displayed in a WebGL scene.</p>
+
+<p>In fact, it has already been done a month ago! As you can see
+<a href="http://www.youtube.com/watch?v=em5RWcstfI0&amp;feature=watch_response">here</a>
+:)
+The video from the first post, <a href="http://www.youtube.com/watch?v=vnNihxl3taE">&#8216;being on tv, watching tv&#8217;</a> has been answered
+by <a href="https://plus.google.com/109216128632357967445/posts">Ethan Hugg</a> from cisco.
+My very first video reponse btw! He
+<a href="http://www.youtube.com/watch?v=em5RWcstfI0&amp;feature=watch_response">shows a SIP video call</a>
+using an version of Chromium hacked by
+<a href="https://plus.google.com/102821430095362232437/posts">Suhas Nandakumar</a>.
+Definitly cool stuff!
+<a href="http://webglmeeting.appspot.com">WebGL Meeting</a> is similar but run on unmodified browsers.
+The
+<a href="http://youtu.be/Fjb7xBnxq9k">screencast</a>
+below is short demo of it.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/04/12/video-conference-on-top-of-webgl/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -631,69 +693,6 @@ below is short introduction where i describe the
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/01/17/dom-events-in-3d-space/">Dom Events in 3D Space</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-01-17T11:56:00+01:00" pubdate data-updated="true">Jan 17<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Ever dreamed of a <strong>object3d.on(&#8216;click&#8217;, function(){ &#8230; });</strong>?</p>
-
-<p>I have :) This post presents a little experiment.
-What about implementing the concept of
-<a href="http://www.w3.org/TR/DOM-Level-2-Events/events.html">dom events</a>
-in 3D Space.
-In a web page, a
-<a href="http://www.quirksmode.org/dom/events/click.html">click</a>
-event is trigger when a user click on a
-<a href="http://en.wikipedia.org/wiki/HTML_element">element</a>.
-This is common knowledge in web development.
-What about having that but in a three.js scene ?
-Maybe people will start do 3D user interface with that, who knows.
-How great would that be ?!?
-So let&#8217;s do that.</p>
-
-<p><a href="http://jeromeetienne.github.com/threex/examples/threex.domevent/">Try it out</a>.
-The demo contains 3 teapots.
-Each bind a different type of events.
-When the events are triggered, teapots are animated.
-Animations are made by <a href="https://github.com/sole/tween.js/">tween.js</a>, a nice js tweening engine
-seen in a <a href="/blog/2011/08/17/tweenjs-for-smooth-animation/">previous post</a>.
-Play with it to get a feel of it, maybe think about the type of UI you could do in 3D.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/01/17/dom-events-in-3d-space/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -711,6 +710,10 @@ Play with it to get a feel of it, maybe think about the type of UI you could do 
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/03/22/load-your-game-faster-with-appcache/">Load Your Game Faster with AppCache</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/03/12/move-a-cube-with-your-head/">Move a Cube With Your Head or Head-Tracking with WebGL</a>
       </li>
     
@@ -724,10 +727,6 @@ Play with it to get a feel of it, maybe think about the type of UI you could do 
     
       <li class="post">
         <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/21/sport-car-in-webgl/">Sport Car in WebGL</a>
       </li>
     
   </ul>
