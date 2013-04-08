@@ -32,6 +32,28 @@ This site got plenty of data about [offline support](http://www.html5rocks.com/e
 Here is a [appcache factsheet](http://appcachefacts.info/)
 and the [specification](http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#appcache).
 
+### In The Rought
+
+How to generate an appcache file without hassle ?
+Something which support dynamic stuff like xhr ? It is surprisingly easy.
+
+* *Step 1:* Do 'Copy ALL as HAR' in chrome devtools network
+* *Step 2:* in js console, do 'var har = ' and there you paste it
+* *Step 3:* generate teh appcache file with the following javascript
+
+```
+console.log('CACHE MANIFEST\n\nCACHE:');
+har.log.entries.forEach(function(entry){ console.log(entry.request.url); });
+console.log('\nNETWORK:\n*');
+```
+
+Simple no ? Well unfortunatly even a basic har file is large.
+The one for 
+['Marble Labyrinth'](http://jeromeetienne.github.com/demo.poollabyrinth/)
+is more than 7000 lines long. So i wrote a little tool to ease up the process
+on large project.
+
+
 ### Let's Get Started
 First, we install a little utility which gonna generate the appcache for us.
 It is called *har2appcache*.
