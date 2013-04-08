@@ -92,7 +92,7 @@ Choose any one you like among [the 31 from tween.js](http://sole.github.com/twee
 Let's pick the funny one on the right, it is ```TWEEN.Easing.Elastic.InOut```.
 
 ``` javascript
-    tween.ease(TWEEN.Easing.Elastic.InOut)
+    tween.easing(TWEEN.Easing.Elastic.InOut)
 ```
 
 ## Let's run!

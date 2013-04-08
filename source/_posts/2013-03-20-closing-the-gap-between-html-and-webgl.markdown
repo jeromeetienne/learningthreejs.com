@@ -20,6 +20,49 @@ then comment it here
 * not tquery
 * code an examples
 
+### setup a renderer for css 3d
+```
+// create the rendererCSS
+var rendererCSS = new THREE.CSS3DRenderer();
+rendererCSS.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( rendererCSS.domElement );
+```
+
+* TODO link to threex.resize
+
+### setup a scene for css3d
+
+```
+var sceneCSS  = new THREE.Scene();
+```
+
+```
+THREEx.WindowResize.bind(rendererCSS, camera; 
+```
+
+### create a plane in webgl scene
+
+```
+var geometry = new THREE.Plane(10, 10);
+var material = new THREE.MeshBasicMaterial();
+material.color.set('black')
+material.opacity = 0;
+material.blending  = THREE.NoBlending;
+var mesh = new THREE.Mesh(geometry, material);
+```
+
+### create a plane in css3d scene
+
+```
+var domElement = document.createElement('div');
+```
+
+```
+var objectCSS   = new THREE.CSS3DObject( domElement );
+sceneCSS.add( objectCSS );
+```
+
+
 ## how is it different from what existed before ?
 
 Well before for all i know, there were 2 ways to mix dom element inside webgl:
