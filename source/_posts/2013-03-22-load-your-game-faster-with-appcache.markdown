@@ -43,7 +43,7 @@ Something which support dynamic stuff like xhr ? It is surprisingly easy.
 
 ```
 console.log('CACHE MANIFEST\n\nCACHE:');
-har.log.entries.forEach(function(entry){ console.log(entry.request.url); });
+har.log.entries.forEach(function(entry){ console.log(entry.request.url) });
 console.log('\nNETWORK:\n*');
 ```
 
