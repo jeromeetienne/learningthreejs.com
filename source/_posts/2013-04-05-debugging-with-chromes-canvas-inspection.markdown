@@ -3,7 +3,7 @@ layout: post
 title: "Debugging With Chrome's Canvas Inspection"
 date: 2013-04-05 09:15
 comments: true
-categories: 
+categories: three.js debug chrome
 ---
 
 This post will present to you how to debug your webgl with  chrome's canvas inspection.
@@ -13,7 +13,7 @@ So it helps if you actually know some raw WebGL :)
 In anycase you can see it being replayed call by calls, which is uber cool.
 
 <center>
-  <iframe width="425" height="349" src="http://www.youtube.com/embed/FY4UQpu1ijM" frameborder="0" allowfullscreen></iframe>
+  <iframe width="425" height="349" src="http://www.youtube.com/embed/837O1YloCRc" frameborder="0" allowfullscreen></iframe>
 </center>
 
 <!-- more -->
@@ -65,9 +65,9 @@ Watch for the draw calls, they got huge overhead and should be limited if possib
 As it is pure webgl, and not at three.js level, it helps if you know raw WebGL. For that, i suggest 
 you to read a book on the subject. Personnaly i 
 like 
-["WebGL Beginner's Guide"](http://example.com)
+["WebGL Beginner's Guide"](http://www.amazon.com/WebGL-Beginners-Guide-Diego-Cantor/dp/184969172X)
 by
-[Brandon Jones](http://example.com).
+[Brandon Jones](http://blog.tojicode.com/).
 WebGL may be complex at times, and having cool debug tools help being more efficient.
 You can see the excelent paul irish doing a 
 [presentation](http://www.youtube.com/watch?v=FY5iiuQRyEE&feature=youtu.be&t=8m23s)
