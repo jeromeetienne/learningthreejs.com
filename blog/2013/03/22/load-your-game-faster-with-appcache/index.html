@@ -102,7 +102,19 @@ In this post, i will use a little game of mine called
 
 <time datetime="2013-03-22T05:31:00+01:00" pubdate data-updated="true">Mar 22<span>nd</span>, 2013</time>
         
-      </p>
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2013/03/22/load-your-game-faster-with-appcache/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2013/03/22/load-your-game-faster-with-appcache/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
     
   </header>
 
@@ -136,6 +148,32 @@ on
 This site got plenty of data about <a href="http://www.html5rocks.com/en/features/offline">offline support</a>.
 Here is a <a href="http://appcachefacts.info/">appcache factsheet</a>
 and the <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#appcache">specification</a>.</p>
+
+<h3>In The Rought</h3>
+
+<p>How to generate an appcache file without hassle ?
+Something which support dynamic stuff like xhr ? It is surprisingly easy.</p>
+
+<ul>
+<li><em>Step 1:</em> Do &#8216;Copy ALL as HAR&#8217; in chrome devtools network</li>
+<li><em>Step 2:</em> in js console, do &#8216;var har = &#8217; and there you paste it</li>
+<li><em>Step 3:</em> generate teh appcache file with the following javascript</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>console.log('CACHE MANIFEST\n\nCACHE:');
+</span><span class='line'>har.log.entries.forEach(function(entry){ console.log(entry.request.url) });
+</span><span class='line'>console.log('\nNETWORK:\n*');</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Simple no ? Well unfortunatly even a basic har file is large.
+The one for
+<a href="http://jeromeetienne.github.com/demo.poollabyrinth/">&#8216;Marble Labyrinth&#8217;</a>
+is more than 7000 lines long. So i wrote a little tool to ease up the process
+on large project.</p>
 
 <h3>Let&#8217;s Get Started</h3>
 
@@ -249,7 +287,7 @@ A nice win-win situation! All that in 5min top. It definitly worth it.</p>
 
     </p>
     
-      <div class="sharing">
+      <div class="sharing" style='text-align: right;'>
   
   <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2013/03/22/load-your-game-faster-with-appcache/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2013/03/22/load-your-game-faster-with-appcache/" >Tweet</a>
   
@@ -264,6 +302,8 @@ A nice win-win situation! All that in 5min top. It definitly worth it.</p>
       
         <a class="basic-alignment left" href="/blog/2013/03/12/move-a-cube-with-your-head/" title="Previous Post: Move a Cube With Your Head or Head-Tracking with WebGL">&laquo; Move a Cube With Your Head or Head-Tracking with WebGL</a>
       
+      
+        <a class="basic-alignment right" href="/blog/2013/04/05/debugging-with-chromes-canvas-inspection/" title="Next Post: Debugging With Chrome's Canvas Inspection">Debugging With Chrome's Canvas Inspection &raquo;</a>
       
     </p>
   </footer>
@@ -284,6 +324,10 @@ A nice win-win situation! All that in 5min top. It definitly worth it.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/04/05/debugging-with-chromes-canvas-inspection/">Debugging With Chrome's Canvas Inspection</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/03/22/load-your-game-faster-with-appcache/">Load Your Game Faster with AppCache</a>
       </li>
     
@@ -297,10 +341,6 @@ A nice win-win situation! All that in 5min top. It definitly worth it.</p>
     
       <li class="post">
         <a href="/blog/2012/06/05/3d-physics-with-three-js-and-physijs/">3D Physics With Three.js and Physijs</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/29/three-js-sportcar-on-ios/">Three.js Sport Car on iOS at 40fps</a>
       </li>
     
   </ul>

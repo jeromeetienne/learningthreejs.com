@@ -4,7 +4,7 @@
   <title><![CDATA[Category: three.js | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/three-dot-js/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2013-04-01T14:35:06+02:00</updated>
+  <updated>2013-04-16T15:04:10+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,89 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Debugging With Chrome's Canvas Inspection]]></title>
+    <link href="http://learningthreejs.com/blog/2013/04/05/debugging-with-chromes-canvas-inspection/"/>
+    <updated>2013-04-05T09:15:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2013/04/05/debugging-with-chromes-canvas-inspection</id>
+    <content type="html"><![CDATA[<p>This post will present to you how to debug your webgl with  chrome's canvas inspection.
+This is an experimental feature available in chrome devtools.
+It gives you all the WebGL calls which are done in your webgl scene.
+So it helps if you actually know some raw WebGL :)
+In anycase you can see it being replayed call by calls, which is uber cool.</p>
+
+<center>
+  <iframe width="425" height="349" src="http://www.youtube.com/embed/837O1YloCRc" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+<!-- more -->
+
+
+<h2>Let's get started</h2>
+
+<p>As it is an experimental feature, you first need to enable it.
+First let's enable devtool experiment: enter "chrome://flags" url
+in your chrome location bar. There you enable "Enable Developer Tools experiments"
+and relaunch chrome.</p>
+
+<p><img src="/data/2013-04-05-debugging-with-chromes-canvas-inspection/screenshots/devtools-enable-experiments.png"></p>
+
+<p><img class="right" src="/data/2013-04-05-debugging-with-chromes-canvas-inspection/screenshots/devtools-settings-gear.png" width="160" height="120"></p>
+
+<p>Now that you got the Developer Tools Experiments enabled, let's enable
+'Canvas Inpection' in particular. Click on the little gear on bottom right
+of devtools. The one you can see on the right.</p>
+
+<p><img src="/data/2013-04-05-debugging-with-chromes-canvas-inspection/screenshots/devtools-settings-panel.png"></p>
+
+<p>It will open the settings panel you see above.
+Now, select experiment from the left menu, enable 'Canvas Inpection' and you are done.
+Rather clumsy but this is an experiment after all :)</p>
+
+<h2>How to use it</h2>
+
+<p>Now that it is enabled, let's see how to use it.
+First let's go on the "profile" tab of devtools. We can see "Capture Canvas Frame", this is the one we gonna use.</p>
+
+<p><img src="/data/2013-04-05-debugging-with-chromes-canvas-inspection/screenshots/devtools-capture-canvas-frame.png"></p>
+
+<p>Let's enable it and load a page with WebGL.
+As an example, i will use <a href="http://mmo3d.jit.su/montains">mmo3d</a>. It is a multiplayer game
+in webgl. It is very hackable so other people can easily do their own world. Let's talk about
+that later. For now, lets click 'start' and capture a frame :)</p>
+
+<h2>Captured frames</h2>
+
+<p>After that you should obtain the following. You got the actual game on the left.
+and you recognise developer tools on the right.</p>
+
+<p><img src="/data/2013-04-05-debugging-with-chromes-canvas-inspection/screenshots/devtools-capture-example-resized.png"></p>
+
+<p>For every frame you capture, you will get a trace log of each webgl call which has been done during this frame.
+Above there is a replay window where you can actually see the scene as it is drawn step by step.
+Thus you can check the order of your calls. It can be usefull when you debug transparency for example.
+Watch for the draw calls, they got huge overhead and should be limited if possible.</p>
+
+<h2>Conclusion</h2>
+
+<p>As it is pure webgl, and not at three.js level, it helps if you know raw WebGL. For that, i suggest
+you to read a book on the subject. Personnaly i
+like
+<a href="http://www.amazon.com/WebGL-Beginners-Guide-Diego-Cantor/dp/184969172X">"WebGL Beginner's Guide"</a>
+by
+<a href="http://blog.tojicode.com/">Brandon Jones</a>.
+WebGL may be complex at times, and having cool debug tools help being more efficient.
+You can see the excelent paul irish doing a
+<a href="http://www.youtube.com/watch?v=FY5iiuQRyEE&amp;feature=youtu.be&amp;t=8m23s">presentation</a>
+what you can do with canvas inspector.</p>
+
+<p>That's all folks. Have Fun!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Move a Cube With Your Head or Head-Tracking with WebGL]]></title>
@@ -997,318 +1080,6 @@ walk through, we got very short code. I like this, it makes it easier to underst
 and learn. WebGL for All!! :)</p>
 
 <p>That's all folks! have fun.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sound Visualisation: a Vuemeter in WebGL]]></title>
-    <link href="http://learningthreejs.com/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl/"/>
-    <updated>2012-05-08T10:32:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl</id>
-    <content type="html"><![CDATA[<p>This post is about producing a 3D Vuemeter for real time sound.
-We gonna walk thru the code of a
-<a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a> example.
-This example will show you how to create a WebGL vuemetter with
-<a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a>.
-It should be simple to understand, only 40-lines of javascript.
-<a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a> is a web audio library
-for game. We gonna use it to reach <a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">Web Audio API</a>.
-We gonna use <a href="https://github.com/jeromeetienne/tquery">tQuery</a>
-to reach <a href="http://github.com/mrdoob/three.js/">three.js 3D engine</a>.</p>
-
-<p> <code>webaudio.js</code> has been first coded as a tQuery plugin.
-You can find a <a href="http://learningthreejs.com/blog/2012/03/20/sounds-for-more-realistic-3d/">post about it</a>
-on <a href="http://learningthreejs.com">learningthreejs</a> blog.
-But this technology is so nice, it deserved its <a href="https://github.com/jeromeetienne/webaudio.js">own repository</a>.
-The library gained in flexibility in the process: It is now possible to display histogram in canvas2D
-of simply play sound, with no 3D at all :) see <a href="http://jeromeetienne.github.com/webaudio.js/#examples">here</a> for a list of
-webaudio.js examples.</p>
-
-<p><a href="http://jeromeetienne.github.com/webaudio.js/examples/histotquery.html">Try the demo</a>.
-This is the result that we gonna build together.
-Below is a small <a href="http://www.youtube.com/watch?v=--Gv2EI2a-U">screencast</a> of me presenting the code.</p>
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/--Gv2EI2a-U" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-
-
-<!-- more -->
-
-
-<h2>Background Knowledge</h2>
-
-<p><strong>Web Audio API</strong> is aimed for games and based on openAL.
-Its API is real nice tho. It is Efficient and flexible.
-It is efficient because most processing happen in native code,
-still you configure it in js, your favorite language :)
-It is flexible as it is based on a routing concept which
-give you great controls on the sounds you play.</p>
-
-<p>You can find
-<a href="http://www.html5rocks.com/en/tutorials/#technology:multimedia">many good tutorials</a>
-on the matter on
-<a href="http://www.html5rocks.com/en/">html5rocks</a>.
-I recently did a presentation at <a href="http://www.musichackparis.org">musichackparis</a> on Web Audio API.
-If you want to know more, slides are <a href="http://jeromeetienne.github.com/slides/webaudioapi">here</a>.
-This API is available on WebKit based browser, so safari and chrome and its derivative.
-Unfortunatly this API isn't compatible with major webgl browsers e.g. firefox and opera.
-The <strong>Web Audio API</strong> is real nice tho. Efficient flexible
-Sound is still the poor lone child of the web :(
-Well let's have fun with what we have.</p>
-
-<h2>Let's get started</h2>
-
-<p>Ok the very begining is real simple. We init a basic html page.
-Then we include the dependancies in javascript.
-We include <a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a> to handle the sound playing and analysis.
-Then we just have to include <a href="https://github.com/jeromeetienne/tquery">tquery</a>.
-tquery-bundle.js is <a href="https://github.com/jeromeetienne/tquery">tquery</a>
-bundled with
-<a href="http://github.com/mrdoob/three.js/">three.js</a> in a single file for convenience.</p>
-
-<p>```</p>
-
-<pre><code>&lt;!doctype html&gt;&lt;title&gt;webaudio example: histo3d&lt;/title&gt;
-&lt;script src="../build/webaudio.js"&gt;&lt;/script&gt;
-&lt;script src="vendor/tquery/tquery-bundle.js"&gt;&lt;/script&gt;
-&lt;body&gt;&lt;script&gt;
-</code></pre>
-
-<p>```</p>
-
-<h2>Let's Code in JS</h2>
-
-<p>First we gonna intenciate <code>WebAudio</code>. This will initialize the layer.
-It will create the <a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html#AudioNode-section">AudioNode</a>`s
-for the end of the chain.
-By default it contains a
-<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html#AudioGainNode">gainNode</a>
-and a
-<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html#DynamicsCompressorNode">compressorNode</a>.
-The gainNode is used to tune the volume. and the compressNode to smooth the peaks we could
-hit in the sound.</p>
-
-<p>```</p>
-
-<pre><code>var webaudio    = new WebAudio();
-</code></pre>
-
-<p>```</p>
-
-<p>Now that we go webaudio available, let's use it to create the sound we gonna play.
- <code>.createSound()</code> will create a <code>WebAudio.Sound</code>. Then we <code>.load()</code> it
-from this url 'sounds/perfume.mp3'. The callback will be notified as soon as the sound
-is loaded. Then we simply start to play it. Don't forget to get <code>.loop(true)</code>
-thus the sound will loop forever.</p>
-
-<p>```</p>
-
-<pre><code>var sound   = webaudio.createSound().load('sounds/perfume.mp3', function(sound){
-    sound.loop(true).play();
-});
-</code></pre>
-
-<p>```</p>
-
-<h2>Initialize the 3D World</h2>
-
-<p>First we initialize the world in 3D.
-With <code>tQuery.createWorld()</code>, we create a <code>tQuery.World</code>.
-With <code>.boilerplate()</code>, we setup a boilerplate on this world. A boilerplate is
-a fast way to get you started on the right foot. It is the
-<a href="http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/">learningthreejs boilerplate for three.js</a>
-With <code>.start()</code>, we start the rendering loop. So from now on, the world scene
-gonna be rendered periodically, typically 60time per seconds.</p>
-
-<p>```</p>
-
-<pre><code>var world   = tQuery.createWorld().boilerplate().start();
-</code></pre>
-
-<p>```</p>
-
-<p>We Change the background color. This confusing line ensure the background of the
-3D scene will be rendered as <code>0x000000</code> color, aka black.</p>
-
-<p>```</p>
-
-<pre><code>world.renderer().setClearColorHex( 0x000000, world.renderer().getClearAlpha() );
-</code></pre>
-
-<p>```</p>
-
-<p>Here we setup the lights of our scene. This is a key factor for the look and feel
-of your scene. We add a ambient light and 2 directional lights.</p>
-
-<p>```</p>
-
-<pre><code>tQuery.createAmbientLight().addTo(world).color(0x888888);
-tQuery.createDirectionalLight().addTo(world).position(+1,+1,1).color(0x88FF88);
-tQuery.createDirectionalLight().addTo(world).position(-1,-1, 1).color(0x8888FF);
-</code></pre>
-
-<p>```</p>
-
-<h2>Some constants</h2>
-
-<p>First we initialize <code>nBar</code> to store number of bars in our 3D vuemeter.
-This number MUST be odd, thus the vuemeter is symteric with the middle</p>
-
-<p>```</p>
-
-<pre><code>var nBar    = 41;
-console.assert(nBar%2, "nBar MUST be a odd number.")
-</code></pre>
-
-<p>```</p>
-
-<p>Now we need to compute the width of each 3D bar. The whole vuemeter is
- 80 wide. So each bar is <code>80/nBar</code> wide.</p>
-
-<p>```</p>
-
-<pre><code>var barW    = 80/nBar;
-</code></pre>
-
-<p>```</p>
-
-<p>We create an array <code>bars3d</code>. We will use it to store the object3D
-for all bars of the  histogram.</p>
-
-<p>```</p>
-
-<pre><code>var bars3d  = [];
-</code></pre>
-
-<p>```</p>
-
-<h2>Build the 3D VueMeter</h2>
-
-<p>First we create the container group3D which gonna regroup all the bar3D. It is the
-container of the whole 3D Vuemeter</p>
-
-<p>```</p>
-
-<pre><code>var group3d = tQuery.createObject3D().scale(1/20).addTo(world);
-</code></pre>
-
-<p>```</p>
-
-<p>We gonna build each bar and add it to <code>group3d</code>.
-We loop to create <code>nBar</code> with <code>tQuery.createCube()</code>. In fact a bar
-is a rectangular box, so like a cube with different dimensions.
-a bar got a width of <code>barW</code>, an height of 10 and a depth of 5.
-The material is a simple <a href="http://en.wikipedia.org/wiki/Lambertian_reflection">lambert</a>.
-Once the bar is create, we add it to <code>group3d</code> and set it to the correct
-position in space.
-We push every bar3d into <code>bars3d</code> for future reference.</p>
-
-<p>```</p>
-
-<pre><code>for(var i = 0; i &lt; nBar; i++){
-    var bar3d   = tQuery.createCube(barW, 10, 5, new THREE.MeshLambertMaterial({
-        ambient : 0x888888,
-        color   : 0xFFFFFF
-    }));
-    bar3d.addTo(group3d).position((i-nBar/2)*barW, 0, 0);
-    bars3d.push(bar3d);
-}
-</code></pre>
-
-<p>```</p>
-
-<h2>Update Vuemeter From Sound Analyser</h2>
-
-<p>Here we hook a function to tQuery rendering loop, <code>tQuery.Loop</code>. Thus
-this function gonna be executed everytime our 3D scene is rendered.
-if the sound isnt yet loaded, do nothing.</p>
-
-<p>```</p>
-
-<pre><code>world.loop().hook(function(){
-    if( sound.isPlayable() === false )  return;
-</code></pre>
-
-<p>```</p>
-
-<p>build the histogram of the sound based on
-<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html#RealtimeAnalyserNode">RealtimeAnalyserNode</a>
- <code>.getByteFrequencyData()</code></p>
-
-<p>```</p>
-
-<pre><code>var nBarHalf    = Math.ceil(nBar/2)
-var histo   = sound.makeHistogram(nBarHalf);
-</code></pre>
-
-<p>```</p>
-
-<p>We gonna loop over each bar3D of our vuemeter. We gonna update
-each of them based on the sound histogram we just computed.</p>
-
-<p>```</p>
-
-<pre><code>bars3d.forEach(function(bar3d, barIdx){
-</code></pre>
-
-<p>```</p>
-
-<p>We need to determine which value in the histogram match this vuemeter bar.
-As our vuemeter is symetric, the vuemeter bar on the far left got the same
-histogram value as the one on the far right. This make this computation
-a bit confusing.</p>
-
-<p>```</p>
-
-<pre><code>        var histoIdx        = barIdx &lt; nBarHalf ? nBarHalf-1-barIdx : barIdx - nBarHalf;
-</code></pre>
-
-<p>```</p>
-
-<p>Now we need to compute the height of the vuemeter bar based on histogram value.
-This is simple scaling from one to the other: vuemeter height === histo height / 256</p>
-
-<p>```</p>
-
-<pre><code>        var height      = histo[histoIdx] / 256;
-</code></pre>
-
-<p>```</p>
-
-<p>Now that we computed all that, we update the <code>bar3d</code>. We update <code>.scale.y</code>
-to change its size and <code>.material.color</code> to change its color. The formulas
-i used "worked for me". Up to you to be creative and find the one that fit
-your own needs</p>
-
-<p>```</p>
-
-<pre><code>        bar3d.get(0).scale.y    = height*3;
-        bar3d.get(0).material.color.setHSV(0.3+height*0.7,1,1)
-    });
-});
-</code></pre>
-
-<p>```</p>
-
-<h2>Conclusion</h2>
-
-<p>So we used
-<a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a>
-to play a sound and analyses in real time.
-We used this information to change 3D objects based on this
-analysis.
-We leveraged <a href="https://github.com/jeromeetienne/tquery">tQuery</a>
-to reach <a href="http://github.com/mrdoob/three.js/">three.js 3D engine</a>.
-Now you can imagine any visual effect based on sound analysis.
-The road to winamp effects is open to you :)
-We got a rather nice looking WebGL output of a 3D Vuemeter in Real Time
-for only 40 lines of javascript. I love how short code
-reduces developement time.</p>
-
-<p>That's all folks. Have fun :)</p>
 ]]></content>
   </entry>
   

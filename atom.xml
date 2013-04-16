@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2013-04-01T14:35:06+02:00</updated>
+  <updated>2013-04-16T15:04:10+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,89 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Debugging With Chrome's Canvas Inspection]]></title>
+    <link href="http://learningthreejs.com/blog/2013/04/05/debugging-with-chromes-canvas-inspection/"/>
+    <updated>2013-04-05T09:15:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2013/04/05/debugging-with-chromes-canvas-inspection</id>
+    <content type="html"><![CDATA[<p>This post will present to you how to debug your webgl with  chrome&#8217;s canvas inspection.
+This is an experimental feature available in chrome devtools.
+It gives you all the WebGL calls which are done in your webgl scene.
+So it helps if you actually know some raw WebGL :)
+In anycase you can see it being replayed call by calls, which is uber cool.</p>
+
+<center>
+  <iframe width="425" height="349" src="http://www.youtube.com/embed/837O1YloCRc" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+<!-- more -->
+
+
+<h2>Let&#8217;s get started</h2>
+
+<p>As it is an experimental feature, you first need to enable it.
+First let&#8217;s enable devtool experiment: enter &#8220;chrome://flags&#8221; url
+in your chrome location bar. There you enable &#8220;Enable Developer Tools experiments&#8221;
+and relaunch chrome.</p>
+
+<p><img src="http://learningthreejs.com/data/2013-04-05-debugging-with-chromes-canvas-inspection/screenshots/devtools-enable-experiments.png"></p>
+
+<p><img class="right" src="http://learningthreejs.com/data/2013-04-05-debugging-with-chromes-canvas-inspection/screenshots/devtools-settings-gear.png" width="160" height="120"></p>
+
+<p>Now that you got the Developer Tools Experiments enabled, let&#8217;s enable
+&#8216;Canvas Inpection&#8217; in particular. Click on the little gear on bottom right
+of devtools. The one you can see on the right.</p>
+
+<p><img src="http://learningthreejs.com/data/2013-04-05-debugging-with-chromes-canvas-inspection/screenshots/devtools-settings-panel.png"></p>
+
+<p>It will open the settings panel you see above.
+Now, select experiment from the left menu, enable &#8216;Canvas Inpection&#8217; and you are done.
+Rather clumsy but this is an experiment after all :)</p>
+
+<h2>How to use it</h2>
+
+<p>Now that it is enabled, let&#8217;s see how to use it.
+First let&#8217;s go on the &#8220;profile&#8221; tab of devtools. We can see &#8220;Capture Canvas Frame&#8221;, this is the one we gonna use.</p>
+
+<p><img src="http://learningthreejs.com/data/2013-04-05-debugging-with-chromes-canvas-inspection/screenshots/devtools-capture-canvas-frame.png"></p>
+
+<p>Let&#8217;s enable it and load a page with WebGL.
+As an example, i will use <a href="http://mmo3d.jit.su/montains">mmo3d</a>. It is a multiplayer game
+in webgl. It is very hackable so other people can easily do their own world. Let&#8217;s talk about
+that later. For now, lets click &#8216;start&#8217; and capture a frame :)</p>
+
+<h2>Captured frames</h2>
+
+<p>After that you should obtain the following. You got the actual game on the left.
+and you recognise developer tools on the right.</p>
+
+<p><img src="http://learningthreejs.com/data/2013-04-05-debugging-with-chromes-canvas-inspection/screenshots/devtools-capture-example-resized.png"></p>
+
+<p>For every frame you capture, you will get a trace log of each webgl call which has been done during this frame.
+Above there is a replay window where you can actually see the scene as it is drawn step by step.
+Thus you can check the order of your calls. It can be usefull when you debug transparency for example.
+Watch for the draw calls, they got huge overhead and should be limited if possible.</p>
+
+<h2>Conclusion</h2>
+
+<p>As it is pure webgl, and not at three.js level, it helps if you know raw WebGL. For that, i suggest
+you to read a book on the subject. Personnaly i
+like
+<a href="http://www.amazon.com/WebGL-Beginners-Guide-Diego-Cantor/dp/184969172X">&#8220;WebGL Beginner&#8217;s Guide&#8221;</a>
+by
+<a href="http://blog.tojicode.com/">Brandon Jones</a>.
+WebGL may be complex at times, and having cool debug tools help being more efficient.
+You can see the excelent paul irish doing a
+<a href="http://www.youtube.com/watch?v=FY5iiuQRyEE&amp;feature=youtu.be&amp;t=8m23s">presentation</a>
+what you can do with canvas inspector.</p>
+
+<p>That&#8217;s all folks. Have Fun!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Load Your Game Faster with AppCache]]></title>
@@ -47,6 +130,32 @@ on
 This site got plenty of data about <a href="http://www.html5rocks.com/en/features/offline">offline support</a>.
 Here is a <a href="http://appcachefacts.info/">appcache factsheet</a>
 and the <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#appcache">specification</a>.</p>
+
+<h3>In The Rought</h3>
+
+<p>How to generate an appcache file without hassle ?
+Something which support dynamic stuff like xhr ? It is surprisingly easy.</p>
+
+<ul>
+<li><em>Step 1:</em> Do &#8216;Copy ALL as HAR&#8217; in chrome devtools network</li>
+<li><em>Step 2:</em> in js console, do &#8216;var har = &#8217; and there you paste it</li>
+<li><em>Step 3:</em> generate teh appcache file with the following javascript</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>console.log('CACHE MANIFEST\n\nCACHE:');
+</span><span class='line'>har.log.entries.forEach(function(entry){ console.log(entry.request.url) });
+</span><span class='line'>console.log('\nNETWORK:\n*');</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Simple no ? Well unfortunatly even a basic har file is large.
+The one for
+<a href="http://jeromeetienne.github.com/demo.poollabyrinth/">&#8216;Marble Labyrinth&#8217;</a>
+is more than 7000 lines long. So i wrote a little tool to ease up the process
+on large project.</p>
 
 <h3>Let&#8217;s Get Started</h3>
 
@@ -3417,154 +3526,6 @@ To achieve this result, they take significant shortcuts which
 produce artifacts. To avoid those require tuning and experience.</p>
 
 <p>That&#8217;s all for today folks. Have fun.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Boilerplate Builder for Three.js]]></title>
-    <link href="http://learningthreejs.com/blog/2012/01/19/boilerplate-builder-for-three-js/"/>
-    <updated>2012-01-19T10:59:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2012/01/19/boilerplate-builder-for-three-js</id>
-    <content type="html"><![CDATA[<p>We recently introduced a
-<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>
-in a
-<a href="http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/">previous post</a>.
-It aims to ease your first contact with
-<a href="https://github.com/mrdoob/three.js/">three.js</a>.
-It contains a template for a simple project,
-a sample on which we already applied good practices.
-You download it and run it in a matter of minutes.
-Thus you can immediatly focus on your own things.
-In short, it aims for <em>Fast bootstrap + Good Practices</em>.</p>
-
-<p>It seems nice, hey ?
-Well there is a glitch.
-The
-<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>
-needs more flexibily.
-In a way, it acts as a ground on top of which you start your own thing.
-We do our best to provide good defaults, but they are only defaults.
-What if you got specific requirements ?
-How to start your project then ?
-The
-<a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">boilerplate builder</a>
-has been written for you :)</p>
-
-<p><a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">Try it out</a>.
-Go ahead, play with the options,
-discover what they do and customize your own boilerplate.
-The
-<a href="http://www.youtube.com/watch?v=ANnPWZGRsGk">screencast</a>
-below is short introduction where i describe the
-<a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">boilerplate builder</a>.</p>
-
-<!-- more -->
-
-
-
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/ANnPWZGRsGk?hl=en&fs=1" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-<h2>Making-Of the Builder</h2>
-
-<p>The
-<a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">builder</a>
-itself was interesting to build.
-It uses various nice features from the current web.
-It is a pure-browser webapp with a file download,
-a preview of a webgl project
-and a nice looking visual appearance.</p>
-
-<h3>Pure Browser Download</h3>
-
-<p>I like to write pure-browser application.
-They dont require a server to run, only static files.
-It makes it much easier to host your application.
-So
-<a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">boilerplate builder</a>
-has been written as a pure-browser application :)
-It uses
-<a href="http://jszip.stuartk.co.uk/">jszip</a>
-, a library which create .zip files with Javascript.
-Its creates the boilerplater.zip that you download.
-Additionally, it uses
-<a href="https://github.com/dcneiner/Downloadify">downloadify</a>
-, a small library to create and download files without server.</p>
-
-<p>Together,
-<a href="http://jszip.stuartk.co.uk/">jszip</a>
-and
-<a href="https://github.com/dcneiner/Downloadify">downloadify</a>
-makes it easy to pack several files together,
-and allow the user to download it.
-All that in pure-browser, neat no?
-I love what the web is becoming!</p>
-
-<h3>Boilerplate Preview</h3>
-
-<p>The preview is a bit different.
-We start to load the <em>index.html</em> template for the boilerplate.
-We apply all the options you configured and produce the final version.
-To actually preview this file, we encode it in
-<a href="http://en.wikipedia.org/wiki/Base64">base64</a>
-to build a
-<a href="http://en.wikipedia.org/wiki/Data_URI_scheme">data url</a>
-with it.
-Only then, we create an iframe with this data uri
-and you can see the webgl preview :)</p>
-
-<p><a href="http://en.wikipedia.org/wiki/Data_URI_scheme">Data url</a>
-is <a href="http://tools.ietf.org/html/rfc2397">an old thing from 1998</a>
-which is back in spotlight due to HTML5.
-It allows to encode data directly in the URL.
-It may be used to include image directly in css for examples.
-Very usefull but not for human consumption.
-To give you an idea, here is
-<a href="http://pastebin.com/yF3XDSFW">index.html</a>
-as a data url in
-<a href="http://en.wikipedia.org/wiki/Base64">base64</a>.
-You could encode it as text if you
-<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/encodeURI">escape</a>
-it
-<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/encodeURIComponent">properly</a>.
-It looks like long ugly random string.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>data:text/html;base64,PCFkb2N0eXBlIGh0....</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Visual Appearance</h3>
-
-<p>It includes
-<a href="http://twitter.github.com/bootstrap/">twitter bootstrap</a> for css.
-I am quite grateful for this framework.
-Without it, the
-<a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">builder page</a>
-will be so ugly, that people run away without even trying the application itself.
-<a href="http://twitter.github.com/bootstrap/">twitter bootstrap</a>
-makes it so easy to write a webapp which looks good on the screen.
-I think all the css-impaired of the world should thanks twitter for this framework :)</p>
-
-<h2>Conclusion</h2>
-
-<p>It has been quite fun to write it.
-I learned some web skills,
-discovered new part of three.js,
-and on top of that, it looks good on screen.
-I could not ask for more.
-The goal of
-<a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">boilerplate builder for three.js</a>
-is to add more <em>flexibility</em> to the <em>fast bootstrap + good practices</em> from the
-<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate</a>.
-I hope it will help people starting lots of new
-<a href="https://github.com/mrdoob/three.js/">three.js</a>
-projects :)</p>
-
-<p>That&#8217;s all folks.
-Have fun.</p>
 ]]></content>
   </entry>
   
