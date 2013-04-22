@@ -4,7 +4,7 @@
   <title><![CDATA[Category: three.js | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/three-dot-js/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2013-04-16T15:04:10+02:00</updated>
+  <updated>2013-04-22T15:16:18+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -826,11 +826,11 @@ I will do more on this very soon!</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Sport Car in WebGL]]></title>
+    <title type="html"><![CDATA[Sports Car in WebGL]]></title>
     <link href="http://learningthreejs.com/blog/2012/05/21/sport-car-in-webgl/"/>
     <updated>2012-05-21T12:16:00+02:00</updated>
     <id>http://learningthreejs.com/blog/2012/05/21/sport-car-in-webgl</id>
-    <content type="html"><![CDATA[<p>This post is about sport cars and how cool they can be!
+    <content type="html"><![CDATA[<p>This post is about sports cars and how cool they can be!
 Once again, we gonna expose gems from three.js examples.
 It contains several sport cars which are fun to play with.
 You can drive them around and all.
