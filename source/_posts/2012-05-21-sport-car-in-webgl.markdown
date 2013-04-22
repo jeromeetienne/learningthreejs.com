@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Sport Car in WebGL"
+title: "Sports Car in WebGL"
 date: 2012-05-21 12:16
 comments: true
 categories: [tquery, three.js]
 ---
 
-This post is about sport cars and how cool they can be!
+This post is about sports cars and how cool they can be!
 Once again, we gonna expose gems from three.js examples.
 It contains several sport cars which are fun to play with.
 You can drive them around and all.
