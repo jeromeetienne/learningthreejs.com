@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Closing The Gap Between HTML And WebGL"
+title: "Mixing HTML pages inside your WebGL"
 date: 2013-04-23 11:11
 comments: true
 categories: 
@@ -21,7 +21,7 @@ In this post,  we gonna see how to do exactly this: how to seamlessly mix normal
 
 {% img right /data/2013-04-23-closing-the-gap-between-html-and-webgl/navigation-bar-small.png %}
 
-First let's see the result in action. Here is a demo I did to show all the videos I do for this blog. [Try it out](http://jeromeetienne.github.io/videobrowser4learningthreejs)! 
+First let's see the result in action. Here is a demo I did to show all the videos I have done for this blog. [Try it out](http://jeromeetienne.github.io/videobrowser4learningthreejs)! 
 It shows a 3d scene with a tv set and three characters sitting on grass.
 
 The key point is on the tvset screen. This is an actual YouTube player. Not me emulating it, this is the real thing! You can access it anytime from the blog navigation bar as 
@@ -113,18 +113,18 @@ cssRenderer.domElement.style.top = 0;
 (TODO two screenshots with torus in normal material, one in front of the grid, one behind the grid)
 
 We are in good shape but not yet done. We still need to make both react as if they were one. 
-What happens if we add a torus 3d object in front of webgl plane? As you can see on the c
+What happens if we add a torus 3d object in front of webgl plane? As you can see on the
 left, it looks Ok. 
 What if we put this object behind it? Hmm not so good. As you can see on the right, the object 
 is behind the Plane,
-but it is in front of the dom element. It should appear as if the torus were behind but it doesnt.
-Why that? It is due to the webgl 
+but it is in front of the dom element. It should appear as if the torus were behind but it doesn't.
+Why's that? It is due to the webgl 
 [z-buffer](http://en.wikipedia.org/wiki/Z-buffering). 
 
 It displays our torus because it thinks the torus is closer to the camera than the DOM element.
-It is not aware that our webgl plane should act as a see-thru to make our css3d visible.
+It's not aware that our webgl plane should act as a see-thru to make our css3d visible.
 So nothing behind our webgl plane should be displayed.
-How to fix this, you would ask? We gonna use a tricky part of webgl: the blending.
+How to fix this, you would ask? We're gonna use a tricky part of webgl: the blending.
 
 ## Blending them together
  
@@ -167,7 +167,6 @@ to change canvas content.
 You can't put dom elements inside your canvas. 
 Those two don't talk to each other.
 
-### What Are The Limitations ?
 Unfortunatly it isn't all pink, WebGL and HTML aren't really merged.
 This is only a nice trick. It has some limitations.
 For example, the dom element is rotated using [css 3d](http://example.com/TODO). 
@@ -175,7 +174,7 @@ This is a fairly new technology.
 So you may hit bugs.
 
 Moreover, it only appears as a part of 3d... but this remains plain DOM.
-So it doesnt benefit from webgl specific display.
+So it doesn't benefit from webgl specific display.
 For example, it is impossible to get 
 [post processing](http://example.com/TODO)
 on the dom element.
@@ -183,9 +182,11 @@ Indeed, this technic is applied in 2d on the rendered scene and the DOM element 
 Additionally the dom element won't share the lighting as the rest of your webgl scene.
 Nevertheless, [css shader](http://example.com/TODO) allows you to apply shader on normal DOM element,
 so it may be possible to make a coherent lighting.
-The web is so beautifull nowadays!
+The web is so beautiful nowadays!
 
 ### Conclusion
+Congratulations guys! You can now mix html pages with your webgl content. You have learned how to close the gap between HTML and WebGL. It is a new way to experience and to interact with webgl 3d. 
+
 I love this new trick.
 I've been trying to make webgl easier for while now.
 My strategy has been to make it closer to what webdevs know today,
@@ -193,8 +194,6 @@ copying [jQuery API on top of three.js](http://jeromeetienne.github.com/tquery/)
 emulating [dom events inside webgl scene](http://learningthreejs.com/blog/2012/01/17/dom-events-in-3d-space/)
 or even making [3d text act as web links](http://learningthreejs.com/blog/2012/02/27/linkify-tquery-extension/).
 To integrate actual web pages inside webgl scene definitly matches this vibe!
-
-Congratulations guys! You can now mix html pages with your webgl content. I encourage you to experience with this new way to interact with webgl 3d. 
 
 That's all for today, have fun :)
 
