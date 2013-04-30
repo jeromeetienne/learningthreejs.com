@@ -78,7 +78,7 @@ or
 
 ## Demo Time !!
 
-{% img left /data/2012-12-07-playing-with-headtrackr-dot-js/screenshots/screenshot-box3d-small.png %}
+{% img left /data/2013-03-12-playing-with-headtrackr-dot-js/screenshots/screenshot-box3d-small.png %}
 As usual we did a plugin for
 [tQuery API](http://jeromeetienne.github.com/tquery)
 to make it easy to use in our environement.
@@ -88,7 +88,7 @@ where your heads controls a box in 3d.
 For best result, *make sure your face is well and evenly lighted*
 
 
-{% img right /data/2012-12-07-playing-with-headtrackr-dot-js/screenshots/screenshot-demo-small.png %}
+{% img right /data/2013-03-12-playing-with-headtrackr-dot-js/screenshots/screenshot-demo-small.png %}
 Another [demo](http://jeromeetienne.github.com/tquery/plugins/headtrackr/examples/demo.html)
 where the camera follows your head. 
 The whole scene moves as you move your head, providing quite an immersive experience.
@@ -148,7 +148,7 @@ It is possible to stop it with ```.stop()``` or to reset it via ```.reset()```.
 
 ### Debug View is Cool For User Feedback
 
-{% img right /data/2012-12-07-playing-with-headtrackr-dot-js/screenshots/screenshot-debugview-small.png %}
+{% img right /data/2013-03-12-playing-with-headtrackr-dot-js/screenshots/screenshot-debugview-small.png %}
 If you wish enable the debugView, aka the little visualisation the headtracker result.
 It gives feedback to the user on what is happening.
 Thus the user can move his head accordingly or to change lighting of the room.

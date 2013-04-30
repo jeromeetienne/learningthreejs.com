@@ -1,28 +1,31 @@
 ---
 layout: post
 title: "Mixing HTML pages inside your WebGL"
-date: 2013-04-23 11:11
+date: 2013-04-30 11:11
 comments: true
-categories: 
+categories: [three.js]
 ---
 
-Wouldn't that be cool if we were able to mix normal Web page in our webgl? To interact with them as we usually do? to view them,  to click on them... To scroll,  to hover or even to type in input tag. 
-Oh yeah it would be so great! We,  webgl people, are currently an isolated Island in the web world.  Being able to mix with normal page would give us access to so much interactive content.
+Wouldn't that be cool if we were able to mix normal web pages in our webgl? To interact with them as we usually do? to view them,  to click on them... To scroll, to hover or even to type in input tags. 
+Oh yeah it would be so great! We, webgl people, are currently an isolated Island in the web world.  Being able to mix with normal page would give us access to so much interactive content.
 In this post,  we gonna see how to do exactly this: how to seamlessly mix normal DOM elements in our webgl scene.  They will actually  appear as part of the 3d scene. Don't worry it is surprisingly easy with three.js.
 
-
 <center>
-  <iframe width="425" height="349" src="http://www.youtube.com/embed/837O1YloCRc" frameborder="0" allowfullscreen></iframe>
+  <iframe width="425" height="349" src="http://www.youtube.com/embed/ScZcUEDGjJI" frameborder="0" allowfullscreen></iframe>
 </center>
 
 <!-- more -->
 
 ## Demo of a youtube browser mixed in WebGL
 
-{% img right /data/2013-04-23-closing-the-gap-between-html-and-webgl/navigation-bar-small.png %}
+{% img right /data/2013-04-30-closing-the-gap-between-html-and-webgl/navigation-bar-small.png %}
 
-First let's see the result in action. Here is a demo I did to show all the videos I have done for this blog. [Try it out](http://jeromeetienne.github.io/videobrowser4learningthreejs)! 
+First let's see the result in action. Here is a demo I did to show all the videos I have done for this blog. 
+[Try it out](http://jeromeetienne.github.io/videobrowser4learningthreejs)! 
 It shows a 3d scene with a tv set and three characters sitting on grass.
+
+<a href='http://jeromeetienne.github.io/videobrowser4learningthreejs/' target='_blank'><input type="button" value='Try Learningthree.js video browser!' style='font-size:200%' /></a>
+<a href='/data/2013-04-30-closing-the-gap-between-html-and-webgl/index.html' target='_blank'><input type="button" value='Try Demo!' style='font-size:200%' /></a>
 
 The key point is on the tvset screen. This is an actual YouTube player. Not me emulating it, this is the real thing! You can access it anytime from the blog navigation bar as 
 you can see on the right.
@@ -50,9 +53,7 @@ Here are some [tutorials](http://www.html5rocks.com/en/tutorials/3d/css/)
 [it](https://developer.mozilla.org/en-US/docs/CSS/Tutorials/Using_CSS_transforms).
 css3d is done for this exact purpose, to position and rotate a DOM element in 3d.
 
-{% img right /data/2013-04-23-closing-the-gap-between-html-and-webgl/webgl-plane-small.png %}
-
-(TODO redo sreenshot with black grid)
+{% img right /data/2013-04-30-closing-the-gap-between-html-and-webgl/screenshots/grid-only-small.png %}
 
 Good News! three.js can already render things using this technology.
  It is called [THREE.CSS3DRenderer](https://github.com/mrdoob/three.js/blob/master/examples/js/renderers/CSS3DRenderer.js).
@@ -93,7 +94,7 @@ cssObject.rotation = planeMesh.rotation;
 cssScene.add(cssObject);
 ```
 
-(TODO put a screenshot of the css object with an image behind the webgl plane)
+{% img right /data/2013-04-30-closing-the-gap-between-html-and-webgl/screenshots/grid-css-small.png %}
 
 All seems to go well. 
 We got the same plane in css and webgl. Now we need to see the dom element behind the webgl plane.
@@ -110,7 +111,8 @@ cssRenderer.domElement.style.position = 'absolute';
 cssRenderer.domElement.style.top = 0;
 ```
 
-(TODO two screenshots with torus in normal material, one in front of the grid, one behind the grid)
+{% img right /data/2013-04-30-closing-the-gap-between-html-and-webgl/screenshots/object-inmiddle-small.png %}
+{% img left /data/2013-04-30-closing-the-gap-between-html-and-webgl/screenshots/object-infront-small.png %}
 
 We are in good shape but not yet done. We still need to make both react as if they were one. 
 What happens if we add a torus 3d object in front of webgl plane? As you can see on the
@@ -140,6 +142,8 @@ from
 [Brandon Jones](http://blog.tojicode.com/), a great book to start with raw WebGL.
 To get a feel of blending,  you can play with them in 
 [this example](http://threejs.org/examples/webgl_materials_blending_custom.html).
+
+{% img right /data/2013-04-30-closing-the-gap-between-html-and-webgl/object-behind-small.png %}
 
 The one which interest us is called ```THREE.NoBlending```. 
 When drawing the face, it will completely ignore the color below and set it to the color of the face.
