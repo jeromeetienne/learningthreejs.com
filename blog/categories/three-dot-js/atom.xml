@@ -4,7 +4,7 @@
   <title><![CDATA[Category: three.js | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/three-dot-js/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2013-05-03T15:05:29+02:00</updated>
+  <updated>2013-05-03T15:55:40+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -160,7 +160,7 @@ from
 To get a feel of blending,  you can play with them in
 <a href="http://threejs.org/examples/webgl_materials_blending_custom.html">this example</a>.</p>
 
-<p><img class="right" src="/data/2013-04-30-closing-the-gap-between-html-and-webgl/object-behind-small.png"></p>
+<p><img class="right" src="/data/2013-04-30-closing-the-gap-between-html-and-webgl/screenshots/object-behind-small.png"></p>
 
 <p>The one which interest us is called <code>THREE.NoBlending</code>.
 When drawing the face, it will completely ignore the color below and set it to the color of the face.
