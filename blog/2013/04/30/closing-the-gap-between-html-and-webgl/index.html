@@ -1,0 +1,516 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Mixing HTML pages inside your WebGL - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="Wouldn&#8217;t that be cool if we were able to mix normal web pages in our webgl? To interact with them as we usually do? to view them, to click on &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://learningthreejs.com/blog/2013/04/30/closing-the-gap-between-html-and-webgl/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:learningthreejs.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="http://jeromeetienne.github.io/videobrowser4learningthreejs/">Videos</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Mixing HTML Pages Inside Your WebGL</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-30T11:11:00+02:00" pubdate data-updated="true">Apr 30<span>th</span>, 2013</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2013/04/30/closing-the-gap-between-html-and-webgl/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2013/04/30/closing-the-gap-between-html-and-webgl/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Wouldn&#8217;t that be cool if we were able to mix normal web pages in our webgl? To interact with them as we usually do? to view them,  to click on them&#8230; To scroll, to hover or even to type in input tags.
+Oh yeah it would be so great! We, webgl people, are currently an isolated Island in the web world.  Being able to mix with normal page would give us access to so much interactive content.
+In this post,  we gonna see how to do exactly this: how to seamlessly mix normal DOM elements in our webgl scene.  They will actually  appear as part of the 3d scene. Don&#8217;t worry it is surprisingly easy with three.js.</p>
+
+<center>
+  <iframe width="425" height="349" src="http://www.youtube.com/embed/ScZcUEDGjJI" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+<!-- more -->
+
+
+<h2>Demo of a youtube browser mixed in WebGL</h2>
+
+<p><img class="right" src="/data/2013-04-30-closing-the-gap-between-html-and-webgl/navigation-bar-small.png"></p>
+
+<p>First let&#8217;s see the result in action. Here is a demo I did to show all the videos I have done for this blog.
+<a href="http://jeromeetienne.github.io/videobrowser4learningthreejs">Try it out</a>!
+It shows a 3d scene with a tv set and three characters sitting on grass.</p>
+
+<p><a href='http://jeromeetienne.github.io/videobrowser4learningthreejs/' target='_blank'><input type="button" value='Try Learningthree.js video browser!' style='font-size:200%' /></a>
+<a href='/data/2013-04-30-closing-the-gap-between-html-and-webgl/index.html' target='_blank'><input type="button" value='Try Demo!' style='font-size:200%' /></a></p>
+
+<p>The key point is on the tvset screen. This is an actual YouTube player. Not me emulating it, this is the real thing! You can access it anytime from the blog navigation bar as
+you can see on the right.
+This
+<a href="http://jeromeetienne.github.io/videobrowser4learningthreejs">demo</a>
+is pretty cool no? Now let&#8217;s see how to do this.</p>
+
+<h2>Let&#8217;s Get Started</h2>
+
+<p>DOM elements are all about flat 2d rectangles. In
+<a href="http://threejs.org/">three.js</a>
+, such a thing is called a
+<a href="https://github.com/mrdoob/three.js/blob/master/src/extras/geometries/PlaneGeometry.js">THREE.PlaneGeometry</a>.
+So let&#8217;s try to map a
+<a href="https://developer.mozilla.org/en/docs/DOM/element">dom element</a>
+to a
+<a href="https://github.com/mrdoob/three.js/blob/master/src/extras/geometries/PlaneGeometry.js">THREE.PlaneGeometry</a>.
+Their position and rotation must match.
+The goal is to make them appear as one thus the viewer can&#8217;t distinguish them.</p>
+
+<p>So first, how to orientate a dom element, would you ask?
+Simple we gonna use a feature introduced by HTML5, called
+<a href="http://www.w3.org/TR/css3-transforms/">css 3D transformation</a>.
+Here are some <a href="http://www.html5rocks.com/en/tutorials/3d/css/">tutorials</a>
+<a href="http://desandro.github.io/3dtransforms/">about</a>
+<a href="https://developer.mozilla.org/en-US/docs/CSS/Tutorials/Using_CSS_transforms">it</a>.
+css3d is done for this exact purpose, to position and rotate a DOM element in 3d.</p>
+
+<p><img class="right" src="/data/2013-04-30-closing-the-gap-between-html-and-webgl/screenshots/grid-only-small.png"></p>
+
+<p>Good News! three.js can already render things using this technology.
+ It is called <a href="https://github.com/mrdoob/three.js/blob/master/examples/js/renderers/CSS3DRenderer.js">THREE.CSS3DRenderer</a>.
+See <a href="http://threejs.org/examples/css3d_molecules.html">various</a>
+<a href="http://threejs.org/examples/css3d_periodictable.html">examples</a>
+of
+<a href="http://threejs.org/examples/css3d_youtube.html">its</a>
+<a href="http://threejs.org/examples/css3d_panorama.html">usage</a>
+in three.js <code>/examples</code>.
+Now we need to put the same plane on both renderers, WebGL Renderer and CSS3D Renderer.
+Here is the code for the plane in
+<a href="https://github.com/mrdoob/three.js/blob/master/src/renderers/WebGLRenderer.js">WebGLRenderer</a>
+, wireframe with segments to see thru.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// create the plane mesh</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">material</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshBasicMaterial</span><span class="p">({</span> <span class="nx">wireframe</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">geometry</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">PlaneGeometry</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">planeMesh</span><span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">);</span>
+</span><span class='line'><span class="c1">// add it to the WebGL scene</span>
+</span><span class='line'><span class="nx">glScene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">planeMesh</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now that we got the plane in place, here is the code for the DOM element in css 3d.
+Notice how we reference the same position and rotation as the <code>planeMesh</code>, thus
+they will move together.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// create the dom Element</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span> <span class="s1">&#39;img&#39;</span> <span class="p">);</span>
+</span><span class='line'><span class="nx">element</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s1">&#39;textures/sprites/ball.png&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="c1">// create the object3d for this element</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">cssObject</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">CSS3DObject</span><span class="p">(</span> <span class="nx">element</span> <span class="p">);</span>
+</span><span class='line'><span class="c1">// we reference the same position and rotation </span>
+</span><span class='line'><span class="nx">cssObject</span><span class="p">.</span><span class="nx">position</span> <span class="o">=</span> <span class="nx">planeMesh</span><span class="p">.</span><span class="nx">position</span><span class="p">;</span>
+</span><span class='line'><span class="nx">cssObject</span><span class="p">.</span><span class="nx">rotation</span> <span class="o">=</span> <span class="nx">planeMesh</span><span class="p">.</span><span class="nx">rotation</span><span class="p">;</span>
+</span><span class='line'><span class="c1">// add it to the css scene</span>
+</span><span class='line'><span class="nx">cssScene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">cssObject</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img class="right" src="/data/2013-04-30-closing-the-gap-between-html-and-webgl/screenshots/grid-css-small.png"></p>
+
+<p>All seems to go well.
+We got the same plane in css and webgl. Now we need to see the dom element behind the webgl plane.
+To do this, let&#8217;s use webgl renderer and css3d renderer together on the same page.</p>
+
+<p>We use stylesheet to put css renderer exactly behind the webgl one.
+Thus they look the same to the viewer, as you can see on the right.
+Use the following line to obtain the same result.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">cssRenderer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">CSS3DRenderer</span><span class="p">();</span>
+</span><span class='line'><span class="nx">cssRenderer</span><span class="p">.</span><span class="nx">setSize</span><span class="p">(</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span> <span class="p">);</span>
+</span><span class='line'><span class="nx">cssRenderer</span><span class="p">.</span><span class="nx">domElement</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">position</span> <span class="o">=</span> <span class="s1">&#39;absolute&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nx">cssRenderer</span><span class="p">.</span><span class="nx">domElement</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img class="right" src="/data/2013-04-30-closing-the-gap-between-html-and-webgl/screenshots/object-inmiddle-small.png">
+<img class="left" src="/data/2013-04-30-closing-the-gap-between-html-and-webgl/screenshots/object-infront-small.png"></p>
+
+<p>We are in good shape but not yet done. We still need to make both react as if they were one.
+What happens if we add a torus 3d object in front of webgl plane? As you can see on the
+left, it looks Ok.
+What if we put this object behind it? Hmm not so good. As you can see on the right, the object
+is behind the Plane,
+but it is in front of the dom element. It should appear as if the torus were behind but it doesn&#8217;t.
+Why&#8217;s that? It is due to the webgl
+<a href="http://en.wikipedia.org/wiki/Z-buffering">z-buffer</a>.</p>
+
+<p>It displays our torus because it thinks the torus is closer to the camera than the DOM element.
+It&#8217;s not aware that our webgl plane should act as a see-thru to make our css3d visible.
+So nothing behind our webgl plane should be displayed.
+How to fix this, you would ask? We&#8217;re gonna use a tricky part of webgl: the blending.</p>
+
+<h2>Blending them together</h2>
+
+<p>What is blending ? It is the way to determine the color of a pixel when you add a
+new pixel (fragment in technical terms).
+So when doing blending, we use a blend function to combine the colors from both the
+existing and the new fragments to make an entirely new fragment.</p>
+
+<p>It is a weird beast using several WebGL calls and many equations. The total number of possibilities is scary :)
+A complete explanation of blending is way out of scope of this post. For more detail, see
+<a href="http://www.amazon.com/WebGL-Beginners-Guide-Diego-Cantor/dp/184969172X">&#8220;WebGL Beginner&#8217;s Guide&#8221;</a>
+from
+<a href="http://blog.tojicode.com/">Brandon Jones</a>, a great book to start with raw WebGL.
+To get a feel of blending,  you can play with them in
+<a href="http://threejs.org/examples/webgl_materials_blending_custom.html">this example</a>.</p>
+
+<p><img class="right" src="/data/2013-04-30-closing-the-gap-between-html-and-webgl/object-behind-small.png"></p>
+
+<p>The one which interest us is called <code>THREE.NoBlending</code>.
+When drawing the face, it will completely ignore the color below and set it to the color of the face.
+So if we put our face color to black aka <code>(0, 0, 0)</code> and opacity to <code>0</code>, we gonna obtained what we want.
+The plane will act as a see-thru to the dom element below. Here is how you initialize your material.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">material</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshBasicMaterial</span><span class="p">();</span>
+</span><span class='line'><span class="nx">material</span><span class="p">.</span><span class="nx">color</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="nx">material</span><span class="p">.</span><span class="nx">opacity</span>   <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="nx">material</span><span class="p">.</span><span class="nx">blending</span>  <span class="o">=</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">NoBlending</span><span class="p">;</span>
+</span><span class='line'><span class="c1">// any mesh using this material will act as a see-thru to the css renderer</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then we are done ! We got a actual dom element seamlessly integrated in our webgl scene!  Let&#8217;s pet our back,  i think this is an important step!</p>
+
+<h2>HTML And WebGL Sitting Together In A Tree ?</h2>
+
+<p>Well, not quite unfortunatly&#8230;
+WebGL is 3d inside a <a href="http://en.wikipedia.org/wiki/Canvas_element">canvas element</a>
+and a canvas is a black box from the html page point of view.
+You can&#8217;t bind <a href="http://en.wikipedia.org/wiki/DOM_events">DOM events</a> inside canvas.
+You can&#8217;t have
+<a href="http://en.wikipedia.org/wiki/Style_sheet_(web_development)">stylesheet</a>
+to change canvas content.
+You can&#8217;t put dom elements inside your canvas.
+Those two don&#8217;t talk to each other.</p>
+
+<p>Unfortunatly it isn&#8217;t all pink, WebGL and HTML aren&#8217;t really merged.
+This is only a nice trick. It has some limitations.
+For example, the dom element is rotated using <a href="http://example.com/TODO">css 3d</a>.
+This is a fairly new technology.
+So you may hit bugs.</p>
+
+<p>Moreover, it only appears as a part of 3d&#8230; but this remains plain DOM.
+So it doesn&#8217;t benefit from webgl specific display.
+For example, it is impossible to get
+<a href="http://example.com/TODO">post processing</a>
+on the dom element.
+Indeed, this technic is applied in 2d on the rendered scene and the DOM element is not in it.
+Additionally the dom element won&#8217;t share the lighting as the rest of your webgl scene.
+Nevertheless, <a href="http://example.com/TODO">css shader</a> allows you to apply shader on normal DOM element,
+so it may be possible to make a coherent lighting.
+The web is so beautiful nowadays!</p>
+
+<h3>Conclusion</h3>
+
+<p>Congratulations guys! You can now mix html pages with your webgl content. You have learned how to close the gap between HTML and WebGL. It is a new way to experience and to interact with webgl 3d.</p>
+
+<p>I love this new trick.
+I&#8217;ve been trying to make webgl easier for while now.
+My strategy has been to make it closer to what webdevs know today,
+copying <a href="http://jeromeetienne.github.com/tquery/">jQuery API on top of three.js</a>,
+emulating <a href="http://learningthreejs.com/blog/2012/01/17/dom-events-in-3d-space/">dom events inside webgl scene</a>
+or even making <a href="http://learningthreejs.com/blog/2012/02/27/linkify-tquery-extension/">3d text act as web links</a>.
+To integrate actual web pages inside webgl scene definitly matches this vibe!</p>
+
+<p>That&#8217;s all for today, have fun :)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-30T11:11:00+02:00" pubdate data-updated="true">Apr 30<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2013/04/30/closing-the-gap-between-html-and-webgl/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2013/04/30/closing-the-gap-between-html-and-webgl/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/04/05/debugging-with-chromes-canvas-inspection/" title="Previous Post: Debugging With Chrome's Canvas Inspection">&laquo; Debugging With Chrome's Canvas Inspection</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/04/30/closing-the-gap-between-html-and-webgl/">Mixing HTML pages inside your WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/05/debugging-with-chromes-canvas-inspection/">Debugging With Chrome's Canvas Inspection</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/22/load-your-game-faster-with-appcache/">Load Your Game Faster with AppCache</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/12/move-a-cube-with-your-head/">Move a Cube With Your Head or Head-Tracking with WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/05/minecraft-character-in-webgl/">Minecraft Character in WebGL</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://learningthreejs.com/blog/2013/04/30/closing-the-gap-between-html-and-webgl/';
+        var disqus_url = 'http://learningthreejs.com/blog/2013/04/30/closing-the-gap-between-html-and-webgl/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

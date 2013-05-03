@@ -198,7 +198,7 @@
     </url>
     <url>
         <loc>http://learningthreejs.com/blog/2013/03/12/move-a-cube-with-your-head/</loc>
-        <lastmod>2013-03-13T05:15:01+01:00</lastmod>
+        <lastmod>2013-04-30T15:47:47+02:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/blog/2013/03/22/load-your-game-faster-with-appcache/</loc>
@@ -211,16 +211,22 @@
         <lastmod>2013-04-11T10:56:48+02:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://learningthreejs.com/blog/2013/04/30/closing-the-gap-between-html-and-webgl/
+        </loc>
+        <lastmod>2013-04-30T15:48:38+02:00</lastmod>
+    </url>
+    <url>
         <loc>http://learningthreejs.com/about/</loc>
         <lastmod>2013-03-06T12:45:11+01:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/blog/archives/</loc>
-        <lastmod>2013-04-22T15:14:55+02:00</lastmod>
+        <lastmod>2013-04-30T15:48:38+02:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/</loc>
-        <lastmod>2013-04-22T15:14:55+02:00</lastmod>
+        <lastmod>2013-04-30T15:48:38+02:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/robots.txt</loc>
