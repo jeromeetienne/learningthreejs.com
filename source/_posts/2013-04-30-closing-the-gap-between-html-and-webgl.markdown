@@ -18,7 +18,7 @@ In this post,  we gonna see how to do exactly this: how to seamlessly mix normal
 
 ## Demo of a youtube browser mixed in WebGL
 
-{% img right /data/2013-04-30-closing-the-gap-between-html-and-webgl/navigation-bar-small.png %}
+{% img right /data/2013-04-30-closing-the-gap-between-html-and-webgl/screenshots/navigation-bar-small.png %}
 
 First let's see the result in action. Here is a demo I did to show all the videos I have done for this blog. 
 [Try it out](http://jeromeetienne.github.io/videobrowser4learningthreejs)! 
@@ -138,12 +138,12 @@ existing and the new fragments to make an entirely new fragment.
 It is a weird beast using several WebGL calls and many equations. The total number of possibilities is scary :) 
 A complete explanation of blending is way out of scope of this post. For more detail, see 
 ["WebGL Beginner's Guide"](http://www.amazon.com/WebGL-Beginners-Guide-Diego-Cantor/dp/184969172X)
-from 
+from
 [Brandon Jones](http://blog.tojicode.com/), a great book to start with raw WebGL.
 To get a feel of blending,  you can play with them in 
 [this example](http://threejs.org/examples/webgl_materials_blending_custom.html).
 
-{% img right /data/2013-04-30-closing-the-gap-between-html-and-webgl/object-behind-small.png %}
+{% img right /data/2013-04-30-closing-the-gap-between-html-and-webgl/screenshots/object-behind-small.png %}
 
 The one which interest us is called ```THREE.NoBlending```. 
 When drawing the face, it will completely ignore the color below and set it to the color of the face.
