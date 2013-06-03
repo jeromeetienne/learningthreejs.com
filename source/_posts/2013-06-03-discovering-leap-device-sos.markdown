@@ -4,6 +4,7 @@ title: "Discovering Leap Device"
 date: 2013-05-24 10:58
 comments: true
 categories: 
+published: false
 ---
 
 
@@ -41,7 +42,7 @@ Here is some applications that i found cool. You can easily install them.
 
 First the Visualizer. This application is installed when you installthe leap itself. It is a basic display of what the leap detects. It helps you discover what the leap can do and diagnose potential issue. 
 
-Then a [flocking application](https://developer.leapmotion.com/blog/new-demo-available-flocking). In this beautifully realized application you interact with a swarm of fishes in deep sea. It is computed over GPU, so you play with an impressive number of fishes. Each of your finger tips is visualized with a nice incandescent fire. Fishes are attracted by your fingers. But as soon as you move you scare them away. Just excelent https://developer.leapmotion.com/blog/new-demo-available-flocking
+Then a [flocking application](https://developer.leapmotion.com/blog/new-demo-available-flocking). In this beautifully realized application you interact with a swarm of fishes in deep sea. It is computed over GPU, so you play with an impressive number of fishes. Each of your finger tips is visualized with a nice incandescent fire. Fishes are attracted by your fingers. But as soon as you move you scare them away. Just excelent!
 
 Google modified its famous application Google earth to support leap device.  Now you can fly above the earth with your hands in the air. See the [announcement for details](http://www.theverge.com/2013/4/22/4246612/google-will-release-google-earth-app-for-leap-motion). 
 
@@ -95,7 +96,6 @@ They got an API than they have ported in multiple langages:
 [Python](https://developer.leapmotion.com/documentation/guide/Sample_Python_Tutorial)
 and 
 [javascript](https://developer.leapmotion.com/documentation/guide/Sample_JavaScript_Tutorial)
-
 Obviously we will focus on the javascript one :) It is called leapjs and is on [github](https://github.com/leapmotion/leapjs).
 It is very simple. There is a driver running as daemon doing the work and providing you information via websocket.
 I just started to code on it. i will talk more about this later.
