@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Discovering Leap Device - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="Imagine controlling your computer without needing a mouse or a keyboard but only with the
+movement of your hands! That is what the Leap motion device &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://learningthreejs.com/blog/2013/06/11/discovering-leap-device/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:learningthreejs.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="http://jeromeetienne.github.io/videobrowser4learningthreejs/">Videos</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Discovering Leap Device</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-11T10:58:00+02:00" pubdate data-updated="true">Jun 11<span>th</span>, 2013</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2013/06/11/discovering-leap-device/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2013/06/11/discovering-leap-device/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Imagine controlling your computer without needing a mouse or a keyboard but only with the
+movement of your hands! That is what the Leap motion device is all about! It was
+all over the net a few months back. This device is not unlike the kinect, however it is
+designed to be used at a shorter range. The leap device is a new way of motion on your
+screen and it is able to trace your fingers. Quite sci-fi, don&#8217;t you think?
+Especially when you see the accuracy, even the slightest movement of your fingers is tracked.
+They have been nice enough to send me one so that I could play with it and get an idea of
+what it does and why it is such a cool device.</p>
+
+<iframe width="425" height="349" src="http://www.youtube.com/embed/aP_4KPXjDpM" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<p>Here are some applications that I found cool. You can easily install them.</p>
+
+<h3>Visualizer</h3>
+
+<p>First the Visualizer. This application is installed when you install the leap itself.
+It is a basic display of what the leap detects. It helps you discover what the leap
+can do and diagnose potential issues.</p>
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/D2oKfAnEaPQ" frameborder="0" allowfullscreen></iframe>
+
+
+<h3>Flocking</h3>
+
+<p>Then a <a href="https://developer.leapmotion.com/blog/new-demo-available-flocking">flocking application</a>.
+In this beautifully realized application you interact with a swarm of fishes in the deep sea.
+It is computed over GPU, so you play with an impressive number of fishes.
+Each of your finger tips is visualized with a nice incandescent fire.
+Fishes are attracted by your fingers. But as soon as you move it you scare them away.
+Just excelent!</p>
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/e--L3pArf-c" frameborder="0" allowfullscreen></iframe>
+
+
+<h3>Google Earth</h3>
+
+<p>Google modified its famous application Google Earth to support leap device.
+Now you can fly above the earth with your hands in the air.
+See the <a href="http://www.theverge.com/2013/4/22/4246612/google-will-release-google-earth-app-for-leap-motion">announcement for details</a>.</p>
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/RebX7YEn3GQ" frameborder="0" allowfullscreen></iframe>
+
+
+<h3>LeapDJ</h3>
+
+<p>Then there is <a href="https://developer.leapmotion.com/downloads/leap-motion/leap-dj-demo">LeapDJ</a>.
+Leap device goes well with the music field. One can create virtual instruments and play them thru the leap.
+It is instinctive and reactive. Quite fit for a musician&#8217;s state of mind :) here is leapdj demo.
+You mix live music with 2 platines, sliders for volume and balance.
+You can push buttons to create sounds effects. And you can do that with all your fingers at the same time.
+Definitely a fun application ;)</p>
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/cFOYHmRab_Q" frameborder="0" allowfullscreen></iframe>
+
+
+<h3>Flying Demo</h3>
+
+<p><a href="https://developer.leapmotion.com/downloads/leap-motion/leap-flying-demo">flying demo</a> is an example where
+the leap is used as a game controller.
+You put your hand side to side and move them as if they were the wings of a plane.</p>
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/ACEE4yddgQ0" frameborder="0" allowfullscreen></iframe>
+
+
+<p>To stay updated on what is new and interesting about developing on Leap, you may follow <a href="https://twitter.com/LeapMotionDev">@LeapMotionDev</a> on twitter</p>
+
+<h2>How To Get One</h2>
+
+<p>So, where can you get the Leap motion?
+You can have it shipped to your place by <a href="https://www.leapmotion.com/preorder/new">preordering it</a> on their site.
+The current <a href="http://blog.leapmotion.com/post/48872742284/release-date-update">release date is July 22nd of this year</a>.
+The device is announced at 79.99$us.
+They will also be available at the <a href="http://www.bestbuy.com/">BestBuy nearest you</a>.</p>
+
+<p>Additionnaly they have
+<a href="https://developer.leapmotion.com/blog/leap-motion-to-embed-3-d-motion-control-through-hp-collaboration">parterships with HP</a>
+and
+<a href="http://uk.ign.com/articles/2013/01/03/kinect-like-motion-tracking-coming-to-asus-pcs">asus PCs</a>
+to include it directly in some of their models.
+With all that, we can expect this device will go beyond the geek circle and reach the masses.
+For further information, you can go to the <a href="https://www.leapmotion.com/">official website</a></p>
+
+<h2>How To Code It</h2>
+
+<p>They got an API than they have ported in multiple langages:
+<a href="https://developer.leapmotion.com/documentation/guide/Sample_C++_Tutorial">c++</a>,
+<a href="https://developer.leapmotion.com/documentation/guide/Sample_C%23_Tutorial">C#</a>,
+<a href="https://developer.leapmotion.com/documentation/guide/Sample_ObjectiveC_Tutorial">Objective C</a>,
+<a href="https://developer.leapmotion.com/documentation/guide/Sample_Java_Tutorial">Java</a>,
+<a href="https://developer.leapmotion.com/documentation/guide/Sample_Python_Tutorial">Python</a>
+and
+<a href="https://developer.leapmotion.com/documentation/guide/Sample_JavaScript_Tutorial">javascript</a>.
+Obviously we will focus on the javascript one :) It is called <a href="https://github.com/leapmotion/leapjs">leapjs on github</a>.
+It is very simple. There is a driver running as daemon doing the work and providing you information via websocket.
+I just started to code on it. I will talk more about this later.</p>
+
+<h2>Conclusion</h2>
+
+<p>So we’ve seen that the Leap  motion is a very small device (less than half the size of an Iphone)
+that tracks the movement of your hands and fingers.
+It’s so precise it’s scary!
+The Leap is very reactive and accurate, it is designed to work at a very close range.
+I have tried it out and it is pretty cool.
+You can move elements in your computer with your fingers, with the palm of your hand
+or even by pointing them with a pen.
+And good news&#8230;.You can code it with javascript and you can find it on github!</p>
+
+<p>We have also seen some cool applications that have been done with this device.
+Trust me you don’t want to miss that so take a look at the demos!
+Stay tuned for the release date and for more information about Leap Motion.</p>
+
+<p>That’s all for now, folks!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-11T10:58:00+02:00" pubdate data-updated="true">Jun 11<span>th</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2013/06/11/discovering-leap-device/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2013/06/11/discovering-leap-device/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/04/30/closing-the-gap-between-html-and-webgl/" title="Previous Post: Mixing HTML pages inside your WebGL">&laquo; Mixing HTML pages inside your WebGL</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/06/11/discovering-leap-device/">Discovering Leap Device</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/30/closing-the-gap-between-html-and-webgl/">Mixing HTML pages inside your WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/05/debugging-with-chromes-canvas-inspection/">Debugging With Chrome's Canvas Inspection</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/22/load-your-game-faster-with-appcache/">Load Your Game Faster with AppCache</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/12/move-a-cube-with-your-head/">Move a Cube With Your Head or Head-Tracking with WebGL</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://learningthreejs.com/blog/2013/06/11/discovering-leap-device/';
+        var disqus_url = 'http://learningthreejs.com/blog/2013/06/11/discovering-leap-device/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

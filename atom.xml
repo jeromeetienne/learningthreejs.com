@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2013-05-03T16:22:57+02:00</updated>
+  <updated>2013-06-11T15:21:22+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,132 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Discovering Leap Device]]></title>
+    <link href="http://learningthreejs.com/blog/2013/06/11/discovering-leap-device/"/>
+    <updated>2013-06-11T10:58:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2013/06/11/discovering-leap-device</id>
+    <content type="html"><![CDATA[<p>Imagine controlling your computer without needing a mouse or a keyboard but only with the
+movement of your hands! That is what the Leap motion device is all about! It was
+all over the net a few months back. This device is not unlike the kinect, however it is
+designed to be used at a shorter range. The leap device is a new way of motion on your
+screen and it is able to trace your fingers. Quite sci-fi, don&#8217;t you think?
+Especially when you see the accuracy, even the slightest movement of your fingers is tracked.
+They have been nice enough to send me one so that I could play with it and get an idea of
+what it does and why it is such a cool device.</p>
+
+<iframe width="425" height="349" src="http://www.youtube.com/embed/aP_4KPXjDpM" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<p>Here are some applications that I found cool. You can easily install them.</p>
+
+<h3>Visualizer</h3>
+
+<p>First the Visualizer. This application is installed when you install the leap itself.
+It is a basic display of what the leap detects. It helps you discover what the leap
+can do and diagnose potential issues.</p>
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/D2oKfAnEaPQ" frameborder="0" allowfullscreen></iframe>
+
+
+<h3>Flocking</h3>
+
+<p>Then a <a href="https://developer.leapmotion.com/blog/new-demo-available-flocking">flocking application</a>.
+In this beautifully realized application you interact with a swarm of fishes in the deep sea.
+It is computed over GPU, so you play with an impressive number of fishes.
+Each of your finger tips is visualized with a nice incandescent fire.
+Fishes are attracted by your fingers. But as soon as you move it you scare them away.
+Just excelent!</p>
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/e--L3pArf-c" frameborder="0" allowfullscreen></iframe>
+
+
+<h3>Google Earth</h3>
+
+<p>Google modified its famous application Google Earth to support leap device.
+Now you can fly above the earth with your hands in the air.
+See the <a href="http://www.theverge.com/2013/4/22/4246612/google-will-release-google-earth-app-for-leap-motion">announcement for details</a>.</p>
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/RebX7YEn3GQ" frameborder="0" allowfullscreen></iframe>
+
+
+<h3>LeapDJ</h3>
+
+<p>Then there is <a href="https://developer.leapmotion.com/downloads/leap-motion/leap-dj-demo">LeapDJ</a>.
+Leap device goes well with the music field. One can create virtual instruments and play them thru the leap.
+It is instinctive and reactive. Quite fit for a musician&#8217;s state of mind :) here is leapdj demo.
+You mix live music with 2 platines, sliders for volume and balance.
+You can push buttons to create sounds effects. And you can do that with all your fingers at the same time.
+Definitely a fun application ;)</p>
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/cFOYHmRab_Q" frameborder="0" allowfullscreen></iframe>
+
+
+<h3>Flying Demo</h3>
+
+<p><a href="https://developer.leapmotion.com/downloads/leap-motion/leap-flying-demo">flying demo</a> is an example where
+the leap is used as a game controller.
+You put your hand side to side and move them as if they were the wings of a plane.</p>
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/ACEE4yddgQ0" frameborder="0" allowfullscreen></iframe>
+
+
+<p>To stay updated on what is new and interesting about developing on Leap, you may follow <a href="https://twitter.com/LeapMotionDev">@LeapMotionDev</a> on twitter</p>
+
+<h2>How To Get One</h2>
+
+<p>So, where can you get the Leap motion?
+You can have it shipped to your place by <a href="https://www.leapmotion.com/preorder/new">preordering it</a> on their site.
+The current <a href="http://blog.leapmotion.com/post/48872742284/release-date-update">release date is July 22nd of this year</a>.
+The device is announced at 79.99$us.
+They will also be available at the <a href="http://www.bestbuy.com/">BestBuy nearest you</a>.</p>
+
+<p>Additionnaly they have
+<a href="https://developer.leapmotion.com/blog/leap-motion-to-embed-3-d-motion-control-through-hp-collaboration">parterships with HP</a>
+and
+<a href="http://uk.ign.com/articles/2013/01/03/kinect-like-motion-tracking-coming-to-asus-pcs">asus PCs</a>
+to include it directly in some of their models.
+With all that, we can expect this device will go beyond the geek circle and reach the masses.
+For further information, you can go to the <a href="https://www.leapmotion.com/">official website</a></p>
+
+<h2>How To Code It</h2>
+
+<p>They got an API than they have ported in multiple langages:
+<a href="https://developer.leapmotion.com/documentation/guide/Sample_C++_Tutorial">c++</a>,
+<a href="https://developer.leapmotion.com/documentation/guide/Sample_C%23_Tutorial">C#</a>,
+<a href="https://developer.leapmotion.com/documentation/guide/Sample_ObjectiveC_Tutorial">Objective C</a>,
+<a href="https://developer.leapmotion.com/documentation/guide/Sample_Java_Tutorial">Java</a>,
+<a href="https://developer.leapmotion.com/documentation/guide/Sample_Python_Tutorial">Python</a>
+and
+<a href="https://developer.leapmotion.com/documentation/guide/Sample_JavaScript_Tutorial">javascript</a>.
+Obviously we will focus on the javascript one :) It is called <a href="https://github.com/leapmotion/leapjs">leapjs on github</a>.
+It is very simple. There is a driver running as daemon doing the work and providing you information via websocket.
+I just started to code on it. I will talk more about this later.</p>
+
+<h2>Conclusion</h2>
+
+<p>So we’ve seen that the Leap  motion is a very small device (less than half the size of an Iphone)
+that tracks the movement of your hands and fingers.
+It’s so precise it’s scary!
+The Leap is very reactive and accurate, it is designed to work at a very close range.
+I have tried it out and it is pretty cool.
+You can move elements in your computer with your fingers, with the palm of your hand
+or even by pointing them with a pen.
+And good news&#8230;.You can code it with javascript and you can find it on github!</p>
+
+<p>We have also seen some cool applications that have been done with this device.
+Trust me you don’t want to miss that so take a look at the demos!
+Stay tuned for the release date and for more information about Leap Motion.</p>
+
+<p>That’s all for now, folks!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Mixing HTML pages inside your WebGL]]></title>
@@ -3392,185 +3518,6 @@ How far is it possible to push this concept of <em>&#8220;three.js power + jQuer
 It seems all very cute at first sight but only time will tell.</p>
 
 <p>That&#8217;s all folks. More on tQuery soon. Have fun :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Fun With Live Video in WebGL]]></title>
-    <link href="http://learningthreejs.com/blog/2012/02/07/live-video-in-webgl/"/>
-    <updated>2012-02-07T13:41:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2012/02/07/live-video-in-webgl</id>
-    <content type="html"><![CDATA[<p>This post is about live video in webgl.
-It is possible in today browsers to read the webcam using a new feature from html5, called WebRTC.
-This standard is
-about real-time communications such video conferences.
-It is an open source project supported by Google, Mozilla and Opera.
-Quite neat hey!</p>
-
-<p>I think live video has a lot of potential usages in 3D.
-It is so cool for interactivity.
-The player sees himself on the screen. It becomes part of the actions.
-Quite immersive effect.
-We can imagine something like <a href="http://secondlife.com/">second life</a>, where
-people wander around and interact live with each other in a virtual world.
-Our demo is about TV&#8230; Another obvious use may be
-<a href="http://en.wikipedia.org/wiki/Reflection_(physics)">reflections</a>
-like
-<a href="http://en.wikipedia.org/wiki/Mirror">mirror</a>
-or
-<a href="http://en.wikipedia.org/wiki/Specular_reflection">water</a>.
-What about your face from the webcam reflecting in water with animated waves ?
-Would be nice!</p>
-
-<!-- more -->
-
-
-
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/vnNihxl3taE" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-<p>It is surely nice but WebRTC is still quite on the edge.
-To enable webrtc on your computer, see how to
-<a href="http://www.webrtc.org/running-the-demos">run webrtc demos</a>.
-It is currently available only in
-<a href="http://tools.google.com/dlpage/chromesxs">Canari</a>.
-Mozilla people are working hard to make it happen as soon as possible.
-So it may be too early to use it for &#8216;serious&#8217; things.
-But way enougth to do cool experiments like the one we gonna do today :)</p>
-
-<p><a href="http://learningthreejs.com/data/live-video-in-webgl">Try it out</a>!!
-The first step will be to create a video element.
-We gonna start to make it play either a normal video file
-then to play video from the webcam using
-<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/streams/StreamProcessing.html">mediastream API</a>.
-After that, we gonna map this video to a normal texture.
-And we will be done !
-It is that simple, now let&#8217;s get started.</p>
-
-<h2>Let&#8217;s create the video element</h2>
-
-<p>The
-<a href="http://en.wikipedia.org/wiki/HTML5_video">video element</a>
-is the DOM way to handle video in webpage.
-Let&#8217;s create the video element.
-Later we will use it as texture and display it in WebGL.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">video</span>      <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;video&#39;</span><span class="p">);</span>
-</span><span class='line'><span class="nx">video</span><span class="p">.</span><span class="nx">width</span>    <span class="o">=</span> <span class="mi">320</span><span class="p">;</span>
-</span><span class='line'><span class="nx">video</span><span class="p">.</span><span class="nx">height</span>   <span class="o">=</span> <span class="mi">240</span><span class="p">;</span>
-</span><span class='line'><span class="nx">video</span><span class="p">.</span><span class="nx">autoplay</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>It you wish to create a video from a file webm, mp4 or ogv, just set
-its <code>.src</code> property.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">video</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;http://example.com/supercatvideo.webm&quot;</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>It wasn&#8217;t too hard, hey :) So now we know how to get a video from a file.
-Let&#8217;s see if we can use the webcam and get this nice immersive effect for our
-users.</p>
-
-<h2>Let&#8217;s Use the Webcam if Available</h2>
-
-<p>Our first step is to detect if the media stream API is available.
-The following line will do the job nicely.
- <code>hasUserMedia</code> will be true if it is available, false otherwise.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">hasUserMedia</span> <span class="o">=</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">webkitGetUserMedia</span> <span class="o">?</span> <span class="kc">true</span> <span class="o">:</span> <span class="kc">false</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>If it isn&#8217;t, you may point the users to
-<a href="http://www.webrtc.org/running-the-demos">this doc</a>
-on how to get it
-and/or using a normal video file.
-Now we need to check if we can read the webcam.
-For that, we use the following lines.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">navigator</span><span class="p">.</span><span class="nx">webkitGetUserMedia</span><span class="p">(</span><span class="s1">&#39;video&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">stream</span><span class="p">){</span>
-</span><span class='line'>  <span class="nx">video</span><span class="p">.</span><span class="nx">src</span>    <span class="o">=</span> <span class="nx">webkitURL</span><span class="p">.</span><span class="nx">createObjectURL</span><span class="p">(</span><span class="nx">stream</span><span class="p">);</span>
-</span><span class='line'><span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">){</span>
-</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Failed to get a stream due to&quot;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>A pseudo URL will be created by <code>.createObjectURL</code>.
-It would allows the video element to automagically read the webcam.
-It looks a bit like that.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">blob</span><span class="o">:</span><span class="nx">http</span><span class="o">%</span><span class="mi">3</span><span class="nx">A</span><span class="c1">//learningthreejs.com/e33eb278-08a8-4052-9dca-3c7663c88bc0</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Handle the textures</h2>
-
-<p>Now we got the <a href="https://developer.mozilla.org/En/HTML/Element/Video">video element</a> ready.
-Let&#8217;s create a texture using it as source.
-The last step before seeing the video moving on screen :)
-Use this simple line. It is enougth.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">videoTexture</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Texture</span><span class="p">(</span> <span class="nx">video</span> <span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This texture is a normal texture and can be used as usual in materials.
-For example, in a <a href="http://en.wikipedia.org/wiki/Lambertian_reflectance">lambert</a> material.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">material</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshLambertMaterial</span><span class="p">({</span>
-</span><span class='line'>  <span class="nx">map</span> <span class="o">:</span> <span class="nx">videoTexture</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>But this texture is special, it is a video. So it need to be constantly updated.
-In your render loop, add those lines. They monitor the state of your video.
-Every time the video got enougth data to be display, the texture is updated
-and sent to the GPU.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">if</span><span class="p">(</span> <span class="nx">video</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="nx">video</span><span class="p">.</span><span class="nx">HAVE_ENOUGH_DATA</span> <span class="p">){</span>
-</span><span class='line'>  <span class="nx">videoTexture</span><span class="p">.</span><span class="nx">needsUpdate</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Conclusion</h2>
-
-<p>Now you can display your webcam inside your webgl !!
-This is simple and cool.
-Browser support will increase with time.
-Live video is a very powerfull tool.
-The image from the webcam is a normal one.
-On it, you can perform
-<a href="https://github.com/mrdoob/three.js/tree/master/examples/js/postprocessing">post processing</a>,
-<a href="http://en.wikipedia.org/wiki/Edge_detection">edge detection</a>,
-and many other crazy things. Up to you to experiment.
-Let&#8217;s all for today folks, have fun :)</p>
 ]]></content>
   </entry>
   
