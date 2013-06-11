@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Discovering Leap Device"
-date: 2013-05-24 10:58
+date: 2013-06-11 10:58
 comments: true
 categories: 
 ---
@@ -15,7 +15,10 @@ Especially when you see the accuracy, even the slightest movement of your finger
 They have been nice enough to send me one so that I could play with it and get an idea of
 what it does and why it is such a cool device. 
 
-## Applications
+<iframe width="425" height="349" src="http://www.youtube.com/embed/aP_4KPXjDpM" frameborder="0" allowfullscreen></iframe>
+
+<!-- more -->
+
 Here are some applications that I found cool. You can easily install them.
 
 ### Visualizer
@@ -23,6 +26,8 @@ Here are some applications that I found cool. You can easily install them.
 First the Visualizer. This application is installed when you install the leap itself.
 It is a basic display of what the leap detects. It helps you discover what the leap 
 can do and diagnose potential issues. 
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/D2oKfAnEaPQ" frameborder="0" allowfullscreen></iframe>
 
 ### Flocking
 
@@ -45,18 +50,22 @@ See the [announcement for details](http://www.theverge.com/2013/4/22/4246612/goo
 
 ### LeapDJ
 
-Then there is [leapdj](https://developer.leapmotion.com/downloads/leap-motion/leap-dj-demo). 
+Then there is [LeapDJ](https://developer.leapmotion.com/downloads/leap-motion/leap-dj-demo). 
 Leap device goes well with the music field. One can create virtual instruments and play them thru the leap.
 It is instinctive and reactive. Quite fit for a musician's state of mind :) here is leapdj demo. 
-You mix live music with 2 platines, sliders for volume and balance.  
+You mix live music with 2 platines, sliders for volume and balance.
 You can push buttons to create sounds effects. And you can do that with all your fingers at the same time. 
 Definitely a fun application ;)
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/cFOYHmRab_Q" frameborder="0" allowfullscreen></iframe>
 
 ### Flying Demo
 
 [flying demo](https://developer.leapmotion.com/downloads/leap-motion/leap-flying-demo) is an example where 
 the leap is used as a game controller.
 You put your hand side to side and move them as if they were the wings of a plane. 
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/ACEE4yddgQ0" frameborder="0" allowfullscreen></iframe>
 
 To stay updated on what is new and interesting about developing on Leap, you may follow [@LeapMotionDev](https://twitter.com/LeapMotionDev) on twitter
 
@@ -84,8 +93,8 @@ They got an API than they have ported in multiple langages:
 [Java](https://developer.leapmotion.com/documentation/guide/Sample_Java_Tutorial),
 [Python](https://developer.leapmotion.com/documentation/guide/Sample_Python_Tutorial)
 and 
-[javascript](https://developer.leapmotion.com/documentation/guide/Sample_JavaScript_Tutorial)
-Obviously we will focus on the javascript one :) It is called leapjs and is on [github](https://github.com/leapmotion/leapjs).
+[javascript](https://developer.leapmotion.com/documentation/guide/Sample_JavaScript_Tutorial).
+Obviously we will focus on the javascript one :) It is called [leapjs on github](https://github.com/leapmotion/leapjs).
 It is very simple. There is a driver running as daemon doing the work and providing you information via websocket.
 I just started to code on it. I will talk more about this later.
 
