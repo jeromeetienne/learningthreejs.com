@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2013-06-11T15:21:22+02:00</updated>
+  <updated>2013-06-25T14:23:45+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,130 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Monitor Rendering Performance Within Three.js]]></title>
+    <link href="http://learningthreejs.com/blog/2013/06/25/monitor-rendering-performance-within-threejs/"/>
+    <updated>2013-06-25T10:58:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2013/06/25/monitor-rendering-performance-within-threejs</id>
+    <content type="html"><![CDATA[<p>This post is about monitoring rendering performance within three.js.
+It presents a small standalone extension called <code>threex.rendererstats</code>.
+It collect informations from three.js renderer and display it live.
+It is very usefull to diagnose performance issues while developping.
+The API is exactly the same as <a href="http://github.com/mrdoob/stats.js">stats.js</a>
+so it is easy for you to include in your own stuff.</p>
+
+<iframe width="425" height="349" src="http://www.youtube.com/embed/UXWpnANajDk" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<h2>What Is It ?</h2>
+
+<p><img class="right" src="http://learningthreejs.com/data/2013-06-13-monitor-rendering-performance-within-threejs/screenshot-rendererstats.png"></p>
+
+<p><a href="http://github.com/jeromeetienne/threex.rendererstats">threex.rendererstats</a> collects informations
+about three.js renderer and display it realtime on your screen.
+It is released under MIT license and is available on
+<a href="http://github.com/jeromeetienne/threex.rendererstats">github</a>.
+See a screenshot on the right.</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.rendererstats/examples/basic.html' target='_blank'><input type="button" value='Try Live Demo!' style='font-size:400%;' /></a></p>
+
+<p><img class="left" src="http://learningthreejs.com/data/2013-06-13-monitor-rendering-performance-within-threejs/screenshot-stats.png" width="240"></p>
+
+<p>It is inpired from
+<a href="http://github.com/mrdoob/stats.js">stats.js</a> by
+<a href="http://mrdoob.com">mrdoob</a>.
+See a screenshot on the left.
+Webgl renderer keeps some internal statistics on the scene being renderered and update it at every frame.
+It is accessible in a property <code>.info</code>.
+threex.rendererstats just gather this informations and display it nicely on your screen.</p>
+
+<h2>How Is It Useful ?</h2>
+
+<p>It is a very nice tool to monitor performances of WebGL rendering.
+As it is updated realtime, you can identify performance issues at various moments within your game
+We have seen canvas inspection recently in
+<a href="http://learningthreejs.com/blog/2013/04/05/debugging-with-chromes-canvas-inspection/">Debugging With Chrome’s Canvas Inspection</a>.
+<a href="http://learningthreejs.com/blog/2013/04/05/debugging-with-chromes-canvas-inspection/">canvas inspection</a>
+is directly at webgl level. threex.rendererstats remains at three.js level to give you another kind
+of informations on the renderer.</p>
+
+<p>Lets details those informations
+There is 2 sections one for the memory, another for the renderer.
+For the memory, you got</p>
+
+<ul>
+<li><code>info.memory.geometry</code> : number of geometry currently in memory</li>
+<li><code>info.memory.programs</code> : number of shaders currently in memory</li>
+<li><code>info.memory.texture</code> : number of texture currently in memory</li>
+</ul>
+
+
+<p>For the render, you got</p>
+
+<ul>
+<li><code>info.render.calls</code> : number of draw calls currently used to render</li>
+<li><code>info.render.vertices</code> : number of vertices currently rendered</li>
+<li><code>info.render.faces</code> : number of triangles currently renderered</li>
+<li><code>info.render.points</code> : number of particles currently rendered</li>
+</ul>
+
+
+<h2>How To Use It ?</h2>
+
+<p>first, include <code>threex.rendererstats.js</code> with the usual <code>&lt;script&gt;</code> tag.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.rendererstats.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>then you initialize the object.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">rendererStats</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">RendererStats</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You likely need to position it on the page with css.
+You may use something along this line</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">rendererStats</span><span class="p">.</span><span class="nx">domElement</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">position</span>   <span class="o">=</span> <span class="s1">&#39;absolute&#39;</span>
+</span><span class='line'><span class="nx">rendererStats</span><span class="p">.</span><span class="nx">domElement</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span>  <span class="o">=</span> <span class="s1">&#39;0px&#39;</span>
+</span><span class='line'><span class="nx">rendererStats</span><span class="p">.</span><span class="nx">domElement</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">bottom</span>    <span class="o">=</span> <span class="s1">&#39;0px&#39;</span>
+</span><span class='line'><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span> <span class="nx">rendererStats</span><span class="p">.</span><span class="nx">domElement</span> <span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>finally you update it at every frame in your rendering loop.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">rendererStats</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">renderer</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And you are done. Quite easy to include! Now you can monitor your own three.js scenes.</p>
+
+<h2>Conclusion</h2>
+
+<p>We have seen how to monitor performance information withing three.js.
+How to display and use the statistics collected by <code>THREE.WebGLRenderer</code>
+itself.
+The information may appear a bit raw but it is live.
+So unexpected performance changes can be detected very early.</p>
+
+<p>That&#8217;s all for today! have fun :)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Discovering Leap Device]]></title>
@@ -3332,192 +3456,6 @@ to automatically resolve dependancies between plugins.
 What&#8217;s next ? likely a series with a step by step on how to build a tunnel game.</p>
 
 <p>That&#8217;s all folks! have fun :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[An Extension System for three.js]]></title>
-    <link href="http://learningthreejs.com/blog/2012/02/08/extension-system-for-three-js/"/>
-    <updated>2012-02-08T15:24:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2012/02/08/extension-system-for-three-js</id>
-    <content type="html"><![CDATA[<p>  This post an overview of a work-in-progress.
-It is about an extension system on top of three.js which mimics jQuery API.
-I came up with the idea while thinking about how to
-trim three.js and make it easier to maintain. I have always been impressed
-with jQuery plugin ecosystem. It is lively, varied,
-and contains impressive specimens. I would love to have such
-a rich ecosystem for three.js&#8217;s plugins.</p>
-
-<p>  Let&#8217;s call this experiment <strong>tQuery</strong> as in &#8220;three.js + jQuery&#8221;.
-It makes it easier to understand if you already known this library.
-This is a v0 in the
-<a href="http://catb.org/~esr/writings/homesteading/cathedral-bazaar/ar01s04.html">&#8220;publish early, publish often&#8221;</a>
-vibe.
-The goal of this little project is to see if we can mix
-to mix three.js power with jquery API usability&#8230;
-How far this concept can fly ? We will see.</p>
-
-<p>So what do we want ? The code must make <strong>three.js easy to extend</strong>
-and should <strong>mimics jQuery whenever possible</strong>.
-In order to see if the system hold under load, i wrote several extensions already.
-It is very early. The architecture of it all is far from stable.
-Code is advancing at fast pace tho :)
-The screencast below is short live coding session. Just to give an idea of the current
-status.</p>
-
-<!-- more -->
-
-
-
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/Aa7sHUE224A" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-<h2>DOM</h2>
-
-<p>With jQuery and the
-<a href="http://en.wikipedia.org/wiki/Document_Object_Model">DOM</a>, you
-get a tree of
-<a href="https://developer.mozilla.org/en/DOM/element">elements</a>
-from the page.
-In fact, three.js got this tree as well. Surprising hey ?
-We just name it a
-<a href="https://github.com/mrdoob/three.js/blob/master/src/scenes/Scene.js">scene</a>
-instead of a tree.
-And our element are called
-<a href="https://github.com/mrdoob/three.js/blob/master/src/core/Object3D.js">Object3D</a>.
-But all that is just a matter of vocabulary.</p>
-
-<p>One one hand, jquery one, you got the dom and its tree of element.
-on the other hand, three.js one, you got the scene and its tree of object3D.
-Same Thing!</p>
-
-<h2>Chained API</h2>
-
-<p>jQuery got a chained API, so tQuery got a chained API. When we said
-<em>copy jQuery whenever possible</em>, we were not kidding :)</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">tQuery</span><span class="p">(</span><span class="s1">&#39;.fooKlass&#39;</span><span class="p">).</span><span class="nx">scale</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="nx">translate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>IDs and classes</h2>
-
-<p>They got
-<a href="http://api.jquery.com/id-selector/">Ids</a>
-and
-<a href="http://api.jquery.com/class-selector/">classes</a>
-, or more recently
-<a href="http://api.jquery.com/data/">data</a>.
-So we did all the same with tQuery.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">cube</span>   <span class="o">=</span> <span class="nx">tQuery</span><span class="p">().</span><span class="nx">createCube</span><span class="p">();</span>
-</span><span class='line'><span class="nx">cube</span><span class="p">.</span><span class="nx">id</span><span class="p">(</span><span class="s2">&quot;myId&quot;</span><span class="p">);</span>   <span class="c1">// set the id of this element</span>
-</span><span class='line'><span class="nx">cube</span><span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;fooKlass&#39;</span><span class="p">);</span>   <span class="c1">// add &#39;fooKlass&#39; class to this cube</span>
-</span><span class='line'><span class="nx">cube</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;goom&#39;</span><span class="p">,</span> <span class="s1">&#39;baa&#39;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Selector</h2>
-
-<p>jQuery got selectors so tQuery got selectors too.
-Here are the selector based on geometry, they are similar to the
-[element selector] in jQuery, e.g. <code>jQuery('span')</code>.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">tQuery</span><span class="p">(</span><span class="s1">&#39;sphere&#39;</span><span class="p">);</span>    <span class="c1">// select all objects with a sphere gemotry</span>
-</span><span class='line'><span class="nx">tQuery</span><span class="p">(</span><span class="s1">&#39;cube&#39;</span><span class="p">);</span> <span class="c1">// smae with a cube gemotry</span>
-</span><span class='line'><span class="c1">// and so on</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Here are the one for classes and id.
-Note how the syntax is similar to css selector.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">tQuery</span><span class="p">(</span><span class="s1">&#39;#myId&#39;</span><span class="p">)</span>  <span class="c1">// to get the object with the &#39;myId&#39; id</span>
-</span><span class='line'><span class="nx">tQuery</span><span class="p">(</span><span class="s1">&#39;.fooklass&#39;</span><span class="p">)</span> <span class="c1">// to get objects with the class &#39;fooklass&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>obvious we got compose them like with jQuery</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">tQuery</span><span class="p">(</span><span class="s1">&#39;.bar.foo&#39;</span><span class="p">)</span>   <span class="c1">// objets with the class &#39;bar&#39; and &#39;foo&#39;</span>
-</span><span class='line'><span class="nx">tQuery</span><span class="p">(</span><span class="s1">&#39;.bar cube&#39;</span><span class="p">)</span> <span class="c1">// objets with the class &#39;bar&#39; with a cube as descandant</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Events</h2>
-
-<p>Obviously jQuery got events, so we got events in tQuery.
-we use <em>domEvents</em> we saw a few week back in
-<a href="http://learningthreejs.com/blog/2012/01/17/dom-events-in-3d-space/">&#8216;dom events in 3D space&#8217; post</a></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">tQuery</span><span class="p">(</span><span class="s1">&#39;cube&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;mouseover&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
-</span><span class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;somebody put the mouse over a cube&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>A Basic Page</h2>
-
-<iframe src="http://jeromeetienne.github.com/tquery/plugins/minimal/examples"
-    webkitallowfullscreen mozallowfullscreen allowfullscreen 
-    width="260" height="280" frameborder="0" style="float: right; margin-left: 1em;">
-</iframe>
-
-
-<p>This is a minimal page. the code is below, the preview on the right.
-Quite short.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!doctype html&gt;</span><span class="nt">&lt;title&gt;</span>tQuery Basic Page<span class="nt">&lt;/title&gt;</span>
-</span><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;tquery-bundle.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span><span class='line'><span class="nt">&lt;body&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;script&gt;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">world</span> <span class="o">=</span> <span class="nx">tQuery</span><span class="p">.</span><span class="nx">createWorld</span><span class="p">().</span><span class="nx">fullpage</span><span class="p">().</span><span class="nx">start</span><span class="p">();</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">object</span> <span class="o">=</span> <span class="nx">tQuery</span><span class="p">.</span><span class="nx">createTorus</span><span class="p">().</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">world</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nt">&lt;/script&gt;</span>
-</span><span class='line'><span class="nt">&lt;/body&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Conclusion</h2>
-
-<p>This was early presentation of tQuery. I like the idea, we will see how it goes.
-The purpose of this experiement is to help those who know jQuery to use three.js.
-So they reuse jquery syntax but inside a webgl context.
-This is a very early project.
-How far is it possible to push this concept of <em>&#8220;three.js power + jQuery API usuability&#8221;</em>.
-It seems all very cute at first sight but only time will tell.</p>
-
-<p>That&#8217;s all folks. More on tQuery soon. Have fun :)</p>
 ]]></content>
   </entry>
   

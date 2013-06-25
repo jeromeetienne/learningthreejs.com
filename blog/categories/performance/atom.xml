@@ -4,7 +4,7 @@
   <title><![CDATA[Category: performance | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/performance/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2013-06-11T15:21:22+02:00</updated>
+  <updated>2013-06-25T14:23:45+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,126 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Monitor Rendering Performance Within Three.js]]></title>
+    <link href="http://learningthreejs.com/blog/2013/06/25/monitor-rendering-performance-within-threejs/"/>
+    <updated>2013-06-25T10:58:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2013/06/25/monitor-rendering-performance-within-threejs</id>
+    <content type="html"><![CDATA[<p>This post is about monitoring rendering performance within three.js.
+It presents a small standalone extension called <code>threex.rendererstats</code>.
+It collect informations from three.js renderer and display it live.
+It is very usefull to diagnose performance issues while developping.
+The API is exactly the same as <a href="http://github.com/mrdoob/stats.js">stats.js</a>
+so it is easy for you to include in your own stuff.</p>
+
+<iframe width="425" height="349" src="http://www.youtube.com/embed/UXWpnANajDk" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<h2>What Is It ?</h2>
+
+<p><img class="right" src="/data/2013-06-13-monitor-rendering-performance-within-threejs/screenshot-rendererstats.png"></p>
+
+<p><a href="http://github.com/jeromeetienne/threex.rendererstats">threex.rendererstats</a> collects informations
+about three.js renderer and display it realtime on your screen.
+It is released under MIT license and is available on
+<a href="http://github.com/jeromeetienne/threex.rendererstats">github</a>.
+See a screenshot on the right.</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.rendererstats/examples/basic.html' target='_blank'><input type="button" value='Try Live Demo!' style='font-size:400%;' /></a></p>
+
+<p><img class="left" src="/data/2013-06-13-monitor-rendering-performance-within-threejs/screenshot-stats.png" width="240"></p>
+
+<p>It is inpired from
+<a href="http://github.com/mrdoob/stats.js">stats.js</a> by
+<a href="http://mrdoob.com">mrdoob</a>.
+See a screenshot on the left.
+Webgl renderer keeps some internal statistics on the scene being renderered and update it at every frame.
+It is accessible in a property <code>.info</code>.
+threex.rendererstats just gather this informations and display it nicely on your screen.</p>
+
+<h2>How Is It Useful ?</h2>
+
+<p>It is a very nice tool to monitor performances of WebGL rendering.
+As it is updated realtime, you can identify performance issues at various moments within your game
+We have seen canvas inspection recently in
+<a href="http://learningthreejs.com/blog/2013/04/05/debugging-with-chromes-canvas-inspection/">Debugging With Chrome’s Canvas Inspection</a>.
+<a href="http://learningthreejs.com/blog/2013/04/05/debugging-with-chromes-canvas-inspection/">canvas inspection</a>
+is directly at webgl level. threex.rendererstats remains at three.js level to give you another kind
+of informations on the renderer.</p>
+
+<p>Lets details those informations
+There is 2 sections one for the memory, another for the renderer.
+For the memory, you got</p>
+
+<ul>
+<li><code>info.memory.geometry</code> : number of geometry currently in memory</li>
+<li><code>info.memory.programs</code> : number of shaders currently in memory</li>
+<li><code>info.memory.texture</code> : number of texture currently in memory</li>
+</ul>
+
+
+<p>For the render, you got</p>
+
+<ul>
+<li><code>info.render.calls</code> : number of draw calls currently used to render</li>
+<li><code>info.render.vertices</code> : number of vertices currently rendered</li>
+<li><code>info.render.faces</code> : number of triangles currently renderered</li>
+<li><code>info.render.points</code> : number of particles currently rendered</li>
+</ul>
+
+
+<h2>How To Use It ?</h2>
+
+<p>first, include <code>threex.rendererstats.js</code> with the usual <code>&lt;script&gt;</code> tag.</p>
+
+<p>```html</p>
+
+<script src='threex.rendererstats.js'></script>
+
+
+<p>```</p>
+
+<p>then you initialize the object.</p>
+
+<p><code>javascript
+var rendererStats   = new THREEx.RendererStats()
+</code></p>
+
+<p>You likely need to position it on the page with css.
+You may use something along this line</p>
+
+<p><code>javascript
+rendererStats.domElement.style.position = 'absolute'
+rendererStats.domElement.style.left = '0px'
+rendererStats.domElement.style.bottom   = '0px'
+document.body.appendChild( rendererStats.domElement )
+</code></p>
+
+<p>finally you update it at every frame in your rendering loop.</p>
+
+<p><code>javascript
+rendererStats.update(renderer);
+</code></p>
+
+<p>And you are done. Quite easy to include! Now you can monitor your own three.js scenes.</p>
+
+<h2>Conclusion</h2>
+
+<p>We have seen how to monitor performance information withing three.js.
+How to display and use the statistics collected by <code>THREE.WebGLRenderer</code>
+itself.
+The information may appear a bit raw but it is live.
+So unexpected performance changes can be detected very early.</p>
+
+<p>That's all for today! have fun :)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Performance: Merging Geometry]]></title>
