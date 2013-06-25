@@ -1,21 +1,24 @@
 ---
 layout: post
 title: "Monitor Rendering Performance Within Three.js"
-date: 2013-06-12 10:58
+date: 2013-06-25 10:58
 comments: true
 categories: [three.js, performance]
 ---
 
 This post is about monitoring rendering performance within three.js.
-It presents a small extension called ```threex.rendererstats```
-which collect performance informations in three.js renderer and
-makes it easy for you to include in your own games.
+It presents a small standalone extension called ```threex.rendererstats```.
+It collect informations from three.js renderer and display it live. 
+It is very usefull to diagnose performance issues while developping.
+The API is exactly the same as [stats.js](http://github.com/mrdoob/stats.js)
+so it is easy for you to include in your own stuff.
 
-
+<iframe width="425" height="349" src="http://www.youtube.com/embed/UXWpnANajDk" frameborder="0" allowfullscreen></iframe>
 
 <!-- more -->
 
 ## What Is It ?
+
 {% img right /data/2013-06-13-monitor-rendering-performance-within-threejs/screenshot-rendererstats.png %}
 
 [threex.rendererstats](http://github.com/jeromeetienne/threex.rendererstats) collects informations 
