@@ -8,7 +8,7 @@ categories: [three.js, performance]
 
 This post is about monitoring rendering performance within three.js.
 It presents a small standalone extension called ```threex.rendererstats```.
-It collect informations from three.js renderer and display it live. 
+It collect information from three.js renderer and display it live. 
 It is very usefull to diagnose performance issues while developping.
 The API is exactly the same as [stats.js](http://github.com/mrdoob/stats.js)
 so it is easy for you to include in your own stuff.
@@ -21,7 +21,7 @@ so it is easy for you to include in your own stuff.
 
 {% img right /data/2013-06-13-monitor-rendering-performance-within-threejs/screenshot-rendererstats.png %}
 
-[threex.rendererstats](http://github.com/jeromeetienne/threex.rendererstats) collects informations 
+[threex.rendererstats](http://github.com/jeromeetienne/threex.rendererstats) collects information 
 about three.js renderer and display it realtime on your screen.
 It is released under MIT license and is available on
 [github](http://github.com/jeromeetienne/threex.rendererstats).
@@ -37,7 +37,7 @@ It is inpired from
 See a screenshot on the left.
 Webgl renderer keeps some internal statistics on the scene being renderered and update it at every frame. 
 It is accessible in a property ```.info```.
-threex.rendererstats just gather this informations and display it nicely on your screen.
+threex.rendererstats just gather this information and display it nicely on your screen.
 
 
 ## How Is It Useful ?
@@ -47,9 +47,9 @@ We have seen canvas inspection recently in
 [Debugging With Chrome’s Canvas Inspection](http://learningthreejs.com/blog/2013/04/05/debugging-with-chromes-canvas-inspection/). 
 [canvas inspection](http://learningthreejs.com/blog/2013/04/05/debugging-with-chromes-canvas-inspection/) 
 is directly at webgl level. threex.rendererstats remains at three.js level to give you another kind 
-of informations on the renderer.
+of information on the renderer.
 
-Lets details those informations
+Lets details those information
 There is 2 sections one for the memory, another for the renderer. 
 For the memory, you got
 
