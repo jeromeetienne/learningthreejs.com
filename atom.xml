@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2013-07-04T13:51:38+02:00</updated>
+  <updated>2013-07-04T14:03:21+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -116,7 +116,7 @@ You may use something along this line</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>finally you update it at every frame in your rendering loop.</p>
+<p>finally you update it at every frame in your rendering loop or when you do <code>renderer.render()</code></p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">rendererStats</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">renderer</span><span class="p">);</span>
