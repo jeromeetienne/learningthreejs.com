@@ -88,7 +88,7 @@ rendererStats.domElement.style.bottom	= '0px'
 document.body.appendChild( rendererStats.domElement )
 ```
 
-finally you update it at every frame in your rendering loop.
+finally you update it at every frame in your rendering loop or when you do ```renderer.render()```
 
 ```javascript
 rendererStats.update(renderer);
