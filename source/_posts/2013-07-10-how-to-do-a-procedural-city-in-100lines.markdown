@@ -10,9 +10,9 @@ This post explains how to code
 ["city"](http://www.mrdoob.com/lab/javascript/webgl/city/01/)
 , a  demo [recently released](https://twitter.com/mrdoob/status/350730133319073792) by 
 [@mrdoob](http://mrdoob.com).
-It build a fully procedural city in 100-lines of javascript.
-I found the algorithm very eleguant, a simple and efficient solution. 
-So i made a post explaining it.
+He built a fully procedural city in 100-lines of javascript.
+I found the algorithm very elegant, a simple and efficient solution. 
+So I made a post explaining it.
 
 <iframe width="425" height="349" src="http://www.youtube.com/embed/UXWpnANajDk" frameborder="0" allowfullscreen></iframe>
 
@@ -22,25 +22,25 @@ So i made a post explaining it.
 ## A Few Remarks on the Algorithm
 
 It always helps to get a big picture before going down to the details.
-The used algorithm is [fully procedural](http://en.wikipedia.org/wiki/Procedural_generation)
+The used algorithm is [fully procedural](http://en.wikipedia.org/wiki/Procedural_generation).
 This means the whole city is built dynamically, so no download.
-It is quite eleguant as whell.
-The algorithm to generate the city in 3d is less than 100lines long.
+It is quite elegant as well.
+The algorithm to generate the city in 3d is less than 100 lines long.
 What is this algo in a nutshell? 
 Every building is a cube, they got random size and position.
-Simple enougth ?
+Simple enough ?
 It may seem far from realism but it is ok.
 The illusion is surprisingly convincing if you fly over at low altitude.
 
-From a performance point of view, all building are merged into a single geometry,
+From a performance point of view, all buildings are merged into a single geometry,
 with a single material.
 As a cherry on the cake, we remove the bottom face as it is never seen.
 It is very efficient as there is no shader swap and a single draw call.
 
 To improve realism, we simulate ambient occlusion thru a cheap trick 
 using ```vertexColor```.
-In city, at the street level you got shaddow from the other buildings.
-So the bottom of the building are darker than the top.
+In the city, at the street level you got shadow from the other buildings.
+So the bottom of the buildings are darker than the top.
 We can reproduce this effect with ```vertexColor```.
 We take the bottom vertices of the building and make them darker than the top.
 
@@ -52,7 +52,7 @@ Then we use this geometry to know *"where to place buildings in the city"*.
 We use some clever trick *"using vertexColor for ambient occlusion"*.
 Then we *"merge all buildings to make a city"*, thus the whole city may 
 be drawn in a single draw call.
-At the end we details the *"procedural generation of building’s texture"*.
+At the end we detail the *"procedural generation of building’s texture"*.
 
 Ok so let's get started!!
 
@@ -130,15 +130,14 @@ buildingMesh.scale.y  = (Math.random() * Math.random() * Math.random() * buildin
 ```
 
 We got the position/rotation/scale of our building all set.
-Now let's set it's color, and how to use it to simulate shaddows.
+Now let's set its color, and how to use it to simulate shadows.
 
 ### Using VertexColor for Ambient Occlusion
 
 {% img right /data/2013-07-10-how-to-do-a-procedural-city/screenshots/screenshot-building-with-vertexcolor-small.png %}
 
-In a city with lots of building, the bottom of the building tends to be darker than the top.
-This is because the sun light hit the top harder than the bottom.
-Other building hiding the sun and casting shadow.
+In a city with lots of buildings, the bottom of the building tends to be darker than the top.
+This is because the sun light hits the top harder than the bottom, at the bottom you have the shadow of another building.
 This is what we call
 [ambient occlusion](http://http.developer.nvidia.com/GPUGems/gpugems_ch17.html) in graphic programming.
 This concept may be implemented in various ways:
@@ -150,8 +149,8 @@ or in this
 
 With three.js, it is is possible to assign a color to a vertice. 
 It will alter the final color of the face.
-We gonna use that to simulate shaddows at the bottom of building.
-First we define the base colors for the part which receive lights, and the ones
+We gonna use that to simulate shadows at the bottom of building.
+First we define the base colors for the part which receives lights, and the ones
 which get shadows. 
 
 ```javascript
@@ -160,7 +159,7 @@ var shadow  = new THREE.Color( 0x303050 )
 ```
 
 Those are constants for each building. Now we need to get a color 
-for this particular building. We put some randomness to variety.
+for this particular building. We put some randomness for variety.
 
 ```javascript
 var value = 1 - Math.random() * Math.random();
@@ -231,12 +230,12 @@ Now one last step, let's explain how to make this texture.
 ## Procedural Generation of Building's Texture
 
 Here we want to generate the texture for the side of each building.
-In a nutshell, it will shows the floors for realism and variety.
+In a nutshell, it will show the floors for realism and variety.
 So it alternates between row of window and row of floor.
 Window rows are dark with a small noise to simulate light variations in each room.
 Then we upscale texture carefully avoiding filtering.
 
-So let's Status First you build a canvas. Make it small, 32x64.
+First you build a canvas. Make it small, 32x64.
 
 ```javascript
 var canvas  = document.createElement( 'canvas' );
@@ -270,12 +269,12 @@ for( var y = 2; y < 64; y += 2 ){
 {% img right /data/2013-07-10-how-to-do-a-procedural-city/screenshots/screenshot-texture-smoothing-small.png %}
 
 Now we got the texture... just it is super small, 32, 64
-We need to increase its resolution. But lets be carefull.
-By default when you increase the resolution, you get a smoothed result, so it may easily appears blurly.
+We need to increase its resolution. But lets be careful.
+By default when you increase the resolution, you get a smoothed result, so it may easily appears blurry.
 See on the right side, it doesn't look good... 
-To avoid this arterfact, we disable ```.imageSmoothedEnabled``` on each plateform.
+To avoid this artefact, we disable ```.imageSmoothedEnabled``` on each plateform.
 You can see the result on the left.
-The blury effect is no more.
+The blurry effect is no more.
 It is as sharp as the original but with a better resolution.
 Ok now lets code exactly that. First we create the large canvas of 1024 by 512.
 
@@ -316,7 +315,7 @@ As a summary here is the whole code put together.
 
 ## The Whole Code
 
-Let's put all that together. Here is the whole code commente.
+Let's put all that together. Here is the whole code commented.
 
 ```javascript
 // build the base geometry for each building
@@ -423,7 +422,7 @@ function generateTexture() {
 
 ## threex.proceduralcity extension
 
-At usual, this code is gathered in easy-to-reuse threex package,
+As usual, this code is gathered in easy-to-reuse threex package,
 [threex.proceduralcity](https://github.com/jeromeetienne/threex.proceduralcity).
 It makes stuff super simple, just create an instance and it will return a ```THREE.Mesh```.
 
@@ -433,8 +432,8 @@ scene.add(city)
 ```
 
 The [demo live](https://jeromeetienne.github.io/threex.proceduralcity/examples/demo.html)
-contains this city plus a ground, a first personn controls and a fog.
-This is rather cool result for as little effort.
+contains this city plus a ground, a first person control and a fog.
+This is rather cool result for such a small effort.
 
 ## Conclusion
 
@@ -444,6 +443,6 @@ Rather clever algorithm.
 I hope you learned from it, 
 it contains many tricks that you can reused in your own demos. 
 
-That's all for today! have fun :)
+That's all for today! Have fun :)
 
 
