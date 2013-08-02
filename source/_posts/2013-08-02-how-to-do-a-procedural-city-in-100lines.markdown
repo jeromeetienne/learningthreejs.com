@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "how to do a procedural city in 100 lines"
-date: 2013-07-10 12:47
+date: 2013-08-02 12:47
 comments: true
-categories: 
+categories: [three.js]
 ---
 
 This post explains how to code 
@@ -14,7 +14,7 @@ He built a fully procedural city in 100-lines of javascript.
 I found the algorithm very elegant, a simple and efficient solution. 
 So I made a post explaining it.
 
-<iframe width="425" height="349" src="http://www.youtube.com/embed/UXWpnANajDk" frameborder="0" allowfullscreen></iframe>
+<iframe width="425" height="349" src="http://www.youtube.com/embed/huTF047XVvQ" frameborder="0" allowfullscreen></iframe>
 
 <!-- more -->
 
@@ -134,7 +134,7 @@ Now let's set its color, and how to use it to simulate shadows.
 
 ### Using VertexColor for Ambient Occlusion
 
-{% img right /data/2013-07-10-how-to-do-a-procedural-city/screenshots/screenshot-building-with-vertexcolor-small.png %}
+{% img right /data/2013-08-02-how-to-do-a-procedural-city/screenshots/screenshot-building-with-vertexcolor-small.png %}
 
 In a city with lots of buildings, the bottom of the building tends to be darker than the top.
 This is because the sun light hits the top harder than the bottom, at the bottom you have the shadow of another building.
@@ -145,7 +145,7 @@ for example in screen space with [screen space ambient occlusion or ssao](http:/
 or in this 
 [minecraft example from three.js](threejs.org/examples/webgl_geometry_minecraft_ao.html)
 
-{% img left /data/2013-07-10-how-to-do-a-procedural-city/screenshots/screenshot-building-without-vertexcolor-small.png %}
+{% img left /data/2013-08-02-how-to-do-a-procedural-city/screenshots/screenshot-building-without-vertexcolor-small.png %}
 
 With three.js, it is is possible to assign a color to a vertice. 
 It will alter the final color of the face.
@@ -266,7 +266,7 @@ for( var y = 2; y < 64; y += 2 ){
 }
 ```
 
-{% img right /data/2013-07-10-how-to-do-a-procedural-city/screenshots/screenshot-texture-smoothing-small.png %}
+{% img right /data/2013-08-02-how-to-do-a-procedural-city/screenshots/screenshot-texture-smoothing-small.png %}
 
 Now we got the texture... just it is super small, 32, 64
 We need to increase its resolution. But lets be careful.
@@ -431,7 +431,7 @@ var city  = new THREEx.ProceduralCity()
 scene.add(city) 
 ```
 
-The [demo live](https://jeromeetienne.github.io/threex.proceduralcity/examples/demo.html)
+The [demo live](http://jeromeetienne.github.io/threex.proceduralcity/examples/demo.html)
 contains this city plus a ground, a first person control and a fog.
 This is rather cool result for such a small effort.
 
