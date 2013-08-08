@@ -9,10 +9,10 @@
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="This post is the first of a series Let&#8217;s Make a 3d game.
-The series will walk you down the path of
-game developement.
-It will describe the &hellip;">
+  <meta name="description" content="This is a new article of the &#8220;Let&#8217;s Make a 3D Game&#8221; series.
+In the previous one, we focused
+on keyboard. We will
+focus on map &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,6 +81,94 @@ It will describe the &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/09/14/lets-make-a-3D-game-map-editor/">Let&#8217;s Make a 3D Game: Map Editor</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-14T19:07:00+02:00" pubdate data-updated="true">Sep 14<span>th</span>, 2011</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/5/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/5/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This is a new article of the &#8220;Let&#8217;s Make a 3D Game&#8221; <a href="/blog/categories/tutorial3dgame/">series</a>.
+In the previous one, we focused
+on <a href="/blog/2011/09/12/lets-Make-a-3D-game-keyboard/">keyboard</a>. We will
+focus on <em>map editor</em> for this one.
+In most games, the player moves around a map, sometime they are
+called <a href="http://en.wikipedia.org/wiki/Level_(video_gaming)">levels</a>.
+<em>Maps</em> are a key part of a game. They describes the world the player lives in,
+its rules, its limits, its geography.
+Additionnaly when a player completes a map, he
+goes in another better/harder map. It gives a sense
+progression which is fun. Players like fun things :)</p>
+
+<h2>So let&#8217;s make a map editor</h2>
+
+<p><img class="right" src="/data/lets_make_a_game_map_editor/images/200px-Voxels.svg.png" title="Example" ></p>
+
+<p>So i searched for a way to do map for our <em>marble game</em>.
+I wanted something <strong>very reusable and hackable</strong>,
+something you could easily use in your own games.
+I picked <a href="http://en.wikipedia.org/wiki/Voxel">voxels</a>.
+The illustration from <a href="http://en.wikipedia.org/wiki/File:Voxels.svg">wikipedia</a>
+on the right, may help understanding.
+They are easy to code, simple to understand, yet efficient and flexible.
+On top of that, one of <a href="https://github.com/mrdoob/three.js/tree/master/examples">three.js examples</a> is a
+<a href="http://mrdoob.github.com/three.js/examples/webgl_interactive_voxelpainter.html">voxel painter</a>
+in WebGL. So most of the work was already done for us!</p>
+
+<p>Only two features were missing to make it a <a href="http://en.wikipedia.org/wiki/Level_editor">map editor</a>.
+<strong>First</strong>, we need to load and save those maps.
+Thus we can edit those maps, and tune them until to get a good <a href="http://en.wikipedia.org/wiki/Gameplay">gameplay</a>.
+<strong>Second</strong>, the map must be composed of various type of cubes.
+Different type of cubes will have different purposes in the game. e.g. one cube
+may be wood or be water, one may make your explode on contact, one may
+make you teleport, anything you want.
+So i did those modifications and came up with
+this <a href="http://jeromeetienne.github.com/marbleGame/editor">editor</a>.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/09/14/lets-make-a-3D-game-map-editor/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -751,6 +839,10 @@ a web server on it, and go in <code>/examples</code>.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/08/02/how-to-do-a-procedural-city-in-100lines/">how to do a procedural city in 100 lines</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/06/25/monitor-rendering-performance-within-threejs/">Monitor Rendering Performance Within Three.js</a>
       </li>
     
@@ -764,10 +856,6 @@ a web server on it, and go in <code>/examples</code>.</p>
     
       <li class="post">
         <a href="/blog/2013/04/05/debugging-with-chromes-canvas-inspection/">Debugging With Chrome&#8217;s Canvas Inspection</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/03/22/load-your-game-faster-with-appcache/">Load Your Game Faster with AppCache</a>
       </li>
     
   </ul>
