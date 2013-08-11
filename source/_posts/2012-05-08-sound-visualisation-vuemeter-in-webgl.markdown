@@ -25,7 +25,7 @@ The library gained in flexibility in the process: It is now possible to display 
 of simply play sound, with no 3D at all :) see [here](http://jeromeetienne.github.com/webaudio.js/#examples) for a list of
 webaudio.js examples.
 
-[Try the demo](http://jeromeetienne.github.com/webaudio.js/examples/histotquery.html).
+[Try the demo](http://jeromeetienne.github.com/webaudio.js/examples/histo-tquery.html).
 This is the result that we gonna build together.
 Below is a small [screencast](http://www.youtube.com/watch?v=--Gv2EI2a-U) of me presenting the code.
 

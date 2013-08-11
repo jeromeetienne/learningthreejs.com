@@ -9,5 +9,5 @@ sass.old
 source.old
 source/_stash
 source/stylesheets/screen.css
-vendor
+#vendor
 node_modules

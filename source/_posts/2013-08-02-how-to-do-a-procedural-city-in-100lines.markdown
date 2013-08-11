@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "how to do a procedural city in 100 lines"
+title: "How To Do A Procedural City In 100 Lines"
 date: 2013-08-02 12:47
 comments: true
 categories: [three.js]

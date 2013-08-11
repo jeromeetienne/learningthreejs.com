@@ -24,7 +24,7 @@ to receive the object shadow. The light frustum is left visible in orange.
 
 <!-- more -->
 
-<iframe src="/data/casting-shadows"
+<iframe src="/data/casting-shadows/"
 	webkitallowfullscreen mozallowfullscreen allowfullscreen 
 	width="100%" height="420" frameborder="0">
 </iframe>

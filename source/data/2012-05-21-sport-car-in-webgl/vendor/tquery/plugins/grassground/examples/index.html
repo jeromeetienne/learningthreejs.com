@@ -1,0 +1,13 @@
+<!doctype html><title>Minimal tQuery Page</title>
+<script src="../../../build/tquery-bundle.js"></script>
+<script src='../tquery.grassground.js'></script>
+<body><div id="info">
+	tQuery: example of tQuery.createGrassGround
+</div><script>
+	var world	= tQuery.createWorld().boilerplate().pageTitle('#info').start();
+
+	tQuery.createGrassGround({
+		textureRepeatX	: 10,
+		textureRepeatY	: 10,
+	}).addTo(world).scale(30);
+</script></body>
