@@ -4,7 +4,7 @@
   <title><![CDATA[Category: three.js | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/three-dot-js/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2013-08-12T21:19:56+02:00</updated>
+  <updated>2013-08-17T12:26:52+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -158,7 +158,7 @@ This is what we call
 This concept may be implemented in various ways:
 for example in screen space with <a href="http://en.wikipedia.org/wiki/Screen_space_ambient_occlusion">screen space ambient occlusion or ssao</a>
 or in this
-<a href="threejs.org/examples/webgl_geometry_minecraft_ao.html">minecraft example from three.js</a></p>
+<a href="http://threejs.org/examples/webgl_geometry_minecraft_ao.html">minecraft example from three.js</a></p>
 
 <p><img class="left" src="/data/2013-08-02-how-to-do-a-procedural-city/screenshots/screenshot-building-without-vertexcolor-small.png"></p>
 
