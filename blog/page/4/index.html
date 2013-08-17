@@ -9,15 +9,14 @@
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="This post presents
-boilerplate for three.js.
-I looked at
-html5 boilerplate
-and found
-it
-awesome.
-html5 boilerplate
-is a fast way start a clean &hellip;">
+  <meta name="description" content="This post is the second of our serie on particles.
+It presents
+sparkseditor
+, an online editor for
+sparks.js
+with
+three.js.
+In a few word, it is a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -86,80 +85,6 @@ is a fast way start a clean &hellip;">
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/12/20/boilerplate-for-three-js/">Boilerplate for Three.js</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-12-20T19:09:00+01:00" pubdate data-updated="true">Dec 20<span>th</span>, 2011</time>
-        
-        
-          <div class="sharing" style='text-align: right;'>
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/4/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/4/index.html" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-</div>
-
-        
-     </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This post presents
-<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>.
-I looked at
-<a href="http://html5boilerplate.com/">html5 boilerplate</a>
-and found
-<a href="http://www.youtube.com/watch?v=NMEB78VX2P0">it</a>
-<a href="http://www.youtube.com/watch?v=oDlsOyPKUTM">awesome</a>.
-<a href="http://html5boilerplate.com/">html5 boilerplate</a>
-is a fast way start a clean project.
-It avoids repetitive tasks, following <a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">DRY</a> principles.
-It includes all those good practices, which are so easy to forget.
-It seems all good to me :)
-<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a> tries to apply similar principles.
-I frequently write simple three.js demo for tutorials, and repeat the first steps way too often for my tastes :)
-It has been done in effort to make 3D on the web even easier.</p>
-
-<p><a href="http://jeromeetienne.github.com/threejsboilerplate/">Try it</a> out.
-&#8220;Boilerplate for three.js is a web template for a fast, robust and future-proof site.
-Boilerplate is not a framework, nor does it prescribe any philosophy of
-development, it&#8217;s just got some tricks to get your project off the ground
-quickly and right-footed.&#8221;
-- freely adapted from <a href="http://html5boilerplate.com/">html5 boilerplate site</a>.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/12/20/boilerplate-for-three-js/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
   
   
     <article>
@@ -883,6 +808,93 @@ Here is a <a href="http://www.youtube.com/watch?v=kW4oHaHCilo">video</a> of me p
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/09/16/performance-caching-material/">Performance: Caching Material</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-16T10:25:00+02:00" pubdate data-updated="true">Sep 16<span>th</span>, 2011</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/4/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/4/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This article is about performance and how caching can improve them.
+In WebGL, it is important not to push the same textures multiple times to the GPU.
+It uselessly slow down the rendering.
+As a rules of thumbs, the less data are exchanged between the cpu and the gpu, the better
+it is for performance.</p>
+
+<h2>A Basic Caching</h2>
+
+<p><a href="https://github.com/mrdoob/three.js/">three.js</a> handles cache cleanly and
+eleguantly. If you instanciate
+a javascript object
+<a href="https://github.com/mrdoob/three.js/blob/master/src/textures/Texture.js">THREE.texture</a>
+or
+a <a href="https://github.com/mrdoob/three.js/blob/master/src/materials/Material.js">THREE.Material</a>
+only once, it will be pushed only once to the GPU.
+It is the simplest way to avoid pushing them multiple times.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">material</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshLambertMaterial</span><span class="p">({</span><span class="nx">map</span><span class="o">:</span><span class="nx">THREE</span><span class="p">.</span><span class="nx">ImageUtils</span><span class="p">.</span><span class="nx">loadTexture</span><span class="p">(</span> <span class="s1">&#39;foo.jpg&#39;</span><span class="p">)});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then you use this material as many times as you want, <code>foo.jpg</code> will be sent
+only once to the GPU. For example, let&#8217;s create many
+<a href="https://github.com/mrdoob/three.js/blob/master/src/extras/geometries/SphereGeometry.js">spheres</a>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">mesh</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">SphereGeometry</span><span class="p">(</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span> <span class="p">),</span> <span class="nx">material</span> <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This solution is simple and eleguant but may not be practical with a large code,
+like a <a href="/blog/categories/tutorial3dgame/">game</a>.
+In such case, you can use <a href="https://github.com/jeromeetienne/MicroCache.js">microcache.js</a>.
+It is a micro library to handle in-memory cache which works in node and browser.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/09/16/performance-caching-material/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -900,10 +912,6 @@ Here is a <a href="http://www.youtube.com/watch?v=kW4oHaHCilo">video</a> of me p
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2013/08/16/how-to-make-the-earth-in-webgl/">How To Make The Earth In WebGL?</a>
-      </li>
-    
-      <li class="post">
         <a href="/blog/2013/08/02/how-to-do-a-procedural-city-in-100lines/">How To Do A Procedural City In 100 Lines</a>
       </li>
     
@@ -917,6 +925,10 @@ Here is a <a href="http://www.youtube.com/watch?v=kW4oHaHCilo">video</a> of me p
     
       <li class="post">
         <a href="/blog/2013/04/30/closing-the-gap-between-html-and-webgl/">Mixing HTML pages inside your WebGL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/05/debugging-with-chromes-canvas-inspection/">Debugging With Chrome&#8217;s Canvas Inspection</a>
       </li>
     
   </ul>

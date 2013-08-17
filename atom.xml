@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2013-08-17T12:26:52+02:00</updated>
+  <updated>2013-08-17T13:56:40+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,230 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[How To Make The Earth In WebGL?]]></title>
-    <link href="http://learningthreejs.com/blog/2013/08/16/how-to-make-the-earth-in-webgl/"/>
-    <updated>2013-08-16T10:13:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2013/08/16/how-to-make-the-earth-in-webgl</id>
-    <content type="html"><![CDATA[<p>So today we gonna learn how to display the earth in webgl.
-That&#8217;s will be a nice introduction on material and textures.
-First let me show you the demo we gonna do</p>
-
-<iframe width="425" height="349" src="http://www.youtube.com/embed/huTF047XVvQ" frameborder="0" allowfullscreen></iframe>
-
-
-
-
-<!-- more -->
-
-
-<p>You can see the demo live here</p>
-
-<iframe width="100%" height="349" src="http://learningthreejs.com/data/2013-08-16-how-to-make-the-earth-in-webgl/demo/bower_components/threex.planets/examples/earth.html" frameborder="0" allowfullscreen></iframe>
-
-
-<h3>to render the earth itself</h3>
-
-<ul>
-<li>TODO show only map, then add bumpMap, then add specular</li>
-</ul>
-
-
-<h3>First the Sphere</h3>
-
-<p><img class="right" src="http://learningthreejs.com/data/2013-08-16-how-to-make-the-earth-in-webgl/screenshots/earth-color.png" width="160" height="120"></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var geometry = new THREE.SphereGeometry(0.5, 32, 32)
-</span><span class='line'>var material  = new THREE.MeshPhongMaterial()
-</span><span class='line'>var mesh  = new THREE.Mesh(geometry, material)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>TODO make a blabla on the geometry</p>
-
-<br clear='both'/>
-
-
-<h3>Diffuse Texture</h3>
-
-<p><img class="right" src="http://learningthreejs.com/data/2013-08-16-how-to-make-the-earth-in-webgl/screenshots/earth-diffuse.png" width="320" height="240">
-<img class="left" src="http://learningthreejs.com/data/2013-08-16-how-to-make-the-earth-in-webgl/demo/bower_components/threex.planets/images/earthmap1k.jpg" width="410" height="240"></p>
-
-<p>Above you can see the
-<a href="http://wiki.splashdamage.com/index.php/Basic_Texture_Overview">diffuse texture</a>
-from
-<a href="http://planetpixelemporium.com/planets.html">planetpixelemporium</a>.
-When we apply it to a sphere, we got the image on the right.
-Here is the code to produce it.</p>
-
-<br clear='both'/>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var geometry = new THREE.SphereGeometry(0.5, 32, 32)
-</span><span class='line'>var material  = new THREE.MeshPhongMaterial({
-</span><span class='line'>  map     : THREE.ImageUtils.loadTexture('images/earthmap1k.jpg'),
-</span><span class='line'>})
-</span><span class='line'>var mesh  = new THREE.Mesh(geometry, material)</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>bump</h3>
-
-<p><img class="right" src="http://learningthreejs.com/data/2013-08-16-how-to-make-the-earth-in-webgl/screenshots/earth-bump.png" width="320" height="240">
-<img class="left" src="http://learningthreejs.com/data/2013-08-16-how-to-make-the-earth-in-webgl/demo/bower_components/threex.planets/images/earthbump1k.jpg" width="410" height="240"></p>
-
-<br clear='both'/>
-
-
-<h3>specular</h3>
-
-<p><img class="right" src="http://learningthreejs.com/data/2013-08-16-how-to-make-the-earth-in-webgl/screenshots/earth-specular.png" width="320" height="240">
-<img class="left" src="http://learningthreejs.com/data/2013-08-16-how-to-make-the-earth-in-webgl/demo/bower_components/threex.planets/images/earthspec1k.jpg" width="410" height="240"></p>
-
-<br clear='both'/>
-
-
-<h3>The end result</h3>
-
-<ul>
-<li>TODO show only map, then add bumpMap, then add specular</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var geometry = new THREE.SphereGeometry(0.5, 32, 32)
-</span><span class='line'>var material  = new THREE.MeshPhongMaterial({
-</span><span class='line'>  map     : THREE.ImageUtils.loadTexture('images/earthmap1k.jpg'),
-</span><span class='line'>
-</span><span class='line'>  bumpMap     : THREE.ImageUtils.loadTexture('images/earthbump1k.jpg'),
-</span><span class='line'>  bumpScale   : 0.05,
-</span><span class='line'>
-</span><span class='line'>  specularMap : THREE.ImageUtils.loadTexture('images/earthspec1k.jpg'),
-</span><span class='line'>  specular    : new THREE.Color('grey'),
-</span><span class='line'>})
-</span><span class='line'>var mesh  = new THREE.Mesh(geometry, material)</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Let&#8217;s start with the stars</h3>
-
-<p>We will see how to render the galaxy starfield.
-The star field as you see it in the demo is a &#8220;environment
-sphere&#8221;. aka it is a large sphere, we are in the center and we see
-what is inside.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// create the geometry sphere</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">geometry</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">SphereGeometry</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
-</span><span class='line'><span class="c1">// create the material, using a texture of startfield</span>
-</span><span class='line'><span class="c1">// - NOTE the ```THREE.BackSide``` to show the interior of the sphere</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">material</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshBasicMaterial</span><span class="p">({</span>
-</span><span class='line'>  <span class="nx">map</span> <span class="o">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">ImageUtils</span><span class="p">.</span><span class="nx">loadTexture</span><span class="p">(</span><span class="s1">&#39;images/galaxy_starfield.png&#39;</span><span class="p">),</span>
-</span><span class='line'>  <span class="nx">side</span>    <span class="o">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">BackSide</span>
-</span><span class='line'><span class="p">})</span>
-</span><span class='line'><span class="c1">// create the mesh based on geometry and material</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">mesh</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span><span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>to render cloud</h3>
-
-<p>we build <code>canvasCloud</code> and use it as texture.
-It is based on 2 jpg images:
-one for the color
-and the other for the transparency.
-It is because <a href="http://en.wikipedia.org/wiki/JPEG">jpg</a> doesn&#8217;t handle an alpha channel.
-So you need to make the code to build the texture based on those images.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">geometry</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">SphereGeometry</span><span class="p">(</span><span class="mf">0.51</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">material</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshPhongMaterial</span><span class="p">({</span>
-</span><span class='line'>  <span class="nx">map</span>     <span class="o">:</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Texture</span><span class="p">(</span><span class="nx">canvasCloud</span><span class="p">),</span>
-</span><span class='line'>  <span class="nx">side</span>        <span class="o">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">DoubleSide</span><span class="p">,</span>
-</span><span class='line'>  <span class="nx">transparent</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-</span><span class='line'>  <span class="nx">opacity</span>     <span class="o">:</span> <span class="mf">0.8</span><span class="p">,</span>
-</span><span class='line'><span class="p">})</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">mesh</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span><span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Notice the parameters of the material.
-We set <code>transparent</code> to warn three.js.
-we set <code>side</code> to <code>DoubleSide</code> thus both sides will be visible.
-this avoid artefacts on the edge of the earth.
-and finnaly we set <code>opacity</code> to make them more translucide.</p>
-
-<p>now that we got the cloud mesh, we need to animate it thus they looks more realistic.
-For example at every frame you do this</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">updateFcts</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="nx">now</span><span class="p">){</span>
-</span><span class='line'>  <span class="nx">mesh</span><span class="p">.</span><span class="nx">rotation</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">8</span> <span class="o">*</span> <span class="nx">delta</span><span class="p">;</span>       
-</span><span class='line'><span class="p">})</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Here is the moon</h3>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">geometry</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">SphereGeometry</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">material</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshPhongMaterial</span><span class="p">({</span>
-</span><span class='line'>  <span class="nx">map</span> <span class="o">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">ImageUtils</span><span class="p">.</span><span class="nx">loadTexture</span><span class="p">(</span><span class="nx">THREEx</span><span class="p">.</span><span class="nx">Planets</span><span class="p">.</span><span class="nx">baseURL</span><span class="o">+</span><span class="s1">&#39;images/moonmap1k.jpg&#39;</span><span class="p">),</span>
-</span><span class='line'>  <span class="nx">bumpMap</span> <span class="o">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">ImageUtils</span><span class="p">.</span><span class="nx">loadTexture</span><span class="p">(</span><span class="nx">THREEx</span><span class="p">.</span><span class="nx">Planets</span><span class="p">.</span><span class="nx">baseURL</span><span class="o">+</span><span class="s1">&#39;images/moonbump1k.jpg&#39;</span><span class="p">),</span>
-</span><span class='line'>  <span class="nx">bumpScale</span><span class="o">:</span> <span class="mf">0.002</span><span class="p">,</span>
-</span><span class='line'><span class="p">})</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">mesh</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span><span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Conclusion</h3>
-
-<p>After that, we add a atmosphere shader to reproduce the halo created by the atmosphere,
-a moon and some shadow casting. and you got the following.</p>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[How To Do A Procedural City In 100 Lines]]></title>
@@ -4078,6 +3854,132 @@ Pull requests are welcomed tho.
 Things will change when tQuery core become more stable.</p>
 
 <p>That&#8217;s all folks, have fun :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Linkify, a tQuery Extension]]></title>
+    <link href="http://learningthreejs.com/blog/2012/02/27/linkify-tquery-extension/"/>
+    <updated>2012-02-27T08:55:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2012/02/27/linkify-tquery-extension</id>
+    <content type="html"><![CDATA[<p>This post is an update on
+<a href="https://github.com/jeromeetienne/tquery">tquery</a> progress.
+It is about <code>linkify</code>, a first experimental extension.
+Thanks to it, any 3D object may become a link.
+So  3D objects act as a <code>&lt;a&gt;</code> tag, i.e. the object becomes
+clickable and clicking on it open a new url.
+It is built on top of domEvents.
+It is used to incoporate
+<a href="http://www.w3.org/TR/DOM-Level-2-Events/events.html">dom kindof events</a>
+in 3D world.
+We saw them a few week back in
+<a href="http://learningthreejs.com/blog/2012/01/17/dom-events-in-3d-space/">&#8216;dom events in 3D space&#8217; post</a>.
+Previous posts on tquery may be found <a href="http://learningthreejs.com/blog/categories/tquery/">here</a>.</p>
+
+<!-- more -->
+
+
+
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/MlW7PeuXGDM" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<p>Building extensions on top of others is kinda the point of an extension system.
+My dream scenario is :
+(1) People do plugins for three.js, like they do in jQuery).
+(2) They share their work.
+(3) They build on top of each other.
+(4) Loop to 1.
+All in opensource spirit. All good in my book. Ok enougth talk, let&#8217;s code.</p>
+
+<h2>Dom Events in 3D Space</h2>
+
+<p><em>domEvents</em> have been ported to tQuery.
+It is an important part because jQuery developpers use this a lot, thru
+<a href="http://api.jquery.com/on/">.on()</a>/<a href="http://api.jquery.com/off/">.off()</a>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">tQuery</span><span class="p">(</span><span class="s1">&#39;cube&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;mouseover&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+</span><span class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;somebody put the mouse over a cube&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The supported events are click obviously,
+<a href="http://www.quirksmode.org/dom/events/click.html">dblclick, mouseup, mousedown</a>
+, <a href="http://www.quirksmode.org/dom/events/mouseover.html">mouseover and mouseout</a>.
+It has been improved to better match
+<a href="http://www.w3.org/TR/DOM-Level-2-Events/events.html">actual dom events</a>.
+The callback now receives a event object. It contains <code>.type</code> and <code>.target</code>
+as described in <a href="http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-Event">dom specification</a>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">tQuery</span><span class="p">(</span><span class="s1">&#39;.myClass&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+</span><span class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;An event of type&quot;</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">type</span><span class="p">,</span> <span class="s2">&quot;has been trigger on &quot;</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">);</span>
+</span><span class='line'>    <span class="c1">// If you wish to stop propagation, just do </span>
+</span><span class='line'>    <span class="nx">event</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">();</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-flow-bubbling">Event bubbling</a>
+is now supported. So events are dispatched to the
+<a href="http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget">target</a>
+and follow its parent chain upward. It is possible to cancel propagation with an usual
+ <code>.stopPropagation()</code>.</p>
+
+<h2>Linkify or How Any 3D Object May Become a Link</h2>
+
+<p>Linkify is an experimental plugins built on top of <code>tquery.domevent</code>. It is
+shown in the screencast.
+It makes any 3D objects object act as a <code>&lt;a&gt;</code> tag, i.e. the object becomes
+clickable and clicking on it open a new url. When the mouse is over it, an underline
+is added to make it even more webpage like.
+Code is rather short.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">tQuery</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">).</span><span class="nx">linkify</span><span class="p">(</span><span class="s1">&#39;http://example.com&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Conclusion</h2>
+
+<p>It has been quite time consuming to set up the basis for the project:
+tests, bechmarks, docs, or plugins interdependancy resolution.
+For each of those field, i had to review the various alternatives,
+pick one and setting it up as properly as possible.</p>
+
+<p>Here are the current choises, they may change in the future.
+<a href="http://requirejs.org/">require.js</a> will be used for the dependancies between plugins.
+Tests are done with <a href="http://visionmedia.github.com/mocha/">mocha</a>,
+a javascript test framework for javascript which run in node.js and browser.
+Later, we may improve that by testing the rendering output using
+<a href="http://www.pixastic.com/">pixastic</a> to do
+<a href="http://en.wikipedia.org/wiki/Mean_squared_error">statistical</a>
+<a href="http://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio">images</a>
+<a href="http://en.wikipedia.org/wiki/Root_mean_square_deviation">comparison</a>.
+Benchmarks are done with
+<a href="http://benchmarkjs.com/">benchmarks.js</a>, a robust benchmarking library for javascript,
+using
+<a href="https://github.com/jeromeetienne/benchrunner">benchrunner</a>
+as runner.
+It is the engine behind the wellknown
+<a href="http://jsperf.com/browse">jsperf</a>
+site.
+Inline documentation is written in <a href="http://code.google.com/p/jsdoc-toolkit/">jsdoc</a>
+format using
+<a href="http://www.thebrightlines.com/2010/05/06/new-template-for-jsdoctoolkit-codeview/">codeview</a>
+template.</p>
+
+<p>That&#8217;s all folks. Have fun :)</p>
 ]]></content>
   </entry>
   
