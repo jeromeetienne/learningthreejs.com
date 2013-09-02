@@ -143,7 +143,7 @@ This is what we call
 This concept may be implemented in various ways:
 for example in screen space with [screen space ambient occlusion or ssao](http://en.wikipedia.org/wiki/Screen_space_ambient_occlusion)
 or in this 
-[minecraft example from three.js](threejs.org/examples/webgl_geometry_minecraft_ao.html)
+[minecraft example from three.js](http://threejs.org/examples/webgl_geometry_minecraft_ao.html)
 
 {% img left /data/2013-08-02-how-to-do-a-procedural-city/screenshots/screenshot-building-without-vertexcolor-small.png %}
 

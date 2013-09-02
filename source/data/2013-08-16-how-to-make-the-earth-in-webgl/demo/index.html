@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<script src='vendor/three.js/build/three.js'></script>
+<script src="vendor/require.js/require.js"></script>
+<body style='margin: 0px; background-color: #000000;overflow: hidden;'><script>
+require([ 'bower_components/threex.planets/package.require.js'
+	], function(){
+	var renderer	= new THREE.WebGLRenderer();
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	document.body.appendChild( renderer.domElement );
+
+	var updateFcts	= [];
+	var scene	= new THREE.Scene();
+	var camera	= new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 100 );
+	camera.position.z = 1.5;
+
+	var light	= new THREE.AmbientLight( 0x888888 )
+	scene.add( light )
+	// var light	= new THREE.DirectionalLight( 'white', 1)
+	// light.position.set(5,5,5)
+	// light.target.position.set( 0, 0, 0 )
+	// scene.add( light )
+
+	var light	= new THREE.DirectionalLight( 0xcccccc, 1 )
+	light.position.set(5,3,5)
+	scene.add( light )
+
+	//////////////////////////////////////////////////////////////////////////////////
+	//		add an object and make it move					//
+	//////////////////////////////////////////////////////////////////////////////////	
+
+	var mesh	= THREEx.Planets.createEarth()
+	scene.add(mesh)
+
+	// var cloud	= THREEx.Planets.createEarthCloud()
+	// mesh.add(cloud)
+
+	//////////////////////////////////////////////////////////////////////////////////
+	//		Camera Controls							//
+	//////////////////////////////////////////////////////////////////////////////////
+	var mouse	= {x : 0, y : 0}
+	document.addEventListener('mousemove', function(event){
+		mouse.x	= (event.clientX / window.innerWidth ) - 0.5
+		mouse.y	= (event.clientY / window.innerHeight) - 0.5
+	}, false)
+	updateFcts.push(function(delta, now){
+		camera.position.x += (mouse.x*5 - camera.position.x) * (delta*3)
+		camera.position.y += (mouse.y*5 - camera.position.y) * (delta*3)
+		camera.lookAt( scene.position )
+	})
+
+
+	//////////////////////////////////////////////////////////////////////////////////
+	//		render the scene						//
+	//////////////////////////////////////////////////////////////////////////////////
+	updateFcts.push(function(){
+		renderer.render( scene, camera );		
+	})
+	
+	//////////////////////////////////////////////////////////////////////////////////
+	//		loop runner							//
+	//////////////////////////////////////////////////////////////////////////////////
+	var lastTimeMsec= null
+	requestAnimationFrame(function animate(nowMsec){
+		// keep looping
+		requestAnimationFrame( animate );
+		// measure time
+		lastTimeMsec	= lastTimeMsec || nowMsec-1000/60
+		var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec)
+		lastTimeMsec	= nowMsec
+		// call each update function
+		updateFcts.forEach(function(updateFn){
+			updateFn(deltaMsec/1000, nowMsec/1000)
+		})
+	})
+})
+</script></body>
