@@ -4,7 +4,7 @@
   <title><![CDATA[Category: three.js | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/three-dot-js/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2013-08-17T13:56:40+02:00</updated>
+  <updated>2013-09-02T12:57:20+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,236 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How To Make The Earth In WebGL?]]></title>
+    <link href="http://learningthreejs.com/blog/2013/08/16/how-to-make-the-earth-in-webgl/"/>
+    <updated>2013-08-16T10:13:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2013/08/16/how-to-make-the-earth-in-webgl</id>
+    <content type="html"><![CDATA[<p>So today we gonna learn how to display the earth in webgl.
+That's will be a nice introduction on material and textures.
+First let me show you the demo we gonna do</p>
+
+<iframe width="425" height="349" src="http://www.youtube.com/embed/huTF047XVvQ" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<p>You can see the demo live here</p>
+
+<iframe width="100%" height="349" src="http://learningthreejs.com/data/2013-08-16-how-to-make-the-earth-in-webgl/demo/bower_components/threex.planets/examples/earth.html" frameborder="0" allowfullscreen></iframe>
+
+
+<p>So we want to render a earth with three.js... It is surprisingly easy to code.
+We gonna use the textures
+from <a href="http://planetpixelemporium.com/planets.html">planetpixelemporium</a>.
+We will proceed step by step to make it easier to understand.
+First the geometry with a sphere, then each texture and their various effects.
+We will even add animations to make it more realistic, a star background and
+obviously the moon which is the sidekick of the earth :)</p>
+
+<h3>How To Do a Sphere ?</h3>
+
+<p><img class="right" src="/data/2013-08-16-how-to-make-the-earth-in-webgl/screenshots/earth-color.png" width="160" height="120"></p>
+
+<p>Well we first create a geometry for the sphere, then
+we add a phong material,
+create a mesh from them
+and add it to the scene.</p>
+
+<p><code>javascript
+var geometry    = new THREE.SphereGeometry(0.5, 32, 32)
+var material    = new THREE.MeshPhongMaterial()
+var mesh    = new THREE.Mesh(geometry, material)
+scene.add(mesh)
+</code></p>
+
+<p>TODO make a blabla on the geometry</p>
+
+<br clear='both'/>
+
+
+<h3>How To Do a Diffuse Texture ?</h3>
+
+<p><img class="right" src="/data/2013-08-16-how-to-make-the-earth-in-webgl/screenshots/earth-diffuse.png" width="320" height="240">
+<img class="left" src="/data/2013-08-16-how-to-make-the-earth-in-webgl/demo/bower_components/threex.planets/images/earthmap1k.jpg" width="410" height="240"></p>
+
+<p>Above you can see the
+<a href="http://wiki.splashdamage.com/index.php/Basic_Texture_Overview">diffuse texture</a>
+from
+<a href="http://planetpixelemporium.com/planets.html">planetpixelemporium</a>.
+When we apply it to a sphere, we got the image on the right.
+Here is the code to produce it.</p>
+
+<br clear='both'/>
+
+
+<p><code>javascript
+material.map    = THREE.ImageUtils.loadTexture('images/earthmap1k.jpg'),
+</code></p>
+
+<h3>How To Do a Bump Map ?</h3>
+
+<p><img class="right" src="/data/2013-08-16-how-to-make-the-earth-in-webgl/screenshots/earth-bump.png" width="320" height="240">
+<img class="left" src="/data/2013-08-16-how-to-make-the-earth-in-webgl/demo/bower_components/threex.planets/images/earthbump1k.jpg" width="410" height="240"></p>
+
+<p>Above is the bump map we use.
+According to
+<a href="http://en.wikipedia.org/wiki/Bump_mapping">wikipedia definition</a>,
+a bump map "perturbate the surface normals of the object
+and using the perturbed normal during lighting calculations".
+Each of its pixel acts as a height on the surface.
+See the result on the right.
+The montains appear more clearly thanks to their shadow.
+It is possible to change how much the map affects lighting with <code>bumpScale</code> parameter.
+Play with it to fit your needs.</p>
+
+<p><code>javascript
+material.bumpMap    = THREE.ImageUtils.loadTexture('images/earthbump1k.jpg')
+material.bumpScale  = 0.05
+</code></p>
+
+<h3>specular</h3>
+
+<p><img class="right" src="/data/2013-08-16-how-to-make-the-earth-in-webgl/screenshots/earth-specular.png" width="320" height="240">
+<img class="left" src="/data/2013-08-16-how-to-make-the-earth-in-webgl/demo/bower_components/threex.planets/images/earthspec1k.jpg" width="410" height="240"></p>
+
+<p>Above is the specular map we use.
+Each pixel determines the intensity of specularity.
+In this case, only the sea is specular because water reflects water more than earth.
+You can see it on the left with the white halo in gulf of mexico.
+You can control the specular color with <code>.specular</code> parameter.</p>
+
+<p><code>javascript
+material.specularMap    = THREE.ImageUtils.loadTexture('images/earthspec1k.jpg')
+material.specular   = new THREE.Color('grey')
+</code></p>
+
+<h3>The end result</h3>
+
+<ul>
+<li>TODO show only map, then add bumpMap, then add specular</li>
+</ul>
+
+
+<p>```javascript
+var geometry    = new THREE.SphereGeometry(0.5, 32, 32)
+var material    = new THREE.MeshPhongMaterial({</p>
+
+<pre><code>map     : THREE.ImageUtils.loadTexture('images/earthmap1k.jpg'),
+
+bumpMap     : THREE.ImageUtils.loadTexture('images/earthbump1k.jpg'),
+bumpScale   : 0.05,
+
+specularMap : THREE.ImageUtils.loadTexture('images/earthspec1k.jpg'),
+specular    : new THREE.Color('grey'),
+</code></pre>
+
+<p>})
+var mesh    = new THREE.Mesh(geometry, material)
+```</p>
+
+<h3>How To Do Stars ?</h3>
+
+<p>We will see how to render the galaxy starfield.
+The star field as you see it in the demo is a "environment sphere",
+aka it is a large sphere, we are in the center and we see what is inside.</p>
+
+<p><code>javascript
+// create the geometry sphere
+var geometry    = new THREE.SphereGeometry(90, 32, 32)
+// create the material, using a texture of startfield
+// - NOTE the</code>THREE.BackSide``` to show the interior of the sphere
+var material    = new THREE.MeshBasicMaterial({</p>
+
+<pre><code>map : THREE.ImageUtils.loadTexture('images/galaxy_starfield.png'),
+side    : THREE.BackSide
+</code></pre>
+
+<p>})
+// create the mesh based on geometry and material
+var mesh    = new THREE.Mesh(geometry, material)
+```</p>
+
+<h3>How To Render The Clouds</h3>
+
+<p>we build <code>canvasCloud</code> and use it as texture.
+It is based on 2 jpg images:
+one for the color
+and the other for the transparency.
+It is because <a href="http://en.wikipedia.org/wiki/JPEG">jpg</a> doesn't handle an alpha channel.
+So you need to make the code to build the texture based on those images.</p>
+
+<p>```javascript
+var geometry    = new THREE.SphereGeometry(0.51, 32, 32)
+var material    = new THREE.MeshPhongMaterial({</p>
+
+<pre><code>map     : new THREE.Texture(canvasCloud),
+side        : THREE.DoubleSide,
+opacity     : 0.8,
+transparent : true,
+depthWrite  : false,
+</code></pre>
+
+<p>})
+var moonMesh    = new THREE.Mesh(geometry, material)
+// add it to the earth mesh thus they move together
+earthMesh.add(moonMesh)
+```</p>
+
+<p>Notice the parameters of the material.
+We set <code>transparent</code> to warn three.js.
+we set <code>side</code> to <code>DoubleSide</code> thus both sides will be visible.
+This avoid artefacts on the edge of the earth.
+and finnaly we set <code>opacity</code> to make them more translucide.</p>
+
+<h3>How to Make It Rotate ?</h3>
+
+<p>First let's orientate the earth by 23.4 degree.
+In reality, the earth got a little tilt in the solar system plane,
+and this tilt is of 23.4 degree :)</p>
+
+<p><code>javascript
+earthMesh.rotation.z    = -23.4 * Math.PI/180
+</code></p>
+
+<p>Now let's make the earth rotates!
+Now that we got the cloud mesh, we need to animate it thus they looks more realistic.
+For example in your render loop, you do this</p>
+
+<p>```javascript
+onRenderFcts.push(function(delta, now){</p>
+
+<pre><code>earthMesh.rotation.y    += 1/32 * delta;
+moonMesh.rotation.y += 1/8 * delta;
+</code></pre>
+
+<p>})
+```</p>
+
+<h3>Here is the moon</h3>
+
+<p>As we already did the earth, it is pretty straighforward to the moon. We reuse
+the same technics with <a href="http://planetpixelemporium.com/earth.html">moon textures</a>.</p>
+
+<p><code>javascript
+var geometry    = new THREE.SphereGeometry(0.5, 32, 32)
+var material    = new THREE.MeshPhongMaterial();
+var moonMesh    = new THREE.Mesh(geometry, material)
+material.map        = THREE.ImageUtils.loadTexture('images/moonmap1k.jpg');
+material.bumpMap    = THREE.ImageUtils.loadTexture('images/moonbump1k.jpg');
+material.bumpScale  = 0.002;
+</code></p>
+
+<h3>Conclusion</h3>
+
+<p>After that, we add a atmosphere shader to reproduce the halo created by the atmosphere,
+a moon and some shadow casting. and you got the following.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How To Do A Procedural City In 100 Lines]]></title>
@@ -144,7 +374,14 @@ buildingMesh.scale.z  = buildingMesh.scale.x
 buildingMesh.scale.y  = (Math.random() * Math.random() * Math.random() * buildingMesh.scale.x) * 8 + 8;
 </code></p>
 
-<p>We got the position/rotation/scale of our building all set.
+<p>What's the deal with all those multiplication of <code>Math.random()</code> ?
+Well it is a way to change the statistic distribution of the result
+and center it closer to 0. <code>Math.random()</code> is between 0 and 1
+and got an average of 0.5. <code>Math.random() * Math.random()</code> is
+between 0 and 1 but got an average of 0.25. <code>Math.random() * Math.random() * Math.random()</code>
+got an average of 0.125 and so on.
+That's it :)
+We got the position/rotation/scale of our building all set.
 Now let's set its color, and how to use it to simulate shadows.</p>
 
 <h3>Using VertexColor for Ambient Occlusion</h3>
@@ -889,254 +1126,6 @@ You can see the excelent paul irish doing a
 what you can do with canvas inspector.</p>
 
 <p>That's all folks. Have Fun!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Move a Cube With Your Head or Head-Tracking with WebGL]]></title>
-    <link href="http://learningthreejs.com/blog/2013/03/12/move-a-cube-with-your-head/"/>
-    <updated>2013-03-12T13:28:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2013/03/12/move-a-cube-with-your-head</id>
-    <content type="html"><![CDATA[<p>This post is about head tracking and how to use it in 3D.
-It is surprisingly easy to do with the suitable libraries.
-We will experiment with
-<a href="https://github.com/auduno/headtrackr">headtrackr.js</a> and
-<a href="http://github.com/mrdoob/three.js/">three.js</a>.
-<a href="https://github.com/auduno/headtrackr">headtrackr.js</a>
-is a nice library from
-<a href="https://github.com/auduno">auduno</a> to do head tracking in the browser.
-You will learn how to do head tracking in webgl in only 20lines of javascript.
-I love the web and how easy it is :)</p>
-
-<h2>tl;dr; links</h2>
-
-<ul>
-<li>For a simple example. see the <a href="http://jeromeetienne.github.com/tquery/plugins/headtrackr/examples/index.html">"move a cube with your head"</a> demo</li>
-<li>To mess with the code now without any installation, see this <a href="http://jsfiddle.net/jetienne/tSQQ8/">jsfiddle example</a></li>
-<li>for an attempt to make 3d more immersive by using head tracking, see this <a href="http://jeromeetienne.github.com/tquery/plugins/headtrackr/examples/demo.html">demo</a></li>
-</ul>
-
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/gnVfqfjXxmM" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-
-
-<!-- more -->
-
-
-<h2>WebRTC is great!</h2>
-
-<p>WebRTC starts to get traction. I love that! We have seen
-<a href="http://www.webrtc.org/">WebRTC</a>
-and
-<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a>
-several times in the past: in
-<a href="http://learningthreejs.com/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">"Punch a Doom Character in Augmented Reality"</a>
-post, in
-<a href="http://learningthreejs.com/blog/2012/02/07/live-video-in-webgl/">"Fun With Live Video in WebGL"</a>
-post and
-<a href="http://learningthreejs.com/blog/2012/05/02/augmented-reality-3d-pong/">"Augmented Reality 3D Pong"</a>
-post.
-It is
-<a href="http://www.webrtc.org/blog/seeyouontheweb">already in chrome stable</a>
-, and will be in firefox
-<a href="https://hacks.mozilla.org/2012/11/progress-update-on-webrtc-for-firefox-on-desktop/">real soon</a>.
-They already
-<a href="https://hacks.mozilla.org/2013/02/hello-chrome-its-firefox-calling/">talk to each other</a>.
-Here we don't need the network part of webrtc.
-We only need get the webcam video, so
-<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a>
-is enougth. It is in
-<a href="http://www.opera.com/browser/">opera 12</a>
-too as you can read
-<a href="http://dev.opera.com/articles/view/head-tracking-with-webrtc/">here</a>.</p>
-
-<p><a href="https://github.com/auduno">auduno</a> is part of
-<a href="http://opera.com">Opera</a> team.
-He wrote it as a demo for
-<a href="http://www.opera.com/browser/">opera 12</a>
-release  which contained
-<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a>.
-For more info on the library, <a href="https://github.com/auduno">auduno</a>
-blogged
-about internals of
-<a href="https://github.com/auduno/headtrackr">his library</a>. You can find details in his
-<a href="http://auduno.tumblr.com/post/25125149521/head-tracking-with-webrtc">blog post</a>.
-Additionnal info are available in the
-<a href="http://auduno.github.com/headtrackr/documentation/reference.html">reference documentation</a>.
-Some examples are already in three.js, like
-<a href="http://auduno.github.com/headtrackr/examples/targets.html">targets</a>
-or
-<a href="http://www.shinydemos.com/facekat/">facekat</a>.</p>
-
-<h2>Demo Time !!</h2>
-
-<p><img class="left" src="/data/2013-03-12-playing-with-headtrackr-dot-js/screenshots/screenshot-box3d-small.png">
-As usual we did a plugin for
-<a href="http://jeromeetienne.github.com/tquery">tQuery API</a>
-to make it easy to use in our environement.
-One can find 2 examples for it:
-A <a href="http://jeromeetienne.github.com/tquery/plugins/headtrackr/examples/index.html">educational example</a>
-where your heads controls a box in 3d.
-For best result, <em>make sure your face is well and evenly lighted</em></p>
-
-<p><img class="right" src="/data/2013-03-12-playing-with-headtrackr-dot-js/screenshots/screenshot-demo-small.png">
-Another <a href="http://jeromeetienne.github.com/tquery/plugins/headtrackr/examples/demo.html">demo</a>
-where the camera follows your head.
-The whole scene moves as you move your head, providing quite an immersive experience.
-You can play with it <a href="http://jsfiddle.net/jetienne/tSQQ8/">thru jsfiddle</a> too.</p>
-
-<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/jetienne/tSQQ8/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-
-
-<h2>Let's Get Started</h2>
-
-<p>Ok now lets see how to use this library with
-<a href="http://jeromeetienne.github.com/tquery">tQuery API</a>.
-First, we include the <code>tquery.headtrackr</code> files in your code.
-tQuery plugins supports
-<a href="http://requirejs.com">require.js</a>.
-It makes dependancies much easier to handle. <code>tquery.headtrackr</code> is no exception, so to include it you can do</p>
-
-<p>```javascript
-require(['tquery.headtrackr'], function(){</p>
-
-<pre><code>// Your code ...    
-</code></pre>
-
-<p>});
-```</p>
-
-<p>Or if you use the good old <code>&lt;script&gt;</code>, do something like that
-to include
-<a href="https://github.com/auduno/headtrackr">headtrackr.js</a> itself, the library which handle the head tracking. Then you just include the plugin itself, and you are done.</p>
-
-<p>```html</p>
-
-<script src="headtrackr.js"></script>
-
-
-<script src="tquery.headtrackr.js"></script>
-
-
-<p>```</p>
-
-<h3>Start Tracking Heads</h3>
-
-<p>First, you instanciate the object with this simple line.
-You can pass various options to <code>.createHeadtrackr(opts)</code>.
-Here, <code>opts</code> is an
-<a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object">Object</a>
-with those properties</p>
-
-<ul>
-<li><strong>opts.width :</strong> width of the image containing the face. default to 320px</li>
-<li><strong>opts.height :</strong> height of the image containing the face. default to 240px</li>
-<li><strong>opts.headtrackrOpts :</strong> options passed directly to headtrackr.js. default to <code>{}</code></li>
-</ul>
-
-
-<p><code>javascript
-var headTracker = tQuery.createHeadtrackr();
-</code></p>
-
-<p>Default are reasonable, so chances are you dont need to specify anything. To start tracking the head on the webcam, just do the following</p>
-
-<p><code>javascript
-headTracker.start();
-</code></p>
-
-<p>It is possible to stop it with <code>.stop()</code> or to reset it via <code>.reset()</code>.</p>
-
-<h3>Debug View is Cool For User Feedback</h3>
-
-<p><img class="right" src="/data/2013-03-12-playing-with-headtrackr-dot-js/screenshots/screenshot-debugview-small.png">
-If you wish enable the debugView, aka the little visualisation the headtracker result.
-It gives feedback to the user on what is happening.
-Thus the user can move his head accordingly or to change lighting of the room.</p>
-
-<p><code>
-headTracker.debugView(true);
-</code></p>
-
-<h3>Face Position Notified thru Events</h3>
-
-<p>When a face is found, events are dispatched to notify the detected positions.</p>
-
-<p>```
-headTracker.addEventListener("found", function(event){</p>
-
-<pre><code>// Your code ...
-</code></pre>
-
-<p>});
-```</p>
-
-<p><code>event</code> contains normalized coordinates of the detected face.
-They use the same axis as WebGL.
-If the head is on the center, <code>event.x</code> and <code>event.y</code> will be 0.
-And if the head is vertical, <code>event.angle</code> is 0. More precisely</p>
-
-<ul>
-<li><code>.x</code> and <code>.y</code> : It is the center position. it varies from [-1,+1], from left to right
-and bottom to top.</li>
-<li><code>.width</code> and <code>.height</code>: the width and height :) If it is half of whole image, it is equal to 1.</li>
-<li><code>.angle</code>: the Z rotation of the detected head. It is in radian as usual.</li>
-<li><code>.headtrackrEvent</code>: the original facetrackingEvent event from
-<a href="https://github.com/auduno/headtrackr">headtrackr.js</a>
-(see
-<a href="http://auduno.github.com/headtrackr/documentation/reference.html">reference</a>
-)</li>
-</ul>
-
-
-<h2>Head tracking... Kesaco ?</h2>
-
-<p>Head tracking is a <a href="http://example.com">well known concept</a>. One can find
-<a href="http://www.youtube.com/watch?v=bBQQEcfkHoE">head tracking on ipad</a>.
-One can find <a href="http://www.youtube.com/watch?v=Jd3-eiid-Uw">head tracking on wii</a>.
-They got impressive result using the informations from the <a href="http://en.wikipedia.org/wiki/Wii_Remote">wiimote</a> or even the <a href="http://example.com">device orientation</a>.
-With the <a href="http://en.wikipedia.org/wiki/Kinect">kinect</a>, they even
-track the <a href="http://example.com">features</a> of the face itself (e.g. mouth, noze, eyes etc...)</p>
-
-<p>In our case, we use the image from the webcam.
-Unfortunatly face localisation from an image isn't exactly 100% accurate to say the least :)
-See <a href="http://auduno.github.com/headtrackr/examples/targets.html">here</a>,
-this is the same demo as the
-<a href="http://www.youtube.com/watch?v=Jd3-eiid-Uw">wii one</a>
-or the
-<a href="http://www.youtube.com/watch?v=bBQQEcfkHoE">ipad one</a>.
-Yet the result isn't as convincing.
-With <a href="https://github.com/auduno/headtrackr">headtrackr.js</a> and
-<a href="http://webrtc.org">webrtc</a>
-, we use only the webcam in a uncontrolled environement.
-So the accuracy is in consequences.</p>
-
-<p>You can improve efficiency by following a few simples advices:
-Avoid hats or a too crazy haircut. Being bold with a beard doesn't help :)
-Make sure your face is well and evenly lighted and you should be fine.</p>
-
-<h2>Conclusion</h2>
-
-<p>In this post, we have seen it is now possible to do head tracking in a web browser !!
-Impressive if you ask me!
-Even better, it is easy if you use suitable libraries. Coupled with
-<a href="http://github.com/mrdoob/three.js/">three.js</a>
-and
-<a href="http://jeromeetienne.github.com/tquery">tQuery API</a>,
-it is possible provide new immersive experience in
-<a href="http://jsfiddle.net/jetienne/tSQQ8/">20lines of javascript</a>.
-Im so excited.
-This kind of things was academic research 5 years ago, and now everybody can easily use it.
-We will likely do more with
-<a href="https://github.com/auduno/headtrackr">headtrackr.js</a>.
-This is a very nice library with lots of possibilities.
-For example, one can use it the head as a game controller, or in a artistic exposition. Stay tuned!</p>
-
-<p>That's all folks, have fun :)</p>
 ]]></content>
   </entry>
   

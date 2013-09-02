@@ -259,7 +259,14 @@ First how wide and deep a building can be.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>We got the position/rotation/scale of our building all set.
+<p>What&#8217;s the deal with all those multiplication of <code>Math.random()</code> ?
+Well it is a way to change the statistic distribution of the result
+and center it closer to 0. <code>Math.random()</code> is between 0 and 1
+and got an average of 0.5. <code>Math.random() * Math.random()</code> is
+between 0 and 1 but got an average of 0.25. <code>Math.random() * Math.random() * Math.random()</code>
+got an average of 0.125 and so on.
+That&#8217;s it :)
+We got the position/rotation/scale of our building all set.
 Now let&#8217;s set its color, and how to use it to simulate shadows.</p>
 
 <h3>Using VertexColor for Ambient Occlusion</h3>
@@ -782,6 +789,8 @@ it contains many tricks that you can reused in your own demos.</p>
         <a class="basic-alignment left" href="/blog/2013/06/25/monitor-rendering-performance-within-threejs/" title="Previous Post: Monitor Rendering Performance Within Three.js">&laquo; Monitor Rendering Performance Within Three.js</a>
       
       
+        <a class="basic-alignment right" href="/blog/2013/08/16/how-to-make-the-earth-in-webgl/" title="Next Post: How To Make The Earth In WebGL?">How To Make The Earth In WebGL? &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -801,6 +810,10 @@ it contains many tricks that you can reused in your own demos.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/08/16/how-to-make-the-earth-in-webgl/">How To Make The Earth In WebGL?</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/08/02/how-to-do-a-procedural-city-in-100lines/">How To Do A Procedural City In 100 Lines</a>
       </li>
     
@@ -814,10 +827,6 @@ it contains many tricks that you can reused in your own demos.</p>
     
       <li class="post">
         <a href="/blog/2013/04/30/closing-the-gap-between-html-and-webgl/">Mixing HTML pages inside your WebGL</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/04/05/debugging-with-chromes-canvas-inspection/">Debugging With Chrome's Canvas Inspection</a>
       </li>
     
   </ul>
