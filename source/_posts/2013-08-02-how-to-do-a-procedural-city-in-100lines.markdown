@@ -129,6 +129,13 @@ Then how high it is.
 buildingMesh.scale.y  = (Math.random() * Math.random() * Math.random() * buildingMesh.scale.x) * 8 + 8;
 ```
 
+What's the deal with all those multiplication of ```Math.random()``` ?
+Well it is a way to change the statistic distribution of the result
+and center it closer to 0. ```Math.random()``` is between 0 and 1 
+and got an average of 0.5. ```Math.random() * Math.random()``` is 
+between 0 and 1 but got an average of 0.25. ```Math.random() * Math.random() * Math.random()``` 
+got an average of 0.125 and so on.
+That's it :)
 We got the position/rotation/scale of our building all set.
 Now let's set its color, and how to use it to simulate shadows.
 
