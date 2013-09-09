@@ -9,23 +9,28 @@ categories: three.js
 
 So today we gonna learn how to display the earth in webgl.
 That's will be a nice introduction on material and textures.
-First let me show you the demo we gonna do
+I got the idea while coding
+[threex.planets](http://github.com/jeromeetienne/threex.planets/),
+a three.js extension to easily display all the planets from the solar system based on 
+[planetpixelemporium](http://planetpixelemporium.com/planets.html).
 
 <iframe width="425" height="349" src="http://www.youtube.com/embed/huTF047XVvQ" frameborder="0" allowfullscreen></iframe>
 
 <!-- more -->
 
-You can see the demo live here
+So we want to render a earth with three.js... It is surprisingly easy to code.
+We gonna use the textures 
+from 
+[planetpixelemporium](http://planetpixelemporium.com/planets.html)
+and proceed step by step.
+But first let me show you the
+[demo we gonna write](/data/2013-08-16-how-to-make-the-earth-in-webgl/demo/index.html) below.
 
 <iframe width="100%" height="349" src="/data/2013-08-16-how-to-make-the-earth-in-webgl/demo/index.html" frameborder="0" allowfullscreen></iframe>
 
-So we want to render a earth with three.js... It is surprisingly easy to code.
-We gonna use the textures 
-from [planetpixelemporium](http://planetpixelemporium.com/planets.html)
-and proceed step by step.
 First the geometry with a sphere, then each texture and their various effects.
-We will even add animations to make it more realistic, a star background and 
-obviously the moon which is the sidekick of the earth :)
+We will even add animations to make it more realistic and put it in context with 
+a star field background.
 
 ## Let's Do a Plain Sphere
 
@@ -54,6 +59,8 @@ var earthMesh	= new THREE.Mesh(geometry, material)
 scene.add(earthMesh)
 ```
 
+Cool but rather flat... What about a diffuse texture to add some colors to our sphere.
+
 ## Let's Add a Diffuse Texture
 
 {% img right /data/2013-08-16-how-to-make-the-earth-in-webgl/screenshots/earth-diffuse.png 320 240 %}
@@ -73,6 +80,8 @@ Here is the code to produce it.
 material.map	= THREE.ImageUtils.loadTexture('images/earthmap1k.jpg')
 ```
 
+Hmm rather cool but more relief on the earth would be cool. What about a bump texture now ?
+
 ## Let's Add a Bump Texture
 
 {% img right /data/2013-08-16-how-to-make-the-earth-in-webgl/screenshots/earth-bump.png 320 240 %}
@@ -83,41 +92,45 @@ According to [wikipedia definition](http://en.wikipedia.org/wiki/Bump_mapping),
 a bump map "perturbate the surface normals of the object 
 and using the perturbed normal during lighting calculations".
 Each of its pixel acts as a height on the surface.
-See the result on the right. 
+See the result on the right.
 The montains appear more clearly thanks to their shadow.
-It is possible to change how much the map affects lighting with ```bumpScale``` parameter.
-Play with it to fit your needs.
 
 ```javascript
 material.bumpMap	= THREE.ImageUtils.loadTexture('images/earthbump1k.jpg')
 material.bumpScale	= 0.05
 ```
 
+It is possible to change how much the map affects lighting with ```bumpScale``` parameter.
+Play with it to fit your needs. Now that's we change the heights on various part of the
+earth, let's change its shininess with a specular texture.
+
 ## Let's Add a Specular Texure
 
 {% img right /data/2013-08-16-how-to-make-the-earth-in-webgl/screenshots/earth-specular.png 320 240 %}
 {% img left /data/2013-08-16-how-to-make-the-earth-in-webgl/demo/bower_components/threex.planets/images/earthspec1k.jpg 410 240 %}
 
-Above is the specular map we use.
-Each pixel determines the intensity of specularity.
+Above is the [specular map](http://wiki.splashdamage.com/index.php/Specular_Maps) we use.
+Each pixel determines the intensity of 
+[specularity](http://en.wikipedia.org/wiki/Specularity).
 In this case, only the sea is specular because water reflects water more than earth.
 You can see it on the left with the white halo in gulf of mexico.
 You can control the specular color with ```.specular``` parameter.
-
-<br clear='both'/>
 
 ```javascript
 material.specularMap	= THREE.ImageUtils.loadTexture('images/earthspec1k.jpg')
 material.specular	= new THREE.Color('grey')
 ```
 
+Yeah but all this water, where does it go when it is hot ? It evaporates in the sky 
+and becomes clouds.
+
 ## Let's Add a Cloud Layer
 
 {% img left /data/2013-08-16-how-to-make-the-earth-in-webgl/demo/bower_components/threex.planets/images/earthcloudmap.jpg 320 240 %}
 {% img right /data/2013-08-16-how-to-make-the-earth-in-webgl/screenshots/earth-cloud.png 320 240 %}
-{% img left /data/2013-08-16-how-to-make-the-earth-in-webgl/demo/bower_components/threex.planets/images/earthcloudmaptrans.jpg 320 240 %}
+{% img left /data/2013-08-16-how-to-make-the-earth-in-webgl/demo/bower_components/threex.planets/images/earthcloudmaptrans.jpg 360 240 %}
 
-<span clear='both'/>
+<br clear='both'/>
 
 We build ```canvasCloud``` and use it as texture. 
 It is based on the jpg images you see above:
@@ -142,10 +155,12 @@ earthMesh.add(cloudMesh)
 
 We attach the cloudMesh to the earthMesh, thus they will move together.
 Notice the parameters of the material.
-We disable ```depthWrite``` and set ```transparent``` to warn three.js this is transparent.
+We disable ```depthWrite``` and set ```transparent``` to warn three.js the 
+cloud mesh is transparent.
 We set ```side``` to ```DoubleSide``` thus both sides will be visible. 
 This avoid artefacts on the edge of the earth.
-and finnaly we set ```opacity``` to make them more translucide.
+Finaly we set ```opacity``` to make them more translucide.
+The output is quite convincing but rather static. Let's see what we can do about that!
 
 ## "And Yet it Moves"
 
@@ -169,6 +184,9 @@ onRenderFcts.push(function(delta, now){
 	cloudMesh.rotation.y	+= 1/16 * delta
 })
 ```
+
+Definitly better, but still we feel there is something missing. 
+What do we see in space ? Stars! duh :)
 
 ## Let's Add a Star Field
 
@@ -194,17 +212,18 @@ material.side	= THREE.BackSide
 var mesh	= new THREE.Mesh(geometry, material)
 ```
 
-## threex.planets
+## threex.planets - All Solar System's Planets Done For You
 
 While i was at it, i made 
 [threex.planets](https://github.com/jeromeetienne/threex.planets/),
 a 
 [threex](http://jeromeetienne.github.io/threex/)
 extension for 
-[three.js](http://threejs.org). 
-It provides all the planets from the solar system based on 
+[three.js](http://threejs.org).
+It provides all the planets from the solar system easily usable in your own demo or games.
+It is based on 
 [planetpixelemporium](http://planetpixelemporium.com/planets.html)
-textures using the same technics described in this post/.
+textures using the same technics described in this post.
 You can see it live 
 [here](http://jeromeetienne.github.io/threex.planets/examples/select.html).
 First, the mythical 
@@ -255,6 +274,12 @@ and
 
 ## Conclusion
 
-After that, we add a atmosphere shader to reproduce the halo created by the atmosphere,
-a moon and some shadow casting. and you got the following.
+In this post, we saw how to make a nice looking earth with animated cloud with a star field in
+background. I think it is a nice result for the amount of work.
+I hope it was usefull to discuver the various roles of textures. 
+Now you can use this to make even nicer demo, like 
+[this one](http://jeromeetienne.github.io/threex.planets/examples/earth.html).
+It shows a earth like we did with a moon close to it.
+We add shadow casting and a nice atmosphere shader and the result is quite convincing.
 
+That's all for today folks. Have Fun!
