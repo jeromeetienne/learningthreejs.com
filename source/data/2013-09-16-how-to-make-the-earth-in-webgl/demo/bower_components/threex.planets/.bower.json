@@ -1,0 +1,12 @@
+{
+  "name": "threex.planets",
+  "homepage": "https://github.com/jeromeetienne/threex.planets",
+  "_release": "adce79d103",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "adce79d10346517012f9e37eaa17107ddc5ea623"
+  },
+  "_source": "git://github.com/jeromeetienne/threex.planets.git",
+  "_target": "*"
+}
