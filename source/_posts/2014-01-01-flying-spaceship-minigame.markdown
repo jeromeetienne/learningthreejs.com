@@ -3,6 +3,7 @@ layout: post
 title: "Fighting Spaceship Minigame"
 date: 2014-01-01 11:05
 comments: true
+published: false
 categories: three.js yeoman
 ---
 
