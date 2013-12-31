@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2013-09-16T14:20:29+02:00</updated>
+  <updated>2013-12-31T11:04:07+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,117 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Zero To Nyancat in 30 Seconds Flat!]]></title>
+    <link href="http://learningthreejs.com/blog/2013/12/31/zero-to-nyancat-in-30-seconds-flat/"/>
+    <updated>2013-12-31T11:05:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2013/12/31/zero-to-nyancat-in-30-seconds-flat</id>
+    <content type="html"><![CDATA[<p>So, today we are gonna learn how to use Yeoman for
+<a href="http://threejs.org">three.js</a>.
+We are gonna create a Nyancat in WebGL, starting from nothing in only 30 seconds.
+It was a challenge to see how fast we could reach using the yeoman tools.
+Here is the
+<a href="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/demo/index.html">demo</a>
+ we gonna build in 30 seconds :)
+You are gonna see how easy it is through a talk i made at
+<a href="http://parisjs.org/">parisjs</a>!
+But first&#8230; what is yeoman? Well,
+<a href="http://yeoman.io">yeoman</a>
+is a &#8220;Modern Workflow for WebApps&#8221;.
+It is composed of 3 tools:
+<a href="http://bower.io">bower</a>, <a href="http://gruntjs.com">grunt</a> and <a href="http://yeoman.io/generators.html">yo</a>.</p>
+
+<p>Let&#8217;s see how
+<a href="http://yeoman.io">yeoman</a>
+will help us ease up and speed up the work when we’re doing
+<a href="http://threejs.org">three.js</a>.
+You can look at the
+<a href="www.youtube.com/watch?v=zeR_cpupZcQ">screencast</a>
+of me doing the talk, or directly at the
+<a href="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/">slides</a> below.
+If you are in a rush, here is the TL;DR executive summary. Have Fun :)</p>
+
+<p><a href='http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/' target='_blank'><input type="button" value='Slides of the talk' style='font-size:400%;' /></a>
+<a href='http://www.youtube.com/watch?v=zeR_cpupZcQ' target='_blank'><input type="button" value='Video of the talk' style='font-size:400%;' /></a>
+<a href='http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/demo/index.html' target='_blank'><input type="button" value='the result!' style='font-size:400%;' /></a></p>
+
+<iframe width="425" height="349" src="http://www.youtube.com/embed/UNuRxyEm6qU" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<h2><strong>TL;DR;</strong></h2>
+
+<p>To generate the boilerplate, just do</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>yo threejs-boilerplate</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To install any <a href="http://jeromeetienne.github.io/threex/">threex extension for three.js</a>,
+and
+<a href="http://github.com/jeromeetienne/threex.nyancat/">threex.nyancat</a> in particular, do</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bower install threex.nyancat</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Video Of The Talk</h2>
+
+<iframe width="425" height="349" src="http://www.youtube.com/embed/zeR_cpupZcQ" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<h2>Slides</h2>
+
+<p>Here are a screenshot of every slides.
+Or you can directly look at the
+<a href="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/">slides</a>.</p>
+
+<p><img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide01.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide02.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide03.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide04.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide05.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide06.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide07.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide08.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide09.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide10.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide11.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide12.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide13.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide14.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide15.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide16.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide17.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide18.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide19.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide20.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide21.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide22.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide23.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide24.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide25.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide26.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide27.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide28.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide29.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide30.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide31.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide32.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide33.png" width="100%">
+<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide34.png" width="100%"></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How To Make The Earth In WebGL?]]></title>
@@ -4060,145 +4171,6 @@ As for mobile, only opera 12 is currently the only mobile browser able
 to read the webcam.</p>
 
 <p>That&#8217;s all folks. Have fun :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[tQuery v0 - Let's get started]]></title>
-    <link href="http://learningthreejs.com/blog/2012/03/05/tquery-version-0/"/>
-    <updated>2012-03-05T10:42:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2012/03/05/tquery-version-0</id>
-    <content type="html"><![CDATA[<p>This post is an update on
-<a href="https://github.com/jeromeetienne/tquery">tquery</a> progress.
-<a href="http://learningthreejs.com/blog/categories/tquery/">Our previous posts</a>
-were previews,
-for example
-<a href="http://learningthreejs.com/blog/2012/02/15/valentine-card-in-tquery/">valentine card in tQuery</a>
-or
-<a href="http://learningthreejs.com/blog/2012/02/27/linkify-tquery-extension/">linkify, a tQuery extension</a>.
-This post is the release of <em>version 0</em>.
-It will walk you thru the website and shows how to run your first tQuery project
-with the boilerplate.
-You should be able to play with tQuery after that :)</p>
-
-<p>Ok It is still experimental.
-I have been paddling hard to make it usable by other people tho.
-The <a href="http://jeromeetienne.github.com/tquery/www/playground/">playground</a>
-is the easiest way to start experimenting. It is all online.
-no install, no download, simple and understandable.
-tQuery code is all on <a href="https://github.com/jeromeetienne/tquery">github repository</a>.
-The
-<a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=iby6kijX5Zw">screencast</a>
-below will walk you thru the
-<a href="http://jeromeetienne.github.com/tquery/www/">website</a>.</p>
-
-<!-- more -->
-
-
-
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/iby6kijX5Zw" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-<h2>Solid Ground to Build On</h2>
-
-<p>I would like tQuery to be a solid ground. Thus people can easily build
-their three.js extensions on top of it. So the code is
-documented, tested and performance is monitored. Here is some principles that
-i consider important for tQuery.
-Note that those principles are the theory.
-It doesnt imply i implement them well in practice :)</p>
-
-<p><strong>Code must be tested</strong>. It helps detect bugs earlier.
-Our <a href="http://jeromeetienne.github.com/tquery/tests/">tests</a>
-are done with
-<a href="http://visionmedia.github.com/mocha/">mocha</a>.
-<strong>API must be documented</strong>. It helps new users to use the library.
-<a href="http://jeromeetienne.github.com/tquery/docs/">API documentation</a>
-is done with
-<a href="http://code.google.com/p/jsdoc-toolkit/">jsdoc</a>.
-<strong>Performance must be monitored</strong>. Thus developpers are immediatly aware of performance
-change when the code is modified.
-Our
-<a href="http://jeromeetienne.github.com/tquery/bench/">benchmarks</a>
-are done with
-<a href="http://benchmarkjs.com/">benchmark.js</a>
-and displayed by
-<a href="https://github.com/jeromeetienne/benchrunner">benchrunner</a>.</p>
-
-<h2>How to Get Started</h2>
-
-<p>or how to get the boilerplate :)
-tQuery Boilerplate is a template to get you started. You download it and
-modify it until it fits your needs. It is a fast way to start a
-clean project with tquery.
-The running boilerplate looks <a href="http://jeromeetienne.github.com/tqueryboilerplate/">like that</a>.
-The
-<a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=YOsnKMesyRk">screencast</a>
-below shows how to use it.</p>
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/YOsnKMesyRk" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-<h2>Running tQuery Boilerplate</h2>
-
-<p>You can try the boilerplate online with the <a href="http://jeromeetienne.github.com/tquery/www/playground/">playground</a>.
-Want to run it on your computer ?
-First you get boilerplate&#8217;s files
-<a href="https://github.com/downloads/jeromeetienne/tquery/tqueryboilerplate.zip">here</a>.
-Then you launch the http server to serve them. Here is a little shell script which does it all for you.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -OL https://github.com/downloads/jeromeetienne/tquery/tqueryboilerplate.zip
-</span><span class='line'>unzip tqueryboilerplate.zip
-</span><span class='line'><span class="nb">cd </span>tqueryboilerplate
-</span><span class='line'>make server
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then you open a browser on <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a> to
-see it running. Up to you to modify <code>index.html</code> until it fits your needs. <code>index.html</code>
-looks like the code below&#8230; Quite short.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!doctype html&gt;</span><span class="nt">&lt;title&gt;</span>Minimal tQuery Page<span class="nt">&lt;/title&gt;</span>
-</span><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;./tquery-all.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span><span class='line'><span class="nt">&lt;body&gt;&lt;script&gt;</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">world</span>   <span class="o">=</span> <span class="nx">tQuery</span><span class="p">.</span><span class="nx">createWorld</span><span class="p">().</span><span class="nx">boilerplate</span><span class="p">().</span><span class="nx">start</span><span class="p">();</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">object</span>  <span class="o">=</span> <span class="nx">tQuery</span><span class="p">.</span><span class="nx">createTorus</span><span class="p">().</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">world</span><span class="p">);</span>
-</span><span class='line'><span class="nt">&lt;/script&gt;&lt;/body&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Conclusion</h2>
-
-<p>This is the initial release of tQuery.
-I like how it looks.
-API is documented,
-code is tested, and performance measured.
-The code produced by the API seems short and quite understandable.
-Nice foundations especially for a version 0.</p>
-
-<p>The next step is about stabilizing tquery.js itself, cleaning it up.
-I am currently quite busy doing just that.
-So please dont hammer me with feature requests at the moment, i won&#8217;t have
-time to handle them.
-Pull requests are welcomed tho.
-Things will change when tQuery core become more stable.</p>
-
-<p>That&#8217;s all folks, have fun :)</p>
 ]]></content>
   </entry>
   

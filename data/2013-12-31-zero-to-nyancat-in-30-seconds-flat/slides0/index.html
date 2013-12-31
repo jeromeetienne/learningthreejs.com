@@ -1,0 +1,585 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>Yeoman For Three.js</title>
+  <style type="text/css">
+    body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #222;
+  background-color: #f7f7f7;
+  font-size: 100%;
+}
+
+#wrapper {
+  width: 850px;
+  height: 600px;
+  overflow: hidden;
+  margin: 80px auto 0 auto;
+}
+
+/* styles for print layout */
+#wrapper.nohide {
+  overflow: auto;
+  height: auto;
+  box-shadow: none;
+}
+
+#wrapper.nohide .slide {
+  margin-bottom: 30px;
+}
+/* /styles */
+
+.slide {
+  width: auto;
+  height: 540px;
+  padding: 30px;
+  font-weight: 200;
+  font-size: 200%;
+  line-height: 1.375;
+}
+
+.controls {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.controls .arrow {
+  width: 0; height: 0;
+  border: 30px solid #333;
+  float: left;
+  margin-right: 30px;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.controls .prev {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+
+  border-left-width: 0;
+  border-right-width: 50px;
+}
+
+.controls .next {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+
+  border-left-width: 50px;
+  border-right-width: 0;
+}
+
+.controls .prev:hover {
+  border-right-color: #888;
+  cursor: pointer;
+}
+
+.controls .next:hover {
+  border-left-color: #888;
+  cursor: pointer;
+}
+
+.slide h1 {
+  font-size: 300%;
+  line-height: 1.2;
+  text-align: center;
+  margin: 170px 0 0;
+}
+
+.slide h2 {
+  font-size: 100%;
+  line-height: 1.2;
+  margin: 5px 0;
+  text-align: center;
+  font-weight: 200;
+}
+
+.slide h3 {
+  font-size: 140%;
+  line-height: 1.2;
+  border-bottom: 1px solid #aaa;
+  margin: 0;
+  padding-bottom: 15px;
+}
+
+.slide ul {
+  padding: 20px 0 0 60px;
+  font-weight: 200;
+  line-height: 1.375;
+}
+
+.slide .author h1.name {
+  font-size: 170%;
+  font-weight: 200;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.slide .author h3 {
+  font-weight: 100;
+  text-align: center;
+  font-size: 95%;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: #44a4dd;
+}
+
+a:hover {
+  color: #66b5ff;
+}
+
+pre {
+  font-size: 60%;
+  line-height: 1.3;
+}
+
+code {
+  background-color: #e7e7e7;
+}
+
+pre > code {
+  background-color: inherit;
+}
+
+.progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 3px;
+  background-color: #b4b4b4;
+
+  -webkit-transition: width 0.1s ease-out;
+  -moz-transition: width 0.1s ease-out;
+  -o-transition: width 0.1s ease-out;
+  transition: width 0.1s ease-out;
+}
+
+@media (max-width: 850px) {
+  #wrapper {
+    width: auto;
+  }
+
+  body {
+    font-size: 70%;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .slide h1 {
+    margin-top: 120px;
+  }
+
+  .controls .prev, .controls .prev:hover {
+    border-right-color: rgba(135, 135, 135, 0.5);
+  }
+
+  .controls .next, .controls .next:hover {
+    border-left-color: rgba(135, 135, 135, 0.5);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 50%;
+    overflow: hidden;
+  }
+
+  #wrapper {
+    margin-top: 10px;
+    height: 340px;
+  }
+
+  .slide {
+    padding: 10px;
+    height: 340px;
+  }
+
+  .slide h1 {
+    margin-top: 50px;
+  }
+
+  .slide ul {
+    padding-left: 25px;
+  }
+}
+
+    
+  </style>
+</head>
+<body>
+    <div class="progress">
+    <div class="progress-bar"></div>
+  </div>
+
+<div id="wrapper">
+    <section class="slide"><p><base target='_blank'/>
+<style>pre { background: lightgrey; font-size: 100%;}</style></p>
+
+<h1>Zero to nyancat in 30 seconds flat</h1>
+
+<h2>or Yeoman For Three.js</h2></section>
+    <section class="slide"><h2>Our Goal</h2>
+
+<p><img src="images/boilerplate-nyancat-naked.png" style="width: 100%;"/></p></section>
+    <section class="slide"><h1>First The Tools</h1></section>
+    <section class="slide"><h3>What Is Three.js</h3>
+
+<ul>
+<li>javascript 3d library - <a href="http://threejs.org/">github</a></li>
+<li>effort lead by <a href="http://www.mrdoob.com/">mrdoob</a></li>
+<li>large community</li>
+</ul></section>
+    <section class="slide"><h3>What Is Yeoman ?</h3>
+
+<ul>
+<li>Effort from google - <a href="http://yeoman.io/">homepage</a></li>
+<li>"Modern Workflow for WebApps"</li>
+<li>Composed of 3 tools: <a href="http://yeoman.io/packagemanager.html">bower</a>
+/ <a href="http://gruntjs.com/">grunt</a>
+/ <a href="https://github.com/yeoman/yo">yo</a></li>
+</ul></section>
+    <section class="slide"><h3>Why Using Yeoman ?</h3>
+
+<ul>
+<li><strong>TOTALLY Optional</strong> :)</li>
+<li>You can do the same without yeoman</li>
+<li>Much Faster with it tho!</li>
+</ul></section>
+    <section class="slide"><h2>go deeper about yeoman</h2></section>
+    <section class="slide"><h3>grunt for automating tasks</h3>
+
+<ul>
+<li>all done in javascript</li>
+<li>kindof Makefile on steroid</li>
+</ul></section>
+    <section class="slide"><h3>Bower For Packaging</h3>
+
+<ul>
+<li>effort from twitter</li>
+<li>package management: publish/search/install</li>
+<li>similar to npm for node.js</li>
+</ul>
+
+<h4>Our Usage</h4>
+
+<ul>
+<li>easy to install three.js extensions</li>
+</ul></section>
+    <section class="slide"><h3>Yo For Scafolding</h3>
+
+<ul>
+<li>like you got in rails</li>
+</ul>
+
+<h4>Our Usage</h4>
+
+<ul>
+<li>for three.js boilerplate</li>
+<li>to start fast your three.js project</li>
+<li>to start with the good practices you like</li>
+</ul></section>
+    <section class="slide"><h3>Installing yeoman</h3>
+
+<p><code>
+sudo npm install -g yo
+</code></p>
+
+<h3>Installing three.js Generator</h3>
+
+<p>usefull to install three.js boilerplate</p>
+
+<p><code>
+sudo npm install -g generator-threejs-boilerplate
+</code></p></section>
+    <section class="slide"><h1>Now The Action!</h1></section>
+    <section class="slide"><h3>Project Directory</h3>
+
+<h4>create it</h4>
+
+<p><code>
+mkdir yourthreejsproject
+</code></p>
+
+<h4>go in</h4>
+
+<p><code>
+cd yourthreejsproject
+</code></p></section>
+    <section class="slide"><h3>Generate Three.js Boilerplate</h3>
+
+<p><code>
+yo threejs-boilerplate
+</code></p>
+
+<p><img src="images/yeoman-threejs-boilerplate.png" style="width: 80%;"/></p></section>
+    <section class="slide"><h3>Try Three.js Boilerplate</h3>
+
+<p><code>make server</code> then goto <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a></p>
+
+<p><img src="images/screenshot-threejs-boilerplate.png" style="width: 80%;"/></p></section>
+    <section class="slide"><h2>Cool But Rather empty...</h2></section>
+    <section class="slide"><h1>Let's Add NyanCat!</h1></section>
+    <section class="slide"><h3>threex.nyancat</h3>
+
+<ul>
+<li>threex extensions for basic nyancat</li>
+<li>on github: <a href="https://github.com/jeromeetienne/threex.nyancat/">repo</a> / 
+<a href="http://jeromeetienne.github.io/threex.nyancat/examples/basic.html">demo</a></li>
+</ul>
+
+<p><img src="images/threex.nyancat.png" width='80%'/></p></section>
+    <section class="slide"><h2>Wait! threex ?</h2></section>
+    <section class="slide"><h1>What is threex ?</h1></section>
+    <section class="slide"><h3>A Bit On Threex</h3>
+
+<ul>
+<li>ultra light extension system for <a href="http://mrdoob.github.io/three.js/">three.js</a></li>
+<li><a href="http://jeromeetienne.github.io/threex/">threex</a> on github - 28 modules and counting</li>
+</ul>
+
+<p><img src='images/screenshot-threex-homepage.png' width='100%' height='400px'></iframe></p></section>
+    <section class="slide"><h3>threex and yeoman</h3>
+
+<ul>
+<li><a href="http://bower.io/">bower</a> for package management</li>
+<li>Support <a href="requirejs.org">require.js</a> and <a href="http://yeoman.io">yeoman generator</a> too
+<ul><li>more on that later</li></ul></li>
+</ul>
+
+<h3>All Optional</h3>
+
+<ul>
+<li>only there for convenience</li>
+<li>free to use something else if you wish</li>
+</ul></section>
+    <section class="slide"><h2>Back To NyanCat...</h2></section>
+    <section class="slide"><h3>Install It With Bower</h3>
+
+<p><code>bower install threex.nyancat</code></p>
+
+<p><img src="images/bower-install-threex.nyancat.png" style="width: 100%;"/></p>
+
+<p>Now it is in <code>bower_components/threex.nyancat/</code></p>
+
+<p>Rather Easy...</p></section>
+    <section class="slide"><h3>Now Let's add Nyan Cat</h3>
+
+<p><strong>Step 1</strong> Include the script</p>
+
+<pre><code>&lt;script src='bower_components/threex.nyancat/threex.nyancat.js'&gt;
+&lt;/script&gt;
+</code></pre>
+
+<p><strong>Step 2</strong> Add some javascript</p>
+
+<pre><code>var nyanCat    = new THREEx.NyanCat()
+nyanCat.container.scale.multiplyScalar(1/30)
+scene.add( nyanCat.container )
+</code></pre>
+
+<p><strong>Step 3</strong> And now, the model is in the scene.</p></section>
+    <section class="slide"><h2>Well Almost.. Just The Tail :)</h2>
+
+<p><img src="images/boilerplate-nyancat-cube.png" style="width: 100%;"/></p></section>
+    <section class="slide"><h1>One Last Step</h1></section>
+    <section class="slide"><h2>Lets remove the cube...</h2></section>
+    <section class="slide"><h2>TADA!!</h2>
+
+<p><img src="images/boilerplate-nyancat-naked.png" style="width: 100%;"/></p></section>
+    <section class="slide"><h2>Enougth now...</h2></section>
+    <section class="slide"><h1>Packing It Up</h1></section>
+    <section class="slide"><h3>Generate Three.js Boilerplate</h3>
+
+<p><code>
+yo threejs-boilerplate
+</code></p>
+
+<h3>Install threex extension for three.js</h3>
+
+<p><code>
+bower install threex.nyancat
+</code></p>
+
+<p>Simple Enougth :)</p></section>
+    <section class="slide"><h3>Usefull Links</h3>
+
+<ul>
+<li>yeoman - <a href="http://yeoman.io">http://yeoman.io</a></li>
+<li>three.js - <a href="http://threejs.org">http://threejs.org</a></li>
+<li>threex - <a href="http://jeromeetienne.github.io/threex/">http://jeromeetienne.github.io/threex/</a></li>
+</ul></section>
+    <section class="slide"><div class="author">
+  <h1 class="name">Jerome Etienne</h1>
+  <h3 class="twitter">
+    <a href="http://twitter.com/@jerome_etienne" tabindex="-1">@jerome_etienne</a>
+  </h3>
+  <h3 class="url">
+    <a href="http://jetienne.com" tabindex="-1">http://jetienne.com</a>
+  </h3>
+</div>
+</section>
+</div>
+  <div class="controls">
+    <div class="arrow prev"></div>
+    <div class="arrow next"></div>
+  </div>
+
+<script type="text/javascript">
+  /**
+ * Takes the last slide and places it at the front.
+ */
+function goBack() {
+  var wrapper = document.querySelector('#wrapper');
+  var lastSlide = wrapper.lastChild;
+  while (lastSlide != null && lastSlide.nodeType !== 1) {
+    lastSlide = lastSlide.previousSibling;
+  }
+
+  wrapper.removeChild(lastSlide);
+  wrapper.insertBefore(lastSlide, wrapper.firstChild);
+
+  setCurrentProgress();
+  updateURL();
+}
+
+/**
+ * Takes the first slide and places it at the end.
+ */
+function goForward() {
+  var wrapper = document.querySelector('#wrapper');
+  var firstSlide = wrapper.firstChild;
+  while (firstSlide != null && firstSlide.nodeType !== 1) {
+    firstSlide = firstSlide.nextSibling;
+  }
+
+  wrapper.removeChild(firstSlide);
+  wrapper.appendChild(firstSlide);
+
+  setCurrentProgress();
+  updateURL();
+}
+
+/**
+ * Updates the current URL to include a hashtag of the current page number.
+ */
+function updateURL() {
+  window.history.replaceState({} , null, '#' + currentPage());
+}
+
+/**
+ * Returns the current page number of the presentation.
+ */
+function currentPage() {
+  return document.querySelector('#wrapper .slide').dataset.page;
+}
+
+/**
+ * Returns a NodeList of each .slide element.
+ */
+function allSlides() {
+  return document.querySelectorAll('#wrapper .slide');
+}
+
+/**
+ * Give each slide a "page" data attribute.
+ */
+function setPageNumbers() {
+  var wrapper = document.querySelector('#wrapper');
+  var pages   = wrapper.querySelectorAll('section');
+  var page;
+
+  for (var i = 0; i < pages.length; ++i) {
+    page = pages[i];
+    page.dataset.page = i;
+  }
+}
+
+/**
+ * Set the current progress indicator.
+ */
+function setCurrentProgress() {
+  var wrapper = document.querySelector('#wrapper');
+  var progressBar = document.querySelector('.progress-bar');
+
+  if (progressBar !== null) {
+    var pagesNumber    = wrapper.querySelectorAll('section').length;
+    var currentNumber  = parseInt(currentPage());
+    var currentPercent = pagesNumber === 1 ? 100 : 100 * currentNumber / (pagesNumber - 1);
+    progressBar.style.width = currentPercent.toString() + '%';
+  }
+}
+
+/**
+ * Go to the specified page of content.
+ */
+function goToPage(page) {
+  // Try to find the target slide.
+  var targetSlide = document.querySelector('#wrapper .slide[data-page="' + page + '"]');
+
+  // If it actually exists, go forward until we find it.
+  if (targetSlide) {
+    var numSlides = allSlides().length;
+
+    for (var i = 0; currentPage() != page && i < numSlides; i++) {
+      goForward();
+    }
+  }
+}
+
+window.onload = function () {
+
+  // Give each slide a "page" data attribute.
+  setPageNumbers();
+
+  // If the location hash specifies a page number, go to it.
+  var page = window.location.hash.slice(1);
+  if (page) goToPage(page);
+
+  document.onkeydown = function (e) {
+    var kc = e.keyCode;
+
+    // left, down, H, J, backspace - BACK
+    // up, right, K, L, space, enter - FORWARD
+    if (kc == 37 || kc == 40 || kc == 8 || kc == 72 || kc == 74) {
+      goBack();
+    } else if (kc == 38 || kc == 39 || kc == 13 || kc == 32 || kc == 75 || kc == 76) {
+      goForward();
+    }
+  }
+
+  if (document.querySelector('.next') && document.querySelector('.prev')) {
+    document.querySelector('.next').onclick = function (e) {
+      e.preventDefault();
+      goForward();
+    }
+
+    document.querySelector('.prev').onclick = function (e) {
+      e.preventDefault();
+      goBack();
+    }
+  }
+
+}
+
+</script>
+
+</body>
+</html>
