@@ -4,8 +4,41 @@ title: "Fighting Spaceship Minigame"
 date: 2014-01-01 11:05
 comments: true
 published: false
-categories: three.js yeoman
+categories: three.js games yeoman
 ---
+
+
+In this post, we are going to present how to do a mini-game called "Flying Spaships".
+We are going to do it together in 40 minutes. 
+You can read the slides or watch the video to follow along!
+Just look at this [demo](/data/2014-01-01-flying-spaceship-minigame/slides/step99.html).
+It uses [three.js](http://threejs.org) for the 3D, 
+[WebAudio API](https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html) 
+for the sound and several [threex extensions](http://jeromeetienne.github.io/threex/)
+for stuff like spaceships and planets. 
+I love the fact that now we can code mini-games in less than an hour! 
+All that on the web, and with open source, so cool!
+
+<a href='/data/2014-01-01-flying-spaceship-minigame/slides/slides/' target='_blank'><input type="button" value='Slides of the talk' style='font-size:400%;' /></a>
+<a href='http://www.youtube.com/watch?v=s9pxStYvqrQ' target='_blank'><input type="button" value='Video of the talk' style='font-size:400%;' /></a>
+<a href='/data/2014-01-01-flying-spaceship-minigame/slides/step99.html' target='_blank'><input type="button" value='the result!' style='font-size:400%;' /></a>
+
+<iframe width="425" height="349" src="http://www.youtube.com/embed/EEvEw5n1iEo" frameborder="0" allowfullscreen></iframe>
+
+<!-- more -->
+
+## The Talk
+
+Here is the promised 40min video. Sit back and relax :)
+
+<iframe width="425" height="349" src="http://www.youtube.com/embed/s9pxStYvqrQ" frameborder="0" allowfullscreen></iframe>
+
+## The Slides
+
+Here are a screenshot of every slides. 
+Or you can directly look at the 
+[slides](/data/2014-01-01-flying-spaceship-minigame/slides/slides/).
+
 
 <img src="/data/2014-01-01-flying-spaceship-minigame/screenshots/slide00.png" width="100%">
 <img src="/data/2014-01-01-flying-spaceship-minigame/screenshots/slide01.png" width="100%">

@@ -1,0 +1,791 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>WebGL Workshop</title>
+  <style type="text/css">
+    body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #222;
+  background-color: #f7f7f7;
+  font-size: 100%;
+}
+
+#wrapper {
+  width: 850px;
+  height: 600px;
+  overflow: hidden;
+  margin: 80px auto 0 auto;
+}
+
+/* styles for print layout */
+#wrapper.nohide {
+  overflow: auto;
+  height: auto;
+  box-shadow: none;
+}
+
+#wrapper.nohide .slide {
+  margin-bottom: 30px;
+}
+/* /styles */
+
+.slide {
+  width: auto;
+  height: 540px;
+  padding: 30px;
+  font-weight: 200;
+  font-size: 200%;
+  line-height: 1.375;
+}
+
+.controls {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.controls .arrow {
+  width: 0; height: 0;
+  border: 30px solid #333;
+  float: left;
+  margin-right: 30px;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.controls .prev {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+
+  border-left-width: 0;
+  border-right-width: 50px;
+}
+
+.controls .next {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+
+  border-left-width: 50px;
+  border-right-width: 0;
+}
+
+.controls .prev:hover {
+  border-right-color: #888;
+  cursor: pointer;
+}
+
+.controls .next:hover {
+  border-left-color: #888;
+  cursor: pointer;
+}
+
+.slide h1 {
+  font-size: 300%;
+  line-height: 1.2;
+  text-align: center;
+  margin: 170px 0 0;
+}
+
+.slide h2 {
+  font-size: 100%;
+  line-height: 1.2;
+  margin: 5px 0;
+  text-align: center;
+  font-weight: 200;
+}
+
+.slide h3 {
+  font-size: 140%;
+  line-height: 1.2;
+  border-bottom: 1px solid #aaa;
+  margin: 0;
+  padding-bottom: 15px;
+}
+
+.slide ul {
+  padding: 20px 0 0 60px;
+  font-weight: 200;
+  line-height: 1.375;
+}
+
+.slide .author h1.name {
+  font-size: 170%;
+  font-weight: 200;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.slide .author h3 {
+  font-weight: 100;
+  text-align: center;
+  font-size: 95%;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: #44a4dd;
+}
+
+a:hover {
+  color: #66b5ff;
+}
+
+pre {
+  font-size: 60%;
+  line-height: 1.3;
+}
+
+code {
+  background-color: #e7e7e7;
+}
+
+pre > code {
+  background-color: inherit;
+}
+
+.progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 3px;
+  background-color: #b4b4b4;
+
+  -webkit-transition: width 0.1s ease-out;
+  -moz-transition: width 0.1s ease-out;
+  -o-transition: width 0.1s ease-out;
+  transition: width 0.1s ease-out;
+}
+
+@media (max-width: 850px) {
+  #wrapper {
+    width: auto;
+  }
+
+  body {
+    font-size: 70%;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .slide h1 {
+    margin-top: 120px;
+  }
+
+  .controls .prev, .controls .prev:hover {
+    border-right-color: rgba(135, 135, 135, 0.5);
+  }
+
+  .controls .next, .controls .next:hover {
+    border-left-color: rgba(135, 135, 135, 0.5);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 50%;
+    overflow: hidden;
+  }
+
+  #wrapper {
+    margin-top: 10px;
+    height: 340px;
+  }
+
+  .slide {
+    padding: 10px;
+    height: 340px;
+  }
+
+  .slide h1 {
+    margin-top: 50px;
+  }
+
+  .slide ul {
+    padding-left: 25px;
+  }
+}
+
+    
+  </style>
+</head>
+<body>
+    <div class="progress">
+    <div class="progress-bar"></div>
+  </div>
+
+<div id="wrapper">
+    <section class="slide"><h1>Flying Spaceships</h1>
+
+<h2>A Mini Game in THREE.js</h2></section>
+    <section class="slide"><h3>Meta</h3>
+
+<ul>
+<li>present more the workshop</li>
+<li>what we gonna do</li>
+<li>how we gonna do it</li>
+<li>1h15... it gonna be fast </li>
+<li>but we can manage :)</li>
+<li>link all iframe to a viewsource</li>
+<li>dont worry all in on github
+<ul><li>you can redo it at home</li>
+<li><a href="https://github.com/jeromeetienne/workshop-devfest">github repo</a></li></ul></li>
+</ul></section>
+    <section class="slide"><h3>Expected Final Result</h3>
+
+<iframe src='http://127.0.0.1:8000/index99.html' width='100%' height='400px'></iframe></section>
+    <section class="slide"><h3>What Is Yeoman ?</h3>
+
+<ul>
+<li>Modern Workflow for WebApps</li>
+<li><a href="http://yeoman.io/">homepage</a></li>
+</ul>
+
+<h3>Using Yeoman ?</h3>
+
+<ul>
+<li>Optional</li>
+<li>Much Faster with it tho</li>
+<li>Time is limited!</li>
+<li><strong>YES</strong></li>
+</ul></section>
+    <section class="slide"><h3>Installing yeoman</h3>
+
+<p><code>
+sudo npm install -g yo
+</code></p>
+
+<h3>Installing three.js Generator</h3>
+
+<p>usefull to install three.js boilerplate</p>
+
+<p><code>
+sudo npm install -g generator-threejs-boilerplate
+</code></p></section>
+    <section class="slide"><h3>Project Directory</h3>
+
+<h4>create it</h4>
+
+<p><code>
+mkdir workshop-devfest
+</code></p>
+
+<h4>go in</h4>
+
+<p><code>
+cd workshop-devfest
+</code></p></section>
+    <section class="slide"><h3>Generate Three.js Boilerplate</h3>
+
+<p><code>
+yo threejs-boilerplate
+</code></p>
+
+<p><img src="images/yeoman-threejs-boilerplate.png" style="width: 80%;"/></p></section>
+    <section class="slide"><h3>Try Three.js Boilerplate</h3>
+
+<p><code>make server</code> then goto <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a></p>
+
+<iframe src='http://127.0.0.1:8000/index10-postboilerplate.html' width='100%' height='400px'></iframe></section>
+    <section class="slide"><h2>Cool But Rather empty...</h2>
+
+<h1>Let's Add SpaceShips!</h1></section>
+    <section class="slide"><h3>threex spaceships</h3>
+
+<ul>
+<li>threex extensions for basic spaceships</li>
+<li>on github: <a href="https://github.com/jeromeetienne/threex.spaceships/">repo</a> / 
+<a href="http://jeromeetienne.github.io/threex.spaceships/examples/basic.html">demo</a></li>
+</ul>
+
+<iframe src='http://jeromeetienne.github.io/threex.spaceships/examples/basic.html' width='100%' height='480px'></iframe></section>
+    <section class="slide"><h1>Wait!</h1>
+
+<h2>What is threex ?</h2></section>
+    <section class="slide"><h3>What is threex ?</h3>
+
+<ul>
+<li>ultra light extension system for <a href="http://mrdoob.github.io/three.js/">three.js</a></li>
+<li><a href="http://jeromeetienne.github.io/threex/">threex</a> on github</li>
+</ul>
+
+<iframe src='http://jeromeetienne.github.io/threex/' width='100%' height='400px'></iframe></section>
+    <section class="slide"><h3>threex Support modern workflows</h3>
+
+<ul>
+<li><a href="http://bower.io/">bower</a> for package management</li>
+<li><a href="requirejs.org">require.js</a> for dependancies</li>
+<li><a href="http://yeoman.io">yeoman</a> for scaffolding</li>
+</ul>
+
+<h3>All Optional</h3>
+
+<ul>
+<li>as in <strong>NOT REQUIRED</strong> :)</li>
+<li>free to use something else if you wish</li>
+<li>only there for convenience</li>
+</ul></section>
+    <section class="slide"><h2>Back To SpaceShips...</h2></section>
+    <section class="slide"><h3>threex spaceships with bower</h3>
+
+<p><code>bower install threex.spaceships</code></p>
+
+<p><img src="images/bower-install-threex.spaceships.png" style="width: 100%;"/></p>
+
+<p>Now it is in <code>bower_components/threex.spaceships/</code></p>
+
+<p>Rather Easy...</p></section>
+    <section class="slide"><h3>threex modules with require.js</h3>
+
+<ul>
+<li>Most threex extension support require.js</li>
+<li>Convention: <code>package.require.js</code> at project root</li>
+<li>require this file to load the module</li>
+</ul>
+
+<h3>Required ?</h3>
+
+<ul>
+<li>Optional</li>
+<li>All free to pick another tech if you wish</li>
+<li>Faster to dev tho</li>
+</ul></section>
+    <section class="slide"><h3>threex spaceships with require.js</h3>
+
+<p>Find require.js call in the header and put that</p>
+
+<pre><code>require([ 'bower_components/threex.spaceships/package.require.js'
+        ], function(){
+        // ...     
+});
+</code></pre>
+
+<p>Done... not too hard</p></section>
+    <section class="slide"><h3>Now Let's Use SpaceShips</h3>
+
+<p>The code to add</p>
+
+<pre><code>THREEx.SpaceShips.loadSpaceFighter03(function(object3d){
+  scene.add(object3d)
+})
+</code></pre>
+
+<p>And the model is in the scene.</p></section>
+    <section class="slide"><h2>Well almost.. just a wing :)</h2>
+
+<iframe src='http://127.0.0.1:8000/index20-spaceship-05-withcube.html' width='100%' height='400px'></iframe>
+
+<p>Lets remove the cube</p></section>
+    <section class="slide"><h2>Better!!</h2>
+
+<iframe src='http://127.0.0.1:8000/index20-spaceship-10-nocube.html' width='100%' height='400px'></iframe></section>
+    <section class="slide"><h2>Grey Background ? Not Too Shabby</h2>
+
+<h1>Let's add Stars!</h1></section>
+    <section class="slide"><h2>See ?</h2>
+
+<iframe src='http://127.0.0.1:8000/index25-stars.html' width='100%' height='400px'></iframe></section>
+    <section class="slide"><h3>How ? with a <em>environmantal sphere</em></h3>
+
+<ul>
+<li>Large Sphere</li>
+<li>we are at it center</li>
+<li>we see the inside of it</li>
+<li>with a proper texture it does the tricks</li>
+</ul></section>
+    <section class="slide"><h3>The Texture</h3>
+
+<p>Part of threex.spaceships module</p>
+
+<iframe src='http://127.0.0.1:8000/bower_components/threex.planets/examples/images/galaxy_starfield.png' width='100%' height='400px'></iframe></section>
+    <section class="slide"><h3>The Code</h3>
+
+<pre><code>var geometry  = new THREE.SphereGeometry(90, 32, 32)
+var url   = 'bower_components/threex.planets/examples/images/galaxy_starfield.png'
+var material  = new THREE.MeshBasicMaterial({
+  map : THREE.ImageUtils.loadTexture(url),
+  side  : THREE.BackSide
+})
+var starSphere  = new THREE.Mesh(geometry, material)
+scene.add(starSphere)
+</code></pre>
+
+<ol>
+<li>a geometry</li>
+<li>a material</li>
+<li>then a mesh</li>
+</ol></section>
+    <section class="slide"><h2>So we got a ship in space...</h2>
+
+<h1>Where are the Planets ?</h1></section>
+    <section class="slide"><h3>Let's add a moon</h3>
+
+<ul>
+<li>available in <a href="https://github.com/jeromeetienne/threex.planets">threex.planets</a></li>
+<li>blog post explaining internals <a href="http://learningthreejs.com/blog/2013/09/16/how-to-make-the-earth-in-webgl/">here</a></li>
+<li>with bower and require.js again</li>
+</ul></section>
+    <section class="slide"><h3>Earth demo</h3>
+
+<p>Earth, cloud, atmosphere, stars, moon, shadow</p>
+
+<iframe src='http://jeromeetienne.github.io/threex.planets/examples/earth.html' width='100%' height='400px'></iframe></section>
+    <section class="slide"><h3>All planets</h3>
+
+<p>based on <a href="http://planetpixelemporium.com/planets.html">planetpixelemporium</a></p>
+
+<iframe src='http://jeromeetienne.github.io/threex.planets/examples/select.html#Uranus' width='100%' height='400px'></iframe></section>
+    <section class="slide"><h3>threex planets with bower</h3>
+
+<p><code>bower install threex.planets</code></p>
+
+<p><img src="images/bower-install-threex.planets.png" style="width: 100%;"/></p>
+
+<p>Now it is in <code>bower_components/threex.planets/</code></p>
+
+<p>Rather Easy...</p></section>
+    <section class="slide"><h3>threex planets with require.js</h3>
+
+<p>Find require.js call in the header and put that</p>
+
+<pre><code>require([ 'bower_components/threex.planets/package.require.js'
+        ], function(){
+        // ...     
+});
+</code></pre>
+
+<p>Done... not too hard</p></section>
+    <section class="slide"><h3>The Code</h3>
+
+<pre><code>var moonMesh  = THREEx.Planets.createMoon()
+scene.add(moonMesh)
+</code></pre></section>
+    <section class="slide"><h3>The Result</h3>
+
+<iframe src='http://127.0.0.1:8000/index30-moon10-nolight.html' width='100%' height='400px'></iframe>
+
+<p>It is there, i promise :)</p></section>
+    <section class="slide"><h2>Why is it black ?</h2>
+
+<h1>Let's add some lights</h1></section>
+    <section class="slide"><h3>Lights in three.js</h3>
+
+<ul>
+<li>Ambient light</li>
+<li>Directional light</li>
+<li>Hemisphere light</li>
+<li>Point light</li>
+<li>Spot light</li>
+</ul></section>
+    <section class="slide"><h3>Basic 3 points lighting</h3>
+
+<ul>
+<li>typical <a href="http://en.wikipedia.org/wiki/Three-point_lighting">lighting</a></li>
+<li>so 1 ambient + 2 directional</li>
+<li>other basic lightings in <a href="https://github.com/jeromeetienne/threex.basiclighting">threex.basiclighting</a></li>
+</ul></section>
+    <section class="slide"><h3>The Code</h3>
+
+<p>Add a ambient light</p>
+
+<pre><code>var light = new THREE.AmbientLight( 0x020202 )
+scene.add( light )
+</code></pre>
+
+<p>Add a light in front</p>
+
+<pre><code>var light = new THREE.DirectionalLight('white', 1)
+light.position.set(0.5, 0.5, 2)
+scene.add( light )
+</code></pre>
+
+<p>Add a light behind</p>
+
+<pre><code>var light = new THREE.DirectionalLight('white', 0.75)
+light.position.set(-0.5, -0.5, -2)
+scene.add( light )
+</code></pre></section>
+    <section class="slide"><h3>The Result</h3>
+
+<iframe src='http://127.0.0.1:8000/index30-moon10-withlight.html' width='100%' height='400px'></iframe>
+
+<p>better, at least we see the moon :)</p></section>
+    <section class="slide"><h2>the spaceship disapeared again tho...</h2>
+
+<h1>Move Space Ships Away</h1></section>
+    <section class="slide"><h3>Put Spaceships On the Left</h3>
+
+<p>the code to add in model loader callback</p>
+
+<pre><code>spaceship.rotateY(Math.PI/2)
+spaceship.position.x  = -1
+</code></pre>
+
+<iframe src='http://127.0.0.1:8000/index30-moon15-leftspaceship.html' width='100%' height='400px'></iframe></section>
+    <section class="slide"><h2>Not Bad... Let's move the player now!</h2>
+
+<h1>Use keyboard for controls</h1></section>
+    <section class="slide"><h3>threex.keyboardstate</h3>
+
+<ul>
+<li>to keep the current state of the keyboard.</li>
+<li>github <a href="https://github.com/jeromeetienne/threex.keyboardstate/">repo</a>
+/ <a href="http://jeromeetienne.github.io/threex.keyboardstate/examples/basic.html">demo</a></li>
+<li>blog post explaining internals <a href="http://learningthreejs.com/blog/2011/09/12/lets-Make-a-3D-game-keyboard/">here</a></li>
+<li>with bower and require.js again</li>
+</ul>
+
+<h3>Basic Usage</h3>
+
+<pre><code>var keyboard  = new THREEx.KeyboardState();
+if( keyboard.pressed("shift+H") ){
+    console.log('you are pressing shift and H')
+}
+</code></pre></section>
+    <section class="slide"><h3>threex keyboardstate with bower</h3>
+
+<p><code>bower install threex.keyboardstate</code></p>
+
+<p><img src="images/bower-install-threex.keyboardstate.png" style="width: 100%;"/></p></section>
+    <section class="slide"><h3>threex keyboardstate with require.js</h3>
+
+<p>Find require.js call in the header and put that</p>
+
+<pre><code>require([ 'bower_components/threex.keyboardstate/package.require.js'
+        ], function(){
+        // ...     
+});
+</code></pre>
+
+<p>Done... not too hard</p></section>
+    <section class="slide"><h3>Controls Player With Keyboard</h3>
+
+<p>The Algo</p>
+
+<ul>
+<li>add a function in the rendering loop</li>
+<li>monitor keyboard state</li>
+<li>move spaceship accordingly</li>
+</ul>
+
+<p>Pitfalls</p>
+
+<ul>
+<li>async in spaceship loading</li>
+<li>speed independant of fps</li>
+</ul></section>
+    <section class="slide"><h3>The Code</h3>
+
+<pre><code>// create keyboard instance
+var keyboard  = new THREEx.KeyboardState();
+
+// add function in rendering loop
+updateFcts.push(function(delta, now){
+
+    // only if the spaceship is loaded
+    if( spaceship === null )  return;
+
+    // set the speed
+    var speed = 1;
+    // only if spaceships is loaded
+    if( keyboard.pressed('down') ){
+        spaceship.position.y  -= speed * delta;
+    }else if( keyboard.pressed('up') ){
+        spaceship.position.y  += speed * delta;
+    }
+
+})
+</code></pre></section>
+    <section class="slide"><h3>The Result</h3>
+
+<iframe src='http://127.0.0.1:8000/index35-controls10-nolimit.html' width='100%' height='400px'></iframe>
+
+<h2>oops it's going out</h2></section>
+    <section class="slide"><h3>Limit SpaceShip Range</h3>
+
+<p>Add that in the function</p>
+
+<pre><code>if( spaceship.position.y &lt; -1 ){
+  spaceship.position.y  = -1  
+}
+if( spaceship.position.y &gt; +1 ){
+  spaceship.position.y  = +1  
+}
+</code></pre>
+
+<p>Thus player is stopped when it goes too high, or too low</p></section>
+    <section class="slide"><h3>The Result</h3>
+
+<iframe src='http://127.0.0.1:8000/index35-controls15-withlimit.html' width='100%' height='400px'></iframe></section>
+    <section class="slide"><div class="author">
+  <h1 class="name">Jerome Etienne</h1>
+  <h3 class="twitter">
+    <a href="http://twitter.com/@jerome_etienne" tabindex="-1">@jerome_etienne</a>
+  </h3>
+  <h3 class="url">
+    <a href="http://jetienne.com" tabindex="-1">http://jetienne.com</a>
+  </h3>
+</div>
+</section>
+</div>
+  <div class="controls">
+    <div class="arrow prev"></div>
+    <div class="arrow next"></div>
+  </div>
+
+<script type="text/javascript">
+  /**
+ * Takes the last slide and places it at the front.
+ */
+function goBack() {
+  var wrapper = document.querySelector('#wrapper');
+  var lastSlide = wrapper.lastChild;
+  while (lastSlide != null && lastSlide.nodeType !== 1) {
+    lastSlide = lastSlide.previousSibling;
+  }
+
+  wrapper.removeChild(lastSlide);
+  wrapper.insertBefore(lastSlide, wrapper.firstChild);
+
+  setCurrentProgress();
+  updateURL();
+}
+
+/**
+ * Takes the first slide and places it at the end.
+ */
+function goForward() {
+  var wrapper = document.querySelector('#wrapper');
+  var firstSlide = wrapper.firstChild;
+  while (firstSlide != null && firstSlide.nodeType !== 1) {
+    firstSlide = firstSlide.nextSibling;
+  }
+
+  wrapper.removeChild(firstSlide);
+  wrapper.appendChild(firstSlide);
+
+  setCurrentProgress();
+  updateURL();
+}
+
+/**
+ * Updates the current URL to include a hashtag of the current page number.
+ */
+function updateURL() {
+  window.history.replaceState({} , null, '#' + currentPage());
+}
+
+/**
+ * Returns the current page number of the presentation.
+ */
+function currentPage() {
+  return document.querySelector('#wrapper .slide').dataset.page;
+}
+
+/**
+ * Returns a NodeList of each .slide element.
+ */
+function allSlides() {
+  return document.querySelectorAll('#wrapper .slide');
+}
+
+/**
+ * Give each slide a "page" data attribute.
+ */
+function setPageNumbers() {
+  var wrapper = document.querySelector('#wrapper');
+  var pages   = wrapper.querySelectorAll('section');
+  var page;
+
+  for (var i = 0; i < pages.length; ++i) {
+    page = pages[i];
+    page.dataset.page = i;
+  }
+}
+
+/**
+ * Set the current progress indicator.
+ */
+function setCurrentProgress() {
+  var wrapper = document.querySelector('#wrapper');
+  var progressBar = document.querySelector('.progress-bar');
+
+  if (progressBar !== null) {
+    var pagesNumber    = wrapper.querySelectorAll('section').length;
+    var currentNumber  = parseInt(currentPage());
+    var currentPercent = pagesNumber === 1 ? 100 : 100 * currentNumber / (pagesNumber - 1);
+    progressBar.style.width = currentPercent.toString() + '%';
+  }
+}
+
+/**
+ * Go to the specified page of content.
+ */
+function goToPage(page) {
+  // Try to find the target slide.
+  var targetSlide = document.querySelector('#wrapper .slide[data-page="' + page + '"]');
+
+  // If it actually exists, go forward until we find it.
+  if (targetSlide) {
+    var numSlides = allSlides().length;
+
+    for (var i = 0; currentPage() != page && i < numSlides; i++) {
+      goForward();
+    }
+  }
+}
+
+window.onload = function () {
+
+  // Give each slide a "page" data attribute.
+  setPageNumbers();
+
+  // If the location hash specifies a page number, go to it.
+  var page = window.location.hash.slice(1);
+  if (page) goToPage(page);
+
+  document.onkeydown = function (e) {
+    var kc = e.keyCode;
+
+    // left, down, H, J, backspace - BACK
+    // up, right, K, L, space, enter - FORWARD
+    if (kc == 37 || kc == 40 || kc == 8 || kc == 72 || kc == 74) {
+      goBack();
+    } else if (kc == 38 || kc == 39 || kc == 13 || kc == 32 || kc == 75 || kc == 76) {
+      goForward();
+    }
+  }
+
+  if (document.querySelector('.next') && document.querySelector('.prev')) {
+    document.querySelector('.next').onclick = function (e) {
+      e.preventDefault();
+      goForward();
+    }
+
+    document.querySelector('.prev').onclick = function (e) {
+      e.preventDefault();
+      goBack();
+    }
+  }
+
+}
+
+</script>
+
+</body>
+</html>
