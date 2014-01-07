@@ -8,7 +8,7 @@ categories: three.js games yeoman
 ---
 
 
-In this post, we are going to present how to do a mini-game called "Flying Spaships".
+In this post, we are going to present how to do a mini-game called "Flying Spaceships".
 We are going to do it together in 40 minutes. 
 You can read the slides or watch the video to follow along!
 Just look at this [demo](/data/2014-01-01-flying-spaceship-minigame/slides/step99.html).
