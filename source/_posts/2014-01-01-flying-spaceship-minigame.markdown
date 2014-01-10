@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Fighting Spaceship Minigame"
+title: "Game Workshop: Let's a Fighting Spaceship Minigame Together"
 date: 2014-01-01 11:05
 comments: true
-published: false
+published: true
 categories: three.js games yeoman
 ---
 
