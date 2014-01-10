@@ -9,11 +9,11 @@
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="Here is another article of the &#8220;Let&#8217;s Make a 3D Game&#8221;
-series.
-We have already seen how to handle other inputs like
-keyboard
-and &hellip;">
+  <meta name="description" content="This post is about supporting mobile.
+We will try to port marblesoccer on mobile.
+When doing a
+boilerplate for three.js,
+mobile had to be supported &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +82,72 @@ and &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/12/28/let-s-make-a-3d-game-supporting-mobile/">Let’s Make a 3D Game: Supporting Mobile</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-28T13:46:00+01:00" pubdate data-updated="true">Dec 28<span>th</span>, 2011</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/4/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/4/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is about supporting mobile.
+We will try to port <a href="http://marblesoccer.com">marblesoccer</a> on mobile.
+When doing a
+<a href="http://127.0.0.1:8000/blog/2011/12/20/boilerplate-for-three-js/">boilerplate for three.js</a>,
+mobile had to be supported for compatibility.
+So it gave me the idea of this post.
+What about porting our game on mobile ?
+Porting a 3D web game to mobile ? crazy :)</p>
+
+<p>The desktop version looks kindof ok.
+What would be the result of this experiment ?
+Is that even possible ?
+What about usable ?
+This is the purpose of this experiment to find out.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/12/28/let-s-make-a-3d-game-supporting-mobile/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -829,69 +895,6 @@ Then include it in your own code with this line.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/10/05/performance-merging-geometry/">Performance: Merging Geometry</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-10-05T11:29:00+02:00" pubdate data-updated="true">Oct 5<span>th</span>, 2011</time>
-        
-        
-          <div class="sharing" style='text-align: right;'>
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/4/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/4/index.html" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-</div>
-
-        
-     </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This article is about merging geometry and how it can improve performance.
-It is important for perfomance to reduce the number of <a href="http://www.khronos.org/registry/webgl/specs/latest/">WebGL</a> calls as much as possible.
-The rules of thumbs is <em>the less data are exchanged between the cpu and the gpu, the better it is for performance</em>.</p>
-
-<p>The <a href="/data/performance-merging-geometry/">demo</a> is rendering many cubes and put them randomly in the space.
-<img class="left" src="/data/performance-merging-geometry/images/demo-screenshot-2000.png" width="240" height="120">
-<img class="right" src="/data/performance-merging-geometry/images/demo-screenshot-120000.png" width="240" height="120">
-It is a simplictic way to measure the performance, but it will do for us.
-If the geometries arent merged, my computer is able to display <em>2000</em> cubes at 30fps. See on the left.
-But if the geometry are merged, it displays <em>120000</em> cubes at 30fps. See on the right.
-Screenshots make it pretty obvious :) This is <strong>60 times</strong> more cubes!!!</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/10/05/performance-merging-geometry/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -909,6 +912,10 @@ Screenshots make it pretty obvious :) This is <strong>60 times</strong> more cub
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/01/10/flying-spaceship-minigame/">Game Workshop: Let&#8217;s Do a Fighting Spaceship Minigame Together</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/12/31/zero-to-nyancat-in-30-seconds-flat/">Zero To Nyancat in 30 Seconds Flat!</a>
       </li>
     
@@ -922,10 +929,6 @@ Screenshots make it pretty obvious :) This is <strong>60 times</strong> more cub
     
       <li class="post">
         <a href="/blog/2013/06/25/monitor-rendering-performance-within-threejs/">Monitor Rendering Performance Within Three.js</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/06/11/discovering-leap-device/">Discovering Leap Device</a>
       </li>
     
   </ul>
@@ -958,7 +961,7 @@ Screenshots make it pretty obvious :) This is <strong>60 times</strong> more cub
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Jerome Etienne -
+  Copyright &copy; 2014 - Jerome Etienne -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

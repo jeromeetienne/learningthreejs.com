@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Game Workshop: Let's Do a Fighting Spaceship Minigame Together - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="In this post, we are going to present how to do a mini-game called &#8220;Flying Spaceships&#8221;.
+We are going to do it together in 40 minutes.
+You &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://learningthreejs.com/blog/2014/01/10/flying-spaceship-minigame/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:learningthreejs.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="http://jeromeetienne.github.io/videobrowser4learningthreejs/">Videos</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Game Workshop: Let's Do a Fighting Spaceship Minigame Together</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-10T11:05:00+01:00" pubdate data-updated="true">Jan 10<span>th</span>, 2014</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2014/01/10/flying-spaceship-minigame/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2014/01/10/flying-spaceship-minigame/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>In this post, we are going to present how to do a mini-game called &#8220;Flying Spaceships&#8221;.
+We are going to do it together in 40 minutes.
+You can read the slides or watch the video to follow along!
+Just look at this <a href="/data/2014-01-10-flying-spaceship-minigame/slides/step99.html">demo</a>.
+It uses <a href="http://threejs.org">three.js</a> for the 3D,
+<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">WebAudio API</a>
+for the sound and several <a href="http://jeromeetienne.github.io/threex/">threex extensions</a>
+for stuff like spaceships and planets.
+I love the fact that now we can code mini-games in less than an hour!
+All that on the web, and with open source, so cool!</p>
+
+<p><a href='/data/2014-01-10-flying-spaceship-minigame/slides/slides/' target='_blank'><input type="button" value='Slides of the talk' style='font-size:400%;' /></a>
+<a href='http://www.youtube.com/watch?v=s9pxStYvqrQ' target='_blank'><input type="button" value='Video of the talk' style='font-size:400%;' /></a>
+<a href='/data/2014-01-10-flying-spaceship-minigame/slides/step99.html' target='_blank'><input type="button" value='the result!' style='font-size:400%;' /></a></p>
+
+<iframe width="425" height="349" src="http://www.youtube.com/embed/EEvEw5n1iEo" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<h2>The Talk</h2>
+
+<p>Here is the promised 40min video. Sit back and relax :)</p>
+
+<iframe width="425" height="349" src="http://www.youtube.com/embed/s9pxStYvqrQ" frameborder="0" allowfullscreen></iframe>
+
+
+<h2>The Slides</h2>
+
+<p>Here are a screenshot of every slides.
+Or you can directly look at the
+<a href="/data/2014-01-10-flying-spaceship-minigame/slides/slides/">slides</a>.</p>
+
+<p><img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide00.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide01.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide02.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide03.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide04.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide05.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide06.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide07.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide08.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide09.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide10.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide11.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide12.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide13.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide14.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide15.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide16.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide17.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide18.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide19.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide20.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide21.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide22.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide23.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide24.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide25.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide26.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide27.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide28.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide29.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide30.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide31.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide32.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide33.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide34.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide35.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide36.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide37.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide38.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide39.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide40.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide41.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide42.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide43.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide44.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide45.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide46.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide47.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide48.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide49.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide50.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide51.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide52.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide53.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide54.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide55.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide56.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide57.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide58.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide59.png" width="100%">
+<img src="/data/2014-01-10-flying-spaceship-minigame/screenshots/slide60.png" width="100%"></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-10T11:05:00+01:00" pubdate data-updated="true">Jan 10<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/games/'>games</a>, <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>, <a class='category' href='/blog/categories/yeoman/'>yeoman</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2014/01/10/flying-spaceship-minigame/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2014/01/10/flying-spaceship-minigame/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/12/31/zero-to-nyancat-in-30-seconds-flat/" title="Previous Post: Zero To Nyancat in 30 Seconds Flat!">&laquo; Zero To Nyancat in 30 Seconds Flat!</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/01/10/flying-spaceship-minigame/">Game Workshop: Let's Do a Fighting Spaceship Minigame Together</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/31/zero-to-nyancat-in-30-seconds-flat/">Zero To Nyancat in 30 Seconds Flat!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/16/how-to-make-the-earth-in-webgl/">How To Make The Earth In WebGL?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/02/how-to-do-a-procedural-city-in-100lines/">How To Do A Procedural City In 100 Lines</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/25/monitor-rendering-performance-within-threejs/">Monitor Rendering Performance Within Three.js</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://learningthreejs.com/blog/2014/01/10/flying-spaceship-minigame/';
+        var disqus_url = 'http://learningthreejs.com/blog/2014/01/10/flying-spaceship-minigame/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

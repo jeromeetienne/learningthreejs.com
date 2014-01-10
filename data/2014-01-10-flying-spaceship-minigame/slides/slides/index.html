@@ -1,0 +1,875 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>Three.js Mini Game Workshop</title>
+  <style type="text/css">
+    body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #222;
+  background-color: #f7f7f7;
+  font-size: 100%;
+}
+
+#wrapper {
+  width: 850px;
+  height: 600px;
+  overflow: hidden;
+  margin: 80px auto 0 auto;
+}
+
+/* styles for print layout */
+#wrapper.nohide {
+  overflow: auto;
+  height: auto;
+  box-shadow: none;
+}
+
+#wrapper.nohide .slide {
+  margin-bottom: 30px;
+}
+/* /styles */
+
+.slide {
+  width: auto;
+  height: 540px;
+  padding: 30px;
+  font-weight: 200;
+  font-size: 200%;
+  line-height: 1.375;
+}
+
+.controls {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.controls .arrow {
+  width: 0; height: 0;
+  border: 30px solid #333;
+  float: left;
+  margin-right: 30px;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.controls .prev {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+
+  border-left-width: 0;
+  border-right-width: 50px;
+}
+
+.controls .next {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+
+  border-left-width: 50px;
+  border-right-width: 0;
+}
+
+.controls .prev:hover {
+  border-right-color: #888;
+  cursor: pointer;
+}
+
+.controls .next:hover {
+  border-left-color: #888;
+  cursor: pointer;
+}
+
+.slide h1 {
+  font-size: 300%;
+  line-height: 1.2;
+  text-align: center;
+  margin: 170px 0 0;
+}
+
+.slide h2 {
+  font-size: 100%;
+  line-height: 1.2;
+  margin: 5px 0;
+  text-align: center;
+  font-weight: 200;
+}
+
+.slide h3 {
+  font-size: 140%;
+  line-height: 1.2;
+  border-bottom: 1px solid #aaa;
+  margin: 0;
+  padding-bottom: 15px;
+}
+
+.slide ul {
+  padding: 20px 0 0 60px;
+  font-weight: 200;
+  line-height: 1.375;
+}
+
+.slide .author h1.name {
+  font-size: 170%;
+  font-weight: 200;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.slide .author h3 {
+  font-weight: 100;
+  text-align: center;
+  font-size: 95%;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: #44a4dd;
+}
+
+a:hover {
+  color: #66b5ff;
+}
+
+pre {
+  font-size: 60%;
+  line-height: 1.3;
+}
+
+code {
+  background-color: #e7e7e7;
+}
+
+pre > code {
+  background-color: inherit;
+}
+
+.progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 3px;
+  background-color: #b4b4b4;
+
+  -webkit-transition: width 0.1s ease-out;
+  -moz-transition: width 0.1s ease-out;
+  -o-transition: width 0.1s ease-out;
+  transition: width 0.1s ease-out;
+}
+
+@media (max-width: 850px) {
+  #wrapper {
+    width: auto;
+  }
+
+  body {
+    font-size: 70%;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .slide h1 {
+    margin-top: 120px;
+  }
+
+  .controls .prev, .controls .prev:hover {
+    border-right-color: rgba(135, 135, 135, 0.5);
+  }
+
+  .controls .next, .controls .next:hover {
+    border-left-color: rgba(135, 135, 135, 0.5);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 50%;
+    overflow: hidden;
+  }
+
+  #wrapper {
+    margin-top: 10px;
+    height: 340px;
+  }
+
+  .slide {
+    padding: 10px;
+    height: 340px;
+  }
+
+  .slide h1 {
+    margin-top: 50px;
+  }
+
+  .slide ul {
+    padding-left: 25px;
+  }
+}
+
+    
+  </style>
+</head>
+<body>
+    <div class="progress">
+    <div class="progress-bar"></div>
+  </div>
+
+<div id="wrapper">
+    <section class="slide"><p><base target='_blank'/>
+<style>pre { background: lightgrey; font-size: 60%;}</style></p>
+
+<h1>Flying Spaceship</h1>
+
+<h2>A Mini Game in 3D with HTML5</h2></section>
+    <section class="slide"><h3>What we gonna do ?</h3>
+
+<ul>
+<li>a mini game called 'flying spaceship'</li>
+<li>all in browser</li>
+<li>three.js to get 3d</li>
+<li>webaudio api to get sound</li>
+</ul></section>
+    <section class="slide"><h3>Expect Final Result</h3>
+
+<p><a href="../step99.html">demo</a></p>
+
+<p><img src="images/screenshot-final-result.png" style="width: 80%;"/></p></section>
+    <section class="slide"><h3>Steps</h3>
+
+<ul>
+<li>threejs boilerplate</li>
+<li>then spaceships</li>
+<li>then move it via keyboard</li>
+<li>then planets and stars</li>
+<li>then collisions</li>
+<li>then sounds</li>
+</ul></section>
+    <section class="slide"><h1>Let's Get Started</h1></section>
+    <section class="slide"><h3>Install three.js boilerplate</h3>
+
+<ul>
+<li>Basic WebGL Page</li>
+<li>only a moving cube</li>
+<li>best practices already setup</li>
+<li>tunable thru yeoman</li>
+</ul></section>
+    <section class="slide"><h3>Three.js + yeoman</h3>
+
+<ul>
+<li>effort by google</li>
+<li>"Modern Workflow for WebApps"</li>
+<li>Composed of 3 tools: <a href="http://yeoman.io/packagemanager.html">bower</a>
+/ <a href="http://gruntjs.com/">grunt</a>
+/ <a href="https://github.com/yeoman/yo">yo</a></li>
+</ul>
+
+<h3>Smoother</h3>
+
+<ul>
+<li>used to generate boilerplate with yo</li>
+<li>used to handle packages with bower</li>
+<li><strong>but not required</strong></li>
+</ul></section>
+    <section class="slide"><h3>Install three.js boilerplate</h3>
+
+<p>Make folder </p>
+
+<pre><code>mkdir flyingspaceship
+cd flyingspaceship
+</code></pre>
+
+<p>Generate boilerplate with yeoman</p>
+
+<pre><code>yo threejs-boilerplate
+</code></pre></section>
+    <section class="slide"><h3>Install three.js boilerplate</h3>
+
+<p>Serves Static Files</p>
+
+<pre><code>make server
+</code></pre></section>
+    <section class="slide"><h3>Result</h3>
+
+<p><a href="../step0-00-naked-boilerplate.html">demo</a></p>
+
+<p><img src="images/step0-00-naked-boilerplate.png" style="width: 80%;"/></p></section>
+    <section class="slide"><h2>That's a start...</h2>
+
+<h1>Let's Add SpaceShips</h1></section>
+    <section class="slide"><h3>threex.spaceships</h3>
+
+<ul>
+<li>got it from threex extensions</li>
+<li>install with bower</li>
+<li>or get the files on <a href="https://github.com/jeromeetienne/threex.spaceships">github</a></li>
+</ul>
+
+<p><code>
+bower install threex.spaceships
+</code></p></section>
+    <section class="slide"><h1>Wait!</h1>
+
+<h2>What is threex ?</h2></section>
+    <section class="slide"><h3>A Bit on threex ?</h3>
+
+<ul>
+<li>ultra light extension system for <a href="http://mrdoob.github.io/three.js/">three.js</a></li>
+<li><a href="http://jeromeetienne.github.io/threex/">threex</a> on github - 28 modules and counting</li>
+</ul>
+
+<p><img src='images/screenshot-threex-homepage.png' width='100%' height='400px'></iframe></p></section>
+    <section class="slide"><h3>threex modules with require.js</h3>
+
+<ul>
+<li>Most threex extension support require.js</li>
+<li>Convention: <code>package.require.js</code> at project root</li>
+<li>require this file to load the module</li>
+</ul>
+
+<h3>Required ?</h3>
+
+<ul>
+<li>Optional</li>
+<li>Feel free to pick another tech if you wish</li>
+<li>Faster to dev tho</li>
+</ul></section>
+    <section class="slide"><h3>Include it in the code</h3>
+
+<p>Find the require line and add</p>
+
+<pre><code>require([ 'bower_components/threex.spaceships/package.require.js'
+    , 'bower_components/threex.spaceships/examples/vendor/three.js/examples/js/loaders/OBJMTLLoader.js'
+    , 'bower_components/threex.spaceships/examples/vendor/three.js/examples/js/loaders/OBJLoader.js'
+    , 'bower_components/threex.spaceships/examples/vendor/three.js/examples/js/loaders/MTLLoader.js'
+        ], function(){
+    // ...     
+});
+</code></pre></section>
+    <section class="slide"><h3>Add SpaceShip</h3>
+
+<p>put that after the scene init</p>
+
+<pre><code>var spaceship   = null;
+THREEx.SpaceShips.loadSpaceFighter03(function(object3d){
+    scene.add(object3d)
+    spaceship   = object3d
+})
+</code></pre></section>
+    <section class="slide"><h3>Result</h3>
+
+<p><a href="../step1-00-spaceship-cube.html">demo</a></p>
+
+<p><img src="images/step1-00-spaceship-cube.png" style="width: 80%;"/></p></section>
+    <section class="slide"><h2>Almost... Let's remove the cube :)</h2>
+
+<p><a href="../step1-01-naked-spaceship.html">demo</a></p>
+
+<p><img src="images/step1-01-naked-spaceship.png" style="width: 80%;"/></p></section>
+    <section class="slide"><h2>Not Bad... lack of interactivity</h2>
+
+<h1>Controls by Keyboard</h1></section>
+    <section class="slide"><h3>threex.keyboardstate</h3>
+
+<ul>
+<li>to keep the current state of the keyboard.</li>
+<li>threex module for three.js</li>
+<li>github <a href="https://github.com/jeromeetienne/threex.keyboardstate/">repo</a>
+/ <a href="http://jeromeetienne.github.io/threex.keyboardstate/examples/basic.html">demo</a></li>
+<li>blog post explaining internals <a href="http://learningthreejs.com/blog/2011/09/12/lets-Make-a-3D-game-keyboard/">here</a></li>
+<li>with bower and require.js again</li>
+</ul></section>
+    <section class="slide"><h3>Basic Usage</h3>
+
+<pre><code>var keyboard  = new THREEx.KeyboardState();
+if( keyboard.pressed("shift+H") ){
+    console.log('you are pressing shift and H')
+}
+</code></pre></section>
+    <section class="slide"><h3>threex.keyboardstate setup</h3>
+
+<p>Install it with bower</p>
+
+<p><code>bower install threex.keyboardstate</code></p>
+
+<p>Include it with require.js</p>
+
+<pre><code>require([ 'bower_components/threex.keyboardstate/package.require.js'
+        ], function(){
+        // ...     
+});
+</code></pre>
+
+<p>Done... not too hard like last time</p></section>
+    <section class="slide"><h3>Controls Player With Keyboard</h3>
+
+<p>The Algo</p>
+
+<ul>
+<li>add a function in the rendering loop</li>
+<li>monitor keyboard state</li>
+<li>move spaceship accordingly</li>
+</ul>
+
+<p>Pitfalls</p>
+
+<ul>
+<li>async in spaceship loading</li>
+<li>speed independent of fps</li>
+</ul></section>
+    <section class="slide"><h3>The Code</h3>
+
+<pre><code>// create keyboard instance
+var keyboard  = new THREEx.KeyboardState();
+
+// add function in rendering loop
+onRenderFcts.push(function(delta, now){
+
+    // only if the spaceship is loaded
+    if( spaceship === null )  return;
+
+    // set the speed
+    var speed = 1;
+    // only if spaceships is loaded
+    if( keyboard.pressed('down') ){
+        spaceship.position.y  -= speed * delta;
+    }else if( keyboard.pressed('up') ){
+        spaceship.position.y  += speed * delta;
+    }
+
+})
+</code></pre></section>
+    <section class="slide"><h3>Result</h3>
+
+<p><a href="../step2-00-with-keyboard.html">demo</a></p>
+
+<p><img src="images/step1-01-naked-spaceship.png" style="width: 80%;"/></p></section>
+    <section class="slide"><h2>What goes well with spaceships ?</h2>
+
+<h1>Let's add planets</h1></section>
+    <section class="slide"><h3>threex.planets</h3>
+
+<ul>
+<li>content module for threex</li>
+<li>available in <a href="https://github.com/jeromeetienne/threex.planets">threex.planets</a></li>
+<li>blog post explaining internals <a href="http://learningthreejs.com/blog/2013/09/16/how-to-make-the-earth-in-webgl/">here</a></li>
+<li>with bower and require.js again</li>
+</ul></section>
+    <section class="slide"><h3>Earth demo <a href="http://jeromeetienne.github.io/threex.planets/examples/earth.html">link</a></h3>
+
+<p>Earth, cloud, atmosphere, stars, moon, shadow</p>
+
+<p><img src="images/screenshot-threex-planets-demo-earth.png" style="width: 80%;"/></p></section>
+    <section class="slide"><h3>Select Any planets  <a href="http://jeromeetienne.github.io/threex.planets/examples/select.html#Uranus">link</a></h3>
+
+<p>based on <a href="http://planetpixelemporium.com/planets.html">planetpixelemporium</a></p>
+
+<p><img src="images/screenshot-threex-planets-examples-select.png" style="width: 80%;"/></p></section>
+    <section class="slide"><h3>threex planets with bower</h3>
+
+<p><code>bower install threex.planets</code></p>
+
+<p>Now it is in <code>bower_components/threex.planets/</code></p>
+
+<p>Rather Easy...</p></section>
+    <section class="slide"><h3>threex planets with require.js</h3>
+
+<p>Find require.js call in the header and put that</p>
+
+<pre><code>require([ 'bower_components/threex.planets/package.require.js'
+        ], function(){
+        // ...     
+});
+</code></pre>
+
+<p>Done... not too hard</p></section>
+    <section class="slide"><h3>The Code</h3>
+
+<pre><code>var moonMesh  = THREEx.Planets.createMoon()
+scene.add(moonMesh)
+</code></pre></section>
+    <section class="slide"><h3>The Result <a href="../step3-00-simple-moon.html">link</a></h3>
+
+<p><img src="images/step3-00-simple-moon.png" style="width: 80%;"/></p></section>
+    <section class="slide"><h2>a bit overcrowded</h2></section>
+    <section class="slide"><h3>Move Spaceship Away</h3>
+
+<pre><code>spaceship   = object3d
+spaceship.rotateY(Math.PI/2)
+spaceship.position.x    = -1
+</code></pre>
+
+<p>The Result <a href="../step3-01-spaceship-away-moon.html">link</a></p>
+
+<p><img src="images/step3-01-spaceship-away-moon.png" style="width: 80%;"/></p></section>
+    <section class="slide"><h3>Make The Moon Moves</h3>
+
+<p>Initial position</p>
+
+<pre><code>function resetMoon(){
+    moonMesh.position.x = 5
+    moonMesh.position.x += 5 * (Math.random()-0.5)
+    moonMesh.position.y = 2 * (Math.random()-0.5)       
+}
+resetMoon()
+</code></pre></section>
+    <section class="slide"><h3>Make The Moon Moves</h3>
+
+<p>Animate the moon and handle limits</p>
+
+<pre><code>onRenderFcts.push(function(delta, now){
+    // move the moon to the left
+    moonMesh.position.x += -1 * delta;
+    // make it warp
+    if( moonMesh.position.x &lt; -3 )  resetMoon()
+})
+</code></pre></section>
+    <section class="slide"><h3>The Result <a href="../step3-02-moving-moon.html">link</a></h3>
+
+<p><img src="images/step3-02-moving-moon.png" style="width: 80%;"/></p></section>
+    <section class="slide"><h2>Grey Background ? Not Too Shabby</h2>
+
+<h1>Let's add Stars!</h1></section>
+    <section class="slide"><h3>Stars</h3>
+
+<ul>
+<li>part of threex.planets</li>
+<li>no install needed</li>
+</ul></section>
+    <section class="slide"><h3>How ? with a <em>environmantal sphere</em></h3>
+
+<ul>
+<li>Large Sphere</li>
+<li>we are at its center</li>
+<li>we see the inside of it</li>
+<li>with a proper texture it does the tricks</li>
+</ul></section>
+    <section class="slide"><h3>The Texture</h3>
+
+<p>Part of threex.spaceships module</p>
+
+<iframe src='../bower_components/threex.planets/examples/images/galaxy_starfield.png' width='100%' height='400px'></iframe></section>
+    <section class="slide"><h3>The Code</h3>
+
+<p>a geometry</p>
+
+<pre><code>var geometry  = new THREE.SphereGeometry(90, 32, 32)
+</code></pre>
+
+<p>a material</p>
+
+<pre><code>var url   = 'bower_components/threex.planets/examples/images/galaxy_starfield.png'
+var material  = new THREE.MeshBasicMaterial({
+  map : THREE.ImageUtils.loadTexture(url),
+  side  : THREE.BackSide
+})
+</code></pre>
+
+<p>a mesh</p>
+
+<pre><code>var starSphere  = new THREE.Mesh(geometry, material)
+scene.add(starSphere)
+</code></pre></section>
+    <section class="slide"><h3>The Result <a href="../step4-00-stars-sphere.html">link</a></h3>
+
+<p><img src="images/step4-00-stars-sphere.png" style="width: 80%;"/></p></section>
+    <section class="slide"><h2>a bit of Game Play</h2>
+
+<h1>Let's add Collision</h1></section>
+    <section class="slide"><h3>Collision for GamePlay</h3>
+
+<ul>
+<li><strong>Goal</strong>: destroy moons</li>
+<li><strong>Means</strong>: going thru the moon destroy it</li>
+</ul></section>
+    <section class="slide"><h3>Algo</h3>
+
+<ul>
+<li>collide if distance &lt; 3</li>
+<li>if contact, reset moon position</li>
+</ul>
+
+<h3>Pitfalls</h3>
+
+<ul>
+<li>async model loading</li>
+<li>spaceship isn't spheric</li>
+</ul></section>
+    <section class="slide"><h3>Code to add</h3>
+
+<pre><code>onRenderFcts.push(function(delta, now){
+
+    // only if the spaceship is loaded
+    if( spaceship === null )    return
+
+    // compute distance between spaceship and the moon
+    var distance    = moonMesh.position.distanceTo(spaceship.position)
+    if( distance &lt; 0.3 ){
+        resetMoon()
+    }
+})
+</code></pre></section>
+    <section class="slide"><h3>The Result <a href="../step5-00-collision.html">link</a></h3>
+
+<p><img src="images/step5-00-collision.png" style="width: 80%;"/></p></section>
+    <section class="slide"><h2>What about sounds</h2>
+
+<h1>Let's make some noise</h1></section>
+    <section class="slide"><h3>Use Web Audio API</h3>
+
+<ul>
+<li>low latency sound API for games</li>
+<li><a href="https://github.com/jeromeetienne/webaudiox">webaudiox.js</a> : bunch of helpers</li>
+<li>heavily documented</li>
+<li>Explosion Sound from <a href="http://www.freesound.org">freesounds.org</a></li>
+</ul></section>
+    <section class="slide"><h3>Installation with bower</h3>
+
+<p><code>bower install webaudiox</code></p>
+
+<p>now files are in <code>bower_components/webaudiox</code> as usual</p>
+
+<h3>Include it with require.js</h3>
+
+<pre><code>require([ 'bower_components/webaudiox/build/webaudiox.js'
+        ], function(){
+        // ...     
+});
+</code></pre></section>
+    <section class="slide"><h3>Init Web Audio</h3>
+
+<pre><code>var context = new AudioContext()
+var lineOut = new WebAudiox.LineOut(context)
+lineOut.volume  = 0.2
+</code></pre>
+
+<h3>Load Sound</h3>
+
+<pre><code>var soundBuffer;
+// load the sound
+var soundUrl    = 'sounds/102720__sarge4267__explosion.wav'
+WebAudiox.loadBuffer(context, soundUrl, function(buffer){
+    soundBuffer = buffer
+})
+</code></pre></section>
+    <section class="slide"><h3>Function to play</h3>
+
+<pre><code>// setup a play function
+function playExplosionSound(){
+    if( !soundBuffer )  return
+    var source  = context.createBufferSource()
+    source.buffer   = soundBuffer
+    source.connect(lineOut.destination)
+    source.start(0)
+    return source
+}
+</code></pre>
+
+<h3>Play Sound on contact</h3>
+
+<pre><code>    var distance    = moonMesh.position.distanceTo(spaceship.position)
+    if( distance &lt; 0.3 ){
+        resetMoon()
+        playExplosionSound()
+    }
+</code></pre></section>
+    <section class="slide"><h3>Result <a href="../step6-00-explosion.html">link</a></h3>
+
+<p><img src="images/step6-00-explosion.png" style="width: 80%;"/></p></section>
+    <section class="slide"><h2>and we are ...</h2>
+
+<h1>DONE!</h1></section>
+    <section class="slide"><h3>Let's Pat our back</h3>
+
+<ul>
+<li>pure html5 game</li>
+<li>3d models</li>
+<li>collision</li>
+<li>sounds</li>
+<li>mini gameplay</li>
+</ul>
+
+<h4>not bad!</h4></section>
+    <section class="slide"><h3>Result <a href="../step99.html">link</a></h3>
+
+<p><img src="images/step99.png" style="width: 80%;"/></p></section>
+    <section class="slide"><h3>not bad for less than 1h</h3>
+
+<ul>
+<li>Thanks to threex modules</li>
+<li>Thanks to three.js boilerplate</li>
+<li>Thanks to yeoman</li>
+</ul>
+
+<h4>Make it real easy</h4></section>
+    <section class="slide"><div class="author">
+  <h1 class="name">Jerome Etienne</h1>
+  <h3 class="twitter">
+    <a href="http://twitter.com/@jerome_etienne" tabindex="-1">@jerome_etienne</a>
+  </h3>
+  <h3 class="url">
+    <a href="http://jetienne.com" tabindex="-1">http://jetienne.com</a>
+  </h3>
+</div>
+</section>
+</div>
+  <div class="controls">
+    <div class="arrow prev"></div>
+    <div class="arrow next"></div>
+  </div>
+
+<script type="text/javascript">
+  /**
+ * Takes the last slide and places it at the front.
+ */
+function goBack() {
+  var wrapper = document.querySelector('#wrapper');
+  var lastSlide = wrapper.lastChild;
+  while (lastSlide != null && lastSlide.nodeType !== 1) {
+    lastSlide = lastSlide.previousSibling;
+  }
+
+  wrapper.removeChild(lastSlide);
+  wrapper.insertBefore(lastSlide, wrapper.firstChild);
+
+  setCurrentProgress();
+  updateURL();
+}
+
+/**
+ * Takes the first slide and places it at the end.
+ */
+function goForward() {
+  var wrapper = document.querySelector('#wrapper');
+  var firstSlide = wrapper.firstChild;
+  while (firstSlide != null && firstSlide.nodeType !== 1) {
+    firstSlide = firstSlide.nextSibling;
+  }
+
+  wrapper.removeChild(firstSlide);
+  wrapper.appendChild(firstSlide);
+
+  setCurrentProgress();
+  updateURL();
+}
+
+/**
+ * Updates the current URL to include a hashtag of the current page number.
+ */
+function updateURL() {
+  window.history.replaceState({} , null, '#' + currentPage());
+}
+
+/**
+ * Returns the current page number of the presentation.
+ */
+function currentPage() {
+  return document.querySelector('#wrapper .slide').dataset.page;
+}
+
+/**
+ * Returns a NodeList of each .slide element.
+ */
+function allSlides() {
+  return document.querySelectorAll('#wrapper .slide');
+}
+
+/**
+ * Give each slide a "page" data attribute.
+ */
+function setPageNumbers() {
+  var wrapper = document.querySelector('#wrapper');
+  var pages   = wrapper.querySelectorAll('section');
+  var page;
+
+  for (var i = 0; i < pages.length; ++i) {
+    page = pages[i];
+    page.dataset.page = i;
+  }
+}
+
+/**
+ * Set the current progress indicator.
+ */
+function setCurrentProgress() {
+  var wrapper = document.querySelector('#wrapper');
+  var progressBar = document.querySelector('.progress-bar');
+
+  if (progressBar !== null) {
+    var pagesNumber    = wrapper.querySelectorAll('section').length;
+    var currentNumber  = parseInt(currentPage());
+    var currentPercent = pagesNumber === 1 ? 100 : 100 * currentNumber / (pagesNumber - 1);
+    progressBar.style.width = currentPercent.toString() + '%';
+  }
+}
+
+/**
+ * Go to the specified page of content.
+ */
+function goToPage(page) {
+  // Try to find the target slide.
+  var targetSlide = document.querySelector('#wrapper .slide[data-page="' + page + '"]');
+
+  // If it actually exists, go forward until we find it.
+  if (targetSlide) {
+    var numSlides = allSlides().length;
+
+    for (var i = 0; currentPage() != page && i < numSlides; i++) {
+      goForward();
+    }
+  }
+}
+
+window.onload = function () {
+
+  // Give each slide a "page" data attribute.
+  setPageNumbers();
+
+  // If the location hash specifies a page number, go to it.
+  var page = window.location.hash.slice(1);
+  if (page) goToPage(page);
+
+  document.onkeydown = function (e) {
+    var kc = e.keyCode;
+
+    // left, down, H, J, backspace - BACK
+    // up, right, K, L, space, enter - FORWARD
+    if (kc == 37 || kc == 40 || kc == 8 || kc == 72 || kc == 74) {
+      goBack();
+    } else if (kc == 38 || kc == 39 || kc == 13 || kc == 32 || kc == 75 || kc == 76) {
+      goForward();
+    }
+  }
+
+  if (document.querySelector('.next') && document.querySelector('.prev')) {
+    document.querySelector('.next').onclick = function (e) {
+      e.preventDefault();
+      goForward();
+    }
+
+    document.querySelector('.prev').onclick = function (e) {
+      e.preventDefault();
+      goBack();
+    }
+  }
+
+}
+
+</script>
+
+</body>
+</html>

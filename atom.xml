@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2013-12-31T11:04:07+01:00</updated>
+  <updated>2014-01-10T13:36:15+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,111 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Game Workshop: Let's Do a Fighting Spaceship Minigame Together]]></title>
+    <link href="http://learningthreejs.com/blog/2014/01/10/flying-spaceship-minigame/"/>
+    <updated>2014-01-10T11:05:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2014/01/10/flying-spaceship-minigame</id>
+    <content type="html"><![CDATA[<p>In this post, we are going to present how to do a mini-game called &#8220;Flying Spaceships&#8221;.
+We are going to do it together in 40 minutes.
+You can read the slides or watch the video to follow along!
+Just look at this <a href="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/slides/step99.html">demo</a>.
+It uses <a href="http://threejs.org">three.js</a> for the 3D,
+<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">WebAudio API</a>
+for the sound and several <a href="http://jeromeetienne.github.io/threex/">threex extensions</a>
+for stuff like spaceships and planets.
+I love the fact that now we can code mini-games in less than an hour!
+All that on the web, and with open source, so cool!</p>
+
+<p><a href='http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/slides/slides/' target='_blank'><input type="button" value='Slides of the talk' style='font-size:400%;' /></a>
+<a href='http://www.youtube.com/watch?v=s9pxStYvqrQ' target='_blank'><input type="button" value='Video of the talk' style='font-size:400%;' /></a>
+<a href='http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/slides/step99.html' target='_blank'><input type="button" value='the result!' style='font-size:400%;' /></a></p>
+
+<iframe width="425" height="349" src="http://www.youtube.com/embed/EEvEw5n1iEo" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<h2>The Talk</h2>
+
+<p>Here is the promised 40min video. Sit back and relax :)</p>
+
+<iframe width="425" height="349" src="http://www.youtube.com/embed/s9pxStYvqrQ" frameborder="0" allowfullscreen></iframe>
+
+
+<h2>The Slides</h2>
+
+<p>Here are a screenshot of every slides.
+Or you can directly look at the
+<a href="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/slides/slides/">slides</a>.</p>
+
+<p><img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide00.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide01.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide02.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide03.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide04.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide05.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide06.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide07.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide08.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide09.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide10.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide11.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide12.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide13.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide14.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide15.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide16.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide17.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide18.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide19.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide20.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide21.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide22.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide23.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide24.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide25.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide26.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide27.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide28.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide29.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide30.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide31.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide32.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide33.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide34.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide35.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide36.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide37.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide38.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide39.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide40.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide41.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide42.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide43.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide44.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide45.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide46.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide47.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide48.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide49.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide50.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide51.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide52.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide53.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide54.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide55.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide56.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide57.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide58.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide59.png" width="100%">
+<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide60.png" width="100%"></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Zero To Nyancat in 30 Seconds Flat!]]></title>
@@ -4031,146 +4136,6 @@ as seen
 <a href="http://www.html5rocks.com/en/tutorials/webaudio/positional_audio/#toc-enveffects">here</a>.</p>
 
 <p>I love how sound make our 3D scene more realistic. That&#8217;s all for today, have fun :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Augmented Reality in the Browser]]></title>
-    <link href="http://learningthreejs.com/blog/2012/03/12/augmented-reality-in-the-browser/"/>
-    <updated>2012-03-12T11:36:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2012/03/12/augmented-reality-in-the-browser</id>
-    <content type="html"><![CDATA[<p>This post is about augmented reality in the browser.
-In a recent post, we saw that it is now possible to
-<a href="http://learningthreejs.com/blog/2012/02/07/live-video-in-webgl/">have live video in webgl</a>
-with
-<a href="http://www.webrtc.org/">WebRTC</a>.
-Due to this,
-<a href="http://en.wikipedia.org/wiki/Augmented_reality">augmented reality</a>
-is under the spotlight. Recently
-<a href="http://www.html5rocks.com/">html5rock</a> published a
-tutorial
-by
-<a href="http://www.html5rocks.com/en/profiles/#ilmari">ilmari heikkinen</a>
-about
-&#8221;<a href="http://www.html5rocks.com/en/tutorials/webgl/jsartoolkit_webrtc/">writting augmented reality application using jsartoolkit</a>&#8221;.
-Ilmari is
-<a href="https://plus.google.com/115293744081058969329/about">google devrel for webgl</a>
-and the author of
-<a href="http://github.com/kig/JSARToolKit">JSARToolKit</a>
-too. So we are in good hands :)
-The tutorial even include a part about binding it with
-<a href="https://github.com/mrdoob/three.js/">three.js</a>.
-I took this nice tutorial and packaged the code even easier to reuse.</p>
-
-<!-- more -->
-
-
-
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/rzLuJxTraos" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-<p><img class="right" src="http://learningthreejs.com/data/2012-03-12-augmented-reality-in-the-browser/images/marker-small.png"></p>
-
-<p><a href="http://jeromeetienne.github.com/tquery.jsartoolkit/">Try this demo</a>.
-If you got <a href="http://www.webrtc.org/running-the-demos">WebRTC is available</a> in your browser, take
-<a href="http://jeromeetienne.github.com/tquery.jsartoolkit/marker/marker.png">this marker</a>,
-and put it in front on your webcam.
-It is the same you see on the right.
-It is best to print it on paper.
-If you can&#8217;t, point your phone to
-<a href="http://jeromeetienne.github.com/tquery.jsartoolkit/marker">this page</a> instead.
-Phone screens tend to reflect lights from your environment tho. They may
-reduce the accuracy of the marker detection.</p>
-
-<p>Now let&#8217;s see how you can to use all this to build your own demos :)</p>
-
-<h2>You Include it</h2>
-
-<p>First you include it as usual in your page. The code is available
-<a href="https://github.com/jeromeetienne/tquery.jsartoolkit">here</a>.
-Note that
-<a href="http://github.com/kig/JSARToolKit">JSARToolKit</a>
-is released under GPL, so some restrictions apply.
-The threex is under MIT license as usual.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;JSARToolKit.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;threex.jsartoolkit.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>You Initialize It</h2>
-
-<p>Once you get the code, you instanciate the object like this.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">threexAR</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">JSARToolKit</span><span class="p">({</span>
-</span><span class='line'>  <span class="nx">srcElement</span>  <span class="o">:</span> <span class="nx">srcElement</span><span class="p">,</span>
-</span><span class='line'>  <span class="nx">threshold</span>   <span class="o">:</span> <span class="nx">threshold</span><span class="p">,</span>
-</span><span class='line'>  <span class="nx">callback</span>    <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){}</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The <code>srcElement</code> may be a
-<a href="http://en.wikipedia.org/wiki/HTML5_video">video</a>, an
-<a href="http://www.w3.org/TR/html401/struct/objects.html#h-13.2">image</a>
-or a
-<a href="http://www.w3.org/TR/html5/the-canvas-element.html">canvas</a>.
-When the video is shoot in a uncontrolled environement,
-the marker detection may be less reliable, due to variations of lighting.
- <code>threshold</code> is a value between 0 and 255 to adapt your detection to those variations.
-To detect the augmented reality markers in the <code>srcElement</code>, just use this line in your
-rendering loop.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">threexAR</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>No rocket science here.</p>
-
-<h2>You Use It</h2>
-
-<p>During <code>.update()</code>, the callback is notified with events.
-They describe the markers present on the srcElement.
-Each event got various fields:
-A <code>.markerId</code> which tell you which marker has been recognized.
-The
-<a href="http://jeromeetienne.github.com/tquery.jsartoolkit/marker">one used above</a>
-is the <em>64</em>. You can find the whole list
-<a href="https://github.com/kig/JSARToolKit/tree/master/demos/markers">in JSARToolKit repository</a>.</p>
-
-<p>The <code>.type</code> field describe what is happening to this marker.
-It may be <em>create</em>, <em>update</em> or <em>delete</em>.
-<em>create</em> if the marker has just been detected,
-<em>update</em> if the marker was present before.
-and <em>delete</em> if the marker is no more present.
-Rather obvious :)
-The <code>.matrix</code> field is a
-<a href="https://github.com/mrdoob/three.js/blob/master/src/core/Matrix4.js">THREE.Matrix4</a>.
-It is a transform which matches the position of the marker in space.</p>
-
-<h2>Conclusion</h2>
-
-<p>So now we can do augmented reality in a browser.
-The code of the demo is <a href="https://github.com/jeromeetienne/tquery.jsartoolkit">here</a>.
-Up to us to find actual application of this technology.
-Currently most browsers with webcam are running on desktop/laptop tho.
-As most their webcam is directly attached to screens, It limits the flexibility of
-what you could put on front of the camera.
-As for mobile, only opera 12 is currently the only mobile browser able
-to read the webcam.</p>
-
-<p>That&#8217;s all folks. Have fun :)</p>
 ]]></content>
   </entry>
   
