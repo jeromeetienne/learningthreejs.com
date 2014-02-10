@@ -9,11 +9,10 @@
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="This post is about supporting mobile.
-We will try to port marblesoccer on mobile.
-When doing a
-boilerplate for three.js,
-mobile had to be supported &hellip;">
+  <meta name="description" content="This post presents a tunnel effect.
+This is a classic in 3D demo.
+They are visually efficient and easy to code.
+In fact, tunnels are so trendy that &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +81,86 @@ mobile had to be supported &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/01/11/tunnel-effect/">Tunnel Effect for Your Demo</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-11T13:00:00+01:00" pubdate data-updated="true">Jan 11<span>th</span>, 2012</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/4/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/4/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post presents a tunnel effect.
+This is a classic in 3D demo.
+They are visually efficient and easy to code.
+In fact, tunnels are so trendy that
+even
+<a href="http://en.wikipedia.org/wiki/Doctor_Who">doctor who</a>
+and
+<a href="http://en.wikipedia.org/wiki/Stargate">stargate</a>
+have
+<a href="http://www.youtube.com/watch?v=IKo9f5npLNM">fun</a>
+<a href="http://www.youtube.com/watch?v=KDIdJtW0vN4">in them</a>
+:)</p>
+
+<p><a href="http://jeromeetienne.github.com/tunnelgl/">Try the demo</a>.
+It has been built using the
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>
+seen in a
+<a href="/blog/2011/12/20/boilerplate-for-three-js/">previous post</a>.
+The code is simple and small.
+Less than 20lines has been added on top of the boilerplate.
+We will create a
+<a href="https://github.com/mrdoob/three.js/blob/master/src/core/Geometry.js">THREE.Geometry</a>
+to get the shape of tunnel.
+Then we will use a
+<a href="https://github.com/mrdoob/three.js/blob/master/src/textures/Texture.js">texture</a>
+trick to create the
+<a href="http://en.wikipedia.org/wiki/Optical_illusion">visual illusion</a>
+of moving.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/01/11/tunnel-effect/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -799,102 +878,6 @@ Then include it in your own code with this line.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/">Lets Make a 3D Game: microphysics.js</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-10-17T12:36:00+02:00" pubdate data-updated="true">Oct 17<span>th</span>, 2011</time>
-        
-        
-          <div class="sharing" style='text-align: right;'>
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/4/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/4/index.html" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-</div>
-
-        
-     </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This post is part of the <a href="/blog/categories/tutorial3dgame/">&#8220;Lets make a 3D game&#8221;</a> series.
-3D and physics simulation always go well together
-<a href="http://www.youtube.com/watch?v=Rd7TyU9RdQk">even</a>
-<a href="http://www.youtube.com/watch?v=o_xr8Htj9GI">more</a>
-<a href="http://www.youtube.com/watch?v=Xfrzi-yVcsM">so</a>
-<a href="http://www.youtube.com/watch?v=uvCbc8vFUMo">with</a>
-<a href="http://www.youtube.com/watch?v=7lBUBBW_sF0">marble</a>
-<a href="http://www.youtube.com/watch?v=c7npJ3E-ydA">games</a>.
-One is required for <a href="http://marblesoccer.com">marblesoccer</a> but i wasnt
-convinced by current 3d physics engines. I explain why at the end.
-Fortunatly, <a href="http://twitter.com/#!/pyalot">@pyalot</a> from <a href="http://codeflow.org/">codeflow.org</a>
-has been kind enough to write one taylor-made for us: <strong>microphysics.js</strong>!!</p>
-
-<p>It is bite-sized, elegant and efficient.
-Less than 500 lines at the moment!!
-It is small engouh to be understood, important feature for a tutorial blog.
-It is a work in progress tho.
-We aren&#8217;t aware of any bugs.
-New features will be added and the API is expected to move.
-Currently it implements moving spheres and static boxes (or <a href="http://en.wikipedia.org/wiki/Axis-aligned_bounding_box">AABB</a> as we like to say).
-This is all we need for <a href="http://marblesoccer.com">marblesoccer</a>, the good thing about tailor-made.
-<em>We are in business!!!</em></p>
-
-<p>Below is a screencast of me doing a short introduction of the
-<a href="http://jeromeetienne.github.com/microphysics.js/playground/">playground</a>.
-This just a page for you to experiment with microphysics.js.</p>
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/DI5PV2_sLoM" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-<h2>Let&#8217;s get started</h2>
-
-<p>So lets see how to use it.
-First step, you download it <a href="https://raw.github.com/jeromeetienne/microphysics.js/master/codeflow/physics.js">here</a>.
-Then include it in your own code with this line.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;physics.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -912,6 +895,10 @@ Then include it in your own code with this line.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/02/08/have-you-seen-yourself-when-you-are-drunk/">Have You Seen YourSelf when You Are Drunk ?</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/01/10/flying-spaceship-minigame/">Game Workshop: Let&#8217;s Do a Fighting Spaceship Minigame Together</a>
       </li>
     
@@ -925,10 +912,6 @@ Then include it in your own code with this line.</p>
     
       <li class="post">
         <a href="/blog/2013/08/02/how-to-do-a-procedural-city-in-100lines/">How To Do A Procedural City In 100 Lines</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/06/25/monitor-rendering-performance-within-threejs/">Monitor Rendering Performance Within Three.js</a>
       </li>
     
   </ul>

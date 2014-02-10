@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-01-30T08:26:02+01:00</updated>
+  <updated>2014-02-10T13:16:36+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,225 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Have You Seen YourSelf when You Are Drunk ?]]></title>
+    <link href="http://learningthreejs.com/blog/2014/02/08/have-you-seen-yourself-when-you-are-drunk/"/>
+    <updated>2014-02-08T12:49:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2014/02/08/have-you-seen-yourself-when-you-are-drunk</id>
+    <content type="html"><![CDATA[<p>This post is about a demo called <a href="https://github.com/jeromeetienne/demo.seenyourselfdrunk">&#8220;Have you seen yourself When you are Drunk ?&#8221;</a>. What is it all about ?
+Well have you seen yourself when you are drunk ?</p>
+
+<p><img class="right" src="http://learningthreejs.com/data/2014-02-08-have-you-seen-yourself-when-you-are-drunk/images/angryBoss.jpg" width="250" height="250"></p>
+
+<p>You don&#8217;t look at your best, but you don&#8217;t remember the morning after, lucky you. So now you are sober, this demo will show you how you look when you are drunk…
+Hopefully this will make you realize that <em>alcohol abuse is a bad thing</em>! And that we could
+<em>save the world by stopping it</em>!</p>
+
+<p><a href='http://jeromeetienne.github.io/demo.seenyourselfdrunk/' target='_blank'><input type="button" value='Try Demo Now' style='font-size:400%;' /></a></p>
+
+<p>Or it will just show some cool webgl effects… Honnestly i wasnt that sure of its exact purpose. Well, up to you to pick :)
+In other words, this is a webgl demo which reads your webcam, to show yourself on screen, then it does some screen deformations to give you an idea of what you look like when you are drunk.</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/yl2Qd9T3Lq4" frameborder="0" allowfullscreen></iframe>
+
+
+<p>We will learn how to code that. So first the tools of the trade…</p>
+
+<!-- more -->
+
+
+<h2>Used Tools</h2>
+
+<p>This demo is done with 2 threex extensions
+<a href="https://github.com/jeromeetienne/threex.toxicpproc">threex.toxicpproc</a>
+,
+<a href="https://github.com/jeromeetienne/threex.videotexture">threex.videotexture</a>
+and our lovely
+<a href="http://threejs.org">three.js</a> obviously.
+<a href="https://github.com/jeromeetienne/threex.videotexture">threex.videotexture</a>
+is, according to <a href="http://jeromeetienne.github.io/threex/#threex.videotexture">threex page</a> :</p>
+
+<blockquote><p>handles videos in texture. It is possible to put html5 video output in texture, even put the webcam in it, or to connect it to WebAudio API to get localized sounds.</p></blockquote>
+
+<p>We will use it to read the webcam and display it full page.
+<a href="https://github.com/jeromeetienne/threex.toxicpproc">threex.toxicpproc</a>
+is, according to <a href="http://jeromeetienne.github.io/threex/#threex.toxicpproc">threex page</a> :</p>
+
+<blockquote><p>an intoxicated post-processing effect. You can easily add it in your game to simulate the player is drunk. It provides various levels: sober, drunk, high and wasted.</p></blockquote>
+
+<p>We will use it to deform the video from the webcam and makes you look drunk.</p>
+
+<h2>Webcam For Texture</h2>
+
+<p>So the first thing is to get webcam on fullpage.
+For that we use <a href="https://github.com/jeromeetienne/threex.videotexture">threex.videotexture</a>.
+It does video textures, either you take this video from a url, like this.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>// create the videoTexture
+</span><span class='line'>var videoUrl  = 'sintel.ogv';
+</span><span class='line'>var videoTexture= new THREEx.VideoTexture(videoUrl)
+</span><span class='line'>// on every render, update it
+</span><span class='line'>onRenderFcts.push(function(delta, now){
+</span><span class='line'>      videoTexture.update(delta, now)
+</span><span class='line'>})</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or you take the video live from the webcam, like this.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>// create the webcamTexture
+</span><span class='line'>var videoTexture  = new THREEx.WebcamTexture()
+</span><span class='line'>// on every render, update it
+</span><span class='line'>onRenderFcts.push(function(delta, now){
+</span><span class='line'>      videoTexture.update(delta, now)
+</span><span class='line'>})    </span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then use <code>videoTexture.texture</code> in your materials to
+have the texture of the webcam. So let&#8217;s see how we will
+compose our scene.</p>
+
+<h2>Scene Composition</h2>
+
+<p>We need a Plane which take the full page, and we will apply our webcam texture to it.
+So first there is an orthographic camera. Perspective is useless in this case, and make computations much more complex :)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var camera = new THREE.OrthographicCamera(window.innerWidth / -2, window.innerWidth / 2
+</span><span class='line'>     ,  window.innerHeight / 2, window.innerHeight / -2, -100, 100);</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then, there is a <code>THREE.PlaneGeometry</code> mesh
+using full screen for this camera.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var geometry = new THREE.PlaneGeometry( window.innerWidth, window.innerHeight )
+</span><span class='line'>var material  = new THREE.MeshBasicMaterial();
+</span><span class='line'>var mesh  = new THREE.Mesh(geometry, material)
+</span><span class='line'>scene.add(mesh)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then we apply our <code>videoTexture</code> to this material. Thus
+we see the webcam on this plan :)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>material.map = videoTexture.texture</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So we got our face on full screen, cool for ego i guess :)
+Now let&#8217;s apply some deformation to it!</p>
+
+<h2>Post Processing and Rendering</h2>
+
+<p>Usually to render a scene, we use the following code.
+This is when we render the scene directly on screen.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>renderer.render( scene, camera )</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We will use a post processing chain with <code>THREE.EffectComposer</code>. It process the screen as a 2d texture.
+More specifically, we will use <a href="https://github.com/jeromeetienne/threex.toxicpproc">threex.toxicpproc</a>, a three.js extension which provide post processing of drunk effects. It got 4 presets <em>sober</em>, <em>drunk</em>, <em>high</em> and <em>wasted</em>. There is a nice tweening when you switch between presets so transitions looks smooth.
+Try it yourself in <a href="http://jeromeetienne.github.io/threex.toxicpproc/examples/basic.html">this demo</a>.</p>
+
+<h3>THREEx.ToxicPproc</h3>
+
+<p>So First lets instanciate a <code>THREEx.ToxicPproc.Passes</code>. It will setup the effect composers passes for our effect. We set it to the <code>drunk</code> preset.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var toxicPasses  = new THREEx.ToxicPproc.Passes('drunk')
+</span><span class='line'>// on every render you update it
+</span><span class='line'>onRenderFcts.push(function(delta, now){
+</span><span class='line'>  toxicPasses.update(delta, now)
+</span><span class='line'>})</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you want to create other presets, it is entirely possible. There is even a <a href="https://code.google.com/p/dat-gui/">Dat.GUI</a> provided for you to tweak buttons until it fits your needs. You see it in <a href="http://jeromeetienne.github.io/threex.toxicpproc/examples/basic.html">the demo</a>.
+You use it like this.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var datGui   = new dat.GUI()
+</span><span class='line'>THREEx.addToxicPasses2DatGui(toxicPasses, datGui)</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>THREE.EffectComposer</h3>
+
+<p>Now that we got the toxicpproc passes, let&#8217;s create the <code>THREE.EffectComposer</code> to run it.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var composer = new THREE.EffectComposer(renderer);</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We render the scene on a texture</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var renderPass   = new THREE.RenderPass( scene, camera );
+</span><span class='line'>composer.addPass( renderPass );</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We send this texture to <code>threex.toxicpproc</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>toxicPasses.addPassesTo(composer)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now we just have to tell the composer the last pass is the one to be rendered on screen.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>composer.passes[composer.passes.length -1 ].renderToScreen   = true;</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<h3>Update on each Frame</h3>
+
+<p>We got the rendering to do on each frame. Usually we do</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>renderer.render( scene, camera )</span></code></pre></td></tr></table></div></figure>
+
+
+<p>But here we render thru the effect composer, so we do</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>// render thru composer
+</span><span class='line'>composer.render(delta)</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Conclusion</h2>
+
+<p>Ok so you have learn how to code a demo like
+<a href="https://github.com/jeromeetienne/demo.seenyourselfdrunk">&#8220;Have you seen yourself When you are Drunk ?&#8221;</a>
+Pretty Cool!
+Now you can get more <a href="http://jeromeetienne.github.io/threex/">threex</a> extensions and
+play with it to build your own demos.
+This is All for Today Folks, have fun! :)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Game Workshop: Let's Do a Fighting Spaceship Minigame Together]]></title>
@@ -3969,176 +4188,6 @@ of your head like
 cheap to integrate live video conferences to your own sites.</p>
 
 <p>That&#8217;s all folks, have fun!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[tQuery WebAudio for More Realistic 3D]]></title>
-    <link href="http://learningthreejs.com/blog/2012/03/20/sounds-for-more-realistic-3d/"/>
-    <updated>2012-03-20T01:08:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2012/03/20/sounds-for-more-realistic-3d</id>
-    <content type="html"><![CDATA[<p>This post is about
-<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">Web Audio API</a>.
-It is a new HTML5 api which provide great controls on the audio layer.
-It is much better than the
-<a href="http://www.w3.org/TR/html5/the-iframe-element.html#the-audio-element">audio tag</a>.
-It is more suitable for games or music software.
-As 3D lovers, the one feature that we care about is
-<a href="http://en.wikipedia.org/wiki/3D_audio_effect">audio spacialization</a>.
-This makes Web Audio a complement to webgl.
-It implements positional sounds, so you
-get
-<a href="http://en.wikipedia.org/wiki/Panning_(audio)">panning</a>,
-<a href="http://en.wikipedia.org/wiki/Doppler_effect">dopler</a>
-and all.
-It makes the scene so much more realistic.</p>
-
-<p>The user tends to associate 3D to reality, so efficient 3D is a lot about realism.
-The brain identifies 2D as artificial while 3D seems immediatly more natural.
-Anything which appears close to reality increase this effect.
-Feeding this illusion creates a more immersive experience to the user.
-Realistic physics is one (stay tuned :).
-Web Audio audio spacialization is another.</p>
-
-<p>The
-<a href="http://youtu.be/QjRF0_KENQ8">screencast</a>
-below is a live coding session using <code>tQuery.WebAudio</code>.
-If you want, you can experiment with this code in our playground. Just click
-<a href="http://bit.ly/GApgWg">here</a>
-and start coding :)</p>
-
-<!-- more -->
-
-
-
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/QjRF0_KENQ8" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-<h2>Background on WebAudio API</h2>
-
-<p>To learn about WebAudio API is a large subject.
-It is out of the scope of this introduction.
-You can refere to many dedicated tutorials tho.
-The <a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">specification</a>
-itself is clear and very readable.</p>
-
-<p>You can find more comprehensive documentation at <a href="html://html5rocks.com">html5rocks</a>.
-It contains several very usefull tutorials to learn Web Audio API.
-They go from
-<a href="http://www.html5rocks.com/en/tutorials/webaudio/intro/">&#8220;Getting started with the web audio API&#8221;</a>
-to
-<a href="http://www.html5rocks.com/en/tutorials/webaudio/positional_audio/">&#8220;mixing positional audio and webgl&#8221;</a>
-or
-<a href="http://www.html5rocks.com/en/tutorials/webaudio/games/">&#8220;developing game audio&#8221;</a>.
-If you want, you can find demos in
-<a href="http://chromium.googlecode.com/svn/trunk/samples/audio/index.html">chromium samples</a>.</p>
-
-<p>Now let&#8217;s start coding :)</p>
-
-<h2>Let&#8217;s get Started</h2>
-
-<p>First you need to enable WebAudio into your world.
-Thus you will be able to play sound in it.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">world</span><span class="p">.</span><span class="nx">enableWebAudio</span><span class="p">();</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now that the world is able to do sound, let&#8217;s create one</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">sound</span> <span class="o">=</span> <span class="nx">tQuery</span><span class="p">.</span><span class="nx">createSound</span><span class="p">();</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we need to load a sound file and to start playing it. The callback
-is notified when the file is downloaded. At this point, the sound
-it ready to play.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">sound</span><span class="p">.</span><span class="nx">load</span><span class="p">(</span><span class="s1">&#39;techno.mp3&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">sound</span><span class="p">){</span>
-</span><span class='line'>    <span class="nx">sound</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>If you want to know more, the full API is documented
-<a href="http://jeromeetienne.github.com/tquery/docs/symbols/tQuery.WebAudio.Sound.html">here</a>
-and
-<a href="http://jeromeetienne.github.com/tquery/docs/symbols/tQuery.WebAudio.html">here</a>
-thanks to jsdoc.</p>
-
-<h2>Spacialization and Animation</h2>
-
-<p>Now that we can play a sound, what else can we do ? One definitively interesting part for
-<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">webaudio API</a>
-is the ability to spacialize the sound.
-The easiest way to do that is to use <code>.follow()</code> function.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">sound</span><span class="p">.</span><span class="nx">follow</span><span class="p">(</span><span class="nx">object3d</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>If you want more controls, you can check
- <code>.updateWithObject3d()</code> or <code>.updateWithMatrix4()</code>.
-You may want to animate your 3D object based on the sound you hear.
-For that, a simple function <code>.amplitude()</code> has been written.
-It is likely a naive implementation but it does the trick, i think.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">amplitude</span> <span class="o">=</span> <span class="nx">sound</span><span class="p">.</span><span class="nx">amplitude</span><span class="p">();</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>It returns an average of low frequencies of the sound.
-Note that i dunno if it is the proper term in audio world.
-Most likely not :) If you know the proper term, please leave a comment.</p>
-
-<h2>Want more info ?</h2>
-
-<p>You get two examples in
-<a href="https://github.com/jeromeetienne/tquery/tree/master/plugins/webaudio/examples">the source</a>.
-The
-<a href="http://jeromeetienne.github.com/tquery/plugins/webaudio/examples/">minimal one</a>
-simply play a sound.
-The other is more interactive. It is the
-<a href="http://jeromeetienne.github.com/tquery/plugins/webaudio/examples/playground">playground</a>.
-It allows to play with various parameters.
-tQuery API documentation is provided via
-<a href="http://code.google.com/p/jsdoc-toolkit/">jsdoc</a>.
-You can find the whole API
-<a href="http://jeromeetienne.github.com/tquery/">here</a>.
-The plan is to do the same for the plugins.</p>
-
-<p>So for tQuery WebAudio plugin, you get API documentation of each class: the main class
-<a href="http://jeromeetienne.github.com/tquery/docs/symbols/tQuery.WebAudio.html">tQuery.WebAudio</a>
-and the
-<a href="http://jeromeetienne.github.com/tquery/docs/symbols/tQuery.WebAudio.Sound.html">Sound class</a>.
-You can even check the
-<a href="http://jeromeetienne.github.com/tquery/docs/symbols/tQuery.WebAudio.NodeChainBuilder.html">Node chain builder</a>
-doc if you want to go deep and configure your own audio nodes chain :)</p>
-
-<h2>Conclusion</h2>
-
-<p>Ok so now you can play sounds in your 3D scene. You can make the sound follows a given
-object3d with realistic sound spatialization. All that in just a few lines. Rather cool
-if you ask me :)
-<a href="http://en.wikipedia.org/wiki/Winamp">Winamp</a> effects are back !!
-Later i will likely implement
-click detection as seen
-<a href="http://www.html5rocks.com/en/tutorials/webaudio/games/#toc-clip-detect">here</a>
-and environmental effect like &#8216;cathedral&#8217;, &#8216;telephone&#8217; etc&#8230;
-as seen
-<a href="http://www.html5rocks.com/en/tutorials/webaudio/positional_audio/#toc-enveffects">here</a>.</p>
-
-<p>I love how sound make our 3D scene more realistic. That&#8217;s all for today, have fun :)</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: three.js | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/three-dot-js/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-01-30T08:26:02+01:00</updated>
+  <updated>2014-02-10T13:16:36+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,213 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Have You Seen YourSelf when You Are Drunk ?]]></title>
+    <link href="http://learningthreejs.com/blog/2014/02/08/have-you-seen-yourself-when-you-are-drunk/"/>
+    <updated>2014-02-08T12:49:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2014/02/08/have-you-seen-yourself-when-you-are-drunk</id>
+    <content type="html"><![CDATA[<p>This post is about a demo called <a href="https://github.com/jeromeetienne/demo.seenyourselfdrunk">"Have you seen yourself When you are Drunk ?"</a>. What is it all about ?
+Well have you seen yourself when you are drunk ?</p>
+
+<p><img class="right" src="/data/2014-02-08-have-you-seen-yourself-when-you-are-drunk/images/angryBoss.jpg" width="250" height="250"></p>
+
+<p>You don't look at your best, but you don't remember the morning after, lucky you. So now you are sober, this demo will show you how you look when you are drunk…
+Hopefully this will make you realize that <em>alcohol abuse is a bad thing</em>! And that we could
+<em>save the world by stopping it</em>!</p>
+
+<p><a href='http://jeromeetienne.github.io/demo.seenyourselfdrunk/' target='_blank'><input type="button" value='Try Demo Now' style='font-size:400%;' /></a></p>
+
+<p>Or it will just show some cool webgl effects… Honnestly i wasnt that sure of its exact purpose. Well, up to you to pick :)
+In other words, this is a webgl demo which reads your webcam, to show yourself on screen, then it does some screen deformations to give you an idea of what you look like when you are drunk.</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/yl2Qd9T3Lq4" frameborder="0" allowfullscreen></iframe>
+
+
+<p>We will learn how to code that. So first the tools of the trade…</p>
+
+<!-- more -->
+
+
+<h2>Used Tools</h2>
+
+<p>This demo is done with 2 threex extensions
+<a href="https://github.com/jeromeetienne/threex.toxicpproc">threex.toxicpproc</a>
+,
+<a href="https://github.com/jeromeetienne/threex.videotexture">threex.videotexture</a>
+and our lovely
+<a href="http://threejs.org">three.js</a> obviously.
+<a href="https://github.com/jeromeetienne/threex.videotexture">threex.videotexture</a>
+is, according to <a href="http://jeromeetienne.github.io/threex/#threex.videotexture">threex page</a> :</p>
+
+<blockquote><p>handles videos in texture. It is possible to put html5 video output in texture, even put the webcam in it, or to connect it to WebAudio API to get localized sounds.</p></blockquote>
+
+<p>We will use it to read the webcam and display it full page.
+<a href="https://github.com/jeromeetienne/threex.toxicpproc">threex.toxicpproc</a>
+is, according to <a href="http://jeromeetienne.github.io/threex/#threex.toxicpproc">threex page</a> :</p>
+
+<blockquote><p>an intoxicated post-processing effect. You can easily add it in your game to simulate the player is drunk. It provides various levels: sober, drunk, high and wasted.</p></blockquote>
+
+<p>We will use it to deform the video from the webcam and makes you look drunk.</p>
+
+<h2>Webcam For Texture</h2>
+
+<p>So the first thing is to get webcam on fullpage.
+For that we use <a href="https://github.com/jeromeetienne/threex.videotexture">threex.videotexture</a>.
+It does video textures, either you take this video from a url, like this.</p>
+
+<p>```
+// create the videoTexture
+var videoUrl    = 'sintel.ogv';
+var videoTexture= new THREEx.VideoTexture(videoUrl)
+// on every render, update it
+onRenderFcts.push(function(delta, now){</p>
+
+<pre><code>    videoTexture.update(delta, now)
+</code></pre>
+
+<p>})
+```</p>
+
+<p>Or you take the video live from the webcam, like this.</p>
+
+<p>```
+// create the webcamTexture
+var videoTexture    = new THREEx.WebcamTexture()
+// on every render, update it
+onRenderFcts.push(function(delta, now){</p>
+
+<pre><code>    videoTexture.update(delta, now)
+</code></pre>
+
+<p>})<br/>
+```</p>
+
+<p>Then use <code>videoTexture.texture</code> in your materials to
+have the texture of the webcam. So let's see how we will
+compose our scene.</p>
+
+<h2>Scene Composition</h2>
+
+<p>We need a Plane which take the full page, and we will apply our webcam texture to it.
+So first there is an orthographic camera. Perspective is useless in this case, and make computations much more complex :)</p>
+
+<p>```
+var camera = new THREE.OrthographicCamera(window.innerWidth / -2, window.innerWidth / 2</p>
+
+<pre><code> ,  window.innerHeight / 2, window.innerHeight / -2, -100, 100);
+</code></pre>
+
+<p>```</p>
+
+<p>Then, there is a <code>THREE.PlaneGeometry</code> mesh
+using full screen for this camera.</p>
+
+<p><code>
+var geometry    = new THREE.PlaneGeometry( window.innerWidth, window.innerHeight )
+var material    = new THREE.MeshBasicMaterial();
+var mesh    = new THREE.Mesh(geometry, material)
+scene.add(mesh)
+</code></p>
+
+<p>Then we apply our <code>videoTexture</code> to this material. Thus
+we see the webcam on this plan :)</p>
+
+<p><code>
+material.map    = videoTexture.texture
+</code></p>
+
+<p>So we got our face on full screen, cool for ego i guess :)
+Now let's apply some deformation to it!</p>
+
+<h2>Post Processing and Rendering</h2>
+
+<p>Usually to render a scene, we use the following code.
+This is when we render the scene directly on screen.</p>
+
+<p><code>
+renderer.render( scene, camera )
+</code></p>
+
+<p>We will use a post processing chain with <code>THREE.EffectComposer</code>. It process the screen as a 2d texture.
+More specifically, we will use <a href="https://github.com/jeromeetienne/threex.toxicpproc">threex.toxicpproc</a>, a three.js extension which provide post processing of drunk effects. It got 4 presets <em>sober</em>, <em>drunk</em>, <em>high</em> and <em>wasted</em>. There is a nice tweening when you switch between presets so transitions looks smooth.
+Try it yourself in <a href="http://jeromeetienne.github.io/threex.toxicpproc/examples/basic.html">this demo</a>.</p>
+
+<h3>THREEx.ToxicPproc</h3>
+
+<p>So First lets instanciate a <code>THREEx.ToxicPproc.Passes</code>. It will setup the effect composers passes for our effect. We set it to the <code>drunk</code> preset.</p>
+
+<p>```
+var toxicPasses = new THREEx.ToxicPproc.Passes('drunk')
+// on every render you update it
+onRenderFcts.push(function(delta, now){</p>
+
+<pre><code>toxicPasses.update(delta, now)
+</code></pre>
+
+<p>})
+```</p>
+
+<p>If you want to create other presets, it is entirely possible. There is even a <a href="https://code.google.com/p/dat-gui/">Dat.GUI</a> provided for you to tweak buttons until it fits your needs. You see it in <a href="http://jeromeetienne.github.io/threex.toxicpproc/examples/basic.html">the demo</a>.
+You use it like this.</p>
+
+<p><code>
+var datGui  = new dat.GUI()
+THREEx.addToxicPasses2DatGui(toxicPasses, datGui)
+</code></p>
+
+<h3>THREE.EffectComposer</h3>
+
+<p>Now that we got the toxicpproc passes, let's create the <code>THREE.EffectComposer</code> to run it.</p>
+
+<p><code>
+var composer    = new THREE.EffectComposer(renderer);
+</code></p>
+
+<p>We render the scene on a texture</p>
+
+<p><code>
+var renderPass  = new THREE.RenderPass( scene, camera );
+composer.addPass( renderPass );
+</code></p>
+
+<p>We send this texture to <code>threex.toxicpproc</code></p>
+
+<p><code>
+toxicPasses.addPassesTo(composer)
+</code></p>
+
+<p>Now we just have to tell the composer the last pass is the one to be rendered on screen.</p>
+
+<p><code>
+composer.passes[composer.passes.length -1 ].renderToScreen  = true;
+</code></p>
+
+<h3>Update on each Frame</h3>
+
+<p>We got the rendering to do on each frame. Usually we do</p>
+
+<p><code>
+renderer.render( scene, camera )
+</code></p>
+
+<p>But here we render thru the effect composer, so we do</p>
+
+<p><code>
+// render thru composer
+composer.render(delta)
+</code></p>
+
+<h2>Conclusion</h2>
+
+<p>Ok so you have learn how to code a demo like
+<a href="https://github.com/jeromeetienne/demo.seenyourselfdrunk">"Have you seen yourself When you are Drunk ?"</a>
+Pretty Cool!
+Now you can get more <a href="http://jeromeetienne.github.io/threex/">threex</a> extensions and
+play with it to build your own demos.
+This is All for Today Folks, have fun! :)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Game Workshop: Let's Do a Fighting Spaceship Minigame Together]]></title>
@@ -1017,126 +1224,6 @@ I hope you learned from it,
 it contains many tricks that you can reused in your own demos.</p>
 
 <p>That's all for today! Have fun :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Monitor Rendering Performance Within Three.js]]></title>
-    <link href="http://learningthreejs.com/blog/2013/06/25/monitor-rendering-performance-within-threejs/"/>
-    <updated>2013-06-25T10:58:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2013/06/25/monitor-rendering-performance-within-threejs</id>
-    <content type="html"><![CDATA[<p>This post is about monitoring rendering performance within three.js.
-It presents a small standalone extension called <code>threex.rendererstats</code>.
-It collect information from three.js renderer and display it live.
-It is very usefull to diagnose performance issues while developping.
-The API is exactly the same as <a href="http://github.com/mrdoob/stats.js">stats.js</a>
-so it is easy for you to include in your own stuff.</p>
-
-<iframe width="425" height="349" src="http://www.youtube.com/embed/UXWpnANajDk" frameborder="0" allowfullscreen></iframe>
-
-
-
-
-<!-- more -->
-
-
-<h2>What Is It ?</h2>
-
-<p><img class="right" src="/data/2013-06-13-monitor-rendering-performance-within-threejs/screenshot-rendererstats.png"></p>
-
-<p><a href="http://github.com/jeromeetienne/threex.rendererstats">threex.rendererstats</a> collects information
-about three.js renderer and display it realtime on your screen.
-It is released under MIT license and is available on
-<a href="http://github.com/jeromeetienne/threex.rendererstats">github</a>.
-See a screenshot on the right.</p>
-
-<p><a href='http://jeromeetienne.github.io/threex.rendererstats/examples/basic.html' target='_blank'><input type="button" value='Try Live Demo!' style='font-size:400%;' /></a></p>
-
-<p><img class="left" src="/data/2013-06-13-monitor-rendering-performance-within-threejs/screenshot-stats.png" width="240"></p>
-
-<p>It is inpired from
-<a href="http://github.com/mrdoob/stats.js">stats.js</a> by
-<a href="http://mrdoob.com">mrdoob</a>.
-See a screenshot on the left.
-Webgl renderer keeps some internal statistics on the scene being renderered and update it at every frame.
-It is accessible in a property <code>.info</code>.
-threex.rendererstats just gather this information and display it nicely on your screen.</p>
-
-<h2>How Is It Useful ?</h2>
-
-<p>It is a very nice tool to monitor performances of WebGL rendering.
-As it is updated realtime, you can identify performance issues at various moments within your game
-We have seen canvas inspection recently in
-<a href="http://learningthreejs.com/blog/2013/04/05/debugging-with-chromes-canvas-inspection/">Debugging With Chrome’s Canvas Inspection</a>.
-<a href="http://learningthreejs.com/blog/2013/04/05/debugging-with-chromes-canvas-inspection/">canvas inspection</a>
-is directly at webgl level. threex.rendererstats remains at three.js level to give you another kind
-of information on the renderer.</p>
-
-<p>Lets details those information
-There is 2 sections one for the memory, another for the renderer.
-For the memory, you got</p>
-
-<ul>
-<li><code>info.memory.geometry</code> : number of geometry currently in memory</li>
-<li><code>info.memory.programs</code> : number of shaders currently in memory</li>
-<li><code>info.memory.texture</code> : number of texture currently in memory</li>
-</ul>
-
-
-<p>For the render, you got</p>
-
-<ul>
-<li><code>info.render.calls</code> : number of draw calls currently used to render</li>
-<li><code>info.render.vertices</code> : number of vertices currently rendered</li>
-<li><code>info.render.faces</code> : number of triangles currently renderered</li>
-<li><code>info.render.points</code> : number of particles currently rendered</li>
-</ul>
-
-
-<h2>How To Use It ?</h2>
-
-<p>first, include <code>threex.rendererstats.js</code> with the usual <code>&lt;script&gt;</code> tag.</p>
-
-<p>```html</p>
-
-<script src='threex.rendererstats.js'></script>
-
-
-<p>```</p>
-
-<p>then you initialize the object.</p>
-
-<p><code>javascript
-var rendererStats   = new THREEx.RendererStats()
-</code></p>
-
-<p>You likely need to position it on the page with css.
-You may use something along this line</p>
-
-<p><code>javascript
-rendererStats.domElement.style.position = 'absolute'
-rendererStats.domElement.style.left = '0px'
-rendererStats.domElement.style.bottom   = '0px'
-document.body.appendChild( rendererStats.domElement )
-</code></p>
-
-<p>finally you update it at every frame in your rendering loop or when you do <code>renderer.render()</code></p>
-
-<p><code>javascript
-rendererStats.update(renderer);
-</code></p>
-
-<p>And you are done. Quite easy to include! Now you can monitor your own three.js scenes.</p>
-
-<h2>Conclusion</h2>
-
-<p>We have seen how to monitor performance information withing three.js.
-How to display and use the statistics collected by <code>THREE.WebGLRenderer</code>
-itself.
-The information may appear a bit raw but it is live.
-So unexpected performance changes can be detected very early.</p>
-
-<p>That's all for today! have fun :)</p>
 ]]></content>
   </entry>
   
