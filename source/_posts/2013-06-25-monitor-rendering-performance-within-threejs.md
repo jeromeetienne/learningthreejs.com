@@ -27,7 +27,7 @@ It is released under MIT license and is available on
 [github](http://github.com/jeromeetienne/threex.rendererstats).
 See a screenshot on the right.
 
-<a href='http://jeromeetienne.github.io/threex.rendererstats/examples/basic.html' target='_blank'><input type="button" value='Try Live Demo!' style='font-size:400%;' /></a>
+<a href='http://jeromeetienne.github.io/threex.rendererstats/examples/basic.html' target='_blank'><input type="button" value='Try Live Demo!' /></a>
 
 {% img left /data/2013-06-13-monitor-rendering-performance-within-threejs/screenshot-stats.png 240x167 %}
 

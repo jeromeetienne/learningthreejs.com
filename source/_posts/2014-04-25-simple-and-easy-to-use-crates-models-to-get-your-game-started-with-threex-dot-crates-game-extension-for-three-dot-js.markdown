@@ -19,7 +19,7 @@ Yeah you heard me, this is only boxes of wood. Why doing an extension for that?
 Well, because crates are like a myth in 3d graphics, we put them everywhere.
 So if you need crates to easily put in your game, you know where to find them now :)
 
-<a href='http://jeromeetienne.github.io/threex.crates/examples/basic.html' target='_blank'><input type="button" value='Try Threex.crates Demo Now' style='font-size:400%;' /></a>
+<a href='http://jeromeetienne.github.io/threex.crates/examples/basic.html' target='_blank'><input type="button" value='Try Threex.crates Demo Now' /></a>
 
 To see the [other posts about one threex a day](/blog/categories/threexaday/) and forget our moto!
 **"A THREEx extension a day, gets your game on its way!"**

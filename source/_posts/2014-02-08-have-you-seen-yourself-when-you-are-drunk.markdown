@@ -15,7 +15,7 @@ You don't look at your best, but you don't remember the morning after, lucky you
 Hopefully this will make you realize that *alcohol abuse is a bad thing*! And that we could
 *save the world by stopping it*!
 
-<a href='http://jeromeetienne.github.io/demo.seenyourselfdrunk/' target='_blank'><input type="button" value='Try Demo Now' style='font-size:400%;' /></a>
+<a href='http://jeromeetienne.github.io/demo.seenyourselfdrunk/' target='_blank'><input type="button" value='Try Demo Now' /></a>
 
 Or it will just show some cool webgl effects… Honnestly i wasnt that sure of its exact purpose. Well, up to you to pick :)
 In other words, this is a webgl demo which reads your webcam, to show yourself on screen, then it does some screen deformations to give you an idea of what you look like when you are drunk. 

@@ -18,9 +18,9 @@ for stuff like spaceships and planets.
 I love the fact that now we can code mini-games in less than an hour! 
 All that on the web, and with open source, so cool! 
 
-<a href='/data/2014-01-10-flying-spaceship-minigame/slides/slides/' target='_blank'><input type="button" value='Slides of the talk' style='font-size:400%;' /></a>
-<a href='http://www.youtube.com/watch?v=s9pxStYvqrQ' target='_blank'><input type="button" value='Video of the talk' style='font-size:400%;' /></a>
-<a href='/data/2014-01-10-flying-spaceship-minigame/slides/step99.html' target='_blank'><input type="button" value='the result!' style='font-size:400%;' /></a>
+<a href='/data/2014-01-10-flying-spaceship-minigame/slides/slides/' target='_blank'><input type="button" value='Slides of the talk' /></a>
+<a href='http://www.youtube.com/watch?v=s9pxStYvqrQ' target='_blank'><input type="button" value='Video of the talk' /></a>
+<a href='/data/2014-01-10-flying-spaceship-minigame/slides/step99.html' target='_blank'><input type="button" value='the result!' /></a>
 
 <iframe width="425" height="349" src="http://www.youtube.com/embed/EEvEw5n1iEo" frameborder="0" allowfullscreen></iframe>
 

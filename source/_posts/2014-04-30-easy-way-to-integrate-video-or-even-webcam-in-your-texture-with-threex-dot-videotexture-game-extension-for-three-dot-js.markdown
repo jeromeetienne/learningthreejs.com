@@ -25,7 +25,7 @@ is handled via
 [web audio API](https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html).
 Thus you can have localized sound, which is neat in the 3d environment.
 
-<a href='http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html' target='_blank'><input type="button" value='Try Threex.videotexture Demo Now' style='font-size:400%;' /></a>
+<a href='http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html' target='_blank'><input type="button" value='Try Threex.videotexture Demo Now' /></a>
 
 To see the [other posts about one threex a day](/blog/categories/threexaday/) and forget our moto!
 **"A THREEx extension a day, gets your game on its way!"**

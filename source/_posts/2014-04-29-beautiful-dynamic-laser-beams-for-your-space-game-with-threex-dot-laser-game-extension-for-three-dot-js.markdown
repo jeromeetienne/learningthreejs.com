@@ -18,7 +18,7 @@ The laser itself is fully procedural with generated texture.
 The bleeding effect is obtained with additive blending.
 threex.laser contains a more elaborate laser which dynamically collides with your scene. It is all done for you and it looks great! On impact, there is a point light and an particle sprite for cooler effects :)
 
-<a href='http://jeromeetienne.github.io/threex.laser/examples/demo.html' target='_blank'><input type="button" value='Try Threex.laser Demo Now' style='font-size:400%;' /></a>
+<a href='http://jeromeetienne.github.io/threex.laser/examples/demo.html' target='_blank'><input type="button" value='Try Threex.laser Demo Now' /></a>
 
 To see the [other posts about one threex a day](/blog/categories/threexaday/) and forget our moto!
 **"A THREEx extension a day, gets your game on its way!"**

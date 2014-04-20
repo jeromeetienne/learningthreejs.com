@@ -21,7 +21,7 @@ It is perfect if you dunno much about lighting and you want to add lights in you
 Nothing big or special in this extension.
 This is mainly for educational purposes or for starting your project fast.
 
-<a href='http://jeromeetienne.github.io/threex.basiclighting/examples/demo.html' target='_blank'><input type="button" value='Try Threex.basiclighting Demo Now' style='font-size:400%;' /></a>
+<a href='http://jeromeetienne.github.io/threex.basiclighting/examples/demo.html' target='_blank'><input type="button" value='Try Threex.basiclighting Demo Now' /></a>
 
 To see the [other posts about one threex a day](/blog/categories/threexaday/) and forget our moto!
 **"A THREEx extension a day, gets your game on its way!"**

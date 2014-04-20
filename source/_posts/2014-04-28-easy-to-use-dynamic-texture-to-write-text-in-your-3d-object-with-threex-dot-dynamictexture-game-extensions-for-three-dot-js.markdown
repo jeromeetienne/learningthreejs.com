@@ -21,7 +21,7 @@ which got
 It is mainly used to write text in texture. Say you got a character which says something, you may want to put that in a texture and display that above your character. threex.dynamictexture will make it easy for you.
 
 
-<a href='http://jeromeetienne.github.io/threex.dynamictexture/examples/basic.html' target='_blank'><input type="button" value='Try Threex.dynamictexture Demo Now' style='font-size:400%;' /></a>
+<a href='http://jeromeetienne.github.io/threex.dynamictexture/examples/basic.html' target='_blank'><input type="button" value='Try Threex.dynamictexture Demo Now' /></a>
 
 To see the [other posts about one threex a day](/blog/categories/threexaday/) and forget our moto!
 **"A THREEx extension a day, gets your game on its way!"**

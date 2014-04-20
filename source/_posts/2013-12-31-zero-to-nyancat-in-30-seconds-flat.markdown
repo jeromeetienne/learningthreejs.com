@@ -31,10 +31,10 @@ of me doing the talk, or directly at the
 [slides](/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/) below.
 If you are in a rush, here is the TL;DR executive summary. Have Fun :)
 
-<a href='/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/' target='_blank'><input type="button" value='Slides of the talk' style='font-size:400%;' /></a>
-<a href='http://www.youtube.com/watch?v=zeR_cpupZcQ' target='_blank'><input type="button" value='Video of the talk' style='font-size:400%;' /></a>
-<a href='/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/demo/index.html' target='_blank'><input type="button" value='the result!' style='font-size:400%;' /></a>
-<a href='https://www.udemy.com/yeoman-for-threejs/' target='_blank'><input type="button" value='udemy course' style='font-size:400%;' /></a>
+<a href='/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/' target='_blank'><input type="button" value='Slides of the talk' /></a>
+<a href='http://www.youtube.com/watch?v=zeR_cpupZcQ' target='_blank'><input type="button" value='Video of the talk' /></a>
+<a href='/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/demo/index.html' target='_blank'><input type="button" value='the result!' /></a>
+<a href='https://www.udemy.com/yeoman-for-threejs/' target='_blank'><input type="button" value='udemy course' /></a>
 
 **Update:** I am experimenting with [udemy](https://www.udemy.com) and made a course from this post. Check it out ["Yeoman For Three.js"](https://www.udemy.com/yeoman-for-threejs/). More than 30min of video :)
 

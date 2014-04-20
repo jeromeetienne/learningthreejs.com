@@ -29,7 +29,7 @@ Here is a [video](http://www.youtube.com/watch?v=rfQ8rKGTVlg#t=25m03s)
 where you can see greggman explaining the underlying technic.
 It explains how to do 3d texture in webgl! :)
 
-<a href='http://jeromeetienne.github.io/threex.coloradjust/examples/demo.html' target='_blank'><input type="button" value='Try Threex.coloradjust Demo Now' style='font-size:400%;' /></a>
+<a href='http://jeromeetienne.github.io/threex.coloradjust/examples/demo.html' target='_blank'><input type="button" value='Try Threex.coloradjust Demo Now' /></a>
 
 To see the [other posts about one threex a day](/blog/categories/threexaday/) and forget our moto!
 **"A THREEx extension a day, gets your game on its way!"**
