@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Realistic Physics for Your 3D Game with THREEx.Oimo Game Extension For three.js"
-date: 2014-04-18 17:12
+date: 2014-04-23 17:12
 comments: true
 categories: [threexaday, threex, game, extension, three.js]
 published: false
@@ -13,13 +13,13 @@ threex.oimo is a [threex game extension for three.js](http://www.threejsgames.co
 You make rocks fall from the sky in a realistic fashion! Sky is the limit!
 It is a warper over the excelent library [oimo.js](https://github.com/lo-th/Oimo.js) physics library. [lo-th](https://plus.google.com/114170447432405103307/posts), the author does [a lot of crazy things](http://3dflashlo.wordpress.com/)! Be sure to check it out! 
 
-<a href='http://jeromeetienne.github.io/threex.oimo/examples/demo.html' target='_blank'><input type="button" value='Try Threex.oimo Demo Now' style='font-size:400%;' /></a>
+<a href='http://jeromeetienne.github.io/threex.oimo/examples/demo.html' target='_blank'><input type="button" value='Try Threex.oimo Demo Now'></a>
 
 To see the [other posts about one threex a day](/blog/categories/threexaday/) and forget our moto! **"A THREEx extension a day, gets your game on its way!"**
 
 <!-- more -->
 
-<iframe width="420" height="315" src="//www.youtube.com/embed/yl2Qd9T3Lq4" frameborder="0" allowfullscreen></iframe>
+<iframe width="420" height="315" src="//www.youtube.com/embed/wESF0NdMWBE" frameborder="0" allowfullscreen></iframe>
 
 Show Don't Tell
 ===============

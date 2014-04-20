@@ -1,9 +1,10 @@
 ---
 layout: post
 title: "Easy Way To Integrate Video, or even WebCam, in Your Texture with THREEx.VideoTexture Game Extension for THREE.js"
-date: 2014-04-19 13:38
+date: 2014-04-30 13:38
 comments: true
-categories: 
+categories: [threexaday, threex, game, extension, three.js]
+published: false
 ---
 
 <a href='http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.videotexture/master/examples/images/screenshot-threex-videotexture-512x512.jpg" width="250" height="250"></a>
@@ -31,7 +32,7 @@ To see the [other posts about one threex a day](/blog/categories/threexaday/) an
 
 <!-- more -->
 
-<iframe width="420" height="315" src="//www.youtube.com/embed/yl2Qd9T3Lq4" frameborder="0" allowfullscreen></iframe>
+<iframe width="420" height="315" src="//www.youtube.com/embed/O5ae0FhrOEo" frameborder="0" allowfullscreen></iframe>
 
 
 Show Don't Tell
