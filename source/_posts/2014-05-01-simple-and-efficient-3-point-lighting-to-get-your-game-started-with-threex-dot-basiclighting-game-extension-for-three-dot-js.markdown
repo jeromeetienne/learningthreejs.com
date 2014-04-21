@@ -77,7 +77,3 @@ create a sun set lighting
 var lighting    = new THREEx.SunSetLighting()
 scene.add(lighting)
 ```
-
-## Possible Improvements
-* do a day light, night light
-  * a smooth transition between the two would be even better

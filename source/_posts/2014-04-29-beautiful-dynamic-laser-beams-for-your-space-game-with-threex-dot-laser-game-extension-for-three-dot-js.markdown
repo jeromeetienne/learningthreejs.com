@@ -90,17 +90,3 @@ onRenderFcts.push(function(delta, now){
     laserCooked.update(delta, now)
 })
 ```
-
-Possible Improvements
-=====================
-* change in API
-  * laserBeam is an actual class which export .object3d
-  * .setSource(vector3)
-  * .setTarget(vector3)
-* rename laser cooked in THREEx.CollidingLaser
-* make light vary random for realism
-* leave a mark on the wall
-  * multimaterialobject
-  * each object for a texture in a empty canvas
-  * draw in this canvas and update the texture
-* laser with pointing leap 
