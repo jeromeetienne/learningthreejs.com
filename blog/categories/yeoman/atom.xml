@@ -4,7 +4,7 @@
   <title><![CDATA[Category: yeoman | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/yeoman/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-02-10T13:25:53+01:00</updated>
+  <updated>2014-04-23T13:08:54+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -29,9 +29,9 @@ for stuff like spaceships and planets.
 I love the fact that now we can code mini-games in less than an hour!
 All that on the web, and with open source, so cool!</p>
 
-<p><a href='http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/slides/slides/' target='_blank'><input type="button" value='Slides of the talk' style='font-size:400%;' /></a>
-<a href='http://www.youtube.com/watch?v=s9pxStYvqrQ' target='_blank'><input type="button" value='Video of the talk' style='font-size:400%;' /></a>
-<a href='http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/slides/step99.html' target='_blank'><input type="button" value='the result!' style='font-size:400%;' /></a></p>
+<p><a href='http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/slides/slides/' target='_blank'><input type="button" value='Slides of the talk' /></a>
+<a href='http://www.youtube.com/watch?v=s9pxStYvqrQ' target='_blank'><input type="button" value='Video of the talk' /></a>
+<a href='http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/slides/step99.html' target='_blank'><input type="button" value='the result!' /></a></p>
 
 <iframe width="425" height="349" src="http://www.youtube.com/embed/EEvEw5n1iEo" frameborder="0" allowfullscreen></iframe>
 
@@ -148,10 +148,10 @@ of me doing the talk, or directly at the
 <a href="/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/">slides</a> below.
 If you are in a rush, here is the TL;DR executive summary. Have Fun :)</p>
 
-<p><a href='http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/' target='_blank'><input type="button" value='Slides of the talk' style='font-size:400%;' /></a>
-<a href='http://www.youtube.com/watch?v=zeR_cpupZcQ' target='_blank'><input type="button" value='Video of the talk' style='font-size:400%;' /></a>
-<a href='http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/demo/index.html' target='_blank'><input type="button" value='the result!' style='font-size:400%;' /></a>
-<a href='https://www.udemy.com/yeoman-for-threejs/' target='_blank'><input type="button" value='udemy course' style='font-size:400%;' /></a></p>
+<p><a href='http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/' target='_blank'><input type="button" value='Slides of the talk' /></a>
+<a href='http://www.youtube.com/watch?v=zeR_cpupZcQ' target='_blank'><input type="button" value='Video of the talk' /></a>
+<a href='http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/demo/index.html' target='_blank'><input type="button" value='the result!' /></a>
+<a href='https://www.udemy.com/yeoman-for-threejs/' target='_blank'><input type="button" value='udemy course' /></a></p>
 
 <p><strong>Update:</strong> I am experimenting with <a href="https://www.udemy.com">udemy</a> and made a course from this post. Check it out <a href="https://www.udemy.com/yeoman-for-threejs/">"Yeoman For Three.js"</a>. More than 30min of video :)</p>
 

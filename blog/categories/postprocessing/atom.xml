@@ -4,7 +4,7 @@
   <title><![CDATA[Category: postprocessing | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/postprocessing/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-02-10T13:25:53+01:00</updated>
+  <updated>2014-04-23T13:08:54+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -27,7 +27,7 @@ Well have you seen yourself when you are drunk ?</p>
 Hopefully this will make you realize that <em>alcohol abuse is a bad thing</em>! And that we could
 <em>save the world by stopping it</em>!</p>
 
-<p><a href='http://jeromeetienne.github.io/demo.seenyourselfdrunk/' target='_blank'><input type="button" value='Try Demo Now' style='font-size:400%;' /></a></p>
+<p><a href='http://jeromeetienne.github.io/demo.seenyourselfdrunk/' target='_blank'><input type="button" value='Try Demo Now' /></a></p>
 
 <p>Or it will just show some cool webgl effects… Honnestly i wasnt that sure of its exact purpose. Well, up to you to pick :)
 In other words, this is a webgl demo which reads your webcam, to show yourself on screen, then it does some screen deformations to give you an idea of what you look like when you are drunk.</p>

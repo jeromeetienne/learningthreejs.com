@@ -9,10 +9,8 @@
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="This post presents a tunnel effect.
-This is a classic in 3D demo.
-They are visually efficient and easy to code.
-In fact, tunnels are so trendy that &hellip;">
+  <meta name="description" content="Ever dreamed of a object3d.on(&#8216;click&#8217;, function(){ &#8230; });? I have :) This post presents a little experiment.
+What about implementing &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,6 +79,81 @@ In fact, tunnels are so trendy that &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/01/17/dom-events-in-3d-space/">Dom Events in 3D Space</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-17T11:56:00+01:00" pubdate data-updated="true">Jan 17<span>th</span>, 2012</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/4/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/4/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Ever dreamed of a <strong>object3d.on(&#8216;click&#8217;, function(){ &#8230; });</strong>?</p>
+
+<p>I have :) This post presents a little experiment.
+What about implementing the concept of
+<a href="http://www.w3.org/TR/DOM-Level-2-Events/events.html">dom events</a>
+in 3D Space.
+In a web page, a
+<a href="http://www.quirksmode.org/dom/events/click.html">click</a>
+event is trigger when a user click on a
+<a href="http://en.wikipedia.org/wiki/HTML_element">element</a>.
+This is common knowledge in web development.
+What about having that but in a three.js scene ?
+Maybe people will start do 3D user interface with that, who knows.
+How great would that be ?!?
+So let&#8217;s do that.</p>
+
+<p><a href="http://jeromeetienne.github.com/threex/examples/threex.domevent/">Try it out</a>.
+The demo contains 3 teapots.
+Each bind a different type of events.
+When the events are triggered, teapots are animated.
+Animations are made by <a href="https://github.com/sole/tween.js/">tween.js</a>, a nice js tweening engine
+seen in a <a href="/blog/2011/08/17/tweenjs-for-smooth-animation/">previous post</a>.
+Play with it to get a feel of it, maybe think about the type of UI you could do in 3D.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/01/17/dom-events-in-3d-space/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -806,78 +879,6 @@ it in your page like this</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/11/02/lets-make-a-3d-game-helper-for-microphysics-js/">Lets Make a 3D Game: microphysics.js, Even Easier</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-11-02T18:16:00+01:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2011</time>
-        
-        
-          <div class="sharing" style='text-align: right;'>
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/4/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/4/index.html" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-</div>
-
-        
-     </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This post is part of the <a href="/blog/categories/tutorial3dgame/">&#8220;Lets make a 3D game&#8221;</a> series.
-It is a follow up from the previous article on <a href="/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/">microphysics.js</a>.
-It will describe how to easily include <strong>microphysics.js</strong> in your three.js games.
-<a href="https://raw.github.com/jeromeetienne/microphysics.js/master/THREEx.microphysics.js">THREEx.microphysics.js</a> is a THREEx wrapper for microphysics.js.
-It helps binding <a href="https://github.com/mrdoob/three.js/">three.js</a> objects to <a href="/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/">microphysics.js</a>.
-The API is chained for convenience.</p>
-
-<h2>Let&#8217;s get started</h2>
-
-<p>So lets see how to use it.
-First step, you download it
-<a href="https://raw.github.com/jeromeetienne/microphysics.js/master/THREEx.microphysics.js">here</a>.
-Then include it in your own code with this line.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;THREEx.microphysics.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/11/02/lets-make-a-3d-game-helper-for-microphysics-js/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -895,6 +896,10 @@ Then include it in your own code with this line.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">One THREEx a Day Gets Your Game On Its Way! A Challenge!</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/08/have-you-seen-yourself-when-you-are-drunk/">Have You Seen YourSelf when You Are Drunk ? - making of a fun WebGL Demo</a>
       </li>
     
@@ -908,10 +913,6 @@ Then include it in your own code with this line.</p>
     
       <li class="post">
         <a href="/blog/2013/09/16/how-to-make-the-earth-in-webgl/">How To Make The Earth In WebGL?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/08/02/how-to-do-a-procedural-city-in-100lines/">How To Do A Procedural City In 100 Lines</a>
       </li>
     
   </ul>

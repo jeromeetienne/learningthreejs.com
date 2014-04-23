@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-02-10T13:25:53+01:00</updated>
+  <updated>2014-04-23T13:08:54+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[One THREEx a Day Gets Your Game On Its Way! A Challenge!]]></title>
+    <link href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/"/>
+    <updated>2014-04-22T17:51:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge</id>
+    <content type="html"><![CDATA[<p>Hello everybody! I’m working on a new project that I want to share with you. But first, let me start by telling you what inspired me to do it.</p>
+
+<p>Last week, I read an interesting article written by John Resig called <a href="http://ejohn.org/blog/write-code-every-day/">Write code everyday</a>. He explains how he succeed in efficiently accomplishing his side projects. This article opened my eyes. It was like a revelation, a procedure that I just had to apply to my own work. An answer to the questions I had been asking myself: How could I be more efficient? How could I be more disciplined and improve my execution?</p>
+
+<p>The tactic that Resig decided to practice to improve his productivity was quite simple: He tried working on his side projects a little everyday, for a delimited amount of time, and it worked! He didn’t feel like a failure when he didn&#8217;t do enough &#8220;quality&#8221; work during the weekend anymore! He found a way to organize his schedule, do his work, while still devoting time to leisure activities. I find this amazingly intelligent!</p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/CShTdamWAzg" frameborder="0" allowfullscreen></iframe>
+
+
+<p>Resig’s work inspired me. So, I wanna try to do something similar: I want to publish a three.js game extension every day! Yes I know, it’s a challenge! But I wanna see if Resig’s tactic helps me gain more discipline when publishing my code. The idea is to publish one every day of the week, from Monday to Friday, one per day for two months, except on the weekends, because well, one has to rest at some point :)</p>
+
+<p>Ok, so you already know that I love three.js, a javascript 3D library that makes Webgl. Three.js is the new up and coming technology, it’s hot, cutting-edge, and it has been deployed worldwide. Well, now I would really love to help you write your own games with it! I think the best way to do this is by publishing one three.js game extension per day. I have an enormous amount of information, and code, to share with you. I just have to get it out there for you to see!</p>
+
+<p>Three.js Game extensions will make the dream of developing your own 3d video game come true. My moto is <strong>“One threex per day, gets your game on it’s way!”</strong> I’ve got over <a href="http://www.threejsgames.com/extensions/">40 cool extensions</a> that could be used to facilitate the development of 3D games on the web. And I wanna share this knowledge with the world!</p>
+
+<p><a href='http://jeromeetienne.github.io/stellar7/' target='_blank'><img class="right" src="http://learningthreejs.com/data/2014-04-22-one-threex-a-day-gets-your-game-on-its-way-a-challenge/images/stellar7-screenshot.png" width="444" height="250"></a>
+Most of the three.js game extensions that I will publish support require.js and it would be very easy to add them to your own game. With these extensions you can actually learn to code 3D mini-games in less than an hour, like <a href="http://learningthreejs.com/blog/2014/01/10/flying-spaceship-minigame/">Flying Spaceships</a> or to create more detailed video games with a lot of cool post-processing effects, like <a href="http://jeromeetienne.github.io/stellar7/">Stellar7</a>. Just to give you an idea, I coded Stellar7 in only 2 weeks thanks to threex extensions! That&#8217;s a record :)</p>
+
+<p>The three.js game extensions will teach you real skills and tools to help you develop cool stuff on 3D. The best part is that you can reproduce everything you learn cause it’s all open source and available to anyone!</p>
+
+<p>The Three.Js Games mission is to ignite the spark of genius creativity that every developer has.</p>
+
+<p>I hope you enjoy it :)</p>
+
+<p>That’s all folks!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Have You Seen YourSelf when You Are Drunk ? - making of a fun WebGL Demo]]></title>
@@ -27,7 +65,7 @@ Well have you seen yourself when you are drunk ?</p>
 Hopefully this will make you realize that <em>alcohol abuse is a bad thing</em>! And that we could
 <em>save the world by stopping it</em>!</p>
 
-<p><a href='http://jeromeetienne.github.io/demo.seenyourselfdrunk/' target='_blank'><input type="button" value='Try Demo Now' style='font-size:400%;' /></a></p>
+<p><a href='http://jeromeetienne.github.io/demo.seenyourselfdrunk/' target='_blank'><input type="button" value='Try Demo Now' /></a></p>
 
 <p>Or it will just show some cool webgl effects… Honnestly i wasnt that sure of its exact purpose. Well, up to you to pick :)
 In other words, this is a webgl demo which reads your webcam, to show yourself on screen, then it does some screen deformations to give you an idea of what you look like when you are drunk.</p>
@@ -248,9 +286,9 @@ for stuff like spaceships and planets.
 I love the fact that now we can code mini-games in less than an hour!
 All that on the web, and with open source, so cool!</p>
 
-<p><a href='http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/slides/slides/' target='_blank'><input type="button" value='Slides of the talk' style='font-size:400%;' /></a>
-<a href='http://www.youtube.com/watch?v=s9pxStYvqrQ' target='_blank'><input type="button" value='Video of the talk' style='font-size:400%;' /></a>
-<a href='http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/slides/step99.html' target='_blank'><input type="button" value='the result!' style='font-size:400%;' /></a></p>
+<p><a href='http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/slides/slides/' target='_blank'><input type="button" value='Slides of the talk' /></a>
+<a href='http://www.youtube.com/watch?v=s9pxStYvqrQ' target='_blank'><input type="button" value='Video of the talk' /></a>
+<a href='http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/slides/step99.html' target='_blank'><input type="button" value='the result!' /></a></p>
 
 <iframe width="425" height="349" src="http://www.youtube.com/embed/EEvEw5n1iEo" frameborder="0" allowfullscreen></iframe>
 
@@ -367,10 +405,10 @@ of me doing the talk, or directly at the
 <a href="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/">slides</a> below.
 If you are in a rush, here is the TL;DR executive summary. Have Fun :)</p>
 
-<p><a href='http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/' target='_blank'><input type="button" value='Slides of the talk' style='font-size:400%;' /></a>
-<a href='http://www.youtube.com/watch?v=zeR_cpupZcQ' target='_blank'><input type="button" value='Video of the talk' style='font-size:400%;' /></a>
-<a href='http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/demo/index.html' target='_blank'><input type="button" value='the result!' style='font-size:400%;' /></a>
-<a href='https://www.udemy.com/yeoman-for-threejs/' target='_blank'><input type="button" value='udemy course' style='font-size:400%;' /></a></p>
+<p><a href='http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/' target='_blank'><input type="button" value='Slides of the talk' /></a>
+<a href='http://www.youtube.com/watch?v=zeR_cpupZcQ' target='_blank'><input type="button" value='Video of the talk' /></a>
+<a href='http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/demo/index.html' target='_blank'><input type="button" value='the result!' /></a>
+<a href='https://www.udemy.com/yeoman-for-threejs/' target='_blank'><input type="button" value='udemy course' /></a></p>
 
 <p><strong>Update:</strong> I am experimenting with <a href="https://www.udemy.com">udemy</a> and made a course from this post. Check it out <a href="https://www.udemy.com/yeoman-for-threejs/">&#8220;Yeoman For Three.js&#8221;</a>. More than 30min of video :)</p>
 
@@ -1446,7 +1484,7 @@ It is released under MIT license and is available on
 <a href="http://github.com/jeromeetienne/threex.rendererstats">github</a>.
 See a screenshot on the right.</p>
 
-<p><a href='http://jeromeetienne.github.io/threex.rendererstats/examples/basic.html' target='_blank'><input type="button" value='Try Live Demo!' style='font-size:400%;' /></a></p>
+<p><a href='http://jeromeetienne.github.io/threex.rendererstats/examples/basic.html' target='_blank'><input type="button" value='Try Live Demo!' /></a></p>
 
 <p><img class="left" src="http://learningthreejs.com/data/2013-06-13-monitor-rendering-performance-within-threejs/screenshot-stats.png" width="240"></p>
 
@@ -4085,109 +4123,6 @@ Anyway publishing it in &#8220;publish early, publish often&#8221; mood :)</p>
     <iframe width="425" height="349" src="http://www.youtube.com/embed/iunNd5lmAVE" frameborder="0" allowfullscreen></iframe>
 </center>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Video Conference on Top of WebGL]]></title>
-    <link href="http://learningthreejs.com/blog/2012/04/12/video-conference-on-top-of-webgl/"/>
-    <updated>2012-04-12T13:20:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2012/04/12/video-conference-on-top-of-webgl</id>
-    <content type="html"><![CDATA[<p>This post presents
-<a href="http://webglmeeting.appspot.com">WebGL Meeting</a>,
-a very simple WebGL application to do webrtc call.
-It is a follow up of <a href="http://learningthreejs.com/blog/2012/02/07/live-video-in-webgl/">&#8220;Fun with live video on webgl&#8221;</a>.
-It was presenting how to use the WebCam using
-<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">WebRTC getUserMedia()</a>.
-This one goes one step further and make an actual
-<a href="http://www.webrtc.org/">WebRTC call</a>
-displayed in a WebGL scene.</p>
-
-<p>In fact, it has already been done a month ago! As you can see
-<a href="http://www.youtube.com/watch?v=em5RWcstfI0&amp;feature=watch_response">here</a>
-:)
-The video from the first post, <a href="http://www.youtube.com/watch?v=vnNihxl3taE">&#8216;being on tv, watching tv&#8217;</a> has been answered
-by <a href="https://plus.google.com/109216128632357967445/posts">Ethan Hugg</a> from cisco.
-My very first video reponse btw! He
-<a href="http://www.youtube.com/watch?v=em5RWcstfI0&amp;feature=watch_response">shows a SIP video call</a>
-using an version of Chromium hacked by
-<a href="https://plus.google.com/102821430095362232437/posts">Suhas Nandakumar</a>.
-Definitly cool stuff!
-<a href="http://webglmeeting.appspot.com">WebGL Meeting</a> is similar but run on unmodified browsers.
-The
-<a href="http://youtu.be/Fjb7xBnxq9k">screencast</a>
-below is short demo of it.</p>
-
-<!-- more -->
-
-
-
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/Fjb7xBnxq9k" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-<h2>WebRTC progress</h2>
-
-<p>Using a modified browser is cool for make nice demo like
-<a href="https://plus.google.com/109216128632357967445/posts/QkFu7cxmbzi">this one</a>.
-Nevertheless it reduces how widely the technology can spread.
-It is now possible to do it using opensource and mainstream browsers.
-This field advances so fast!</p>
-
-<p><img class="right" src="http://learningthreejs.com/data/2012-04-12-video-conference-on-top-of-webgl/twoTVsWithWebGLTeam-small.jpg" width="320" height="240"></p>
-
-<p><a href="http://mozillamediagoddess.org/">Mozilla team</a> is
-<a href="http://hacks.mozilla.org/2012/04/webrtc-efforts-underway-at-mozilla/">working hard</a>
-to make it happen as soon as possible.
-It is even available on mobile with
-<a href="http://weblog.bocoup.com/javascript-webrtc-opera-mobile-12/">Opera Mobile 12</a>.
-Some <a href="http://www.youtube.com/watch?v=wpwjtzXgNFQ]">&#8220;protothon&#8221;</a> are happening about it.
-<a href="http://www.webrtc.org/">WebRTC</a>
-is on the edge but it is definitly coming hard.
-The picture on the right is Chrome WebRTC team doing thumb up on
-<a href="webglmeeting.appspot.com">WebGLMeeting</a>
-at an WebRTC event for
-<a href="http://www.ietf.org/meeting/83/index.html">IETF 83</a>
-:)</p>
-
-<h2>What about the code ?</h2>
-
-<p><a href="https://github.com/jeromeetienne/webglmeeting">WebGLMeeting source</a>
-is available on Github under MIT license.
-It uses three.js to handle the WebGL.
-It is the <a href="http://code.google.com/p/webrtc-samples/source/browse/trunk/apprtc/">AppRTC app</a>
-mostly unmodified, with a simple WebGL skin on top.</p>
-
-<p>A post from Chrome WebRTC team recently announced
-<a href="http://www.webrtc.org/blog/sourcecodetoapprtcappspotcomexampleappavailable">&#8220;Source code to apprtc.appspot.com example app available&#8221;</a>.
-The post releases the
-<a href="http://code.google.com/p/webrtc-samples/source/browse/trunk/apprtc/">source</a>
-on google code.
-The <a href="https://apprtc.appspot.com">apprtc demo</a>
-is a very simple, one-to-one, webrtc call.
-Go look at the <a href="http://code.google.com/p/webrtc-samples/source/browse/trunk/apprtc/">source</a>, dont be shy :)
-It is very small, the whole code client+server, is less than 15kbyte.
-It is easy to understand and deploy thanks too google App Engine.</p>
-
-<h2>Face tracker seeking love ?</h2>
-
-<p>Surprising hey ? Well the source contains a face tracker,
-<a href="http://code.google.com/p/webrtc-samples/source/browse/trunk/apprtc/html/face.html">face.html</a>.
-It works rather well but it is slow. If somebody could give it more love&#8230;
-It is a rather naive implementation which works well but got many rooms for speed improvement.
-It could make face tracking, less clumsy than wearing augmented reality marker on top
-of your head like
-<a href="http://learningthreejs.com/blog/2012/03/12/augmented-reality-in-the-browser/">i did a while back</a>
-:)</p>
-
-<h2>Conclusion</h2>
-
-<p>I got the feeling WebRTC gonna change a lot of things soon. The peer-to-peer aspect makes it super
-cheap to integrate live video conferences to your own sites.</p>
-
-<p>That&#8217;s all folks, have fun!</p>
 ]]></content>
   </entry>
   

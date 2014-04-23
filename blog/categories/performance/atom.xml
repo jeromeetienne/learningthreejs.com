@@ -4,7 +4,7 @@
   <title><![CDATA[Category: performance | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/performance/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-02-10T13:25:53+01:00</updated>
+  <updated>2014-04-23T13:08:54+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -43,7 +43,7 @@ It is released under MIT license and is available on
 <a href="http://github.com/jeromeetienne/threex.rendererstats">github</a>.
 See a screenshot on the right.</p>
 
-<p><a href='http://jeromeetienne.github.io/threex.rendererstats/examples/basic.html' target='_blank'><input type="button" value='Try Live Demo!' style='font-size:400%;' /></a></p>
+<p><a href='http://jeromeetienne.github.io/threex.rendererstats/examples/basic.html' target='_blank'><input type="button" value='Try Live Demo!' /></a></p>
 
 <p><img class="left" src="/data/2013-06-13-monitor-rendering-performance-within-threejs/screenshot-stats.png" width="240"></p>
 
