@@ -4,7 +4,7 @@
   <title><![CDATA[Category: game | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/game/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-04-23T13:08:54+02:00</updated>
+  <updated>2014-04-24T13:30:05+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,142 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Crazy Post Processing Color Effects To Change Your Game Ambience With Threex.coloradjust Game Extension For Three.js]]></title>
+    <link href="http://learningthreejs.com/blog/2014/04/24/crazy-post-processing-color-effects-to-change-your-game-ambience-with-threex-dot-coloradjust-game-extension-for-three-dot-js/"/>
+    <updated>2014-04-24T13:47:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/04/24/crazy-post-processing-color-effects-to-change-your-game-ambience-with-threex-dot-coloradjust-game-extension-for-three-dot-js</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.coloradjust/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.coloradjust/master/examples/images/screenshot-threex-coloradjust-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="/blog/categories/threexaday/">'one threex a day' challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.coloradjust">threex.coloradjust</a>.
+threex.coloradjust is a
+<a href="http://www.threejsgames.com/extensions/">threex game extension for three.js</a>.
+It provides a color adjustement in post processing.
+It happens on the whole screen and changes every colors giving a whole new ambiance to your games.
+It includes smooth transitions between each ambiance.
+There are 22 ambiances going from 'sepia', to 'thermal', or 'radioactive'.
+I highly recommend 'nightvision' if your game is about fps shooting at night!
+It is very flexible, you can build your own ambiance with any image editing software.
+It is ported from
+<a href="http://webglsamples.googlecode.com/hg/color-adjust/color-adjust.html">color-adjust demo</a>
+by
+<a href="http://greggman.com/">greggman</a>.
+Here is a <a href="http://www.youtube.com/watch?v=rfQ8rKGTVlg#t=25m03s">video</a>
+where you can see greggman explaining the underlying technic.
+It explains how to do 3d texture in webgl! :)</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.coloradjust/examples/demo.html' target='_blank'><input type="button" value='Try Threex.coloradjust Demo Now' /></a></p>
+
+<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/jhCKQqVIcG0" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don't Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.coloradjust/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.coloradjust/blob/master/examples/basic.html">view source</a>] :
+It shows how to use the <code>THREEx.ColorAdjust.Renderer</code>.
+It changes the color cube randomly every 3-seconds just to put some animations</li>
+<li><a href="http://jeromeetienne.github.io/threex.coloradjust/examples/demo.html">examples/demo.html</a>
+[<a href="https://github.com/jeromeetienne/threex.coloradjust/blob/master/examples/demo.html">view source</a>] :
+It show an video with the adjusted colors.
+You can play with it to get a better feeling of what this effect can do for you.</li>
+</ul>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
+
+<p>```html</p>
+
+<script src='threex.coloradjust.js'></script>
+
+
+<p>```</p>
+
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<p><code>bash
+bower install threex.coloradjust
+</code></p>
+
+<h1>How To Use It</h1>
+
+<p>It build the passes for the color effect.
+It exposes <code>colorPass.colorPass</code> for a <code>THREE.EffectComposer</code> instance.</p>
+
+<p>Create an instance</p>
+
+<p><code>
+var colorPasses = new THREEx.ColorAdjust.Passes();
+</code></p>
+
+<p>Everytime you render the scene, be sure to update it</p>
+
+<p><code>
+colorPasses.update(delta, now)      
+</code></p>
+
+<p>Then you add those passes to an <code>THREE.EffectComposer</code> like that</p>
+
+<p><code>
+colorPasses.addPassesTo(composer)
+</code></p>
+
+<h3>Tuning</h3>
+
+<p>This module comes with a set of predefined <em>color cubes</em> : 22 of them to be exact.
+You can set the color cube you want: one of the 22 already provided, or your own.
+It default to <code>default</code>.
+Here is the full list of available colors adjustement : default,
+monochrome,
+sepia,
+saturated,
+posterize,
+inverse,
+color-negative,
+high-contrast-bw,
+funky-contrast,
+nightvision,
+thermal,
+black-white,
+hue-plus-60,
+hue-plus-180,
+hue-minus-60,
+red-to-cyan,
+blues,
+infrared,
+radioactive,
+goolgey,
+bgy.</p>
+
+<p><code>javascript
+// set color adjustement to 'nightvision'
+colorPasses.setColorCube('nightvision')
+</code></p>
+
+<p>There is a smooth linear transition between the old colorCube and the new colorCube.
+You can tune the delay like this.</p>
+
+<p><code>javascript
+// set the transition delay to 2 seconds
+colorPasses.delay   = 2;
+</code></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[One THREEx a Day Gets Your Game On Its Way! A Challenge!]]></title>

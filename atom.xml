@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-04-23T13:08:54+02:00</updated>
+  <updated>2014-04-24T13:30:05+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,150 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Crazy Post Processing Color Effects To Change Your Game Ambience With Threex.coloradjust Game Extension For Three.js]]></title>
+    <link href="http://learningthreejs.com/blog/2014/04/24/crazy-post-processing-color-effects-to-change-your-game-ambience-with-threex-dot-coloradjust-game-extension-for-three-dot-js/"/>
+    <updated>2014-04-24T13:47:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/04/24/crazy-post-processing-color-effects-to-change-your-game-ambience-with-threex-dot-coloradjust-game-extension-for-three-dot-js</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.coloradjust/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.coloradjust/master/examples/images/screenshot-threex-coloradjust-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="http://learningthreejs.com/blog/categories/threexaday/">&#8216;one threex a day&#8217; challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.coloradjust">threex.coloradjust</a>.
+threex.coloradjust is a
+<a href="http://www.threejsgames.com/extensions/">threex game extension for three.js</a>.
+It provides a color adjustement in post processing.
+It happens on the whole screen and changes every colors giving a whole new ambiance to your games.
+It includes smooth transitions between each ambiance.
+There are 22 ambiances going from &#8216;sepia&#8217;, to &#8216;thermal&#8217;, or &#8216;radioactive&#8217;.
+I highly recommend &#8216;nightvision&#8217; if your game is about fps shooting at night!
+It is very flexible, you can build your own ambiance with any image editing software.
+It is ported from
+<a href="http://webglsamples.googlecode.com/hg/color-adjust/color-adjust.html">color-adjust demo</a>
+by
+<a href="http://greggman.com/">greggman</a>.
+Here is a <a href="http://www.youtube.com/watch?v=rfQ8rKGTVlg#t=25m03s">video</a>
+where you can see greggman explaining the underlying technic.
+It explains how to do 3d texture in webgl! :)</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.coloradjust/examples/demo.html' target='_blank'><input type="button" value='Try Threex.coloradjust Demo Now' /></a></p>
+
+<p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/jhCKQqVIcG0" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don&#8217;t Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.coloradjust/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.coloradjust/blob/master/examples/basic.html">view source</a>] :
+It shows how to use the <code>THREEx.ColorAdjust.Renderer</code>.
+It changes the color cube randomly every 3-seconds just to put some animations</li>
+<li><a href="http://jeromeetienne.github.io/threex.coloradjust/examples/demo.html">examples/demo.html</a>
+[<a href="https://github.com/jeromeetienne/threex.coloradjust/blob/master/examples/demo.html">view source</a>] :
+It show an video with the adjusted colors.
+You can play with it to get a better feeling of what this effect can do for you.</li>
+</ul>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.coloradjust.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.coloradjust
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>How To Use It</h1>
+
+<p>It build the passes for the color effect.
+It exposes <code>colorPass.colorPass</code> for a <code>THREE.EffectComposer</code> instance.</p>
+
+<p>Create an instance</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">colorPasses</span> <span class="o">=</span> new THREEx.ColorAdjust.Passes<span class="o">()</span>;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Everytime you render the scene, be sure to update it</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>colorPasses.update<span class="o">(</span>delta, now<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then you add those passes to an <code>THREE.EffectComposer</code> like that</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>colorPasses.addPassesTo<span class="o">(</span>composer<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Tuning</h3>
+
+<p>This module comes with a set of predefined <em>color cubes</em> : 22 of them to be exact.
+You can set the color cube you want: one of the 22 already provided, or your own.
+It default to <code>default</code>.
+Here is the full list of available colors adjustement : default,
+monochrome,
+sepia,
+saturated,
+posterize,
+inverse,
+color-negative,
+high-contrast-bw,
+funky-contrast,
+nightvision,
+thermal,
+black-white,
+hue-plus-60,
+hue-plus-180,
+hue-minus-60,
+red-to-cyan,
+blues,
+infrared,
+radioactive,
+goolgey,
+bgy.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// set color adjustement to &#39;nightvision&#39;</span>
+</span><span class='line'><span class="nx">colorPasses</span><span class="p">.</span><span class="nx">setColorCube</span><span class="p">(</span><span class="s1">&#39;nightvision&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There is a smooth linear transition between the old colorCube and the new colorCube.
+You can tune the delay like this.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// set the transition delay to 2 seconds</span>
+</span><span class='line'><span class="nx">colorPasses</span><span class="p">.</span><span class="nx">delay</span>   <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[One THREEx a Day Gets Your Game On Its Way! A Challenge!]]></title>
@@ -4045,84 +4189,6 @@ as you can see <a href="http://learningthreejs.com/data/2012-05-04-tquery-md2cha
 I will likely do more in the future.</p>
 
 <p>That&#8217;s all folks. Have fun :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Augmented Reality 3D Pong]]></title>
-    <link href="http://learningthreejs.com/blog/2012/05/02/augmented-reality-3d-pong/"/>
-    <updated>2012-05-02T13:38:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2012/05/02/augmented-reality-3d-pong</id>
-    <content type="html"><![CDATA[<p>This post presents a livecoding screencast of <strong>Augmented Reality 3D Pong</strong>.
-This is an experiment to use <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmented gestures</a>
-as a way to interact with game. So i picked a game classic <a href="http://en.wikipedia.org/wiki/Pong">&#8220;pong&#8221;</a>.
-We gonna learn how to code a pong in augmented reality with webgl. The result code
-is only
-<a href="https://github.com/jeromeetienne/augmentedgesture.js/blob/master/examples/augmentedpong/index.html">100lines</a>!!
-Nice for augmented reality + webgl + a game :)</p>
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/ZTwhHwAHc3c" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-
-
-<!-- more -->
-
-
-<p>But First&#8230; What is <em>augmented gestures</em> ?
-I made <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmentedgesture.js</a>.
-This is a library which use <a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a>
-and <a href="http://www.webrtc.org/">WebRTC</a> to grab the webcam.
-It analizes the image with <a href="https://github.com/jeromeetienne/imageprocessing.js">imageprocessing.js</a>
-and extract the location of flashy balls.
-I presented it first at <a href="http://www.web-5.org/">Web-5 conference</a> with me punching
-Doom characters in augmented reality :)
-<a href="http://www.youtube.com/watch?v=hUYM93xaIgg">&#8216;Doom: a new workout for geek?&#8217;</a> on youtube
-is preview of it. For the webgl, we obviously gonna use
-<a href="https://github.com/mrdoob/three.js/">three.js</a>
-and
-<a href="http://jeromeetienne.github.com/tquery/">tQuery</a>.</p>
-
-<p>Controllers for the <a href="http://en.wikipedia.org/wiki/Wii_Remote">Wii</a>
-or
-<a href="http://us.playstation.com/ps3/playstation-move/">PS3</a> did good as game controllers.
-<a href="http://en.wikipedia.org/wiki/Kinect">kinect</a>
-is super cool obviously.
-They all requires to buy specific hardware tho&#8230; So the money is <em>a barrier</em>.
-Some even require specific installation on your computer, with code to compile.
-This is <em>another barrier</em>.
-<img class="left" src="http://learningthreejs.com/data/2012-05-02-augmented-reality-3d-pong/images/Household-Latex-Gloves-HY-H001-1-small.jpg">
-<img class="right" src="http://learningthreejs.com/data/2012-05-02-augmented-reality-3d-pong/images/postit-small.jpg">
-With augmented gestures, you dont need specific devices. I like to use objects
-which are cheap and readily available in our everyday life.
-Thus people got easily access to the content, in a pure web vibe.
-I use children toys that i paid 3euro per ball.
-Another possibility is to use <a href="http://en.wikipedia.org/wiki/Post-it_note">post it</a>.
-They work well thanks to their flashy colors as you can see
-in <a href="http://www.youtube.com/watch?v=k8R1y0oqiic">this video</a>.
-They are available in most offices.
-Another is to use <a href="http://en.wikipedia.org/wiki/Rubber_glove">dish gloves</a>. They are
-readily available and cheap.</p>
-
-<p><a href="http://jeromeetienne.github.com/augmentedgesture.js/examples/augmentedpong/">Try it</a>!
-This <a href="http://www.youtube.com/watch?v=iunNd5lmAVE">screencast</a>
-is a presentation on how to code
-<a href="http://jeromeetienne.github.com/augmentedgesture.js/examples/augmentedpong/">augmented reality pong 3D</a>.
-The code is on <a href="https://github.com/jeromeetienne/augmentedgesture.js/tree/master/examples/augmentedpong">github</a>
-under <a href="https://github.com/jeromeetienne/augmentedgesture.js/blob/master/MIT-LICENSE.txt">MIT license</a>.
-The slides of the presentation are
-<a href="http://jeromeetienne.github.com/augmentedgesture.js/examples/augmentedpong/slides">here</a>.
-Im not sure about the format of this video&#8230; the mix live coding + slides + screencast is usual.
-Anyway publishing it in &#8220;publish early, publish often&#8221; mood :)</p>
-
-<p>Enjoy</p>
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/iunNd5lmAVE" frameborder="0" allowfullscreen></iframe>
-</center>
-
 ]]></content>
   </entry>
   
