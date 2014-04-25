@@ -36,6 +36,9 @@ Show Don't Tell
 \[[view source](https://github.com/jeromeetienne/threex.crates/blob/master/examples/basic.html)\] :
 It shows all the balls on a single screen.
 
+
+<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.crates/examples/basic.html" frameborder="0" allowfullscreen></iframe>
+
 How To Install It
 =================
 

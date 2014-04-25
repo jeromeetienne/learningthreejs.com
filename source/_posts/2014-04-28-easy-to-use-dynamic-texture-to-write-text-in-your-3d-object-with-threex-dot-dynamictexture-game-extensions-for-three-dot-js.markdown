@@ -36,6 +36,8 @@ Show Don't Tell
 \[[view source](https://github.com/jeromeetienne/threex.dynamictexture/blob/master/examples/basic.html)\] :
 It shows this feature, and that one which is coded like that.
 
+<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.dynamictexture/examples/basic.html" frameborder="0" allowfullscreen></iframe>
+
 How To Install It
 =================
 

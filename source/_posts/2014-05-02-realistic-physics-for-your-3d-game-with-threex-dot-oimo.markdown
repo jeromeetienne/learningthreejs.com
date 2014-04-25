@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Realistic Physics for Your 3D Game with THREEx.Oimo Game Extension For three.js"
-date: 2014-04-23 17:12
+date: 2014-05-02 17:12
 comments: true
 categories: [threexaday, threex, game, extension, three.js]
 published: false
@@ -33,6 +33,8 @@ It shows a bunch of cube and sphere falling on a ground.
 \[[view source](https://github.com/jeromeetienne/threex.oimo/blob/master/examples/demo.html)\] :
 It shows a more elaborate rendering. Planets falling down a pyramid in space.
 
+
+<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.oimo/examples/demo.html" frameborder="0" allowfullscreen></iframe>
 
 How To Install It
 =================

@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Crazy Post Processing Color Effects To Change Your Game Ambience With Threex.coloradjust Game Extension For Three.js"
+title: "Crazy Post Processing Color Effects To Change Your Game Ambiance With Threex.coloradjust Game Extension For Three.js"
 date: 2014-04-24 13:47
 comments: true
 categories: [threexaday, threex, game, extension, three.js]
-published: false
+published: true
 ---
 
 <a href='http://jeromeetienne.github.io/threex.coloradjust/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.coloradjust/master/examples/images/screenshot-threex-coloradjust-512x512.jpg" width="250" height="250"></a>
@@ -50,6 +50,9 @@ It changes the color cube randomly every 3-seconds just to put some animations
 \[[view source](https://github.com/jeromeetienne/threex.coloradjust/blob/master/examples/demo.html)\] :
 It show an video with the adjusted colors. 
 You can play with it to get a better feeling of what this effect can do for you.
+
+<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.coloradjust/examples/demo.html" frameborder="0" allowfullscreen></iframe>
+
 
 How To Install It
 =================
@@ -130,3 +133,4 @@ You can tune the delay like this.
 colorPasses.delay   = 2;
 ```
 
+[Discuss this post on Hacker News.](https://news.ycombinator.com/item?id=7639554)

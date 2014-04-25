@@ -35,6 +35,7 @@ To see the [other posts about one threex a day](/blog/categories/threexaday/) an
 <iframe width="420" height="315" src="//www.youtube.com/embed/O5ae0FhrOEo" frameborder="0" allowfullscreen></iframe>
 
 
+
 Show Don't Tell
 ===============
 * Here is a [videotexture example](http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html) and its [source](https://github.com/jeromeetienne/threex.videotexture/blob/master/examples/videotexture.html).
@@ -46,6 +47,9 @@ This is particularly useful in 3D.
 the texture is mapped.
 * Here is another [webcam example](http://jeromeetienne.github.io/threex.videotexture/examples/webcamtexture.html) and its [source](https://github.com/jeromeetienne/threex.videotexture/blob/master/examples/webcamtexture.html).
 It reads the webcam thru getUserMedia and put it in a texture.
+
+
+<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html" frameborder="0" allowfullscreen></iframe>
 
 How To Install It
 =================

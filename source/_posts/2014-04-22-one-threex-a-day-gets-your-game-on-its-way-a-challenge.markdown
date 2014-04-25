@@ -13,8 +13,9 @@ Last week, I read an interesting article written by John Resig called [Write cod
 
 The tactic that Resig decided to practice to improve his productivity was quite simple: He tried working on his side projects a little everyday, for a delimited amount of time, and it worked! He didn’t feel like a failure when he didn't do enough "quality" work during the weekend anymore! He found a way to organize his schedule, do his work, while still devoting time to leisure activities. I find this amazingly intelligent! 
 
-<iframe width="420" height="315" src="//www.youtube.com/embed/wESF0NdMWBE" frameborder="0" allowfullscreen></iframe>
+<!-- more -->
 
+<iframe width="420" height="315" src="//www.youtube.com/embed/CShTdamWAzg" frameborder="0" allowfullscreen></iframe>
 
 Resig’s work inspired me. So, I wanna try to do something similar: I want to publish a three.js game extension every day! Yes I know, it’s a challenge! But I wanna see if Resig’s tactic helps me gain more discipline when publishing my code. The idea is to publish one every day of the week, from Monday to Friday, one per day for two months, except on the weekends, because well, one has to rest at some point :) 
 
