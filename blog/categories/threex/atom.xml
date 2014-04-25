@@ -4,7 +4,7 @@
   <title><![CDATA[Category: threex | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/threex/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-04-24T17:42:35+02:00</updated>
+  <updated>2014-04-25T13:49:31+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,90 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Simple and Easy To use Crates Models to Get Your Game Started with THREEx.Crates Game Extension For THREE.js]]></title>
+    <link href="http://learningthreejs.com/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js/"/>
+    <updated>2014-04-25T13:44:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.crates/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.crates/master/examples/images/screenshot-threex-crates-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="/blog/categories/threexaday/">'one threex a day' challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.crates">threex.crates</a>.
+threex.crates is a <a href="http://www.threejsgame.com/extensions/">threex game extension for three.js</a>.
+It provides <a href="http://en.wikipedia.org/wiki/Crate">crates</a> models, 3 of them to be accurate.
+Yeah you heard me, this is only boxes of wood. Why doing an extension for that?
+Well, because crates are like a myth in 3d graphics, we put them everywhere.
+So if you need crates to easily put in your game, you know where to find them now :)</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.crates/examples/basic.html' target='_blank'><input type="button" value='Try Threex.crates Demo Now' /></a></p>
+
+<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/zEmGzBc8nSY" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don't Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.crates/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.crates/blob/master/examples/basic.html">view source</a>] :
+It shows all the balls on a single screen.</li>
+</ul>
+
+
+<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.crates/examples/basic.html" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
+
+<p>```html</p>
+
+<script src='threex.crates.js'></script>
+
+
+<p>```</p>
+
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<p><code>bash
+bower install threex.crates
+</code></p>
+
+<h1>How To Use It</h1>
+
+<p>To create a crate0, just do</p>
+
+<p><code>
+var mesh = THREEx.Crates.createCrate0()
+scene.add(mesh)
+</code></p>
+
+<p>To create a crate1, just do</p>
+
+<p><code>
+var mesh = THREEx.Crates.createCrate1()
+scene.add(mesh)
+</code></p>
+
+<p>To create a crate2, just do</p>
+
+<p><code>
+var mesh = THREEx.Crates.createCrate2()
+scene.add(mesh)
+</code></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Crazy Post Processing Color Effects To Change Your Game Ambiance With Threex.coloradjust Game Extension For Three.js]]></title>

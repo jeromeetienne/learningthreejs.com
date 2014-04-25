@@ -4,7 +4,7 @@
   <title><![CDATA[Category: three.js | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/three-dot-js/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-04-24T17:42:35+02:00</updated>
+  <updated>2014-04-25T13:49:31+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,90 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Simple and Easy To use Crates Models to Get Your Game Started with THREEx.Crates Game Extension For THREE.js]]></title>
+    <link href="http://learningthreejs.com/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js/"/>
+    <updated>2014-04-25T13:44:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.crates/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.crates/master/examples/images/screenshot-threex-crates-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="/blog/categories/threexaday/">'one threex a day' challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.crates">threex.crates</a>.
+threex.crates is a <a href="http://www.threejsgame.com/extensions/">threex game extension for three.js</a>.
+It provides <a href="http://en.wikipedia.org/wiki/Crate">crates</a> models, 3 of them to be accurate.
+Yeah you heard me, this is only boxes of wood. Why doing an extension for that?
+Well, because crates are like a myth in 3d graphics, we put them everywhere.
+So if you need crates to easily put in your game, you know where to find them now :)</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.crates/examples/basic.html' target='_blank'><input type="button" value='Try Threex.crates Demo Now' /></a></p>
+
+<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/zEmGzBc8nSY" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don't Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.crates/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.crates/blob/master/examples/basic.html">view source</a>] :
+It shows all the balls on a single screen.</li>
+</ul>
+
+
+<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.crates/examples/basic.html" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
+
+<p>```html</p>
+
+<script src='threex.crates.js'></script>
+
+
+<p>```</p>
+
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<p><code>bash
+bower install threex.crates
+</code></p>
+
+<h1>How To Use It</h1>
+
+<p>To create a crate0, just do</p>
+
+<p><code>
+var mesh = THREEx.Crates.createCrate0()
+scene.add(mesh)
+</code></p>
+
+<p>To create a crate1, just do</p>
+
+<p><code>
+var mesh = THREEx.Crates.createCrate1()
+scene.add(mesh)
+</code></p>
+
+<p>To create a crate2, just do</p>
+
+<p><code>
+var mesh = THREEx.Crates.createCrate2()
+scene.add(mesh)
+</code></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Crazy Post Processing Color Effects To Change Your Game Ambiance With Threex.coloradjust Game Extension For Three.js]]></title>
@@ -501,126 +585,6 @@ Or you can directly look at the
 <img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide58.png" width="100%">
 <img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide59.png" width="100%">
 <img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide60.png" width="100%"></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Zero To Nyancat in 30 Seconds Flat!]]></title>
-    <link href="http://learningthreejs.com/blog/2013/12/31/zero-to-nyancat-in-30-seconds-flat/"/>
-    <updated>2013-12-31T11:05:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2013/12/31/zero-to-nyancat-in-30-seconds-flat</id>
-    <content type="html"><![CDATA[<p>So, today we are gonna learn how to use Yeoman for
-<a href="http://threejs.org">three.js</a>.
-We are gonna create a Nyancat in WebGL, starting from nothing in only 30 seconds.
-It was a challenge to see how fast we could reach using the yeoman tools.
-Here is the
-<a href="/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/demo/index.html">demo</a>
- we gonna build in 30 seconds :)
-You are gonna see how easy it is through a talk i made at
-<a href="http://parisjs.org/">parisjs</a>!
-But first... what is yeoman? Well,
-<a href="http://yeoman.io">yeoman</a>
-is a "Modern Workflow for WebApps".
-It is composed of 3 tools:
-<a href="http://bower.io">bower</a>, <a href="http://gruntjs.com">grunt</a> and <a href="http://yeoman.io/generators.html">yo</a>.</p>
-
-<p>Let's see how
-<a href="http://yeoman.io">yeoman</a>
-will help us ease up and speed up the work when we’re doing
-<a href="http://threejs.org">three.js</a>.
-You can look at the
-<a href="www.youtube.com/watch?v=zeR_cpupZcQ">screencast</a>
-of me doing the talk, or directly at the
-<a href="/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/">slides</a> below.
-If you are in a rush, here is the TL;DR executive summary. Have Fun :)</p>
-
-<p><a href='http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/' target='_blank'><input type="button" value='Slides of the talk' /></a>
-<a href='http://www.youtube.com/watch?v=zeR_cpupZcQ' target='_blank'><input type="button" value='Video of the talk' /></a>
-<a href='http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/demo/index.html' target='_blank'><input type="button" value='the result!' /></a>
-<a href='https://www.udemy.com/yeoman-for-threejs/' target='_blank'><input type="button" value='udemy course' /></a></p>
-
-<p><strong>Update:</strong> I am experimenting with <a href="https://www.udemy.com">udemy</a> and made a course from this post. Check it out <a href="https://www.udemy.com/yeoman-for-threejs/">"Yeoman For Three.js"</a>. More than 30min of video :)</p>
-
-<iframe width="425" height="349" src="http://www.youtube.com/embed/UNuRxyEm6qU" frameborder="0" allowfullscreen></iframe>
-
-
-
-
-<!-- more -->
-
-
-<h2><strong>TL;DR;</strong></h2>
-
-<p>To generate the boilerplate, just do</p>
-
-<p>```</p>
-
-<pre><code>yo threejs-boilerplate
-</code></pre>
-
-<p>```</p>
-
-<p>To install any <a href="http://jeromeetienne.github.io/threex/">threex extension for three.js</a>,
-and
-<a href="http://github.com/jeromeetienne/threex.nyancat/">threex.nyancat</a> in particular, do</p>
-
-<p>```</p>
-
-<pre><code>bower install threex.nyancat
-</code></pre>
-
-<p>```</p>
-
-<h2>Video Of The Talk</h2>
-
-<iframe width="425" height="349" src="http://www.youtube.com/embed/zeR_cpupZcQ" frameborder="0" allowfullscreen></iframe>
-
-
-
-
-<!-- more -->
-
-
-<h2>Slides</h2>
-
-<p>Here are a screenshot of every slides.
-Or you can directly look at the
-<a href="/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/">slides</a>.</p>
-
-<p><img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide01.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide02.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide03.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide04.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide05.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide06.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide07.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide08.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide09.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide10.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide11.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide12.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide13.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide14.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide15.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide16.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide17.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide18.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide19.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide20.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide21.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide22.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide23.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide24.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide25.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide26.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide27.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide28.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide29.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide30.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide31.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide32.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide33.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide34.png" width="100%"></p>
 ]]></content>
   </entry>
   

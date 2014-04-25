@@ -5,12 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Screenshot in Javascript - Learning Three.js</title>
+  <title>Simple and Easy To use Crates Models to Get Your Game Started with THREEx.Crates Game Extension For THREE.js - Learning Three.js</title>
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="Sometime it would be cool if you could take a screenshot of your demo to share with your friends.
-This post will explain how to do that single a &hellip;">
+  <meta name="description" content="This is post is part of the &#8216;one threex a day&#8217; challenge.
+This challenge is to publish every day one game extension for three.js!
+One &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +20,7 @@ This post will explain how to do that single a &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://learningthreejs.com/blog/2011/09/03/screenshot-in-javascript/">
+  <link rel="canonical" href="http://learningthreejs.com/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
@@ -82,7 +83,7 @@ This post will explain how to do that single a &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Screenshot in Javascript</h1>
+      <h1 class="entry-title">Simple and Easy to Use Crates Models to Get Your Game Started With THREEx.Crates Game Extension for THREE.js</h1>
     
     
       <p class="meta">
@@ -98,12 +99,12 @@ This post will explain how to do that single a &hellip;">
   
 
 
-<time datetime="2011-09-03T10:01:00+02:00" pubdate data-updated="true">Sep 3<span>rd</span>, 2011</time>
+<time datetime="2014-04-25T13:44:00+02:00" pubdate data-updated="true">Apr 25<span>th</span>, 2014</time>
         
         
           <div class="sharing" style='text-align: right;'>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2011/09/03/screenshot-in-javascript/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2011/09/03/screenshot-in-javascript/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -117,85 +118,87 @@ This post will explain how to do that single a &hellip;">
   </header>
 
 
-<div class="entry-content"><p>Sometime it would be cool if you could take a screenshot of your demo to share with your friends.
-This post will explain how to do that single a single line.
-Additionnaly, <a href="/data/THREEx/THREEx.screenshot.js">THREEx.screenshot</a> helper is provided at the end
-if you want to add printscreen key in your demos without hasles.</p>
+<div class="entry-content"><p><a href='http://jeromeetienne.github.io/threex.crates/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.crates/master/examples/images/screenshot-threex-crates-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="/blog/categories/threexaday/">&#8216;one threex a day&#8217; challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.crates">threex.crates</a>.
+threex.crates is a <a href="http://www.threejsgame.com/extensions/">threex game extension for three.js</a>.
+It provides <a href="http://en.wikipedia.org/wiki/Crate">crates</a> models, 3 of them to be accurate.
+Yeah you heard me, this is only boxes of wood. Why doing an extension for that?
+Well, because crates are like a myth in 3d graphics, we put them everywhere.
+So if you need crates to easily put in your game, you know where to find them now :)</p>
 
-<h2>Let&#8217;s get started</h2>
+<p><a href='http://jeromeetienne.github.io/threex.crates/examples/basic.html' target='_blank'><input type="button" value='Try Threex.crates Demo Now' /></a></p>
 
-<p>So as usual you got a <code>renderer</code> variable to render your 3D scene. This renderer
-contains a <code>domElement</code> property.
-It is a <a href="http://en.wikipedia.org/wiki/Document_Object_Model">DOM element</a> on which it renders,
-who would have guessed ?
-We will use the <code>.toDataURL()</code>
-<a href="http://www.w3.org/TR/html5/the-canvas-element.html#dom-canvas-todataurl">method</a>
-on this element to get the screenshot.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">dataUrl</span> <span class="o">=</span> <span class="nx">renderer</span><span class="p">.</span><span class="nx">domElement</span><span class="p">.</span><span class="nx">toDataURL</span><span class="p">(</span><span class="s2">&quot;image/png&quot;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
+<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
 
 <!-- more -->
 
 
-<p>A single line and you are <strong>done</strong>! not too hard hey ?
-This line will return a url of the screenshot image in
-png format.
-This url is a <a href="http://en.wikipedia.org/wiki/Data_URI_scheme">data url</a>, a special url which encode
-the content in base64. It looks like that <em>data:image/png;base64,iVBORw0KGgo</em> &#8230;
-Not too readable but quite usefull :)</p>
 
-<p>Btw have you spotted he <code>image/png</code> parameter ? It is the mimetype of the image we will get. If you want
-a <a href="http://en.wikipedia.org/wiki/JPEG">jpeg</a>, just put <code>image/jpeg</code> instead.</p>
 
-<h2>WebGLRenderer special case</h2>
+<iframe width="420" height="315" src="//www.youtube.com/embed/zEmGzBc8nSY" frameborder="0" allowfullscreen></iframe>
 
-<p>If your scene is renderered with WebGL, you should declare it like that.</p>
+
+<h1>Show Don&#8217;t Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.crates/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.crates/blob/master/examples/basic.html">view source</a>] :
+It shows all the balls on a single screen.</li>
+</ul>
+
+
+<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.crates/examples/basic.html" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.crates.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.crates
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>How To Use It</h1>
+
+<p>To create a crate0, just do</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">renderer</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">WebGLRenderer</span><span class="p">({</span>
-</span><span class='line'>  <span class="nx">preserveDrawingBuffer</span>   <span class="o">:</span> <span class="kc">true</span>   <span class="c1">// required to support .toDataURL()</span>
-</span><span class='line'><span class="p">});</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">mesh</span> <span class="o">=</span> THREEx.Crates.createCrate0<span class="o">()</span>
+</span><span class='line'>scene.add<span class="o">(</span>mesh<span class="o">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Notice the option <code>preserveDrawingBuffer</code> ? It is <code>WebGLRenderer</code> specific.
-This is required to support <code>.toDataURL()</code> as explained in the <a href="http://www.khronos.org/registry/webgl/specs/latest/#2.2">spec</a>.
-Other <a href="https://github.com/mrdoob/three.js/tree/master/src/renderers">renderers</a> dont need it.</p>
-
-<h2>THREEx helper to make it even simpler</h2>
-
-<p>I wrote <a href="/data/THREEx/THREEx.screenshot.js">THREEx.screenshot</a>, a THREEx helper to
-automatize the process and makes it as simple as possible.
-You download it from <a href="/data/THREEx/THREEx.screenshot.js">here</a> and include
-it in your page like this</p>
+<p>To create a crate1, just do</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;THREEx.screenshot.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">mesh</span> <span class="o">=</span> THREEx.Crates.createCrate1<span class="o">()</span>
+</span><span class='line'>scene.add<span class="o">(</span>mesh<span class="o">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Would it be cool if got your own <a href="http://en.wikipedia.org/wiki/Print_screen">printscreen</a>
-key for your 3D ? The following line will do exactly that.
-Everytime you press <em>p</em>, it does a screenshot of the renderer, and open a window containing it.</p>
+<p>To create a crate2, just do</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">THREEx</span><span class="p">.</span><span class="nx">Screenshot</span><span class="p">.</span><span class="nx">bindKey</span><span class="p">(</span><span class="nx">renderer</span><span class="p">);</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">mesh</span> <span class="o">=</span> THREEx.Crates.createCrate2<span class="o">()</span>
+</span><span class='line'>scene.add<span class="o">(</span>mesh<span class="o">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
-<p>Note the <a href="http://en.wikipedia.org/wiki/Aspect_ratio_(image)">aspect</a> of the original image is preserved.
-The default callback behavior is to open a window containing the screenshot, so be carefull it may be
-stopped by popup blockers.
-It is possible to customize the default behaviors thru options.
-For more details, see the <a href="/data/THREEx/docs/THREEx.screenshot.html">annoted source</a> of
-<a href="/data/THREEx/THREEx.screenshot.js">THREEx.screenshot</a>.</p>
 </div>
 
 
@@ -218,12 +221,12 @@ For more details, see the <a href="/data/THREEx/docs/THREEx.screenshot.html">ann
   
 
 
-<time datetime="2011-09-03T10:01:00+02:00" pubdate data-updated="true">Sep 3<span>rd</span>, 2011</time>
+<time datetime="2014-04-25T13:44:00+02:00" pubdate data-updated="true">Apr 25<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/threex/'>THREEx</a>, <a class='category' href='/blog/categories/basics/'>basics</a>, <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>
+    <a class='category' href='/blog/categories/extension/'>extension</a>, <a class='category' href='/blog/categories/game/'>game</a>, <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>, <a class='category' href='/blog/categories/threex/'>threex</a>, <a class='category' href='/blog/categories/threexaday/'>threexaday</a>
   
 </span>
 
@@ -232,7 +235,7 @@ For more details, see the <a href="/data/THREEx/docs/THREEx.screenshot.html">ann
     
       <div class="sharing" style='text-align: right;'>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2011/09/03/screenshot-in-javascript/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2011/09/03/screenshot-in-javascript/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -243,10 +246,8 @@ For more details, see the <a href="/data/THREEx/docs/THREEx.screenshot.html">ann
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2011/08/30/window-resize-for-your-demos/" title="Previous Post: Window Resize For Your Demos">&laquo; Window Resize For Your Demos</a>
+        <a class="basic-alignment left" href="/blog/2014/04/24/crazy-post-processing-color-effects-to-change-your-game-ambiance-with-threex-dot-coloradjust-game-extension-for-three-dot-js/" title="Previous Post: Crazy Post Processing Color Effects To Change Your Game Ambiance With Threex.coloradjust Game Extension For Three.js">&laquo; Crazy Post Processing Color Effects To Change Your Game Ambiance With Threex.coloradjust Game Extension For Three.js</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2011/09/12/lets-Make-a-3D-game-keyboard/" title="Next Post: Let's Make a 3D Game: Keyboard">Let's Make a 3D Game: Keyboard &raquo;</a>
       
     </p>
   </footer>
@@ -329,8 +330,8 @@ For more details, see the <a href="/data/THREEx/docs/THREEx.screenshot.html">ann
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://learningthreejs.com/blog/2011/09/03/screenshot-in-javascript/';
-        var disqus_url = 'http://learningthreejs.com/blog/2011/09/03/screenshot-in-javascript/';
+        var disqus_identifier = 'http://learningthreejs.com/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js/';
+        var disqus_url = 'http://learningthreejs.com/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js/';
         var disqus_script = 'embed.js';
       
     (function () {

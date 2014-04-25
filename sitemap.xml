@@ -263,16 +263,22 @@
         <lastmod>2014-04-24T17:42:21+02:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://learningthreejs.com/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js/
+        </loc>
+        <lastmod>2014-04-25T13:47:31+02:00</lastmod>
+    </url>
+    <url>
         <loc>http://learningthreejs.com/about/</loc>
         <lastmod>2013-03-06T12:45:11+01:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/blog/archives/</loc>
-        <lastmod>2014-04-24T17:42:21+02:00</lastmod>
+        <lastmod>2014-04-25T13:47:31+02:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/</loc>
-        <lastmod>2014-04-24T17:42:21+02:00</lastmod>
+        <lastmod>2014-04-25T13:47:31+02:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/robots.txt</loc>

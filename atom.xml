@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-04-24T17:42:35+02:00</updated>
+  <updated>2014-04-25T13:49:31+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,95 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Simple and Easy To use Crates Models to Get Your Game Started with THREEx.Crates Game Extension For THREE.js]]></title>
+    <link href="http://learningthreejs.com/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js/"/>
+    <updated>2014-04-25T13:44:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.crates/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.crates/master/examples/images/screenshot-threex-crates-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="http://learningthreejs.com/blog/categories/threexaday/">&#8216;one threex a day&#8217; challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.crates">threex.crates</a>.
+threex.crates is a <a href="http://www.threejsgame.com/extensions/">threex game extension for three.js</a>.
+It provides <a href="http://en.wikipedia.org/wiki/Crate">crates</a> models, 3 of them to be accurate.
+Yeah you heard me, this is only boxes of wood. Why doing an extension for that?
+Well, because crates are like a myth in 3d graphics, we put them everywhere.
+So if you need crates to easily put in your game, you know where to find them now :)</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.crates/examples/basic.html' target='_blank'><input type="button" value='Try Threex.crates Demo Now' /></a></p>
+
+<p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/zEmGzBc8nSY" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don&#8217;t Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.crates/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.crates/blob/master/examples/basic.html">view source</a>] :
+It shows all the balls on a single screen.</li>
+</ul>
+
+
+<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.crates/examples/basic.html" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.crates.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.crates
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>How To Use It</h1>
+
+<p>To create a crate0, just do</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">mesh</span> <span class="o">=</span> THREEx.Crates.createCrate0<span class="o">()</span>
+</span><span class='line'>scene.add<span class="o">(</span>mesh<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To create a crate1, just do</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">mesh</span> <span class="o">=</span> THREEx.Crates.createCrate1<span class="o">()</span>
+</span><span class='line'>scene.add<span class="o">(</span>mesh<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To create a crate2, just do</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">mesh</span> <span class="o">=</span> THREEx.Crates.createCrate2<span class="o">()</span>
+</span><span class='line'>scene.add<span class="o">(</span>mesh<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Crazy Post Processing Color Effects To Change Your Game Ambiance With Threex.coloradjust Game Extension For Three.js]]></title>
@@ -3927,269 +4016,6 @@ The road to winamp effects is open to you :)
 We got a rather nice looking WebGL output of a 3D Vuemeter in Real Time
 for only 40 lines of javascript. I love how short code
 reduces developement time.</p>
-
-<p>That&#8217;s all folks. Have fun :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[tQuery plugin for Doom Characters]]></title>
-    <link href="http://learningthreejs.com/blog/2012/05/04/tquery-md2character-a-plugin-for-doom-characters/"/>
-    <updated>2012-05-04T10:26:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2012/05/04/tquery-md2character-a-plugin-for-doom-characters</id>
-    <content type="html"><![CDATA[<p>This post is about
-<a href="https://github.com/jeromeetienne/tquery/tree/dev/plugins/md2character">tQuery.md2Character</a>
-plugin: a cool plugin which allow you to easily play with doom characters. You can see a live demo
-<a href="http://learningthreejs.com/data/2012-05-04-tquery-md2character-a-plugin-for-doom-characters/examples">here</a>.
-I will walk you thru its example. It include a checkerboard for the ground, a fog for the depth, keyboard to
-move your player and obviously plugins for the MD2 characters (doom formats).
-We gonna learn how to move doom characters in webgl in only 50lines of javascript!</p>
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/BaCEKbWXbfM" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-
-
-<!-- more -->
-
-
-<h2>Background knowledge</h2>
-
-<p>First what means MD2 ?
-<a href="http://en.wikipedia.org/wiki/MD2_(file_format)">MD2</a> is the file format used in the famous
-<a href="http://en.wikipedia.org/wiki/Quake_II">Quake II</a>.
-Many of the monster you love to hate can be found in this format :)
-You can find md2 models
-  at <a href="http://www.md2.sitters-electronics.nl/models.html">sitters-electronics</a>
-  or at <a href="http://planetquake.gamespy.com/View.php?view=Quake2.Detail&amp;id=69">planet quake</a>.</p>
-
-<p>You can use it easily in three.js thanks to <a href="https://twitter.com/#!/oosmoxiecode">oosmoxiecode</a>
-He wrote a nice converter from
-  <a href="http://en.wikipedia.org/wiki/MD2_(file_format)">MD2</a>
-  to
-  <a href="https://github.com/mrdoob/three.js/wiki/JSON-Model-format-3.0">three.js json format</a>.
-  He wrote a <a href="http://oos.moxiecode.com/blog/2012/01/md2-to-json-converter/">post about it</a>
-  with plenty of usefull info on the subject.
-<a href="http://alteredqualia.com/">alteredq</a> wrote
-several <a href="http://alteredqualia.com/three/examples/webgl_morphtargets_md2_control.html">cool</a>
-<a href="http://alteredqualia.com/three/examples/webgl_morphtargets_md2.html">demos</a>
-using it.</p>
-
-<h2>Let&#8217;s Get Started</h2>
-
-<p>We gonna walk you thru the 50lines of javascript needed make this demo.
-It is rather simple. It implies tQuery obviously, and various plugins:
-One for the fog, one for the checkerboard used as ground, one to
-bind the keyboard and obviously plugins for the MD2 Character itself.</p>
-
-<iframe src="http://learningthreejs.com/data/2012-05-04-tquery-md2character-a-plugin-for-doom-characters/examples"
-    webkitallowfullscreen mozallowfullscreen allowfullscreen 
-    width="100%" height="420" frameborder="0">
-</iframe>
-
-
-<p>Nice demo no ? You can try it
-<a href="http://learningthreejs.com/data/2012-05-04-tquery-md2character-a-plugin-for-doom-characters/examples">here</a>.
-Let&#8217;s code it!</p>
-
-<h2>The 3D World</h2>
-
-<p>First we initialize the world in 3D.
-With <code>tQuery.createWorld()</code>, we create a <code>tQuery.World</code>.
-With <code>.boilerplate()</code>, we setup a boilerplate on this world. A boilerplate is
-a fast way to get you started on the right foot. It is the
-<a href="http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/">learningthreejs boilerplate for three.js</a>
-With <code>.start()</code>, we start the rendering loop. So from now on, the world scene
-gonna be rendered periodically, typically 60time per seconds.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">world</span>  <span class="o">=</span> <span class="nx">tQuery</span><span class="p">.</span><span class="nx">createWorld</span><span class="p">().</span><span class="nx">boilerplate</span><span class="p">().</span><span class="nx">start</span><span class="p">();</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Change the background color. This confusing line ensure the background of the
-3D scene will be rendered as <code>0x000000</code> color, aka black. We set a black
-background to give an impression of night.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">world</span><span class="p">.</span><span class="nx">renderer</span><span class="p">().</span><span class="nx">setClearColorHex</span><span class="p">(</span> <span class="mh">0x000000</span><span class="p">,</span> <span class="nx">world</span><span class="p">.</span><span class="nx">renderer</span><span class="p">().</span><span class="nx">getClearAlpha</span><span class="p">()</span> <span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>The Lights</h2>
-
-<p>Here we setup the lights of our scene. This is important as it determine how
-your scene looks. We add a ambient light and 2 directional lights.
-The ambient light is a dark grey, to simulate the lack of light during the night.
-We setup a directional light in front colored redish&#8230;. This is like a setting sun.
-In the opposite direction, we put another direction light, bluish. This is like
-the moon. Well this was my rational :)</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">tQuery</span><span class="p">.</span><span class="nx">createAmbientLight</span><span class="p">().</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">world</span><span class="p">).</span><span class="nx">color</span><span class="p">(</span><span class="mh">0x444444</span><span class="p">);</span>
-</span><span class='line'><span class="nx">tQuery</span><span class="p">.</span><span class="nx">createDirectionalLight</span><span class="p">().</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">world</span><span class="p">).</span><span class="nx">position</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">).</span><span class="nx">color</span><span class="p">(</span><span class="mh">0xFF88BB</span><span class="p">).</span><span class="nx">intensity</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-</span><span class='line'><span class="nx">tQuery</span><span class="p">.</span><span class="nx">createDirectionalLight</span><span class="p">().</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">world</span><span class="p">).</span><span class="nx">position</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">).</span><span class="nx">color</span><span class="p">(</span><span class="mh">0x4444FF</span><span class="p">).</span><span class="nx">intensity</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>The fog</h2>
-
-<p>We had a fog to the scene.
-For that, we use <code>tquery.world.createfog.js</code> plugins.
-It allows to create the 2 types of fog from three.js
-: <a href="https://github.com/mrdoob/three.js/blob/master/src/scenes/FogExp2.js">fogexp2</a>
-and
-<a href="https://github.com/mrdoob/three.js/blob/master/src/scenes/Fog.js">fog</a>.
- <code>density</code> is the density of the fog. 0.01 is very light, 0.9 is almost opaque.
-In general, fogs are a nice visual trick. It is rather cheap to compute
-and limits the depth of what you see.
-It is a nice trick to hide the &#8220;end of the world&#8221; :)</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">world</span><span class="p">.</span><span class="nx">addFogExp2</span><span class="p">({</span><span class="nx">density</span> <span class="o">:</span> <span class="mf">0.1</span><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>The Columns</h3>
-
-<h4>initialize a material</h4>
-
-<p>We will apply it to all the columns. It is <a href="http://en.wikipedia.org/wiki/Lambertian_reflectance">lambert lighting</a>
-the <code>ambient</code> is the color which gonna be combined with be combined with the ambient
-light we initialized on top. <code>color</code> will be combined with the
-directional lights. and <code>map</code> gives the texture to use.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">material</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshLambertMaterial</span><span class="p">({</span>
-</span><span class='line'>    <span class="nx">ambient</span>   <span class="o">:</span> <span class="mh">0xFFFFFF</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">color</span> <span class="o">:</span> <span class="mh">0xFFAAAA</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">map</span>   <span class="o">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">ImageUtils</span><span class="p">.</span><span class="nx">loadTexture</span><span class="p">(</span><span class="s1">&#39;../../assets/images/water.jpg&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>Build 15 Columns</h4>
-
-<p>loop over each column</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">15</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">){</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Create the cylinder. We pass some parameters to the contructor to setup
-the size we see fit, and we add the material we want to apply on the
-cylinder. Then we use <code>.addTo()</code> to add our object to
-our <code>tQuery.World</code>.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'>    <span class="kd">var</span> <span class="nx">column</span> <span class="o">=</span> <span class="nx">tQuery</span><span class="p">.</span><span class="nx">createCylinder</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="nx">material</span><span class="p">).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">world</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Change the position of the column. We translate the column to build
-a kind of alley. Thus the character will be able to run inside it :)</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'>    <span class="nx">column</span><span class="p">.</span><span class="nx">translateX</span><span class="p">(</span><span class="nx">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">?</span> <span class="o">+</span><span class="mi">1</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">).</span><span class="nx">translateY</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">translateZ</span><span class="p">(</span><span class="mi">15</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="nx">i</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>The Ground</h3>
-
-<p>We create a large checkerboard with <code>tquery.checkerboard.js</code> plugin.
-We scale the checkerboard to 100 per 100 units in the 3D world. Thus it is
-quite large and disappears into the fog. It gives the cheap impression of
-an infinite checkerboard.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">tQuery</span><span class="p">.</span><span class="nx">createCheckerboard</span><span class="p">({</span>
-</span><span class='line'>    <span class="nx">segmentsW</span> <span class="o">:</span> <span class="mi">100</span><span class="p">,</span>    <span class="c1">// number of segment in width</span>
-</span><span class='line'>    <span class="nx">segmentsH</span> <span class="o">:</span> <span class="mi">100</span>    <span class="c1">// number of segment in Height</span>
-</span><span class='line'><span class="p">}).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">world</span><span class="p">).</span><span class="nx">scaleBy</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>The Character</h3>
-
-<p>We use <code>tQuery.RatamahattaMD2Character</code> plugin. Its inherits from
- <code>tQuery.MD2Character</code> plugin. All the configuration for this particular
-character <code>ratamahatta</code> is already done for you.
-We attach it to tQuery world.
-Additionnaly we use <code>.hookKeyboard()</code> which bind arrow key to character moving.
-This function is part of
-<a href="../../tquery.md2character.ratamahatta.keyboard.js">keyboard plugins for ratamahatta</a></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">character</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">tQuery</span><span class="p">.</span><span class="nx">RatamahattaMD2Character</span><span class="p">().</span><span class="nx">attach</span><span class="p">(</span><span class="nx">world</span><span class="p">).</span><span class="nx">hookKeyboard</span><span class="p">();</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Here we show an example of binding the &#8220;loaded&#8221; event.
-It is notified once the whole characters data are loaded (texture, mesh for animations of
-body and weapons). It just display the name of the available animations.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">character</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;loaded&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
-</span><span class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;list animmation&quot;</span><span class="p">,</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">character</span><span class="p">.</span><span class="nx">_meshBody</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">animations</span><span class="p">))</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We setup the user camera controls.
-It will determine how the user camera will move in the world scene.
-We use <code>tQuery.MD2Character.CameraControls</code> plugin made specially
-for this case. With it, the camera will follow the MD2 character looking
-at it from above.
-world.setCameraControls(new tQuery.MD2Character.CameraControls(character));</p>
-
-<h3>Change the Skin by Keyboard</h3>
-
-<p>hook a function in the rendering loop. This function will be executed everytime
-the scene is rendered. Within this function, we will use <code>tQuery.Keyboard</code>
-plugins to test the keyboard. if the key <code>s</code> is pressed, then use <code>character.setSkin()</code>
-to change the skin of the character.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">world</span><span class="p">.</span><span class="nx">loop</span><span class="p">().</span><span class="nx">hook</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">keyboard</span>  <span class="o">=</span> <span class="nx">tQuery</span><span class="p">.</span><span class="nx">keyboard</span><span class="p">();</span>   <span class="c1">// get keyboard instance</span>
-</span><span class='line'>    <span class="k">if</span><span class="p">(</span> <span class="nx">keyboard</span><span class="p">.</span><span class="nx">pressed</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span> <span class="p">){</span>      <span class="c1">// if the key &#39;s&#39; is pressed, change the skin</span>
-</span><span class='line'>        <span class="nx">character</span><span class="p">.</span><span class="nx">setSkin</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">*</span><span class="mi">5</span><span class="p">));</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Conclusion</h3>
-
-<p>So we have seen what is possible to do with <code>tquery.md2character</code> and 50lines of javascript.
-It is a rather short code for what you got on the screen, if you ask me.
-Btw all that released under MIT license.
-I think i like the <strong>code walkthru</strong> format.
-I find it efficient to describe tQuery examples and fast for me to generate.
-It is directly derived from <a href="http://jashkenas.github.com/docco/">annoted doc format</a>
-as you can see <a href="http://learningthreejs.com/data/2012-05-04-tquery-md2character-a-plugin-for-doom-characters/examples/docs/">here</a>.
-I will likely do more in the future.</p>
 
 <p>That&#8217;s all folks. Have fun :)</p>
 ]]></content>
