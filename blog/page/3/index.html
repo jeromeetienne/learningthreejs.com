@@ -9,11 +9,10 @@
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="This post is about
-tQuery.md2Character
-plugin: a cool plugin which allow you to easily play with doom characters. You can see a live demo
-here.
-I &hellip;">
+  <meta name="description" content="This post is about producing a 3D Vuemeter for real time sound.
+We gonna walk thru the code of a
+webaudio.js example.
+This example will show you how &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +81,87 @@ I &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl/">Sound Visualisation: A Vuemeter in WebGL</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-08T10:32:00+02:00" pubdate data-updated="true">May 8<span>th</span>, 2012</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/3/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/3/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is about producing a 3D Vuemeter for real time sound.
+We gonna walk thru the code of a
+<a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a> example.
+This example will show you how to create a WebGL vuemetter with
+<a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a>.
+It should be simple to understand, only 40-lines of javascript.
+<a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a> is a web audio library
+for game. We gonna use it to reach <a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">Web Audio API</a>.
+We gonna use <a href="https://github.com/jeromeetienne/tquery">tQuery</a>
+to reach <a href="http://github.com/mrdoob/three.js/">three.js 3D engine</a>.</p>
+
+<p> <code>webaudio.js</code> has been first coded as a tQuery plugin.
+You can find a <a href="http://learningthreejs.com/blog/2012/03/20/sounds-for-more-realistic-3d/">post about it</a>
+on <a href="http://learningthreejs.com">learningthreejs</a> blog.
+But this technology is so nice, it deserved its <a href="https://github.com/jeromeetienne/webaudio.js">own repository</a>.
+The library gained in flexibility in the process: It is now possible to display histogram in canvas2D
+of simply play sound, with no 3D at all :) see <a href="http://jeromeetienne.github.com/webaudio.js/#examples">here</a> for a list of
+webaudio.js examples.</p>
+
+<p><a href="http://jeromeetienne.github.com/webaudio.js/examples/histo-tquery.html">Try the demo</a>.
+This is the result that we gonna build together.
+Below is a small <a href="http://www.youtube.com/watch?v=--Gv2EI2a-U">screencast</a> of me presenting the code.</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/--Gv2EI2a-U" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -725,79 +805,6 @@ status.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/02/07/live-video-in-webgl/">Fun With Live Video in WebGL</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-02-07T13:41:00+01:00" pubdate data-updated="true">Feb 7<span>th</span>, 2012</time>
-        
-        
-          <div class="sharing" style='text-align: right;'>
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/3/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/3/index.html" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-</div>
-
-        
-     </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This post is about live video in webgl.
-It is possible in today browsers to read the webcam using a new feature from html5, called WebRTC.
-This standard is
-about real-time communications such video conferences.
-It is an open source project supported by Google, Mozilla and Opera.
-Quite neat hey!</p>
-
-<p>I think live video has a lot of potential usages in 3D.
-It is so cool for interactivity.
-The player sees himself on the screen. It becomes part of the actions.
-Quite immersive effect.
-We can imagine something like <a href="http://secondlife.com/">second life</a>, where
-people wander around and interact live with each other in a virtual world.
-Our demo is about TV&#8230; Another obvious use may be
-<a href="http://en.wikipedia.org/wiki/Reflection_(physics)">reflections</a>
-like
-<a href="http://en.wikipedia.org/wiki/Mirror">mirror</a>
-or
-<a href="http://en.wikipedia.org/wiki/Specular_reflection">water</a>.
-What about your face from the webcam reflecting in water with animated waves ?
-Would be nice!</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/02/07/live-video-in-webgl/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -815,6 +822,10 @@ Would be nice!</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/04/28/realistic-physics-for-your-3d-game-with-threex-dot-oimo/">Realistic Physics for Your 3D Game with THREEx.Oimo Game Extension For three.js</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js/">Simple and Easy To use Crates Models to Get Your Game Started with THREEx.Crates Game Extension For THREE.js</a>
       </li>
     
@@ -828,10 +839,6 @@ Would be nice!</p>
     
       <li class="post">
         <a href="/blog/2014/02/08/have-you-seen-yourself-when-you-are-drunk/">Have You Seen YourSelf when You Are Drunk ? - making of a fun WebGL Demo</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/01/10/flying-spaceship-minigame/">Game Workshop: Let&#8217;s Do a Fighting Spaceship Minigame Together</a>
       </li>
     
   </ul>

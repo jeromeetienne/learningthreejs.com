@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-04-25T13:49:31+02:00</updated>
+  <updated>2014-04-28T13:59:05+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,139 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Realistic Physics for Your 3D Game with THREEx.Oimo Game Extension For three.js]]></title>
+    <link href="http://learningthreejs.com/blog/2014/04/28/realistic-physics-for-your-3d-game-with-threex-dot-oimo/"/>
+    <updated>2014-04-28T17:12:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/04/28/realistic-physics-for-your-3d-game-with-threex-dot-oimo</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.oimo/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.oimo/master/examples/images/screenshot-threex-oimo-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="http://learningthreejs.com/blog/categories/threexaday/">&#8216;one threex a day&#8217; challenge</a>. This challenge is to publish every day one game extension for three.js! One per day, every day and that for 2month! In this post, we gonna talk about <a href="http://www.threejsgames.com/extensions/#threex.oimo">threex.oimo</a>.
+threex.oimo is a <a href="http://www.threejsgames.com/extensions/">threex game extension for three.js</a>. It provides a <a href="http://en.wikipedia.org/wiki/Game_physics">realistic physics</a> easy to include in your own games. So you can take objects in your game and make them fall as if it was the real world! You can code a <a href="http://en.wikipedia.org/wiki/Pool_(cue_sports)">pool game</a> in a day!
+You make rocks fall from the sky in a realistic fashion! Sky is the limit!
+It is a warper over the excelent library <a href="https://github.com/lo-th/Oimo.js">oimo.js</a> physics library. <a href="https://plus.google.com/114170447432405103307/posts">lo-th</a>, the author does <a href="http://3dflashlo.wordpress.com/">a lot of crazy things</a>! Be sure to check it out!</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.oimo/examples/demo.html' target='_blank'><input type="button" value='Try Threex.oimo Demo Now'></a></p>
+
+<p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto! <strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/wESF0NdMWBE" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don&#8217;t Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.oimo/examples/crates.html">examples/crates.html</a>
+[<a href="https://github.com/jeromeetienne/threex.oimo/blob/master/examples/crates.html">view source</a>] :
+It shows a slow motion demo of a football hitting a wall of crates.</li>
+<li><a href="http://jeromeetienne.github.io/threex.oimo/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.oimo/blob/master/examples/basic.html">view source</a>] :
+It shows a bunch of cube and sphere falling on a ground.</li>
+<li><a href="http://jeromeetienne.github.io/threex.oimo/examples/demo.html">examples/demo.html</a>
+[<a href="https://github.com/jeromeetienne/threex.oimo/blob/master/examples/demo.html">view source</a>] :
+It shows a more elaborate rendering. Planets falling down a pyramid in space.</li>
+</ul>
+
+
+<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.oimo/examples/demo.html" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> &lt;script src='threex.oimo.js'&gt;&lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bower install threex.oimo</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>How To Use It</h1>
+
+<p>Well first you need to create a oimo.js world. You do that like this</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var world   = new OIMO.World()</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then, at every frame, update your mesh position/rotation.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>world.step()</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then you need to create physics bodies and make them move</p>
+
+<h2>.createBodyFromMesh()</h2>
+
+<p>It will create the <code>IOMO.Body</code> from a three.js mesh you give it.
+Currently it support <code>THREE.CubeGeometry</code> and <code>THREE.SphereGeometry</code>. First create a normal <code>THREE.Mesh</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var geometry    = new THREE.CubeGeometry(1,1,1)
+</span><span class='line'>var material    = new THREE.MeshNormalMaterial()
+</span><span class='line'>var mesh    = new THREE.Mesh( geometry, material )
+</span><span class='line'>scene.add(mesh)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then you create the <code>IOMO.Body</code> for it</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var body    = THREEx.Iomo.createBodyFromMesh(world, mesh)</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>.Body2MeshUpdater()</h2>
+
+<p>It will update the position/rotation of a <code>THREE.Mesh</code>
+based on a position/rotation of a <code>IOMO.Body</code>. You need
+this to see your meshes moves according to oimo.js physics.
+First you create the object</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var updater = new THREEx.Iomo.Body2MeshUpdater(body, mesh)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then, at every frame, update your mesh position/rotation.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>updater.update()</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>.Stats()</h2>
+
+<p>It will display statistic from oimo.js, it may be useful to know what is going on.
+It acts very much like
+<a href="">mrdoob&#8217;s stats</a>
+or
+<a href="">threex.rendererstats</a>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var oimoStats   = new THREEx.Iomo.Stats(world)
+</span><span class='line'>document.body.appendChild(oimoStats.domElement)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then, at every frame, update it.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>oimoStats.update()</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Simple and Easy To use Crates Models to Get Your Game Started with THREEx.Crates Game Extension For THREE.js]]></title>
@@ -3735,289 +3868,6 @@ I like how those libraries makes the code so small, and the developement time
 so short.</p>
 
 <p>That&#8217;s all folks, have fun :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sound Visualisation: a Vuemeter in WebGL]]></title>
-    <link href="http://learningthreejs.com/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl/"/>
-    <updated>2012-05-08T10:32:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl</id>
-    <content type="html"><![CDATA[<p>This post is about producing a 3D Vuemeter for real time sound.
-We gonna walk thru the code of a
-<a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a> example.
-This example will show you how to create a WebGL vuemetter with
-<a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a>.
-It should be simple to understand, only 40-lines of javascript.
-<a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a> is a web audio library
-for game. We gonna use it to reach <a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">Web Audio API</a>.
-We gonna use <a href="https://github.com/jeromeetienne/tquery">tQuery</a>
-to reach <a href="http://github.com/mrdoob/three.js/">three.js 3D engine</a>.</p>
-
-<p> <code>webaudio.js</code> has been first coded as a tQuery plugin.
-You can find a <a href="http://learningthreejs.com/blog/2012/03/20/sounds-for-more-realistic-3d/">post about it</a>
-on <a href="http://learningthreejs.com">learningthreejs</a> blog.
-But this technology is so nice, it deserved its <a href="https://github.com/jeromeetienne/webaudio.js">own repository</a>.
-The library gained in flexibility in the process: It is now possible to display histogram in canvas2D
-of simply play sound, with no 3D at all :) see <a href="http://jeromeetienne.github.com/webaudio.js/#examples">here</a> for a list of
-webaudio.js examples.</p>
-
-<p><a href="http://jeromeetienne.github.com/webaudio.js/examples/histo-tquery.html">Try the demo</a>.
-This is the result that we gonna build together.
-Below is a small <a href="http://www.youtube.com/watch?v=--Gv2EI2a-U">screencast</a> of me presenting the code.</p>
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/--Gv2EI2a-U" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-
-
-<!-- more -->
-
-
-<h2>Background Knowledge</h2>
-
-<p><strong>Web Audio API</strong> is aimed for games and based on openAL.
-Its API is real nice tho. It is Efficient and flexible.
-It is efficient because most processing happen in native code,
-still you configure it in js, your favorite language :)
-It is flexible as it is based on a routing concept which
-give you great controls on the sounds you play.</p>
-
-<p>You can find
-<a href="http://www.html5rocks.com/en/tutorials/#technology:multimedia">many good tutorials</a>
-on the matter on
-<a href="http://www.html5rocks.com/en/">html5rocks</a>.
-I recently did a presentation at <a href="http://www.musichackparis.org">musichackparis</a> on Web Audio API.
-If you want to know more, slides are <a href="http://jeromeetienne.github.com/slides/webaudioapi">here</a>.
-This API is available on WebKit based browser, so safari and chrome and its derivative.
-Unfortunatly this API isn&#8217;t compatible with major webgl browsers e.g. firefox and opera.
-The <strong>Web Audio API</strong> is real nice tho. Efficient flexible
-Sound is still the poor lone child of the web :(
-Well let&#8217;s have fun with what we have.</p>
-
-<h2>Let&#8217;s get started</h2>
-
-<p>Ok the very begining is real simple. We init a basic html page.
-Then we include the dependancies in javascript.
-We include <a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a> to handle the sound playing and analysis.
-Then we just have to include <a href="https://github.com/jeromeetienne/tquery">tquery</a>.
-tquery-bundle.js is <a href="https://github.com/jeromeetienne/tquery">tquery</a>
-bundled with
-<a href="http://github.com/mrdoob/three.js/">three.js</a> in a single file for convenience.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;!doctype html&gt;&lt;title&gt;webaudio example: histo3d&lt;/title&gt;
-</span><span class='line'>&lt;script src="../build/webaudio.js"&gt;&lt;/script&gt;
-</span><span class='line'>&lt;script src="vendor/tquery/tquery-bundle.js"&gt;&lt;/script&gt;
-</span><span class='line'>&lt;body&gt;&lt;script&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Let&#8217;s Code in JS</h2>
-
-<p>First we gonna intenciate <code>WebAudio</code>. This will initialize the layer.
-It will create the <a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html#AudioNode-section">AudioNode</a>`s
-for the end of the chain.
-By default it contains a
-<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html#AudioGainNode">gainNode</a>
-and a
-<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html#DynamicsCompressorNode">compressorNode</a>.
-The gainNode is used to tune the volume. and the compressNode to smooth the peaks we could
-hit in the sound.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var webaudio = new WebAudio();</span></code></pre></td></tr></table></div></figure>
-
-
-<p></p>
-
-<p>Now that we go webaudio available, let&#8217;s use it to create the sound we gonna play.
- <code>.createSound()</code> will create a <code>WebAudio.Sound</code>. Then we <code>.load()</code> it
-from this url &#8216;sounds/perfume.mp3&#8217;. The callback will be notified as soon as the sound
-is loaded. Then we simply start to play it. Don&#8217;t forget to get <code>.loop(true)</code>
-thus the sound will loop forever.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var sound    = webaudio.createSound().load('sounds/perfume.mp3', function(sound){
-</span><span class='line'>  sound.loop(true).play();
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Initialize the 3D World</h2>
-
-<p>First we initialize the world in 3D.
-With <code>tQuery.createWorld()</code>, we create a <code>tQuery.World</code>.
-With <code>.boilerplate()</code>, we setup a boilerplate on this world. A boilerplate is
-a fast way to get you started on the right foot. It is the
-<a href="http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/">learningthreejs boilerplate for three.js</a>
-With <code>.start()</code>, we start the rendering loop. So from now on, the world scene
-gonna be rendered periodically, typically 60time per seconds.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var world    = tQuery.createWorld().boilerplate().start();</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We Change the background color. This confusing line ensure the background of the
-3D scene will be rendered as <code>0x000000</code> color, aka black.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>world.renderer().setClearColorHex( 0x000000, world.renderer().getClearAlpha() );</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Here we setup the lights of our scene. This is a key factor for the look and feel
-of your scene. We add a ambient light and 2 directional lights.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>tQuery.createAmbientLight().addTo(world).color(0x888888);
-</span><span class='line'>tQuery.createDirectionalLight().addTo(world).position(+1,+1,1).color(0x88FF88);
-</span><span class='line'>tQuery.createDirectionalLight().addTo(world).position(-1,-1, 1).color(0x8888FF);</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Some constants</h2>
-
-<p>First we initialize <code>nBar</code> to store number of bars in our 3D vuemeter.
-This number MUST be odd, thus the vuemeter is symteric with the middle</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var nBar = 41;
-</span><span class='line'>console.assert(nBar%2, "nBar MUST be a odd number.")</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we need to compute the width of each 3D bar. The whole vuemeter is
- 80 wide. So each bar is <code>80/nBar</code> wide.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var barW = 80/nBar;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We create an array <code>bars3d</code>. We will use it to store the object3D
-for all bars of the  histogram.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var bars3d   = [];</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Build the 3D VueMeter</h2>
-
-<p>First we create the container group3D which gonna regroup all the bar3D. It is the
-container of the whole 3D Vuemeter</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var group3d  = tQuery.createObject3D().scale(1/20).addTo(world);</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We gonna build each bar and add it to <code>group3d</code>.
-We loop to create <code>nBar</code> with <code>tQuery.createCube()</code>. In fact a bar
-is a rectangular box, so like a cube with different dimensions.
-a bar got a width of <code>barW</code>, an height of 10 and a depth of 5.
-The material is a simple <a href="http://en.wikipedia.org/wiki/Lambertian_reflection">lambert</a>.
-Once the bar is create, we add it to <code>group3d</code> and set it to the correct
-position in space.
-We push every bar3d into <code>bars3d</code> for future reference.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>for(var i = 0; i &lt; nBar; i++){
-</span><span class='line'>  var bar3d   = tQuery.createCube(barW, 10, 5, new THREE.MeshLambertMaterial({
-</span><span class='line'>      ambient : 0x888888,
-</span><span class='line'>      color   : 0xFFFFFF
-</span><span class='line'>  }));
-</span><span class='line'>  bar3d.addTo(group3d).position((i-nBar/2)*barW, 0, 0);
-</span><span class='line'>  bars3d.push(bar3d);
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Update Vuemeter From Sound Analyser</h2>
-
-<p>Here we hook a function to tQuery rendering loop, <code>tQuery.Loop</code>. Thus
-this function gonna be executed everytime our 3D scene is rendered.
-if the sound isnt yet loaded, do nothing.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>world.loop().hook(function(){
-</span><span class='line'>  if( sound.isPlayable() === false )  return;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>build the histogram of the sound based on
-<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html#RealtimeAnalyserNode">RealtimeAnalyserNode</a>
- <code>.getByteFrequencyData()</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var nBarHalf = Math.ceil(nBar/2)
-</span><span class='line'>var histo = sound.makeHistogram(nBarHalf);</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We gonna loop over each bar3D of our vuemeter. We gonna update
-each of them based on the sound histogram we just computed.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>bars3d.forEach(function(bar3d, barIdx){</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We need to determine which value in the histogram match this vuemeter bar.
-As our vuemeter is symetric, the vuemeter bar on the far left got the same
-histogram value as the one on the far right. This make this computation
-a bit confusing.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>     var histoIdx        = barIdx &lt; nBarHalf ? nBarHalf-1-barIdx : barIdx - nBarHalf;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we need to compute the height of the vuemeter bar based on histogram value.
-This is simple scaling from one to the other: vuemeter height === histo height / 256</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>     var height      = histo[histoIdx] / 256;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now that we computed all that, we update the <code>bar3d</code>. We update <code>.scale.y</code>
-to change its size and <code>.material.color</code> to change its color. The formulas
-i used &#8220;worked for me&#8221;. Up to you to be creative and find the one that fit
-your own needs</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>     bar3d.get(0).scale.y    = height*3;
-</span><span class='line'>      bar3d.get(0).material.color.setHSV(0.3+height*0.7,1,1)
-</span><span class='line'>  });
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Conclusion</h2>
-
-<p>So we used
-<a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a>
-to play a sound and analyses in real time.
-We used this information to change 3D objects based on this
-analysis.
-We leveraged <a href="https://github.com/jeromeetienne/tquery">tQuery</a>
-to reach <a href="http://github.com/mrdoob/three.js/">three.js 3D engine</a>.
-Now you can imagine any visual effect based on sound analysis.
-The road to winamp effects is open to you :)
-We got a rather nice looking WebGL output of a 3D Vuemeter in Real Time
-for only 40 lines of javascript. I love how short code
-reduces developement time.</p>
-
-<p>That&#8217;s all folks. Have fun :)</p>
 ]]></content>
   </entry>
   

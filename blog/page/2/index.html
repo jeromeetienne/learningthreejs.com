@@ -9,7 +9,8 @@
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="Wouldn&#8217;t that be cool if we were able to mix normal web pages in our webgl? To interact with them as we usually do? to view them, to click on &hellip;">
+  <meta name="description" content="Imagine controlling your computer without needing a mouse or a keyboard but only with the
+movement of your hands! That is what the Leap motion device &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +79,71 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/06/11/discovering-leap-device/">Discovering Leap Device</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-11T10:58:00+02:00" pubdate data-updated="true">Jun 11<span>th</span>, 2013</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/2/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/2/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Imagine controlling your computer without needing a mouse or a keyboard but only with the
+movement of your hands! That is what the Leap motion device is all about! It was
+all over the net a few months back. This device is not unlike the kinect, however it is
+designed to be used at a shorter range. The leap device is a new way of motion on your
+screen and it is able to trace your fingers. Quite sci-fi, don&#8217;t you think?
+Especially when you see the accuracy, even the slightest movement of your fingers is tracked.
+They have been nice enough to send me one so that I could play with it and get an idea of
+what it does and why it is such a cool device.</p>
+
+<iframe width="425" height="349" src="http://www.youtube.com/embed/aP_4KPXjDpM" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/06/11/discovering-leap-device/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -728,87 +794,6 @@ We will walk you thru the code. Only 60 lines of Javascript.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl/">Sound Visualisation: A Vuemeter in WebGL</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-08T10:32:00+02:00" pubdate data-updated="true">May 8<span>th</span>, 2012</time>
-        
-        
-          <div class="sharing" style='text-align: right;'>
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/2/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/2/index.html" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-</div>
-
-        
-     </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This post is about producing a 3D Vuemeter for real time sound.
-We gonna walk thru the code of a
-<a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a> example.
-This example will show you how to create a WebGL vuemetter with
-<a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a>.
-It should be simple to understand, only 40-lines of javascript.
-<a href="https://github.com/jeromeetienne/webaudio.js">webaudio.js</a> is a web audio library
-for game. We gonna use it to reach <a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">Web Audio API</a>.
-We gonna use <a href="https://github.com/jeromeetienne/tquery">tQuery</a>
-to reach <a href="http://github.com/mrdoob/three.js/">three.js 3D engine</a>.</p>
-
-<p> <code>webaudio.js</code> has been first coded as a tQuery plugin.
-You can find a <a href="http://learningthreejs.com/blog/2012/03/20/sounds-for-more-realistic-3d/">post about it</a>
-on <a href="http://learningthreejs.com">learningthreejs</a> blog.
-But this technology is so nice, it deserved its <a href="https://github.com/jeromeetienne/webaudio.js">own repository</a>.
-The library gained in flexibility in the process: It is now possible to display histogram in canvas2D
-of simply play sound, with no 3D at all :) see <a href="http://jeromeetienne.github.com/webaudio.js/#examples">here</a> for a list of
-webaudio.js examples.</p>
-
-<p><a href="http://jeromeetienne.github.com/webaudio.js/examples/histo-tquery.html">Try the demo</a>.
-This is the result that we gonna build together.
-Below is a small <a href="http://www.youtube.com/watch?v=--Gv2EI2a-U">screencast</a> of me presenting the code.</p>
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/--Gv2EI2a-U" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -826,6 +811,10 @@ Below is a small <a href="http://www.youtube.com/watch?v=--Gv2EI2a-U">screencast
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/04/28/realistic-physics-for-your-3d-game-with-threex-dot-oimo/">Realistic Physics for Your 3D Game with THREEx.Oimo Game Extension For three.js</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js/">Simple and Easy To use Crates Models to Get Your Game Started with THREEx.Crates Game Extension For THREE.js</a>
       </li>
     
@@ -839,10 +828,6 @@ Below is a small <a href="http://www.youtube.com/watch?v=--Gv2EI2a-U">screencast
     
       <li class="post">
         <a href="/blog/2014/02/08/have-you-seen-yourself-when-you-are-drunk/">Have You Seen YourSelf when You Are Drunk ? - making of a fun WebGL Demo</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/01/10/flying-spaceship-minigame/">Game Workshop: Let&#8217;s Do a Fighting Spaceship Minigame Together</a>
       </li>
     
   </ul>

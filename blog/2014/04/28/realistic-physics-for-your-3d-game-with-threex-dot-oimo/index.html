@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Realistic Physics for Your 3D Game with THREEx.Oimo Game Extension For three.js - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This is post is part of the &#8216;one threex a day&#8217; challenge. This challenge is to publish every day one game extension for three.js! One &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://learningthreejs.com/blog/2014/04/28/realistic-physics-for-your-3d-game-with-threex-dot-oimo/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:learningthreejs.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="http://jeromeetienne.github.io/videobrowser4learningthreejs/">Videos</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Realistic Physics for Your 3D Game With THREEx.Oimo Game Extension for three.js</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-28T17:12:00+02:00" pubdate data-updated="true">Apr 28<span>th</span>, 2014</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2014/04/28/realistic-physics-for-your-3d-game-with-threex-dot-oimo/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2014/04/28/realistic-physics-for-your-3d-game-with-threex-dot-oimo/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href='http://jeromeetienne.github.io/threex.oimo/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.oimo/master/examples/images/screenshot-threex-oimo-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="/blog/categories/threexaday/">&#8216;one threex a day&#8217; challenge</a>. This challenge is to publish every day one game extension for three.js! One per day, every day and that for 2month! In this post, we gonna talk about <a href="http://www.threejsgames.com/extensions/#threex.oimo">threex.oimo</a>.
+threex.oimo is a <a href="http://www.threejsgames.com/extensions/">threex game extension for three.js</a>. It provides a <a href="http://en.wikipedia.org/wiki/Game_physics">realistic physics</a> easy to include in your own games. So you can take objects in your game and make them fall as if it was the real world! You can code a <a href="http://en.wikipedia.org/wiki/Pool_(cue_sports)">pool game</a> in a day!
+You make rocks fall from the sky in a realistic fashion! Sky is the limit!
+It is a warper over the excelent library <a href="https://github.com/lo-th/Oimo.js">oimo.js</a> physics library. <a href="https://plus.google.com/114170447432405103307/posts">lo-th</a>, the author does <a href="http://3dflashlo.wordpress.com/">a lot of crazy things</a>! Be sure to check it out!</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.oimo/examples/demo.html' target='_blank'><input type="button" value='Try Threex.oimo Demo Now'></a></p>
+
+<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto! <strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="//www.youtube.com/embed/wESF0NdMWBE" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don&#8217;t Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.oimo/examples/crates.html">examples/crates.html</a>
+[<a href="https://github.com/jeromeetienne/threex.oimo/blob/master/examples/crates.html">view source</a>] :
+It shows a slow motion demo of a football hitting a wall of crates.</li>
+<li><a href="http://jeromeetienne.github.io/threex.oimo/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.oimo/blob/master/examples/basic.html">view source</a>] :
+It shows a bunch of cube and sphere falling on a ground.</li>
+<li><a href="http://jeromeetienne.github.io/threex.oimo/examples/demo.html">examples/demo.html</a>
+[<a href="https://github.com/jeromeetienne/threex.oimo/blob/master/examples/demo.html">view source</a>] :
+It shows a more elaborate rendering. Planets falling down a pyramid in space.</li>
+</ul>
+
+
+<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.oimo/examples/demo.html" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> &lt;script src='threex.oimo.js'&gt;&lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bower install threex.oimo</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>How To Use It</h1>
+
+<p>Well first you need to create a oimo.js world. You do that like this</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var world   = new OIMO.World()</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then, at every frame, update your mesh position/rotation.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>world.step()</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then you need to create physics bodies and make them move</p>
+
+<h2>.createBodyFromMesh()</h2>
+
+<p>It will create the <code>IOMO.Body</code> from a three.js mesh you give it.
+Currently it support <code>THREE.CubeGeometry</code> and <code>THREE.SphereGeometry</code>. First create a normal <code>THREE.Mesh</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var geometry    = new THREE.CubeGeometry(1,1,1)
+</span><span class='line'>var material    = new THREE.MeshNormalMaterial()
+</span><span class='line'>var mesh    = new THREE.Mesh( geometry, material )
+</span><span class='line'>scene.add(mesh)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then you create the <code>IOMO.Body</code> for it</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var body    = THREEx.Iomo.createBodyFromMesh(world, mesh)</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>.Body2MeshUpdater()</h2>
+
+<p>It will update the position/rotation of a <code>THREE.Mesh</code>
+based on a position/rotation of a <code>IOMO.Body</code>. You need
+this to see your meshes moves according to oimo.js physics.
+First you create the object</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var updater = new THREEx.Iomo.Body2MeshUpdater(body, mesh)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then, at every frame, update your mesh position/rotation.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>updater.update()</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>.Stats()</h2>
+
+<p>It will display statistic from oimo.js, it may be useful to know what is going on.
+It acts very much like
+<a href="">mrdoob&#8217;s stats</a>
+or
+<a href="">threex.rendererstats</a>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var oimoStats   = new THREEx.Iomo.Stats(world)
+</span><span class='line'>document.body.appendChild(oimoStats.domElement)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then, at every frame, update it.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>oimoStats.update()</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-28T17:12:00+02:00" pubdate data-updated="true">Apr 28<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/extension/'>extension</a>, <a class='category' href='/blog/categories/game/'>game</a>, <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>, <a class='category' href='/blog/categories/threex/'>threex</a>, <a class='category' href='/blog/categories/threexaday/'>threexaday</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2014/04/28/realistic-physics-for-your-3d-game-with-threex-dot-oimo/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2014/04/28/realistic-physics-for-your-3d-game-with-threex-dot-oimo/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js/" title="Previous Post: Simple and Easy To use Crates Models to Get Your Game Started with THREEx.Crates Game Extension For THREE.js">&laquo; Simple and Easy To use Crates Models to Get Your Game Started with THREEx.Crates Game Extension For THREE.js</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/04/28/realistic-physics-for-your-3d-game-with-threex-dot-oimo/">Realistic Physics for Your 3D Game with THREEx.Oimo Game Extension For three.js</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js/">Simple and Easy To use Crates Models to Get Your Game Started with THREEx.Crates Game Extension For THREE.js</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/24/crazy-post-processing-color-effects-to-change-your-game-ambiance-with-threex-dot-coloradjust-game-extension-for-three-dot-js/">Crazy Post Processing Color Effects To Change Your Game Ambiance With Threex.coloradjust Game Extension For Three.js</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">One THREEx a Day Gets Your Game On Its Way! A Challenge!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/08/have-you-seen-yourself-when-you-are-drunk/">Have You Seen YourSelf when You Are Drunk ? - making of a fun WebGL Demo</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://learningthreejs.com/blog/2014/04/28/realistic-physics-for-your-3d-game-with-threex-dot-oimo/';
+        var disqus_url = 'http://learningthreejs.com/blog/2014/04/28/realistic-physics-for-your-3d-game-with-threex-dot-oimo/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
