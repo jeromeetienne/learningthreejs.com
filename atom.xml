@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-04-28T13:59:05+02:00</updated>
+  <updated>2014-04-29T13:30:01+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,116 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Beautiful Dynamic Laser Beams for Your Space Game with threex.laser Game Extension For Three.js]]></title>
+    <link href="http://learningthreejs.com/blog/2014/04/29/beautiful-dynamic-laser-beams-for-your-space-game-with-threex-dot-laser-game-extension-for-three-dot-js/"/>
+    <updated>2014-04-29T13:57:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/04/29/beautiful-dynamic-laser-beams-for-your-space-game-with-threex-dot-laser-game-extension-for-three-dot-js</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.laser/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.laser/master/examples/images/screenshot-threex-laser-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="http://learningthreejs.com/blog/categories/threexaday/">&#8216;one threex a day&#8217; challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.laser">threex.laser</a>.
+threex.laser is a <a href="http://www.threejsgames.com/extensions/">threex</a> game extension for three.js. It provides a laser beam effect. Excellent to add in your space game!
+The laser itself is fully procedural with generated texture.
+The bleeding effect is obtained with additive blending.
+threex.laser contains a more elaborate laser which dynamically collides with your scene. It is all done for you and it looks great! On impact, there is a point light and an particle sprite for cooler effects :)</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.laser/examples/demo.html' target='_blank'><input type="button" value='Try Threex.laser Demo Now' /></a></p>
+
+<p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/PsxSsdwODRk" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don&#8217;t Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.laser/examples/demo.html">examples/demo.html</a>
+[<a href="https://github.com/jeromeetienne/threex.laser/blob/master/examples/demo.html">view source</a>] :
+It shows a demo with cooked laser impacting a moving torus.</li>
+<li><a href="http://jeromeetienne.github.io/threex.laser/examples/laserbeam.html">examples/laserbeam.html</a>
+[<a href="https://github.com/jeromeetienne/threex.laser/blob/master/examples/laserbeam.html">view source</a>] :
+It shows a usage of threex.laserbeam.js, it could be the basis for a light sword for example.</li>
+<li><a href="http://jeromeetienne.github.io/threex.laser/examples/lasercooked.html">examples/lasercooked.html</a>
+[<a href="https://github.com/jeromeetienne/threex.laser/blob/master/examples/lasercooked.html">view source</a>] :
+It shows a usage of threex.lasercooked.js. The laser is inside a cube, the cube is
+filled with toruses positioned at random, and the laser is colliding with other objects.</li>
+</ul>
+
+
+<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.laser/examples/demo.html" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.laserbeam.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.lasercooked.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.laser
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>How To Use It</h1>
+
+<h2>threex.laserbeam.js</h2>
+
+<p>It is a raw laser beam using dynamic textures.
+Here is to create the laser beam and add it to the scene.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">laserBeam</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">LaserBeam</span><span class="p">()</span>
+</span><span class='line'><span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">laserBeam</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>threex.lasercooked.js</h2>
+
+<p>It is a laser beam with dynamic collision.
+On impacts, to increase realism, there is sprite and point light.
+It depends on <code>THREEx.LaserBeam</code> so first create it and add it to the scene</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">laserBeam</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">LaserBeam</span><span class="p">()</span>
+</span><span class='line'><span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">laserBeam</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then you create the laserCooked based on it. Don&#8217;t forget to update it in your render loop.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">laserCooked</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">LaserCooked</span><span class="p">(</span><span class="nx">laserBeam</span><span class="p">)</span>
+</span><span class='line'><span class="nx">onRenderFcts</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="nx">now</span><span class="p">){</span>
+</span><span class='line'>    <span class="c1">// every time you render the scene, update laserCooked</span>
+</span><span class='line'>    <span class="nx">laserCooked</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="nx">now</span><span class="p">)</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Realistic Physics for Your 3D Game with THREEx.Oimo Game Extension For three.js]]></title>
@@ -3590,284 +3700,6 @@ walk through, we got very short code. I like this, it makes it easier to underst
 and learn. WebGL for All!! :)</p>
 
 <p>That&#8217;s all folks! have fun.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Punch A Doom Character in Augmented Reality]]></title>
-    <link href="http://learningthreejs.com/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/"/>
-    <updated>2012-05-15T11:59:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2012/05/15/punch-a-doom-character-in-augmented-reality</id>
-    <content type="html"><![CDATA[<p>Did you ever dreamed of punching a doom character ? They look evil and killed
-you so many time while you were playing the game. It is revenge time! This
-post will help you realize your dream :)
-It is about a minigame called &#8220;Punch A Doom Character in Augmented Reality&#8221;
-because in this game, the player can punch Doom Character in augmented reality :)</p>
-
-<p>The character is displayed in 3D with WebGL with <a href="http://github.com/mrdoob/three.js/">three.js</a>.
-The player gestures are recognized thru the webcam by <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmentedgesture.js</a> library.
-It uses <a href="http://webrtc.org">WebRTC</a> <a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a> to get the webcam
-using open standards.
-You can play this minigame <a href="http://learningthreejs.com/data/2012-05-15-punch-a-doom-character-in-augmented-reality">here</a>.
-In fact, it is an example of <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmentedgesture.js</a> library.
-We will walk you thru the code. Only 60 lines of Javascript.</p>
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/Aa9945MGRL0" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-
-
-<!-- more -->
-
-
-<p>We have seen augmented gesture in <a href="http://learningthreejs.com/blog/2012/05/02/augmented-reality-3d-pong/">&#8220;Augmented Reality 3D Pong&#8221;</a> post
-and MD2 Characters in <a href="http://learningthreejs.com/blog/2012/05/04/tquery-md2character-a-plugin-for-doom-characters/">&#8220;tQuery Plugin for Doom Characters&#8221;</a> post.
-Now we gonna associate them together in our mini game :)
-I presented it at <a href="www.web-5.org">Web-5</a> conference in april.
-At the time, i recorded a preview <a href="http://www.youtube.com/watch?v=hUYM93xaIgg">&#8220;Doom: a new workout for geek?&#8221;</a>.
-Now let&#8217;s get started!</p>
-
-<h2>The 3D World</h2>
-
-<p>First we initialize the world in 3D.
-With <code>tQuery.createWorld()</code>, we create a <code>tQuery.World</code>.
-With <code>.boilerplate()</code>, we setup a boilerplate on this world. A boilerplate is
-a fast way to get you started on the right foot. It is the
-<a href="http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/">learningthreejs boilerplate for three.js</a>.
-With <code>.start()</code>, we start the rendering loop. So from now on, the world scene
-gonna be rendered periodically, typically 60time per seconds.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var world    = tQuery.createWorld().boilerplate().start();</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We setup the camera now. We remove the default camera controls from the boilerplate.
-Then we put the camera at <code>(0,1.5,5)</code> and looking toward <code>(0,1,-1)</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>world.removeCameraControls()
-</span><span class='line'>world.camera().position.set(0,1.5, 4);
-</span><span class='line'>world.camera().lookAt(new THREE.Vector3(0,1,-1));</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we change the background color. This confusing line ensure the background of the
-3D scene will be rendered as <code>0x000000</code> color, aka black. We set a black
-background to give an impression of night.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>world.renderer().setClearColorHex( 0x000000, world.renderer().getClearAlpha() );</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We had a fog to the scene. For that, we use <code>tquery.world.createfog.js</code> plugins.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>world.addFogExp2({density : 0.15});</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>The Lights</h3>
-
-<p>Here we setup the lights of our scene. This is important as it determine how
-your scene looks. We add a ambient light and a directional light.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>tQuery.createAmbientLight().addTo(world).color(0x444444);
-</span><span class='line'>tQuery.createDirectionalLight().addTo(world).position(-1,1,1).color(0xFFFFFF).intensity(3);</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>The Ground</h3>
-
-<p>We create a large checkerboard with <code>tquery.checkerboard.js</code> plugin.
-We scale the checkerboard to 100 per 100 units in the 3D world. Thus it is
-quite large and disappears into the fog. It gives the cheap impression of
-an infinite checkerboard.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>tQuery.createCheckerboard({
-</span><span class='line'>  segmentsW   : 100,  // number of segment in width
-</span><span class='line'>  segmentsH   : 100   // number of segment in Height
-</span><span class='line'>}).addTo(world).scaleBy(100);</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>The Character</h3>
-
-<p>We use <code>tQuery.RatamahattaMD2Character</code> plugin. Its inherits from
- <code>tQuery.MD2Character</code> plugin. All the configuration for this particular
-character <code>ratamahatta</code> is already done for you.
-We attach it to tQuery world.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var character    = new tQuery.RatamahattaMD2Character().attach(world);</span></code></pre></td></tr></table></div></figure>
-
-
-<p>When an animation is completed, switch to animation &#8216;stand&#8217;.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>character.bind('animationCompleted', function(character, animationName){
-</span><span class='line'>  console.log("anim completed", animationName);
-</span><span class='line'>  this.animation('stand');
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Recognize Augmented Gestures</h2>
-
-<p>First we instanciate an object of <strong>AugmentedGesture</strong> class.
- <code>.enableDatGui()</code> will add a <a href="http://workshop.chromeexperiments.com/examples/gui">Dat.GUI</a>.
-This is a nice library to tune parameters. We use it to tune augmentedgesture pointers.
-You can read more about it in <a href="http://learningthreejs.com/blog/2011/08/14/dat-gui-simple-ui-for-demos/">&#8220;Dat-gui - Simple UI for Demos&#8221;</a> post.
- <code>.start()</code> asks it to begin monitoring the webcam and see if it finds markers.
- <code>.domElementThumbnail()</code> put the webcam view as a thumbnail on the screen. This is what you
-see on top-left.
-This is usefull for the user, it is used as feedback to know what is happening</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var aGesture = new AugmentedGesture().enableDatGui().start().domElementThumbnail();</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>The Pointers</h3>
-
-<p>Now that we got our AugmentedGesture instance, we gonna configure the pointers.
-One for the right hand, one for the left hand. For each, we setup the options
-to adapt each hand colors.
-In my case, the right hand is containing a green ball and the left hand contains a red ball.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var pointerOpts  = new AugmentedGesture.OptionPointer();
-</span><span class='line'>pointerOpts.pointer.crossColor    = {r:    0, g: 255, b:   0};
-</span><span class='line'>pointerOpts.colorFilter.r = {min:   0, max:  95};
-</span><span class='line'>pointerOpts.colorFilter.g = {min: 115, max: 255};
-</span><span class='line'>pointerOpts.colorFilter.b = {min:  25, max: 150};
-</span><span class='line'>aGesture.addPointer("right", pointerOpts);</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we do the same for the left pointer.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var pointerOpts  = new AugmentedGesture.OptionPointer();
-</span><span class='line'>pointerOpts.pointer.crossColor    = {r:    255, g:   0, b: 128};
-</span><span class='line'>pointerOpts.colorFilter.r = {min: 190, max: 255};
-</span><span class='line'>pointerOpts.colorFilter.g = {min:  30, max: 255};
-</span><span class='line'>pointerOpts.colorFilter.b = {min:   0, max: 100};
-</span><span class='line'>aGesture.addPointer("left", pointerOpts);</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Gesture Analysis</h3>
-
-<p>Now that augmentedgesture.js is giving us the position of each hand, we gonna
-convert that into events. <code>punchingRight</code> when the user gives a punch with
-the right hand and <code>punchingLeft</code> for the left hand.
-We establish a variable to store the user moves. It is quite simple
- <code>.punchingRight</code> is true when the use is punching with his right hand.
- <code>.punchingLeft</code> is the same for the left hand.
-and <code>.changed</code> is true when values change.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var userMove = {
-</span><span class='line'>  punchingRight   : false,
-</span><span class='line'>  punchingLeft    : false,
-</span><span class='line'>  changed     : false
-</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
-
-
-<p>we bind the event <code>mousemove.left</code> thus we are notified when the user moves his
-left hand. The algo we use is very simple: if the left hand is on the right part of
-the screen, then the user is considered &#8220;punchingLeft&#8221;. Dont forget
-to <code>.changed</code> to true</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>aGesture.bind("mousemove.left", function(event){
-</span><span class='line'>  var state   = event.x &gt; 1 - 1/3;
-</span><span class='line'>  if( state === userMove.punchingLeft )   return;
-</span><span class='line'>  userMove.punchingLeft   = state;
-</span><span class='line'>  userMove.changed    = true;
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we need the same thing for the other hand. all the the same.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>aGesture.bind("mousemove.right", function(event){
-</span><span class='line'>  var state   = event.x &lt; 1/3;
-</span><span class='line'>  if( state === userMove.punchingRight )  return;
-</span><span class='line'>  userMove.punchingRight  = state;
-</span><span class='line'>  userMove.changed    = true;
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Bind Character and Augmented Gestures</h2>
-
-<p>Now we hook a function to the rendering loop. This function will be executed
-every time the scene is renderered. The first thing we do in this function
-is to check that userMove has <code>.changed</code>. If not, we do nothing.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>world.loop().hook(function(){
-</span><span class='line'>  if( userMove.changed === false )    return;
-</span><span class='line'>  userMove.changed = false;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we process each move of the user. If the user is <code>punchingRight</code>, play
-the animation <code>crdeath</code> of the character. If he is <code>punchingLeft</code>,
-play <code>crplain</code>.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'> if( userMove.punchingRight )        character.animation('crdeath');
-</span><span class='line'>  else if( userMove.punchingLeft )    character.animation('crpain');
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And you are <strong>DONE</strong>! Pretty nice no ? :)</p>
-
-<h2>Conclusion</h2>
-
-<p>In this post we built a mini-game where users can punch doom character in augmented reality.
-All that in 60 lines of javascript.
-The Character is displayed in WebGL with
-<a href="https://github.com/mrdoob/three.js/">three.js</a>
-and the augmented reality is handled
-by <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmentedgesture.js</a>.
-I like how those libraries makes the code so small, and the developement time
-so short.</p>
-
-<p>That&#8217;s all folks, have fun :)</p>
 ]]></content>
   </entry>
   

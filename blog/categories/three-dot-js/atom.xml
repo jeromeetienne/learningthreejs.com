@@ -4,7 +4,7 @@
   <title><![CDATA[Category: three.js | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/three-dot-js/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-04-28T13:59:05+02:00</updated>
+  <updated>2014-04-29T13:30:01+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,112 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Beautiful Dynamic Laser Beams for Your Space Game with threex.laser Game Extension For Three.js]]></title>
+    <link href="http://learningthreejs.com/blog/2014/04/29/beautiful-dynamic-laser-beams-for-your-space-game-with-threex-dot-laser-game-extension-for-three-dot-js/"/>
+    <updated>2014-04-29T13:57:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/04/29/beautiful-dynamic-laser-beams-for-your-space-game-with-threex-dot-laser-game-extension-for-three-dot-js</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.laser/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.laser/master/examples/images/screenshot-threex-laser-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="/blog/categories/threexaday/">'one threex a day' challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.laser">threex.laser</a>.
+threex.laser is a <a href="http://www.threejsgames.com/extensions/">threex</a> game extension for three.js. It provides a laser beam effect. Excellent to add in your space game!
+The laser itself is fully procedural with generated texture.
+The bleeding effect is obtained with additive blending.
+threex.laser contains a more elaborate laser which dynamically collides with your scene. It is all done for you and it looks great! On impact, there is a point light and an particle sprite for cooler effects :)</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.laser/examples/demo.html' target='_blank'><input type="button" value='Try Threex.laser Demo Now' /></a></p>
+
+<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/PsxSsdwODRk" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don't Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.laser/examples/demo.html">examples/demo.html</a>
+[<a href="https://github.com/jeromeetienne/threex.laser/blob/master/examples/demo.html">view source</a>] :
+It shows a demo with cooked laser impacting a moving torus.</li>
+<li><a href="http://jeromeetienne.github.io/threex.laser/examples/laserbeam.html">examples/laserbeam.html</a>
+[<a href="https://github.com/jeromeetienne/threex.laser/blob/master/examples/laserbeam.html">view source</a>] :
+It shows a usage of threex.laserbeam.js, it could be the basis for a light sword for example.</li>
+<li><a href="http://jeromeetienne.github.io/threex.laser/examples/lasercooked.html">examples/lasercooked.html</a>
+[<a href="https://github.com/jeromeetienne/threex.laser/blob/master/examples/lasercooked.html">view source</a>] :
+It shows a usage of threex.lasercooked.js. The laser is inside a cube, the cube is
+filled with toruses positioned at random, and the laser is colliding with other objects.</li>
+</ul>
+
+
+<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.laser/examples/demo.html" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
+
+<p>```html</p>
+
+<script src='threex.laserbeam.js'></script>
+
+
+<script src='threex.lasercooked.js'></script>
+
+
+<p>```</p>
+
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<p><code>bash
+bower install threex.laser
+</code></p>
+
+<h1>How To Use It</h1>
+
+<h2>threex.laserbeam.js</h2>
+
+<p>It is a raw laser beam using dynamic textures.
+Here is to create the laser beam and add it to the scene.</p>
+
+<p><code>javascript
+var laserBeam   = new THREEx.LaserBeam()
+scene.add(laserBeam)
+</code></p>
+
+<h2>threex.lasercooked.js</h2>
+
+<p>It is a laser beam with dynamic collision.
+On impacts, to increase realism, there is sprite and point light.
+It depends on <code>THREEx.LaserBeam</code> so first create it and add it to the scene</p>
+
+<p><code>javascript
+var laserBeam   = new THREEx.LaserBeam()
+scene.add(laserBeam)
+</code></p>
+
+<p>Then you create the laserCooked based on it. Don't forget to update it in your render loop.</p>
+
+<p>```javascript
+var laserCooked = new THREEx.LaserCooked(laserBeam)
+onRenderFcts.push(function(delta, now){</p>
+
+<pre><code>// every time you render the scene, update laserCooked
+laserCooked.update(delta, now)
+</code></pre>
+
+<p>})
+```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Realistic Physics for Your 3D Game with THREEx.Oimo Game Extension For three.js]]></title>
@@ -400,213 +506,6 @@ Most of the three.js game extensions that I will publish support require.js and 
 <p>I hope you enjoy it :)</p>
 
 <p>That’s all folks!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Have You Seen YourSelf when You Are Drunk ? - making of a fun WebGL Demo]]></title>
-    <link href="http://learningthreejs.com/blog/2014/02/08/have-you-seen-yourself-when-you-are-drunk/"/>
-    <updated>2014-02-08T12:49:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2014/02/08/have-you-seen-yourself-when-you-are-drunk</id>
-    <content type="html"><![CDATA[<p>This post is about a demo called <a href="https://github.com/jeromeetienne/demo.seenyourselfdrunk">"Have you seen yourself When you are Drunk ?"</a>. What is it all about ?
-Well have you seen yourself when you are drunk ?</p>
-
-<p><img class="right" src="/data/2014-02-08-have-you-seen-yourself-when-you-are-drunk/images/angryBoss.jpg" width="250" height="250"></p>
-
-<p>You don't look at your best, but you don't remember the morning after, lucky you. So now you are sober, this demo will show you how you look when you are drunk…
-Hopefully this will make you realize that <em>alcohol abuse is a bad thing</em>! And that we could
-<em>save the world by stopping it</em>!</p>
-
-<p><a href='http://jeromeetienne.github.io/demo.seenyourselfdrunk/' target='_blank'><input type="button" value='Try Demo Now' /></a></p>
-
-<p>Or it will just show some cool webgl effects… Honnestly i wasnt that sure of its exact purpose. Well, up to you to pick :)
-In other words, this is a webgl demo which reads your webcam, to show yourself on screen, then it does some screen deformations to give you an idea of what you look like when you are drunk.</p>
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/yl2Qd9T3Lq4" frameborder="0" allowfullscreen></iframe>
-
-
-<p>We will learn how to code that. So first the tools of the trade…</p>
-
-<!-- more -->
-
-
-<h2>Used Tools</h2>
-
-<p>This demo is done with 2 threex extensions
-<a href="https://github.com/jeromeetienne/threex.toxicpproc">threex.toxicpproc</a>
-,
-<a href="https://github.com/jeromeetienne/threex.videotexture">threex.videotexture</a>
-and our lovely
-<a href="http://threejs.org">three.js</a> obviously.
-<a href="https://github.com/jeromeetienne/threex.videotexture">threex.videotexture</a>
-is, according to <a href="http://jeromeetienne.github.io/threex/#threex.videotexture">threex page</a> :</p>
-
-<blockquote><p>handles videos in texture. It is possible to put html5 video output in texture, even put the webcam in it, or to connect it to WebAudio API to get localized sounds.</p></blockquote>
-
-<p>We will use it to read the webcam and display it full page.
-<a href="https://github.com/jeromeetienne/threex.toxicpproc">threex.toxicpproc</a>
-is, according to <a href="http://jeromeetienne.github.io/threex/#threex.toxicpproc">threex page</a> :</p>
-
-<blockquote><p>an intoxicated post-processing effect. You can easily add it in your game to simulate the player is drunk. It provides various levels: sober, drunk, high and wasted.</p></blockquote>
-
-<p>We will use it to deform the video from the webcam and makes you look drunk.</p>
-
-<h2>Webcam For Texture</h2>
-
-<p>So the first thing is to get webcam on fullpage.
-For that we use <a href="https://github.com/jeromeetienne/threex.videotexture">threex.videotexture</a>.
-It does video textures, either you take this video from a url, like this.</p>
-
-<p>```
-// create the videoTexture
-var videoUrl    = 'sintel.ogv';
-var videoTexture= new THREEx.VideoTexture(videoUrl)
-// on every render, update it
-onRenderFcts.push(function(delta, now){</p>
-
-<pre><code>    videoTexture.update(delta, now)
-</code></pre>
-
-<p>})
-```</p>
-
-<p>Or you take the video live from the webcam, like this.</p>
-
-<p>```
-// create the webcamTexture
-var videoTexture    = new THREEx.WebcamTexture()
-// on every render, update it
-onRenderFcts.push(function(delta, now){</p>
-
-<pre><code>    videoTexture.update(delta, now)
-</code></pre>
-
-<p>})<br/>
-```</p>
-
-<p>Then use <code>videoTexture.texture</code> in your materials to
-have the texture of the webcam. So let's see how we will
-compose our scene.</p>
-
-<h2>Scene Composition</h2>
-
-<p>We need a Plane which take the full page, and we will apply our webcam texture to it.
-So first there is an orthographic camera. Perspective is useless in this case, and make computations much more complex :)</p>
-
-<p>```
-var camera = new THREE.OrthographicCamera(window.innerWidth / -2, window.innerWidth / 2</p>
-
-<pre><code> ,  window.innerHeight / 2, window.innerHeight / -2, -100, 100);
-</code></pre>
-
-<p>```</p>
-
-<p>Then, there is a <code>THREE.PlaneGeometry</code> mesh
-using full screen for this camera.</p>
-
-<p><code>
-var geometry    = new THREE.PlaneGeometry( window.innerWidth, window.innerHeight )
-var material    = new THREE.MeshBasicMaterial();
-var mesh    = new THREE.Mesh(geometry, material)
-scene.add(mesh)
-</code></p>
-
-<p>Then we apply our <code>videoTexture</code> to this material. Thus
-we see the webcam on this plan :)</p>
-
-<p><code>
-material.map    = videoTexture.texture
-</code></p>
-
-<p>So we got our face on full screen, cool for ego i guess :)
-Now let's apply some deformation to it!</p>
-
-<h2>Post Processing and Rendering</h2>
-
-<p>Usually to render a scene, we use the following code.
-This is when we render the scene directly on screen.</p>
-
-<p><code>
-renderer.render( scene, camera )
-</code></p>
-
-<p>We will use a post processing chain with <code>THREE.EffectComposer</code>. It process the screen as a 2d texture.
-More specifically, we will use <a href="https://github.com/jeromeetienne/threex.toxicpproc">threex.toxicpproc</a>, a three.js extension which provide post processing of drunk effects. It got 4 presets <em>sober</em>, <em>drunk</em>, <em>high</em> and <em>wasted</em>. There is a nice tweening when you switch between presets so transitions looks smooth.
-Try it yourself in <a href="http://jeromeetienne.github.io/threex.toxicpproc/examples/basic.html">this demo</a>.</p>
-
-<h3>THREEx.ToxicPproc</h3>
-
-<p>So First lets instanciate a <code>THREEx.ToxicPproc.Passes</code>. It will setup the effect composers passes for our effect. We set it to the <code>drunk</code> preset.</p>
-
-<p>```
-var toxicPasses = new THREEx.ToxicPproc.Passes('drunk')
-// on every render you update it
-onRenderFcts.push(function(delta, now){</p>
-
-<pre><code>toxicPasses.update(delta, now)
-</code></pre>
-
-<p>})
-```</p>
-
-<p>If you want to create other presets, it is entirely possible. There is even a <a href="https://code.google.com/p/dat-gui/">Dat.GUI</a> provided for you to tweak buttons until it fits your needs. You see it in <a href="http://jeromeetienne.github.io/threex.toxicpproc/examples/basic.html">the demo</a>.
-You use it like this.</p>
-
-<p><code>
-var datGui  = new dat.GUI()
-THREEx.addToxicPasses2DatGui(toxicPasses, datGui)
-</code></p>
-
-<h3>THREE.EffectComposer</h3>
-
-<p>Now that we got the toxicpproc passes, let's create the <code>THREE.EffectComposer</code> to run it.</p>
-
-<p><code>
-var composer    = new THREE.EffectComposer(renderer);
-</code></p>
-
-<p>We render the scene on a texture</p>
-
-<p><code>
-var renderPass  = new THREE.RenderPass( scene, camera );
-composer.addPass( renderPass );
-</code></p>
-
-<p>We send this texture to <code>threex.toxicpproc</code></p>
-
-<p><code>
-toxicPasses.addPassesTo(composer)
-</code></p>
-
-<p>Now we just have to tell the composer the last pass is the one to be rendered on screen.</p>
-
-<p><code>
-composer.passes[composer.passes.length -1 ].renderToScreen  = true;
-</code></p>
-
-<h3>Update on each Frame</h3>
-
-<p>We got the rendering to do on each frame. Usually we do</p>
-
-<p><code>
-renderer.render( scene, camera )
-</code></p>
-
-<p>But here we render thru the effect composer, so we do</p>
-
-<p><code>
-// render thru composer
-composer.render(delta)
-</code></p>
-
-<h2>Conclusion</h2>
-
-<p>Ok so you have learn how to code a demo like
-<a href="https://github.com/jeromeetienne/demo.seenyourselfdrunk">"Have you seen yourself When you are Drunk ?"</a>
-Pretty Cool!
-Now you can get more <a href="http://jeromeetienne.github.io/threex/">threex</a> extensions and
-play with it to build your own demos.
-This is All for Today Folks, have fun! :)</p>
 ]]></content>
   </entry>
   
