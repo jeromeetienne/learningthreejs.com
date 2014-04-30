@@ -4,7 +4,7 @@
   <title><![CDATA[Category: threexaday | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/threexaday/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-04-29T13:30:01+02:00</updated>
+  <updated>2014-04-30T13:35:08+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,177 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Easy Way To Integrate Video, or even WebCam, in Your Texture with THREEx.VideoTexture Game Extension for THREE.js]]></title>
+    <link href="http://learningthreejs.com/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js/"/>
+    <updated>2014-04-30T13:38:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.videotexture/master/examples/images/screenshot-threex-videotexture-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="/blog/categories/threexaday/">'one threex a day' challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.videotexture">threex.videotexture</a>.
+threex.videotexture is a <a href="http://www.threejsgames.com/extensions/">threex game extension for three.js</a>.
+It provides help to handle videos in texture.
+It is possible to put html5 <code>&lt;video&gt;</code> output in texture with <code>threex.videotexture.js</code>.
+You can even put the webcam in a texture with <code>threex.webcamtexture.js</code>.
+It is cool if you want to make a tv screen in your game, You can easily use this extension. You pick the video to play and you are ready to go.
+The screen surface will use your video texture making it look like a TV set.
+If you need it, you can try <code>threex.audiovideotexture.js</code> where the
+video is mapped on the texture and additionnally the sound of the video
+is handled via
+<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">web audio API</a>.
+Thus you can have localized sound, which is neat in the 3d environment.</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html' target='_blank'><input type="button" value='Try Threex.videotexture Demo Now' /></a></p>
+
+<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/O5ae0FhrOEo" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don't Tell</h1>
+
+<ul>
+<li>Here is a <a href="http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html">videotexture example</a> and its <a href="https://github.com/jeromeetienne/threex.videotexture/blob/master/examples/videotexture.html">source</a>.
+It read the video from a file via video dom element and display it in a texture</li>
+<li>Here is a <a href="http://jeromeetienne.github.io/threex.videotexture/examples/audiovideotexture.html">audio/video texture example with WebAudio API</a>and its <a href="https://github.com/jeromeetienne/threex.videotexture/blob/master/examples/audiovideotexture.html">source</a>.
+It shows how to plug the video sound into the WebAudio API because you get localised sounds.
+This is particularly useful in 3D.
+"Audio/Video" texture is a texture where the sound comes from the object3d on which
+the texture is mapped.</li>
+<li>Here is another <a href="http://jeromeetienne.github.io/threex.videotexture/examples/webcamtexture.html">webcam example</a> and its <a href="https://github.com/jeromeetienne/threex.videotexture/blob/master/examples/webcamtexture.html">source</a>.
+It reads the webcam thru getUserMedia and put it in a texture.</li>
+</ul>
+
+
+<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it manually. Just do</p>
+
+<p>```html</p>
+
+<script src='threex.videotexture.js'></script>
+
+
+<p>```</p>
+
+<p>You can install with <a href="http://bower.io/">bower</a>.</p>
+
+<p><code>bash
+bower install threex.videotexture
+</code></p>
+
+<p>then you add that in your html</p>
+
+<p>```html</p>
+
+<script src="bower_components/threex.videotexture/threex.videotexture.js"></script>
+
+
+<p>```</p>
+
+<h1>How To Use it</h1>
+
+<h2>threex.videotexture.js</h2>
+
+<p>First you instanciate the texture itself</p>
+
+<p>```javascript
+// create the videoTexture
+var videoTexture= new THREEx.VideoTexture('videos/sintel.ogv')
+updateFcts.push(function(delta, now){</p>
+
+<pre><code>// to update the texture are every frame
+videoTexture.update(delta, now)
+</code></pre>
+
+<p>})
+```</p>
+
+<p>Then you use it in a mesh like this.</p>
+
+<p>```javascript
+// use the texture in a THREE.Mesh
+var geometry    = new THREE.CubeGeometry(1,1,1);
+var material    = new THREE.MeshBasicMaterial({</p>
+
+<pre><code>map : videoTexture.texture
+</code></pre>
+
+<p>});
+var mesh    = new THREE.Mesh( geometry, material );
+scene.add( mesh );
+```</p>
+
+<p>Here is the detailled API:</p>
+
+<ul>
+<li><code>videoTexture.video</code>: the video dom element from which the video is used</li>
+<li><code>videoTexture.texture</code>: the generated <code>THREE.Texture</code></li>
+<li><code>videoTexture.update(delta, now)</code>: update the texture from the video element</li>
+<li><code>videoTexture.destroy()</code>: destroy the object</li>
+</ul>
+
+
+<h2>threex.webcamtexture.js</h2>
+
+<p>It will read the webcam using
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator.getUserMedia">getUserMedia</a>.
+The browser
+will likely ask for permissions to the users.
+Let's see how to use it. You instanciate the texture itself.</p>
+
+<p>```javascript
+var webcamTexture   = new THREEx.WebcamTexture()
+updateFcts.push(function(delta, now){</p>
+
+<pre><code>// to update the texture are every frame
+webcamTexture.update(delta, now)
+</code></pre>
+
+<p>})
+```</p>
+
+<p>Then you use it in a mesh</p>
+
+<p>```javascript
+// use the texture in a THREE.Mesh
+var geometry    = new THREE.CubeGeometry(1,1,1);
+var material    = new THREE.MeshBasicMaterial({</p>
+
+<pre><code>map : videoTexture.texture
+</code></pre>
+
+<p>});
+var mesh    = new THREE.Mesh( geometry, material );
+scene.add( mesh );
+```</p>
+
+<p>Here is the detailled API:</p>
+
+<ul>
+<li><code>videoTexture.video</code>: the video dom element from which the video is used</li>
+<li><code>videoTexture.texture</code>: the generated <code>THREE.Texture</code></li>
+<li><code>videoTexture.update(delta, now)</code>: update the texture from the video element</li>
+<li><code>videoTexture.destroy()</code>: destroy the object</li>
+<li><code>THREEx.WebcamTexture.available</code>: true if <code>getUserMedia</code> is available on this
+browser, false otherwise.</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Beautiful Dynamic Laser Beams for Your Space Game with threex.laser Game Extension For Three.js]]></title>
@@ -468,44 +639,6 @@ colorPasses.delay   = 2;
 </code></p>
 
 <p><a href="https://news.ycombinator.com/item?id=7639554">Discuss this post on Hacker News.</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[One THREEx a Day Gets Your Game On Its Way! A Challenge!]]></title>
-    <link href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/"/>
-    <updated>2014-04-22T17:51:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge</id>
-    <content type="html"><![CDATA[<p>Hello everybody! I’m working on a new project that I want to share with you. But first, let me start by telling you what inspired me to do it.</p>
-
-<p>Last week, I read an interesting article written by John Resig called <a href="http://ejohn.org/blog/write-code-every-day/">Write code everyday</a>. He explains how he succeed in efficiently accomplishing his side projects. This article opened my eyes. It was like a revelation, a procedure that I just had to apply to my own work. An answer to the questions I had been asking myself: How could I be more efficient? How could I be more disciplined and improve my execution?</p>
-
-<p>The tactic that Resig decided to practice to improve his productivity was quite simple: He tried working on his side projects a little everyday, for a delimited amount of time, and it worked! He didn’t feel like a failure when he didn't do enough "quality" work during the weekend anymore! He found a way to organize his schedule, do his work, while still devoting time to leisure activities. I find this amazingly intelligent!</p>
-
-<!-- more -->
-
-
-
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/CShTdamWAzg" frameborder="0" allowfullscreen></iframe>
-
-
-<p>Resig’s work inspired me. So, I wanna try to do something similar: I want to publish a three.js game extension every day! Yes I know, it’s a challenge! But I wanna see if Resig’s tactic helps me gain more discipline when publishing my code. The idea is to publish one every day of the week, from Monday to Friday, one per day for two months, except on the weekends, because well, one has to rest at some point :)</p>
-
-<p>Ok, so you already know that I love three.js, a javascript 3D library that makes Webgl. Three.js is the new up and coming technology, it’s hot, cutting-edge, and it has been deployed worldwide. Well, now I would really love to help you write your own games with it! I think the best way to do this is by publishing one three.js game extension per day. I have an enormous amount of information, and code, to share with you. I just have to get it out there for you to see!</p>
-
-<p>Three.js Game extensions will make the dream of developing your own 3d video game come true. My moto is <strong>“One threex per day, gets your game on it’s way!”</strong> I’ve got over <a href="http://www.threejsgames.com/extensions/">40 cool extensions</a> that could be used to facilitate the development of 3D games on the web. And I wanna share this knowledge with the world!</p>
-
-<p><a href='http://jeromeetienne.github.io/stellar7/' target='_blank'><img class="right" src="http://learningthreejs.com/data/2014-04-22-one-threex-a-day-gets-your-game-on-its-way-a-challenge/images/stellar7-screenshot.png" width="444" height="250"></a>
-Most of the three.js game extensions that I will publish support require.js and it would be very easy to add them to your own game. With these extensions you can actually learn to code 3D mini-games in less than an hour, like <a href="http://learningthreejs.com/blog/2014/01/10/flying-spaceship-minigame/">Flying Spaceships</a> or to create more detailed video games with a lot of cool post-processing effects, like <a href="http://jeromeetienne.github.io/stellar7/">Stellar7</a>. Just to give you an idea, I coded Stellar7 in only 2 weeks thanks to threex extensions! That's a record :)</p>
-
-<p>The three.js game extensions will teach you real skills and tools to help you develop cool stuff on 3D. The best part is that you can reproduce everything you learn cause it’s all open source and available to anyone!</p>
-
-<p>The Three.Js Games mission is to ignite the spark of genius creativity that every developer has.</p>
-
-<p>I hope you enjoy it :)</p>
-
-<p>That’s all folks!</p>
 ]]></content>
   </entry>
   

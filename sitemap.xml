@@ -281,16 +281,22 @@
         <lastmod>2014-04-29T13:29:05+02:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://learningthreejs.com/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js/
+        </loc>
+        <lastmod>2014-04-30T13:34:51+02:00</lastmod>
+    </url>
+    <url>
         <loc>http://learningthreejs.com/about/</loc>
         <lastmod>2013-03-06T12:45:11+01:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/blog/archives/</loc>
-        <lastmod>2014-04-29T13:29:05+02:00</lastmod>
+        <lastmod>2014-04-30T13:34:51+02:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/</loc>
-        <lastmod>2014-04-29T13:29:05+02:00</lastmod>
+        <lastmod>2014-04-30T13:34:51+02:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/robots.txt</loc>

@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-04-29T13:30:01+02:00</updated>
+  <updated>2014-04-30T13:35:08+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,187 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Easy Way To Integrate Video, or even WebCam, in Your Texture with THREEx.VideoTexture Game Extension for THREE.js]]></title>
+    <link href="http://learningthreejs.com/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js/"/>
+    <updated>2014-04-30T13:38:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.videotexture/master/examples/images/screenshot-threex-videotexture-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="http://learningthreejs.com/blog/categories/threexaday/">&#8216;one threex a day&#8217; challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.videotexture">threex.videotexture</a>.
+threex.videotexture is a <a href="http://www.threejsgames.com/extensions/">threex game extension for three.js</a>.
+It provides help to handle videos in texture.
+It is possible to put html5 <code>&lt;video&gt;</code> output in texture with <code>threex.videotexture.js</code>.
+You can even put the webcam in a texture with <code>threex.webcamtexture.js</code>.
+It is cool if you want to make a tv screen in your game, You can easily use this extension. You pick the video to play and you are ready to go.
+The screen surface will use your video texture making it look like a TV set.
+If you need it, you can try <code>threex.audiovideotexture.js</code> where the
+video is mapped on the texture and additionnally the sound of the video
+is handled via
+<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">web audio API</a>.
+Thus you can have localized sound, which is neat in the 3d environment.</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html' target='_blank'><input type="button" value='Try Threex.videotexture Demo Now' /></a></p>
+
+<p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/O5ae0FhrOEo" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don&#8217;t Tell</h1>
+
+<ul>
+<li>Here is a <a href="http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html">videotexture example</a> and its <a href="https://github.com/jeromeetienne/threex.videotexture/blob/master/examples/videotexture.html">source</a>.
+It read the video from a file via video dom element and display it in a texture</li>
+<li>Here is a <a href="http://jeromeetienne.github.io/threex.videotexture/examples/audiovideotexture.html">audio/video texture example with WebAudio API</a>and its <a href="https://github.com/jeromeetienne/threex.videotexture/blob/master/examples/audiovideotexture.html">source</a>.
+It shows how to plug the video sound into the WebAudio API because you get localised sounds.
+This is particularly useful in 3D.
+&#8220;Audio/Video&#8221; texture is a texture where the sound comes from the object3d on which
+the texture is mapped.</li>
+<li>Here is another <a href="http://jeromeetienne.github.io/threex.videotexture/examples/webcamtexture.html">webcam example</a> and its <a href="https://github.com/jeromeetienne/threex.videotexture/blob/master/examples/webcamtexture.html">source</a>.
+It reads the webcam thru getUserMedia and put it in a texture.</li>
+</ul>
+
+
+<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it manually. Just do</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.videotexture.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can install with <a href="http://bower.io/">bower</a>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.videotexture
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>then you add that in your html</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;bower_components/threex.videotexture/threex.videotexture.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>How To Use it</h1>
+
+<h2>threex.videotexture.js</h2>
+
+<p>First you instanciate the texture itself</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// create the videoTexture</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">videoTexture</span><span class="o">=</span> <span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">VideoTexture</span><span class="p">(</span><span class="s1">&#39;videos/sintel.ogv&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="nx">updateFcts</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="nx">now</span><span class="p">){</span>
+</span><span class='line'>    <span class="c1">// to update the texture are every frame</span>
+</span><span class='line'>    <span class="nx">videoTexture</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="nx">now</span><span class="p">)</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then you use it in a mesh like this.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// use the texture in a THREE.Mesh</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">geometry</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">CubeGeometry</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">material</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshBasicMaterial</span><span class="p">({</span>
+</span><span class='line'>    <span class="nx">map</span> <span class="o">:</span> <span class="nx">videoTexture</span><span class="p">.</span><span class="nx">texture</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">mesh</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">);</span>
+</span><span class='line'><span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span> <span class="nx">mesh</span> <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here is the detailled API:</p>
+
+<ul>
+<li><code>videoTexture.video</code>: the video dom element from which the video is used</li>
+<li><code>videoTexture.texture</code>: the generated <code>THREE.Texture</code></li>
+<li><code>videoTexture.update(delta, now)</code>: update the texture from the video element</li>
+<li><code>videoTexture.destroy()</code>: destroy the object</li>
+</ul>
+
+
+<h2>threex.webcamtexture.js</h2>
+
+<p>It will read the webcam using
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator.getUserMedia">getUserMedia</a>.
+The browser
+will likely ask for permissions to the users.
+Let&#8217;s see how to use it. You instanciate the texture itself.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">webcamTexture</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">WebcamTexture</span><span class="p">()</span>
+</span><span class='line'><span class="nx">updateFcts</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="nx">now</span><span class="p">){</span>
+</span><span class='line'>    <span class="c1">// to update the texture are every frame</span>
+</span><span class='line'>    <span class="nx">webcamTexture</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="nx">now</span><span class="p">)</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then you use it in a mesh</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// use the texture in a THREE.Mesh</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">geometry</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">CubeGeometry</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">material</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshBasicMaterial</span><span class="p">({</span>
+</span><span class='line'>    <span class="nx">map</span> <span class="o">:</span> <span class="nx">videoTexture</span><span class="p">.</span><span class="nx">texture</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">mesh</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">);</span>
+</span><span class='line'><span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span> <span class="nx">mesh</span> <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here is the detailled API:</p>
+
+<ul>
+<li><code>videoTexture.video</code>: the video dom element from which the video is used</li>
+<li><code>videoTexture.texture</code>: the generated <code>THREE.Texture</code></li>
+<li><code>videoTexture.update(delta, now)</code>: update the texture from the video element</li>
+<li><code>videoTexture.destroy()</code>: destroy the object</li>
+<li><code>THREEx.WebcamTexture.available</code>: true if <code>getUserMedia</code> is available on this
+browser, false otherwise.</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Beautiful Dynamic Laser Beams for Your Space Game with threex.laser Game Extension For Three.js]]></title>
@@ -3460,246 +3641,6 @@ It think having it on android and ios would significantly change WebGL landscape
 Meanwhile you can already play with it, and do minigames with it, thus be ready when needed :)</p>
 
 <p>That&#8217;s all to today folks. Have fun :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sports Car in WebGL]]></title>
-    <link href="http://learningthreejs.com/blog/2012/05/21/sport-car-in-webgl/"/>
-    <updated>2012-05-21T12:16:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2012/05/21/sport-car-in-webgl</id>
-    <content type="html"><![CDATA[<p>This post is about sports cars and how cool they can be!
-Once again, we gonna expose gems from three.js examples.
-It contains several sport cars which are fun to play with.
-You can drive them around and all.
-This is a good base for a game.
-We made tQuery plugins on top to make them easily reusable.
-Our scene will be a nice sport car, a grass ground, a sunset sky with shadow casting.
-All that in 40-lines of javascript.</p>
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/KxRfFd9SM5s" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-
-
-<!-- more -->
-
-
-<h2>What We Gonna Build ?</h2>
-
-<p>What you see below is what we gonna build. Pretty nice no ?
-<a href="http://learningthreejs.com/data/2012-05-21-sport-car-in-webgl/">Try it out</a>.</p>
-
-<center>
-    <iframe width="100%" height="420" src="http://learningthreejs.com/data/2012-05-21-sport-car-in-webgl/" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
-</center>
-
-
-<p>It shows what is possible with <code>tquery.car.js</code>.
-It is a plugin provides rendering and controls of sport cars.
-It is heavily based on some examples by <a href="http://alteredqualia.com/">alteredq</a> in
-<a href="http://github.com/mrdoob/three.js/">three.js</a>.
-You can find them
-<a href="http://mrdoob.github.com/three.js/examples/webgl_materials_cars.html">here</a>
-and
-<a href="http://mrdoob.github.com/three.js/examples/webgl_materials_cubemap_dynamic.html">here</a>.
-The car is a Bugatti Veyron model by
-<a href="http://artist-3d.com/free_3d_models/dnm/model_disp.php?uid=1129">Troyano</a>.
-Now let&#8217;s get started.</p>
-
-<h2>Let&#8217;s start coding</h2>
-
-<p>We start to create our world as usual. We enable the
-<a href="http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/">boilerplate for three.js</a>.
-It is a fast way start, avoids repetitive tasks, following DRY principles and includes all those good practices which are so easy to forget.
-Then we just have to <code>.start()</code> the rendering loop on this world.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var world    = tQuery.createWorld().boilerplate().start();</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we setup the renderer.
-In this scene, we want to cast shadows as if it cames from the sun.
-This is a nice way to improve the realism in our 3D scene
-We already talked about it in <a href="http://learningthreejs.com/blog/2012/01/20/casting-shadows/">&#8220;Casting Shadow&#8221;</a>
-The renderer needs to be notified so we set <code>.shadowMapEnabled</code> and <code>.shadowMapSoft</code> to true.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>world.renderer().shadowMapEnabled    = true;
-</span><span class='line'>world.renderer().shadowMapSoft        = true;</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>The Sky</h2>
-
-<p>Now we add a sky to the 3D scene.
-It will fill the space and make the scene more realistic.
-We use a skymap for that. It is WebGL trick which take a cube, make it so large that it seems infinite.
-On it, we map a 360degeree texture shaped as a cube, and use a special shader to display it. All is in this
-shader, it makes the cube appear as if we were in a gigantic sphere. Exactly like we would feel with a sky above
-our head.
-We already saw skymaps in <a href="http://learningthreejs.com/blog/2011/08/15/lets-do-a-sky/">&#8220;let&#8217;s do a sky&#8221;</a> post.
-We just added a new plugins <code>tquery.skymap.js</code>.
-It avoids repeative code when you do skymap or environement map.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>tQuery.createSkymap('skybox').addTo(world);</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>The Lights</h2>
-
-<p>Here we setup the lights. We put one ambient and 2 directional lights.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>tQuery.createAmbientLight().addTo(world).color(0xFFFFFF);
-</span><span class='line'>tQuery.createDirectionalLight().addTo(world).position(1,1,-1).color(0xffffff).intensity(2);</span></code></pre></td></tr></table></div></figure>
-
-
-<p>It is rather simple so lets focus on the last one, the one casting shadow.
-We want it to appear as coming from the sun.
-So we look at the skymap and approximatly localized the sun at <code>(-10, 20, 30)</code>.
-Then we tune shadow parameters to fit our tastes.
-You can find more details in <a href="http://learningthreejs.com/blog/2012/01/20/casting-shadows/">&#8220;Casting Shadow&#8221;</a> post.
-Those parameters can be tricky to tune. It helps if you make the shaddow
-camera visible. You can do so with <code>.shadowCameraVisible(true)</code>.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>tQuery.createDirectionalLight().addTo(world).position(-10, 20, 30).color(0xffffff).intensity(4)
-</span><span class='line'>  .castShadow(true).shadowDarkness(0.8)
-</span><span class='line'>  .shadowMap(512*2,512*2)
-</span><span class='line'>  .shadowCamera(10, -10, 20, -20, 0.1, 50);</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>The Ground</h2>
-
-<p>Now we add the ground. A car needs a ground to stand on :)
-For that, we got a little helper <code>tquery.grassground.js</code>.
-This is just building a <code>THREE.Plane</code> and mapping a grass
-texture into it.
-It does the job for a simple and fast ground.
-We have seen something similar with <code>tquery.checkerboard.js</code> in
-<a href="http://learningthreejs.com/blog/2012/05/04/tquery-md2character-a-plugin-for-doom-characters/">&#8220;tQuery Plugin for Doom Characters&#8221;</a>
-post.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var ground   = tQuery.createGrassGround({
-</span><span class='line'>  textureUrl  : '../../grassground/images/grasslight-big.jpg',
-</span><span class='line'>  textureRepeatX  : 30,
-</span><span class='line'>  textureRepeatY  : 30,       
-</span><span class='line'>}).addTo(world).receiveShadow(true).scaleBy(100);</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>The Car</h2>
-
-<p>First we instanciate a <code>tQuery.Car</code> object with <code>tQuery.createCar()</code>.
-It will load the models, then material will be setup.
- <code>tQuery.Car</code> handles the displacement of the car too.
-You can make the car turn, go forward and backward, using <code>car.controls()</code>.
-you can even switch on/off the lights with <code>.flareVisible()</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var car  = tQuery.createCar();</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then we had the car model in our world scene. Important if you want to see it :)</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>world.add(car.model())</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we got the car on the scene, this is all good.
-But we need the camera to follow this car. We create a camera controls specific
-to mimic the usual camera in car game. The camera is placed a bit behind the car and looks forward.
-The faster you go, the further you look. This is always nice to see what is coming at you :)</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>tQuery.Car.createCameraControls(car, world);</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Car Controls</h2>
-
-<p>Now we hook the controls to the car. This determines how the player will control the
-car. It can be controlled by the keyboard, so users press arrows on keyboard
-and the car moves.
-It can be controlled by the <a href="http://dev.w3.org/geo/api/spec-source-orientation.html">device orientation</a>.
-We already talked device orientation in game in
-<a href="http://learningthreejs.com/blog/2011/09/20/lets-make-a-3D-game-device-orientation/">this post</a>.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var hasTouchEvent    = "ontouchstart" in window;
-</span><span class='line'>if( hasTouchEvent )   car.hookDeviceOrientation();
-</span><span class='line'>else          car.hookKeyboard();</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now maybe you wonder &#8220;why this devices orientation&#8221; ?
-I ported tQuery to IOS. So since tQuery r49.1, it is possible to run
-tquery on your iphones or ipads.
-It is possible to render with <a href="http://www.w3.org/TR/2dcontext/">canvas 2D</a> in the regular browser.
-Even possible to render WebGL using
-<a href="https://github.com/benvanik/WebGLBrowser">WebGL Browser</a> by <a href="https://twitter.com/#!/benvanik">Ben Vanik</a>.</p>
-
-<h2>The Road</h2>
-
-<p>In a scene, it is cool to create a goal, something for the user to do.
-A road seems like a perfect goal for a car :)
-First we create the material we gonna use. This is a <a href="http://en.wikipedia.org/wiki/Lambertian_reflectance">lambert</a>
-with a <a href="http://en.wikipedia.org/wiki/Reflection_mapping">reflection</a>. You put a cube texture in the
- <code>envMap</code> parameter and you got your reflection :) Here again, we use tquery.skymap.js to create the cube texture.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var material = new THREE.MeshLambertMaterial({
-</span><span class='line'>  ambient : 0x444444,
-</span><span class='line'>  color   : 0x666666,
-</span><span class='line'>  envMap  : tQuery.createCubeTexture('skybox')
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we add the arches. In fact, they are torus which are half in the ground, so the
-visible part looks like an arche.
-We put 5 of them along the Z axis.
-They are all aligned to give a kindof road.
- <code>.castShadow(true)</code> make the 3D object as casting shadow. Always a nice trick to enhance realism.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>for(var i = 0; i &lt; 5; i++){
-</span><span class='line'>  tQuery.createTorus(1.25-0.25, 0.25, 8, 6*4, material).addTo(world)
-</span><span class='line'>      .castShadow(true).translateZ( 2 + i * 5 );      
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And we are <strong>DONE</strong>! We got a nice looking car, driving on grass with a sun set. It is
-controlled by keyboard and the camera controls is suitable for a game. Not bad
-for 40 lines of javascript.</p>
-
-<h2>Conclusion</h2>
-
-<p>In this post, i walked you thru a example of <code>tQuery.car.js</code>. It builds a rather
-cool scene in 40lines of js. It seems a nice base for a game. Like the
-<a href="http://learningthreejs.com/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/">two</a>
-<a href="http://learningthreejs.com/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl/">previous</a>
-walk through, we got very short code. I like this, it makes it easier to understand
-and learn. WebGL for All!! :)</p>
-
-<p>That&#8217;s all folks! have fun.</p>
 ]]></content>
   </entry>
   

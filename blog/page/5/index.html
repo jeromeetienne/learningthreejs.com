@@ -9,12 +9,14 @@
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="This post is the first of a serie on particles.
-It specifically is about
-sparks.js.
-sparks.js is lightweight 3d
-Particle system
-in javascript, for &hellip;">
+  <meta name="description" content="This post is the second of our serie on particles.
+It presents
+sparkseditor
+, an online editor for
+sparks.js
+with
+three.js.
+In a few word, it is a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +85,84 @@ in javascript, for &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/12/19/particles-online-editor-for-sparks-js/">Particles: Online Editor for Sparks.js</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-19T12:11:00+01:00" pubdate data-updated="true">Dec 19<span>th</span>, 2011</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/5/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/5/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is the second of our <a href="/blog/categories/particles">serie on particles</a>.
+It presents
+<a href="https://github.com/jeromeetienne/sparkseditor">sparkseditor</a>
+, an online editor for
+<a href="https://github.com/zz85/sparks.js">sparks.js</a>
+with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>.
+In a few word, it is a webpage which provide an text editor
+with a
+<a href="https://github.com/zz85/sparks.js">sparks.js</a>
+effect.
+You got the code in the editor
+and
+you see <em>live</em> the resulting particles effect.
+I like this <em>live</em> aspect a lot :)
+I think it makes your design more direct, lower latency, less overhead.
+More creative in a way.
+<a href="http://jeromeetienne.github.com/sparkseditor/">Try it out</a>.</p>
+
+<p>This editor has been made to lower the barrier of entry on
+<a href="https://github.com/zz85/sparks.js">sparks.js</a>
+with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+particles.
+The UI is rather simple and obvious. You can find a small presentation in the
+screencast below.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/12/19/particles-online-editor-for-sparks-js/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -815,94 +895,6 @@ It is a micro library to handle in-memory cache which works in node and browser.
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/09/14/lets-make-a-3D-game-map-editor/">Let&#8217;s Make a 3D Game: Map Editor</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-09-14T19:07:00+02:00" pubdate data-updated="true">Sep 14<span>th</span>, 2011</time>
-        
-        
-          <div class="sharing" style='text-align: right;'>
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/5/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/5/index.html" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-</div>
-
-        
-     </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This is a new article of the &#8220;Let&#8217;s Make a 3D Game&#8221; <a href="/blog/categories/tutorial3dgame/">series</a>.
-In the previous one, we focused
-on <a href="/blog/2011/09/12/lets-Make-a-3D-game-keyboard/">keyboard</a>. We will
-focus on <em>map editor</em> for this one.
-In most games, the player moves around a map, sometime they are
-called <a href="http://en.wikipedia.org/wiki/Level_(video_gaming)">levels</a>.
-<em>Maps</em> are a key part of a game. They describes the world the player lives in,
-its rules, its limits, its geography.
-Additionnaly when a player completes a map, he
-goes in another better/harder map. It gives a sense
-progression which is fun. Players like fun things :)</p>
-
-<h2>So let&#8217;s make a map editor</h2>
-
-<p><img class="right" src="/data/lets_make_a_game_map_editor/images/200px-Voxels.svg.png" title="Example" ></p>
-
-<p>So i searched for a way to do map for our <em>marble game</em>.
-I wanted something <strong>very reusable and hackable</strong>,
-something you could easily use in your own games.
-I picked <a href="http://en.wikipedia.org/wiki/Voxel">voxels</a>.
-The illustration from <a href="http://en.wikipedia.org/wiki/File:Voxels.svg">wikipedia</a>
-on the right, may help understanding.
-They are easy to code, simple to understand, yet efficient and flexible.
-On top of that, one of <a href="https://github.com/mrdoob/three.js/tree/master/examples">three.js examples</a> is a
-<a href="http://mrdoob.github.com/three.js/examples/webgl_interactive_voxelpainter.html">voxel painter</a>
-in WebGL. So most of the work was already done for us!</p>
-
-<p>Only two features were missing to make it a <a href="http://en.wikipedia.org/wiki/Level_editor">map editor</a>.
-<strong>First</strong>, we need to load and save those maps.
-Thus we can edit those maps, and tune them until to get a good <a href="http://en.wikipedia.org/wiki/Gameplay">gameplay</a>.
-<strong>Second</strong>, the map must be composed of various type of cubes.
-Different type of cubes will have different purposes in the game. e.g. one cube
-may be wood or be water, one may make your explode on contact, one may
-make you teleport, anything you want.
-So i did those modifications and came up with
-this <a href="http://jeromeetienne.github.com/marbleGame/editor">editor</a>.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/09/14/lets-make-a-3D-game-map-editor/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/6/">&larr; Older</a>
@@ -920,6 +912,10 @@ this <a href="http://jeromeetienne.github.com/marbleGame/editor">editor</a>.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js/">Easy Way To Integrate Video, or even WebCam, in Your Texture with THREEx.VideoTexture Game Extension for THREE.js</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/04/29/beautiful-dynamic-laser-beams-for-your-space-game-with-threex-dot-laser-game-extension-for-three-dot-js/">Beautiful Dynamic Laser Beams for Your Space Game with threex.laser Game Extension For Three.js</a>
       </li>
     
@@ -933,10 +929,6 @@ this <a href="http://jeromeetienne.github.com/marbleGame/editor">editor</a>.</p>
     
       <li class="post">
         <a href="/blog/2014/04/24/crazy-post-processing-color-effects-to-change-your-game-ambiance-with-threex-dot-coloradjust-game-extension-for-three-dot-js/">Crazy Post Processing Color Effects To Change Your Game Ambiance With Threex.coloradjust Game Extension For Three.js</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">One THREEx a Day Gets Your Game On Its Way! A Challenge!</a>
       </li>
     
   </ul>
