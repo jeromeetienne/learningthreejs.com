@@ -3,12 +3,29 @@ layout: post
 title: "Live Cube Maps Reflections In Your Three.js Game With threex.cubecamera"
 date: 2014-05-09 20:20
 comments: true
-published: true
-categories: 
+categories: [threexaday, threex, game, extension, three.js]
+published: false
 ---
 
 
+<a href='http://jeromeetienne.github.io/threex.cubecamera/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.cubecamera/master/examples/images/screenshot-threex-cubecamera-512x512.jpg" width="250" height="250"></a>
+This is post is part of the ['one threex a day' challenge](/blog/categories/threexaday/). 
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about 
+[threex.cubecamera](http://www.threejsgames.com/extensions/#threex.cubecamera).
 threex.cubecamera is a [three.js games extension](http://www.threejsgames.com/extensions/) which provides a helper for cube cameras. It is very useful when a given object must reflect a texture cube live. Just look at it, you can see the reflection as clear as a real life mirror! You can give your texture the color you want, for example in the demo I created a "gold" sphere to give it a shinier look. Be careful though, this requires 6 renderings of the scene every time you update it. It becomes expensive fast. 
+
+
+<a href='http://jeromeetienne.github.io/threex.cubecamera/examples/demo.html' target='_blank'><input type="button" value='Try Threex.cubecamera Demo Now' /></a>
+
+To see the [other posts about one threex a day](/blog/categories/threexaday/) and forget our moto!
+**"A THREEx extension a day, gets your game on its way!"**
+
+
+<!-- more -->
+
+<iframe width="420" height="315" src="//www.youtube.com/embed/eZkl-r-UOsg" frameborder="0" allowfullscreen></iframe>
 
 Show Don't Tell
 ===============
@@ -24,10 +41,6 @@ It shows a little bit shinier discoball.
 TODO to port in its own demo.
 It doesnt even use live rendering.
 Use the "minecraft goes party" from nextgamefrontier talk.
-
-A Screenshot
-============
-[![screenshot](https://raw.githubusercontent.com/jeromeetienne/threex.cubecamera/master/examples/images/screenshot-threex-cubecamera-512x512.jpg)](http://jeromeetienne.github.io/threex.cubecamera/examples/demo.html)
 
 How To Install It
 =================

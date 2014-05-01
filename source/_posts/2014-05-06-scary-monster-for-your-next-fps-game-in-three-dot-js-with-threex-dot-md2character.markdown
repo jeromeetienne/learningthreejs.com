@@ -3,8 +3,8 @@ layout: post
 title: "Scary Monster For Your Next FPS Game in Three.js With threex.md2character"
 date: 2014-05-06 20:19
 comments: true
-published: true
-categories: 
+categories: [threexaday, threex, game, extension, three.js]
+published: false
 ---
 
 <a href='http://jeromeetienne.github.io/threex.md2character/examples/select.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.md2character/master/examples/images/screenshot-threex-md2character-512x512.jpg" width="250" height="250"></a>
@@ -27,6 +27,16 @@ The model is make by
 [@oosmoxiecode](https://twitter.com/#!/oosmoxiecode)'s 
 [MD2 converter](http://oos.moxiecode.com/blog/2012/01/md2-to-json-converter/).
 
+<a href='http://jeromeetienne.github.io/threex.md2character/examples/select.html' target='_blank'><input type="button" value='Try Threex.md2character Demo Now' /></a>
+
+To see the [other posts about one threex a day](/blog/categories/threexaday/) and forget our moto!
+**"A THREEx extension a day, gets your game on its way!"**
+
+
+<!-- more -->
+
+<iframe width="420" height="315" src="//www.youtube.com/embed/eZkl-r-UOsg" frameborder="0" allowfullscreen></iframe>
+
 Show Don't Tell
 ===============
 * [examples/select.html](http://jeromeetienne.github.io/threex.md2character/examples/select.html)
@@ -36,11 +46,6 @@ It shows all the possibilities for the skins, the weapons and the animations.
 \[[view source](https://github.com/jeromeetienne/threex.md2character/blob/master/examples/ratmahattaplayer.html)\] :
 It shows how to controls the mesh as if it was a player in a game with input
 in the keyboard wasd or arrows keys.
-
-A Screenshot
-============
-[![screenshot](https://raw.githubusercontent.com/jeromeetienne/threex.md2character/master/examples/images/screenshot-threex-md2character-512x512.jpg)](http://jeromeetienne.github.io/threex.md2character/examples/select.html)
-
 
 How To Install It
 =================
@@ -75,14 +80,11 @@ Don't forget to update it when you render with ```ratamahatta.update(delta)```.I
 
 It has simple functions to set the skin, weapon and animations.
 
-* ```ratamahatta.skinNames``` is the names of available skins. It has 5 different skins
-```["ratamahatta", "ctf_b", "ctf_r", "dead", "gearwhore"]```
+* ```ratamahatta.skinNames``` is the names of available skins. It has 5 different skins ```["ratamahatta", "ctf_b", "ctf_r", "dead", "gearwhore"]```
 * ```ratamahatta.setSkinName(skinName)``` set the skin based on its name
-* ```ratamahatta.weaponsNames``` is the names of available weapons. It has 12 animation
-```["none", "weapon", "w_bfg", "w_blaster", "w_chaingun", "w_glauncher", "w_hyperblaster", "w_machinegun", "w_railgun", "w_rlauncher", "w_shotgun", "w_sshotgun"]``` 
+* ```ratamahatta.weaponsNames``` is the names of available weapons. It has 12 animation ```["none", "weapon", "w_bfg", "w_blaster", "w_chaingun", "w_glauncher", "w_hyperblaster", "w_machinegun", "w_railgun", "w_rlauncher", "w_shotgun", "w_sshotgun"]``` 
 * ```ratamahatta.setWeaponName(weaponName)``` set the weapon based on its name
-* ```ratamahatta.animationNames``` is the names of available animation. It has 16 animations
-```["stand", "run", "attack", "pain", "jump", "flip", "salute", "taunt", "wave", "point", "crstand", "crwalk", "crattack", "crpain", "crdeath", "death"]``` 
+* ```ratamahatta.animationNames``` is the names of available animation. It has 16 animations ```["stand", "run", "attack", "pain", "jump", "flip", "salute", "taunt", "wave", "point", "crstand", "crwalk", "crattack", "crpain", "crdeath", "death"]``` 
 * ```ratamahatta.setAnimationName(animationName)``` set the animation based on its name
 
 
@@ -125,22 +127,5 @@ Dont forget to update it at every frame with a ```character.update(delta)```
 * ```character.load(config)``` loads the characters
   * ```character.addEventListener('loaded', function(){})``` to be notified when the model is loaded
   * ```character.isLoaded()``` is true if the model is loaded, false otherwise
-
-### Possible improvements
-* make the skin cachable
-* make a demo with LOTS of characters all doing something differents-
-    - maybe a simple maze with rock skin
-    - what about some localized sound on each
-    - some low altitude camera fly
-    - many runing in a maze
-    - some small angle directional lights to get long shadows casting
-* see if there are other characters in three.js
-    - i remember a superman from alteredqueue
-    - and a fat ogre
-    - find reference on it and put it here
-    - make a 'possible enhancement' with those link
-
-
-
 
 

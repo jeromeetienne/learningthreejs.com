@@ -3,11 +3,28 @@ layout: post
 title: "Perlin Terrain Procedural Generation For Your Game With threex.terrain"
 date: 2014-05-12 20:21
 comments: true
-published: true
-categories: 
+categories: [threexaday, threex, game, extension, three.js]
+published: false
 ---
 
+<a href='http://jeromeetienne.github.io/threex.terrain/examples/planegeometry.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.terrain/master/examples/images/screenshot-threex-terrain-512x512.jpg" width="250" height="250"></a>
+This is post is part of the ['one threex a day' challenge](/blog/categories/threexaday/). 
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about 
+[threex.terrain](http://www.threejsgames.com/extensions/#threex.terrain).
 threex.terrain is a [three.js games extension](http://www.threejsgames.com/extensions/) which provides a procedural terrain generated from a simplex noise, the [Perlin noise](http://en.wikipedia.org/wiki/Perlin_noise). As you can see you have different zones that make the terrain more varied, the blue zone represents water, the green one represents trees or grass and the white zone at the mountain top is snow. Imagine your video game character walking on these 3D mountains or flying over them, pretty cool eh? You can take him through river, forest, wind and snow if you want ;)  
+
+<a href='http://jeromeetienne.github.io/threex.terrain/examples/planegeometry.html' target='_blank'><input type="button" value='Try Threex.terrain Demo Now' /></a>
+
+To see the [other posts about one threex a day](/blog/categories/threexaday/) and forget our moto!
+**"A THREEx extension a day, gets your game on its way!"**
+
+
+<!-- more -->
+
+<iframe width="420" height="315" src="//www.youtube.com/embed/eZkl-r-UOsg" frameborder="0" allowfullscreen></iframe>
+
 
 Show Don't Tell
 ===============
@@ -24,9 +41,6 @@ It show how to test the height in a 3d terrain
 \[[view source](https://github.com/jeromeetienne/threex.terrain/blob/master/examples/minecraft.html)\] :
 It show a minecraft character walking on perlin terrain
 
-A Screenshot
-============
-[![screenshot](https://raw.githubusercontent.com/jeromeetienne/threex.terrain/master/examples/images/screenshot-threex-terrain-512x512.jpg)](http://jeromeetienne.github.io/threex.terrain/examples/planegeometry.html)
 
 How To Install It
 =================
@@ -107,8 +121,3 @@ If you want to display the result in a canvas 2d, just do
 var canvas  = THREEx.Terrain.heightMapToCanvas(heightMap)
 document.body.appendChild(canvas)
 ```
-
-## Possible optimisations
-* use shader material to build the perlin in shader
-* use THREE.BufferGeometry to boost the generation step
-

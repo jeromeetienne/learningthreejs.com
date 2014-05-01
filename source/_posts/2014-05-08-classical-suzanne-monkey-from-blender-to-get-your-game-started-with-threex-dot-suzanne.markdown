@@ -3,27 +3,33 @@ layout: post
 title: "Classical Suzanne Monkey From Blender To Get Your Game Started With threex.suzanne"
 date: 2014-05-08 20:20
 comments: true
-published: true
-categories: 
+categories: [threexaday, threex, game, extension, three.js]
+published: false
 ---
 
-
-threex.suzanne
-==============
-
+<a href='http://jeromeetienne.github.io/threex.suzanne/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.suzanne/master/examples/images/screenshot-threex-suzanne-512x512.jpg" width="250" height="250"></a>
+This is post is part of the ['one threex a day' challenge](/blog/categories/threexaday/). 
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about 
+[threex.suzanne](http://www.threejsgames.com/extensions/#threex.suzanne).
 Suzanne is a classic. She is the blender famous model familiar to all blender users. It is also a [three.js games extension](http://www.threejsgames.com/extensions/) extension which provides you with a monkey model. Blender wanted to create a less common test model, so Suzanne was born. She is more precisely a 3D model of a chimpanzee head. It is pretty basic but you can easily add it as a funky animal character and install it in your platform games! 
 
+<a href='http://jeromeetienne.github.io/threex.suzanne/examples/basic.html' target='_blank'><input type="button" value='Try Threex.suzanne Demo Now' /></a>
+
+To see the [other posts about one threex a day](/blog/categories/threexaday/) and forget our moto!
+**"A THREEx extension a day, gets your game on its way!"**
+
+
+<!-- more -->
+
+<iframe width="420" height="315" src="//www.youtube.com/embed/eZkl-r-UOsg" frameborder="0" allowfullscreen></iframe>
 
 Show Don't Tell
 ===============
 * [examples/basic.html](http://jeromeetienne.github.io/threex.suzanne/examples/basic.html)
 \[[view source](https://github.com/jeromeetienne/threex.suzanne/blob/master/examples/basic.html)\] :
 It shows a basic usage of the extension.
-
-A Screenshot
-============
-[![screenshot](https://raw.githubusercontent.com/jeromeetienne/threex.suzanne/master/examples/images/screenshot-threex-suzanne-512x512.jpg)](http://jeromeetienne.github.io/threex.suzanne/examples/basic.html)
-
 
 How To Install It
 =================
