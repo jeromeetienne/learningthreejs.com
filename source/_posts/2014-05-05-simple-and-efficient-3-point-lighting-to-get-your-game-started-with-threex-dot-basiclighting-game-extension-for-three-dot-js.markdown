@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Simple And Efficient 3 Point Lighting To Get Your Game Started With Threex.basiclighting Game Extension For Three.js"
-date: 2014-05-01 13:52
+date: 2014-05-05 13:52
 comments: true
 categories: [threexaday, threex, game, extension, three.js]
 published: false

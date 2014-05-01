@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Easy to use dynamic texture to write text in your 3d object with threex.dynamictexture game extensions for three.js"
-date: 2014-04-28 13:54
+date: 2014-05-02 13:54
 comments: true
 categories: [threexaday, threex, game, extension, three.js]
 published: false

@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "Realistic Physics for Your 3D Game with THREEx.Oimo Game Extension For three.js"
-date: 2014-05-02 17:12
+date: 2014-04-28 17:12
 comments: true
 categories: [threexaday, threex, game, extension, three.js]
-published: false
+published: true
 ---
 
 <a href='http://jeromeetienne.github.io/threex.oimo/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.oimo/master/examples/images/screenshot-threex-oimo-512x512.jpg" width="250" height="250"></a>
