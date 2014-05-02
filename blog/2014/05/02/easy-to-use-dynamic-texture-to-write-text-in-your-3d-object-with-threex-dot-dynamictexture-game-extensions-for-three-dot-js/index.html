@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Crazy Post Processing Color Effects To Change Your Game Ambiance With Threex.coloradjust Game Extension For Three.js - Learning Three.js</title>
+  <title>Easy to use dynamic texture to write text in your 3d object with threex.dynamictexture game extensions for three.js - Learning Three.js</title>
   <meta name="author" content="Jerome Etienne">
 
   
@@ -20,7 +20,7 @@ One &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://learningthreejs.com/blog/2014/04/24/crazy-post-processing-color-effects-to-change-your-game-ambiance-with-threex-dot-coloradjust-game-extension-for-three-dot-js/">
+  <link rel="canonical" href="http://learningthreejs.com/blog/2014/05/02/easy-to-use-dynamic-texture-to-write-text-in-your-3d-object-with-threex-dot-dynamictexture-game-extensions-for-three-dot-js/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
@@ -83,7 +83,7 @@ One &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Crazy Post Processing Color Effects to Change Your Game Ambiance With Threex.coloradjust Game Extension for Three.js</h1>
+      <h1 class="entry-title">Easy to Use Dynamic Texture to Write Text in Your 3d Object With threex.dynamictexture Game Extensions for three.js</h1>
     
     
       <p class="meta">
@@ -99,12 +99,12 @@ One &hellip;">
   
 
 
-<time datetime="2014-04-24T13:47:00+02:00" pubdate data-updated="true">Apr 24<span>th</span>, 2014</time>
+<time datetime="2014-05-02T13:54:00+02:00" pubdate data-updated="true">May 2<span>nd</span>, 2014</time>
         
         
           <div class="sharing" style='text-align: right;'>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2014/04/24/crazy-post-processing-color-effects-to-change-your-game-ambiance-with-threex-dot-coloradjust-game-extension-for-three-dot-js/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2014/04/24/crazy-post-processing-color-effects-to-change-your-game-ambiance-with-threex-dot-coloradjust-game-extension-for-three-dot-js/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2014/05/02/easy-to-use-dynamic-texture-to-write-text-in-your-3d-object-with-threex-dot-dynamictexture-game-extensions-for-three-dot-js/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2014/05/02/easy-to-use-dynamic-texture-to-write-text-in-your-3d-object-with-threex-dot-dynamictexture-game-extensions-for-three-dot-js/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -118,29 +118,20 @@ One &hellip;">
   </header>
 
 
-<div class="entry-content"><p><a href='http://jeromeetienne.github.io/threex.coloradjust/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.coloradjust/master/examples/images/screenshot-threex-coloradjust-512x512.jpg" width="250" height="250"></a>
+<div class="entry-content"><p><a href='http://jeromeetienne.github.io/threex.dynamictexture/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.dynamictexture/master/examples/images/screenshot-threex-dynamictexture-512x512.jpg" width="250" height="250"></a>
 This is post is part of the <a href="/blog/categories/threexaday/">&#8216;one threex a day&#8217; challenge</a>.
 This challenge is to publish every day one game extension for three.js!
 One per day, every day and that for 2month!
 In this post, we gonna talk about
-<a href="http://www.threejsgames.com/extensions/#threex.coloradjust">threex.coloradjust</a>.
-threex.coloradjust is a
-<a href="http://www.threejsgames.com/extensions/">threex game extension for three.js</a>.
-It provides a color adjustement in post processing.
-It happens on the whole screen and changes every colors giving a whole new ambiance to your games.
-It includes smooth transitions between each ambiance.
-There are 22 ambiances going from &#8216;sepia&#8217;, to &#8216;thermal&#8217;, or &#8216;radioactive&#8217;.
-I highly recommend &#8216;nightvision&#8217; if your game is about fps shooting at night!
-It is very flexible, you can build your own ambiance with any image editing software.
-It is ported from
-<a href="http://webglsamples.googlecode.com/hg/color-adjust/color-adjust.html">color-adjust demo</a>
-by
-<a href="http://greggman.com/">greggman</a>.
-Here is a <a href="http://www.youtube.com/watch?v=rfQ8rKGTVlg#t=25m03s">video</a>
-where you can see greggman explaining the underlying technic.
-It explains how to do 3d texture in webgl! :)</p>
+<a href="http://www.threejsgames.com/extensions/#threex.dynamictexture">threex.dynamictexture</a>.
+threex.dynamictexture is a <a href="http://www.threejsgames.com/extensions/">threex game extension for three.js</a>. It provides an easy way to handle dynamically generated texture.
+Inspiration came from
+the excelent <a href="http://www.babylonjs.com">babylon.js</a>
+which got
+<a href="https://github.com/BabylonJS/Babylon.js/blob/master/Babylon/Materials/textures/babylon.dynamicTexture.js">BABYLON.DynamicTexture</a>.
+It is mainly used to write text in texture. Say you got a character which says something, you may want to put that in a texture and display that above your character. threex.dynamictexture will make it easy for you.</p>
 
-<p><a href='http://jeromeetienne.github.io/threex.coloradjust/examples/demo.html' target='_blank'><input type="button" value='Try Threex.coloradjust Demo Now' /></a></p>
+<p><a href='http://jeromeetienne.github.io/threex.dynamictexture/examples/basic.html' target='_blank'><input type="button" value='Try Threex.dynamictexture Demo Now' /></a></p>
 
 <p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
 <strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
@@ -150,110 +141,105 @@ It explains how to do 3d texture in webgl! :)</p>
 
 
 
-<iframe width="420" height="315" src="//www.youtube.com/embed/jhCKQqVIcG0" frameborder="0" allowfullscreen></iframe>
+<iframe width="420" height="315" src="//www.youtube.com/embed/lSR-6Q4oinU" frameborder="0" allowfullscreen></iframe>
 
 
 <h1>Show Don&#8217;t Tell</h1>
 
 <ul>
-<li><a href="http://jeromeetienne.github.io/threex.coloradjust/examples/basic.html">examples/basic.html</a>
-[<a href="https://github.com/jeromeetienne/threex.coloradjust/blob/master/examples/basic.html">view source</a>] :
-It shows how to use the <code>THREEx.ColorAdjust.Renderer</code>.
-It changes the color cube randomly every 3-seconds just to put some animations</li>
-<li><a href="http://jeromeetienne.github.io/threex.coloradjust/examples/demo.html">examples/demo.html</a>
-[<a href="https://github.com/jeromeetienne/threex.coloradjust/blob/master/examples/demo.html">view source</a>] :
-It show an video with the adjusted colors.
-You can play with it to get a better feeling of what this effect can do for you.</li>
+<li><a href="http://jeromeetienne.github.io/threex.dynamictexture/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.dynamictexture/blob/master/examples/basic.html">view source</a>] :
+It shows this feature, and that one which is coded like that.</li>
 </ul>
 
 
 <h1>How To Install It</h1>
 
-<p>You can install it via script tag</p>
+<p>You can install it manually or with
+<a href="http://bower.io/">bower</a>.
+for the manual version, first include <code>threex.dynamictexture.js</code> with the usual</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.coloradjust.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.dynamictexture.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+<p>or with
+<a href="http://bower.io/">bower</a>
+you type the following to install the package.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.coloradjust
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.dynamictexture
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h1>How To Use It</h1>
-
-<p>It build the passes for the color effect.
-It exposes <code>colorPass.colorPass</code> for a <code>THREE.EffectComposer</code> instance.</p>
-
-<p>Create an instance</p>
+<p>then you add that in your html</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">colorPasses</span> <span class="o">=</span> new THREEx.ColorAdjust.Passes<span class="o">()</span>;
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;bower_components/threex.dynamictexture/threex.dynamictexture.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Everytime you render the scene, be sure to update it</p>
+<h1>How To Use It ? </h1>
+
+<p>You instanciate the texture, say it is 512 pixel width, and 512 pixel high.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>colorPasses.update<span class="o">(</span>delta, now<span class="o">)</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>var dynamicTexture  = new THREEx.DynamicTexture(512,512)
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Then you add those passes to an <code>THREE.EffectComposer</code> like that</p>
+<ul>
+<li><code>dynamicTexture.canvas</code> the underlying canvas</li>
+<li><code>dynamicTexture.context</code> the context of the underlying canvas</li>
+<li><code>dynamicTexture.texture</code> the <code>THREE.Texture</code> created</li>
+</ul>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>colorPasses.addPassesTo<span class="o">(</span>composer<span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure>
 
-
-<h3>Tuning</h3>
-
-<p>This module comes with a set of predefined <em>color cubes</em> : 22 of them to be exact.
-You can set the color cube you want: one of the 22 already provided, or your own.
-It default to <code>default</code>.
-Here is the full list of available colors adjustement : default,
-monochrome,
-sepia,
-saturated,
-posterize,
-inverse,
-color-negative,
-high-contrast-bw,
-funky-contrast,
-nightvision,
-thermal,
-black-white,
-hue-plus-60,
-hue-plus-180,
-hue-minus-60,
-red-to-cyan,
-blues,
-infrared,
-radioactive,
-goolgey,
-bgy.</p>
+<p>To use the texture on a <code>THREE.Material</code></p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// set color adjustement to &#39;nightvision&#39;</span>
-</span><span class='line'><span class="nx">colorPasses</span><span class="p">.</span><span class="nx">setColorCube</span><span class="p">(</span><span class="s1">&#39;nightvision&#39;</span><span class="p">)</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">geometry</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">CubeGeometry</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">material</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshBasicMaterial</span><span class="p">({</span>
+</span><span class='line'>    <span class="nx">map</span> <span class="o">:</span> <span class="nx">dynamicTexture</span><span class="p">.</span><span class="nx">texture</span>
+</span><span class='line'><span class="p">})</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">mesh</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">);</span>
+</span><span class='line'><span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span> <span class="nx">mesh</span> <span class="p">);</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>There is a smooth linear transition between the old colorCube and the new colorCube.
-You can tune the delay like this.</p>
+<p>When you update a texture be sure to do</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// set the transition delay to 2 seconds</span>
-</span><span class='line'><span class="nx">colorPasses</span><span class="p">.</span><span class="nx">delay</span>   <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">dynamicTexture</span><span class="p">.</span><span class="nx">texture</span><span class="p">.</span><span class="nx">needsUpdate</span>  <span class="o">=</span> <span class="kc">true</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p><a href="https://news.ycombinator.com/item?id=7639554">Discuss this post on Hacker News.</a></p>
+<h2>Helpers Functions</h2>
+
+<p>Some helpers functions are provided to draw in this canvas.</p>
+
+<p><strong>To clear the underlying canvas</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">dynamicTexture</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>To Draw a Text</strong>
+to draw a text</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">dynamicTexture</span><span class="p">.</span><span class="nx">drawText</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
 </div>
 
 
@@ -276,7 +262,7 @@ You can tune the delay like this.</p>
   
 
 
-<time datetime="2014-04-24T13:47:00+02:00" pubdate data-updated="true">Apr 24<span>th</span>, 2014</time>
+<time datetime="2014-05-02T13:54:00+02:00" pubdate data-updated="true">May 2<span>nd</span>, 2014</time>
       
 
 <span class="categories">
@@ -290,7 +276,7 @@ You can tune the delay like this.</p>
     
       <div class="sharing" style='text-align: right;'>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2014/04/24/crazy-post-processing-color-effects-to-change-your-game-ambiance-with-threex-dot-coloradjust-game-extension-for-three-dot-js/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2014/04/24/crazy-post-processing-color-effects-to-change-your-game-ambiance-with-threex-dot-coloradjust-game-extension-for-three-dot-js/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2014/05/02/easy-to-use-dynamic-texture-to-write-text-in-your-3d-object-with-threex-dot-dynamictexture-game-extensions-for-three-dot-js/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2014/05/02/easy-to-use-dynamic-texture-to-write-text-in-your-3d-object-with-threex-dot-dynamictexture-game-extensions-for-three-dot-js/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -301,10 +287,8 @@ You can tune the delay like this.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/" title="Previous Post: One THREEx a Day Gets Your Game On Its Way! A Challenge!">&laquo; One THREEx a Day Gets Your Game On Its Way! A Challenge!</a>
+        <a class="basic-alignment left" href="/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js/" title="Previous Post: Easy Way To Integrate Video, or even WebCam, in Your Texture with THREEx.VideoTexture Game Extension for THREE.js">&laquo; Easy Way To Integrate Video, or even WebCam, in Your Texture with THREEx.VideoTexture Game Extension for THREE.js</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js/" title="Next Post: Simple and Easy To use Crates Models to Get Your Game Started with THREEx.Crates Game Extension For THREE.js">Simple and Easy To use Crates Models to Get Your Game Started with THREEx.Crates Game Extension For THREE.js &raquo;</a>
       
     </p>
   </footer>
@@ -387,8 +371,8 @@ You can tune the delay like this.</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://learningthreejs.com/blog/2014/04/24/crazy-post-processing-color-effects-to-change-your-game-ambiance-with-threex-dot-coloradjust-game-extension-for-three-dot-js/';
-        var disqus_url = 'http://learningthreejs.com/blog/2014/04/24/crazy-post-processing-color-effects-to-change-your-game-ambiance-with-threex-dot-coloradjust-game-extension-for-three-dot-js/';
+        var disqus_identifier = 'http://learningthreejs.com/blog/2014/05/02/easy-to-use-dynamic-texture-to-write-text-in-your-3d-object-with-threex-dot-dynamictexture-game-extensions-for-three-dot-js/';
+        var disqus_url = 'http://learningthreejs.com/blog/2014/05/02/easy-to-use-dynamic-texture-to-write-text-in-your-3d-object-with-threex-dot-dynamictexture-game-extensions-for-three-dot-js/';
         var disqus_script = 'embed.js';
       
     (function () {

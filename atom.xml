@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-04-30T13:35:08+02:00</updated>
+  <updated>2014-05-02T13:32:13+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,136 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Easy to use dynamic texture to write text in your 3d object with threex.dynamictexture game extensions for three.js]]></title>
+    <link href="http://learningthreejs.com/blog/2014/05/02/easy-to-use-dynamic-texture-to-write-text-in-your-3d-object-with-threex-dot-dynamictexture-game-extensions-for-three-dot-js/"/>
+    <updated>2014-05-02T13:54:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/05/02/easy-to-use-dynamic-texture-to-write-text-in-your-3d-object-with-threex-dot-dynamictexture-game-extensions-for-three-dot-js</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.dynamictexture/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.dynamictexture/master/examples/images/screenshot-threex-dynamictexture-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="http://learningthreejs.com/blog/categories/threexaday/">&#8216;one threex a day&#8217; challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.dynamictexture">threex.dynamictexture</a>.
+threex.dynamictexture is a <a href="http://www.threejsgames.com/extensions/">threex game extension for three.js</a>. It provides an easy way to handle dynamically generated texture.
+Inspiration came from
+the excelent <a href="http://www.babylonjs.com">babylon.js</a>
+which got
+<a href="https://github.com/BabylonJS/Babylon.js/blob/master/Babylon/Materials/textures/babylon.dynamicTexture.js">BABYLON.DynamicTexture</a>.
+It is mainly used to write text in texture. Say you got a character which says something, you may want to put that in a texture and display that above your character. threex.dynamictexture will make it easy for you.</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.dynamictexture/examples/basic.html' target='_blank'><input type="button" value='Try Threex.dynamictexture Demo Now' /></a></p>
+
+<p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/lSR-6Q4oinU" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don&#8217;t Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.dynamictexture/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.dynamictexture/blob/master/examples/basic.html">view source</a>] :
+It shows this feature, and that one which is coded like that.</li>
+</ul>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it manually or with
+<a href="http://bower.io/">bower</a>.
+for the manual version, first include <code>threex.dynamictexture.js</code> with the usual</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.dynamictexture.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>or with
+<a href="http://bower.io/">bower</a>
+you type the following to install the package.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.dynamictexture
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>then you add that in your html</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;bower_components/threex.dynamictexture/threex.dynamictexture.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>How To Use It ? </h1>
+
+<p>You instanciate the texture, say it is 512 pixel width, and 512 pixel high.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>var dynamicTexture  = new THREEx.DynamicTexture(512,512)
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><code>dynamicTexture.canvas</code> the underlying canvas</li>
+<li><code>dynamicTexture.context</code> the context of the underlying canvas</li>
+<li><code>dynamicTexture.texture</code> the <code>THREE.Texture</code> created</li>
+</ul>
+
+
+<p>To use the texture on a <code>THREE.Material</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">geometry</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">CubeGeometry</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">material</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshBasicMaterial</span><span class="p">({</span>
+</span><span class='line'>    <span class="nx">map</span> <span class="o">:</span> <span class="nx">dynamicTexture</span><span class="p">.</span><span class="nx">texture</span>
+</span><span class='line'><span class="p">})</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">mesh</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">);</span>
+</span><span class='line'><span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span> <span class="nx">mesh</span> <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>When you update a texture be sure to do</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">dynamicTexture</span><span class="p">.</span><span class="nx">texture</span><span class="p">.</span><span class="nx">needsUpdate</span>  <span class="o">=</span> <span class="kc">true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Helpers Functions</h2>
+
+<p>Some helpers functions are provided to draw in this canvas.</p>
+
+<p><strong>To clear the underlying canvas</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">dynamicTexture</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>To Draw a Text</strong>
+to draw a text</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">dynamicTexture</span><span class="p">.</span><span class="nx">drawText</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Easy Way To Integrate Video, or even WebCam, in Your Texture with THREEx.VideoTexture Game Extension for THREE.js]]></title>
@@ -62,9 +192,6 @@ the texture is mapped.</li>
 <li>Here is another <a href="http://jeromeetienne.github.io/threex.videotexture/examples/webcamtexture.html">webcam example</a> and its <a href="https://github.com/jeromeetienne/threex.videotexture/blob/master/examples/webcamtexture.html">source</a>.
 It reads the webcam thru getUserMedia and put it in a texture.</li>
 </ul>
-
-
-<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html" frameborder="0" allowfullscreen></iframe>
 
 
 <h1>How To Install It</h1>
@@ -239,9 +366,6 @@ filled with toruses positioned at random, and the laser is colliding with other 
 </ul>
 
 
-<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.laser/examples/demo.html" frameborder="0" allowfullscreen></iframe>
-
-
 <h1>How To Install It</h1>
 
 <p>You can install it via script tag</p>
@@ -340,9 +464,6 @@ It shows a bunch of cube and sphere falling on a ground.</li>
 [<a href="https://github.com/jeromeetienne/threex.oimo/blob/master/examples/demo.html">view source</a>] :
 It shows a more elaborate rendering. Planets falling down a pyramid in space.</li>
 </ul>
-
-
-<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.oimo/examples/demo.html" frameborder="0" allowfullscreen></iframe>
 
 
 <h1>How To Install It</h1>
@@ -476,9 +597,6 @@ It shows all the balls on a single screen.</li>
 </ul>
 
 
-<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.crates/examples/basic.html" frameborder="0" allowfullscreen></iframe>
-
-
 <h1>How To Install It</h1>
 
 <p>You can install it via script tag</p>
@@ -578,9 +696,6 @@ It changes the color cube randomly every 3-seconds just to put some animations</
 It show an video with the adjusted colors.
 You can play with it to get a better feeling of what this effect can do for you.</li>
 </ul>
-
-
-<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.coloradjust/examples/demo.html" frameborder="0" allowfullscreen></iframe>
 
 
 <h1>How To Install It</h1>
@@ -3542,105 +3657,6 @@ It is a simple way to make scene more realistic. It is nice to experiment with.
 I will do more on this very soon!</p>
 
 <p>Thanks all folks! have fun :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Three.js Sport Car on iOS at 40fps]]></title>
-    <link href="http://learningthreejs.com/blog/2012/05/29/three-js-sportcar-on-ios/"/>
-    <updated>2012-05-29T13:48:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2012/05/29/three-js-sportcar-on-ios</id>
-    <content type="html"><![CDATA[<p>This post is about iOS and three.js.
-It may seem surprising, but <a href="http://en.wikipedia.org/wiki/iOS">iOS</a> supports WebGL since version 4.2.
-There is a tough limitation tho, it is available only in their advertisment plateform,
-<a href="http://en.wikipedia.org/wiki/IAd">iAds</a>, not in safari browser.
-I got a ipad2 so i experimented a bit with three.js on iOS to see what is going on.
-Most WebGL examples from
-<a href="https://github.com/mrdoob/three.js/">three.js</a> and
-<a href="https://github.com/jeromeetienne/tquery">tQuery</a>
-are working nicely on iOS.</p>
-
-<p>The
-<a href="http://www.youtube.com/watch?v=3yc4qhP87oY">screencast</a>
-below shows an ipad2 running the car demo we did last week in
-<a href="http://learningthreejs.com/blog/2012/05/21/sport-car-in-webgl/">&#8220;Sport Car in WebGL&#8221;</a> post.
-It runs at 40fps on the video. Rather good!
-Especially when you know the demo isn&#8217;t optimized.
-This car is way too detailed.
-One could reduce the size of this model by half without loosing much.
-So on mobile, the Good part is that <em>fps are good</em>.
-The Bad part is that <em>speed is slower</em> and <em>balanced differently</em>.
-This unbalanced part worries me a bit i admit. We need to better understand the mobile plateform.
-But hey, 40fps is quite good, way enougth to make a game!</p>
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/3yc4qhP87oY" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-
-
-<!-- more -->
-
-
-<h2>Experimenting with WebGL on iOS</h2>
-
-<p>Yesterday,
-<a href="http://news.ycombinator.com/user?id=daeken">daeken</a>
-published a
-<a href="http://demoseen.com/webglenabler/#">WebGL Enabler</a>
-for iOS.
-It enables WebGL in the browser for jailbroken iOS devices.
-Or if you prefere a less invasive solution, not requiring to jailbreak your devices.
-You can use
-<a href="https://github.com/benvanik/WebGLBrowser">WebGL Browser</a>
-made by
-<a href="http://noxa.org/">Ben Vanik</a>
-, aka <a href="https://twitter.com/#!/benvanik">@benvanik</a> on twitter.
-He is wellknow for <a href="https://github.com/benvanik/WebGL-Inspector">WebGL Inspector</a>.</p>
-
-<p>By the way,
-<a href="https://github.com/benvanik/WebGLBrowser">WebGL Browser</a>
-and
-<a href="http://demoseen.com/webglenabler/#">WebGL Enabler</a>,
-are both based on a similar trick.
-It has been discovered by
-<a href="https://twitter.com/#!/atnan">Nathan de Vries</a>
-who told about it in this
-<a href="http://atnan.com/blog/2011/11/03/enabling-and-using-webgl-on-ios/">excelent post</a>.
-A very good read to understand the underlying details!
-Unfortuntly this is using an unofficial API&#8230; so it is
-impossible to get it for the apps store unfortunatly.</p>
-
-<h2>WebGL Status on Mobile</h2>
-
-<p>WebGL is starting to be hot on mobile.
-<a href="http://www.blackberry.com/playbook">blackberry playbook2</a>
-got it
-<a href="http://devblog.blackberry.com/2012/02/playbook-native-webgl-development/">by default</a>.
-<a href="http://www.mozilla.org/en-US/b2g/">boot on gecko</a> got it too with firefox mobile.
-It isn&#8217;t enabled on android and iOS tho, the 2 majors.
-Maybe we will have more info in june with
-<a href="https://developers.google.com/events/io/">google.io</a>
-and
-<a href="https://developer.apple.com/wwdc/">apple event</a>.
-google got <a href="http://www.google.com/intl/en/chrome/android/">chrome on android</a>.
-iOS already got <a href="http://atnan.com/blog/2011/11/03/enabling-and-using-webgl-on-ios/">support</a>, this is more a matter of policy.
-So lets hope google will announce WebGL support for chrome mobile.
-and apple will announce they accepts WebGL on apps store applications.
-I am an optimist personn, i hope :)</p>
-
-<h2>Conclusion</h2>
-
-<p>WebGL is coming hard on mobile.
-<a href="https://github.com/mrdoob/three.js/">three.js</a> and
-<a href="https://github.com/jeromeetienne/tquery">tQuery</a>
-already work on it.
-We need the 2 majors mobile OS to support it tho.
-It think having it on android and ios would significantly change WebGL landscape.
-Meanwhile you can already play with it, and do minigames with it, thus be ready when needed :)</p>
-
-<p>That&#8217;s all to today folks. Have fun :)</p>
 ]]></content>
   </entry>
   
