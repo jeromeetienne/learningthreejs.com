@@ -4,7 +4,7 @@ title: "Easy to use dynamic texture to write text in your 3d object with threex.
 date: 2014-05-02 13:54
 comments: true
 categories: [threexaday, threex, game, extension, three.js]
-published: false
+published: true
 ---
 
 <a href='http://jeromeetienne.github.io/threex.dynamictexture/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.dynamictexture/master/examples/images/screenshot-threex-dynamictexture-512x512.jpg" width="250" height="250"></a>
@@ -35,8 +35,6 @@ Show Don't Tell
 * [examples/basic.html](http://jeromeetienne.github.io/threex.dynamictexture/examples/basic.html)
 \[[view source](https://github.com/jeromeetienne/threex.dynamictexture/blob/master/examples/basic.html)\] :
 It shows this feature, and that one which is coded like that.
-
-<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.dynamictexture/examples/basic.html" frameborder="0" allowfullscreen></iframe>
 
 How To Install It
 =================

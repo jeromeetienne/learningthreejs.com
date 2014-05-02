@@ -34,8 +34,6 @@ It shows a bunch of cube and sphere falling on a ground.
 It shows a more elaborate rendering. Planets falling down a pyramid in space.
 
 
-<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.oimo/examples/demo.html" frameborder="0" allowfullscreen></iframe>
-
 How To Install It
 =================
 

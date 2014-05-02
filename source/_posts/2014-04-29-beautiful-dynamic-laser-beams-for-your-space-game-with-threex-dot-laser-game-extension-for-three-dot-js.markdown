@@ -41,9 +41,6 @@ It shows a usage of threex.laserbeam.js, it could be the basis for a light sword
 It shows a usage of threex.lasercooked.js. The laser is inside a cube, the cube is
 filled with toruses positioned at random, and the laser is colliding with other objects.
 
-<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.laser/examples/demo.html" frameborder="0" allowfullscreen></iframe>
-
-
 
 How To Install It
 =================

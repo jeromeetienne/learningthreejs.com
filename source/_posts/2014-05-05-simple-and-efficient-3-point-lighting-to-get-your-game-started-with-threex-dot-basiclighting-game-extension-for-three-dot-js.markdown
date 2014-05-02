@@ -41,7 +41,6 @@ It shows a basic example of extension.
 \[[view source](https://github.com/jeromeetienne/threex.basiclighting/blob/master/examples/demo.html)\] :
 It shows a demo of it.
 
-<iframe width="100%" height="480" src="http://jeromeetienne.github.io/threex.basiclighting/examples/demo.html" frameborder="0" allowfullscreen></iframe>
 
 How To Install It
 =================
