@@ -24,7 +24,7 @@ To see the [other posts about one threex a day](/blog/categories/threexaday/) an
 
 <!-- more -->
 
-<iframe width="420" height="315" src="//www.youtube.com/embed/eZkl-r-UOsg" frameborder="0" allowfullscreen></iframe>
+<iframe width="420" height="315" src="//www.youtube.com/embed/mP_8EHnZUTo" frameborder="0" allowfullscreen></iframe>
 
 Show Don't Tell
 ===============
