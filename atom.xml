@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-05-02T13:32:13+02:00</updated>
+  <updated>2014-05-05T13:52:28+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,95 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Simple And Efficient 3 Point Lighting To Get Your Game Started With Threex.basiclighting Game Extension For Three.js]]></title>
+    <link href="http://learningthreejs.com/blog/2014/05/05/simple-and-efficient-3-point-lighting-to-get-your-game-started-with-threex-dot-basiclighting-game-extension-for-three-dot-js/"/>
+    <updated>2014-05-05T13:52:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/05/05/simple-and-efficient-3-point-lighting-to-get-your-game-started-with-threex-dot-basiclighting-game-extension-for-three-dot-js</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.basiclighting/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.basiclighting/master/examples/images/screenshot-threex-basiclighting-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="http://learningthreejs.com/blog/categories/threexaday/">&#8216;one threex a day&#8217; challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.basiclighting">threex.basiclighting</a>.
+threex.basiclighting is a <a href="http://www.threejsgames.com/extensions/">threex game extension for three.js</a>. It provides
+a <a href="http://en.wikipedia.org/wiki/Three-point_lighting">three point lighting</a>.
+It is the lighting used in movies:
+A key light on the front-left, a back light in the back and a fill light on the front right, nothing fancy.
+It is perfect if you dunno much about lighting and you want to add lights in your games.
+Nothing big or special in this extension.
+This is mainly for educational purposes or for starting your project fast.</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.basiclighting/examples/demo.html' target='_blank'><input type="button" value='Try Threex.basiclighting Demo Now' /></a></p>
+
+<p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/eZkl-r-UOsg" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don&#8217;t Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.basiclighting/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.basiclighting/blob/master/examples/basic.html">view source</a>] :
+It shows a basic example of extension.</li>
+<li><a href="http://jeromeetienne.github.io/threex.basiclighting/examples/demo.html">examples/demo.html</a>
+[<a href="https://github.com/jeromeetienne/threex.basiclighting/blob/master/examples/demo.html">view source</a>] :
+It shows a demo of it.</li>
+</ul>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it manually. Just do</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.basiclighting.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can install with <a href="http://bower.io/">bower</a>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.basiclighting
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>then you add that in your html</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;bower_components/threex.basiclighting/threex.basiclighting.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>How to Use It</h2>
+
+<p>create a three point lighting</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">lighting</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">ThreePointsLighting</span><span class="p">()</span>
+</span><span class='line'><span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">lighting</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>create a sun set lighting</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">lighting</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">SunSetLighting</span><span class="p">()</span>
+</span><span class='line'><span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">lighting</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Easy to use dynamic texture to write text in your 3d object with threex.dynamictexture game extensions for three.js]]></title>
@@ -3365,298 +3454,6 @@ more robusts and generic. A new post will likely focus on this.
 I so love this field and how it make things easier.</p>
 
 <p>That&#8217;s all folks. Have fun :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[3D Physics With Three.js and Physijs]]></title>
-    <link href="http://learningthreejs.com/blog/2012/06/05/3d-physics-with-three-js-and-physijs/"/>
-    <updated>2012-06-05T12:13:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2012/06/05/3d-physics-with-three-js-and-physijs</id>
-    <content type="html"><![CDATA[<p>This is yet another post about physics.
-This one is about
-<a href="https://github.com/chandlerprall/Physijs">physijs</a>
-by
-<a href="https://twitter.com/#!/chandlerprall">Chandler Prall</a>.
-It easily bind
-<a href="https://github.com/kripken/ammo.js/">ammo.js</a>
-and
-<a href="http://mrdoob.github.com/three.js/">three.js</a>.
-We will walk thru an example using it.
-Physics is always important in 3D graphics.
-It makes scenes more realistic.
-Additionally, if you simple put your object into the scene, it will move nicely and realisticly.
-So you spend less time tuning each moves. I am quite lazy so it matters :)
-The <a href="http://www.youtube.com/watch?v=THI82Q-P8Fo">screencast</a>
-presents the <a href="http://learningthreejs.com/data/2012-06-05-3d-physics-with-three-js-and-physijs/">demo we gonna code</a>
-and various examples of what is possible with
-<a href="https://github.com/kripken/ammo.js/">ammo.js</a>.</p>
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/THI82Q-P8Fo" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-
-
-<!-- more -->
-
-
-<h2>What About Physics Engines ?</h2>
-
-<p>We already did physics with three.js.
-It was with <a href="https://github.com/jeromeetienne/microphysics.js">microphysics.js</a> for <a href="http://marblesoccer.com">marblesoccer</a> minigame.
-It is a micro library implementing 3D physics.
-We talked quite a bit about it in
-<a href="http://learningthreejs.com/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/">&#8220;Lets Make a 3D Game: microphysics.js&#8221;</a>
-and
-<a href="http://learningthreejs.com/blog/2011/11/02/lets-make-a-3d-game-helper-for-microphysics-js/">&#8220;Lets Make a 3D Game: microphysics.js, Even Easier&#8221;</a>.
-It is only 500lines!
-Unfortunatly, this tiny size comes limitations.</p>
-
-<p>Today we gonna use <a href="https://github.com/chandlerprall/Physijs">physijs</a> by <a href="https://twitter.com/#!/chandlerprall">Chandler Prall</a>.
-This is a nice library which make it easy to use
-<a href="https://github.com/kripken/ammo.js/">ammo.js</a>
-with
-<a href="http://mrdoob.github.com/three.js/">three.js</a>.
-ammo.js is &#8220;Direct port of the Bullet physics engine to JavaScript using
-<a href="https://github.com/kripken/emscripten">Emscripten</a>.
-The source code is translated directly to JavaScript, without human rewriting, so functionality should be identical to the original Bullet.&#8221;</p>
-
-<p><a href="http://bulletphysics.org/">bullet</a> is a full-blown physics engine well-known in the 3D community.
-It can do a lot as you can see in its <a href="http://bulletphysics.com/Bullet/BulletFull/">docs</a>.
-<a href="https://github.com/kripken/ammo.js/">ammo.js</a>
-supports all the features you can expect from a mature 3D physics engine.
-Charles J. Cliffe, aka <a href="https://twitter.com/#!/ccliffe">@ccliffe</a>,
-did several demos using ammo.js.
-This one is a <a href="http://cjcliffe.github.com/CubicVR.js/cubicvr/samples/physics/physics_heightfield.html">heighfield</a>
-And look at this <a href="http://cjcliffe.github.com/CubicVR.js/cubicvr/samples/vehicle_physics_demo/stunt_track1.html">stunt track</a>!
-Both are on top of <a href="http://www.cubicvr.org/">cubicvr</a>, <a href="https://twitter.com/#!/ccliffe">@ccliffe</a> own library.</p>
-
-<p><a href="https://github.com/chandlerprall/Physijs">physijs</a> has been written with performance in mind.
-<a href="https://github.com/kripken/ammo.js/">ammo.js</a> is running in a
-<a href="https://developer.mozilla.org/En/Using_web_workers">webworker</a>.
-So it most likely run on a second CPU. This is twice more cpu power for your javascript!
-Coordinates are exchanged with
-<a href="http://updates.html5rocks.com/2011/12/Transferable-Objects-Lightning-Fast">transferable objects</a>
-when available.
-Transferable objects is a special type of object which can be transfered between the main thread and the worker <strong>without copying</strong>
-the data. Thus no matter how large the data are, it will be very low latency.</p>
-
-<h2>Lets Get Started</h2>
-
-<p>The code of today is a copy of the
-<a href="http://chandlerprall.github.com/Physijs/examples/collisions.html">collision example</a>
-from
-<a href="http://chandlerprall.github.com/Physijs/">physijs</a>
-using it thru tQuery API.
-It may usefull to reimplement the same thing, just to be sure they both perform the same way. :)
-<a href="http://learningthreejs.com/data/2012-06-05-3d-physics-with-three-js-and-physijs/">Try it out</a>.
-So we got object falling on the ground and slightly bouncing on it. Let&#8217;s do just that.</p>
-
-<center>
-    <iframe width="100%" height="420" src="http://learningthreejs.com/data/2012-06-05-3d-physics-with-three-js-and-physijs/" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
-</center>
-
-
-<p>First a classic. We create a tQuery.World. So you immediatly got
-a scene, a renderer, camera and its controls. All that already
-setup according to reasonable default.
- <code>.boilerplate()</code> adds
-the <a href="http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/">&#8220;three.js boilerplate&#8221;</a>
-we did last year. We disable the camera controls as it will stay still in this scene.
-Then we <code>.start()</code> to launch the render loop.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var world    = tQuery.createWorld().boilerplate({cameraControls: false}).start();</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we setup the camera to be a bit far from the scene center. Thus
-we got room to display larger objects</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>world.tCamera().position.set( 70, 40, 70 );
-</span><span class='line'>world.tCamera().lookAt( world.tScene().position );</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we need to tell the renderer that shadow has to be casted. This is done by the simple lines below.
-We saw the details in <a href="http://learningthreejs.com/blog/2012/01/20/casting-shadows/">&#8220;Casting Shadows&#8221;</a> post.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>world.tRenderer().shadowMapEnabled   = true;
-</span><span class='line'>world.tRenderer().shadowMapSoft       = true;
-</span><span class='line'>world.tRenderer().setClearColorHex( 0xffffff, 1 );</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we enable the physics into the world.
-this is important. From now on, all the physics-enabled object
-of this world will move according to realistic physics rules.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>world.enablePhysics();</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Enlight your world</h2>
-
-<p>Here we setup the lights. For simplicity sake, we will use only one directional light.
-First we tune the position and color to fit our tastes. Dont be shy, play with those parameters to get a feel of it.
-Then we tune shadow parameters.
-Those can be tricky to tune.
-You can find more details in <a href="http://learningthreejs.com/blog/2012/01/20/casting-shadows/">&#8220;Casting Shadow&#8221;</a> post.
-It helps if you make the shaddow camera visible. You can do so with <code>.shadowCameraVisible(true)</code>.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>tQuery.createDirectionalLight().addTo(world)
-</span><span class='line'>  .position(20, 40, -15).color(0xffffff)
-</span><span class='line'>  .castShadow(true).shadowMap(512*2,512*2)
-</span><span class='line'>  .shadowCamera(60, -60, 60, -60, 20, 200)
-</span><span class='line'>  .shadowDarkness(0.7).shadowBias(.002)</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Let&#8217;s create a ground to stand on</h2>
-
-<p>First we create the texture for our ground. We use <code>rocks.jpg</code> to have like a rock
-effect. We use <code>.RepeatWrapping</code> to repeat the texture on the faces and get a
-proper scale.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var texture  = THREE.ImageUtils.loadTexture( "images/rocks.jpg" );
-</span><span class='line'>texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-</span><span class='line'>texture.repeat.set( 3, 3 );</span></code></pre></td></tr></table></div></figure>
-
-
-<p>In fact, the ground is only a cube which is wide and flat, a bit like
-the <a href="http://en.wikipedia.org/wiki/Flat_Earth">old-vision of earth</a> :)
-It is usual now, we setup the position, material and shadow.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var ground   = tQuery.createCube(100, 1, 100).addTo(world)
-</span><span class='line'>  .position(0, -10, 0)
-</span><span class='line'>  .setLambertMaterial().map(texture).back()
-</span><span class='line'>  .receiveShadow(true)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we just have to setup the physics for the ground. This is done
-by <code>.enablePhysics()</code>. The <code>mass</code> parameter define the mass
-of the object in the physics.
-By default, it is automatically computed depending on the volume of the object.
-Here zeroing the mass is a special case, which say
-&#8220;the mass is infinite, dont move, ever&#8221; :)</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ground.enablePhysics({
-</span><span class='line'>  mass    : 0
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Spawning object in a 3D world</h2>
-
-<p>Spawning is always a delicate matter in our world.
-But first let&#8217;s load the texture for the spawned objects.
-It is done outside of the loop thus it get reused. Aka it is sent
-only once to the GPU for all the objects. This is an important
-point from performance point of view. Last year,
-<a href="http://learningthreejs.com/blog/2011/09/16/performance-caching-material/">&#8220;Performance: Caching Material&#8221;</a>
-post was about this very topic.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var cTexture = THREE.ImageUtils.loadTexture( "images/plywood.jpg" );</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we declare <code>spawnObject()</code> which gonna take care of spawning one object.
-So we create a cube, setup its position, rotation and material. This is all good. Oh dont
-forget to use <code>.castShadow()</code> as got <a href="http://en.wikipedia.org/wiki/Shadow_mapping">shadow mapping</a> going on :)</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var spawnObject  = function(){
-</span><span class='line'>  var object  = tQuery.createCube(4,4,4).addTo(world)
-</span><span class='line'>      .rotation(Math.random()*Math.PI*2, Math.random()*Math.PI*2, Math.random()*Math.PI*2)
-</span><span class='line'>      .position(Math.random()*15-7.5, 25, Math.random()*15-7.5)
-</span><span class='line'>      .setLambertMaterial().map(cTexture).back()
-</span><span class='line'>      .castShadow(true)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Here we enable the physics on this object. So the world will handle all its move from now on.
-It will object to physics laws according to the parameters you setup.
-<a href="http://en.wikipedia.org/wiki/Friction">friction</a> is the force resisting when 2 objects slides against each other.
-<a href="http://en.wikipedia.org/wiki/Coefficient_of_restitution">resititution</a> is how bouncy the object is.
-For scientific definition, go read a book :)</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'> object.enablePhysics({
-</span><span class='line'>      friction    : 0.4,
-</span><span class='line'>      restitution : 0.6
-</span><span class='line'>  });</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we gonna play with the &#8216;collision&#8217; event. Physijs is able to notify
-you when an object collide with another. Just use <code>.addEventListener()</code> on &#8216;collision&#8217;.
-Here we gonna change the color of the object depending on the number of collisions
-they got.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'> var nCollisions = 0;
-</span><span class='line'>  object.physics().addEventListener('collision', function(){
-</span><span class='line'>      var colliColors = [0xcc8855, 0xbb9955, 0xaaaa55, 0x99bb55, 0x88cc55, 0x77dd55];
-</span><span class='line'>      if( ++nCollisions &lt; colliColors.length ){
-</span><span class='line'>          var color   = colliColors[nCollisions];
-</span><span class='line'>          object.get(0).material.color.setHex( color );
-</span><span class='line'>      }
-</span><span class='line'>  })
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we simply use <a href="https://developer.mozilla.org/en/DOM/window.setInterval"><code>setInterval()</code></a> to
-spawn an object every seconds.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>setInterval(spawnObject, 1000);</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And we are DONE! We got a realistic physics in our 3D world! not bad hey :)</p>
-
-<h2>Conclusion</h2>
-
-<p>So, thanks to <a href="https://github.com/chandlerprall/Physijs">physijs</a>,
-it is now possible to get full blown realistic physics
-using
-<a href="https://github.com/mrdoob/three.js/">three.js</a>
-and
-<a href="https://github.com/jeromeetienne/tquery">tQuery</a>.
-It is a simple way to make scene more realistic. It is nice to experiment with.
-I will do more on this very soon!</p>
-
-<p>Thanks all folks! have fun :)</p>
 ]]></content>
   </entry>
   

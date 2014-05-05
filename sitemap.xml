@@ -293,16 +293,22 @@
         <lastmod>2014-05-02T13:29:50+02:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://learningthreejs.com/blog/2014/05/05/simple-and-efficient-3-point-lighting-to-get-your-game-started-with-threex-dot-basiclighting-game-extension-for-three-dot-js/
+        </loc>
+        <lastmod>2014-05-05T13:52:24+02:00</lastmod>
+    </url>
+    <url>
         <loc>http://learningthreejs.com/about/</loc>
         <lastmod>2013-03-06T12:45:11+01:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/blog/archives/</loc>
-        <lastmod>2014-05-02T13:29:50+02:00</lastmod>
+        <lastmod>2014-05-05T13:52:24+02:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/</loc>
-        <lastmod>2014-05-02T13:29:50+02:00</lastmod>
+        <lastmod>2014-05-05T13:52:24+02:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/robots.txt</loc>

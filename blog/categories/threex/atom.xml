@@ -4,7 +4,7 @@
   <title><![CDATA[Category: threex | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/threex/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-05-02T13:32:13+02:00</updated>
+  <updated>2014-05-05T13:52:28+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,94 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Simple And Efficient 3 Point Lighting To Get Your Game Started With Threex.basiclighting Game Extension For Three.js]]></title>
+    <link href="http://learningthreejs.com/blog/2014/05/05/simple-and-efficient-3-point-lighting-to-get-your-game-started-with-threex-dot-basiclighting-game-extension-for-three-dot-js/"/>
+    <updated>2014-05-05T13:52:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/05/05/simple-and-efficient-3-point-lighting-to-get-your-game-started-with-threex-dot-basiclighting-game-extension-for-three-dot-js</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.basiclighting/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.basiclighting/master/examples/images/screenshot-threex-basiclighting-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="/blog/categories/threexaday/">'one threex a day' challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.basiclighting">threex.basiclighting</a>.
+threex.basiclighting is a <a href="http://www.threejsgames.com/extensions/">threex game extension for three.js</a>. It provides
+a <a href="http://en.wikipedia.org/wiki/Three-point_lighting">three point lighting</a>.
+It is the lighting used in movies:
+A key light on the front-left, a back light in the back and a fill light on the front right, nothing fancy.
+It is perfect if you dunno much about lighting and you want to add lights in your games.
+Nothing big or special in this extension.
+This is mainly for educational purposes or for starting your project fast.</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.basiclighting/examples/demo.html' target='_blank'><input type="button" value='Try Threex.basiclighting Demo Now' /></a></p>
+
+<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/eZkl-r-UOsg" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don't Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.basiclighting/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.basiclighting/blob/master/examples/basic.html">view source</a>] :
+It shows a basic example of extension.</li>
+<li><a href="http://jeromeetienne.github.io/threex.basiclighting/examples/demo.html">examples/demo.html</a>
+[<a href="https://github.com/jeromeetienne/threex.basiclighting/blob/master/examples/demo.html">view source</a>] :
+It shows a demo of it.</li>
+</ul>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it manually. Just do</p>
+
+<p>```html</p>
+
+<script src='threex.basiclighting.js'></script>
+
+
+<p>```</p>
+
+<p>You can install with <a href="http://bower.io/">bower</a>.</p>
+
+<p><code>bash
+bower install threex.basiclighting
+</code></p>
+
+<p>then you add that in your html</p>
+
+<p>```html</p>
+
+<script src="bower_components/threex.basiclighting/threex.basiclighting.js"></script>
+
+
+<p>```</p>
+
+<h2>How to Use It</h2>
+
+<p>create a three point lighting</p>
+
+<p><code>javascript
+var lighting    = new THREEx.ThreePointsLighting()
+scene.add(lighting)
+</code></p>
+
+<p>create a sun set lighting</p>
+
+<p><code>javascript
+var lighting    = new THREEx.SunSetLighting()
+scene.add(lighting)
+</code></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Easy to use dynamic texture to write text in your 3d object with threex.dynamictexture game extensions for three.js]]></title>
@@ -527,87 +615,6 @@ document.body.appendChild(oimoStats.domElement)
 
 <p><code>
 oimoStats.update()
-</code></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Simple and Easy To use Crates Models to Get Your Game Started with THREEx.Crates Game Extension For THREE.js]]></title>
-    <link href="http://learningthreejs.com/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js/"/>
-    <updated>2014-04-25T13:44:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js</id>
-    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.crates/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.crates/master/examples/images/screenshot-threex-crates-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="/blog/categories/threexaday/">'one threex a day' challenge</a>.
-This challenge is to publish every day one game extension for three.js!
-One per day, every day and that for 2month!
-In this post, we gonna talk about
-<a href="http://www.threejsgames.com/extensions/#threex.crates">threex.crates</a>.
-threex.crates is a <a href="http://www.threejsgame.com/extensions/">threex game extension for three.js</a>.
-It provides <a href="http://en.wikipedia.org/wiki/Crate">crates</a> models, 3 of them to be accurate.
-Yeah you heard me, this is only boxes of wood. Why doing an extension for that?
-Well, because crates are like a myth in 3d graphics, we put them everywhere.
-So if you need crates to easily put in your game, you know where to find them now :)</p>
-
-<p><a href='http://jeromeetienne.github.io/threex.crates/examples/basic.html' target='_blank'><input type="button" value='Try Threex.crates Demo Now' /></a></p>
-
-<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
-<strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
-
-<!-- more -->
-
-
-
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/zEmGzBc8nSY" frameborder="0" allowfullscreen></iframe>
-
-
-<h1>Show Don't Tell</h1>
-
-<ul>
-<li><a href="http://jeromeetienne.github.io/threex.crates/examples/basic.html">examples/basic.html</a>
-[<a href="https://github.com/jeromeetienne/threex.crates/blob/master/examples/basic.html">view source</a>] :
-It shows all the balls on a single screen.</li>
-</ul>
-
-
-<h1>How To Install It</h1>
-
-<p>You can install it via script tag</p>
-
-<p>```html</p>
-
-<script src='threex.crates.js'></script>
-
-
-<p>```</p>
-
-<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
-
-<p><code>bash
-bower install threex.crates
-</code></p>
-
-<h1>How To Use It</h1>
-
-<p>To create a crate0, just do</p>
-
-<p><code>
-var mesh = THREEx.Crates.createCrate0()
-scene.add(mesh)
-</code></p>
-
-<p>To create a crate1, just do</p>
-
-<p><code>
-var mesh = THREEx.Crates.createCrate1()
-scene.add(mesh)
-</code></p>
-
-<p>To create a crate2, just do</p>
-
-<p><code>
-var mesh = THREEx.Crates.createCrate2()
-scene.add(mesh)
 </code></p>
 ]]></content>
   </entry>
