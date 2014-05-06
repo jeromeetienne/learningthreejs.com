@@ -4,7 +4,7 @@ title: "Simple And Efficient 3 Point Lighting To Get Your Game Started With Thre
 date: 2014-05-05 13:52
 comments: true
 categories: [threexaday, threex, game, extension, three.js]
-published: false
+published: true
 ---
 
 <a href='http://jeromeetienne.github.io/threex.basiclighting/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.basiclighting/master/examples/images/screenshot-threex-basiclighting-512x512.jpg" width="250" height="250"></a>
@@ -29,8 +29,6 @@ To see the [other posts about one threex a day](/blog/categories/threexaday/) an
 <!-- more -->
 
 <iframe width="420" height="315" src="//www.youtube.com/embed/eZkl-r-UOsg" frameborder="0" allowfullscreen></iframe>
-
-
 
 Show Don't Tell
 ===============
