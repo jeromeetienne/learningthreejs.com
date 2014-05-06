@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-05-05T13:52:28+02:00</updated>
+  <updated>2014-05-06T13:45:28+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,156 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Scary Monster For Your Next FPS Game in Three.js With threex.md2character]]></title>
+    <link href="http://learningthreejs.com/blog/2014/05/06/scary-monster-for-your-next-fps-game-in-three-dot-js-with-threex-dot-md2character/"/>
+    <updated>2014-05-06T20:19:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/05/06/scary-monster-for-your-next-fps-game-in-three-dot-js-with-threex-dot-md2character</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.md2character/examples/select.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.md2character/master/examples/images/screenshot-threex-md2character-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="http://learningthreejs.com/blog/categories/threexaday/">&#8216;one threex a day&#8217; challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.md2character">threex.md2character</a>.
+threex.md2character is a
+<a href="http://www.threejsgames.com/extensions/">three.js game extension</a>
+which provides a model of a monster.
+His name is &#8216;ratmahatta&#8217; and is from quake era.
+It is animated, can hold a weapon, skin may be changed. Pretty sweet.
+you got <strong>12 weapons to choose from</strong>, <strong>5 different skins</strong> and <strong>16 distinct animations</strong>. Pretty complete!
+It is easy to include in your game, maybe in a cave or a dungeon :)
+It is from
+<a href="http://threejs.org/examples/webgl_morphtargets_md2.html">webgl_morphtargets_md2.html three.js example</a>.
+The model is make by
+<a href="http://planetquake.gamespy.com/View.php?view=Quake2.Detail&amp;id=368">Brian Collins</a> and converted by
+<a href="https://twitter.com/#!/oosmoxiecode">@oosmoxiecode</a>&#8217;s
+<a href="http://oos.moxiecode.com/blog/2012/01/md2-to-json-converter/">MD2 converter</a>.</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.md2character/examples/select.html' target='_blank'><input type="button" value='Try Threex.md2character Demo Now' /></a></p>
+
+<p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/zOqxsorcyQk" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don&#8217;t Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.md2character/examples/select.html">examples/select.html</a>
+[<a href="https://github.com/jeromeetienne/threex.md2character/blob/master/examples/select.html">view source</a>] :
+It shows all the possibilities for the skins, the weapons and the animations.</li>
+<li><a href="http://jeromeetienne.github.io/threex.md2character/examples/ratmahattaplayer.html">examples/ratmahattaplayer.html</a>
+[<a href="https://github.com/jeromeetienne/threex.md2character/blob/master/examples/ratmahattaplayer.html">view source</a>] :
+It shows how to controls the mesh as if it was a player in a game with input
+in the keyboard wasd or arrows keys.</li>
+</ul>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.md2character.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.md2character
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>How To Use It</h1>
+
+<h2>threex.md2characterratmahatta.js</h2>
+
+<p>You typically create a ratamahatta like this</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">ratamahatta</span> <span class="o">=</span> new THREEx.MD2CharacterRatmahatta<span class="o">()</span>
+</span><span class='line'>scene.add<span class="o">(</span>ratamahatta.character.object3d<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Don&#8217;t forget to update it when you render with <code>ratamahatta.update(delta)</code>.Internally, it create a character and a controls. You can use them directly.
+* <code>ratamahatta.character</code> instance of <code>THREEx.MD2Character</code>
+* <code>ratamahatta.controls</code> instance of <code>THREEx.MD2CharacterControls</code></p>
+
+<p>It has simple functions to set the skin, weapon and animations.</p>
+
+<ul>
+<li><code>ratamahatta.skinNames</code> is the names of available skins. It has 5 different skins <code>["ratamahatta", "ctf_b", "ctf_r", "dead", "gearwhore"]</code></li>
+<li><code>ratamahatta.setSkinName(skinName)</code> set the skin based on its name</li>
+<li><code>ratamahatta.weaponsNames</code> is the names of available weapons. It has 12 animation <code>["none", "weapon", "w_bfg", "w_blaster", "w_chaingun", "w_glauncher", "w_hyperblaster", "w_machinegun", "w_railgun", "w_rlauncher", "w_shotgun", "w_sshotgun"]</code></li>
+<li><code>ratamahatta.setWeaponName(weaponName)</code> set the weapon based on its name</li>
+<li><code>ratamahatta.animationNames</code> is the names of available animation. It has 16 animations <code>["stand", "run", "attack", "pain", "jump", "flip", "salute", "taunt", "wave", "point", "crstand", "crwalk", "crattack", "crpain", "crdeath", "death"]</code></li>
+<li><code>ratamahatta.setAnimationName(animationName)</code> set the animation based on its name</li>
+</ul>
+
+
+<h2>threex.md2charactercontrols.js</h2>
+
+<p>First you create controls for your character like this</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">controls</span>    <span class="o">=</span> new THREEx.MD2CharacterControls<span class="o">(</span>character.object3d<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Dont forget to update it when you render with <code>controls.update(delta, now)</code>. The character is controlled by <code>controls.inputs</code> properties. You just have to set them to fit your need.</p>
+
+<ul>
+<li><code>control.inputs.right</code> is true if the character must go right</li>
+<li><code>control.inputs.left</code> is true if the character must go left</li>
+<li><code>control.inputs.up</code> is true if the character must go forward</li>
+<li><code>control.inputs.down</code> is true if the character must go backward</li>
+</ul>
+
+
+<h2>threex.md2character.js</h2>
+
+<p>It provide the base to play with the model.
+It is a modified version of
+<a href="https://github.com/mrdoob/three.js/blob/master/examples/js/MD2Character.js">MD2Character.js</a>
+from this <a href="http://threejs.org/examples/webgl_morphtargets_md2.html">webgl_morphtargets_md2.html three.js example</a>.</p>
+
+<p>First you create it.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">character</span>   <span class="o">=</span> new THREEx.MD2Character<span class="o">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Dont forget to update it at every frame with a <code>character.update(delta)</code></p>
+
+<ul>
+<li><code>character.object3d</code> is the THREE.Object3D container</li>
+<li><code>character.setWireframe(boolean)</code> set the model in wireframe.</li>
+<li><code>character.setWeapon(weaponIndex)</code> add a weapon in the character hand. <code>weaponIndex</code> is between 0 and 11. if -1, it removes the weapon.</li>
+<li><code>character.setSkin(skinIndex)</code> set the skin of the character. <code>skinIndex</code> is between 0 and 4</li>
+<li><code>character.setAnimation(animationName)</code> set the animation for the character. The name is one of <code>["stand", "run", "attack", "pain", "jump", "flip", "salute", "taunt", "wave", "point", "crstand", "crwalk", "crattack", "crpain", "crdeath", "death"]</code>.</li>
+<li><code>character.setPlaybackRate(rate)</code> set the playback rate of the animation.</li>
+<li><code>character.load(config)</code> loads the characters
+
+<ul>
+<li><code>character.addEventListener('loaded', function(){})</code> to be notified when the model is loaded</li>
+<li><code>character.isLoaded()</code> is true if the model is loaded, false otherwise</li>
+</ul>
+</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Simple And Efficient 3 Point Lighting To Get Your Game Started With Threex.basiclighting Game Extension For Three.js]]></title>
@@ -3278,182 +3428,6 @@ This is a very nice library with lots of possibilities.
 For example, one can use it the head as a game controller, or in a artistic exposition. Stay tuned!</p>
 
 <p>That&#8217;s all folks, have fun :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Minecraft Character in WebGL]]></title>
-    <link href="http://learningthreejs.com/blog/2012/07/05/minecraft-character-in-webgl/"/>
-    <updated>2012-07-05T10:22:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2012/07/05/minecraft-character-in-webgl</id>
-    <content type="html"><![CDATA[<p>This post is about Minecraft Character.
-We will play with the minecraft character, learn how to do your own and make it move.
-I recently saw this excelent <a href="http://djazz.mine.nu/lab/minecraft_items/">minecraft items demo</a>
-by <a href="https://twitter.com/#!/daniel_hede">@daniel_hede</a>. It triggered a switch in my head :)
-I felt in love with minecraft style of 3d.
-It makes modeling so simple.
-You don&#8217;t need to learn how to use 3d modeling software like
-<a href="http://www.blender.org/">blender</a>,
-<a href="http://usa.autodesk.com/maya/">maya</a> and such.
-It is easy to create new model based on this style.</p>
-
-<p>Try the <a href="http://learningthreejs.com/data/2012-07-05-minecraft-character-in-webgl/">minecraft plugin demo</a>. This is the
-one we gonna build. I used <a href="https://twitter.com/#!/daniel_hede">@daniel_hede</a>&#8217;s code
-and did many plugins to make it all simple and fun :)
-In this demo, i introduce
-<a href="https://github.com/mrdoob/three.js/tree/master/examples/js/postprocessing">three.js post processing</a>
-for the first time.
-This is the
-<a href="http://en.wikipedia.org/wiki/Vignetting">Vignetting</a>
-and
-<a href="http://en.wikipedia.org/wiki/Sepia_(color)">sepia color</a>
-that you see.
-Additionnaly, you can easily change the skins with the UI within the demo.
-Now let&#8217;s get started!</p>
-
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/eg0qshn4VC0" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-
-
-<!-- more -->
-
-
-<h2>Let&#8217;s start coding</h2>
-
-<p>We start to create our world as usual. This initialize the renderer, the camera,
-its controls and a rendering loop.
-We setup the
-<a href="http://learningthreejs.com/blog/2012/01/19/boilerplate-builder-for-three-js/">boilerplate for three.js</a>
-and add a page title with some info on our little 3D demo.
-We just put the camera a little closer to scene center. Thus the character
-will be bigger on screen. We just can&#8217;t get enougth of it, can we ;)</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var world    = tQuery.createWorld().boilerplate().pageTitle('#info').start();
-</span><span class='line'>world.tCamera().position.z    = 1.8;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we add a bit of post processing. It is the first time
-we talk about this, so let&#8217;s details it a bit.
-What is post processing (in a 3d context) ?
-Post processing is performed after rendering the 3D, hence the name.
-It applies on the screen as a whole. So the effects are in 2D.
-What&#8217;s it not ?
-It isn&#8217;t for 3d effect on specific objects in your world.</p>
-
-<p> <code>tquery.effectcomposer.js</code> plugin provides a simple api to add
-postprocessing to our world. It is a chained API on top of
-<a href="https://github.com/mrdoob/three.js/tree/master/examples/js/postprocessing">three.js effect composer</a>.
-In our case, we first apply <code>.sepia()</code> to change the colors toward
-<a href="http://en.wikipedia.org/wiki/Sepia_(color)">sepia color</a>.
-Then we apply <code>.vignette()</code> for
-<a href="http://en.wikipedia.org/wiki/Vignetting">Vignetting</a>
-and mark the effects list
-as finished.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>world.addEffectComposer().sepia().vignette().finish();</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Not too hard hey ;)</p>
-
-<h2>Hello Steve!</h2>
-
-<p>Now that we go a world. We will create a minecraft character.
-In fact, minecraft main character is called <a href="http://www.minecraftwiki.net/wiki/The_Player">&#8216;steve&#8217;</a>.
- <code>tQuery.MinecraftChar</code> is the main class. It will create
-a character model and expose all its limbs too e.g right legs or right arms.
-More on that later.
-As you can see, we specify <code>skinUrl</code> parameter. It should point to the
-image of the skin texture. You can change it anytime with <code>character.loadSkin(skinUrl)</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var character    = new tQuery.MinecraftChar({
-</span><span class='line'>  skinUrl : 'images/3djesus.png'
-</span><span class='line'>}); </span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now that we got our character setup, we just need to include it in our 3D world.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>character.model.addTo(world);</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Make this model move</h2>
-
-<p>So we talked about exposed limbs&#8230; kinda gross, almost disturbing :)
-In fact it just means each part of our model is exposed for you to
-play with. It has the head, legs right and left, and the same for the arms.
-It is all in <code>character.parts</code>.</p>
-
-<p>So the first step is to hook a function in the world rendering loop.
-two parameters are passed <code>delta</code> and <code>now</code>. <code>delta</code> is the number
-of seconds since the last iteration of the rendering loop. <code>now</code> is the absolute
-time in seconds.
-We use those values to tune the animation. Thus it will be animated at the same
-speed no matter the <a href="http://en.wikipedia.org/wiki/Frame_rate">fps</a> rate of your computer.
-Here is simple animation of the head. So we hook the function and change
-the <code>headGroup</code> rotation to fit our taste.
-We will make it do an
-<a href="http://en.wikipedia.org/wiki/8_(number)">eight</a>
-or
-<a href="http://en.wikipedia.org/wiki/Infinity#Infinity_symbol">infinite synbol</a></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>world.loop().hook(function(delta, now){
-</span><span class='line'>  character.parts.headGroup.rotation.x    = Math.sin(now*1.5)/3;
-</span><span class='line'>  character.parts.headGroup.rotation.y    = Math.sin(now)/3;
-</span><span class='line'>}); </span></code></pre></td></tr></table></div></figure>
-
-
-<p>This is nice but the body would appear rather static if we move only the head.
-Let&#8217;s make see how to make it walk.
-When people walks or run, they swing theirs arm and legs.
-So we need to change the rotation X of each of those limbs. First we get
-an angle relative to current time. It will determine the position of the arms/legs.
-The amplitude of the move has been tuned to <code>1.4</code>, play with it and find the
-value you like. Then you move the legs and arms by setting the rotation.
-Just take care of balancing legs and arms thus his can keep his balance :)</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>world.loop().hook(function(delta, now){
-</span><span class='line'>  var angle   = 1/2 * now*Math.PI*2;
-</span><span class='line'>  // move the arms
-</span><span class='line'>  character.parts.armR.rotation.x = 1.4 * Math.cos(angle + Math.PI);
-</span><span class='line'>  character.parts.armL.rotation.x = 1.4 * Math.cos(angle);
-</span><span class='line'>  // move the legs
-</span><span class='line'>  character.parts.legR.rotation.x = 1.4 * Math.cos(angle);
-</span><span class='line'>  character.parts.legL.rotation.x = 1.4 * Math.cos(angle + Math.PI);
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And we are done! Pretty cool no ? :)</p>
-
-<h3>Conclusion</h3>
-
-<p>So we did a little character ala minecraft.
-We got a basic animations of it. Nevertheless it would be neat to make animations
-more robusts and generic. A new post will likely focus on this.
-I so love this field and how it make things easier.</p>
-
-<p>That&#8217;s all folks. Have fun :)</p>
 ]]></content>
   </entry>
   

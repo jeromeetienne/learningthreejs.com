@@ -4,7 +4,7 @@
   <title><![CDATA[Category: extension | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/extension/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-05-05T13:52:28+02:00</updated>
+  <updated>2014-05-06T13:45:28+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,152 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Scary Monster For Your Next FPS Game in Three.js With threex.md2character]]></title>
+    <link href="http://learningthreejs.com/blog/2014/05/06/scary-monster-for-your-next-fps-game-in-three-dot-js-with-threex-dot-md2character/"/>
+    <updated>2014-05-06T20:19:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/05/06/scary-monster-for-your-next-fps-game-in-three-dot-js-with-threex-dot-md2character</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.md2character/examples/select.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.md2character/master/examples/images/screenshot-threex-md2character-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="/blog/categories/threexaday/">'one threex a day' challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.md2character">threex.md2character</a>.
+threex.md2character is a
+<a href="http://www.threejsgames.com/extensions/">three.js game extension</a>
+which provides a model of a monster.
+His name is 'ratmahatta' and is from quake era.
+It is animated, can hold a weapon, skin may be changed. Pretty sweet.
+you got <strong>12 weapons to choose from</strong>, <strong>5 different skins</strong> and <strong>16 distinct animations</strong>. Pretty complete!
+It is easy to include in your game, maybe in a cave or a dungeon :)
+It is from
+<a href="http://threejs.org/examples/webgl_morphtargets_md2.html">webgl_morphtargets_md2.html three.js example</a>.
+The model is make by
+<a href="http://planetquake.gamespy.com/View.php?view=Quake2.Detail&amp;id=368">Brian Collins</a> and converted by
+<a href="https://twitter.com/#!/oosmoxiecode">@oosmoxiecode</a>'s
+<a href="http://oos.moxiecode.com/blog/2012/01/md2-to-json-converter/">MD2 converter</a>.</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.md2character/examples/select.html' target='_blank'><input type="button" value='Try Threex.md2character Demo Now' /></a></p>
+
+<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/zOqxsorcyQk" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don't Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.md2character/examples/select.html">examples/select.html</a>
+[<a href="https://github.com/jeromeetienne/threex.md2character/blob/master/examples/select.html">view source</a>] :
+It shows all the possibilities for the skins, the weapons and the animations.</li>
+<li><a href="http://jeromeetienne.github.io/threex.md2character/examples/ratmahattaplayer.html">examples/ratmahattaplayer.html</a>
+[<a href="https://github.com/jeromeetienne/threex.md2character/blob/master/examples/ratmahattaplayer.html">view source</a>] :
+It shows how to controls the mesh as if it was a player in a game with input
+in the keyboard wasd or arrows keys.</li>
+</ul>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
+
+<p>```html</p>
+
+<script src='threex.md2character.js'></script>
+
+
+<p>```</p>
+
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<p><code>bash
+bower install threex.md2character
+</code></p>
+
+<h1>How To Use It</h1>
+
+<h2>threex.md2characterratmahatta.js</h2>
+
+<p>You typically create a ratamahatta like this</p>
+
+<p><code>
+var ratamahatta = new THREEx.MD2CharacterRatmahatta()
+scene.add(ratamahatta.character.object3d)
+</code></p>
+
+<p>Don't forget to update it when you render with <code>ratamahatta.update(delta)</code>.Internally, it create a character and a controls. You can use them directly.
+* <code>ratamahatta.character</code> instance of <code>THREEx.MD2Character</code>
+* <code>ratamahatta.controls</code> instance of <code>THREEx.MD2CharacterControls</code></p>
+
+<p>It has simple functions to set the skin, weapon and animations.</p>
+
+<ul>
+<li><code>ratamahatta.skinNames</code> is the names of available skins. It has 5 different skins <code>["ratamahatta", "ctf_b", "ctf_r", "dead", "gearwhore"]</code></li>
+<li><code>ratamahatta.setSkinName(skinName)</code> set the skin based on its name</li>
+<li><code>ratamahatta.weaponsNames</code> is the names of available weapons. It has 12 animation <code>["none", "weapon", "w_bfg", "w_blaster", "w_chaingun", "w_glauncher", "w_hyperblaster", "w_machinegun", "w_railgun", "w_rlauncher", "w_shotgun", "w_sshotgun"]</code></li>
+<li><code>ratamahatta.setWeaponName(weaponName)</code> set the weapon based on its name</li>
+<li><code>ratamahatta.animationNames</code> is the names of available animation. It has 16 animations <code>["stand", "run", "attack", "pain", "jump", "flip", "salute", "taunt", "wave", "point", "crstand", "crwalk", "crattack", "crpain", "crdeath", "death"]</code></li>
+<li><code>ratamahatta.setAnimationName(animationName)</code> set the animation based on its name</li>
+</ul>
+
+
+<h2>threex.md2charactercontrols.js</h2>
+
+<p>First you create controls for your character like this</p>
+
+<p><code>
+var controls    = new THREEx.MD2CharacterControls(character.object3d)
+</code></p>
+
+<p>Dont forget to update it when you render with <code>controls.update(delta, now)</code>. The character is controlled by <code>controls.inputs</code> properties. You just have to set them to fit your need.</p>
+
+<ul>
+<li><code>control.inputs.right</code> is true if the character must go right</li>
+<li><code>control.inputs.left</code> is true if the character must go left</li>
+<li><code>control.inputs.up</code> is true if the character must go forward</li>
+<li><code>control.inputs.down</code> is true if the character must go backward</li>
+</ul>
+
+
+<h2>threex.md2character.js</h2>
+
+<p>It provide the base to play with the model.
+It is a modified version of
+<a href="https://github.com/mrdoob/three.js/blob/master/examples/js/MD2Character.js">MD2Character.js</a>
+from this <a href="http://threejs.org/examples/webgl_morphtargets_md2.html">webgl_morphtargets_md2.html three.js example</a>.</p>
+
+<p>First you create it.
+<code>
+var character   = new THREEx.MD2Character()
+</code></p>
+
+<p>Dont forget to update it at every frame with a <code>character.update(delta)</code></p>
+
+<ul>
+<li><code>character.object3d</code> is the THREE.Object3D container</li>
+<li><code>character.setWireframe(boolean)</code> set the model in wireframe.</li>
+<li><code>character.setWeapon(weaponIndex)</code> add a weapon in the character hand. <code>weaponIndex</code> is between 0 and 11. if -1, it removes the weapon.</li>
+<li><code>character.setSkin(skinIndex)</code> set the skin of the character. <code>skinIndex</code> is between 0 and 4</li>
+<li><code>character.setAnimation(animationName)</code> set the animation for the character. The name is one of <code>["stand", "run", "attack", "pain", "jump", "flip", "salute", "taunt", "wave", "point", "crstand", "crwalk", "crattack", "crpain", "crdeath", "death"]</code>.</li>
+<li><code>character.setPlaybackRate(rate)</code> set the playback rate of the animation.</li>
+<li><code>character.load(config)</code> loads the characters
+
+<ul>
+<li><code>character.addEventListener('loaded', function(){})</code> to be notified when the model is loaded</li>
+<li><code>character.isLoaded()</code> is true if the model is loaded, false otherwise</li>
+</ul>
+</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Simple And Efficient 3 Point Lighting To Get Your Game Started With Threex.basiclighting Game Extension For Three.js]]></title>
@@ -492,130 +638,6 @@ laserCooked.update(delta, now)
 
 <p>})
 ```</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Realistic Physics for Your 3D Game with THREEx.Oimo Game Extension For three.js]]></title>
-    <link href="http://learningthreejs.com/blog/2014/04/28/realistic-physics-for-your-3d-game-with-threex-dot-oimo/"/>
-    <updated>2014-04-28T17:12:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2014/04/28/realistic-physics-for-your-3d-game-with-threex-dot-oimo</id>
-    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.oimo/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.oimo/master/examples/images/screenshot-threex-oimo-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="/blog/categories/threexaday/">'one threex a day' challenge</a>. This challenge is to publish every day one game extension for three.js! One per day, every day and that for 2month! In this post, we gonna talk about <a href="http://www.threejsgames.com/extensions/#threex.oimo">threex.oimo</a>.
-threex.oimo is a <a href="http://www.threejsgames.com/extensions/">threex game extension for three.js</a>. It provides a <a href="http://en.wikipedia.org/wiki/Game_physics">realistic physics</a> easy to include in your own games. So you can take objects in your game and make them fall as if it was the real world! You can code a <a href="http://en.wikipedia.org/wiki/Pool_(cue_sports)">pool game</a> in a day!
-You make rocks fall from the sky in a realistic fashion! Sky is the limit!
-It is a warper over the excelent library <a href="https://github.com/lo-th/Oimo.js">oimo.js</a> physics library. <a href="https://plus.google.com/114170447432405103307/posts">lo-th</a>, the author does <a href="http://3dflashlo.wordpress.com/">a lot of crazy things</a>! Be sure to check it out!</p>
-
-<p><a href='http://jeromeetienne.github.io/threex.oimo/examples/demo.html' target='_blank'><input type="button" value='Try Threex.oimo Demo Now'></a></p>
-
-<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto! <strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
-
-<!-- more -->
-
-
-
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/wESF0NdMWBE" frameborder="0" allowfullscreen></iframe>
-
-
-<h1>Show Don't Tell</h1>
-
-<ul>
-<li><a href="http://jeromeetienne.github.io/threex.oimo/examples/crates.html">examples/crates.html</a>
-[<a href="https://github.com/jeromeetienne/threex.oimo/blob/master/examples/crates.html">view source</a>] :
-It shows a slow motion demo of a football hitting a wall of crates.</li>
-<li><a href="http://jeromeetienne.github.io/threex.oimo/examples/basic.html">examples/basic.html</a>
-[<a href="https://github.com/jeromeetienne/threex.oimo/blob/master/examples/basic.html">view source</a>] :
-It shows a bunch of cube and sphere falling on a ground.</li>
-<li><a href="http://jeromeetienne.github.io/threex.oimo/examples/demo.html">examples/demo.html</a>
-[<a href="https://github.com/jeromeetienne/threex.oimo/blob/master/examples/demo.html">view source</a>] :
-It shows a more elaborate rendering. Planets falling down a pyramid in space.</li>
-</ul>
-
-
-<h1>How To Install It</h1>
-
-<p>You can install it via script tag</p>
-
-<p><code>
- &lt;script src='threex.oimo.js'&gt;&lt;/script&gt;
-</code></p>
-
-<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
-
-<p><code>
-bower install threex.oimo
-</code></p>
-
-<h1>How To Use It</h1>
-
-<p>Well first you need to create a oimo.js world. You do that like this</p>
-
-<p><code>
-var world   = new OIMO.World()
-</code></p>
-
-<p>Then, at every frame, update your mesh position/rotation.</p>
-
-<p><code>
-world.step()
-</code></p>
-
-<p>Then you need to create physics bodies and make them move</p>
-
-<h2>.createBodyFromMesh()</h2>
-
-<p>It will create the <code>IOMO.Body</code> from a three.js mesh you give it.
-Currently it support <code>THREE.CubeGeometry</code> and <code>THREE.SphereGeometry</code>. First create a normal <code>THREE.Mesh</code></p>
-
-<p><code>
-var geometry    = new THREE.CubeGeometry(1,1,1)
-var material    = new THREE.MeshNormalMaterial()
-var mesh    = new THREE.Mesh( geometry, material )
-scene.add(mesh)
-</code></p>
-
-<p>Then you create the <code>IOMO.Body</code> for it</p>
-
-<p><code>
-var body    = THREEx.Iomo.createBodyFromMesh(world, mesh)
-</code></p>
-
-<h2>.Body2MeshUpdater()</h2>
-
-<p>It will update the position/rotation of a <code>THREE.Mesh</code>
-based on a position/rotation of a <code>IOMO.Body</code>. You need
-this to see your meshes moves according to oimo.js physics.
-First you create the object</p>
-
-<p><code>
-var updater = new THREEx.Iomo.Body2MeshUpdater(body, mesh)
-</code></p>
-
-<p>Then, at every frame, update your mesh position/rotation.</p>
-
-<p><code>
-updater.update()
-</code></p>
-
-<h2>.Stats()</h2>
-
-<p>It will display statistic from oimo.js, it may be useful to know what is going on.
-It acts very much like
-<a href="">mrdoob's stats</a>
-or
-<a href="">threex.rendererstats</a>.</p>
-
-<p><code>
-var oimoStats   = new THREEx.Iomo.Stats(world)
-document.body.appendChild(oimoStats.domElement)
-</code></p>
-
-<p>Then, at every frame, update it.</p>
-
-<p><code>
-oimoStats.update()
-</code></p>
 ]]></content>
   </entry>
   
