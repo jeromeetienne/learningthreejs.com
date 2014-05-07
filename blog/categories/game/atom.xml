@@ -4,7 +4,7 @@
   <title><![CDATA[Category: game | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/game/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-05-06T14:45:27+02:00</updated>
+  <updated>2014-05-07T13:54:47+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,86 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Funky Deformation For The Geometry of Your Three.js Game With threex.vertexanimation]]></title>
+    <link href="http://learningthreejs.com/blog/2014/05/07/funky-deformation-for-the-geometry-of-your-three-dot-js-game-with-threex-dot-vertexanimation/"/>
+    <updated>2014-05-07T20:20:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/05/07/funky-deformation-for-the-geometry-of-your-three-dot-js-game-with-threex-dot-vertexanimation</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.vertexanimation/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.vertexanimation/master/examples/images/screenshot-threex-vertexanimation-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="/blog/categories/threexaday/">'one threex a day' challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.vertexanimation">threex.vertexanimation</a>.
+threex.vertexanimation is a <a href="http://www.threejsgames.com/extensions/">three.js games extension</a> which provides easy vertex animation. You can see your object move as if it's got a life of its own! You can use it to make the objects in your game bounce, dance or move in funky ways. You can add it in your games to get a <a href="http://en.wikipedia.org/wiki/Flubber_(film)">Flubber</a> effect. The best part about it is that you can get creative. You can morph or deform your objects to transform them into other objects. It is really fun to experiment with!</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.vertexanimation/examples/demo.html' target='_blank'><input type="button" value='Try Threex.vertexanimation Demo Now' /></a></p>
+
+<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/FjsMzOI3eRw" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don't Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.vertexanimation/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.vertexanimation/blob/master/examples/basic.html">view source</a>] :
+It shows a basic usage of the module.</li>
+<li><a href="http://jeromeetienne.github.io/threex.vertexanimation/examples/demo.html">examples/demo.html</a>
+[<a href="https://github.com/jeromeetienne/threex.vertexanimation/blob/master/examples/demo.html">view source</a>] :
+It simply add a more shiny example using reflexion and environment map.</li>
+</ul>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
+
+<p>```html</p>
+
+<script src='threex.vertexanimation.js'></script>
+
+
+<p>```</p>
+
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<p><code>bash
+bower install threex.vertexanimation
+</code></p>
+
+<h1>How To Use It</h1>
+
+<p>Here is a typical usage</p>
+
+<p>```javascript
+// instanciate the animation object
+var animation   = new THREEx.VertexAnimation(geometry, function(origin, position, delta, now){</p>
+
+<pre><code>// here you put your formula, something clever which fit your needs
+var angle   = now*2 + position.y     * 10;
+position.x  = origin.x + Math.cos(angle)*0.1;   
+</code></pre>
+
+<p>})
+// update the animation at every frame
+updateFcts.push(function(delta, now){</p>
+
+<pre><code>animation.update(delta, now)
+</code></pre>
+
+<p>})
+```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Scary Monster For Your Next FPS Game in Three.js With threex.md2character]]></title>
@@ -537,109 +617,6 @@ scene.add( mesh );
 browser, false otherwise.</li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Beautiful Dynamic Laser Beams for Your Space Game with threex.laser Game Extension For Three.js]]></title>
-    <link href="http://learningthreejs.com/blog/2014/04/29/beautiful-dynamic-laser-beams-for-your-space-game-with-threex-dot-laser-game-extension-for-three-dot-js/"/>
-    <updated>2014-04-29T13:57:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2014/04/29/beautiful-dynamic-laser-beams-for-your-space-game-with-threex-dot-laser-game-extension-for-three-dot-js</id>
-    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.laser/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.laser/master/examples/images/screenshot-threex-laser-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="/blog/categories/threexaday/">'one threex a day' challenge</a>.
-This challenge is to publish every day one game extension for three.js!
-One per day, every day and that for 2month!
-In this post, we gonna talk about
-<a href="http://www.threejsgames.com/extensions/#threex.laser">threex.laser</a>.
-threex.laser is a <a href="http://www.threejsgames.com/extensions/">threex</a> game extension for three.js. It provides a laser beam effect. Excellent to add in your space game!
-The laser itself is fully procedural with generated texture.
-The bleeding effect is obtained with additive blending.
-threex.laser contains a more elaborate laser which dynamically collides with your scene. It is all done for you and it looks great! On impact, there is a point light and an particle sprite for cooler effects :)</p>
-
-<p><a href='http://jeromeetienne.github.io/threex.laser/examples/demo.html' target='_blank'><input type="button" value='Try Threex.laser Demo Now' /></a></p>
-
-<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
-<strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
-
-<!-- more -->
-
-
-
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/PsxSsdwODRk" frameborder="0" allowfullscreen></iframe>
-
-
-<h1>Show Don't Tell</h1>
-
-<ul>
-<li><a href="http://jeromeetienne.github.io/threex.laser/examples/demo.html">examples/demo.html</a>
-[<a href="https://github.com/jeromeetienne/threex.laser/blob/master/examples/demo.html">view source</a>] :
-It shows a demo with cooked laser impacting a moving torus.</li>
-<li><a href="http://jeromeetienne.github.io/threex.laser/examples/laserbeam.html">examples/laserbeam.html</a>
-[<a href="https://github.com/jeromeetienne/threex.laser/blob/master/examples/laserbeam.html">view source</a>] :
-It shows a usage of threex.laserbeam.js, it could be the basis for a light sword for example.</li>
-<li><a href="http://jeromeetienne.github.io/threex.laser/examples/lasercooked.html">examples/lasercooked.html</a>
-[<a href="https://github.com/jeromeetienne/threex.laser/blob/master/examples/lasercooked.html">view source</a>] :
-It shows a usage of threex.lasercooked.js. The laser is inside a cube, the cube is
-filled with toruses positioned at random, and the laser is colliding with other objects.</li>
-</ul>
-
-
-<h1>How To Install It</h1>
-
-<p>You can install it via script tag</p>
-
-<p>```html</p>
-
-<script src='threex.laserbeam.js'></script>
-
-
-<script src='threex.lasercooked.js'></script>
-
-
-<p>```</p>
-
-<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
-
-<p><code>bash
-bower install threex.laser
-</code></p>
-
-<h1>How To Use It</h1>
-
-<h2>threex.laserbeam.js</h2>
-
-<p>It is a raw laser beam using dynamic textures.
-Here is to create the laser beam and add it to the scene.</p>
-
-<p><code>javascript
-var laserBeam   = new THREEx.LaserBeam()
-scene.add(laserBeam)
-</code></p>
-
-<h2>threex.lasercooked.js</h2>
-
-<p>It is a laser beam with dynamic collision.
-On impacts, to increase realism, there is sprite and point light.
-It depends on <code>THREEx.LaserBeam</code> so first create it and add it to the scene</p>
-
-<p><code>javascript
-var laserBeam   = new THREEx.LaserBeam()
-scene.add(laserBeam)
-</code></p>
-
-<p>Then you create the laserCooked based on it. Don't forget to update it in your render loop.</p>
-
-<p>```javascript
-var laserCooked = new THREEx.LaserCooked(laserBeam)
-onRenderFcts.push(function(delta, now){</p>
-
-<pre><code>// every time you render the scene, update laserCooked
-laserCooked.update(delta, now)
-</code></pre>
-
-<p>})
-```</p>
 ]]></content>
   </entry>
   
