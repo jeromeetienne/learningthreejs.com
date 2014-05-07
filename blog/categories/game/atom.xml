@@ -4,7 +4,7 @@
   <title><![CDATA[Category: game | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/game/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-05-07T13:54:47+02:00</updated>
+  <updated>2014-05-07T14:29:45+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -19,7 +19,7 @@
     <updated>2014-05-07T20:20:00+02:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/07/funky-deformation-for-the-geometry-of-your-three-dot-js-game-with-threex-dot-vertexanimation</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.vertexanimation/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.vertexanimation/master/examples/images/screenshot-threex-vertexanimation-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="/blog/categories/threexaday/">'one threex a day' challenge</a>.
+This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">'one threex a day' challenge</a>.
 This challenge is to publish every day one game extension for three.js!
 One per day, every day and that for 2month!
 In this post, we gonna talk about
@@ -99,7 +99,7 @@ updateFcts.push(function(delta, now){</p>
     <updated>2014-05-06T20:19:00+02:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/06/scary-monster-for-your-next-fps-game-in-three-dot-js-with-threex-dot-md2character</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.md2character/examples/select.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.md2character/master/examples/images/screenshot-threex-md2character-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="/blog/categories/threexaday/">'one threex a day' challenge</a>.
+This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">'one threex a day' challenge</a>.
 This challenge is to publish every day one game extension for three.js!
 One per day, every day and that for 2month!
 In this post, we gonna talk about
@@ -122,8 +122,6 @@ The model is make by
 
 <p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
 <strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
-
-<p><a href="https://news.ycombinator.com/item?id=7703905">discuss it on hacker news</a></p>
 
 <!-- more -->
 
@@ -247,7 +245,7 @@ var character   = new THREEx.MD2Character()
     <updated>2014-05-05T13:52:00+02:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/05/simple-and-efficient-3-point-lighting-to-get-your-game-started-with-threex-dot-basiclighting-game-extension-for-three-dot-js</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.basiclighting/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.basiclighting/master/examples/images/screenshot-threex-basiclighting-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="/blog/categories/threexaday/">'one threex a day' challenge</a>.
+This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">'one threex a day' challenge</a>.
 This challenge is to publish every day one game extension for three.js!
 One per day, every day and that for 2month!
 In this post, we gonna talk about
@@ -335,7 +333,7 @@ scene.add(lighting)
     <updated>2014-05-02T13:54:00+02:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/02/easy-to-use-dynamic-texture-to-write-text-in-your-3d-object-with-threex-dot-dynamictexture-game-extensions-for-three-dot-js</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.dynamictexture/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.dynamictexture/master/examples/images/screenshot-threex-dynamictexture-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="/blog/categories/threexaday/">'one threex a day' challenge</a>.
+This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">'one threex a day' challenge</a>.
 This challenge is to publish every day one game extension for three.js!
 One per day, every day and that for 2month!
 In this post, we gonna talk about
@@ -458,7 +456,7 @@ dynamicTexture.drawText('Hello', 32, 256, 'red')
     <updated>2014-04-30T13:38:00+02:00</updated>
     <id>http://learningthreejs.com/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.videotexture/master/examples/images/screenshot-threex-videotexture-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="/blog/categories/threexaday/">'one threex a day' challenge</a>.
+This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">'one threex a day' challenge</a>.
 This challenge is to publish every day one game extension for three.js!
 One per day, every day and that for 2month!
 In this post, we gonna talk about

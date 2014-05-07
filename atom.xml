@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-05-07T13:54:47+02:00</updated>
+  <updated>2014-05-07T14:29:45+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -19,7 +19,7 @@
     <updated>2014-05-07T20:20:00+02:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/07/funky-deformation-for-the-geometry-of-your-three-dot-js-game-with-threex-dot-vertexanimation</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.vertexanimation/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.vertexanimation/master/examples/images/screenshot-threex-vertexanimation-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="http://learningthreejs.com/blog/categories/threexaday/">&#8216;one threex a day&#8217; challenge</a>.
+This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
 This challenge is to publish every day one game extension for three.js!
 One per day, every day and that for 2month!
 In this post, we gonna talk about
@@ -97,12 +97,32 @@ It simply add a more shiny example using reflexion and environment map.</li>
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[Three.js Interview: Online 3D Modeling And Rendering With Clara.io]]></title>
+    <link href="http://learningthreejs.com/blog/2014/05/07/threejs-interview-online-3d-modeling-and-rendering-with-claraio/"/>
+    <updated>2014-05-07T10:16:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/05/07/threejs-interview-online-3d-modeling-and-rendering-with-claraio</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://learningthreejs.com/data/2014-05-07-threejs-interview-online-3d-modeling-and-rendering-with-claraio/images/image01.jpg" width="235" height="105"></p>
+
+<p>Hello everybody! This is my first <em>Three.js Interview</em> video. The inspiration came from all those great people out there doing <a href="http://threejs.org">very cool projects with three.js</a>. I want to share their innovations with others. If you know me, you know that I love talking about three.js. So, I would like everybody to have the opportunity to enjoy and learn from these <a href="http://learningthreejs.com/blog/categories/threejsInterview/">three.js interviews</a>. So three.js interviews are videos of around one hour where people are talking about cool things they do with three.js . Maybe you could get some ideas for your own project or simply partake on a subject you&#8217;re passionate about.</p>
+
+<p><img class="left" src="http://learningthreejs.com/data/2014-05-07-threejs-interview-online-3d-modeling-and-rendering-with-claraio/images/image03.jpg" width="320" height="240"></p>
+
+<p>The idea is to have interesting people come and talk about cool things that they&#8217;ve done with three.js. Like <a href="https://twitter.com/BenAtExocortex">Ben Houston</a>, who is our guest in this first video. Ben is the Team Leader for <a href="http://clara.io/">Clara.io</a>, a online 3D modeling and rendering tool that you can use inside you browser. Ben talks to us about the creation and the evolution of <a href="http://clara.io/">Clara.io</a> and about all the interesting features it&#8217;s got!</p>
+
+<p>I hope you enjoy it and stay tuned for the next Three.js Interview :)</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/5pdxh9pjKzQ" frameborder="0" allowfullscreen></iframe>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Scary Monster For Your Next FPS Game in Three.js With threex.md2character]]></title>
     <link href="http://learningthreejs.com/blog/2014/05/06/scary-monster-for-your-next-fps-game-in-three-dot-js-with-threex-dot-md2character/"/>
     <updated>2014-05-06T20:19:00+02:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/06/scary-monster-for-your-next-fps-game-in-three-dot-js-with-threex-dot-md2character</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.md2character/examples/select.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.md2character/master/examples/images/screenshot-threex-md2character-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="http://learningthreejs.com/blog/categories/threexaday/">&#8216;one threex a day&#8217; challenge</a>.
+This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
 This challenge is to publish every day one game extension for three.js!
 One per day, every day and that for 2month!
 In this post, we gonna talk about
@@ -125,8 +145,6 @@ The model is make by
 
 <p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
 <strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
-
-<p><a href="https://news.ycombinator.com/item?id=7703905">discuss it on hacker news</a></p>
 
 <!-- more -->
 
@@ -254,7 +272,7 @@ from this <a href="http://threejs.org/examples/webgl_morphtargets_md2.html">webg
     <updated>2014-05-05T13:52:00+02:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/05/simple-and-efficient-3-point-lighting-to-get-your-game-started-with-threex-dot-basiclighting-game-extension-for-three-dot-js</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.basiclighting/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.basiclighting/master/examples/images/screenshot-threex-basiclighting-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="http://learningthreejs.com/blog/categories/threexaday/">&#8216;one threex a day&#8217; challenge</a>.
+This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
 This challenge is to publish every day one game extension for three.js!
 One per day, every day and that for 2month!
 In this post, we gonna talk about
@@ -343,7 +361,7 @@ It shows a demo of it.</li>
     <updated>2014-05-02T13:54:00+02:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/02/easy-to-use-dynamic-texture-to-write-text-in-your-3d-object-with-threex-dot-dynamictexture-game-extensions-for-three-dot-js</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.dynamictexture/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.dynamictexture/master/examples/images/screenshot-threex-dynamictexture-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="http://learningthreejs.com/blog/categories/threexaday/">&#8216;one threex a day&#8217; challenge</a>.
+This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
 This challenge is to publish every day one game extension for three.js!
 One per day, every day and that for 2month!
 In this post, we gonna talk about
@@ -473,7 +491,7 @@ to draw a text</p>
     <updated>2014-04-30T13:38:00+02:00</updated>
     <id>http://learningthreejs.com/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.videotexture/master/examples/images/screenshot-threex-videotexture-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="http://learningthreejs.com/blog/categories/threexaday/">&#8216;one threex a day&#8217; challenge</a>.
+This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
 This challenge is to publish every day one game extension for three.js!
 One per day, every day and that for 2month!
 In this post, we gonna talk about
@@ -651,7 +669,7 @@ browser, false otherwise.</li>
     <updated>2014-04-29T13:57:00+02:00</updated>
     <id>http://learningthreejs.com/blog/2014/04/29/beautiful-dynamic-laser-beams-for-your-space-game-with-threex-dot-laser-game-extension-for-three-dot-js</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.laser/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.laser/master/examples/images/screenshot-threex-laser-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="http://learningthreejs.com/blog/categories/threexaday/">&#8216;one threex a day&#8217; challenge</a>.
+This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
 This challenge is to publish every day one game extension for three.js!
 One per day, every day and that for 2month!
 In this post, we gonna talk about
@@ -758,7 +776,7 @@ It depends on <code>THREEx.LaserBeam</code> so first create it and add it to the
     <updated>2014-04-28T17:12:00+02:00</updated>
     <id>http://learningthreejs.com/blog/2014/04/28/realistic-physics-for-your-3d-game-with-threex-dot-oimo</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.oimo/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.oimo/master/examples/images/screenshot-threex-oimo-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="http://learningthreejs.com/blog/categories/threexaday/">&#8216;one threex a day&#8217; challenge</a>. This challenge is to publish every day one game extension for three.js! One per day, every day and that for 2month! In this post, we gonna talk about <a href="http://www.threejsgames.com/extensions/#threex.oimo">threex.oimo</a>.
+This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>. This challenge is to publish every day one game extension for three.js! One per day, every day and that for 2month! In this post, we gonna talk about <a href="http://www.threejsgames.com/extensions/#threex.oimo">threex.oimo</a>.
 threex.oimo is a <a href="http://www.threejsgames.com/extensions/">threex game extension for three.js</a>. It provides a <a href="http://en.wikipedia.org/wiki/Game_physics">realistic physics</a> easy to include in your own games. So you can take objects in your game and make them fall as if it was the real world! You can code a <a href="http://en.wikipedia.org/wiki/Pool_(cue_sports)">pool game</a> in a day!
 You make rocks fall from the sky in a realistic fashion! Sky is the limit!
 It is a warper over the excelent library <a href="https://github.com/lo-th/Oimo.js">oimo.js</a> physics library. <a href="https://plus.google.com/114170447432405103307/posts">lo-th</a>, the author does <a href="http://3dflashlo.wordpress.com/">a lot of crazy things</a>! Be sure to check it out!</p>
@@ -888,7 +906,7 @@ or
     <updated>2014-04-25T13:44:00+02:00</updated>
     <id>http://learningthreejs.com/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.crates/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.crates/master/examples/images/screenshot-threex-crates-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="http://learningthreejs.com/blog/categories/threexaday/">&#8216;one threex a day&#8217; challenge</a>.
+This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
 This challenge is to publish every day one game extension for three.js!
 One per day, every day and that for 2month!
 In this post, we gonna talk about
@@ -974,7 +992,7 @@ It shows all the balls on a single screen.</li>
     <updated>2014-04-24T13:47:00+02:00</updated>
     <id>http://learningthreejs.com/blog/2014/04/24/crazy-post-processing-color-effects-to-change-your-game-ambiance-with-threex-dot-coloradjust-game-extension-for-three-dot-js</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.coloradjust/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.coloradjust/master/examples/images/screenshot-threex-coloradjust-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="http://learningthreejs.com/blog/categories/threexaday/">&#8216;one threex a day&#8217; challenge</a>.
+This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
 This challenge is to publish every day one game extension for three.js!
 One per day, every day and that for 2month!
 In this post, we gonna talk about
@@ -1117,7 +1135,9 @@ You can tune the delay like this.</p>
     <link href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/"/>
     <updated>2014-04-22T17:51:00+02:00</updated>
     <id>http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge</id>
-    <content type="html"><![CDATA[<p>Hello everybody! I’m working on a new project that I want to share with you. But first, let me start by telling you what inspired me to do it.</p>
+    <content type="html"><![CDATA[<p><strong>Update</strong>: here is the list of <a href="http://learningthreejs.com/blog/categories/threexaday/">All &#8220;One Threex A Day&#8221; Posts</a></p>
+
+<p>Hello everybody! I’m working on a new project that I want to share with you. But first, let me start by telling you what inspired me to do it.</p>
 
 <p>Last week, I read an interesting article written by John Resig called <a href="http://ejohn.org/blog/write-code-every-day/">Write code everyday</a>. He explains how he succeed in efficiently accomplishing his side projects. This article opened my eyes. It was like a revelation, a procedure that I just had to apply to my own work. An answer to the questions I had been asking myself: How could I be more efficient? How could I be more disciplined and improve my execution?</p>
 
@@ -3117,154 +3137,6 @@ You can see the excelent paul irish doing a
 what you can do with canvas inspector.</p>
 
 <p>That&#8217;s all folks. Have Fun!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Load Your Game Faster with AppCache]]></title>
-    <link href="http://learningthreejs.com/blog/2013/03/22/load-your-game-faster-with-appcache/"/>
-    <updated>2013-03-22T05:31:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2013/03/22/load-your-game-faster-with-appcache</id>
-    <content type="html"><![CDATA[<p>This post is about loading your game faster.
-Appcache may be great help on this.
-In this post, i will use a little game of mine called
-<a href="http://jeromeetienne.github.com/demo.poollabyrinth/">&#8216;Marble Labyrinth&#8217;</a>
-as an example to show how i got from 2.4mbyte to 0byte of download in 5min of work.
-Appcache provides faster access to your users, and less bandwidth cost to you. A well used time :)</p>
-
-<center>
-  <iframe width="425" height="349" src="http://www.youtube.com/embed/FY4UQpu1ijM" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-
-
-<!-- more -->
-
-
-<h3>What Is Appcache</h3>
-
-<p>This is a way to cache the files more efficiently and with support for offline.
-Other already explained it better that i could.
-<a href="http://www.html5rocks.com/en/tutorials/appcache/beginner/">&#8220;A Beginner&#8217;s Guide to Using the Application Cache&#8221;</a>
-by
-<a href="https://twitter.com/ebidel">Eric Bidelman</a>
-on
-<a href="http://www.html5rocks.com/">html5rocks</a> is a very nice intro.
-This site got plenty of data about <a href="http://www.html5rocks.com/en/features/offline">offline support</a>.
-Here is a <a href="http://appcachefacts.info/">appcache factsheet</a>
-and the <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#appcache">specification</a>.</p>
-
-<h3>In The Rought</h3>
-
-<p>How to generate an appcache file without hassle ?
-Something which support dynamic stuff like xhr ? It is surprisingly easy.</p>
-
-<ul>
-<li><em>Step 1:</em> Do &#8216;Copy ALL as HAR&#8217; in chrome devtools network</li>
-<li><em>Step 2:</em> in js console, do &#8216;var har = &#8217; and there you paste it</li>
-<li><em>Step 3:</em> generate teh appcache file with the following javascript</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>console.log('CACHE MANIFEST\n\nCACHE:');
-</span><span class='line'>har.log.entries.forEach(function(entry){ console.log(entry.request.url) });
-</span><span class='line'>console.log('\nNETWORK:\n*');</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Simple no ? Well unfortunatly even a basic har file is large.
-The one for
-<a href="http://jeromeetienne.github.com/demo.poollabyrinth/">&#8216;Marble Labyrinth&#8217;</a>
-is more than 7000 lines long. So i wrote a little tool to ease up the process
-on large project.</p>
-
-<h3>Let&#8217;s Get Started</h3>
-
-<p>First, we install a little utility which gonna generate the appcache for us.
-It is called <em>har2appcache</em>.
-It is available on a
-<a href="https://github.com/jeromeetienne/har2appcache">github repository</a> as usual.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo npm install -g har2appcache
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This one got the advantage to use the info from the HAR file.
-So you will get all the dynamic request too. All the models that
-you load with <code>THREE.OBJMTLLoader</code> or your textures
-with <code>THREE.ImageUtils.loadTexture</code> are all loaded dynamically
-without insertion in the DOM.</p>
-
-<p>btw HAR stands for &#8216;HTTP Archive&#8217;.
-You can read <a href="https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/HAR/Overview.html">HTTP Archive specification</a>
-if you are so inclined.
-To get this HAR file, we will use Chrome.</p>
-
-<h3>Let&#8217;s Play With Chrome Devtools</h3>
-
-<p><img class="right" src="http://learningthreejs.com/data/2013-03-22-load-your-game-faster-with-appcache/devtool-network-small.png"></p>
-
-<p>So first, you open chrome devtool, go in the network tab and reload your game.
-You press right button of your mouse and you should see &#8216;Copy ALL as HAR&#8217;
-in the popup menu.
-Then you take your <a href="http://www.sublimetext.com/2">favorite editor</a>,
-create a file named <code>sample.har</code>
-and paste the HAR you just copied.
-This is a rather large JSON structure.</p>
-
-<h3>Let&#8217;s Generate This File</h3>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>har2appcache sample.har &gt; manifest.appcache
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>There you got your appcache file, rather easy no ?
-You may need to edit it a bit to fit your needs,
-e.g. to remove the url of dynamic content.
-Now you just need to change the html tag of your page
-and you are <strong>DONE!</strong></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'> <span class="nt">&lt;html</span> <span class="na">manifest=</span><span class="s">&#39;manifest.appcache&#39;</span><span class="nt">&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Smooth Workflow</h3>
-
-<p>Appcache is so efficient to cache that it may become hard to disable it :)
-When the page load, the browser will check if <code>manifest.appcache</code> has changed.
-If there is no update, it won&#8217;t reload what has been cached, not even the original HTML page.
-It may be bothering while your develop.
-Personnaly, i rename the file during developement.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>mv manifest.appcache manifest.appcache.dev
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>and comment the attribute in the html.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="c">&lt;!-- &lt;html manifest=&#39;manifest.appcache&#39;&gt; --&gt;</span>
-</span><span class='line'><span class="nt">&lt;html&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>It does the job smoothly.</p>
-
-<h3>Conclusion</h3>
-
-<p>With this technic, you gain a lot of time to download.
-So your user got faster access and you get less bandwidth cost.
-A nice win-win situation! All that in 5min top. It definitly worth it.</p>
-
-<p>That&#8217;s all for today, have fun :)</p>
 ]]></content>
   </entry>
   

@@ -254,61 +254,67 @@
         <loc>
             http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/
         </loc>
-        <lastmod>2014-04-23T09:36:40+02:00</lastmod>
+        <lastmod>2014-05-07T14:29:30+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://learningthreejs.com/blog/2014/04/24/crazy-post-processing-color-effects-to-change-your-game-ambiance-with-threex-dot-coloradjust-game-extension-for-three-dot-js/
         </loc>
-        <lastmod>2014-05-02T13:29:33+02:00</lastmod>
+        <lastmod>2014-05-07T14:27:32+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://learningthreejs.com/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js/
         </loc>
-        <lastmod>2014-05-02T13:29:26+02:00</lastmod>
+        <lastmod>2014-05-07T14:27:32+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://learningthreejs.com/blog/2014/04/28/realistic-physics-for-your-3d-game-with-threex-dot-oimo/
         </loc>
-        <lastmod>2014-05-02T13:29:19+02:00</lastmod>
+        <lastmod>2014-05-07T14:27:32+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://learningthreejs.com/blog/2014/04/29/beautiful-dynamic-laser-beams-for-your-space-game-with-threex-dot-laser-game-extension-for-three-dot-js/
         </loc>
-        <lastmod>2014-05-02T13:29:13+02:00</lastmod>
+        <lastmod>2014-05-07T14:27:32+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://learningthreejs.com/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js/
         </loc>
-        <lastmod>2014-05-02T13:28:59+02:00</lastmod>
+        <lastmod>2014-05-07T14:27:32+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://learningthreejs.com/blog/2014/05/02/easy-to-use-dynamic-texture-to-write-text-in-your-3d-object-with-threex-dot-dynamictexture-game-extensions-for-three-dot-js/
         </loc>
-        <lastmod>2014-05-02T13:29:50+02:00</lastmod>
+        <lastmod>2014-05-07T14:27:32+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://learningthreejs.com/blog/2014/05/05/simple-and-efficient-3-point-lighting-to-get-your-game-started-with-threex-dot-basiclighting-game-extension-for-three-dot-js/
         </loc>
-        <lastmod>2014-05-05T13:52:24+02:00</lastmod>
+        <lastmod>2014-05-07T14:27:32+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://learningthreejs.com/blog/2014/05/06/scary-monster-for-your-next-fps-game-in-three-dot-js-with-threex-dot-md2character/
         </loc>
-        <lastmod>2014-05-06T14:45:24+02:00</lastmod>
+        <lastmod>2014-05-07T14:27:32+02:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://learningthreejs.com/blog/2014/05/07/threejs-interview-online-3d-modeling-and-rendering-with-claraio/
+        </loc>
+        <lastmod>2014-05-07T14:23:23+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://learningthreejs.com/blog/2014/05/07/funky-deformation-for-the-geometry-of-your-three-dot-js-game-with-threex-dot-vertexanimation/
         </loc>
-        <lastmod>2014-05-07T13:54:24+02:00</lastmod>
+        <lastmod>2014-05-07T14:27:32+02:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/about/</loc>
@@ -316,11 +322,11 @@
     </url>
     <url>
         <loc>http://learningthreejs.com/blog/archives/</loc>
-        <lastmod>2014-05-07T13:54:24+02:00</lastmod>
+        <lastmod>2014-05-07T14:29:30+02:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/</loc>
-        <lastmod>2014-05-07T13:54:24+02:00</lastmod>
+        <lastmod>2014-05-07T14:29:30+02:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/robots.txt</loc>

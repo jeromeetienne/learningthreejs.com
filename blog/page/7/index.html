@@ -9,9 +9,8 @@
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="Dat.gui
-is a GUI widget for your demos. It provide way for the user to set parameters of the
-demo to play with it. It is simple to code, yet cool and &hellip;">
+  <meta name="description" content="This tutorial is about doing a sky. It makes a nice panorama with a nice immersive effect.
+This is much simpler than people would expect : only 3 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,6 +79,80 @@ demo to play with it. It is simple to code, yet cool and &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/08/15/lets-do-a-sky/">Lets Do a Sky</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-08-15T12:26:00+02:00" pubdate data-updated="true">Aug 15<span>th</span>, 2011</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/7/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/7/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This tutorial is about doing a sky. It makes a nice panorama with a nice immersive effect.
+This is much simpler than people would expect : only 3 steps for a total around 20 lines.
+You can find a <a href="/data/lets_do_a_sky/lets_do_a_sky.html">live demo</a> of it. It may be a
+easy addition to your effects. This is simple and efficient.</p>
+
+<h1>Background</h1>
+
+<p><img class="right" src="/data/lets_do_a_sky/images/Panorama_cube_map.png" title="Close up" >
+Technically this is called a <a href="http://en.wikipedia.org/wiki/Cube_mapping">cube mapping</a>.
+Why that ? because the principle is so simple: we create a large cube, apply some images
+on each face of this cube and put the camera inside it. That&#8217;s it.</p>
+
+<p>The illustration (from <a href="http://en.wikipedia.org/wiki/User:SharkD/Images">SharkD</a> at <a href="http://en.wikipedia.org/wiki/File:Panorama_cube_map.png">wikipedia</a>)
+on the right, may help understanding.
+On the <em>bottom left</em>, you can see a 3D scene with a dot in the middle&#8230; This is
+where the camera will be positionned.
+On the <em>bottom right</em>, you can see the same 3D scene, with the large cube and now the
+camera is inside.
+The kind of cross <em>on the top half</em> are the images used as texture.
+Those are the ones which gonna be applied inside the large sky cube. If you go to
+the <a href="/data/lets_do_a_sky/lets_do_a_sky.html">demo</a>,
+open your browser debugger and look at downloaded images, you will see those 6 images.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/08/15/lets-do-a-sky/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -366,6 +439,10 @@ a web server on it, and go in <code>/examples</code>.</p>
       </li>
     
       <li class="post">
+        <a href="/blog/2014/05/07/threejs-interview-online-3d-modeling-and-rendering-with-claraio/">Three.js Interview: Online 3D Modeling And Rendering With Clara.io</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/05/06/scary-monster-for-your-next-fps-game-in-three-dot-js-with-threex-dot-md2character/">Scary Monster For Your Next FPS Game in Three.js With threex.md2character</a>
       </li>
     
@@ -375,10 +452,6 @@ a web server on it, and go in <code>/examples</code>.</p>
     
       <li class="post">
         <a href="/blog/2014/05/02/easy-to-use-dynamic-texture-to-write-text-in-your-3d-object-with-threex-dot-dynamictexture-game-extensions-for-three-dot-js/">Easy to use dynamic texture to write text in your 3d object with threex.dynamictexture game extensions for three.js</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js/">Easy Way To Integrate Video, or even WebCam, in Your Texture with THREEx.VideoTexture Game Extension for THREE.js</a>
       </li>
     
   </ul>
