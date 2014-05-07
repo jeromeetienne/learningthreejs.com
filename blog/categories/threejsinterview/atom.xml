@@ -4,7 +4,7 @@
   <title><![CDATA[Category: threejsInterview | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/threejsinterview/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-05-07T14:30:57+02:00</updated>
+  <updated>2014-05-07T15:45:08+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -27,6 +27,8 @@
 <p>The idea is to have interesting people come and talk about cool things that they've done with three.js. Like <a href="https://twitter.com/BenAtExocortex">Ben Houston</a>, who is our guest in this first video. Ben is the Team Leader for <a href="http://clara.io/">Clara.io</a>, a online 3D modeling and rendering tool that you can use inside you browser. Ben talks to us about the creation and the evolution of <a href="http://clara.io/">Clara.io</a> and about all the interesting features it's got!</p>
 
 <p>I hope you enjoy it and stay tuned for the next Three.js Interview :)</p>
+
+<p><a href="https://news.ycombinator.com/item?id=7709928">discuss it on hacker news</a></p>
 
 <iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/5pdxh9pjKzQ" frameborder="0" allowfullscreen></iframe>
 
