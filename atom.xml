@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-05-07T14:29:45+02:00</updated>
+  <updated>2014-05-07T14:30:57+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -1135,7 +1135,7 @@ You can tune the delay like this.</p>
     <link href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/"/>
     <updated>2014-04-22T17:51:00+02:00</updated>
     <id>http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge</id>
-    <content type="html"><![CDATA[<p><strong>Update</strong>: here is the list of <a href="http://learningthreejs.com/blog/categories/threexaday/">All &#8220;One Threex A Day&#8221; Posts</a></p>
+    <content type="html"><![CDATA[<p><strong>Update: here is the list of <a href="http://learningthreejs.com/blog/categories/threexaday/">All &#8220;One Threex A Day&#8221; Posts</a></strong></p>
 
 <p>Hello everybody! I’m working on a new project that I want to share with you. But first, let me start by telling you what inspired me to do it.</p>
 
