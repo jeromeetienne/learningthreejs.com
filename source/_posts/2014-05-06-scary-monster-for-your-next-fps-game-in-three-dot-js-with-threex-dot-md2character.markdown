@@ -32,6 +32,7 @@ The model is make by
 To see the [other posts about one threex a day](/blog/categories/threexaday/) and forget our moto!
 **"A THREEx extension a day, gets your game on its way!"**
 
+[discuss it on hacker news](https://news.ycombinator.com/item?id=7703905)
 
 <!-- more -->
 
