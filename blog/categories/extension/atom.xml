@@ -4,7 +4,7 @@
   <title><![CDATA[Category: extension | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/extension/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-05-07T15:54:50+02:00</updated>
+  <updated>2014-05-09T14:01:52+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,114 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Classical Suzanne Monkey From Blender To Get Your Game Started With threex.suzanne]]></title>
+    <link href="http://learningthreejs.com/blog/2014/05/09/classical-suzanne-monkey-from-blender-to-get-your-game-started-with-threex-dot-suzanne/"/>
+    <updated>2014-05-09T20:20:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/05/09/classical-suzanne-monkey-from-blender-to-get-your-game-started-with-threex-dot-suzanne</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.suzanne/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.suzanne/master/examples/images/screenshot-threex-suzanne-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">'one threex a day' challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.suzanne">threex.suzanne</a>.
+Suzanne is a classic. She is the blender famous model familiar to all blender users. It is also a <a href="http://www.threejsgames.com/extensions/">three.js games extension</a> extension which provides you with a monkey model. Blender wanted to create a less common test model, so Suzanne was born. She is more precisely a 3D model of a chimpanzee head. It is pretty basic but you can easily add it as a funky animal character and install it in your platform games!</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.suzanne/examples/basic.html' target='_blank'><input type="button" value='Try Threex.suzanne Demo Now' /></a></p>
+
+<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/RYrAktdkEUo" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don't Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.suzanne/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.suzanne/blob/master/examples/basic.html">view source</a>] :
+It shows a basic usage of the extension.</li>
+</ul>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
+
+<p>```html</p>
+
+<script src='threex.suzanne.js'></script>
+
+
+<p>```</p>
+
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<p><code>bash
+bower install threex.suzanne
+</code></p>
+
+<h1>How To Use It</h1>
+
+<h3>How to load the geometry ?</h3>
+
+<p>```javascript
+new THREEx.Suzanne.GeometryLoader(function onLoad(geometry){</p>
+
+<pre><code>// this function is notified when the geometry is actually loaded
+
+// geometry is a THREE.Geometry of suzanne model
+</code></pre>
+
+<p>})
+```</p>
+
+<h3>How to create a mesh with it ?</h3>
+
+<p>```javascript
+new THREEx.Suzanne.GeometryLoader(function onLoad(geometry){</p>
+
+<pre><code>// create a mesh with the geometry
+var material    = new THREE.MeshNormalMaterial()
+var mesh    = new THREE.Mesh( geometry, material )
+// attach mesh to the scene
+scene.add(mesh)
+</code></pre>
+
+<p>})
+```</p>
+
+<p>Sometime it is not desirable to wait for the loading to complete before
+adding the object to the scene. To avoid this, we create a container
+which will contains the model once loading is completed.
+Thanks to the scene graph inheritance, any position/quaternion/scale
+changes made on container, will be reported to the children meshes.</p>
+
+<p>```javascript
+// create the container
+var container   = new THREE.Object3D();
+// add the container to the scene without waiting the end of loading
+scene.add(container)
+// start to load the geometry
+new THREEx.Suzanne.GeometryLoader(function onLoad(geometry){</p>
+
+<pre><code>// create a mesh with it
+var material    = new THREE.MeshNormalMaterial()
+var mesh    = new THREE.Mesh( geometry, material )
+// attach mesh to the container
+container.add(mesh)
+</code></pre>
+
+<p>})
+```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Funky Deformation For The Geometry of Your Three.js Game With threex.vertexanimation]]></title>
@@ -447,174 +555,6 @@ to draw a text</p>
 <p><code>
 dynamicTexture.drawText('Hello', 32, 256, 'red')
 </code></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Easy Way To Integrate Video, or even WebCam, in Your Texture with THREEx.VideoTexture Game Extension for THREE.js]]></title>
-    <link href="http://learningthreejs.com/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js/"/>
-    <updated>2014-04-30T13:38:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js</id>
-    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.videotexture/master/examples/images/screenshot-threex-videotexture-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">'one threex a day' challenge</a>.
-This challenge is to publish every day one game extension for three.js!
-One per day, every day and that for 2month!
-In this post, we gonna talk about
-<a href="http://www.threejsgames.com/extensions/#threex.videotexture">threex.videotexture</a>.
-threex.videotexture is a <a href="http://www.threejsgames.com/extensions/">threex game extension for three.js</a>.
-It provides help to handle videos in texture.
-It is possible to put html5 <code>&lt;video&gt;</code> output in texture with <code>threex.videotexture.js</code>.
-You can even put the webcam in a texture with <code>threex.webcamtexture.js</code>.
-It is cool if you want to make a tv screen in your game, You can easily use this extension. You pick the video to play and you are ready to go.
-The screen surface will use your video texture making it look like a TV set.
-If you need it, you can try <code>threex.audiovideotexture.js</code> where the
-video is mapped on the texture and additionnally the sound of the video
-is handled via
-<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">web audio API</a>.
-Thus you can have localized sound, which is neat in the 3d environment.</p>
-
-<p><a href='http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html' target='_blank'><input type="button" value='Try Threex.videotexture Demo Now' /></a></p>
-
-<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
-<strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
-
-<!-- more -->
-
-
-
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/O5ae0FhrOEo" frameborder="0" allowfullscreen></iframe>
-
-
-<h1>Show Don't Tell</h1>
-
-<ul>
-<li>Here is a <a href="http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html">videotexture example</a> and its <a href="https://github.com/jeromeetienne/threex.videotexture/blob/master/examples/videotexture.html">source</a>.
-It read the video from a file via video dom element and display it in a texture</li>
-<li>Here is a <a href="http://jeromeetienne.github.io/threex.videotexture/examples/audiovideotexture.html">audio/video texture example with WebAudio API</a>and its <a href="https://github.com/jeromeetienne/threex.videotexture/blob/master/examples/audiovideotexture.html">source</a>.
-It shows how to plug the video sound into the WebAudio API because you get localised sounds.
-This is particularly useful in 3D.
-"Audio/Video" texture is a texture where the sound comes from the object3d on which
-the texture is mapped.</li>
-<li>Here is another <a href="http://jeromeetienne.github.io/threex.videotexture/examples/webcamtexture.html">webcam example</a> and its <a href="https://github.com/jeromeetienne/threex.videotexture/blob/master/examples/webcamtexture.html">source</a>.
-It reads the webcam thru getUserMedia and put it in a texture.</li>
-</ul>
-
-
-<h1>How To Install It</h1>
-
-<p>You can install it manually. Just do</p>
-
-<p>```html</p>
-
-<script src='threex.videotexture.js'></script>
-
-
-<p>```</p>
-
-<p>You can install with <a href="http://bower.io/">bower</a>.</p>
-
-<p><code>bash
-bower install threex.videotexture
-</code></p>
-
-<p>then you add that in your html</p>
-
-<p>```html</p>
-
-<script src="bower_components/threex.videotexture/threex.videotexture.js"></script>
-
-
-<p>```</p>
-
-<h1>How To Use it</h1>
-
-<h2>threex.videotexture.js</h2>
-
-<p>First you instanciate the texture itself</p>
-
-<p>```javascript
-// create the videoTexture
-var videoTexture= new THREEx.VideoTexture('videos/sintel.ogv')
-updateFcts.push(function(delta, now){</p>
-
-<pre><code>// to update the texture are every frame
-videoTexture.update(delta, now)
-</code></pre>
-
-<p>})
-```</p>
-
-<p>Then you use it in a mesh like this.</p>
-
-<p>```javascript
-// use the texture in a THREE.Mesh
-var geometry    = new THREE.CubeGeometry(1,1,1);
-var material    = new THREE.MeshBasicMaterial({</p>
-
-<pre><code>map : videoTexture.texture
-</code></pre>
-
-<p>});
-var mesh    = new THREE.Mesh( geometry, material );
-scene.add( mesh );
-```</p>
-
-<p>Here is the detailled API:</p>
-
-<ul>
-<li><code>videoTexture.video</code>: the video dom element from which the video is used</li>
-<li><code>videoTexture.texture</code>: the generated <code>THREE.Texture</code></li>
-<li><code>videoTexture.update(delta, now)</code>: update the texture from the video element</li>
-<li><code>videoTexture.destroy()</code>: destroy the object</li>
-</ul>
-
-
-<h2>threex.webcamtexture.js</h2>
-
-<p>It will read the webcam using
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator.getUserMedia">getUserMedia</a>.
-The browser
-will likely ask for permissions to the users.
-Let's see how to use it. You instanciate the texture itself.</p>
-
-<p>```javascript
-var webcamTexture   = new THREEx.WebcamTexture()
-updateFcts.push(function(delta, now){</p>
-
-<pre><code>// to update the texture are every frame
-webcamTexture.update(delta, now)
-</code></pre>
-
-<p>})
-```</p>
-
-<p>Then you use it in a mesh</p>
-
-<p>```javascript
-// use the texture in a THREE.Mesh
-var geometry    = new THREE.CubeGeometry(1,1,1);
-var material    = new THREE.MeshBasicMaterial({</p>
-
-<pre><code>map : videoTexture.texture
-</code></pre>
-
-<p>});
-var mesh    = new THREE.Mesh( geometry, material );
-scene.add( mesh );
-```</p>
-
-<p>Here is the detailled API:</p>
-
-<ul>
-<li><code>videoTexture.video</code>: the video dom element from which the video is used</li>
-<li><code>videoTexture.texture</code>: the generated <code>THREE.Texture</code></li>
-<li><code>videoTexture.update(delta, now)</code>: update the texture from the video element</li>
-<li><code>videoTexture.destroy()</code>: destroy the object</li>
-<li><code>THREEx.WebcamTexture.available</code>: true if <code>getUserMedia</code> is available on this
-browser, false otherwise.</li>
-</ul>
-
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-05-07T15:54:50+02:00</updated>
+  <updated>2014-05-09T14:01:52+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,128 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Classical Suzanne Monkey From Blender To Get Your Game Started With threex.suzanne]]></title>
+    <link href="http://learningthreejs.com/blog/2014/05/09/classical-suzanne-monkey-from-blender-to-get-your-game-started-with-threex-dot-suzanne/"/>
+    <updated>2014-05-09T20:20:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/05/09/classical-suzanne-monkey-from-blender-to-get-your-game-started-with-threex-dot-suzanne</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.suzanne/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.suzanne/master/examples/images/screenshot-threex-suzanne-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.suzanne">threex.suzanne</a>.
+Suzanne is a classic. She is the blender famous model familiar to all blender users. It is also a <a href="http://www.threejsgames.com/extensions/">three.js games extension</a> extension which provides you with a monkey model. Blender wanted to create a less common test model, so Suzanne was born. She is more precisely a 3D model of a chimpanzee head. It is pretty basic but you can easily add it as a funky animal character and install it in your platform games!</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.suzanne/examples/basic.html' target='_blank'><input type="button" value='Try Threex.suzanne Demo Now' /></a></p>
+
+<p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/RYrAktdkEUo" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don&#8217;t Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.suzanne/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.suzanne/blob/master/examples/basic.html">view source</a>] :
+It shows a basic usage of the extension.</li>
+</ul>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.suzanne.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.suzanne
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>How To Use It</h1>
+
+<h3>How to load the geometry ?</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Suzanne</span><span class="p">.</span><span class="nx">GeometryLoader</span><span class="p">(</span><span class="kd">function</span> <span class="nx">onLoad</span><span class="p">(</span><span class="nx">geometry</span><span class="p">){</span>
+</span><span class='line'>    <span class="c1">// this function is notified when the geometry is actually loaded</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// geometry is a THREE.Geometry of suzanne model</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>How to create a mesh with it ?</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Suzanne</span><span class="p">.</span><span class="nx">GeometryLoader</span><span class="p">(</span><span class="kd">function</span> <span class="nx">onLoad</span><span class="p">(</span><span class="nx">geometry</span><span class="p">){</span>
+</span><span class='line'>    <span class="c1">// create a mesh with the geometry</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">material</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshNormalMaterial</span><span class="p">()</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">mesh</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">)</span>
+</span><span class='line'>    <span class="c1">// attach mesh to the scene</span>
+</span><span class='line'>    <span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">mesh</span><span class="p">)</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Sometime it is not desirable to wait for the loading to complete before
+adding the object to the scene. To avoid this, we create a container
+which will contains the model once loading is completed.
+Thanks to the scene graph inheritance, any position/quaternion/scale
+changes made on container, will be reported to the children meshes.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// create the container</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">container</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Object3D</span><span class="p">();</span>
+</span><span class='line'><span class="c1">// add the container to the scene without waiting the end of loading</span>
+</span><span class='line'><span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">container</span><span class="p">)</span>
+</span><span class='line'><span class="c1">// start to load the geometry</span>
+</span><span class='line'><span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Suzanne</span><span class="p">.</span><span class="nx">GeometryLoader</span><span class="p">(</span><span class="kd">function</span> <span class="nx">onLoad</span><span class="p">(</span><span class="nx">geometry</span><span class="p">){</span>
+</span><span class='line'>    <span class="c1">// create a mesh with it</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">material</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshNormalMaterial</span><span class="p">()</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">mesh</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">)</span>
+</span><span class='line'>    <span class="c1">// attach mesh to the container</span>
+</span><span class='line'>    <span class="nx">container</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">mesh</span><span class="p">)</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Funky Deformation For The Geometry of Your Three.js Game With threex.vertexanimation]]></title>
@@ -3056,89 +3178,6 @@ or even making <a href="http://learningthreejs.com/blog/2012/02/27/linkify-tquer
 To integrate actual web pages inside webgl scene definitly matches this vibe!</p>
 
 <p>That&#8217;s all for today, have fun :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Debugging With Chrome's Canvas Inspection]]></title>
-    <link href="http://learningthreejs.com/blog/2013/04/05/debugging-with-chromes-canvas-inspection/"/>
-    <updated>2013-04-05T09:15:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2013/04/05/debugging-with-chromes-canvas-inspection</id>
-    <content type="html"><![CDATA[<p>This post will present to you how to debug your webgl with  chrome&#8217;s canvas inspection.
-This is an experimental feature available in chrome devtools.
-It gives you all the WebGL calls which are done in your webgl scene.
-So it helps if you actually know some raw WebGL :)
-In anycase you can see it being replayed call by calls, which is uber cool.</p>
-
-<center>
-  <iframe width="425" height="349" src="http://www.youtube.com/embed/837O1YloCRc" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-
-
-<!-- more -->
-
-
-<h2>Let&#8217;s get started</h2>
-
-<p>As it is an experimental feature, you first need to enable it.
-First let&#8217;s enable devtool experiment: enter &#8220;chrome://flags&#8221; url
-in your chrome location bar. There you enable &#8220;Enable Developer Tools experiments&#8221;
-and relaunch chrome.</p>
-
-<p><img src="http://learningthreejs.com/data/2013-04-05-debugging-with-chromes-canvas-inspection/screenshots/devtools-enable-experiments.png"></p>
-
-<p><img class="right" src="http://learningthreejs.com/data/2013-04-05-debugging-with-chromes-canvas-inspection/screenshots/devtools-settings-gear.png" width="160" height="120"></p>
-
-<p>Now that you got the Developer Tools Experiments enabled, let&#8217;s enable
-&#8216;Canvas Inpection&#8217; in particular. Click on the little gear on bottom right
-of devtools. The one you can see on the right.</p>
-
-<p><img src="http://learningthreejs.com/data/2013-04-05-debugging-with-chromes-canvas-inspection/screenshots/devtools-settings-panel.png"></p>
-
-<p>It will open the settings panel you see above.
-Now, select experiment from the left menu, enable &#8216;Canvas Inpection&#8217; and you are done.
-Rather clumsy but this is an experiment after all :)</p>
-
-<h2>How to use it</h2>
-
-<p>Now that it is enabled, let&#8217;s see how to use it.
-First let&#8217;s go on the &#8220;profile&#8221; tab of devtools. We can see &#8220;Capture Canvas Frame&#8221;, this is the one we gonna use.</p>
-
-<p><img src="http://learningthreejs.com/data/2013-04-05-debugging-with-chromes-canvas-inspection/screenshots/devtools-capture-canvas-frame.png"></p>
-
-<p>Let&#8217;s enable it and load a page with WebGL.
-As an example, i will use <a href="http://mmo3d.jit.su/montains">mmo3d</a>. It is a multiplayer game
-in webgl. It is very hackable so other people can easily do their own world. Let&#8217;s talk about
-that later. For now, lets click &#8216;start&#8217; and capture a frame :)</p>
-
-<h2>Captured frames</h2>
-
-<p>After that you should obtain the following. You got the actual game on the left.
-and you recognise developer tools on the right.</p>
-
-<p><img src="http://learningthreejs.com/data/2013-04-05-debugging-with-chromes-canvas-inspection/screenshots/devtools-capture-example-resized.png"></p>
-
-<p>For every frame you capture, you will get a trace log of each webgl call which has been done during this frame.
-Above there is a replay window where you can actually see the scene as it is drawn step by step.
-Thus you can check the order of your calls. It can be usefull when you debug transparency for example.
-Watch for the draw calls, they got huge overhead and should be limited if possible.</p>
-
-<h2>Conclusion</h2>
-
-<p>As it is pure webgl, and not at three.js level, it helps if you know raw WebGL. For that, i suggest
-you to read a book on the subject. Personnaly i
-like
-<a href="http://www.amazon.com/WebGL-Beginners-Guide-Diego-Cantor/dp/184969172X">&#8220;WebGL Beginner&#8217;s Guide&#8221;</a>
-by
-<a href="http://blog.tojicode.com/">Brandon Jones</a>.
-WebGL may be complex at times, and having cool debug tools help being more efficient.
-You can see the excelent paul irish doing a
-<a href="http://www.youtube.com/watch?v=FY5iiuQRyEE&amp;feature=youtu.be&amp;t=8m23s">presentation</a>
-what you can do with canvas inspector.</p>
-
-<p>That&#8217;s all folks. Have Fun!</p>
 ]]></content>
   </entry>
   

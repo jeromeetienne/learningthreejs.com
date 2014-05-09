@@ -50,6 +50,60 @@ It is a follow up of &#8220;Fun with live video on webgl&#8221 &hellip;">
 
 <body   >
   <header role="banner"><hgroup>
+	<style>
+		#linksPerso {
+			float	: right;
+			height	: 128px;
+		}
+		#linksPerso .wrapper {
+			height	: 128px;
+			overflow-y:hidden;
+
+		}
+		#linksPerso img {
+			width	: 128px;
+		}
+	</style>
+	<div id='linksPerso'>
+		<div class='wrapper'>
+			<div class='linkJSinside'>
+			 	<a href='http://jsinside.com' target='_blank'>
+					<img src='http://jsinside.com/images/logo/logo-jsinside-512x512.png'/>
+				</a>
+			</div>
+			<div class='linkThreejs'>
+				<a href='mailto:jerome.etienne@gmail.com?Subject=Hello%20again' target='_blank'>
+					<img src='http://betterjs.org/www/images/logo/logo-betterjs-512x512.png'/>
+				</a>
+			</div>
+			<div class='linkJSinside'>
+			 	<a href='http://jsinside.com' target='_blank'>
+					<img src='http://jsinside.com/images/logo/logo-jsinside-512x512.png'/>
+				</a>
+			</div>
+		</div>
+	</div>
+	<script>
+	;(function(){
+		var counter	= 0
+		var element	= jQuery('#linksPerso .wrapper')
+		setInterval(function(){
+			counter++
+			if( Math.floor(counter%2) === 0 ){
+				element.animate({
+					scrollTop: "256px"
+				}, 1000, function(){
+					element.scrollTop(0)
+				});
+			}else{
+				element.animate({
+					scrollTop: "128px"
+				}, 1000);
+			}
+		}, 1000*4)
+	})()
+	</script>
+
   <h1><a href="/">Learning Three.js</a></h1>
   
     <h2>or WebGL for Dummies</h2>
@@ -285,6 +339,10 @@ cheap to integrate live video conferences to your own sites.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/05/09/classical-suzanne-monkey-from-blender-to-get-your-game-started-with-threex-dot-suzanne/">Classical Suzanne Monkey From Blender To Get Your Game Started With threex.suzanne</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/05/07/funky-deformation-for-the-geometry-of-your-three-dot-js-game-with-threex-dot-vertexanimation/">Funky Deformation For The Geometry of Your Three.js Game With threex.vertexanimation</a>
       </li>
     
@@ -298,10 +356,6 @@ cheap to integrate live video conferences to your own sites.</p>
     
       <li class="post">
         <a href="/blog/2014/05/05/simple-and-efficient-3-point-lighting-to-get-your-game-started-with-threex-dot-basiclighting-game-extension-for-three-dot-js/">Simple And Efficient 3 Point Lighting To Get Your Game Started With Threex.basiclighting Game Extension For Three.js</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/05/02/easy-to-use-dynamic-texture-to-write-text-in-your-3d-object-with-threex-dot-dynamictexture-game-extensions-for-three-dot-js/">Easy to use dynamic texture to write text in your 3d object with threex.dynamictexture game extensions for three.js</a>
       </li>
     
   </ul>

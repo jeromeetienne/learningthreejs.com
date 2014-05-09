@@ -9,8 +9,8 @@
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="This tutorial is about doing a sky. It makes a nice panorama with a nice immersive effect.
-This is much simpler than people would expect : only 3 &hellip;">
+  <meta name="description" content="This post presents tween.js and how you can use it to easily smooth your animation.
+tween.js is a &#8220;super simple, fast and easy to use tweening &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -48,6 +48,60 @@ This is much simpler than people would expect : only 3 &hellip;">
 
 <body   >
   <header role="banner"><hgroup>
+	<style>
+		#linksPerso {
+			float	: right;
+			height	: 128px;
+		}
+		#linksPerso .wrapper {
+			height	: 128px;
+			overflow-y:hidden;
+
+		}
+		#linksPerso img {
+			width	: 128px;
+		}
+	</style>
+	<div id='linksPerso'>
+		<div class='wrapper'>
+			<div class='linkJSinside'>
+			 	<a href='http://jsinside.com' target='_blank'>
+					<img src='http://jsinside.com/images/logo/logo-jsinside-512x512.png'/>
+				</a>
+			</div>
+			<div class='linkThreejs'>
+				<a href='mailto:jerome.etienne@gmail.com?Subject=Hello%20again' target='_blank'>
+					<img src='http://betterjs.org/www/images/logo/logo-betterjs-512x512.png'/>
+				</a>
+			</div>
+			<div class='linkJSinside'>
+			 	<a href='http://jsinside.com' target='_blank'>
+					<img src='http://jsinside.com/images/logo/logo-jsinside-512x512.png'/>
+				</a>
+			</div>
+		</div>
+	</div>
+	<script>
+	;(function(){
+		var counter	= 0
+		var element	= jQuery('#linksPerso .wrapper')
+		setInterval(function(){
+			counter++
+			if( Math.floor(counter%2) === 0 ){
+				element.animate({
+					scrollTop: "256px"
+				}, 1000, function(){
+					element.scrollTop(0)
+				});
+			}else{
+				element.animate({
+					scrollTop: "128px"
+				}, 1000);
+			}
+		}, 1000*4)
+	})()
+	</script>
+
   <h1><a href="/">Learning Three.js</a></h1>
   
     <h2>or WebGL for Dummies</h2>
@@ -79,6 +133,85 @@ This is much simpler than people would expect : only 3 &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/08/17/tweenjs-for-smooth-animation/">Tween.js for Smooth Animation</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-08-17T10:16:00+02:00" pubdate data-updated="true">Aug 17<span>th</span>, 2011</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/7/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/7/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post presents <a href="https://github.com/sole/tween.js">tween.js</a> and how you can use it to easily smooth your animation.
+<strong>tween.js</strong> is a &#8220;super simple, fast and easy to use tweening engine&#8221; from <a href="https://github.com/sole">sole</a>.
+It provides tweening and full blown animations thanks to chaining. Let&#8217;s get started!
+But first, here is a <a href="/data/tweenjs_for_smooth_animation/tweenjs_for_smooth_animation.html">demo</a>
+using tween.js. It has basic parameters for you to play with and get a feel of what tweening
+may be.</p>
+
+<h2>Tweening&#8230; what&#8217;s that?</h2>
+
+<p><img class="right" src="/data/tweenjs_for_smooth_animation/images/tweenjs-linear-easenone.png" title="Linear" ></p>
+
+<p>From <a href="http://en.wikipedia.org/wiki/Tweening">wikipedia article</a>, <em>tweening</em> is an abreviation of <em>inbetweening</em>, i
+dont know why but i find that funny maybe because <em>inbetweening</em> isnt a word to begin with.
+Let&#8217;s get back to business, what is a tween? It is a interpolation between 2 values,
+from the <code>source</code> to the <code>target</code>.
+The tween will simply generate the needed values needed inbetween those 2 limits. The key is <strong>where</strong>
+are those values.
+This is done with the <strong>ease function</strong>. The most obvious one is to go straight from <code>source</code>
+to <code>target</code>. This is the linear function you see on on the right.</p>
+
+<p><img class="right" src="/data/tweenjs_for_smooth_animation/images/tweenjs-cubic-easeinout.png" title="Cubic EaseInOut" >
+<img class="left" src="/data/tweenjs_for_smooth_animation/images/tweenjs-elastic-easeinout.png" title="Elastic EaseInOut" >
+But some are more funky, you can
+see <em>Elastic EaseInOut</em> on the left
+and
+see <em>Cubic EaseInOut</em> on the right.
+Many others exist for our delight as you can see <a href="http://sole.github.com/tween.js/examples/03_graphs.html">here</a>.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/08/17/tweenjs-for-smooth-animation/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -435,6 +568,10 @@ a web server on it, and go in <code>/examples</code>.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/05/09/classical-suzanne-monkey-from-blender-to-get-your-game-started-with-threex-dot-suzanne/">Classical Suzanne Monkey From Blender To Get Your Game Started With threex.suzanne</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/05/07/funky-deformation-for-the-geometry-of-your-three-dot-js-game-with-threex-dot-vertexanimation/">Funky Deformation For The Geometry of Your Three.js Game With threex.vertexanimation</a>
       </li>
     
@@ -448,10 +585,6 @@ a web server on it, and go in <code>/examples</code>.</p>
     
       <li class="post">
         <a href="/blog/2014/05/05/simple-and-efficient-3-point-lighting-to-get-your-game-started-with-threex-dot-basiclighting-game-extension-for-three-dot-js/">Simple And Efficient 3 Point Lighting To Get Your Game Started With Threex.basiclighting Game Extension For Three.js</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/05/02/easy-to-use-dynamic-texture-to-write-text-in-your-3d-object-with-threex-dot-dynamictexture-game-extensions-for-three-dot-js/">Easy to use dynamic texture to write text in your 3d object with threex.dynamictexture game extensions for three.js</a>
       </li>
     
   </ul>

@@ -9,7 +9,9 @@
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="Update: here is the list of All &#8220;One Threex A Day&#8221; Posts Hello everybody! I’m working on a new project that I want to share with you. But &hellip;">
+  <meta name="description" content="This is post is part of the &#8216;one threex a day&#8217; challenge.
+This challenge is to publish every day one game extension for three.js!
+One &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -47,6 +49,60 @@
 
 <body   >
   <header role="banner"><hgroup>
+	<style>
+		#linksPerso {
+			float	: right;
+			height	: 128px;
+		}
+		#linksPerso .wrapper {
+			height	: 128px;
+			overflow-y:hidden;
+
+		}
+		#linksPerso img {
+			width	: 128px;
+		}
+	</style>
+	<div id='linksPerso'>
+		<div class='wrapper'>
+			<div class='linkJSinside'>
+			 	<a href='http://jsinside.com' target='_blank'>
+					<img src='http://jsinside.com/images/logo/logo-jsinside-512x512.png'/>
+				</a>
+			</div>
+			<div class='linkThreejs'>
+				<a href='mailto:jerome.etienne@gmail.com?Subject=Hello%20again' target='_blank'>
+					<img src='http://betterjs.org/www/images/logo/logo-betterjs-512x512.png'/>
+				</a>
+			</div>
+			<div class='linkJSinside'>
+			 	<a href='http://jsinside.com' target='_blank'>
+					<img src='http://jsinside.com/images/logo/logo-jsinside-512x512.png'/>
+				</a>
+			</div>
+		</div>
+	</div>
+	<script>
+	;(function(){
+		var counter	= 0
+		var element	= jQuery('#linksPerso .wrapper')
+		setInterval(function(){
+			counter++
+			if( Math.floor(counter%2) === 0 ){
+				element.animate({
+					scrollTop: "256px"
+				}, 1000, function(){
+					element.scrollTop(0)
+				});
+			}else{
+				element.animate({
+					scrollTop: "128px"
+				}, 1000);
+			}
+		}, 1000*4)
+	})()
+	</script>
+
   <h1><a href="/">Learning Three.js</a></h1>
   
     <h2>or WebGL for Dummies</h2>
@@ -78,6 +134,84 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/04/24/crazy-post-processing-color-effects-to-change-your-game-ambiance-with-threex-dot-coloradjust-game-extension-for-three-dot-js/">Crazy Post Processing Color Effects to Change Your Game Ambiance With Threex.coloradjust Game Extension for Three.js</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-24T13:47:00+02:00" pubdate data-updated="true">Apr 24<span>th</span>, 2014</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/2/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/2/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href='http://jeromeetienne.github.io/threex.coloradjust/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.coloradjust/master/examples/images/screenshot-threex-coloradjust-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.coloradjust">threex.coloradjust</a>.
+threex.coloradjust is a
+<a href="http://www.threejsgames.com/extensions/">threex game extension for three.js</a>.
+It provides a color adjustement in post processing.
+It happens on the whole screen and changes every colors giving a whole new ambiance to your games.
+It includes smooth transitions between each ambiance.
+There are 22 ambiances going from &#8216;sepia&#8217;, to &#8216;thermal&#8217;, or &#8216;radioactive&#8217;.
+I highly recommend &#8216;nightvision&#8217; if your game is about fps shooting at night!
+It is very flexible, you can build your own ambiance with any image editing software.
+It is ported from
+<a href="http://webglsamples.googlecode.com/hg/color-adjust/color-adjust.html">color-adjust demo</a>
+by
+<a href="http://greggman.com/">greggman</a>.
+Here is a <a href="http://www.youtube.com/watch?v=rfQ8rKGTVlg#t=25m03s">video</a>
+where you can see greggman explaining the underlying technic.
+It explains how to do 3d texture in webgl! :)</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.coloradjust/examples/demo.html' target='_blank'><input type="button" value='Try Threex.coloradjust Demo Now' /></a></p>
+
+<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/04/24/crazy-post-processing-color-effects-to-change-your-game-ambiance-with-threex-dot-coloradjust-game-extension-for-three-dot-js/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -684,70 +818,6 @@ In this post,  we gonna see how to do exactly this: how to seamlessly mix normal
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/04/05/debugging-with-chromes-canvas-inspection/">Debugging With Chrome&#8217;s Canvas Inspection</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-04-05T09:15:00+02:00" pubdate data-updated="true">Apr 5<span>th</span>, 2013</time>
-        
-        
-          <div class="sharing" style='text-align: right;'>
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/2/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/2/index.html" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-</div>
-
-        
-     </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This post will present to you how to debug your webgl with  chrome&#8217;s canvas inspection.
-This is an experimental feature available in chrome devtools.
-It gives you all the WebGL calls which are done in your webgl scene.
-So it helps if you actually know some raw WebGL :)
-In anycase you can see it being replayed call by calls, which is uber cool.</p>
-
-<center>
-  <iframe width="425" height="349" src="http://www.youtube.com/embed/837O1YloCRc" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/04/05/debugging-with-chromes-canvas-inspection/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -765,6 +835,10 @@ In anycase you can see it being replayed call by calls, which is uber cool.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/05/09/classical-suzanne-monkey-from-blender-to-get-your-game-started-with-threex-dot-suzanne/">Classical Suzanne Monkey From Blender To Get Your Game Started With threex.suzanne</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/05/07/funky-deformation-for-the-geometry-of-your-three-dot-js-game-with-threex-dot-vertexanimation/">Funky Deformation For The Geometry of Your Three.js Game With threex.vertexanimation</a>
       </li>
     
@@ -778,10 +852,6 @@ In anycase you can see it being replayed call by calls, which is uber cool.</p>
     
       <li class="post">
         <a href="/blog/2014/05/05/simple-and-efficient-3-point-lighting-to-get-your-game-started-with-threex-dot-basiclighting-game-extension-for-three-dot-js/">Simple And Efficient 3 Point Lighting To Get Your Game Started With Threex.basiclighting Game Extension For Three.js</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/05/02/easy-to-use-dynamic-texture-to-write-text-in-your-3d-object-with-threex-dot-dynamictexture-game-extensions-for-three-dot-js/">Easy to use dynamic texture to write text in your 3d object with threex.dynamictexture game extensions for three.js</a>
       </li>
     
   </ul>
