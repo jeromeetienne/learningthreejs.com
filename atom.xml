@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-05-09T14:03:11+02:00</updated>
+  <updated>2014-05-12T13:53:58+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,114 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Live Cube Maps Reflections In Your Three.js Game With threex.cubecamera]]></title>
+    <link href="http://learningthreejs.com/blog/2014/05/12/live-cube-maps-reflections-in-your-three-dot-js-game-with-threex-dot-cubecamera/"/>
+    <updated>2014-05-12T20:20:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/05/12/live-cube-maps-reflections-in-your-three-dot-js-game-with-threex-dot-cubecamera</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.cubecamera/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.cubecamera/master/examples/images/screenshot-threex-cubecamera-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.cubecamera">threex.cubecamera</a>.
+threex.cubecamera is a <a href="http://www.threejsgames.com/extensions/">three.js games extension</a> which provides a helper for cube cameras. It is very useful when a given object must reflect a texture cube live. Just look at it, you can see the reflection as clear as a real life mirror! You can give your texture the color you want, for example in the demo I created a &#8220;gold&#8221; sphere to give it a shinier look. Be careful though, this requires 6 renderings of the scene every time you update it. It becomes expensive fast.</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.cubecamera/examples/demo.html' target='_blank'><input type="button" value='Try Threex.cubecamera Demo Now' /></a></p>
+
+<p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/tUnyNECDgFE" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don&#8217;t Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.cubecamera/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.cubecamera/blob/master/examples/basic.html">view source</a>] :
+It shows the most basic usage of this extension.</li>
+<li><a href="http://jeromeetienne.github.io/threex.cubecamera/examples/demo.html">examples/demo.html</a>
+[<a href="https://github.com/jeromeetienne/threex.cubecamera/blob/master/examples/demo.html">view source</a>] :
+It shows a little bit shinier demo.</li>
+<li><a href="http://jeromeetienne.github.io/threex.cubecamera/examples/discoball.html">examples/discoball.html</a>
+[<a href="https://github.com/jeromeetienne/threex.cubecamera/blob/master/examples/discoball.html">view source</a>] :
+It shows a little bit shinier discoball.
+TODO to port in its own demo.
+It doesnt even use live rendering.
+Use the &#8220;minecraft goes party&#8221; from nextgamefrontier talk.</li>
+</ul>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.cubecamera.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.cubecamera
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>How To Use It</h1>
+
+<p>First you need to create a classic mesh, the one which gonna reflect the live texture cube.
+In this example, we gonna create sphere with the color &#8216;gold&#8217; like this.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">geometry</span>    <span class="o">=</span> new THREE.SphereGeometry<span class="o">(</span>0.5, 32, 16<span class="o">)</span>
+</span><span class='line'>var <span class="nv">material</span>    <span class="o">=</span> new THREE.MeshPhongMaterial<span class="o">({</span>
+</span><span class='line'>    color   : <span class="s1">&#39;gold&#39;</span>
+</span><span class='line'><span class="o">})</span>
+</span><span class='line'>var <span class="nv">mesh</span>    <span class="o">=</span> new THREE.Mesh<span class="o">(</span>geometry, material<span class="o">)</span>
+</span><span class='line'>scene.add<span class="o">(</span> mesh <span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now we needs to create the cube camera which gonna update the texture cube live.
+We do that like this.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">cubeCamera</span>  <span class="o">=</span> new THREEx.CubeCamera<span class="o">(</span>mesh<span class="o">)</span>
+</span><span class='line'>scene.add<span class="o">(</span>cubeCamera.object3d<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Don&#8217;t forget to update it when needed (likely at every frame)</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>cubeCamera.update<span class="o">(</span>renderer, scene<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now that we got the textureCube, we set the mesh material to reflect this texture cube.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>material.envMap <span class="o">=</span> cubeCamera.textureCube
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is it! Now you got the live texture cube on your sphere :)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Classical Suzanne Monkey From Blender To Get Your Game Started With threex.suzanne]]></title>
@@ -2944,240 +3052,6 @@ Trust me you don’t want to miss that so take a look at the demos!
 Stay tuned for the release date and for more information about Leap Motion.</p>
 
 <p>That’s all for now, folks!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Mixing HTML pages inside your WebGL]]></title>
-    <link href="http://learningthreejs.com/blog/2013/04/30/closing-the-gap-between-html-and-webgl/"/>
-    <updated>2013-04-30T11:11:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2013/04/30/closing-the-gap-between-html-and-webgl</id>
-    <content type="html"><![CDATA[<p>Wouldn&#8217;t that be cool if we were able to mix normal web pages in our webgl? To interact with them as we usually do? to view them,  to click on them&#8230; To scroll, to hover or even to type in input tags.
-Oh yeah it would be so great! We, webgl people, are currently an isolated Island in the web world.  Being able to mix with normal page would give us access to so much interactive content.
-In this post,  we gonna see how to do exactly this: how to seamlessly mix normal DOM elements in our webgl scene.  They will actually  appear as part of the 3d scene. Don&#8217;t worry it is surprisingly easy with three.js.</p>
-
-<center>
-  <iframe width="425" height="349" src="http://www.youtube.com/embed/ScZcUEDGjJI" frameborder="0" allowfullscreen></iframe>
-</center>
-
-
-
-
-<!-- more -->
-
-
-<h2>Demo of a youtube browser mixed in WebGL</h2>
-
-<p><img class="right" src="http://learningthreejs.com/data/2013-04-30-closing-the-gap-between-html-and-webgl/screenshots/navigation-bar-small.png"></p>
-
-<p>First let&#8217;s see the result in action. Here is a demo I did to show all the videos I have done for this blog.
-<a href="http://jeromeetienne.github.io/videobrowser4learningthreejs">Try it out</a>!
-It shows a 3d scene with a tv set and three characters sitting on grass.</p>
-
-<p><a href='http://jeromeetienne.github.io/videobrowser4learningthreejs/' target='_blank'><input type="button" value='Try Learningthree.js video browser!' style='font-size:200%' /></a>
-<a href='http://learningthreejs.com/data/2013-04-30-closing-the-gap-between-html-and-webgl/index.html' target='_blank'><input type="button" value='Try Demo!' style='font-size:200%' /></a></p>
-
-<p>The key point is on the tvset screen. This is an actual YouTube player. Not me emulating it, this is the real thing! You can access it anytime from the blog navigation bar as
-you can see on the right.
-This
-<a href="http://jeromeetienne.github.io/videobrowser4learningthreejs">demo</a>
-is pretty cool no? Now let&#8217;s see how to do this.</p>
-
-<h2>Let&#8217;s Get Started</h2>
-
-<p>DOM elements are all about flat 2d rectangles. In
-<a href="http://threejs.org/">three.js</a>
-, such a thing is called a
-<a href="https://github.com/mrdoob/three.js/blob/master/src/extras/geometries/PlaneGeometry.js">THREE.PlaneGeometry</a>.
-So let&#8217;s try to map a
-<a href="https://developer.mozilla.org/en/docs/DOM/element">dom element</a>
-to a
-<a href="https://github.com/mrdoob/three.js/blob/master/src/extras/geometries/PlaneGeometry.js">THREE.PlaneGeometry</a>.
-Their position and rotation must match.
-The goal is to make them appear as one thus the viewer can&#8217;t distinguish them.</p>
-
-<p>So first, how to orientate a dom element, would you ask?
-Simple we gonna use a feature introduced by HTML5, called
-<a href="http://www.w3.org/TR/css3-transforms/">css 3D transformation</a>.
-Here are some <a href="http://www.html5rocks.com/en/tutorials/3d/css/">tutorials</a>
-<a href="http://desandro.github.io/3dtransforms/">about</a>
-<a href="https://developer.mozilla.org/en-US/docs/CSS/Tutorials/Using_CSS_transforms">it</a>.
-css3d is done for this exact purpose, to position and rotate a DOM element in 3d.</p>
-
-<p><img class="right" src="http://learningthreejs.com/data/2013-04-30-closing-the-gap-between-html-and-webgl/screenshots/grid-only-small.png"></p>
-
-<p>Good News! three.js can already render things using this technology.
- It is called <a href="https://github.com/mrdoob/three.js/blob/master/examples/js/renderers/CSS3DRenderer.js">THREE.CSS3DRenderer</a>.
-See <a href="http://threejs.org/examples/css3d_molecules.html">various</a>
-<a href="http://threejs.org/examples/css3d_periodictable.html">examples</a>
-of
-<a href="http://threejs.org/examples/css3d_youtube.html">its</a>
-<a href="http://threejs.org/examples/css3d_panorama.html">usage</a>
-in three.js <code>/examples</code>.
-Now we need to put the same plane on both renderers, WebGL Renderer and CSS3D Renderer.
-Here is the code for the plane in
-<a href="https://github.com/mrdoob/three.js/blob/master/src/renderers/WebGLRenderer.js">WebGLRenderer</a>
-, wireframe with segments to see thru.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// create the plane mesh</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">material</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshBasicMaterial</span><span class="p">({</span> <span class="nx">wireframe</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">geometry</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">PlaneGeometry</span><span class="p">();</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">planeMesh</span><span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">);</span>
-</span><span class='line'><span class="c1">// add it to the WebGL scene</span>
-</span><span class='line'><span class="nx">glScene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">planeMesh</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now that we got the plane in place, here is the code for the DOM element in css 3d.
-Notice how we reference the same position and rotation as the <code>planeMesh</code>, thus
-they will move together.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// create the dom Element</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span> <span class="s1">&#39;img&#39;</span> <span class="p">);</span>
-</span><span class='line'><span class="nx">element</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s1">&#39;textures/sprites/ball.png&#39;</span><span class="p">;</span>
-</span><span class='line'><span class="c1">// create the object3d for this element</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">cssObject</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">CSS3DObject</span><span class="p">(</span> <span class="nx">element</span> <span class="p">);</span>
-</span><span class='line'><span class="c1">// we reference the same position and rotation </span>
-</span><span class='line'><span class="nx">cssObject</span><span class="p">.</span><span class="nx">position</span> <span class="o">=</span> <span class="nx">planeMesh</span><span class="p">.</span><span class="nx">position</span><span class="p">;</span>
-</span><span class='line'><span class="nx">cssObject</span><span class="p">.</span><span class="nx">rotation</span> <span class="o">=</span> <span class="nx">planeMesh</span><span class="p">.</span><span class="nx">rotation</span><span class="p">;</span>
-</span><span class='line'><span class="c1">// add it to the css scene</span>
-</span><span class='line'><span class="nx">cssScene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">cssObject</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><img class="right" src="http://learningthreejs.com/data/2013-04-30-closing-the-gap-between-html-and-webgl/screenshots/grid-css-small.png"></p>
-
-<p>All seems to go well.
-We got the same plane in css and webgl. Now we need to see the dom element behind the webgl plane.
-To do this, let&#8217;s use webgl renderer and css3d renderer together on the same page.</p>
-
-<p>We use stylesheet to put css renderer exactly behind the webgl one.
-Thus they look the same to the viewer, as you can see on the right.
-Use the following line to obtain the same result.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">cssRenderer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">CSS3DRenderer</span><span class="p">();</span>
-</span><span class='line'><span class="nx">cssRenderer</span><span class="p">.</span><span class="nx">setSize</span><span class="p">(</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span> <span class="p">);</span>
-</span><span class='line'><span class="nx">cssRenderer</span><span class="p">.</span><span class="nx">domElement</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">position</span> <span class="o">=</span> <span class="s1">&#39;absolute&#39;</span><span class="p">;</span>
-</span><span class='line'><span class="nx">cssRenderer</span><span class="p">.</span><span class="nx">domElement</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><img class="right" src="http://learningthreejs.com/data/2013-04-30-closing-the-gap-between-html-and-webgl/screenshots/object-inmiddle-small.png">
-<img class="left" src="http://learningthreejs.com/data/2013-04-30-closing-the-gap-between-html-and-webgl/screenshots/object-infront-small.png"></p>
-
-<p>We are in good shape but not yet done. We still need to make both react as if they were one.
-What happens if we add a torus 3d object in front of webgl plane? As you can see on the
-left, it looks Ok.
-What if we put this object behind it? Hmm not so good. As you can see on the right, the object
-is behind the Plane,
-but it is in front of the dom element. It should appear as if the torus were behind but it doesn&#8217;t.
-Why&#8217;s that? It is due to the webgl
-<a href="http://en.wikipedia.org/wiki/Z-buffering">z-buffer</a>.</p>
-
-<p>It displays our torus because it thinks the torus is closer to the camera than the DOM element.
-It&#8217;s not aware that our webgl plane should act as a see-thru to make our css3d visible.
-So nothing behind our webgl plane should be displayed.
-How to fix this, you would ask? We&#8217;re gonna use a tricky part of webgl: the blending.</p>
-
-<h2>Blending them together</h2>
-
-<p>What is blending ? It is the way to determine the color of a pixel when you add a
-new pixel (fragment in technical terms).
-So when doing blending, we use a blend function to combine the colors from both the
-existing and the new fragments to make an entirely new fragment.</p>
-
-<p>It is a weird beast using several WebGL calls and many equations. The total number of possibilities is scary :)
-A complete explanation of blending is way out of scope of this post. For more detail, see
-<a href="http://www.amazon.com/WebGL-Beginners-Guide-Diego-Cantor/dp/184969172X">&#8220;WebGL Beginner&#8217;s Guide&#8221;</a>
-from
-<a href="http://blog.tojicode.com/">Brandon Jones</a>, a great book to start with raw WebGL.
-To get a feel of blending,  you can play with them in
-<a href="http://threejs.org/examples/webgl_materials_blending_custom.html">this example</a>.</p>
-
-<p><img class="right" src="http://learningthreejs.com/data/2013-04-30-closing-the-gap-between-html-and-webgl/screenshots/object-behind-small.png"></p>
-
-<p>The one which interest us is called <code>THREE.NoBlending</code>.
-When drawing the face, it will completely ignore the color below and set it to the color of the face.
-So if we put our face color to black aka <code>(0, 0, 0)</code> and opacity to <code>0</code>, we gonna obtained what we want.
-The plane will act as a see-thru to the dom element below. Here is how you initialize your material.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">material</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshBasicMaterial</span><span class="p">();</span>
-</span><span class='line'><span class="nx">material</span><span class="p">.</span><span class="nx">color</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="nx">material</span><span class="p">.</span><span class="nx">opacity</span>   <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'><span class="nx">material</span><span class="p">.</span><span class="nx">blending</span>  <span class="o">=</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">NoBlending</span><span class="p">;</span>
-</span><span class='line'><span class="c1">// any mesh using this material will act as a see-thru to the css renderer</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then we are done ! We got a actual dom element seamlessly integrated in our webgl scene!  Let&#8217;s pet our back,  i think this is an important step!</p>
-
-<h2>HTML And WebGL Sitting Together In A Tree ?</h2>
-
-<p>Well, not quite unfortunatly&#8230;
-WebGL is 3d inside a <a href="http://en.wikipedia.org/wiki/Canvas_element">canvas element</a>
-and a canvas is a black box from the html page point of view.
-You can&#8217;t bind <a href="http://en.wikipedia.org/wiki/DOM_events">DOM events</a> inside canvas.
-You can&#8217;t have
-<a href="http://en.wikipedia.org/wiki/Style_sheet_(web_development)">stylesheet</a>
-to change canvas content.
-You can&#8217;t put dom elements inside your canvas.
-Those two don&#8217;t talk to each other.</p>
-
-<p>Unfortunatly it isn&#8217;t all pink, WebGL and HTML aren&#8217;t really merged.
-This is only a nice trick. It has some limitations.
-For example, the dom element is rotated using <a href="http://example.com/TODO">css 3d</a>.
-This is a fairly new technology.
-So you may hit bugs.</p>
-
-<p>Moreover, it only appears as a part of 3d&#8230; but this remains plain DOM.
-So it doesn&#8217;t benefit from webgl specific display.
-For example, it is impossible to get
-<a href="http://example.com/TODO">post processing</a>
-on the dom element.
-Indeed, this technic is applied in 2d on the rendered scene and the DOM element is not in it.
-Additionally the dom element won&#8217;t share the lighting as the rest of your webgl scene.
-Nevertheless, <a href="http://example.com/TODO">css shader</a> allows you to apply shader on normal DOM element,
-so it may be possible to make a coherent lighting.
-The web is so beautiful nowadays!</p>
-
-<h3>Conclusion</h3>
-
-<p>Congratulations guys! You can now mix html pages with your webgl content. You have learned how to close the gap between HTML and WebGL. It is a new way to experience and to interact with webgl 3d.</p>
-
-<p>I love this new trick.
-I&#8217;ve been trying to make webgl easier for while now.
-My strategy has been to make it closer to what webdevs know today,
-copying <a href="http://jeromeetienne.github.com/tquery/">jQuery API on top of three.js</a>,
-emulating <a href="http://learningthreejs.com/blog/2012/01/17/dom-events-in-3d-space/">dom events inside webgl scene</a>
-or even making <a href="http://learningthreejs.com/blog/2012/02/27/linkify-tquery-extension/">3d text act as web links</a>.
-To integrate actual web pages inside webgl scene definitly matches this vibe!</p>
-
-<p>That&#8217;s all for today, have fun :)</p>
 ]]></content>
   </entry>
   

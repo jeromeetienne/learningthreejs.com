@@ -5,14 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Let's Make a 3D Game: Keyboard - Learning Three.js</title>
+  <title>Live Cube Maps Reflections In Your Three.js Game With threex.cubecamera - Learning Three.js</title>
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="This post is the first of a series Let&#8217;s Make a 3d game.
-The series will walk you down the path of
-game developement.
-It will describe the &hellip;">
+  <meta name="description" content="This is post is part of the &#8216;one threex a day&#8217; challenge.
+This challenge is to publish every day one game extension for three.js!
+One &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +20,7 @@ It will describe the &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://learningthreejs.com/blog/2011/09/12/lets-Make-a-3D-game-keyboard/">
+  <link rel="canonical" href="http://learningthreejs.com/blog/2014/05/12/live-cube-maps-reflections-in-your-three-dot-js-game-with-threex-dot-cubecamera/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
@@ -139,7 +138,7 @@ return;
   
   <header>
     
-      <h1 class="entry-title">Let's Make a 3D Game: Keyboard</h1>
+      <h1 class="entry-title">Live Cube Maps Reflections in Your Three.js Game With threex.cubecamera</h1>
     
     
       <p class="meta">
@@ -155,12 +154,12 @@ return;
   
 
 
-<time datetime="2011-09-12T17:31:00+02:00" pubdate data-updated="true">Sep 12<span>th</span>, 2011</time>
+<time datetime="2014-05-12T20:20:00+02:00" pubdate data-updated="true">May 12<span>th</span>, 2014</time>
         
         
           <div class="sharing" style='text-align: right;'>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2011/09/12/lets-Make-a-3D-game-keyboard/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2011/09/12/lets-Make-a-3D-game-keyboard/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2014/05/12/live-cube-maps-reflections-in-your-three-dot-js-game-with-threex-dot-cubecamera/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2014/05/12/live-cube-maps-reflections-in-your-three-dot-js-game-with-threex-dot-cubecamera/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -174,82 +173,106 @@ return;
   </header>
 
 
-<div class="entry-content"><p>This post is the first of a series <strong>Let&#8217;s Make a 3d game</strong>.
-The <a href="/blog/categories/tutorial3dgame/">series</a> will walk you down the path of
-game developement.
-It will describe the various parts of a web game: input handling, map generation,
-collision, physics, sounds, graphics etc&#8230;
-Obviously we will glue them to make an actual game. Quite a bit of work
-but im super excited !</p>
+<div class="entry-content"><p><a href='http://jeromeetienne.github.io/threex.cubecamera/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.cubecamera/master/examples/images/screenshot-threex-cubecamera-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.cubecamera">threex.cubecamera</a>.
+threex.cubecamera is a <a href="http://www.threejsgames.com/extensions/">three.js games extension</a> which provides a helper for cube cameras. It is very useful when a given object must reflect a texture cube live. Just look at it, you can see the reflection as clear as a real life mirror! You can give your texture the color you want, for example in the demo I created a &#8220;gold&#8221; sphere to give it a shinier look. Be careful though, this requires 6 renderings of the scene every time you update it. It becomes expensive fast.</p>
 
-<p>It will be a <a href="http://en.wikipedia.org/wiki/Marble_Madness">marble</a>
-game. Not sure which kind yet, but they are
-<a href="http://www.youtube.com/results?search_query=marble+video+game">many</a>.
-I did <a href="http://pacmaze.com">pacmaze</a>, a pacman in 3D  and <a href="http://buddymaze.com">buddymaze</a>,
-a multi-player first personn shooter. But this one gonna be from scratch, thus we will
-discover things as together :)</p>
+<p><a href='http://jeromeetienne.github.io/threex.cubecamera/examples/demo.html' target='_blank'><input type="button" value='Try Threex.cubecamera Demo Now' /></a></p>
 
-<p>We will try to code each part of the game to be as reusable as possible.
-The first part will be the <strong>keyboard handling</strong>. It isnt the hardest, nor the most important, but it is
-super simple. Perfect to get us started.</p>
-
-<h2>Let&#8217;s get started</h2>
-
-<p>In a game, a keyboard handler is a bit special. Usually this is done with events
-, e.g. <a href="http://api.jquery.com/bind/">jQuery.bind()</a>
-or <a href="https://github.com/jeresig/jquery.hotkeys">hotkeys</a>.
-But we are doing a game and all games revolve around a <a href="http://en.wikipedia.org/wiki/Game_programming#Game_structure">game loop</a>.
-So the keyboard must be queryable at any time during this loop, as opposed
-to <a href="http://en.wikipedia.org/wiki/Event-driven_architecture">event-driven</a>.
-Our code should keep tracks of which key and which modifier is pressed.
-Let&#8217;s call it <em>KeyboardState</em>.</p>
-
-<h2>Let&#8217;s include the script</h2>
-
-<p>You download it from <a href="/data/THREEx/THREEx.KeyboardState.js">here</a> and include
-it in your page like this</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;THREEx.KeyboardState.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
+<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
 
 <!-- more -->
 
 
-<h2>How to use it ?</h2>
 
-<p>Now that the script is included, create a <code>keyboard</code> variable like this.</p>
+
+<iframe width="420" height="315" src="//www.youtube.com/embed/tUnyNECDgFE" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don&#8217;t Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.cubecamera/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.cubecamera/blob/master/examples/basic.html">view source</a>] :
+It shows the most basic usage of this extension.</li>
+<li><a href="http://jeromeetienne.github.io/threex.cubecamera/examples/demo.html">examples/demo.html</a>
+[<a href="https://github.com/jeromeetienne/threex.cubecamera/blob/master/examples/demo.html">view source</a>] :
+It shows a little bit shinier demo.</li>
+<li><a href="http://jeromeetienne.github.io/threex.cubecamera/examples/discoball.html">examples/discoball.html</a>
+[<a href="https://github.com/jeromeetienne/threex.cubecamera/blob/master/examples/discoball.html">view source</a>] :
+It shows a little bit shinier discoball.
+TODO to port in its own demo.
+It doesnt even use live rendering.
+Use the &#8220;minecraft goes party&#8221; from nextgamefrontier talk.</li>
+</ul>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">keyboard</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">KeyboardState</span><span class="p">();</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.cubecamera.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>After that you can query the current status of the keyboard with <code>.pressed("W")</code>. For
-example if you want shift+H to display help, do the following.</p>
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">if</span><span class="p">(</span> <span class="nx">keyboard</span><span class="p">.</span><span class="nx">pressed</span><span class="p">(</span><span class="s2">&quot;shift+H&quot;</span><span class="p">)</span> <span class="p">)</span>     <span class="nx">displayHelp</span><span class="p">();</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.cubecamera
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>If you ever want to stop listening to the keyboard, just use this line</p>
+<h1>How To Use It</h1>
+
+<p>First you need to create a classic mesh, the one which gonna reflect the live texture cube.
+In this example, we gonna create sphere with the color &#8216;gold&#8217; like this.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">keyboard</span><span class="p">.</span><span class="nx">destroy</span><span class="p">()</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">geometry</span>    <span class="o">=</span> new THREE.SphereGeometry<span class="o">(</span>0.5, 32, 16<span class="o">)</span>
+</span><span class='line'>var <span class="nv">material</span>    <span class="o">=</span> new THREE.MeshPhongMaterial<span class="o">({</span>
+</span><span class='line'>    color   : <span class="s1">&#39;gold&#39;</span>
+</span><span class='line'><span class="o">})</span>
+</span><span class='line'>var <span class="nv">mesh</span>    <span class="o">=</span> new THREE.Mesh<span class="o">(</span>geometry, material<span class="o">)</span>
+</span><span class='line'>scene.add<span class="o">(</span> mesh <span class="o">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Conclusion</h2>
+<p>Now we needs to create the cube camera which gonna update the texture cube live.
+We do that like this.</p>
 
-<p>For more details on <a href="/data/THREEx/THREEx.KeyboardState.js">THREEx.KeyboardState</a>,
-see its <a href="/data/THREEx/docs/THREEx.KeyboardState.html">annoted source</a>.
-We have seen it is quite simple to use.
-Ok now we got the keyboard handling for our game. Nice but it seems a bit virtual for now.
-But i think the game will become more concret when we gonna have stuff moving on the screen.</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">cubeCamera</span>  <span class="o">=</span> new THREEx.CubeCamera<span class="o">(</span>mesh<span class="o">)</span>
+</span><span class='line'>scene.add<span class="o">(</span>cubeCamera.object3d<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Don&#8217;t forget to update it when needed (likely at every frame)</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>cubeCamera.update<span class="o">(</span>renderer, scene<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now that we got the textureCube, we set the mesh material to reflect this texture cube.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>material.envMap <span class="o">=</span> cubeCamera.textureCube
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is it! Now you got the live texture cube on your sphere :)</p>
 </div>
 
 
@@ -272,12 +295,12 @@ But i think the game will become more concret when we gonna have stuff moving on
   
 
 
-<time datetime="2011-09-12T17:31:00+02:00" pubdate data-updated="true">Sep 12<span>th</span>, 2011</time>
+<time datetime="2014-05-12T20:20:00+02:00" pubdate data-updated="true">May 12<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>, <a class='category' href='/blog/categories/tutorial3dgame/'>tutorial3dgame</a>
+    <a class='category' href='/blog/categories/extension/'>extension</a>, <a class='category' href='/blog/categories/game/'>game</a>, <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>, <a class='category' href='/blog/categories/threex/'>threex</a>, <a class='category' href='/blog/categories/threexaday/'>threexaday</a>
   
 </span>
 
@@ -286,7 +309,7 @@ But i think the game will become more concret when we gonna have stuff moving on
     
       <div class="sharing" style='text-align: right;'>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2011/09/12/lets-Make-a-3D-game-keyboard/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2011/09/12/lets-Make-a-3D-game-keyboard/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2014/05/12/live-cube-maps-reflections-in-your-three-dot-js-game-with-threex-dot-cubecamera/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2014/05/12/live-cube-maps-reflections-in-your-three-dot-js-game-with-threex-dot-cubecamera/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -297,10 +320,8 @@ But i think the game will become more concret when we gonna have stuff moving on
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2011/09/03/screenshot-in-javascript/" title="Previous Post: Screenshot in Javascript">&laquo; Screenshot in Javascript</a>
+        <a class="basic-alignment left" href="/blog/2014/05/09/classical-suzanne-monkey-from-blender-to-get-your-game-started-with-threex-dot-suzanne/" title="Previous Post: Classical Suzanne Monkey From Blender To Get Your Game Started With threex.suzanne">&laquo; Classical Suzanne Monkey From Blender To Get Your Game Started With threex.suzanne</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2011/09/14/lets-make-a-3D-game-map-editor/" title="Next Post: Let's Make a 3D Game: Map Editor">Let's Make a 3D Game: Map Editor &raquo;</a>
       
     </p>
   </footer>
@@ -383,8 +404,8 @@ But i think the game will become more concret when we gonna have stuff moving on
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://learningthreejs.com/blog/2011/09/12/lets-Make-a-3D-game-keyboard/';
-        var disqus_url = 'http://learningthreejs.com/blog/2011/09/12/lets-Make-a-3D-game-keyboard/';
+        var disqus_identifier = 'http://learningthreejs.com/blog/2014/05/12/live-cube-maps-reflections-in-your-three-dot-js-game-with-threex-dot-cubecamera/';
+        var disqus_url = 'http://learningthreejs.com/blog/2014/05/12/live-cube-maps-reflections-in-your-three-dot-js-game-with-threex-dot-cubecamera/';
         var disqus_script = 'embed.js';
       
     (function () {
