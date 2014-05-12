@@ -6,6 +6,7 @@ comments: true
 categories: [threexaday, threex, game, extension, three.js]
 ---
 
+**Update: here is the list of [All "One Threex A Day" Posts](/blog/categories/threexaday/)**
 
 Hello everybody! I’m working on a new project that I want to share with you. But first, let me start by telling you what inspired me to do it. 
 

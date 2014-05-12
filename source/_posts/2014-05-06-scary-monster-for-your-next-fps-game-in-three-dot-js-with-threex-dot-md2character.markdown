@@ -8,7 +8,7 @@ published: true
 ---
 
 <a href='http://jeromeetienne.github.io/threex.md2character/examples/select.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.md2character/master/examples/images/screenshot-threex-md2character-512x512.jpg" width="250" height="250"></a>
-This is post is part of the ['one threex a day' challenge](/blog/categories/threexaday/). 
+This is post is part of the ['one threex a day' challenge](/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/). 
 This challenge is to publish every day one game extension for three.js!
 One per day, every day and that for 2month!
 In this post, we gonna talk about 
@@ -31,8 +31,6 @@ The model is make by
 
 To see the [other posts about one threex a day](/blog/categories/threexaday/) and forget our moto!
 **"A THREEx extension a day, gets your game on its way!"**
-
-[discuss it on hacker news](https://news.ycombinator.com/item?id=7703905)
 
 <!-- more -->
 

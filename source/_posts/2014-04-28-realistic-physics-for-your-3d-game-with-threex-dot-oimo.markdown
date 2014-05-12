@@ -8,7 +8,7 @@ published: true
 ---
 
 <a href='http://jeromeetienne.github.io/threex.oimo/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.oimo/master/examples/images/screenshot-threex-oimo-512x512.jpg" width="250" height="250"></a>
-This is post is part of the ['one threex a day' challenge](/blog/categories/threexaday/). This challenge is to publish every day one game extension for three.js! One per day, every day and that for 2month! In this post, we gonna talk about [threex.oimo](http://www.threejsgames.com/extensions/#threex.oimo).
+This is post is part of the ['one threex a day' challenge](/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/). This challenge is to publish every day one game extension for three.js! One per day, every day and that for 2month! In this post, we gonna talk about [threex.oimo](http://www.threejsgames.com/extensions/#threex.oimo).
 threex.oimo is a [threex game extension for three.js](http://www.threejsgames.com/extensions/). It provides a [realistic physics](http://en.wikipedia.org/wiki/Game_physics) easy to include in your own games. So you can take objects in your game and make them fall as if it was the real world! You can code a [pool game](http://en.wikipedia.org/wiki/Pool_\(cue_sports\)) in a day!
 You make rocks fall from the sky in a realistic fashion! Sky is the limit!
 It is a warper over the excelent library [oimo.js](https://github.com/lo-th/Oimo.js) physics library. [lo-th](https://plus.google.com/114170447432405103307/posts), the author does [a lot of crazy things](http://3dflashlo.wordpress.com/)! Be sure to check it out! 

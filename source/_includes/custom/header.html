@@ -1,4 +1,59 @@
 <hgroup>
+	<style>
+		#linksPerso {
+			float	: right;
+			height	: 128px;
+		}
+		#linksPerso .wrapper {
+			height	: 128px;
+			overflow-y:hidden;
+
+		}
+		#linksPerso img {
+			width	: 128px;
+		}
+	</style>
+	<div id='linksPerso' style='display: none;'>
+		<div class='wrapper'>
+			<div class='linkJSinside'>
+			 	<a href='http://jsinside.com' target='_blank'>
+					<img src='http://jsinside.com/images/logo/logo-jsinside-512x512.png'/>
+				</a>
+			</div>
+			<div class='linkThreejs'>
+				<a href='mailto:jerome.etienne@gmail.com?Subject=Hello%20again' target='_blank'>
+					<img src='http://betterjs.org/www/images/logo/logo-betterjs-512x512.png'/>
+				</a>
+			</div>
+			<div class='linkJSinside'>
+			 	<a href='http://jsinside.com' target='_blank'>
+					<img src='http://jsinside.com/images/logo/logo-jsinside-512x512.png'/>
+				</a>
+			</div>
+		</div>
+	</div>
+	<script>
+	;(function(){
+return;
+		var counter	= 0
+		var element	= jQuery('#linksPerso .wrapper')
+		setInterval(function(){
+			counter++
+			if( Math.floor(counter%2) === 0 ){
+				element.animate({
+					scrollTop: "256px"
+				}, 1000, function(){
+					element.scrollTop(0)
+				});
+			}else{
+				element.animate({
+					scrollTop: "128px"
+				}, 1000);
+			}
+		}, 1000*4)
+	})()
+	</script>
+
   <h1><a href="{{ root_url }}/">{{ site.title }}</a></h1>
   {% if site.subtitle %}
     <h2>{{ site.subtitle }}</h2>

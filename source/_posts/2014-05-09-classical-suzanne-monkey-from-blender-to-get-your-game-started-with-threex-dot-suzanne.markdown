@@ -1,14 +1,14 @@
 ---
 layout: post
 title: "Classical Suzanne Monkey From Blender To Get Your Game Started With threex.suzanne"
-date: 2014-05-08 20:20
+date: 2014-05-09 20:20
 comments: true
 categories: [threexaday, threex, game, extension, three.js]
-published: false
+published: true
 ---
 
 <a href='http://jeromeetienne.github.io/threex.suzanne/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.suzanne/master/examples/images/screenshot-threex-suzanne-512x512.jpg" width="250" height="250"></a>
-This is post is part of the ['one threex a day' challenge](/blog/categories/threexaday/). 
+This is post is part of the ['one threex a day' challenge](/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/). 
 This challenge is to publish every day one game extension for three.js!
 One per day, every day and that for 2month!
 In this post, we gonna talk about 

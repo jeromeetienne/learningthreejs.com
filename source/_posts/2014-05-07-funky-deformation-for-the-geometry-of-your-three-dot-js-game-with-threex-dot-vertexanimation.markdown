@@ -4,11 +4,11 @@ title: "Funky Deformation For The Geometry of Your Three.js Game With threex.ver
 date: 2014-05-07 20:20
 comments: true
 categories: [threexaday, threex, game, extension, three.js]
-published: false
+published: true
 ---
 
 <a href='http://jeromeetienne.github.io/threex.vertexanimation/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.vertexanimation/master/examples/images/screenshot-threex-vertexanimation-512x512.jpg" width="250" height="250"></a>
-This is post is part of the ['one threex a day' challenge](/blog/categories/threexaday/). 
+This is post is part of the ['one threex a day' challenge](/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/). 
 This challenge is to publish every day one game extension for three.js!
 One per day, every day and that for 2month!
 In this post, we gonna talk about 
@@ -19,7 +19,6 @@ threex.vertexanimation is a [three.js games extension](http://www.threejsgames.c
 
 To see the [other posts about one threex a day](/blog/categories/threexaday/) and forget our moto!
 **"A THREEx extension a day, gets your game on its way!"**
-
 
 <!-- more -->
 
