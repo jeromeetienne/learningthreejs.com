@@ -4,7 +4,7 @@
   <title><![CDATA[Category: threexaday | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/threexaday/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-05-12T13:53:58+02:00</updated>
+  <updated>2014-05-12T14:04:10+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -30,6 +30,8 @@ threex.cubecamera is a <a href="http://www.threejsgames.com/extensions/">three.j
 
 <p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
 <strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
+
+<p><a href='https://news.ycombinator.com/item?id=7709928' target='_blank'><input type="button" value='discuss it on hacker news' /></a></p>
 
 <!-- more -->
 
