@@ -4,7 +4,7 @@
   <title><![CDATA[Category: game | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/game/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-05-12T14:05:04+02:00</updated>
+  <updated>2014-05-13T14:01:14+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,77 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Easy Way to Include Transparency In Your Three.js Game with threex.transparency]]></title>
+    <link href="http://learningthreejs.com/blog/2014/05/13/easy-way-to-include-transparency-in-your-three-dot-js-game-with-threex-dot-transparency/"/>
+    <updated>2014-05-13T20:21:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/05/13/easy-way-to-include-transparency-in-your-three-dot-js-game-with-threex-dot-transparency</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.transparency/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.transparency/master/examples/images/screenshot-threex-transparency-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">'one threex a day' challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.transparency">threex.transparency</a>.
+threex.transparency is a <a href="http://www.threejsgames.com/extensions/">three.js games extension</a> to easily handle transparency. Transparency is a tricky business in Webgl, but this extension makes it approachable. It is worth trying. Do you remember the transparency between the leaves of a tree in 3D games? Well, with this extension you will be able to add it to your own game. You can also make clouds appear transparent in the sky you have created for your game. It is easy to include and it gives a nice polish finish, a professional touch.</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.transparency/examples/basic.html' target='_blank'><input type="button" value='Try Threex.transparency Demo Now' /></a></p>
+
+<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/mP_8EHnZUTo" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don't Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.transparency/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.transparency/blob/master/examples/basic.html">view source</a>] :
+It shows a basic usage of this extension.</li>
+</ul>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
+
+<p>```html</p>
+
+<script src='threex.transparency.js'></script>
+
+
+<p>```</p>
+
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<p><code>bash
+bower install threex.transparency
+</code></p>
+
+<h2>How To Use It ?</h2>
+
+<p>The algo is well described in this
+<a href="http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-10-transparency/">opengl tutorial about transparency</a>. We just adapt it to fit three.js.
+First you setup all the objects that you want to be transparent</p>
+
+<p><code>
+THREEx.Transparency.init(objects)
+</code></p>
+
+<p>It will change the <code>THREE.Material</code> to make it support transparent.
+Second you need to update all your objects at every frame.</p>
+
+<p><code>
+THREEx.Transparency.update(objects, camera)
+</code></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Live Cube Maps Reflections In Your Three.js Game With threex.cubecamera]]></title>
@@ -448,94 +519,6 @@ var character   = new THREEx.MD2Character()
 </li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Simple And Efficient 3 Point Lighting To Get Your Game Started With Threex.basiclighting Game Extension For Three.js]]></title>
-    <link href="http://learningthreejs.com/blog/2014/05/05/simple-and-efficient-3-point-lighting-to-get-your-game-started-with-threex-dot-basiclighting-game-extension-for-three-dot-js/"/>
-    <updated>2014-05-05T13:52:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2014/05/05/simple-and-efficient-3-point-lighting-to-get-your-game-started-with-threex-dot-basiclighting-game-extension-for-three-dot-js</id>
-    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.basiclighting/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.basiclighting/master/examples/images/screenshot-threex-basiclighting-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">'one threex a day' challenge</a>.
-This challenge is to publish every day one game extension for three.js!
-One per day, every day and that for 2month!
-In this post, we gonna talk about
-<a href="http://www.threejsgames.com/extensions/#threex.basiclighting">threex.basiclighting</a>.
-threex.basiclighting is a <a href="http://www.threejsgames.com/extensions/">threex game extension for three.js</a>. It provides
-a <a href="http://en.wikipedia.org/wiki/Three-point_lighting">three point lighting</a>.
-It is the lighting used in movies:
-A key light on the front-left, a back light in the back and a fill light on the front right, nothing fancy.
-It is perfect if you dunno much about lighting and you want to add lights in your games.
-Nothing big or special in this extension.
-This is mainly for educational purposes or for starting your project fast.</p>
-
-<p><a href='http://jeromeetienne.github.io/threex.basiclighting/examples/demo.html' target='_blank'><input type="button" value='Try Threex.basiclighting Demo Now' /></a></p>
-
-<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
-<strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
-
-<!-- more -->
-
-
-
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/eZkl-r-UOsg" frameborder="0" allowfullscreen></iframe>
-
-
-<h1>Show Don't Tell</h1>
-
-<ul>
-<li><a href="http://jeromeetienne.github.io/threex.basiclighting/examples/basic.html">examples/basic.html</a>
-[<a href="https://github.com/jeromeetienne/threex.basiclighting/blob/master/examples/basic.html">view source</a>] :
-It shows a basic example of extension.</li>
-<li><a href="http://jeromeetienne.github.io/threex.basiclighting/examples/demo.html">examples/demo.html</a>
-[<a href="https://github.com/jeromeetienne/threex.basiclighting/blob/master/examples/demo.html">view source</a>] :
-It shows a demo of it.</li>
-</ul>
-
-
-<h1>How To Install It</h1>
-
-<p>You can install it manually. Just do</p>
-
-<p>```html</p>
-
-<script src='threex.basiclighting.js'></script>
-
-
-<p>```</p>
-
-<p>You can install with <a href="http://bower.io/">bower</a>.</p>
-
-<p><code>bash
-bower install threex.basiclighting
-</code></p>
-
-<p>then you add that in your html</p>
-
-<p>```html</p>
-
-<script src="bower_components/threex.basiclighting/threex.basiclighting.js"></script>
-
-
-<p>```</p>
-
-<h2>How to Use It</h2>
-
-<p>create a three point lighting</p>
-
-<p><code>javascript
-var lighting    = new THREEx.ThreePointsLighting()
-scene.add(lighting)
-</code></p>
-
-<p>create a sun set lighting</p>
-
-<p><code>javascript
-var lighting    = new THREEx.SunSetLighting()
-scene.add(lighting)
-</code></p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-05-12T14:05:04+02:00</updated>
+  <updated>2014-05-13T14:01:14+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,78 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Easy Way to Include Transparency In Your Three.js Game with threex.transparency]]></title>
+    <link href="http://learningthreejs.com/blog/2014/05/13/easy-way-to-include-transparency-in-your-three-dot-js-game-with-threex-dot-transparency/"/>
+    <updated>2014-05-13T20:21:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/05/13/easy-way-to-include-transparency-in-your-three-dot-js-game-with-threex-dot-transparency</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.transparency/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.transparency/master/examples/images/screenshot-threex-transparency-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.transparency">threex.transparency</a>.
+threex.transparency is a <a href="http://www.threejsgames.com/extensions/">three.js games extension</a> to easily handle transparency. Transparency is a tricky business in Webgl, but this extension makes it approachable. It is worth trying. Do you remember the transparency between the leaves of a tree in 3D games? Well, with this extension you will be able to add it to your own game. You can also make clouds appear transparent in the sky you have created for your game. It is easy to include and it gives a nice polish finish, a professional touch.</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.transparency/examples/basic.html' target='_blank'><input type="button" value='Try Threex.transparency Demo Now' /></a></p>
+
+<p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/mP_8EHnZUTo" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don&#8217;t Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.transparency/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.transparency/blob/master/examples/basic.html">view source</a>] :
+It shows a basic usage of this extension.</li>
+</ul>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.transparency.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.transparency
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>How To Use It ?</h2>
+
+<p>The algo is well described in this
+<a href="http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-10-transparency/">opengl tutorial about transparency</a>. We just adapt it to fit three.js.
+First you setup all the objects that you want to be transparent</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>THREEx.Transparency.init<span class="o">(</span>objects<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It will change the <code>THREE.Material</code> to make it support transparent.
+Second you need to update all your objects at every frame.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>THREEx.Transparency.update<span class="o">(</span>objects, camera<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Live Cube Maps Reflections In Your Three.js Game With threex.cubecamera]]></title>
@@ -2928,132 +3000,6 @@ The information may appear a bit raw but it is live.
 So unexpected performance changes can be detected very early.</p>
 
 <p>That&#8217;s all for today! have fun :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Discovering Leap Device]]></title>
-    <link href="http://learningthreejs.com/blog/2013/06/11/discovering-leap-device/"/>
-    <updated>2013-06-11T10:58:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2013/06/11/discovering-leap-device</id>
-    <content type="html"><![CDATA[<p>Imagine controlling your computer without needing a mouse or a keyboard but only with the
-movement of your hands! That is what the Leap motion device is all about! It was
-all over the net a few months back. This device is not unlike the kinect, however it is
-designed to be used at a shorter range. The leap device is a new way of motion on your
-screen and it is able to trace your fingers. Quite sci-fi, don&#8217;t you think?
-Especially when you see the accuracy, even the slightest movement of your fingers is tracked.
-They have been nice enough to send me one so that I could play with it and get an idea of
-what it does and why it is such a cool device.</p>
-
-<iframe width="425" height="349" src="http://www.youtube.com/embed/aP_4KPXjDpM" frameborder="0" allowfullscreen></iframe>
-
-
-
-
-<!-- more -->
-
-
-<p>Here are some applications that I found cool. You can easily install them.</p>
-
-<h3>Visualizer</h3>
-
-<p>First the Visualizer. This application is installed when you install the leap itself.
-It is a basic display of what the leap detects. It helps you discover what the leap
-can do and diagnose potential issues.</p>
-
-<iframe width="420" height="315" src="http://www.youtube.com/embed/D2oKfAnEaPQ" frameborder="0" allowfullscreen></iframe>
-
-
-<h3>Flocking</h3>
-
-<p>Then a <a href="https://developer.leapmotion.com/blog/new-demo-available-flocking">flocking application</a>.
-In this beautifully realized application you interact with a swarm of fishes in the deep sea.
-It is computed over GPU, so you play with an impressive number of fishes.
-Each of your finger tips is visualized with a nice incandescent fire.
-Fishes are attracted by your fingers. But as soon as you move it you scare them away.
-Just excelent!</p>
-
-<iframe width="560" height="315" src="http://www.youtube.com/embed/e--L3pArf-c" frameborder="0" allowfullscreen></iframe>
-
-
-<h3>Google Earth</h3>
-
-<p>Google modified its famous application Google Earth to support leap device.
-Now you can fly above the earth with your hands in the air.
-See the <a href="http://www.theverge.com/2013/4/22/4246612/google-will-release-google-earth-app-for-leap-motion">announcement for details</a>.</p>
-
-<iframe width="560" height="315" src="http://www.youtube.com/embed/RebX7YEn3GQ" frameborder="0" allowfullscreen></iframe>
-
-
-<h3>LeapDJ</h3>
-
-<p>Then there is <a href="https://developer.leapmotion.com/downloads/leap-motion/leap-dj-demo">LeapDJ</a>.
-Leap device goes well with the music field. One can create virtual instruments and play them thru the leap.
-It is instinctive and reactive. Quite fit for a musician&#8217;s state of mind :) here is leapdj demo.
-You mix live music with 2 platines, sliders for volume and balance.
-You can push buttons to create sounds effects. And you can do that with all your fingers at the same time.
-Definitely a fun application ;)</p>
-
-<iframe width="420" height="315" src="http://www.youtube.com/embed/cFOYHmRab_Q" frameborder="0" allowfullscreen></iframe>
-
-
-<h3>Flying Demo</h3>
-
-<p><a href="https://developer.leapmotion.com/downloads/leap-motion/leap-flying-demo">flying demo</a> is an example where
-the leap is used as a game controller.
-You put your hand side to side and move them as if they were the wings of a plane.</p>
-
-<iframe width="420" height="315" src="http://www.youtube.com/embed/ACEE4yddgQ0" frameborder="0" allowfullscreen></iframe>
-
-
-<p>To stay updated on what is new and interesting about developing on Leap, you may follow <a href="https://twitter.com/LeapMotionDev">@LeapMotionDev</a> on twitter</p>
-
-<h2>How To Get One</h2>
-
-<p>So, where can you get the Leap motion?
-You can have it shipped to your place by <a href="https://www.leapmotion.com/preorder/new">preordering it</a> on their site.
-The current <a href="http://blog.leapmotion.com/post/48872742284/release-date-update">release date is July 22nd of this year</a>.
-The device is announced at 79.99$us.
-They will also be available at the <a href="http://www.bestbuy.com/">BestBuy nearest you</a>.</p>
-
-<p>Additionnaly they have
-<a href="https://developer.leapmotion.com/blog/leap-motion-to-embed-3-d-motion-control-through-hp-collaboration">parterships with HP</a>
-and
-<a href="http://uk.ign.com/articles/2013/01/03/kinect-like-motion-tracking-coming-to-asus-pcs">asus PCs</a>
-to include it directly in some of their models.
-With all that, we can expect this device will go beyond the geek circle and reach the masses.
-For further information, you can go to the <a href="https://www.leapmotion.com/">official website</a></p>
-
-<h2>How To Code It</h2>
-
-<p>They got an API than they have ported in multiple langages:
-<a href="https://developer.leapmotion.com/documentation/guide/Sample_C++_Tutorial">c++</a>,
-<a href="https://developer.leapmotion.com/documentation/guide/Sample_C%23_Tutorial">C#</a>,
-<a href="https://developer.leapmotion.com/documentation/guide/Sample_ObjectiveC_Tutorial">Objective C</a>,
-<a href="https://developer.leapmotion.com/documentation/guide/Sample_Java_Tutorial">Java</a>,
-<a href="https://developer.leapmotion.com/documentation/guide/Sample_Python_Tutorial">Python</a>
-and
-<a href="https://developer.leapmotion.com/documentation/guide/Sample_JavaScript_Tutorial">javascript</a>.
-Obviously we will focus on the javascript one :) It is called <a href="https://github.com/leapmotion/leapjs">leapjs on github</a>.
-It is very simple. There is a driver running as daemon doing the work and providing you information via websocket.
-I just started to code on it. I will talk more about this later.</p>
-
-<h2>Conclusion</h2>
-
-<p>So we’ve seen that the Leap  motion is a very small device (less than half the size of an Iphone)
-that tracks the movement of your hands and fingers.
-It’s so precise it’s scary!
-The Leap is very reactive and accurate, it is designed to work at a very close range.
-I have tried it out and it is pretty cool.
-You can move elements in your computer with your fingers, with the palm of your hand
-or even by pointing them with a pen.
-And good news&#8230;.You can code it with javascript and you can find it on github!</p>
-
-<p>We have also seen some cool applications that have been done with this device.
-Trust me you don’t want to miss that so take a look at the demos!
-Stay tuned for the release date and for more information about Leap Motion.</p>
-
-<p>That’s all for now, folks!</p>
 ]]></content>
   </entry>
   

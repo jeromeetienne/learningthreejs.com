@@ -329,16 +329,22 @@
         <lastmod>2014-05-12T14:05:00+02:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://learningthreejs.com/blog/2014/05/13/easy-way-to-include-transparency-in-your-three-dot-js-game-with-threex-dot-transparency/
+        </loc>
+        <lastmod>2014-05-13T14:00:56+02:00</lastmod>
+    </url>
+    <url>
         <loc>http://learningthreejs.com/about/</loc>
         <lastmod>2013-03-06T12:45:11+01:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/blog/archives/</loc>
-        <lastmod>2014-05-12T14:05:00+02:00</lastmod>
+        <lastmod>2014-05-13T14:00:56+02:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/</loc>
-        <lastmod>2014-05-12T14:05:00+02:00</lastmod>
+        <lastmod>2014-05-13T14:00:56+02:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/robots.txt</loc>

@@ -5,12 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Performance: Merging Geometry - Learning Three.js</title>
+  <title>Easy Way to Include Transparency In Your Three.js Game with threex.transparency - Learning Three.js</title>
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="This article is about merging geometry and how it can improve performance.
-It is important for perfomance to reduce the number of WebGL calls as much &hellip;">
+  <meta name="description" content="This is post is part of the &#8216;one threex a day&#8217; challenge.
+This challenge is to publish every day one game extension for three.js!
+One &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +20,7 @@ It is important for perfomance to reduce the number of WebGL calls as much &hell
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://learningthreejs.com/blog/2011/10/05/performance-merging-geometry/">
+  <link rel="canonical" href="http://learningthreejs.com/blog/2014/05/13/easy-way-to-include-transparency-in-your-three-dot-js-game-with-threex-dot-transparency/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
@@ -137,7 +138,7 @@ return;
   
   <header>
     
-      <h1 class="entry-title">Performance: Merging Geometry</h1>
+      <h1 class="entry-title">Easy Way to Include Transparency in Your Three.js Game With threex.transparency</h1>
     
     
       <p class="meta">
@@ -153,12 +154,12 @@ return;
   
 
 
-<time datetime="2011-10-05T11:29:00+02:00" pubdate data-updated="true">Oct 5<span>th</span>, 2011</time>
+<time datetime="2014-05-13T20:21:00+02:00" pubdate data-updated="true">May 13<span>th</span>, 2014</time>
         
         
           <div class="sharing" style='text-align: right;'>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2011/10/05/performance-merging-geometry/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2011/10/05/performance-merging-geometry/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2014/05/13/easy-way-to-include-transparency-in-your-three-dot-js-game-with-threex-dot-transparency/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2014/05/13/easy-way-to-include-transparency-in-your-three-dot-js-game-with-threex-dot-transparency/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -172,77 +173,70 @@ return;
   </header>
 
 
-<div class="entry-content"><p>This article is about merging geometry and how it can improve performance.
-It is important for perfomance to reduce the number of <a href="http://www.khronos.org/registry/webgl/specs/latest/">WebGL</a> calls as much as possible.
-The rules of thumbs is <em>the less data are exchanged between the cpu and the gpu, the better it is for performance</em>.</p>
+<div class="entry-content"><p><a href='http://jeromeetienne.github.io/threex.transparency/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.transparency/master/examples/images/screenshot-threex-transparency-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.transparency">threex.transparency</a>.
+threex.transparency is a <a href="http://www.threejsgames.com/extensions/">three.js games extension</a> to easily handle transparency. Transparency is a tricky business in Webgl, but this extension makes it approachable. It is worth trying. Do you remember the transparency between the leaves of a tree in 3D games? Well, with this extension you will be able to add it to your own game. You can also make clouds appear transparent in the sky you have created for your game. It is easy to include and it gives a nice polish finish, a professional touch.</p>
 
-<p>The <a href="/data/performance-merging-geometry/">demo</a> is rendering many cubes and put them randomly in the space.
-<img class="left" src="/data/performance-merging-geometry/images/demo-screenshot-2000.png" width="240" height="120">
-<img class="right" src="/data/performance-merging-geometry/images/demo-screenshot-120000.png" width="240" height="120">
-It is a simplictic way to measure the performance, but it will do for us.
-If the geometries arent merged, my computer is able to display <em>2000</em> cubes at 30fps. See on the left.
-But if the geometry are merged, it displays <em>120000</em> cubes at 30fps. See on the right.
-Screenshots make it pretty obvious :) This is <strong>60 times</strong> more cubes!!!</p>
+<p><a href='http://jeromeetienne.github.io/threex.transparency/examples/basic.html' target='_blank'><input type="button" value='Try Threex.transparency Demo Now' /></a></p>
+
+<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
 
 <!-- more -->
 
 
-<h2>So Let&#8217;s Merge Geometries</h2>
 
-<p>A geometry is the shape of the 3D object. three.js got already
-<a href="https://github.com/mrdoob/three.js/tree/master/src/extras/geometries">several predefined</a> for you.
-<a href="https://github.com/mrdoob/three.js/blob/master/src/extras/geometries/PlaneGeometry.js">plane</a>,
-<a href="https://github.com/mrdoob/three.js/blob/master/src/extras/geometries/CubeGeometry.js">cube</a> or
-<a href="https://github.com/mrdoob/three.js/blob/master/src/extras/geometries/SphereGeometry.js">sphere</a>
-are the common ones.
-This post is about merging them, so lets do that.
-This line will merge <code>otherGeometry</code> into <code>geometry</code>.</p>
+
+<iframe width="420" height="315" src="//www.youtube.com/embed/mP_8EHnZUTo" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don&#8217;t Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.transparency/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.transparency/blob/master/examples/basic.html">view source</a>] :
+It shows a basic usage of this extension.</li>
+</ul>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">THREE</span><span class="p">.</span><span class="nx">GeometryUtils</span><span class="p">.</span><span class="nx">merge</span><span class="p">(</span><span class="nx">geometry</span><span class="p">,</span> <span class="nx">otherGeometry</span><span class="p">);</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.transparency.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p> <code>THREE.GeometryUtils.merge()</code> is in <a href="https://github.com/mrdoob/three.js/blob/master/src/extras/GeometryUtils.js">THREE.GeometryUtils</a> with other geometry related functions.
-Btw it is more a concatenation than an actual merge them. No duplicate is removed in the process.</p>
-
-<h2>Combo: merging geometry with mesh</h2>
-
-<p> <code>THREE.GeometryUtils.merge()</code> supports to merge geometries with meshes too.
-In this case, the function will honor the mesh position/orientation.
-As a bonus, if your mesh uses <code>THREE.MeshFaceMaterial</code>, materials will be copied along.
-It is quite convenient when building a large geometry, or when optimising existing scenes with meshes.</p>
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">mesh</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span><span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">CubeGeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshNormalMaterial</span><span class="p">());</span>
-</span><span class='line'><span class="nx">mesh</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
-</span><span class='line'><span class="nx">mesh</span><span class="p">.</span><span class="nx">rotation</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="o">/</span><span class="mi">3</span><span class="p">;</span>
-</span><span class='line'><span class="nx">THREE</span><span class="p">.</span><span class="nx">GeometryUtils</span><span class="p">.</span><span class="nx">merge</span><span class="p">(</span><span class="nx">geometry</span><span class="p">,</span> <span class="nx">mesh</span><span class="p">);</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.transparency
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>This will merge a <code>THREE.CubeGeometry</code> with a translation of <code>30</code> on <code>x</code>
-and a rotation of <code>Math.PI/3</code> on <code>y</code>.
-Simple enougth hey ? what about Limitations ?</p>
+<h2>How To Use It ?</h2>
 
-<h2>When to use it ?</h2>
+<p>The algo is well described in this
+<a href="http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-10-transparency/">opengl tutorial about transparency</a>. We just adapt it to fit three.js.
+First you setup all the objects that you want to be transparent</p>
 
-<p>The answer is <em>whenever possible</em> due to the performance improvement.
-The merged geometry will act as a single atomic shape.
-So it is perfect with static geometry.
-But it may not be suitable in all cases.
-For example, it won&#8217;t be possible to move the merged objects independantly from each other.
-Or you can no more remove or add a object without recomputing the whole geometry.</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>THREEx.Transparency.init<span class="o">(</span>objects<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<h2>Conclusion</h2>
 
-<p>So merging geometry reduces the amount of webgl calls, so dramatically improve
-performance (x60 time in our little demo). It is simple enougth to add to your
-demos or games when they have large static geometries. So use it as much as possible.
-That&#8217;s all folks. I hope it has been usefull :)</p>
+<p>It will change the <code>THREE.Material</code> to make it support transparent.
+Second you need to update all your objects at every frame.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>THREEx.Transparency.update<span class="o">(</span>objects, camera<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
 </div>
 
 
@@ -265,12 +259,12 @@ That&#8217;s all folks. I hope it has been usefull :)</p>
   
 
 
-<time datetime="2011-10-05T11:29:00+02:00" pubdate data-updated="true">Oct 5<span>th</span>, 2011</time>
+<time datetime="2014-05-13T20:21:00+02:00" pubdate data-updated="true">May 13<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/performance/'>performance</a>, <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>
+    <a class='category' href='/blog/categories/extension/'>extension</a>, <a class='category' href='/blog/categories/game/'>game</a>, <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>, <a class='category' href='/blog/categories/threex/'>threex</a>, <a class='category' href='/blog/categories/threexaday/'>threexaday</a>
   
 </span>
 
@@ -279,7 +273,7 @@ That&#8217;s all folks. I hope it has been usefull :)</p>
     
       <div class="sharing" style='text-align: right;'>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2011/10/05/performance-merging-geometry/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2011/10/05/performance-merging-geometry/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2014/05/13/easy-way-to-include-transparency-in-your-three-dot-js-game-with-threex-dot-transparency/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2014/05/13/easy-way-to-include-transparency-in-your-three-dot-js-game-with-threex-dot-transparency/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -290,10 +284,8 @@ That&#8217;s all folks. I hope it has been usefull :)</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2011/09/20/lets-make-a-3D-game-device-orientation/" title="Previous Post: Let's Make a 3D Game: Device Orientation">&laquo; Let's Make a 3D Game: Device Orientation</a>
+        <a class="basic-alignment left" href="/blog/2014/05/12/live-cube-maps-reflections-in-your-three-dot-js-game-with-threex-dot-cubecamera/" title="Previous Post: Live Cube Maps Reflections In Your Three.js Game With threex.cubecamera">&laquo; Live Cube Maps Reflections In Your Three.js Game With threex.cubecamera</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/" title="Next Post: Lets Make a 3D Game: microphysics.js">Lets Make a 3D Game: microphysics.js &raquo;</a>
       
     </p>
   </footer>
@@ -376,8 +368,8 @@ That&#8217;s all folks. I hope it has been usefull :)</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://learningthreejs.com/blog/2011/10/05/performance-merging-geometry/';
-        var disqus_url = 'http://learningthreejs.com/blog/2011/10/05/performance-merging-geometry/';
+        var disqus_identifier = 'http://learningthreejs.com/blog/2014/05/13/easy-way-to-include-transparency-in-your-three-dot-js-game-with-threex-dot-transparency/';
+        var disqus_url = 'http://learningthreejs.com/blog/2014/05/13/easy-way-to-include-transparency-in-your-three-dot-js-game-with-threex-dot-transparency/';
         var disqus_script = 'embed.js';
       
     (function () {

@@ -9,7 +9,11 @@
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="<iframe src="http://marblesoccer.com" allowfullscreen webkitallowfullscreen mozallowfullscreen width="420" height="315" frameborder="0" style="float &hellip;">
+  <meta name="description" content="This post is about
+constructive solid geometry
+, an impressive word :)
+In fact, it is just a way to build complex objects from simpler ones.
+Those &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -133,6 +137,82 @@ return;
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/12/10/constructive-solid-geometry-with-csg-js/">Constructive Solid Geometry With csg.js</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-10T16:30:00+01:00" pubdate data-updated="true">Dec 10<span>th</span>, 2011</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/6/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/6/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is about
+<a href="http://en.wikipedia.org/wiki/Constructive_solid_geometry">constructive solid geometry</a>
+, an impressive word :)
+In fact, it is just a way to build complex objects from simpler ones.
+Those simple objects are assembled using
+<a href="http://en.wikipedia.org/wiki/Algebra_of_sets">operations</a>
+such as union, difference and intersection.</p>
+
+<p>Recently
+<a href="http://madebyevan.com/">Evan Wallas</a>
+released
+<a href="http://evanw.github.com/csg.js/">csg.js</a>,
+a clean self-contained library to do
+<a href="http://en.wikipedia.org/wiki/Constructive_solid_geometry">constructive solid geometry</a>.
+So <a href="http://chandler.prallfamily.com/">Chandler Prall</a>
+wrote a
+<a href="http://chandler.prallfamily.com/2011/12/constructive-solid-geometry-with-three-js/">bridge</a>
+to make it easy to use with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>.</p>
+
+<p>With all this nice code, i wrote the little
+<a href="/data/constructive-solid-geometry-with-csg-js/">demo of a dice</a>
+you can see on the right. Thus you can click to change the operations, play
+with it and have a feel of the various operations.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/12/10/constructive-solid-geometry-with-csg-js/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -892,79 +972,6 @@ it in your page like this</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/09/03/screenshot-in-javascript/">Screenshot in Javascript</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-09-03T10:01:00+02:00" pubdate data-updated="true">Sep 3<span>rd</span>, 2011</time>
-        
-        
-          <div class="sharing" style='text-align: right;'>
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/6/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/6/index.html" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-</div>
-
-        
-     </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Sometime it would be cool if you could take a screenshot of your demo to share with your friends.
-This post will explain how to do that single a single line.
-Additionnaly, <a href="/data/THREEx/THREEx.screenshot.js">THREEx.screenshot</a> helper is provided at the end
-if you want to add printscreen key in your demos without hasles.</p>
-
-<h2>Let&#8217;s get started</h2>
-
-<p>So as usual you got a <code>renderer</code> variable to render your 3D scene. This renderer
-contains a <code>domElement</code> property.
-It is a <a href="http://en.wikipedia.org/wiki/Document_Object_Model">DOM element</a> on which it renders,
-who would have guessed ?
-We will use the <code>.toDataURL()</code>
-<a href="http://www.w3.org/TR/html5/the-canvas-element.html#dom-canvas-todataurl">method</a>
-on this element to get the screenshot.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">dataUrl</span> <span class="o">=</span> <span class="nx">renderer</span><span class="p">.</span><span class="nx">domElement</span><span class="p">.</span><span class="nx">toDataURL</span><span class="p">(</span><span class="s2">&quot;image/png&quot;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/09/03/screenshot-in-javascript/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/7/">&larr; Older</a>
@@ -982,6 +989,10 @@ on this element to get the screenshot.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/05/13/easy-way-to-include-transparency-in-your-three-dot-js-game-with-threex-dot-transparency/">Easy Way to Include Transparency In Your Three.js Game with threex.transparency</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/05/12/live-cube-maps-reflections-in-your-three-dot-js-game-with-threex-dot-cubecamera/">Live Cube Maps Reflections In Your Three.js Game With threex.cubecamera</a>
       </li>
     
@@ -995,10 +1006,6 @@ on this element to get the screenshot.</p>
     
       <li class="post">
         <a href="/blog/2014/05/07/threejs-interview-online-3d-modeling-and-rendering-with-claraio/">Three.js Interview: Online 3D Modeling And Rendering With Clara.io</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/05/06/scary-monster-for-your-next-fps-game-in-three-dot-js-with-threex-dot-md2character/">Scary Monster For Your Next FPS Game in Three.js With threex.md2character</a>
       </li>
     
   </ul>
