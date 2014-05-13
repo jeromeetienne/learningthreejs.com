@@ -22,6 +22,7 @@ threex.cubecamera is a [three.js games extension](http://www.threejsgames.com/ex
 To see the [other posts about one threex a day](/blog/categories/threexaday/) and forget our moto!
 **"A THREEx extension a day, gets your game on its way!"**
 
+<a href='https://news.ycombinator.com/item?id=7732205' target='_blank'><input type="button" value='discuss it on hacker news' /></a>
 
 <!-- more -->
 

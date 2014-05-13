@@ -4,7 +4,7 @@ title: "Easy Way to Include Transparency In Your Three.js Game with threex.trans
 date: 2014-05-13 20:21
 comments: true
 categories: [threexaday, threex, game, extension, three.js]
-published: false
+published: true
 ---
 
 <a href='http://jeromeetienne.github.io/threex.transparency/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.transparency/master/examples/images/screenshot-threex-transparency-512x512.jpg" width="250" height="250"></a>
