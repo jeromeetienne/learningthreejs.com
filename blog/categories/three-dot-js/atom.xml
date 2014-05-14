@@ -4,7 +4,7 @@
   <title><![CDATA[Category: three.js | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/three-dot-js/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-05-13T14:01:14+02:00</updated>
+  <updated>2014-05-14T17:20:48+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,95 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Procedural Generated Pool Balls For Your Three.js Pool Game with threex.poolball]]></title>
+    <link href="http://learningthreejs.com/blog/2014/05/14/procedural-generated-pool-balls-for-your-three-dot-js-pool-game-with-threex-dot-poolball/"/>
+    <updated>2014-05-14T20:21:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/05/14/procedural-generated-pool-balls-for-your-three-dot-js-pool-game-with-threex-dot-poolball</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.poolball/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.poolball/master/examples/images/screenshot-threex-poolball-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">'one threex a day' challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.poolball">threex.poolball</a>.
+threex.poolball is a <a href="http://www.threejsgames.com/extensions/">three.js games extension</a> which helps you build pool balls. It provides dynamically generated models of pool balls, so no model download needed. It may be fun to play with when you start with three.js, funnier than a plain sphere for sure :) You can use it for your bar games, having  your characters bet when playing pool, or even your <a href="http://jeromeetienne.github.io/marbleTable/">Marble Table</a> games, as I did, adding cool granular sounds when the balls roll.</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.poolball/examples/demo.html' target='_blank'><input type="button" value='Try Threex.poolball Demo Now' /></a></p>
+
+<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/u_hjrVazLYo" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don't Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.poolball/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.poolball/blob/master/examples/basic.html">view source</a>] :
+It shows a basic usage of this extension</li>
+<li><a href="http://jeromeetienne.github.io/threex.poolball/examples/demo.html">examples/demo.html</a>
+[<a href="https://github.com/jeromeetienne/threex.poolball/blob/master/examples/demo.html">view source</a>] :
+It shows multiple pool balls setup like on a pool table :)</li>
+</ul>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
+
+<p>```html</p>
+
+<script src='threex.poolball.js'></script>
+
+
+<p>```</p>
+
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<p><code>bash
+bower install threex.poolball
+</code></p>
+
+<h1>How To Use It</h1>
+
+<p>Here is the default usages</p>
+
+<p><code>
+var mesh    = THREEx.createPoolBall();
+scene.add(mesh)
+</code></p>
+
+<p>this is with custom arguments</p>
+
+<p>```
+var mesh    = THREEx.createPoolBall({</p>
+
+<pre><code>ballDesc    : '0',  // the text which gonna be written on the ball
+stripped    : true, // true if the ball must be stripped, false otherwise
+textureW    : 512   // the width/height of the created texture for this ball
+</code></pre>
+
+<p>});
+scene.add(mesh)
+```</p>
+
+<p>Some ball description are already done.</p>
+
+<ul>
+<li><code>cue</code> will return an unstripped white ball</li>
+<li><code>black</code> will return an unstripped black ball</li>
+<li><code>1</code> to <code>9</code> will assign the official colors for <a href="http://en.wikipedia.org/wiki/Nine-ball">nine-ball</a> pool</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Easy Way to Include Transparency In Your Three.js Game with threex.transparency]]></title>
@@ -101,8 +190,6 @@ threex.cubecamera is a <a href="http://www.threejsgames.com/extensions/">three.j
 
 <p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
 <strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
-
-<p><a href='https://news.ycombinator.com/item?id=7732205' target='_blank'><input type="button" value='discuss it on hacker news' /></a></p>
 
 <!-- more -->
 
@@ -373,28 +460,6 @@ updateFcts.push(function(delta, now){</p>
 
 <p>})
 ```</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Three.js Interview: Online 3D Modeling And Rendering With Clara.io]]></title>
-    <link href="http://learningthreejs.com/blog/2014/05/07/threejs-interview-online-3d-modeling-and-rendering-with-claraio/"/>
-    <updated>2014-05-07T10:16:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2014/05/07/threejs-interview-online-3d-modeling-and-rendering-with-claraio</id>
-    <content type="html"><![CDATA[<p><img class="right" src="/data/2014-05-07-threejs-interview-online-3d-modeling-and-rendering-with-claraio/images/image01.jpg" width="235" height="105"></p>
-
-<p>Hello everybody! This is my first <em>Three.js Interview</em> video. The inspiration came from all those great people out there doing <a href="http://threejs.org">very cool projects with three.js</a>. I want to share their innovations with others. If you know me, you know that I love talking about three.js. So, I would like everybody to have the opportunity to enjoy and learn from these <a href="/blog/categories/threejsInterview/">three.js interviews</a>. So three.js interviews are videos of around one hour where people are talking about cool things they do with three.js . Maybe you could get some ideas for your own project or simply partake on a subject you're passionate about.</p>
-
-<p><a href='https://news.ycombinator.com/item?id=7709928' target='_blank'><input type="button" value='discuss it on hacker news' /></a></p>
-
-<p><img class="left" src="/data/2014-05-07-threejs-interview-online-3d-modeling-and-rendering-with-claraio/images/image03.jpg" width="320" height="240"></p>
-
-<p>The idea is to have interesting people come and talk about cool things that they've done with three.js. Like <a href="https://twitter.com/BenAtExocortex">Ben Houston</a>, who is our guest in this first video. Ben is the Team Leader for <a href="http://clara.io/">Clara.io</a>, a online 3D modeling and rendering tool that you can use inside you browser. Ben talks to us about the creation and the evolution of <a href="http://clara.io/">Clara.io</a> and about all the interesting features it's got!</p>
-
-<p>I hope you enjoy it and stay tuned for the next Three.js Interview :)</p>
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/5pdxh9pjKzQ" frameborder="0" allowfullscreen></iframe>
-
 ]]></content>
   </entry>
   

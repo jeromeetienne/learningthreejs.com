@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-05-13T14:01:14+02:00</updated>
+  <updated>2014-05-14T17:20:48+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,99 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Procedural Generated Pool Balls For Your Three.js Pool Game with threex.poolball]]></title>
+    <link href="http://learningthreejs.com/blog/2014/05/14/procedural-generated-pool-balls-for-your-three-dot-js-pool-game-with-threex-dot-poolball/"/>
+    <updated>2014-05-14T20:21:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/05/14/procedural-generated-pool-balls-for-your-three-dot-js-pool-game-with-threex-dot-poolball</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.poolball/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.poolball/master/examples/images/screenshot-threex-poolball-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.poolball">threex.poolball</a>.
+threex.poolball is a <a href="http://www.threejsgames.com/extensions/">three.js games extension</a> which helps you build pool balls. It provides dynamically generated models of pool balls, so no model download needed. It may be fun to play with when you start with three.js, funnier than a plain sphere for sure :) You can use it for your bar games, having  your characters bet when playing pool, or even your <a href="http://jeromeetienne.github.io/marbleTable/">Marble Table</a> games, as I did, adding cool granular sounds when the balls roll.</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.poolball/examples/demo.html' target='_blank'><input type="button" value='Try Threex.poolball Demo Now' /></a></p>
+
+<p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/u_hjrVazLYo" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don&#8217;t Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.poolball/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.poolball/blob/master/examples/basic.html">view source</a>] :
+It shows a basic usage of this extension</li>
+<li><a href="http://jeromeetienne.github.io/threex.poolball/examples/demo.html">examples/demo.html</a>
+[<a href="https://github.com/jeromeetienne/threex.poolball/blob/master/examples/demo.html">view source</a>] :
+It shows multiple pool balls setup like on a pool table :)</li>
+</ul>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.poolball.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.poolball
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>How To Use It</h1>
+
+<p>Here is the default usages</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">mesh</span>    <span class="o">=</span> THREEx.createPoolBall<span class="o">()</span>;
+</span><span class='line'>scene.add<span class="o">(</span>mesh<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>this is with custom arguments</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">mesh</span>    <span class="o">=</span> THREEx.createPoolBall<span class="o">({</span>
+</span><span class='line'>    ballDesc    : <span class="s1">&#39;0&#39;</span>,  // the text which gonna be written on the ball
+</span><span class='line'>    stripped    : <span class="nb">true</span>, // <span class="nb">true </span><span class="k">if </span>the ball must be stripped, <span class="nb">false </span>otherwise
+</span><span class='line'>    textureW    : 512   // the width/height of the created texture <span class="k">for </span>this ball
+</span><span class='line'><span class="o">})</span>;
+</span><span class='line'>scene.add<span class="o">(</span>mesh<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Some ball description are already done.</p>
+
+<ul>
+<li><code>cue</code> will return an unstripped white ball</li>
+<li><code>black</code> will return an unstripped black ball</li>
+<li><code>1</code> to <code>9</code> will assign the official colors for <a href="http://en.wikipedia.org/wiki/Nine-ball">nine-ball</a> pool</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Easy Way to Include Transparency In Your Three.js Game with threex.transparency]]></title>
@@ -102,8 +195,6 @@ threex.cubecamera is a <a href="http://www.threejsgames.com/extensions/">three.j
 
 <p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
 <strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
-
-<p><a href='https://news.ycombinator.com/item?id=7732205' target='_blank'><input type="button" value='discuss it on hacker news' /></a></p>
 
 <!-- more -->
 
@@ -2876,130 +2967,6 @@ I hope you learned from it,
 it contains many tricks that you can reused in your own demos.</p>
 
 <p>That&#8217;s all for today! Have fun :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Monitor Rendering Performance Within Three.js]]></title>
-    <link href="http://learningthreejs.com/blog/2013/06/25/monitor-rendering-performance-within-threejs/"/>
-    <updated>2013-06-25T10:58:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2013/06/25/monitor-rendering-performance-within-threejs</id>
-    <content type="html"><![CDATA[<p>This post is about monitoring rendering performance within three.js.
-It presents a small standalone extension called <code>threex.rendererstats</code>.
-It collect information from three.js renderer and display it live.
-It is very usefull to diagnose performance issues while developping.
-The API is exactly the same as <a href="http://github.com/mrdoob/stats.js">stats.js</a>
-so it is easy for you to include in your own stuff.</p>
-
-<iframe width="425" height="349" src="http://www.youtube.com/embed/UXWpnANajDk" frameborder="0" allowfullscreen></iframe>
-
-
-
-
-<!-- more -->
-
-
-<h2>What Is It ?</h2>
-
-<p><img class="right" src="http://learningthreejs.com/data/2013-06-13-monitor-rendering-performance-within-threejs/screenshot-rendererstats.png"></p>
-
-<p><a href="http://github.com/jeromeetienne/threex.rendererstats">threex.rendererstats</a> collects information
-about three.js renderer and display it realtime on your screen.
-It is released under MIT license and is available on
-<a href="http://github.com/jeromeetienne/threex.rendererstats">github</a>.
-See a screenshot on the right.</p>
-
-<p><a href='http://jeromeetienne.github.io/threex.rendererstats/examples/basic.html' target='_blank'><input type="button" value='Try Live Demo!' /></a></p>
-
-<p><img class="left" src="http://learningthreejs.com/data/2013-06-13-monitor-rendering-performance-within-threejs/screenshot-stats.png" width="240"></p>
-
-<p>It is inpired from
-<a href="http://github.com/mrdoob/stats.js">stats.js</a> by
-<a href="http://mrdoob.com">mrdoob</a>.
-See a screenshot on the left.
-Webgl renderer keeps some internal statistics on the scene being renderered and update it at every frame.
-It is accessible in a property <code>.info</code>.
-threex.rendererstats just gather this information and display it nicely on your screen.</p>
-
-<h2>How Is It Useful ?</h2>
-
-<p>It is a very nice tool to monitor performances of WebGL rendering.
-As it is updated realtime, you can identify performance issues at various moments within your game
-We have seen canvas inspection recently in
-<a href="http://learningthreejs.com/blog/2013/04/05/debugging-with-chromes-canvas-inspection/">Debugging With Chrome’s Canvas Inspection</a>.
-<a href="http://learningthreejs.com/blog/2013/04/05/debugging-with-chromes-canvas-inspection/">canvas inspection</a>
-is directly at webgl level. threex.rendererstats remains at three.js level to give you another kind
-of information on the renderer.</p>
-
-<p>Lets details those information
-There is 2 sections one for the memory, another for the renderer.
-For the memory, you got</p>
-
-<ul>
-<li><code>info.memory.geometry</code> : number of geometry currently in memory</li>
-<li><code>info.memory.programs</code> : number of shaders currently in memory</li>
-<li><code>info.memory.texture</code> : number of texture currently in memory</li>
-</ul>
-
-
-<p>For the render, you got</p>
-
-<ul>
-<li><code>info.render.calls</code> : number of draw calls currently used to render</li>
-<li><code>info.render.vertices</code> : number of vertices currently rendered</li>
-<li><code>info.render.faces</code> : number of triangles currently renderered</li>
-<li><code>info.render.points</code> : number of particles currently rendered</li>
-</ul>
-
-
-<h2>How To Use It ?</h2>
-
-<p>first, include <code>threex.rendererstats.js</code> with the usual <code>&lt;script&gt;</code> tag.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.rendererstats.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>then you initialize the object.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">rendererStats</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">RendererStats</span><span class="p">()</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You likely need to position it on the page with css.
-You may use something along this line</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">rendererStats</span><span class="p">.</span><span class="nx">domElement</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">position</span>   <span class="o">=</span> <span class="s1">&#39;absolute&#39;</span>
-</span><span class='line'><span class="nx">rendererStats</span><span class="p">.</span><span class="nx">domElement</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span>  <span class="o">=</span> <span class="s1">&#39;0px&#39;</span>
-</span><span class='line'><span class="nx">rendererStats</span><span class="p">.</span><span class="nx">domElement</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">bottom</span>    <span class="o">=</span> <span class="s1">&#39;0px&#39;</span>
-</span><span class='line'><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span> <span class="nx">rendererStats</span><span class="p">.</span><span class="nx">domElement</span> <span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>finally you update it at every frame in your rendering loop or when you do <code>renderer.render()</code></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">rendererStats</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">renderer</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And you are done. Quite easy to include! Now you can monitor your own three.js scenes.</p>
-
-<h2>Conclusion</h2>
-
-<p>We have seen how to monitor performance information withing three.js.
-How to display and use the statistics collected by <code>THREE.WebGLRenderer</code>
-itself.
-The information may appear a bit raw but it is live.
-So unexpected performance changes can be detected very early.</p>
-
-<p>That&#8217;s all for today! have fun :)</p>
 ]]></content>
   </entry>
   

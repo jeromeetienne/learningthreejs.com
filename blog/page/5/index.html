@@ -9,9 +9,9 @@
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="This post is about live video in webgl.
-It is possible in today browsers to read the webcam using a new feature from html5, called WebRTC.
-This &hellip;">
+  <meta name="description" content="This post an overview of a work-in-progress.
+It is about an extension system on top of three.js which mimics jQuery API.
+I came up with the idea &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -135,6 +135,82 @@ return;
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/02/08/extension-system-for-three-js/">An Extension System for three.js</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-08T15:24:00+01:00" pubdate data-updated="true">Feb 8<span>th</span>, 2012</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/5/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/5/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>  This post an overview of a work-in-progress.
+It is about an extension system on top of three.js which mimics jQuery API.
+I came up with the idea while thinking about how to
+trim three.js and make it easier to maintain. I have always been impressed
+with jQuery plugin ecosystem. It is lively, varied,
+and contains impressive specimens. I would love to have such
+a rich ecosystem for three.js&#8217;s plugins.</p>
+
+<p>  Let&#8217;s call this experiment <strong>tQuery</strong> as in &#8220;three.js + jQuery&#8221;.
+It makes it easier to understand if you already known this library.
+This is a v0 in the
+<a href="http://catb.org/~esr/writings/homesteading/cathedral-bazaar/ar01s04.html">&#8220;publish early, publish often&#8221;</a>
+vibe.
+The goal of this little project is to see if we can mix
+to mix three.js power with jquery API usability&#8230;
+How far this concept can fly ? We will see.</p>
+
+<p>So what do we want ? The code must make <strong>three.js easy to extend</strong>
+and should <strong>mimics jQuery whenever possible</strong>.
+In order to see if the system hold under load, i wrote several extensions already.
+It is very early. The architecture of it all is far from stable.
+Code is advancing at fast pace tho :)
+The screencast below is short live coding session. Just to give an idea of the current
+status.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/02/08/extension-system-for-three-js/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -809,84 +885,6 @@ screencast below.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/12/14/particles-introduction-to-sparks-js/">Particles: Introduction to Sparks.js</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-12-14T12:08:00+01:00" pubdate data-updated="true">Dec 14<span>th</span>, 2011</time>
-        
-        
-          <div class="sharing" style='text-align: right;'>
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/5/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/5/index.html" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-</div>
-
-        
-     </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This post is the first of a <a href="/blog/categories/particles">serie on particles</a>.
-It specifically is about
-<a href="https://github.com/zz85/sparks.js">sparks.js</a>.
-<em>sparks.js</em> is lightweight 3d
-<a href="http://en.wikipedia.org/wiki/Particle_system">Particle system</a>
-in javascript, for use with
-<a href="https://github.com/mrdoob/three.js/">three.js</a>
-and
-<a href="https://github.com/sole/tween.js">tween.js</a>.
-It is from
-<a href="http://www.lab4games.net/zz85/blog/">zz85</a>
-who already did
-<a href="http://mrdoob.github.com/three.js/examples/webgl_geometry_text.html">3D text</a>
-and
-<a href="http://mrdoob.github.com/three.js/examples/webgl_geometry_subdivison.html">Catmull Clark subdivision</a>.
-a productive guy :)</p>
-
-<p>The <a href="http://mrdoob.github.com/three.js/examples/webgl_particles_shapes.html">demo</a>
-below is one of the many <a href="https://github.com/mrdoob/three.js/tree/master/examples">three.js examples</a>.
-While im on it, the <a href="https://github.com/mrdoob/three.js/tree/master/examples">example directory</a> is a gold mine.
-Go dig in it to understand how to code three.js :)
-Back to the point, this
-<a href="http://mrdoob.github.com/three.js/examples/webgl_particles_shapes.html">demo</a>
-is rather cool no ?
-You want to do the same ?
-During this short post, let me walk you walk thru the code for particles in this example.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/12/14/particles-introduction-to-sparks-js/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/6/">&larr; Older</a>
@@ -904,6 +902,10 @@ During this short post, let me walk you walk thru the code for particles in this
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/05/14/procedural-generated-pool-balls-for-your-three-dot-js-pool-game-with-threex-dot-poolball/">Procedural Generated Pool Balls For Your Three.js Pool Game with threex.poolball</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/05/13/easy-way-to-include-transparency-in-your-three-dot-js-game-with-threex-dot-transparency/">Easy Way to Include Transparency In Your Three.js Game with threex.transparency</a>
       </li>
     
@@ -917,10 +919,6 @@ During this short post, let me walk you walk thru the code for particles in this
     
       <li class="post">
         <a href="/blog/2014/05/07/funky-deformation-for-the-geometry-of-your-three-dot-js-game-with-threex-dot-vertexanimation/">Funky Deformation For The Geometry of Your Three.js Game With threex.vertexanimation</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/05/07/threejs-interview-online-3d-modeling-and-rendering-with-claraio/">Three.js Interview: Online 3D Modeling And Rendering With Clara.io</a>
       </li>
     
   </ul>
