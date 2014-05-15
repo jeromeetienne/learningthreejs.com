@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Easy Way To Integrate Video, or even WebCam, in Your Texture with THREEx.VideoTexture Game Extension for THREE.js - Learning Three.js</title>
+  <title>Perlin Terrain Procedural Generation For Your Game With threex.terrain - Learning Three.js</title>
   <meta name="author" content="Jerome Etienne">
 
   
@@ -20,7 +20,7 @@ One &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://learningthreejs.com/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js/">
+  <link rel="canonical" href="http://learningthreejs.com/blog/2014/05/15/perlin-terrain-procedural-generation-for-your-game-with-threex-dot-terrain/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
@@ -138,7 +138,7 @@ return;
   
   <header>
     
-      <h1 class="entry-title">Easy Way to Integrate Video, or Even WebCam, in Your Texture With THREEx.VideoTexture Game Extension for THREE.js</h1>
+      <h1 class="entry-title">Perlin Terrain Procedural Generation for Your Game With threex.terrain</h1>
     
     
       <p class="meta">
@@ -154,12 +154,12 @@ return;
   
 
 
-<time datetime="2014-04-30T13:38:00+02:00" pubdate data-updated="true">Apr 30<span>th</span>, 2014</time>
+<time datetime="2014-05-15T20:21:00+02:00" pubdate data-updated="true">May 15<span>th</span>, 2014</time>
         
         
           <div class="sharing" style='text-align: right;'>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2014/05/15/perlin-terrain-procedural-generation-for-your-game-with-threex-dot-terrain/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2014/05/15/perlin-terrain-procedural-generation-for-your-game-with-threex-dot-terrain/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -173,25 +173,15 @@ return;
   </header>
 
 
-<div class="entry-content"><p><a href='http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.videotexture/master/examples/images/screenshot-threex-videotexture-512x512.jpg" width="250" height="250"></a>
+<div class="entry-content"><p><a href='http://jeromeetienne.github.io/threex.terrain/examples/planegeometry.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.terrain/master/examples/images/screenshot-threex-terrain-512x512.jpg" width="250" height="250"></a>
 This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
 This challenge is to publish every day one game extension for three.js!
 One per day, every day and that for 2month!
 In this post, we gonna talk about
-<a href="http://www.threejsgames.com/extensions/#threex.videotexture">threex.videotexture</a>.
-threex.videotexture is a <a href="http://www.threejsgames.com/extensions/">threex game extension for three.js</a>.
-It provides help to handle videos in texture.
-It is possible to put html5 <code>&lt;video&gt;</code> output in texture with <code>threex.videotexture.js</code>.
-You can even put the webcam in a texture with <code>threex.webcamtexture.js</code>.
-It is cool if you want to make a tv screen in your game, You can easily use this extension. You pick the video to play and you are ready to go.
-The screen surface will use your video texture making it look like a TV set.
-If you need it, you can try <code>threex.audiovideotexture.js</code> where the
-video is mapped on the texture and additionnally the sound of the video
-is handled via
-<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">web audio API</a>.
-Thus you can have localized sound, which is neat in the 3d environment.</p>
+<a href="http://www.threejsgames.com/extensions/#threex.terrain">threex.terrain</a>.
+threex.terrain is a <a href="http://www.threejsgames.com/extensions/">three.js games extension</a> which provides a procedural terrain generated from a simplex noise, the <a href="http://en.wikipedia.org/wiki/Perlin_noise">Perlin noise</a>. As you can see you have different zones that make the terrain more varied, the blue zone represents water, the green one represents trees or grass and the white zone at the mountain top is snow. Imagine your video game character walking on these 3D mountains or flying over them, pretty cool eh? You can take him through river, forest, wind and snow if you want ;)</p>
 
-<p><a href='http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html' target='_blank'><input type="button" value='Try Threex.videotexture Demo Now' /></a></p>
+<p><a href='http://jeromeetienne.github.io/threex.terrain/examples/planegeometry.html' target='_blank'><input type="button" value='Try Threex.terrain Demo Now' /></a></p>
 
 <p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
 <strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
@@ -201,69 +191,60 @@ Thus you can have localized sound, which is neat in the 3d environment.</p>
 
 
 
-<iframe width="420" height="315" src="//www.youtube.com/embed/O5ae0FhrOEo" frameborder="0" allowfullscreen></iframe>
+<iframe width="420" height="315" src="//www.youtube.com/embed/z_73WDzgBsA" frameborder="0" allowfullscreen></iframe>
 
 
 <h1>Show Don&#8217;t Tell</h1>
 
 <ul>
-<li>Here is a <a href="http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html">videotexture example</a> and its <a href="https://github.com/jeromeetienne/threex.videotexture/blob/master/examples/videotexture.html">source</a>.
-It read the video from a file via video dom element and display it in a texture</li>
-<li>Here is a <a href="http://jeromeetienne.github.io/threex.videotexture/examples/audiovideotexture.html">audio/video texture example with WebAudio API</a>and its <a href="https://github.com/jeromeetienne/threex.videotexture/blob/master/examples/audiovideotexture.html">source</a>.
-It shows how to plug the video sound into the WebAudio API because you get localised sounds.
-This is particularly useful in 3D.
-&#8220;Audio/Video&#8221; texture is a texture where the sound comes from the object3d on which
-the texture is mapped.</li>
-<li>Here is another <a href="http://jeromeetienne.github.io/threex.videotexture/examples/webcamtexture.html">webcam example</a> and its <a href="https://github.com/jeromeetienne/threex.videotexture/blob/master/examples/webcamtexture.html">source</a>.
-It reads the webcam thru getUserMedia and put it in a texture.</li>
+<li><a href="http://jeromeetienne.github.io/threex.terrain/examples/canvas.html">examples/canvas.html</a>
+[<a href="https://github.com/jeromeetienne/threex.terrain/blob/master/examples/canvas.html">view source</a>] :
+It shows a perlin terrain in a canvas 2d.</li>
+<li><a href="http://jeromeetienne.github.io/threex.terrain/examples/planegeometry.html">examples/planegeometry.html</a>
+[<a href="https://github.com/jeromeetienne/threex.terrain/blob/master/examples/planegeometry.html">view source</a>] :
+It displays the terrain in 3d with three.js.</li>
+<li><a href="http://jeromeetienne.github.io/threex.terrain/examples/height.html">examples/height.html</a>
+[<a href="https://github.com/jeromeetienne/threex.terrain/blob/master/examples/height.html">view source</a>] :
+It show how to test the height in a 3d terrain</li>
+<li><a href="http://jeromeetienne.github.io/threex.terrain/examples/minecraft.html">examples/minecraft.html</a>
+[<a href="https://github.com/jeromeetienne/threex.terrain/blob/master/examples/minecraft.html">view source</a>] :
+It show a minecraft character walking on perlin terrain</li>
 </ul>
 
 
 <h1>How To Install It</h1>
 
-<p>You can install it manually. Just do</p>
+<p>You can install it via script tag</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.videotexture.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.terrain.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>You can install with <a href="http://bower.io/">bower</a>.</p>
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.videotexture
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.terrain
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>then you add that in your html</p>
+<h1>How To Use It</h1>
+
+<p>To allocate a heightMap with a width of 100 and a depth of 200, do</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;bower_components/threex.videotexture/threex.videotexture.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">heightMap</span>   <span class="o">=</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">allocateHeightMap</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h1>How To Use it</h1>
-
-<h2>threex.videotexture.js</h2>
-
-<p>First you instanciate the texture itself</p>
+<p>To generate some heights based on a simplex/perlin noise, do</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// create the videoTexture</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">videoTexture</span><span class="o">=</span> <span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">VideoTexture</span><span class="p">(</span><span class="s1">&#39;videos/sintel.ogv&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="nx">updateFcts</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="nx">now</span><span class="p">){</span>
-</span><span class='line'>    <span class="c1">// to update the texture are every frame</span>
-</span><span class='line'>    <span class="nx">videoTexture</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="nx">now</span><span class="p">)</span>
-</span><span class='line'><span class="p">})</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">simplexHeightMap</span><span class="p">(</span><span class="nx">heightMap</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Then you use it in a mesh like this.</p>
+<p>If you want to display it in three.js, built a <code>THREE.PlaneGeometry</code> for it</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -272,48 +253,25 @@ It reads the webcam thru getUserMedia and put it in a texture.</li>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// use the texture in a THREE.Mesh</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">geometry</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">CubeGeometry</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">material</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshBasicMaterial</span><span class="p">({</span>
-</span><span class='line'>    <span class="nx">map</span> <span class="o">:</span> <span class="nx">videoTexture</span><span class="p">.</span><span class="nx">texture</span>
-</span><span class='line'><span class="p">});</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// build the geometry</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">geometry</span>    <span class="o">=</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">heightMapToPlaneGeometry</span><span class="p">(</span><span class="nx">heightMap</span><span class="p">)</span>
+</span><span class='line'><span class="c1">// init the material</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">material</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshPhongMaterial</span><span class="p">();</span>
+</span><span class='line'><span class="c1">// create the mesh and add it to the scene</span>
 </span><span class='line'><span class="kd">var</span> <span class="nx">mesh</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">);</span>
 </span><span class='line'><span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span> <span class="nx">mesh</span> <span class="p">);</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Here is the detailled API:</p>
-
-<ul>
-<li><code>videoTexture.video</code>: the video dom element from which the video is used</li>
-<li><code>videoTexture.texture</code>: the generated <code>THREE.Texture</code></li>
-<li><code>videoTexture.update(delta, now)</code>: update the texture from the video element</li>
-<li><code>videoTexture.destroy()</code>: destroy the object</li>
-</ul>
-
-
-<h2>threex.webcamtexture.js</h2>
-
-<p>It will read the webcam using
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator.getUserMedia">getUserMedia</a>.
-The browser
-will likely ask for permissions to the users.
-Let&#8217;s see how to use it. You instanciate the texture itself.</p>
+<p>To get the ground height of this mesh, use the following</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">webcamTexture</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">WebcamTexture</span><span class="p">()</span>
-</span><span class='line'><span class="nx">updateFcts</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="nx">now</span><span class="p">){</span>
-</span><span class='line'>    <span class="c1">// to update the texture are every frame</span>
-</span><span class='line'>    <span class="nx">webcamTexture</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="nx">now</span><span class="p">)</span>
-</span><span class='line'><span class="p">})</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">planeToHeightMapCoords</span><span class="p">(</span><span class="nx">heightMap</span><span class="p">,</span> <span class="nx">mesh</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">z</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Then you use it in a mesh</p>
+<p>It is possible to enhance the rendering of this heightmap with some vertexColor, and a
+smoother shading if you want.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -322,26 +280,40 @@ Let&#8217;s see how to use it. You instanciate the texture itself.</p>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// use the texture in a THREE.Mesh</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">geometry</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">CubeGeometry</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">material</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshBasicMaterial</span><span class="p">({</span>
-</span><span class='line'>    <span class="nx">map</span> <span class="o">:</span> <span class="nx">videoTexture</span><span class="p">.</span><span class="nx">texture</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// build the geometry</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">geometry</span>    <span class="o">=</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">heightMapToPlaneGeometry</span><span class="p">(</span><span class="nx">heightMap</span><span class="p">)</span>
+</span><span class='line'><span class="c1">// set the vertexColor in the geometry</span>
+</span><span class='line'><span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">heightMapToVertexColor</span><span class="p">(</span><span class="nx">heightMap</span><span class="p">,</span> <span class="nx">geometry</span><span class="p">)</span>
+</span><span class='line'><span class="c1">// init the material</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">material</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshPhongMaterial</span><span class="p">({</span>
+</span><span class='line'>    <span class="nx">shading</span>     <span class="o">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">SmoothShading</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">vertexColors</span>    <span class="o">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">VertexColors</span><span class="p">,</span>
 </span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="c1">// create the mesh and add it to the scene</span>
 </span><span class='line'><span class="kd">var</span> <span class="nx">mesh</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">);</span>
 </span><span class='line'><span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span> <span class="nx">mesh</span> <span class="p">);</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Here is the detailled API:</p>
+<p>To get the height with heightMap coordinates, just use</p>
 
-<ul>
-<li><code>videoTexture.video</code>: the video dom element from which the video is used</li>
-<li><code>videoTexture.texture</code>: the generated <code>THREE.Texture</code></li>
-<li><code>videoTexture.update(delta, now)</code>: update the texture from the video element</li>
-<li><code>videoTexture.destroy()</code>: destroy the object</li>
-<li><code>THREEx.WebcamTexture.available</code>: true if <code>getUserMedia</code> is available on this
-browser, false otherwise.</li>
-</ul>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">y</span>   <span class="o">=</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">heightMapToHeight</span><span class="p">(</span><span class="nx">heightMap</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">z</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you want to display the result in a canvas 2d, just do</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">canvas</span>  <span class="o">=</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">heightMapToCanvas</span><span class="p">(</span><span class="nx">heightMap</span><span class="p">)</span>
+</span><span class='line'><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">canvas</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
 
 </div>
 
@@ -365,7 +337,7 @@ browser, false otherwise.</li>
   
 
 
-<time datetime="2014-04-30T13:38:00+02:00" pubdate data-updated="true">Apr 30<span>th</span>, 2014</time>
+<time datetime="2014-05-15T20:21:00+02:00" pubdate data-updated="true">May 15<span>th</span>, 2014</time>
       
 
 <span class="categories">
@@ -379,7 +351,7 @@ browser, false otherwise.</li>
     
       <div class="sharing" style='text-align: right;'>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2014/05/15/perlin-terrain-procedural-generation-for-your-game-with-threex-dot-terrain/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2014/05/15/perlin-terrain-procedural-generation-for-your-game-with-threex-dot-terrain/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -390,10 +362,8 @@ browser, false otherwise.</li>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/04/29/beautiful-dynamic-laser-beams-for-your-space-game-with-threex-dot-laser-game-extension-for-three-dot-js/" title="Previous Post: Beautiful Dynamic Laser Beams for Your Space Game with threex.laser Game Extension For Three.js">&laquo; Beautiful Dynamic Laser Beams for Your Space Game with threex.laser Game Extension For Three.js</a>
+        <a class="basic-alignment left" href="/blog/2014/05/14/procedural-generated-pool-balls-for-your-three-dot-js-pool-game-with-threex-dot-poolball/" title="Previous Post: Procedural Generated Pool Balls For Your Three.js Pool Game with threex.poolball">&laquo; Procedural Generated Pool Balls For Your Three.js Pool Game with threex.poolball</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/05/02/easy-to-use-dynamic-texture-to-write-text-in-your-3d-object-with-threex-dot-dynamictexture-game-extensions-for-three-dot-js/" title="Next Post: Easy to use dynamic texture to write text in your 3d object with threex.dynamictexture game extensions for three.js">Easy to use dynamic texture to write text in your 3d object with threex.dynamictexture game extensions for three.js &raquo;</a>
       
     </p>
   </footer>
@@ -476,8 +446,8 @@ browser, false otherwise.</li>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://learningthreejs.com/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js/';
-        var disqus_url = 'http://learningthreejs.com/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js/';
+        var disqus_identifier = 'http://learningthreejs.com/blog/2014/05/15/perlin-terrain-procedural-generation-for-your-game-with-threex-dot-terrain/';
+        var disqus_url = 'http://learningthreejs.com/blog/2014/05/15/perlin-terrain-procedural-generation-for-your-game-with-threex-dot-terrain/';
         var disqus_script = 'embed.js';
       
     (function () {

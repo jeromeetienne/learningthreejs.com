@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-05-14T17:22:50+02:00</updated>
+  <updated>2014-05-15T14:02:00+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,156 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Perlin Terrain Procedural Generation For Your Game With threex.terrain]]></title>
+    <link href="http://learningthreejs.com/blog/2014/05/15/perlin-terrain-procedural-generation-for-your-game-with-threex-dot-terrain/"/>
+    <updated>2014-05-15T20:21:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/05/15/perlin-terrain-procedural-generation-for-your-game-with-threex-dot-terrain</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.terrain/examples/planegeometry.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.terrain/master/examples/images/screenshot-threex-terrain-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.terrain">threex.terrain</a>.
+threex.terrain is a <a href="http://www.threejsgames.com/extensions/">three.js games extension</a> which provides a procedural terrain generated from a simplex noise, the <a href="http://en.wikipedia.org/wiki/Perlin_noise">Perlin noise</a>. As you can see you have different zones that make the terrain more varied, the blue zone represents water, the green one represents trees or grass and the white zone at the mountain top is snow. Imagine your video game character walking on these 3D mountains or flying over them, pretty cool eh? You can take him through river, forest, wind and snow if you want ;)</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.terrain/examples/planegeometry.html' target='_blank'><input type="button" value='Try Threex.terrain Demo Now' /></a></p>
+
+<p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/z_73WDzgBsA" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don&#8217;t Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.terrain/examples/canvas.html">examples/canvas.html</a>
+[<a href="https://github.com/jeromeetienne/threex.terrain/blob/master/examples/canvas.html">view source</a>] :
+It shows a perlin terrain in a canvas 2d.</li>
+<li><a href="http://jeromeetienne.github.io/threex.terrain/examples/planegeometry.html">examples/planegeometry.html</a>
+[<a href="https://github.com/jeromeetienne/threex.terrain/blob/master/examples/planegeometry.html">view source</a>] :
+It displays the terrain in 3d with three.js.</li>
+<li><a href="http://jeromeetienne.github.io/threex.terrain/examples/height.html">examples/height.html</a>
+[<a href="https://github.com/jeromeetienne/threex.terrain/blob/master/examples/height.html">view source</a>] :
+It show how to test the height in a 3d terrain</li>
+<li><a href="http://jeromeetienne.github.io/threex.terrain/examples/minecraft.html">examples/minecraft.html</a>
+[<a href="https://github.com/jeromeetienne/threex.terrain/blob/master/examples/minecraft.html">view source</a>] :
+It show a minecraft character walking on perlin terrain</li>
+</ul>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.terrain.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.terrain
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>How To Use It</h1>
+
+<p>To allocate a heightMap with a width of 100 and a depth of 200, do</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">heightMap</span>   <span class="o">=</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">allocateHeightMap</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To generate some heights based on a simplex/perlin noise, do</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">simplexHeightMap</span><span class="p">(</span><span class="nx">heightMap</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you want to display it in three.js, built a <code>THREE.PlaneGeometry</code> for it</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// build the geometry</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">geometry</span>    <span class="o">=</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">heightMapToPlaneGeometry</span><span class="p">(</span><span class="nx">heightMap</span><span class="p">)</span>
+</span><span class='line'><span class="c1">// init the material</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">material</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshPhongMaterial</span><span class="p">();</span>
+</span><span class='line'><span class="c1">// create the mesh and add it to the scene</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">mesh</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">);</span>
+</span><span class='line'><span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span> <span class="nx">mesh</span> <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To get the ground height of this mesh, use the following</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">planeToHeightMapCoords</span><span class="p">(</span><span class="nx">heightMap</span><span class="p">,</span> <span class="nx">mesh</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">z</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It is possible to enhance the rendering of this heightmap with some vertexColor, and a
+smoother shading if you want.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// build the geometry</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">geometry</span>    <span class="o">=</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">heightMapToPlaneGeometry</span><span class="p">(</span><span class="nx">heightMap</span><span class="p">)</span>
+</span><span class='line'><span class="c1">// set the vertexColor in the geometry</span>
+</span><span class='line'><span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">heightMapToVertexColor</span><span class="p">(</span><span class="nx">heightMap</span><span class="p">,</span> <span class="nx">geometry</span><span class="p">)</span>
+</span><span class='line'><span class="c1">// init the material</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">material</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshPhongMaterial</span><span class="p">({</span>
+</span><span class='line'>    <span class="nx">shading</span>     <span class="o">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">SmoothShading</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">vertexColors</span>    <span class="o">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">VertexColors</span><span class="p">,</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="c1">// create the mesh and add it to the scene</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">mesh</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">);</span>
+</span><span class='line'><span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span> <span class="nx">mesh</span> <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To get the height with heightMap coordinates, just use</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">y</span>   <span class="o">=</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">heightMapToHeight</span><span class="p">(</span><span class="nx">heightMap</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">z</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you want to display the result in a canvas 2d, just do</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">canvas</span>  <span class="o">=</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">heightMapToCanvas</span><span class="p">(</span><span class="nx">heightMap</span><span class="p">)</span>
+</span><span class='line'><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">canvas</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Procedural Generated Pool Balls For Your Three.js Pool Game with threex.poolball]]></title>
@@ -2340,633 +2490,6 @@ It shows the same Earth, that we just saw how to do, with the moon close to it.
 We add shadow casting and a nice atmosphere shader and the result is quite convincing.</p>
 
 <p>That&#8217;s all for today folks. Have Fun!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How To Do A Procedural City In 100 Lines]]></title>
-    <link href="http://learningthreejs.com/blog/2013/08/02/how-to-do-a-procedural-city-in-100lines/"/>
-    <updated>2013-08-02T12:47:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2013/08/02/how-to-do-a-procedural-city-in-100lines</id>
-    <content type="html"><![CDATA[<p>This post explains how to code
-<a href="http://www.mrdoob.com/lab/javascript/webgl/city/01/">&#8220;city&#8221;</a>
-, a  demo <a href="https://twitter.com/mrdoob/status/350730133319073792">recently released</a> by
-<a href="http://mrdoob.com">@mrdoob</a>.
-He built a fully procedural city in 100-lines of javascript.
-I found the algorithm very elegant, a simple and efficient solution.
-So I made a post explaining it.</p>
-
-<iframe width="425" height="349" src="http://www.youtube.com/embed/huTF047XVvQ" frameborder="0" allowfullscreen></iframe>
-
-
-
-
-<!-- more -->
-
-
-<h2>A Few Remarks on the Algorithm</h2>
-
-<p>It always helps to get a big picture before going down to the details.
-The used algorithm is <a href="http://en.wikipedia.org/wiki/Procedural_generation">fully procedural</a>.
-This means the whole city is built dynamically, so no download.
-It is quite elegant as well.
-The algorithm to generate the city in 3d is less than 100 lines long.
-What is this algo in a nutshell?
-Every building is a cube, they got random size and position.
-Simple enough ?
-It may seem far from realism but it is ok.
-The illusion is surprisingly convincing if you fly over at low altitude.</p>
-
-<p>From a performance point of view, all buildings are merged into a single geometry,
-with a single material.
-As a cherry on the cake, we remove the bottom face as it is never seen.
-It is very efficient as there is no shader swap and a single draw call.</p>
-
-<p>To improve realism, we simulate ambient occlusion thru a cheap trick
-using <code>vertexColor</code>.
-In the city, at the street level you got shadow from the other buildings.
-So the bottom of the buildings are darker than the top.
-We can reproduce this effect with <code>vertexColor</code>.
-We take the bottom vertices of the building and make them darker than the top.</p>
-
-<h2>Let&#8217;s get started</h2>
-
-<p>To explain those 100 lines, we will explain it step by step:
-First, we <em>&#8220;generate the base geometry for the building&#8221;</em>.
-Then we use this geometry to know <em>&#8220;where to place buildings in the city&#8221;</em>.
-We use some clever trick <em>&#8220;using vertexColor for ambient occlusion&#8221;</em>.
-Then we <em>&#8220;merge all buildings to make a city&#8221;</em>, thus the whole city may
-be drawn in a single draw call.
-At the end we detail the <em>&#8220;procedural generation of building’s texture&#8221;</em>.</p>
-
-<p>Ok so let&#8217;s get started!!</p>
-
-<h2>Generate the base Geometry for the building</h2>
-
-<p>We build a base geometry of our building.
-It will be reused several time while building the whole city.
-So we build a simple CubeGeometry</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">geometry</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">CubeGeometry</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We change the pivot point to be at the bottom of the cube, instead of its center.
-So we translate the whole geometry.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">geometry</span><span class="p">.</span><span class="nx">applyMatrix</span><span class="p">(</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Matrix4</span><span class="p">().</span><span class="nx">makeTranslation</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then we remove the bottom face.
-This is an optimisation.
-The bottom face of a building is never seen by the viewer as it is always on the ground.
-It is useless and we remove it.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">geometry</span><span class="p">.</span><span class="nx">faces</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span> <span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we fix the <a href="http://en.wikipedia.org/wiki/UV_mapping">UV mapping</a> for the roof face.
-We set them to the single coordinate <code>(0,0)</code>.
-So the roof will be the same color as a floor row.
-As each face of the building is using a single texture, it can be drawn in a single draw call.
-Sweet trick for optimisation.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">geometry</span><span class="p">.</span><span class="nx">faceVertexUvs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">].</span><span class="nx">set</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
-</span><span class='line'><span class="nx">geometry</span><span class="p">.</span><span class="nx">faceVertexUvs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">].</span><span class="nx">set</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
-</span><span class='line'><span class="nx">geometry</span><span class="p">.</span><span class="nx">faceVertexUvs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">].</span><span class="nx">set</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
-</span><span class='line'><span class="nx">geometry</span><span class="p">.</span><span class="nx">faceVertexUvs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">].</span><span class="nx">set</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Ok now that we got the geometry of a single building, let&#8217;s assemble buildings together to make a city!</p>
-
-<h2>Where to place buildings in the city</h2>
-
-<p>Well&#8230; to be honest we put them anywhere.
-All is random ;)
-Obviously, there are collisions but the illusion is nice if you fly at low altitude.
-So first, we put the building at random position.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">buildingMesh</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">200</span> <span class="o">-</span> <span class="mi">100</span> <span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="p">;</span>
-</span><span class='line'><span class="nx">buildingMesh</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">z</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">200</span> <span class="o">-</span> <span class="mi">100</span> <span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then we put a random rotation in Y.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">buildingMesh</span><span class="p">.</span><span class="nx">rotation</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="o">*</span><span class="mi">2</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then we change the mesh.scale to change the building size.
-First how wide and deep a building can be.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">buildingMesh</span><span class="p">.</span><span class="nx">scale</span><span class="p">.</span><span class="nx">x</span>  <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">50</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>
-</span><span class='line'><span class="nx">buildingMesh</span><span class="p">.</span><span class="nx">scale</span><span class="p">.</span><span class="nx">z</span>  <span class="o">=</span> <span class="nx">buildingMesh</span><span class="p">.</span><span class="nx">scale</span><span class="p">.</span><span class="nx">x</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then how high it is.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">buildingMesh</span><span class="p">.</span><span class="nx">scale</span><span class="p">.</span><span class="nx">y</span>  <span class="o">=</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">buildingMesh</span><span class="p">.</span><span class="nx">scale</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">8</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>What&#8217;s the deal with all those multiplication of <code>Math.random()</code> ?
-Well it is a way to change the statistic distribution of the result
-and center it closer to 0. <code>Math.random()</code> is between 0 and 1
-and got an average of 0.5. <code>Math.random() * Math.random()</code> is
-between 0 and 1 but got an average of 0.25. <code>Math.random() * Math.random() * Math.random()</code>
-got an average of 0.125 and so on.
-That&#8217;s it :)
-We got the position/rotation/scale of our building all set.
-Now let&#8217;s set its color, and how to use it to simulate shadows.</p>
-
-<h3>Using VertexColor for Ambient Occlusion</h3>
-
-<p><img class="right" src="http://learningthreejs.com/data/2013-08-02-how-to-do-a-procedural-city/screenshots/screenshot-building-with-vertexcolor-small.png"></p>
-
-<p>In a city with lots of buildings, the bottom of the building tends to be darker than the top.
-This is because the sun light hits the top harder than the bottom, at the bottom you have the shadow of another building.
-This is what we call
-<a href="http://http.developer.nvidia.com/GPUGems/gpugems_ch17.html">ambient occlusion</a> in graphic programming.
-This concept may be implemented in various ways:
-for example in screen space with <a href="http://en.wikipedia.org/wiki/Screen_space_ambient_occlusion">screen space ambient occlusion or ssao</a>
-or in this
-<a href="http://threejs.org/examples/webgl_geometry_minecraft_ao.html">minecraft example from three.js</a></p>
-
-<p><img class="left" src="http://learningthreejs.com/data/2013-08-02-how-to-do-a-procedural-city/screenshots/screenshot-building-without-vertexcolor-small.png"></p>
-
-<p>With three.js, it is is possible to assign a color to a vertice.
-It will alter the final color of the face.
-We gonna use that to simulate shadows at the bottom of building.
-First we define the base colors for the part which receives lights, and the ones
-which get shadows.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">light</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Color</span><span class="p">(</span> <span class="mh">0xffffff</span> <span class="p">)</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">shadow</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Color</span><span class="p">(</span> <span class="mh">0x303050</span> <span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Those are constants for each building. Now we need to get a color
-for this particular building. We put some randomness for variety.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">();</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">baseColor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Color</span><span class="p">().</span><span class="nx">setRGB</span><span class="p">(</span> <span class="nx">value</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">value</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we need to assign the .vertexColor every vertex of every face.
-If the face is a top face, we use <code>baseColor</code> of the building.
-If it is a side face, we use <code>baseColor</code> multiplied by our <code>light</code>
-for the top vertices and <code>shaddow</code> for the bottom vertices,
-as cheap ambient occlusion.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// set topColor/bottom vertexColors as adjustement of baseColor</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">topColor</span>  <span class="o">=</span> <span class="nx">baseColor</span><span class="p">.</span><span class="nx">clone</span><span class="p">().</span><span class="nx">multiply</span><span class="p">(</span> <span class="nx">light</span> <span class="p">);</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">bottomColor</span> <span class="o">=</span> <span class="nx">baseColor</span><span class="p">.</span><span class="nx">clone</span><span class="p">().</span><span class="nx">multiply</span><span class="p">(</span> <span class="nx">shadow</span> <span class="p">);</span>
-</span><span class='line'><span class="c1">// set .vertexColors for each face</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">geometry</span>  <span class="o">=</span> <span class="nx">buildingMesh</span><span class="p">.</span><span class="nx">geometry</span><span class="p">;</span>
-</span><span class='line'><span class="k">for</span> <span class="p">(</span> <span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">jl</span> <span class="o">=</span> <span class="nx">geometry</span><span class="p">.</span><span class="nx">faces</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">jl</span><span class="p">;</span> <span class="nx">j</span> <span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>  <span class="k">if</span> <span class="p">(</span> <span class="nx">j</span> <span class="o">===</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="c1">// set face.vertexColors on root face</span>
-</span><span class='line'>    <span class="nx">geometry</span><span class="p">.</span><span class="nx">faces</span><span class="p">[</span> <span class="nx">j</span> <span class="p">].</span><span class="nx">vertexColors</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">baseColor</span><span class="p">,</span> <span class="nx">baseColor</span><span class="p">,</span> <span class="nx">baseColor</span><span class="p">,</span> <span class="nx">baseColor</span> <span class="p">];</span>
-</span><span class='line'>  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>    <span class="c1">// set face.vertexColors on sides faces</span>
-</span><span class='line'>    <span class="nx">geometry</span><span class="p">.</span><span class="nx">faces</span><span class="p">[</span> <span class="nx">j</span> <span class="p">].</span><span class="nx">vertexColors</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">topColor</span><span class="p">,</span> <span class="nx">bottomColor</span><span class="p">,</span> <span class="nx">bottomColor</span><span class="p">,</span> <span class="nx">topColor</span> <span class="p">];</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We got a single building fully setup. Now let&#8217;s make a city with many buildings.</p>
-
-<h2>Merge all buildings to make a city</h2>
-
-<p>To make our city, we gonna merge 20000 buildings together.
-So we gonna loop and apply the above formulas for each building we add.
-We have already seen that reducing draw calls is good for performance.
-see <a href="http://learningthreejs.com/blog/2011/10/05/performance-merging-geometry/">&#8220;Performance: Merging Geometry&#8221;</a> post.
-Here all buildings share the same material, so we gonna merge them all
-in a single geometry.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">cityGeometry</span><span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Geometry</span><span class="p">();</span>
-</span><span class='line'><span class="k">for</span><span class="p">(</span> <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">20000</span><span class="p">;</span> <span class="nx">i</span> <span class="o">++</span> <span class="p">){</span>
-</span><span class='line'>  <span class="c1">// set the position/rotation/color the building in the city</span>
-</span><span class='line'>  <span class="c1">// ... </span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1">// merge it with cityGeometry - very important for performance</span>
-</span><span class='line'>  <span class="nx">THREE</span><span class="p">.</span><span class="nx">GeometryUtils</span><span class="p">.</span><span class="nx">merge</span><span class="p">(</span> <span class="nx">cityGeometry</span><span class="p">,</span> <span class="nx">buildingMesh</span> <span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we got a single large geometry for the whole city, let&#8217;s build
-a mesh from it.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// build the mesh</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">material</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshLambertMaterial</span><span class="p">({</span>
-</span><span class='line'>  <span class="nx">map</span>           <span class="o">:</span> <span class="nx">texture</span><span class="p">,</span>
-</span><span class='line'>  <span class="nx">vertexColors</span>  <span class="o">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">VertexColors</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">mesh</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span><span class="nx">cityGeometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This mesh is a whole city.
-Rather cool!
-Now one last step, let&#8217;s explain how to make this texture.</p>
-
-<h2>Procedural Generation of Building&#8217;s Texture</h2>
-
-<p>Here we want to generate the texture for the side of each building.
-In a nutshell, it will show the floors for realism and variety.
-So it alternates between row of window and row of floor.
-Window rows are dark with a small noise to simulate light variations in each room.
-Then we upscale texture carefully avoiding filtering.</p>
-
-<p>First you build a canvas. Make it small, 32x64.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">canvas</span>  <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span> <span class="s1">&#39;canvas&#39;</span> <span class="p">);</span>
-</span><span class='line'><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span>  <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
-</span><span class='line'><span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">64</span><span class="p">;</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span> <span class="s1">&#39;2d&#39;</span> <span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then you paint it in white</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s1">&#39;#ffffff&#39;</span><span class="p">;</span>
-</span><span class='line'><span class="nx">context</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">64</span> <span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we need to draw on this white surface. We gonna draw floors on it.
-one windows row, then a floor row and we loop.
-In fact, as the face is already white, we just have to draw the window rows.
-To draw the window row, we add some random to simulate lights variations in each windows.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">for</span><span class="p">(</span> <span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">y</span> <span class="o">&lt;</span> <span class="mi">64</span><span class="p">;</span> <span class="nx">y</span> <span class="o">+=</span> <span class="mi">2</span> <span class="p">){</span>
-</span><span class='line'>  <span class="k">for</span><span class="p">(</span> <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">x</span> <span class="o">&lt;</span> <span class="mi">32</span><span class="p">;</span> <span class="nx">x</span> <span class="o">+=</span> <span class="mi">2</span> <span class="p">){</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">64</span> <span class="p">);</span>
-</span><span class='line'>    <span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s1">&#39;rgb(&#39;</span> <span class="o">+</span> <span class="p">[</span><span class="nx">value</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">value</span><span class="p">].</span><span class="nx">join</span><span class="p">(</span> <span class="s1">&#39;,&#39;</span> <span class="p">)</span>  <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">;</span>
-</span><span class='line'>    <span class="nx">context</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="p">);</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><img class="right" src="http://learningthreejs.com/data/2013-08-02-how-to-do-a-procedural-city/screenshots/screenshot-texture-smoothing-small.png"></p>
-
-<p>Now we got the texture&#8230; just it is super small, 32, 64
-We need to increase its resolution. But lets be careful.
-By default when you increase the resolution, you get a smoothed result, so it may easily appears blurry.
-See on the right side, it doesn&#8217;t look good&#8230;
-To avoid this artefact, we disable <code>.imageSmoothedEnabled</code> on each plateform.
-You can see the result on the left.
-The blurry effect is no more.
-It is as sharp as the original but with a better resolution.
-Ok now lets code exactly that. First we create the large canvas of 1024 by 512.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">canvas2</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span> <span class="s1">&#39;canvas&#39;</span> <span class="p">);</span>
-</span><span class='line'><span class="nx">canvas2</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">512</span><span class="p">;</span>
-</span><span class='line'><span class="nx">canvas2</span><span class="p">.</span><span class="nx">height</span>  <span class="o">=</span> <span class="mi">1024</span><span class="p">;</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">canvas2</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span> <span class="s1">&#39;2d&#39;</span> <span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We disable the smoothing</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">context</span><span class="p">.</span><span class="nx">imageSmoothingEnabled</span>   <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-</span><span class='line'><span class="nx">context</span><span class="p">.</span><span class="nx">webkitImageSmoothingEnabled</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-</span><span class='line'><span class="nx">context</span><span class="p">.</span><span class="nx">mozImageSmoothingEnabled</span>  <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we just have to copy the small canvas into the big one.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">context</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span> <span class="nx">canvas</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">canvas2</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">canvas2</span><span class="p">.</span><span class="nx">height</span> <span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then all we need to do is to actually build the <code>THREE.Texture</code>.
-We set the anisotropie to a high number to get better result.
-see <a href="http://blog.tojicode.com/2012/03/anisotropic-filtering-in-webgl.html">tojiro on anisotropy</a> for detail.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">texture</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Texture</span><span class="p">(</span> <span class="nx">generateTexture</span><span class="p">()</span> <span class="p">);</span>
-</span><span class='line'><span class="nx">texture</span><span class="p">.</span><span class="nx">anisotropy</span>  <span class="o">=</span> <span class="nx">renderer</span><span class="p">.</span><span class="nx">getMaxAnisotropy</span><span class="p">();</span>
-</span><span class='line'><span class="nx">texture</span><span class="p">.</span><span class="nx">needsUpdate</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This was the last step. Now, you know how to do a procedural city
-in webgl with three.js. Rather cool!
-As a summary here is the whole code put together.</p>
-
-<h2>The Whole Code</h2>
-
-<p>Let&#8217;s put all that together. Here is the whole code commented.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-<span class='line-number'>76</span>
-<span class='line-number'>77</span>
-<span class='line-number'>78</span>
-<span class='line-number'>79</span>
-<span class='line-number'>80</span>
-<span class='line-number'>81</span>
-<span class='line-number'>82</span>
-<span class='line-number'>83</span>
-<span class='line-number'>84</span>
-<span class='line-number'>85</span>
-<span class='line-number'>86</span>
-<span class='line-number'>87</span>
-<span class='line-number'>88</span>
-<span class='line-number'>89</span>
-<span class='line-number'>90</span>
-<span class='line-number'>91</span>
-<span class='line-number'>92</span>
-<span class='line-number'>93</span>
-<span class='line-number'>94</span>
-<span class='line-number'>95</span>
-<span class='line-number'>96</span>
-<span class='line-number'>97</span>
-<span class='line-number'>98</span>
-<span class='line-number'>99</span>
-<span class='line-number'>100</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// build the base geometry for each building</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">geometry</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">CubeGeometry</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="p">);</span>
-</span><span class='line'><span class="c1">// translate the geometry to place the pivot point at the bottom instead of the center</span>
-</span><span class='line'><span class="nx">geometry</span><span class="p">.</span><span class="nx">applyMatrix</span><span class="p">(</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Matrix4</span><span class="p">().</span><span class="nx">makeTranslation</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">);</span>
-</span><span class='line'><span class="c1">// get rid of the bottom face - it is never seen</span>
-</span><span class='line'><span class="nx">geometry</span><span class="p">.</span><span class="nx">faces</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span> <span class="p">);</span>
-</span><span class='line'><span class="nx">geometry</span><span class="p">.</span><span class="nx">faceVertexUvs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">splice</span><span class="p">(</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span> <span class="p">);</span>
-</span><span class='line'><span class="c1">// change UVs for the top face</span>
-</span><span class='line'><span class="c1">// - it is the roof so it wont use the same texture as the side of the building</span>
-</span><span class='line'><span class="c1">// - set the UVs to the single coordinate 0,0. so the roof will be the same color</span>
-</span><span class='line'><span class="c1">//   as a floor row.</span>
-</span><span class='line'><span class="nx">geometry</span><span class="p">.</span><span class="nx">faceVertexUvs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">].</span><span class="nx">set</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
-</span><span class='line'><span class="nx">geometry</span><span class="p">.</span><span class="nx">faceVertexUvs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">].</span><span class="nx">set</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
-</span><span class='line'><span class="nx">geometry</span><span class="p">.</span><span class="nx">faceVertexUvs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">].</span><span class="nx">set</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
-</span><span class='line'><span class="nx">geometry</span><span class="p">.</span><span class="nx">faceVertexUvs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">].</span><span class="nx">set</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
-</span><span class='line'><span class="c1">// buildMesh</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">buildingMesh</span><span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="nx">geometry</span> <span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// base colors for vertexColors. light is for vertices at the top, shaddow is for the ones at the bottom</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">light</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Color</span><span class="p">(</span> <span class="mh">0xffffff</span> <span class="p">)</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">shadow</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Color</span><span class="p">(</span> <span class="mh">0x303050</span> <span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">var</span> <span class="nx">cityGeometry</span><span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Geometry</span><span class="p">();</span>
-</span><span class='line'><span class="k">for</span><span class="p">(</span> <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">20000</span><span class="p">;</span> <span class="nx">i</span> <span class="o">++</span> <span class="p">){</span>
-</span><span class='line'>  <span class="c1">// put a random position</span>
-</span><span class='line'>  <span class="nx">buildingMesh</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">x</span>   <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">200</span> <span class="o">-</span> <span class="mi">100</span> <span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="p">;</span>
-</span><span class='line'>  <span class="nx">buildingMesh</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">z</span>   <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">200</span> <span class="o">-</span> <span class="mi">100</span> <span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="p">;</span>
-</span><span class='line'>  <span class="c1">// put a random rotation</span>
-</span><span class='line'>  <span class="nx">buildingMesh</span><span class="p">.</span><span class="nx">rotation</span><span class="p">.</span><span class="nx">y</span>   <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="o">*</span><span class="mi">2</span><span class="p">;</span>
-</span><span class='line'>  <span class="c1">// put a random scale</span>
-</span><span class='line'>  <span class="nx">buildingMesh</span><span class="p">.</span><span class="nx">scale</span><span class="p">.</span><span class="nx">x</span>  <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">50</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>
-</span><span class='line'>  <span class="nx">buildingMesh</span><span class="p">.</span><span class="nx">scale</span><span class="p">.</span><span class="nx">y</span>  <span class="o">=</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">buildingMesh</span><span class="p">.</span><span class="nx">scale</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">8</span><span class="p">;</span>
-</span><span class='line'>  <span class="nx">buildingMesh</span><span class="p">.</span><span class="nx">scale</span><span class="p">.</span><span class="nx">z</span>  <span class="o">=</span> <span class="nx">buildingMesh</span><span class="p">.</span><span class="nx">scale</span><span class="p">.</span><span class="nx">x</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1">// establish the base color for the buildingMesh</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">value</span>   <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">();</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">baseColor</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Color</span><span class="p">().</span><span class="nx">setRGB</span><span class="p">(</span> <span class="nx">value</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">value</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="p">);</span>
-</span><span class='line'>  <span class="c1">// set topColor/bottom vertexColors as adjustement of baseColor</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">topColor</span>    <span class="o">=</span> <span class="nx">baseColor</span><span class="p">.</span><span class="nx">clone</span><span class="p">().</span><span class="nx">multiply</span><span class="p">(</span> <span class="nx">light</span> <span class="p">);</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">bottomColor</span> <span class="o">=</span> <span class="nx">baseColor</span><span class="p">.</span><span class="nx">clone</span><span class="p">().</span><span class="nx">multiply</span><span class="p">(</span> <span class="nx">shadow</span> <span class="p">);</span>
-</span><span class='line'>  <span class="c1">// set .vertexColors for each face</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">geometry</span>    <span class="o">=</span> <span class="nx">buildingMesh</span><span class="p">.</span><span class="nx">geometry</span><span class="p">;</span>       
-</span><span class='line'>  <span class="k">for</span> <span class="p">(</span> <span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">jl</span> <span class="o">=</span> <span class="nx">geometry</span><span class="p">.</span><span class="nx">faces</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">jl</span><span class="p">;</span> <span class="nx">j</span> <span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>      <span class="k">if</span> <span class="p">(</span> <span class="nx">j</span> <span class="o">===</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>          <span class="c1">// set face.vertexColors on root face</span>
-</span><span class='line'>          <span class="nx">geometry</span><span class="p">.</span><span class="nx">faces</span><span class="p">[</span> <span class="nx">j</span> <span class="p">].</span><span class="nx">vertexColors</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">baseColor</span><span class="p">,</span> <span class="nx">baseColor</span><span class="p">,</span> <span class="nx">baseColor</span><span class="p">,</span> <span class="nx">baseColor</span> <span class="p">];</span>
-</span><span class='line'>      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>          <span class="c1">// set face.vertexColors on sides faces</span>
-</span><span class='line'>          <span class="nx">geometry</span><span class="p">.</span><span class="nx">faces</span><span class="p">[</span> <span class="nx">j</span> <span class="p">].</span><span class="nx">vertexColors</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">topColor</span><span class="p">,</span> <span class="nx">bottomColor</span><span class="p">,</span> <span class="nx">bottomColor</span><span class="p">,</span> <span class="nx">topColor</span> <span class="p">];</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'>  <span class="c1">// merge it with cityGeometry - very important for performance</span>
-</span><span class='line'>  <span class="nx">THREE</span><span class="p">.</span><span class="nx">GeometryUtils</span><span class="p">.</span><span class="nx">merge</span><span class="p">(</span> <span class="nx">cityGeometry</span><span class="p">,</span> <span class="nx">buildingMesh</span> <span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// generate the texture</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">texture</span>       <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Texture</span><span class="p">(</span> <span class="nx">generateTexture</span><span class="p">()</span> <span class="p">);</span>
-</span><span class='line'><span class="nx">texture</span><span class="p">.</span><span class="nx">anisotropy</span> <span class="o">=</span> <span class="nx">renderer</span><span class="p">.</span><span class="nx">getMaxAnisotropy</span><span class="p">();</span>
-</span><span class='line'><span class="nx">texture</span><span class="p">.</span><span class="nx">needsUpdate</span>    <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// build the mesh</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">material</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshLambertMaterial</span><span class="p">({</span>
-</span><span class='line'>  <span class="nx">map</span>     <span class="o">:</span> <span class="nx">texture</span><span class="p">,</span>
-</span><span class='line'>  <span class="nx">vertexColors</span>    <span class="o">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">VertexColors</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">cityMesh</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span><span class="nx">cityGeometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">function</span> <span class="nx">generateTexture</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>  <span class="c1">// build a small canvas 32x64 and paint it in white</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">canvas</span>  <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span> <span class="s1">&#39;canvas&#39;</span> <span class="p">);</span>
-</span><span class='line'>  <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
-</span><span class='line'>  <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span>    <span class="o">=</span> <span class="mi">64</span><span class="p">;</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span> <span class="s1">&#39;2d&#39;</span> <span class="p">);</span>
-</span><span class='line'>  <span class="c1">// plain it in white</span>
-</span><span class='line'>  <span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span>    <span class="o">=</span> <span class="s1">&#39;#ffffff&#39;</span><span class="p">;</span>
-</span><span class='line'>  <span class="nx">context</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">64</span> <span class="p">);</span>
-</span><span class='line'>  <span class="c1">// draw the window rows - with a small noise to simulate light variations in each room</span>
-</span><span class='line'>  <span class="k">for</span><span class="p">(</span> <span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">y</span> <span class="o">&lt;</span> <span class="mi">64</span><span class="p">;</span> <span class="nx">y</span> <span class="o">+=</span> <span class="mi">2</span> <span class="p">){</span>
-</span><span class='line'>      <span class="k">for</span><span class="p">(</span> <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">x</span> <span class="o">&lt;</span> <span class="mi">32</span><span class="p">;</span> <span class="nx">x</span> <span class="o">+=</span> <span class="mi">2</span> <span class="p">){</span>
-</span><span class='line'>          <span class="kd">var</span> <span class="nx">value</span>   <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">64</span> <span class="p">);</span>
-</span><span class='line'>          <span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s1">&#39;rgb(&#39;</span> <span class="o">+</span> <span class="p">[</span><span class="nx">value</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">value</span><span class="p">].</span><span class="nx">join</span><span class="p">(</span> <span class="s1">&#39;,&#39;</span> <span class="p">)</span>  <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">;</span>
-</span><span class='line'>          <span class="nx">context</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="p">);</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1">// build a bigger canvas and copy the small one in it</span>
-</span><span class='line'>  <span class="c1">// This is a trick to upscale the texture without filtering</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">canvas2</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span> <span class="s1">&#39;canvas&#39;</span> <span class="p">);</span>
-</span><span class='line'>  <span class="nx">canvas2</span><span class="p">.</span><span class="nx">width</span>    <span class="o">=</span> <span class="mi">512</span><span class="p">;</span>
-</span><span class='line'>  <span class="nx">canvas2</span><span class="p">.</span><span class="nx">height</span>   <span class="o">=</span> <span class="mi">1024</span><span class="p">;</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">canvas2</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span> <span class="s1">&#39;2d&#39;</span> <span class="p">);</span>
-</span><span class='line'>  <span class="c1">// disable smoothing</span>
-</span><span class='line'>  <span class="nx">context</span><span class="p">.</span><span class="nx">imageSmoothingEnabled</span>        <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-</span><span class='line'>  <span class="nx">context</span><span class="p">.</span><span class="nx">webkitImageSmoothingEnabled</span>  <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-</span><span class='line'>  <span class="nx">context</span><span class="p">.</span><span class="nx">mozImageSmoothingEnabled</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-</span><span class='line'>  <span class="c1">// then draw the image</span>
-</span><span class='line'>  <span class="nx">context</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span> <span class="nx">canvas</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">canvas2</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">canvas2</span><span class="p">.</span><span class="nx">height</span> <span class="p">);</span>
-</span><span class='line'>  <span class="c1">// return the just built canvas2</span>
-</span><span class='line'>  <span class="k">return</span> <span class="nx">canvas2</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>threex.proceduralcity extension</h2>
-
-<p>As usual, this code is gathered in easy-to-reuse threex package,
-<a href="https://github.com/jeromeetienne/threex.proceduralcity">threex.proceduralcity</a>.
-It makes stuff super simple, just create an instance and it will return a <code>THREE.Mesh</code>.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">city</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">ProceduralCity</span><span class="p">()</span>
-</span><span class='line'><span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">city</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The <a href="http://jeromeetienne.github.io/threex.proceduralcity/examples/demo.html">demo live</a>
-contains this city plus a ground, a first person control and a fog.
-This is rather cool result for such a small effort.</p>
-
-<h2>Conclusion</h2>
-
-<p>So now you know how to generate a whole city in 100 lines.
-No download.
-Rather clever algorithm.
-I hope you learned from it,
-it contains many tricks that you can reused in your own demos.</p>
-
-<p>That&#8217;s all for today! Have fun :)</p>
 ]]></content>
   </entry>
   
