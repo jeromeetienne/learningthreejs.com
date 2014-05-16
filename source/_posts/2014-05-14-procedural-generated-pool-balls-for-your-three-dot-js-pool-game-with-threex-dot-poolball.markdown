@@ -4,7 +4,7 @@ title: "Procedural Generated Pool Balls For Your Three.js Pool Game with threex.
 date: 2014-05-14 20:21
 comments: true
 categories: [threexaday, threex, game, extension, three.js]
-published: false
+published: true
 ---
 
 <a href='http://jeromeetienne.github.io/threex.poolball/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.poolball/master/examples/images/screenshot-threex-poolball-512x512.jpg" width="250" height="250"></a>

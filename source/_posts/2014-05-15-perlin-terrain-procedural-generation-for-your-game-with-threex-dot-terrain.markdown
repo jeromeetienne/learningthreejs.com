@@ -4,7 +4,7 @@ title: "Perlin Terrain Procedural Generation For Your Game With threex.terrain"
 date: 2014-05-15 20:21
 comments: true
 categories: [threexaday, threex, game, extension, three.js]
-published: false
+published: true
 ---
 
 <a href='http://jeromeetienne.github.io/threex.terrain/examples/planegeometry.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.terrain/master/examples/images/screenshot-threex-terrain-512x512.jpg" width="250" height="250"></a>
