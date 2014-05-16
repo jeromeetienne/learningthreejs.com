@@ -4,7 +4,7 @@
   <title><![CDATA[Category: threexaday | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/threexaday/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-05-15T14:02:00+02:00</updated>
+  <updated>2014-05-16T14:06:32+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,90 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Personalized and Polished Text for Your Three.js Game With threex.text]]></title>
+    <link href="http://learningthreejs.com/blog/2014/05/16/personalized-and-polished-text-for-your-three-dot-js-game-with-threex-dot-text/"/>
+    <updated>2014-05-16T17:55:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/05/16/personalized-and-polished-text-for-your-three-dot-js-game-with-threex-dot-text</id>
+    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.text/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.text/master/examples/images/screenshot-threex-text-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">'one threex a day' challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.text">threex.text</a>.
+threex.text is a <a href="http://jeromeetienne.github.io/threex/">threex game extension for three.js</a> which makes it easy to add 3d text in your game. You can use it to create a big logo on top of a shop or a big sign of any kind Las Vegas style. Up to you to see :) It is very flexible. You can fine tune lots of parameters to make it fit your needs. You can choose the fonts, the size, the bevel, the weight etc...</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.text/examples/basic.html' target='_blank'><input type="button" value='Try Threex.text Demo Now' /></a></p>
+
+<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/skjX1Dl7e0Y" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>Show Don't Tell</h1>
+
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.text/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.text/blob/master/examples/basic.html">view source</a>] :
+It shows a 3d text.</li>
+<li><a href="http://jeromeetienne.github.io/threex.text/examples/requirejs.html">examples/requirejs.html</a>
+[<a href="https://github.com/jeromeetienne/threex.text/blob/master/examples/requirejs.html">view source</a>] :
+It show a 3d text and it is all loaded thru require.js</li>
+</ul>
+
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
+
+<p>```html</p>
+
+<script src='threex.text.js'></script>
+
+
+<p>```</p>
+
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<p><code>bash
+bower install threex.text
+</code></p>
+
+<h1>How To Use It</h1>
+
+<p>Here is a very basic usage</p>
+
+<p><code>
+var mesh    = new THREEx.Text('THREEx')
+scene.add(mesh)
+</code></p>
+
+<p>Here is another example with more parameters. The options are passed directly
+to  <code>THREE.TextGeometry</code>.
+See <a href="http://threejs.org/docs/#Reference/Extras.Geometries/TextGeometry">three.js docs</a>
+for details.</p>
+
+<p>```
+var mesh    = new THREEx.Text('THREEx', {</p>
+
+<pre><code>font        : "droid serif",
+weight      : "bold",
+size        : 1,
+height      : 0.4,
+</code></pre>
+
+<p>})
+scene.add(mesh)
+```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Perlin Terrain Procedural Generation For Your Game With threex.terrain]]></title>
@@ -401,114 +485,6 @@ material.envMap = cubeCamera.textureCube
 </code></p>
 
 <p>This is it! Now you got the live texture cube on your sphere :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Classical Suzanne Monkey From Blender To Get Your Game Started With threex.suzanne]]></title>
-    <link href="http://learningthreejs.com/blog/2014/05/09/classical-suzanne-monkey-from-blender-to-get-your-game-started-with-threex-dot-suzanne/"/>
-    <updated>2014-05-09T20:20:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2014/05/09/classical-suzanne-monkey-from-blender-to-get-your-game-started-with-threex-dot-suzanne</id>
-    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.suzanne/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.suzanne/master/examples/images/screenshot-threex-suzanne-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">'one threex a day' challenge</a>.
-This challenge is to publish every day one game extension for three.js!
-One per day, every day and that for 2month!
-In this post, we gonna talk about
-<a href="http://www.threejsgames.com/extensions/#threex.suzanne">threex.suzanne</a>.
-Suzanne is a classic. She is the blender famous model familiar to all blender users. It is also a <a href="http://www.threejsgames.com/extensions/">three.js games extension</a> extension which provides you with a monkey model. Blender wanted to create a less common test model, so Suzanne was born. She is more precisely a 3D model of a chimpanzee head. It is pretty basic but you can easily add it as a funky animal character and install it in your platform games!</p>
-
-<p><a href='http://jeromeetienne.github.io/threex.suzanne/examples/basic.html' target='_blank'><input type="button" value='Try Threex.suzanne Demo Now' /></a></p>
-
-<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
-<strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
-
-<!-- more -->
-
-
-
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/RYrAktdkEUo" frameborder="0" allowfullscreen></iframe>
-
-
-<h1>Show Don't Tell</h1>
-
-<ul>
-<li><a href="http://jeromeetienne.github.io/threex.suzanne/examples/basic.html">examples/basic.html</a>
-[<a href="https://github.com/jeromeetienne/threex.suzanne/blob/master/examples/basic.html">view source</a>] :
-It shows a basic usage of the extension.</li>
-</ul>
-
-
-<h1>How To Install It</h1>
-
-<p>You can install it via script tag</p>
-
-<p>```html</p>
-
-<script src='threex.suzanne.js'></script>
-
-
-<p>```</p>
-
-<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
-
-<p><code>bash
-bower install threex.suzanne
-</code></p>
-
-<h1>How To Use It</h1>
-
-<h3>How to load the geometry ?</h3>
-
-<p>```javascript
-new THREEx.Suzanne.GeometryLoader(function onLoad(geometry){</p>
-
-<pre><code>// this function is notified when the geometry is actually loaded
-
-// geometry is a THREE.Geometry of suzanne model
-</code></pre>
-
-<p>})
-```</p>
-
-<h3>How to create a mesh with it ?</h3>
-
-<p>```javascript
-new THREEx.Suzanne.GeometryLoader(function onLoad(geometry){</p>
-
-<pre><code>// create a mesh with the geometry
-var material    = new THREE.MeshNormalMaterial()
-var mesh    = new THREE.Mesh( geometry, material )
-// attach mesh to the scene
-scene.add(mesh)
-</code></pre>
-
-<p>})
-```</p>
-
-<p>Sometime it is not desirable to wait for the loading to complete before
-adding the object to the scene. To avoid this, we create a container
-which will contains the model once loading is completed.
-Thanks to the scene graph inheritance, any position/quaternion/scale
-changes made on container, will be reported to the children meshes.</p>
-
-<p>```javascript
-// create the container
-var container   = new THREE.Object3D();
-// add the container to the scene without waiting the end of loading
-scene.add(container)
-// start to load the geometry
-new THREEx.Suzanne.GeometryLoader(function onLoad(geometry){</p>
-
-<pre><code>// create a mesh with it
-var material    = new THREE.MeshNormalMaterial()
-var mesh    = new THREE.Mesh( geometry, material )
-// attach mesh to the container
-container.add(mesh)
-</code></pre>
-
-<p>})
-```</p>
 ]]></content>
   </entry>
   

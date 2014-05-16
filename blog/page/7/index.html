@@ -9,10 +9,8 @@
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="This is a new article of the &#8220;Let&#8217;s Make a 3D Game&#8221; series.
-In the previous one, we focused
-on keyboard. We will
-focus on map &hellip;">
+  <meta name="description" content="This article is about performance and how caching can improve them.
+In WebGL, it is important not to push the same textures multiple times to the GPU &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -136,6 +134,93 @@ return;
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/09/16/performance-caching-material/">Performance: Caching Material</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-16T10:25:00+02:00" pubdate data-updated="true">Sep 16<span>th</span>, 2011</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/7/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/7/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This article is about performance and how caching can improve them.
+In WebGL, it is important not to push the same textures multiple times to the GPU.
+It uselessly slow down the rendering.
+As a rules of thumbs, the less data are exchanged between the cpu and the gpu, the better
+it is for performance.</p>
+
+<h2>A Basic Caching</h2>
+
+<p><a href="https://github.com/mrdoob/three.js/">three.js</a> handles cache cleanly and
+eleguantly. If you instanciate
+a javascript object
+<a href="https://github.com/mrdoob/three.js/blob/master/src/textures/Texture.js">THREE.texture</a>
+or
+a <a href="https://github.com/mrdoob/three.js/blob/master/src/materials/Material.js">THREE.Material</a>
+only once, it will be pushed only once to the GPU.
+It is the simplest way to avoid pushing them multiple times.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">material</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshLambertMaterial</span><span class="p">({</span><span class="nx">map</span><span class="o">:</span><span class="nx">THREE</span><span class="p">.</span><span class="nx">ImageUtils</span><span class="p">.</span><span class="nx">loadTexture</span><span class="p">(</span> <span class="s1">&#39;foo.jpg&#39;</span><span class="p">)});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then you use this material as many times as you want, <code>foo.jpg</code> will be sent
+only once to the GPU. For example, let&#8217;s create many
+<a href="https://github.com/mrdoob/three.js/blob/master/src/extras/geometries/SphereGeometry.js">spheres</a>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">mesh</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">SphereGeometry</span><span class="p">(</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span> <span class="p">),</span> <span class="nx">material</span> <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This solution is simple and eleguant but may not be practical with a large code,
+like a <a href="/blog/categories/tutorial3dgame/">game</a>.
+In such case, you can use <a href="https://github.com/jeromeetienne/MicroCache.js">microcache.js</a>.
+It is a micro library to handle in-memory cache which works in node and browser.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/09/16/performance-caching-material/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -808,78 +893,9 @@ on the topic, it was fun, i will clearly do more :)</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/07/15/threejs-installation/">Three.js Installation</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-07-15T00:00:00+02:00" pubdate data-updated="true">Jul 15<span>th</span>, 2011</time>
-        
-        
-          <div class="sharing" style='text-align: right;'>
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/7/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/7/index.html" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-</div>
-
-        
-     </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="https://github.com/mrdoob/three.js">Three.js</a> is a 3D library in javascript. According
-to <a href="http://mrdoob.com/">mrdoob</a>, its author, three.js is</p>
-
-<blockquote><p>The aim of the project is to create a lightweight 3D engine with a very low level of<br/>complexity — in other words, for dummies. The engine can render using canvas, svg and WebGL.</p><footer><strong>mrdoob</strong> <cite>tree.js Author</cite></footer></blockquote>
-
-
-<h2>Step 1: get the source</h2>
-
-<p>The source are available <a href="https://github.com/mrdoob/three.js">here</a>. Use
-the following command</p>
-
-<figure class='code'><figcaption><span>how to get the source - example.sh </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>git clone https://github.com/mrdoob/three.js.git
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>It will provide the whole source on your local disk. You are done, just point
-a web server on it, and go in <code>/examples</code>.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/07/15/threejs-installation/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/8/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -892,6 +908,10 @@ a web server on it, and go in <code>/examples</code>.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/16/personalized-and-polished-text-for-your-three-dot-js-game-with-threex-dot-text/">Personalized and Polished Text for Your Three.js Game With threex.text</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/05/15/perlin-terrain-procedural-generation-for-your-game-with-threex-dot-terrain/">Perlin Terrain Procedural Generation For Your Game With threex.terrain</a>
@@ -907,10 +927,6 @@ a web server on it, and go in <code>/examples</code>.</p>
     
       <li class="post">
         <a href="/blog/2014/05/12/live-cube-maps-reflections-in-your-three-dot-js-game-with-threex-dot-cubecamera/">Live Cube Maps Reflections In Your Three.js Game With threex.cubecamera</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/05/09/classical-suzanne-monkey-from-blender-to-get-your-game-started-with-threex-dot-suzanne/">Classical Suzanne Monkey From Blender To Get Your Game Started With threex.suzanne</a>
       </li>
     
   </ul>

@@ -5,15 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Linkify, a tQuery Extension - Learning Three.js</title>
+  <title>Personalized and Polished Text for Your Three.js Game With threex.text - Learning Three.js</title>
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="This post is an update on
-tquery progress.
-It is about linkify, a first experimental extension.
-Thanks to it, any 3D object may become a link.
-So 3D &hellip;">
+  <meta name="description" content="This is post is part of the &#8216;one threex a day&#8217; challenge.
+This challenge is to publish every day one game extension for three.js!
+One &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +20,7 @@ So 3D &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://learningthreejs.com/blog/2012/02/27/linkify-tquery-extension/">
+  <link rel="canonical" href="http://learningthreejs.com/blog/2014/05/16/personalized-and-polished-text-for-your-three-dot-js-game-with-threex-dot-text/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
@@ -140,7 +138,7 @@ return;
   
   <header>
     
-      <h1 class="entry-title">Linkify, a tQuery Extension</h1>
+      <h1 class="entry-title">Personalized and Polished Text for Your Three.js Game With threex.text</h1>
     
     
       <p class="meta">
@@ -156,12 +154,12 @@ return;
   
 
 
-<time datetime="2012-02-27T08:55:00+01:00" pubdate data-updated="true">Feb 27<span>th</span>, 2012</time>
+<time datetime="2014-05-16T17:55:00+02:00" pubdate data-updated="true">May 16<span>th</span>, 2014</time>
         
         
           <div class="sharing" style='text-align: right;'>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2012/02/27/linkify-tquery-extension/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2012/02/27/linkify-tquery-extension/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2014/05/16/personalized-and-polished-text-for-your-three-dot-js-game-with-threex-dot-text/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2014/05/16/personalized-and-polished-text-for-your-three-dot-js-game-with-threex-dot-text/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -175,124 +173,87 @@ return;
   </header>
 
 
-<div class="entry-content"><p>This post is an update on
-<a href="https://github.com/jeromeetienne/tquery">tquery</a> progress.
-It is about <code>linkify</code>, a first experimental extension.
-Thanks to it, any 3D object may become a link.
-So  3D objects act as a <code>&lt;a&gt;</code> tag, i.e. the object becomes
-clickable and clicking on it open a new url.
-It is built on top of domEvents.
-It is used to incoporate
-<a href="http://www.w3.org/TR/DOM-Level-2-Events/events.html">dom kindof events</a>
-in 3D world.
-We saw them a few week back in
-<a href="http://learningthreejs.com/blog/2012/01/17/dom-events-in-3d-space/">&#8216;dom events in 3D space&#8217; post</a>.
-Previous posts on tquery may be found <a href="/blog/categories/tquery/">here</a>.</p>
+<div class="entry-content"><p><a href='http://jeromeetienne.github.io/threex.text/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.text/master/examples/images/screenshot-threex-text-512x512.jpg" width="250" height="250"></a>
+This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
+This challenge is to publish every day one game extension for three.js!
+One per day, every day and that for 2month!
+In this post, we gonna talk about
+<a href="http://www.threejsgames.com/extensions/#threex.text">threex.text</a>.
+threex.text is a <a href="http://jeromeetienne.github.io/threex/">threex game extension for three.js</a> which makes it easy to add 3d text in your game. You can use it to create a big logo on top of a shop or a big sign of any kind Las Vegas style. Up to you to see :) It is very flexible. You can fine tune lots of parameters to make it fit your needs. You can choose the fonts, the size, the bevel, the weight etc&#8230;</p>
+
+<p><a href='http://jeromeetienne.github.io/threex.text/examples/basic.html' target='_blank'><input type="button" value='Try Threex.text Demo Now' /></a></p>
+
+<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
+<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
 
 <!-- more -->
 
 
 
 
-<center>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/MlW7PeuXGDM" frameborder="0" allowfullscreen></iframe>
-</center>
+<iframe width="420" height="315" src="//www.youtube.com/embed/skjX1Dl7e0Y" frameborder="0" allowfullscreen></iframe>
 
 
-<p>Building extensions on top of others is kinda the point of an extension system.
-My dream scenario is :
-(1) People do plugins for three.js, like they do in jQuery).
-(2) They share their work.
-(3) They build on top of each other.
-(4) Loop to 1.
-All in opensource spirit. All good in my book. Ok enougth talk, let&#8217;s code.</p>
+<h1>Show Don&#8217;t Tell</h1>
 
-<h2>Dom Events in 3D Space</h2>
+<ul>
+<li><a href="http://jeromeetienne.github.io/threex.text/examples/basic.html">examples/basic.html</a>
+[<a href="https://github.com/jeromeetienne/threex.text/blob/master/examples/basic.html">view source</a>] :
+It shows a 3d text.</li>
+<li><a href="http://jeromeetienne.github.io/threex.text/examples/requirejs.html">examples/requirejs.html</a>
+[<a href="https://github.com/jeromeetienne/threex.text/blob/master/examples/requirejs.html">view source</a>] :
+It show a 3d text and it is all loaded thru require.js</li>
+</ul>
 
-<p><em>domEvents</em> have been ported to tQuery.
-It is an important part because jQuery developpers use this a lot, thru
-<a href="http://api.jquery.com/on/">.on()</a>/<a href="http://api.jquery.com/off/">.off()</a>.</p>
+
+<h1>How To Install It</h1>
+
+<p>You can install it via script tag</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">tQuery</span><span class="p">(</span><span class="s1">&#39;cube&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;mouseover&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
-</span><span class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;somebody put the mouse over a cube&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="p">});</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.text.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>The supported events are click obviously,
-<a href="http://www.quirksmode.org/dom/events/click.html">dblclick, mouseup, mousedown</a>
-, <a href="http://www.quirksmode.org/dom/events/mouseover.html">mouseover and mouseout</a>.
-It has been improved to better match
-<a href="http://www.w3.org/TR/DOM-Level-2-Events/events.html">actual dom events</a>.
-The callback now receives a event object. It contains <code>.type</code> and <code>.target</code>
-as described in <a href="http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-Event">dom specification</a>.</p>
+<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.text
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>How To Use It</h1>
+
+<p>Here is a very basic usage</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">mesh</span>    <span class="o">=</span> new THREEx.Text<span class="o">(</span><span class="s1">&#39;THREEx&#39;</span><span class="o">)</span>
+</span><span class='line'>scene.add<span class="o">(</span>mesh<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here is another example with more parameters. The options are passed directly
+to  <code>THREE.TextGeometry</code>.
+See <a href="http://threejs.org/docs/#Reference/Extras.Geometries/TextGeometry">three.js docs</a>
+for details.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">tQuery</span><span class="p">(</span><span class="s1">&#39;.myClass&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
-</span><span class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;An event of type&quot;</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">type</span><span class="p">,</span> <span class="s2">&quot;has been trigger on &quot;</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">);</span>
-</span><span class='line'>    <span class="c1">// If you wish to stop propagation, just do </span>
-</span><span class='line'>    <span class="nx">event</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">();</span>
-</span><span class='line'><span class="p">});</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">mesh</span>    <span class="o">=</span> new THREEx.Text<span class="o">(</span><span class="s1">&#39;THREEx&#39;</span>, <span class="o">{</span>
+</span><span class='line'>    font        : <span class="s2">&quot;droid serif&quot;</span>,
+</span><span class='line'>    weight      : <span class="s2">&quot;bold&quot;</span>,
+</span><span class='line'>    size        : 1,
+</span><span class='line'>    height      : 0.4,
+</span><span class='line'><span class="o">})</span>
+</span><span class='line'>scene.add<span class="o">(</span>mesh<span class="o">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
-<p><a href="http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-flow-bubbling">Event bubbling</a>
-is now supported. So events are dispatched to the
-<a href="http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget">target</a>
-and follow its parent chain upward. It is possible to cancel propagation with an usual
- <code>.stopPropagation()</code>.</p>
-
-<h2>Linkify or How Any 3D Object May Become a Link</h2>
-
-<p>Linkify is an experimental plugins built on top of <code>tquery.domevent</code>. It is
-shown in the screencast.
-It makes any 3D objects object act as a <code>&lt;a&gt;</code> tag, i.e. the object becomes
-clickable and clicking on it open a new url. When the mouse is over it, an underline
-is added to make it even more webpage like.
-Code is rather short.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">tQuery</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">).</span><span class="nx">linkify</span><span class="p">(</span><span class="s1">&#39;http://example.com&#39;</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Conclusion</h2>
-
-<p>It has been quite time consuming to set up the basis for the project:
-tests, bechmarks, docs, or plugins interdependancy resolution.
-For each of those field, i had to review the various alternatives,
-pick one and setting it up as properly as possible.</p>
-
-<p>Here are the current choises, they may change in the future.
-<a href="http://requirejs.org/">require.js</a> will be used for the dependancies between plugins.
-Tests are done with <a href="http://visionmedia.github.com/mocha/">mocha</a>,
-a javascript test framework for javascript which run in node.js and browser.
-Later, we may improve that by testing the rendering output using
-<a href="http://www.pixastic.com/">pixastic</a> to do
-<a href="http://en.wikipedia.org/wiki/Mean_squared_error">statistical</a>
-<a href="http://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio">images</a>
-<a href="http://en.wikipedia.org/wiki/Root_mean_square_deviation">comparison</a>.
-Benchmarks are done with
-<a href="http://benchmarkjs.com/">benchmarks.js</a>, a robust benchmarking library for javascript,
-using
-<a href="https://github.com/jeromeetienne/benchrunner">benchrunner</a>
-as runner.
-It is the engine behind the wellknown
-<a href="http://jsperf.com/browse">jsperf</a>
-site.
-Inline documentation is written in <a href="http://code.google.com/p/jsdoc-toolkit/">jsdoc</a>
-format using
-<a href="http://www.thebrightlines.com/2010/05/06/new-template-for-jsdoctoolkit-codeview/">codeview</a>
-template.</p>
-
-<p>That&#8217;s all folks. Have fun :)</p>
 </div>
 
 
@@ -315,12 +276,12 @@ template.</p>
   
 
 
-<time datetime="2012-02-27T08:55:00+01:00" pubdate data-updated="true">Feb 27<span>th</span>, 2012</time>
+<time datetime="2014-05-16T17:55:00+02:00" pubdate data-updated="true">May 16<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>, <a class='category' href='/blog/categories/tquery/'>tquery</a>
+    <a class='category' href='/blog/categories/extension/'>extension</a>, <a class='category' href='/blog/categories/game/'>game</a>, <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>, <a class='category' href='/blog/categories/threex/'>threex</a>, <a class='category' href='/blog/categories/threexaday/'>threexaday</a>
   
 </span>
 
@@ -329,7 +290,7 @@ template.</p>
     
       <div class="sharing" style='text-align: right;'>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2012/02/27/linkify-tquery-extension/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2012/02/27/linkify-tquery-extension/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2014/05/16/personalized-and-polished-text-for-your-three-dot-js-game-with-threex-dot-text/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2014/05/16/personalized-and-polished-text-for-your-three-dot-js-game-with-threex-dot-text/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -340,10 +301,8 @@ template.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/02/15/valentine-card-in-tquery/" title="Previous Post: a Valentine card in tQuery">&laquo; a Valentine card in tQuery</a>
+        <a class="basic-alignment left" href="/blog/2014/05/15/perlin-terrain-procedural-generation-for-your-game-with-threex-dot-terrain/" title="Previous Post: Perlin Terrain Procedural Generation For Your Game With threex.terrain">&laquo; Perlin Terrain Procedural Generation For Your Game With threex.terrain</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/03/05/tquery-version-0/" title="Next Post: tQuery v0 - Let's get started">tQuery v0 - Let's get started &raquo;</a>
       
     </p>
   </footer>
@@ -426,8 +385,8 @@ template.</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://learningthreejs.com/blog/2012/02/27/linkify-tquery-extension/';
-        var disqus_url = 'http://learningthreejs.com/blog/2012/02/27/linkify-tquery-extension/';
+        var disqus_identifier = 'http://learningthreejs.com/blog/2014/05/16/personalized-and-polished-text-for-your-three-dot-js-game-with-threex-dot-text/';
+        var disqus_url = 'http://learningthreejs.com/blog/2014/05/16/personalized-and-polished-text-for-your-three-dot-js-game-with-threex-dot-text/';
         var disqus_script = 'embed.js';
       
     (function () {
