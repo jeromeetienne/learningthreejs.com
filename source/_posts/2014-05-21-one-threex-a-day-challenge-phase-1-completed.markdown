@@ -4,7 +4,7 @@ title: "One Threex a Day Challenge: Phase 1 Completed!"
 date: 2014-05-21 11:49
 comments: true
 categories: [threexaday, threex, game, extension, three.js]
-published: true
+published: false
 ---
 
 Hello everybody!
