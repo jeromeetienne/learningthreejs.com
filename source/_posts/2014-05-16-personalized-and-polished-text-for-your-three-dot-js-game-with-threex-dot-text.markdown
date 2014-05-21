@@ -4,13 +4,14 @@ title: "Personalized and Polished Text for Your Three.js Game With threex.text"
 date: 2014-05-16 17:55
 comments: true
 categories: [threexaday, threex, game, extension, three.js]
+published: true
 ---
 
 <a href='http://jeromeetienne.github.io/threex.text/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.text/master/examples/images/screenshot-threex-text-512x512.jpg" width="250" height="250"></a>
 This is post is part of the ['one threex a day' challenge](/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/). 
 This challenge is to publish every day one game extension for three.js!
 One per day, every day and that for 2month!
-In this post, we gonna talk about 
+In this post, we gonna talk about
 [threex.text](http://www.threejsgames.com/extensions/#threex.text).
 threex.text is a [threex game extension for three.js](http://jeromeetienne.github.io/threex/) which makes it easy to add 3d text in your game. You can use it to create a big logo on top of a shop or a big sign of any kind Las Vegas style. Up to you to see :) It is very flexible. You can fine tune lots of parameters to make it fit your needs. You can choose the fonts, the size, the bevel, the weight etc...
 
