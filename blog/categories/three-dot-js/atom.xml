@@ -4,7 +4,7 @@
   <title><![CDATA[Category: three.js | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/three-dot-js/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-05-21T19:32:45+02:00</updated>
+  <updated>2014-05-26T14:28:54+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,33 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[One Threex a Day Challenge: Phase 1 Completed!]]></title>
+    <link href="http://learningthreejs.com/blog/2014/05/26/one-threex-a-day-challenge-phase-1-completed/"/>
+    <updated>2014-05-26T11:49:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/05/26/one-threex-a-day-challenge-phase-1-completed</id>
+    <content type="html"><![CDATA[<p>Hello everybody!</p>
+
+<p>It's been nearly a month since I started publishing <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">"One threex a day" challenge</a>. The idea was to share with you the many <a href="http://www.threejsgames.com/extensions/">three.js games extensions</a> that I had written over time. I wanted to show you how they could be useful, fun and easy to include in your very own three.js game. I came up with a motto "One threex a day gets your game on its way". I was all set up and ready to go. This was a challenge inspired by John Resig's article called <a href="http://ejohn.org/blo!/write-code-every-day/">"Write code everyday"</a>. I deeply agree with his theory for making progress, increasing productivity and getting the work done. I wished to try something similar on myself.</p>
+
+<p>Let me tell you though... it WAS challenging! Keeping the publication rhythm was hard. It takes a lot of discipline and organization to get it done everyday. I had the best intentions, but unfortunately I got sick and I felt bad for most of last week. Additionally I had some day work on the side that I needed to get done. At this rate of publication, it was very hard to keep up! At first I wanted to publish the threex extensions for a period of two months but I think it is best to rest for a while. So a week ago I published the last three.js game extension of phase 1.</p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/p7xM5X7dkeI" frameborder="0" allowfullscreen></iframe>
+
+
+<p>The good news is that I've had a very interesting experience. I'm pleased with the results. Obviously, some posts got more attention than others. I think this was because the three.js game extensions I published weren't all for hard-core developers or game creators. Some were pretty basic, but still had educational value for people just starting with three.js. I wanted them to be directed to all kinds of audience, amateurs and experts alike. I really appreciated the process of sharing these extensions, and overall I had a great response. I got some <a href="https://plus.google.com/104300307601542851567/posts/RhabZY19TSq">very</a> <a href="https://plus.google.com/104300307601542851567/posts/RqDbZNeJEkW">cool</a> <a href="https://twitter.com/siggraph/status/464238273582211072">retweets</a> and a lot of positive echo from you guys. Thanks a lot! Don't hesitate to contact me and give me some more feedback.</p>
+
+<p>I stopped publication last week, but wait...I'm not saying I'm giving up though. Far from it. I have promised myself, and I promise my readers, to come back with more three.js extensions. Especially, because I still have a lot to publish, there are still some tricks up my sleeve ;)  For the moment I will concentrate on regaining my strength, writing more code and documenting it for the next threex batch. I hope to deliver and publish it soon.</p>
+
+<p>Stay tuned! I'll be back.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Personalized and Polished Text for Your Three.js Game With threex.text]]></title>
@@ -383,108 +410,6 @@ Second you need to update all your objects at every frame.</p>
 <p><code>
 THREEx.Transparency.update(objects, camera)
 </code></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Live Cube Maps Reflections In Your Three.js Game With threex.cubecamera]]></title>
-    <link href="http://learningthreejs.com/blog/2014/05/12/live-cube-maps-reflections-in-your-three-dot-js-game-with-threex-dot-cubecamera/"/>
-    <updated>2014-05-12T20:20:00+02:00</updated>
-    <id>http://learningthreejs.com/blog/2014/05/12/live-cube-maps-reflections-in-your-three-dot-js-game-with-threex-dot-cubecamera</id>
-    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.cubecamera/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.cubecamera/master/examples/images/screenshot-threex-cubecamera-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">'one threex a day' challenge</a>.
-This challenge is to publish every day one game extension for three.js!
-One per day, every day and that for 2month!
-In this post, we gonna talk about
-<a href="http://www.threejsgames.com/extensions/#threex.cubecamera">threex.cubecamera</a>.
-threex.cubecamera is a <a href="http://www.threejsgames.com/extensions/">three.js games extension</a> which provides a helper for cube cameras. It is very useful when a given object must reflect a texture cube live. Just look at it, you can see the reflection as clear as a real life mirror! You can give your texture the color you want, for example in the demo I created a "gold" sphere to give it a shinier look. Be careful though, this requires 6 renderings of the scene every time you update it. It becomes expensive fast.</p>
-
-<p><a href='http://jeromeetienne.github.io/threex.cubecamera/examples/demo.html' target='_blank'><input type="button" value='Try Threex.cubecamera Demo Now' /></a></p>
-
-<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
-<strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
-
-<!-- more -->
-
-
-
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/tUnyNECDgFE" frameborder="0" allowfullscreen></iframe>
-
-
-<h1>Show Don't Tell</h1>
-
-<ul>
-<li><a href="http://jeromeetienne.github.io/threex.cubecamera/examples/basic.html">examples/basic.html</a>
-[<a href="https://github.com/jeromeetienne/threex.cubecamera/blob/master/examples/basic.html">view source</a>] :
-It shows the most basic usage of this extension.</li>
-<li><a href="http://jeromeetienne.github.io/threex.cubecamera/examples/demo.html">examples/demo.html</a>
-[<a href="https://github.com/jeromeetienne/threex.cubecamera/blob/master/examples/demo.html">view source</a>] :
-It shows a little bit shinier demo.</li>
-<li><a href="http://jeromeetienne.github.io/threex.cubecamera/examples/discoball.html">examples/discoball.html</a>
-[<a href="https://github.com/jeromeetienne/threex.cubecamera/blob/master/examples/discoball.html">view source</a>] :
-It shows a little bit shinier discoball.
-TODO to port in its own demo.
-It doesnt even use live rendering.
-Use the "minecraft goes party" from nextgamefrontier talk.</li>
-</ul>
-
-
-<h1>How To Install It</h1>
-
-<p>You can install it via script tag</p>
-
-<p>```html</p>
-
-<script src='threex.cubecamera.js'></script>
-
-
-<p>```</p>
-
-<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
-
-<p><code>bash
-bower install threex.cubecamera
-</code></p>
-
-<h1>How To Use It</h1>
-
-<p>First you need to create a classic mesh, the one which gonna reflect the live texture cube.
-In this example, we gonna create sphere with the color 'gold' like this.</p>
-
-<p>```
-var geometry    = new THREE.SphereGeometry(0.5, 32, 16)
-var material    = new THREE.MeshPhongMaterial({</p>
-
-<pre><code>color   : 'gold'
-</code></pre>
-
-<p>})
-var mesh    = new THREE.Mesh(geometry, material)
-scene.add( mesh ) <br/>
-```</p>
-
-<p>Now we needs to create the cube camera which gonna update the texture cube live.
-We do that like this.</p>
-
-<p><code>
-var cubeCamera  = new THREEx.CubeCamera(mesh)
-scene.add(cubeCamera.object3d)
-</code></p>
-
-<p>Don't forget to update it when needed (likely at every frame)</p>
-
-<p><code>
-cubeCamera.update(renderer, scene)
-</code></p>
-
-<p>Now that we got the textureCube, we set the mesh material to reflect this texture cube.</p>
-
-<p><code>
-material.envMap = cubeCamera.textureCube
-</code></p>
-
-<p>This is it! Now you got the live texture cube on your sphere :)</p>
 ]]></content>
   </entry>
   

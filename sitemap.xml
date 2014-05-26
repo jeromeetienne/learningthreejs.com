@@ -353,16 +353,22 @@
         <lastmod>2014-05-16T14:09:20+02:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://learningthreejs.com/blog/2014/05/26/one-threex-a-day-challenge-phase-1-completed/
+        </loc>
+        <lastmod>2014-05-26T14:28:39+02:00</lastmod>
+    </url>
+    <url>
         <loc>http://learningthreejs.com/about/</loc>
         <lastmod>2013-03-06T12:45:11+01:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/blog/archives/</loc>
-        <lastmod>2014-05-16T14:09:20+02:00</lastmod>
+        <lastmod>2014-05-26T14:28:39+02:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/</loc>
-        <lastmod>2014-05-16T14:09:20+02:00</lastmod>
+        <lastmod>2014-05-26T14:28:39+02:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/robots.txt</loc>

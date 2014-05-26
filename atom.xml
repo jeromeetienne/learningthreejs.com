@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-05-21T19:32:45+02:00</updated>
+  <updated>2014-05-26T14:28:54+02:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,33 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[One Threex a Day Challenge: Phase 1 Completed!]]></title>
+    <link href="http://learningthreejs.com/blog/2014/05/26/one-threex-a-day-challenge-phase-1-completed/"/>
+    <updated>2014-05-26T11:49:00+02:00</updated>
+    <id>http://learningthreejs.com/blog/2014/05/26/one-threex-a-day-challenge-phase-1-completed</id>
+    <content type="html"><![CDATA[<p>Hello everybody!</p>
+
+<p>It&#8217;s been nearly a month since I started publishing <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8220;One threex a day&#8221; challenge</a>. The idea was to share with you the many <a href="http://www.threejsgames.com/extensions/">three.js games extensions</a> that I had written over time. I wanted to show you how they could be useful, fun and easy to include in your very own three.js game. I came up with a motto &#8220;One threex a day gets your game on its way&#8221;. I was all set up and ready to go. This was a challenge inspired by John Resig&#8217;s article called <a href="http://ejohn.org/blo!/write-code-every-day/">&#8220;Write code everyday&#8221;</a>. I deeply agree with his theory for making progress, increasing productivity and getting the work done. I wished to try something similar on myself.</p>
+
+<p>Let me tell you though&#8230; it WAS challenging! Keeping the publication rhythm was hard. It takes a lot of discipline and organization to get it done everyday. I had the best intentions, but unfortunately I got sick and I felt bad for most of last week. Additionally I had some day work on the side that I needed to get done. At this rate of publication, it was very hard to keep up! At first I wanted to publish the threex extensions for a period of two months but I think it is best to rest for a while. So a week ago I published the last three.js game extension of phase 1.</p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/p7xM5X7dkeI" frameborder="0" allowfullscreen></iframe>
+
+
+<p>The good news is that I&#8217;ve had a very interesting experience. I&#8217;m pleased with the results. Obviously, some posts got more attention than others. I think this was because the three.js game extensions I published weren&#8217;t all for hard-core developers or game creators. Some were pretty basic, but still had educational value for people just starting with three.js. I wanted them to be directed to all kinds of audience, amateurs and experts alike. I really appreciated the process of sharing these extensions, and overall I had a great response. I got some <a href="https://plus.google.com/104300307601542851567/posts/RhabZY19TSq">very</a> <a href="https://plus.google.com/104300307601542851567/posts/RqDbZNeJEkW">cool</a> <a href="https://twitter.com/siggraph/status/464238273582211072">retweets</a> and a lot of positive echo from you guys. Thanks a lot! Don&#8217;t hesitate to contact me and give me some more feedback.</p>
+
+<p>I stopped publication last week, but wait&#8230;I&#8217;m not saying I&#8217;m giving up though. Far from it. I have promised myself, and I promise my readers, to come back with more three.js extensions. Especially, because I still have a lot to publish, there are still some tricks up my sleeve ;)  For the moment I will concentrate on regaining my strength, writing more code and documenting it for the next threex batch. I hope to deliver and publish it soon.</p>
+
+<p>Stay tuned! I&#8217;ll be back.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Personalized and Polished Text for Your Three.js Game With threex.text]]></title>
@@ -2127,120 +2154,6 @@ Or you can directly look at the
 <img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide58.png" width="100%">
 <img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide59.png" width="100%">
 <img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide60.png" width="100%"></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Zero To Nyancat in 30 Seconds Flat!]]></title>
-    <link href="http://learningthreejs.com/blog/2013/12/31/zero-to-nyancat-in-30-seconds-flat/"/>
-    <updated>2013-12-31T11:05:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2013/12/31/zero-to-nyancat-in-30-seconds-flat</id>
-    <content type="html"><![CDATA[<p>So, today we are gonna learn how to use Yeoman for
-<a href="http://threejs.org">three.js</a>.
-We are gonna create a Nyancat in WebGL, starting from nothing in only 30 seconds.
-It was a challenge to see how fast we could reach using the yeoman tools.
-Here is the
-<a href="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/demo/index.html">demo</a>
- we gonna build in 30 seconds :)
-You are gonna see how easy it is through a talk i made at
-<a href="http://parisjs.org/">parisjs</a>!
-But first&#8230; what is yeoman? Well,
-<a href="http://yeoman.io">yeoman</a>
-is a &#8220;Modern Workflow for WebApps&#8221;.
-It is composed of 3 tools:
-<a href="http://bower.io">bower</a>, <a href="http://gruntjs.com">grunt</a> and <a href="http://yeoman.io/generators.html">yo</a>.</p>
-
-<p>Let&#8217;s see how
-<a href="http://yeoman.io">yeoman</a>
-will help us ease up and speed up the work when we’re doing
-<a href="http://threejs.org">three.js</a>.
-You can look at the
-<a href="www.youtube.com/watch?v=zeR_cpupZcQ">screencast</a>
-of me doing the talk, or directly at the
-<a href="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/">slides</a> below.
-If you are in a rush, here is the TL;DR executive summary. Have Fun :)</p>
-
-<p><a href='http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/' target='_blank'><input type="button" value='Slides of the talk' /></a>
-<a href='http://www.youtube.com/watch?v=zeR_cpupZcQ' target='_blank'><input type="button" value='Video of the talk' /></a>
-<a href='http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/demo/index.html' target='_blank'><input type="button" value='the result!' /></a>
-<a href='https://www.udemy.com/yeoman-for-threejs/' target='_blank'><input type="button" value='udemy course' /></a></p>
-
-<p><strong>Update:</strong> I am experimenting with <a href="https://www.udemy.com">udemy</a> and made a course from this post. Check it out <a href="https://www.udemy.com/yeoman-for-threejs/">&#8220;Yeoman For Three.js&#8221;</a>. More than 30min of video :)</p>
-
-<iframe width="425" height="349" src="http://www.youtube.com/embed/UNuRxyEm6qU" frameborder="0" allowfullscreen></iframe>
-
-
-
-
-<!-- more -->
-
-
-<h2><strong>TL;DR;</strong></h2>
-
-<p>To generate the boilerplate, just do</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>yo threejs-boilerplate</span></code></pre></td></tr></table></div></figure>
-
-
-<p>To install any <a href="http://jeromeetienne.github.io/threex/">threex extension for three.js</a>,
-and
-<a href="http://github.com/jeromeetienne/threex.nyancat/">threex.nyancat</a> in particular, do</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>bower install threex.nyancat</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Video Of The Talk</h2>
-
-<iframe width="425" height="349" src="http://www.youtube.com/embed/zeR_cpupZcQ" frameborder="0" allowfullscreen></iframe>
-
-
-
-
-<!-- more -->
-
-
-<h2>Slides</h2>
-
-<p>Here are a screenshot of every slides.
-Or you can directly look at the
-<a href="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/slides/">slides</a>.</p>
-
-<p><img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide01.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide02.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide03.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide04.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide05.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide06.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide07.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide08.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide09.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide10.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide11.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide12.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide13.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide14.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide15.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide16.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide17.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide18.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide19.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide20.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide21.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide22.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide23.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide24.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide25.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide26.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide27.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide28.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide29.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide30.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide31.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide32.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide33.png" width="100%">
-<img src="http://learningthreejs.com/data/2013-12-31-zero-to-nyancat-in-30-seconds-flat/screenshots/slide34.png" width="100%"></p>
 ]]></content>
   </entry>
   
