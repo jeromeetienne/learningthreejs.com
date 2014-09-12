@@ -63,7 +63,7 @@ On the left, the shadow is crisp, on the right it is soft.
 
 ```javascript
 	// to antialias the shadow
-	renderer.shadowMapSoft = true;
+    renderer.shadowMapType = THREE.PCFSoftShadowMap;
 ```
 
 ## Configure your objects
