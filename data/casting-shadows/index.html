@@ -1,216 +1,147 @@
-<!doctype html>
-<html>
-	<head>
-		<title>learningthree.js boiler plate for three.js</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		
-			
-		<script src="vendor/three.js/Three.js"></script>
-		<script src="vendor/three.js/Detector.js"></script>
-		<!-- https://github.com/mrdoob/stats.js -->
-		<script src="vendor/three.js/Stats.js"></script>
+<!DOCTYPE html>
+<script src='vendor/three.js/build/three.min.js'></script>
+<body style='margin: 0px; background-color: #bbbbbb; overflow: hidden;'><script>
+	var renderer	= new THREE.WebGLRenderer({
+		antialias	: true
+	});
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	document.body.appendChild( renderer.domElement );
 
-		<script src="vendor/threex/THREEx.screenshot.js"></script>
-		<script src="vendor/threex/THREEx.FullScreen.js"></script>
-		<script src="vendor/threex/THREEx.WindowResize.js"></script>
-		<script src="vendor/threex.dragpancontrols.js"></script>
+	renderer.setClearColorHex( 0x000000, 1 );
 
-		<link  href="css/main.css" rel="stylesheet"/>
-	</head>
-<body>
-	<!-- three.js container -->
-    	<div id="container"></div>
-	<!-- info on screen display -->
-	<div id="info">
-		<div class="top">
-			<a href="/blog/2012/01/20/casting-shadows/" target="_blank">LearningThree.js</a>
-			Demo for Casting Shadows
-		</div>
-		<div class="bottom" id="inlineDoc" >
-			- <i>p</i> for screenshot
-		</div> 
-	</div> 
+	renderer.shadowMapEnabled	= true;
+	renderer.shadowMapType 		= THREE.PCFSoftShadowMap;
 
-	<script type="text/javascript">
-		var stats, scene, renderer;
-		var camera, cameraControl;
+	var onRenderFcts= [];
+	var scene	= new THREE.Scene();
+	var camera	= new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 1000);
+	camera.position.z = 25;
+	camera.position.set(0, 8, 15);
+	camera.lookAt(scene.position)
+
+	//////////////////////////////////////////////////////////////////////////////////
+	//		Comment								//
+	//////////////////////////////////////////////////////////////////////////////////
+	var ambient	= new THREE.AmbientLight( 0x444444 );
+	scene.add( ambient );
+	
+	var light	= new THREE.DirectionalLight( 0x4444cc, 2 );
+	light.position.set( 1, -1, 1 ).normalize();
+	scene.add( light );
+
+	var spotLight	= new THREE.SpotLight( 0xFFAA88 );
+	spotLight.target.position.set( 0, 2, 0 );
+	spotLight.shadowCameraNear	= 0.01;		
+	spotLight.castShadow		= true;
+	spotLight.shadowDarkness	= 0.5;
+	spotLight.shadowCameraVisible	= true;
+console.dir(spotLight)
+// spotLight.shadowMapWidth	= 1024;
+// spotLight.shadowMapHeight	= 1024;
+	scene.add( spotLight );	
+
+	onRenderFcts.push(function(){
+		var angle	= Date.now()/1000 * Math.PI;
+angle	= Math.PI*2
+		spotLight.position.x	= Math.cos(angle*-0.1)*20;
+		spotLight.position.y	= 10 + Math.sin(angle*0.5)*6;
+		spotLight.position.z	= Math.sin(angle*-0.1)*20;		
+	})
+	//////////////////////////////////////////////////////////////////////////////////
+	//		Comment								//
+	//////////////////////////////////////////////////////////////////////////////////
+
+	var geometry	= new THREE.TorusKnotGeometry(25, 8, 75, 20);
+	var texture	= THREE.ImageUtils.loadTexture( "images/water.jpg" );
+	texture.repeat.set( 0.7, 1 );
+	texture.wrapS	= texture.wrapT = THREE.RepeatWrapping;
+	var material	= new THREE.MeshPhongMaterial({
+		ambient		: 0x444444,
+		color		: 0x8844AA,
+		shininess	: 300, 
+		specular	: 0x33AA33,
+		shading		: THREE.SmoothShading,
+		map		: texture
+	});
+	var torusKnot	= new THREE.Mesh( geometry, material );
+	torusKnot.scale.multiplyScalar(1/18);
+	torusKnot.position.y		= 4;
+	scene.add( torusKnot );
+
+	onRenderFcts.push(function(){
+		// torusKnot.rotation.x	+= 0.005;
+		// torusKnot.rotation.y	+= 0.03;
+		// torusKnot.rotation.z	+= 0.02;		
+	})
 
 
-		if( !init() )	animate();
+	torusKnot.castShadow		= true;
+	torusKnot.receiveShadow	= false;
 
-		// init the scene
-		function init(){
+	//////////////////////////////////////////////////////////////////////////////////
+	//		Ground
+	//////////////////////////////////////////////////////////////////////////////////
 
-			if( Detector.webgl ){
-				renderer = new THREE.WebGLRenderer({
-					antialias		: true,	// to get smoother output
-					preserveDrawingBuffer	: true	// to allow screenshot
-				});
-				renderer.shadowMapEnabled	= true;
-				renderer.shadowMapSoft		= true;
-				renderer.setClearColorHex( 0x000000, 1 );
-			}else{
-				Detector.addGetWebGLMessage();
-				return true;
-			}
-			renderer.setSize( window.innerWidth, window.innerHeight );
-			document.getElementById('container').appendChild(renderer.domElement);
+	var geometry	= new THREE.CubeGeometry( 10, 0.2, 10);
+	var texture	= THREE.ImageUtils.loadTexture( "images/water.jpg" );
+	texture.repeat.set( 0.5, 0.8 );
+	texture.wrapS	= texture.wrapT = THREE.RepeatWrapping;
+	var material	= new THREE.MeshPhongMaterial({
+		ambient		: 0x444444,
+		color		: 0x66aa66,
+		shininess	: 150, 
+		specular	: 0x888888,
+		shading		: THREE.SmoothShading,
+		map		: texture
+	});
+	var ground		= new THREE.Mesh( geometry, material );
+	ground.scale.multiplyScalar(3);
+	ground.position.y		= -0.5/2;
+	scene.add( ground );
 
-			// add Stats.js - https://github.com/mrdoob/stats.js
-			stats = new Stats();
-			stats.domElement.style.position	= 'absolute';
-			stats.domElement.style.bottom	= '0px';
-			document.body.appendChild( stats.domElement );
+	ground.castShadow	= false;
+	ground.receiveShadow	= true;
 
-			// create a scene
-			scene = new THREE.Scene();
+	
+	//////////////////////////////////////////////////////////////////////////////////
+	//		Camera Controls							//
+	//////////////////////////////////////////////////////////////////////////////////
+	// var mouse	= {x : 0, y : 0}
+	// document.addEventListener('mousemove', function(event){
+	// 	mouse.x	= (event.clientX / window.innerWidth ) - 0.5
+	// 	mouse.y	= (event.clientY / window.innerHeight) - 0.5
+	// }, false)
+	// onRenderFcts.push(function(delta, now){
+	// 	camera.position.x += (mouse.x*40 - camera.position.x) * (delta*3)
+	// 	camera.position.y += (mouse.y*10 - camera.position.y + 4) * (delta*3)
+	// 	// limit camera position to avoid showing shadow on backface
+	// 	camera.position.y	= Math.max(camera.position.y, 3);
 
-			// put a camera in the scene
-			camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 10000 );
-			camera.position.set(0, 2, 14);
-			scene.add(camera);
+	// 	camera.lookAt( scene.position )
+	// })
 
-			// create a camera contol
-			cameraControls	= new THREEx.DragPanControls(camera)
-			cameraControls.target	= new THREE.Vector3(0, 2, 0);
 
-			//// transparently support window resize
-			THREEx.WindowResize.bind(renderer, camera, 0.5);
-			// allow 'p' to make screenshot
-			THREEx.Screenshot.bindKey(renderer);
-			// allow 'f' to go fullscreen where this feature is supported
-			if( THREEx.FullScreen.available() ){
-				THREEx.FullScreen.bindKey();		
-				document.getElementById('inlineDoc').innerHTML	+= "- <i>f</i> for fullscreen";
-			}
-
-			// here you add your objects
-			// - you will most likely replace this part by your own
-
-			// init the lights
-
-			var ambient	= new THREE.AmbientLight( 0x444444 );
-			scene.add( ambient );
-			
-			var light	= new THREE.DirectionalLight( 0x4444cc );
-			light.position.set( 1, -1, 1 ).normalize();
-			scene.add( light );
-
-			var light	= new THREE.SpotLight( 0x8888FF, 2 );
-			spot1	= light;
-			light.target.position.set( 0, 2, 0 );
-			light.shadowCameraNear		= 0.01;		
-			light.castShadow		= true;
-			light.shadowDarkness		= 0.5;
-			//light.shadowCameraVisible	= true;
-			//scene.add( light );
-
-			var light	= new THREE.SpotLight( 0xFFAA88, 2 );
-			spot2	= light;
-			light.target.position.set( 0, 2, 0 );
-			light.shadowCameraNear		= 0.01;		
-			light.castShadow		= true;
-			light.shadowDarkness		= 0.5;
-			light.shadowCameraVisible	= true;
-			scene.add( light );
-			
-			// create the sundial
-			
-			sundial	= new THREE.Object3D();
-			sundial.position.y	= -1;
-			scene.add(sundial);
-
-			var geometry	= new THREE.TorusGeometry( 2, 1, 16, 32 );
-			var geometry	= new THREE.TorusKnotGeometry(25, 8, 75, 20);
-			//var geometry	= new THREE.OctahedronGeometry( 1, 1 );
-			//var geometry	= new THREE.CubeGeometry( 3, 3, 3 );
-			//var geometry	= new THREE.SphereGeometry( 3, 32,16 );
-			//var geometry	= new THREE.CylinderGeometry(1, 1, 4, 16)
-			var texture	= THREE.ImageUtils.loadTexture( "images/water.jpg" );
-			texture.repeat.set( 0.7, 1 );
-			texture.wrapS	= texture.wrapT = THREE.RepeatWrapping;
-			var material	= new THREE.MeshPhongMaterial({
-				ambient		: 0x444444,
-				color		: 0x8844AA,
-				shininess	: 300, 
-				specular	: 0x33AA33,
-				shading		: THREE.SmoothShading,
-				map		: texture
-			});
-			var mesh	= new THREE.Mesh( geometry, material );
-			mesh.scale.multiplyScalar(1/18);
-			mesh.castShadow		= true;
-			mesh.receiveShadow	= false;
-			mesh.position.y		= 4;
-			sundial.add( mesh );
-			mainObject	= mesh;
-
-			var geometry	= new THREE.CubeGeometry( 10, 0.5, 10);
-			//var geometry	= new THREE.PlaneGeometry( 50, 5, 50 );
-			var texture	= THREE.ImageUtils.loadTexture( "images/water.jpg" );
-			//texture.repeat.set( 10, 10 );
-			texture.repeat.set( 0.5, 0.8 );
-			texture.wrapS	= texture.wrapT = THREE.RepeatWrapping;
-			var material	= new THREE.MeshPhongMaterial({
-				ambient		: 0x444444,
-				color		: 0x66aa66,
-				shininess	: 150, 
-				specular	: 0x888888,
-				shading		: THREE.SmoothShading,
-				map		: texture
-			});
-			var mesh		= new THREE.Mesh( geometry, material );
-			mesh.scale.multiplyScalar(3);
-			mesh.flipSided		= false;
-			mesh.castShadow		= false;
-			mesh.receiveShadow	= true;
-			mesh.position.y		= -0.5/2;
-			sundial.add( mesh );
-		}
-		// animation loop
-		function animate() {
-
-			// loop on request animation loop
-			// - it has to be at the begining of the function
-			// - see details at http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
-			requestAnimationFrame( animate );
-
-			// do the render
-			render();
-
-			// update stats
-			stats.update();
-		}
-
-		
-
-		// render the scene
-		function render() {
-			
-			var seconds		= Date.now()/1000
-			var piPerSeconds	= seconds * Math.PI;
-			
-			spot1.position.x	= Math.cos(piPerSeconds*0.05)*12;
-			spot1.position.y	= 10;
-			spot1.position.z	= Math.sin(piPerSeconds*0.05)*12;
-
-			spot2.position.x	= Math.cos(piPerSeconds*-0.1)*15;
-			spot2.position.y	= 8 + Math.sin(piPerSeconds*0.5)*4;
-			spot2.position.z	= Math.sin(piPerSeconds*-0.1)*15;
-			
-			mainObject.rotation.x	+= 0.005;
-			mainObject.rotation.y	+= 0.03;
-			mainObject.rotation.z	+= 0.02;
-			
-			// update camera controls
-			cameraControls.update();
-			// limit camera position to avoid showing shadow on backface
-			camera.position.y	= Math.max(camera.position.y, 3);
-
-			// actually render the scene
-			renderer.render( scene, camera );
-		}
-	</script>
-</body>
-</html>
+	//////////////////////////////////////////////////////////////////////////////////
+	//		render the scene						//
+	//////////////////////////////////////////////////////////////////////////////////
+	onRenderFcts.push(function(){
+		renderer.render( scene, camera );		
+	})
+	
+	//////////////////////////////////////////////////////////////////////////////////
+	//		loop runner							//
+	//////////////////////////////////////////////////////////////////////////////////
+	var lastTimeMsec= null
+	requestAnimationFrame(function animate(nowMsec){
+		// keep looping
+		requestAnimationFrame( animate );
+		// measure time
+		lastTimeMsec	= lastTimeMsec || nowMsec-1000/60
+		var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec)
+		lastTimeMsec	= nowMsec
+		// call each update function
+		onRenderFcts.forEach(function(onRenderFct){
+			onRenderFct(deltaMsec/1000, nowMsec/1000)
+		})
+	})
+</script></body>
