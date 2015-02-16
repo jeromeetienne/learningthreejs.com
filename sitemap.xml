@@ -356,7 +356,13 @@
         <loc>
             http://learningthreejs.com/blog/2014/05/26/one-threex-a-day-challenge-phase-1-completed/
         </loc>
-        <lastmod>2014-05-26T14:28:39+02:00</lastmod>
+        <lastmod>2015-02-16T11:21:37+01:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://learningthreejs.com/blog/2015/02/16/three-dot-js-online-meeting-with-joclygames/
+        </loc>
+        <lastmod>2015-02-16T11:38:02+01:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/about/</loc>
@@ -364,11 +370,11 @@
     </url>
     <url>
         <loc>http://learningthreejs.com/blog/archives/</loc>
-        <lastmod>2014-09-12T12:55:20+02:00</lastmod>
+        <lastmod>2015-02-16T11:38:02+01:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/</loc>
-        <lastmod>2014-09-12T12:55:20+02:00</lastmod>
+        <lastmod>2015-02-16T11:38:02+01:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/robots.txt</loc>

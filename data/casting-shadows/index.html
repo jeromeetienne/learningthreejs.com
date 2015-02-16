@@ -83,7 +83,7 @@
 	//////////////////////////////////////////////////////////////////////////////////
 
 	var geometry	= new THREE.CubeGeometry( 10, 0.2, 10);
-	var texture	= THREE.ImageUtils.loadTexture( "images/water.jpg" );
+	var texture	= THREE.ImageUtils.loadTexture('images/water.jpg');
 	texture.repeat.set( 0.5, 0.8 );
 	texture.wrapS	= texture.wrapT = THREE.RepeatWrapping;
 	var material	= new THREE.MeshPhongMaterial({

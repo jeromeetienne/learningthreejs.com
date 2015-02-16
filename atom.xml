@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2014-09-12T12:57:56+02:00</updated>
+  <updated>2015-02-16T11:38:38+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Three.js Online Meeting with JoclyGames]]></title>
+    <link href="http://learningthreejs.com/blog/2015/02/16/three-dot-js-online-meeting-with-joclygames/"/>
+    <updated>2015-02-16T11:24:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/02/16/three-dot-js-online-meeting-with-joclygames</id>
+    <content type="html"><![CDATA[<p>Hello everybody.</p>
+
+<p>This is a new Three.js Online Meeting post. The idea is to interview people using <a href="http://threejs.org/">Three.js</a> in their projects. I think it is a great way to learn from each other and share our experiences.  You know me, I love three.js and I love talking about it. In this video of about 1 hour you are gonna see some interesting people really passionate about games and three.js</p>
+
+<p>For this interview, i talked with
+<a href="https://twitter.com/jcfrog">Jérôme CHOAIN</a> and
+<a href="https://twitter.com/_mig_">Michel Gutierrez</a>
+, the guys behind <a href="https://www.jocly.com">Jocly Games</a>.
+They have over 113 web board games with very cool features as you will see.  You can play on and off line with your friends, or just you and your computer. They also have some mobile apps that make their games even more accessible. You can dowload their games from <a href="https://apps.facebook.com/joclyfb/">Facebook</a>, <a href="https://play.google.com/store/apps/developer?id=Jocly">Google Play</a> and <a href="https://itunes.apple.com/us/artist/aclap/id512525676">iTunes</a>. And good news for developers: you can create and embed your own games! It is tons of fun. Be sure to check it out.</p>
+
+<!-- more -->
+
+
+<p>I hope you enjoy it.</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/Di4Yomm530g" frameborder="0" allowfullscreen></iframe>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[One Threex a Day Challenge: Phase 1 Completed!]]></title>
@@ -2049,111 +2074,6 @@ Pretty Cool!
 Now you can get more <a href="http://jeromeetienne.github.io/threex/">threex</a> extensions and
 play with it to build your own demos.
 This is All for Today Folks, have fun! :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Game Workshop: Let's Do a Fighting Spaceship Minigame Together]]></title>
-    <link href="http://learningthreejs.com/blog/2014/01/10/flying-spaceship-minigame/"/>
-    <updated>2014-01-10T11:05:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2014/01/10/flying-spaceship-minigame</id>
-    <content type="html"><![CDATA[<p>In this post, we are going to present how to do a mini-game called &#8220;Flying Spaceships&#8221;.
-We are going to do it together in 40 minutes.
-You can read the slides or watch the video to follow along!
-Just look at this <a href="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/slides/step99.html">demo</a>.
-It uses <a href="http://threejs.org">three.js</a> for the 3D,
-<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">WebAudio API</a>
-for the sound and several <a href="http://jeromeetienne.github.io/threex/">threex extensions</a>
-for stuff like spaceships and planets.
-I love the fact that now we can code mini-games in less than an hour!
-All that on the web, and with open source, so cool!</p>
-
-<p><a href='http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/slides/slides/' target='_blank'><input type="button" value='Slides of the talk' /></a>
-<a href='http://www.youtube.com/watch?v=s9pxStYvqrQ' target='_blank'><input type="button" value='Video of the talk' /></a>
-<a href='http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/slides/step99.html' target='_blank'><input type="button" value='the result!' /></a></p>
-
-<iframe width="425" height="349" src="http://www.youtube.com/embed/EEvEw5n1iEo" frameborder="0" allowfullscreen></iframe>
-
-
-
-
-<!-- more -->
-
-
-<h2>The Talk</h2>
-
-<p>Here is the promised 40min video. Sit back and relax :)</p>
-
-<iframe width="425" height="349" src="http://www.youtube.com/embed/s9pxStYvqrQ" frameborder="0" allowfullscreen></iframe>
-
-
-<h2>The Slides</h2>
-
-<p>Here are a screenshot of every slides.
-Or you can directly look at the
-<a href="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/slides/slides/">slides</a>.</p>
-
-<p><img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide00.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide01.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide02.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide03.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide04.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide05.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide06.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide07.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide08.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide09.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide10.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide11.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide12.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide13.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide14.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide15.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide16.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide17.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide18.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide19.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide20.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide21.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide22.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide23.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide24.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide25.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide26.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide27.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide28.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide29.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide30.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide31.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide32.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide33.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide34.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide35.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide36.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide37.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide38.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide39.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide40.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide41.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide42.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide43.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide44.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide45.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide46.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide47.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide48.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide49.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide50.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide51.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide52.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide53.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide54.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide55.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide56.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide57.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide58.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide59.png" width="100%">
-<img src="http://learningthreejs.com/data/2014-01-10-flying-spaceship-minigame/screenshots/slide60.png" width="100%"></p>
 ]]></content>
   </entry>
   
