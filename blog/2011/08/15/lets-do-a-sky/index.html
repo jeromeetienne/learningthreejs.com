@@ -63,68 +63,10 @@ This is much simpler than people would expect : only 3 &hellip;">
 		}
 	</style>
 	<div id='linksPerso' style='display: block;'>
-		<div class='wrapper'>
-			<div class='linkThreejs'>
-				<a href='mailto:jerome.etienne@gmail.com?Subject=Hello%20again' target='_blank'>
-					<img src='/data/images/jetienne-hire-me-256x256.png'/>
-				</a>
-			</div>
-			<div class='linkJSinside'>
-			 	<a href='http://jsinside.com' target='_blank'>
-					<img src='/data/images/jsinside-professional-training-512x512.png'/>
-				</a>
-			</div>
-			<div class='linkThreejs'>
-				<a href='mailto:jerome.etienne@gmail.com?Subject=Hello%20again' target='_blank'>
-					<img src='/data/images/jetienne-hire-me-256x256.png'/>
-				</a>
-			</div>
-		</div>
+		<a href='mailto:jerome.etienne@gmail.com?Subject=query%20from%20learningthreejs' target='_blank'>
+			<img src='/data/images/jetienne-hire-me-256x256.png'/>
+		</a>
 	</div>
-	<script>
-	;(function(){
-		// if mobile, dont no animation
-		var isMobile	= 'ontouchstart' in window ? true : false
-		if( isMobile )	return			
-
-		var element	= document.querySelector('#linksPerso .wrapper .linkThreejs')
-
-		var imageHeight	= 128+5
-		var waitTime	= 10
-		var animSpeed	= 1
-		var marginTop	= 0
-
-		// initial wait
-		setTimeout(function(){
-			animloop()
-		}, waitTime*1000)
-
-		function animloop(){
-			// first pause if needed
-			if( marginTop === imageHeight ){
-				marginTop	+= animSpeed
-				setTimeout(function(){
-					animloop()
-				}, waitTime*1000)
-				return
-			}
-			// update marginTop
-			marginTop	+= animSpeed
-			element.style.marginTop	= '-'+marginTop+'px';
-
-			// second pause if needed
-			if( marginTop === imageHeight*2 ){
-				marginTop	= 0
-				setTimeout(function(){
-					animloop()
-				}, waitTime*1000)
-				return
-			}
-			// keep looping
-			requestAnimationFrame(animloop);
-		}
-	})();
-	</script>
 
   <h1><a href="/">Learning Three.js</a></h1>
   
