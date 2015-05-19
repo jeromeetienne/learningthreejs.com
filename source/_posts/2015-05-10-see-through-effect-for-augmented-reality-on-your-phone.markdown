@@ -3,35 +3,26 @@ layout: post
 title: "See-through Effect for Augmented Reality On Your Phone"
 date: 2015-05-10 19:25
 comments: true
-categories: 
+categories: [AR, three.js]
+published: false
 ---
 
 This post show how to read your phone camera and make it appears as transparent, aka to act as a see-through.
-
 It may seems unrelated to 3d at first but 
 it is extremely useful in augmented reality.
 It makes your device 'appears as transparent'
 So when the user is looking at her device, she is seeing the reality.
 You just have to display your augmented part on top
-and you got augmented reality.
+and you got augmented reality. A Picture is Worth a Thousand Words :)
 
----
-- an image worth a thousand words
-- NOTE: put a visual to make it obvious
-  - way more efficient than a text description
-- VISUAL IDEA: likely a gif showing the see-through effect
-  - my phone using the application
-  - using the mount to stabilize my phone
-  - recorded by alex phone
-- VISUAL IDEA: image sequence
-  - a phone with opaque screen - without see-through
-  - split in 2
-    1. a cube on a opaque screen
-    2. a see-through
-  - join back with a "+" sign
-  - augmented reality
+<iframe src="https://vine.co/v/empQIrB7OLO/embed/simple?audio=0" width="600" height="600" frameborder="0" style='text-align:center;'></iframe><script src="https://platform.vine.co/static/scripts/embed.js"></script>
 
-# How It Is Coded
+<!-- more -->
+
+<iframe width="420" height="315" src="//www.youtube.com/embed/5nmtV-tX5Ww" frameborder="0" allowfullscreen></iframe>
+
+
+## How It Is Coded
 Webcams are great for interactivity. 
   We will read the webcam thanks to [WebRTC](http://www.webrtc.org/),
   html5 API which can be used to do video/audio conferences like  Skype or Hangout.
@@ -69,7 +60,7 @@ So it must be robust to window resize and orientation change.
   All that makes the resize function more subtle than usual.
   but nothing dramatic
 
-# Source
+## Source
 
 Here is the full source of the effect. Enjoy!
   
