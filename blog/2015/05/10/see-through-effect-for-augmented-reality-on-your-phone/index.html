@@ -1,0 +1,577 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>See-through Effect for Augmented Reality On Your Phone - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="This post shows how to read your phone camera and make it appears as
+transparent, aka to act as a see-through.
+It may seems unrelated to 3d at first &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://learningthreejs.com/blog/2015/05/10/see-through-effect-for-augmented-reality-on-your-phone/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+	<style>
+		#linksPerso {
+			float	: right;
+			height	: 128px;
+		}
+		#linksPerso .wrapper {
+			height	: 128px;
+			overflow-y:hidden;
+
+		}
+		#linksPerso img {
+			width	: 128px;
+		}
+	</style>
+	<div id='linksPerso' style='display: block;'>
+		<a href='mailto:jerome.etienne@gmail.com?Subject=query%20from%20learningthreejs' target='_blank'>
+			<img src='/data/images/jetienne-hire-me-256x256.png'/>
+		</a>
+	</div>
+
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:learningthreejs.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="http://jeromeetienne.github.io/videobrowser4learningthreejs/">Videos</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">See-through Effect for Augmented Reality on Your Phone</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-05-10T19:25:00+01:00" pubdate data-updated="true">May 10<span>th</span>, 2015</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2015/05/10/see-through-effect-for-augmented-reality-on-your-phone/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2015/05/10/see-through-effect-for-augmented-reality-on-your-phone/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This post shows how to read your phone camera and make it appears as
+transparent, aka to act as a see-through.
+It may seems unrelated to 3d at first but
+it is extremely useful in augmented reality.
+I know it may seem but this see-throught is the base of Augmented
+Reality in a phone.
+This and other AR tech will be the subject of future posts.</p>
+
+<p>It makes your device &#8216;appears as transparent&#8217;
+So when the user is looking at her device, she is seeing the reality.
+You just have to display your augmented part on top
+and you got augmented reality. A Picture is Worth a Thousand Words :)</p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="//www.youtube.com/embed/q7uRkul5prI" frameborder="0" allowfullscreen></iframe>
+
+
+<h2>How It Is Coded</h2>
+
+<p>Webcams are great for interactivity.
+  We will read the webcam thanks to <a href="http://www.webrtc.org/">WebRTC</a>,
+  html5 API which can be used to do video/audio conferences like  Skype or Hangout.</p>
+
+<p>In our case, we just get the video from the webcam
+  with the <a href="https://w3c.github.io/mediacapture-main/getusermedia.html">getUserMedia() function</a>.
+  we dont need all the network part.
+  It is quite widespread according <a href="http://caniuse.com/#feat=stream">caniuse</a> which is great!
+  You can learn more about it
+  on <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getUserMedia">mdn</a>
+  or <a href="http://www.html5rocks.com/en/tutorials/getusermedia/intro/">html5rocks</a></p>
+
+<p>Now that we know how to get a video, which camera to pick ?
+This demo is intended for phone. They often got multiple cameras nowsadays.
+  typically a front camera for selfies
+  a back camera for the normal photos.
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> will list all the media source available in your browser.
+  In webrtc vocabulary,
+  front camera is called &#8216;user&#8217; facing video
+  back camera is a &#8216;environment&#8217; facing .
+  So we try to get the environment video camera if we can.</p>
+
+<p>For the see-through effect to be convincing, we need to be careful.
+  first we display the video stream in full screen, thus it
+  is more real to the user.
+  We display it in the background of the page with the proper css
+Additionally we ensure we keep a proper
+  <a href="http://en.wikipedia.org/wiki/Aspect_ratio_%28image%29">aspect ratio</a>,
+  no matter the size of the browser window.
+  So it isn&#8217;t streched.
+So it must be robust to window resize and orientation change.
+  All that makes the resize function more subtle than usual.
+  but nothing dramatic</p>
+
+<h2>Source</h2>
+
+<p>Here is the full source of the effect. Enjoy!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span><span class='line'><span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'><span class="nt">&lt;style&gt;</span>
+</span><span class='line'><span class="nt">body</span><span class="o">,</span> <span class="nt">html</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">height</span> <span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nt">&lt;/style&gt;</span>
+</span><span class='line'><span class="nt">&lt;body</span> <span class="na">style=</span><span class="s">&#39;margin: 0px;; overflow: hidden;&#39;</span><span class="nt">&gt;&lt;script&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// shim</span>
+</span><span class='line'><span class="nx">navigator</span><span class="p">.</span><span class="nx">getUserMedia</span> <span class="o">=</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">getUserMedia</span> <span class="o">||</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">webkitGetUserMedia</span> <span class="o">||</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">mozGetUserMedia</span> <span class="o">||</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">msGetUserMedia</span><span class="p">;</span>
+</span><span class='line'><span class="nb">window</span><span class="p">.</span><span class="nx">URL</span>      <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">URL</span> <span class="o">||</span> <span class="nb">window</span><span class="p">.</span><span class="nx">webkitURL</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="p">;(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="s1">&#39;use strict;&#39;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">// create video element</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">video</span>        <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;video&#39;</span><span class="p">)</span>
+</span><span class='line'>        <span class="nx">video</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;autoplay&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+</span><span class='line'>        <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">video</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="cm">/**</span>
+</span><span class='line'><span class="cm">         * Resize video element. </span>
+</span><span class='line'><span class="cm">         * - Made complex to handle the aspect change </span>
+</span><span class='line'><span class="cm">         * - it is frequent when the mobile is changing orientation</span>
+</span><span class='line'><span class="cm">         * - after a search on the internet, it seems hard/impossible to prevent browser from changing orientation :(</span>
+</span><span class='line'><span class="cm">         */</span>
+</span><span class='line'>        <span class="kd">function</span> <span class="nx">onResize</span><span class="p">(){</span>
+</span><span class='line'>                <span class="c1">// is the size of the video available ?</span>
+</span><span class='line'>                <span class="k">if</span><span class="p">(</span> <span class="nx">video</span><span class="p">.</span><span class="nx">videoHeight</span> <span class="o">===</span> <span class="mi">0</span> <span class="p">)</span>   <span class="k">return</span>
+</span><span class='line'>
+</span><span class='line'>                <span class="kd">var</span> <span class="nx">videoAspect</span> <span class="o">=</span> <span class="nx">video</span><span class="p">.</span><span class="nx">videoWidth</span> <span class="o">/</span> <span class="nx">video</span><span class="p">.</span><span class="nx">videoHeight</span>
+</span><span class='line'>                <span class="kd">var</span> <span class="nx">windowAspect</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span> <span class="o">/</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span>
+</span><span class='line'>
+</span><span class='line'>                <span class="c1">// var video = document.querySelector(&#39;video&#39;)</span>
+</span><span class='line'>                <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">position</span> <span class="o">=</span> <span class="s1">&#39;absolute&#39;</span>
+</span><span class='line'>
+</span><span class='line'>                <span class="k">if</span><span class="p">(</span> <span class="nx">videoAspect</span> <span class="o">&lt;</span> <span class="nx">windowAspect</span> <span class="p">){</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span>        <span class="o">=</span> <span class="s1">&#39;0%&#39;</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">width</span>       <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">marginLeft</span>  <span class="o">=</span> <span class="s1">&#39;0px&#39;</span>
+</span><span class='line'>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span>         <span class="o">=</span> <span class="s1">&#39;50%&#39;</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">height</span>      <span class="o">=</span>  <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="o">/</span><span class="nx">videoAspect</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">marginTop</span>   <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="o">/</span><span class="nx">videoAspect</span><span class="p">)</span> <span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span>
+</span><span class='line'>                <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span>         <span class="o">=</span> <span class="s1">&#39;0%&#39;</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">height</span>      <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="o">+</span><span class="s1">&#39;px&#39;</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">marginTop</span>   <span class="o">=</span>  <span class="s1">&#39;0px&#39;</span>
+</span><span class='line'>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span>        <span class="o">=</span> <span class="s1">&#39;50%&#39;</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">width</span>       <span class="o">=</span>  <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="o">*</span><span class="nx">videoAspect</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">marginLeft</span>  <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="o">*</span><span class="nx">videoAspect</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span>
+</span><span class='line'>                <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;resize&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+</span><span class='line'>                <span class="nx">onResize</span><span class="p">()</span>
+</span><span class='line'>        <span class="p">})</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">// just to be sure - resize on mobile is funky to say the least</span>
+</span><span class='line'>        <span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>                <span class="nx">onResize</span><span class="p">()</span>
+</span><span class='line'>        <span class="p">},</span> <span class="mi">1000</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">// get the media sources</span>
+</span><span class='line'>        <span class="nx">MediaStreamTrack</span><span class="p">.</span><span class="nx">getSources</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">sourceInfos</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="c1">// define getUserMedia() constraints</span>
+</span><span class='line'>                <span class="kd">var</span> <span class="nx">constraints</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>                        <span class="nx">audio</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span><span class='line'>                <span class="p">}</span>
+</span><span class='line'>                <span class="c1">// to mirror the video element when it isnt &#39;environment&#39;</span>
+</span><span class='line'>                <span class="c1">// video.style.transform   = &#39;scaleX(-1)&#39;</span>
+</span><span class='line'>
+</span><span class='line'>                <span class="c1">// it it finds the videoSource &#39;environment&#39;, modify constraints.video</span>
+</span><span class='line'>                <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">!=</span> <span class="nx">sourceInfos</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                        <span class="kd">var</span> <span class="nx">sourceInfo</span> <span class="o">=</span> <span class="nx">sourceInfos</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span><span class='line'>                        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;sourceInfo&#39;</span><span class="p">,</span> <span class="nx">sourceInfo</span><span class="p">)</span>
+</span><span class='line'>                        <span class="k">if</span><span class="p">(</span><span class="nx">sourceInfo</span><span class="p">.</span><span class="nx">kind</span> <span class="o">==</span> <span class="s2">&quot;video&quot;</span> <span class="o">&amp;&amp;</span> <span class="nx">sourceInfo</span><span class="p">.</span><span class="nx">facing</span> <span class="o">==</span> <span class="s2">&quot;environment&quot;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                                <span class="nx">constraints</span><span class="p">.</span><span class="nx">video</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>                                        <span class="nx">optional</span><span class="o">:</span> <span class="p">[{</span><span class="nx">sourceId</span><span class="o">:</span> <span class="nx">sourceInfo</span><span class="p">.</span><span class="nx">id</span><span class="p">}]</span>
+</span><span class='line'>                                <span class="p">}</span>
+</span><span class='line'>                                <span class="c1">// not to mirror the video element when it is &#39;environment&#39;</span>
+</span><span class='line'>                                <span class="c1">// video.style.transform   = &#39;&#39;</span>
+</span><span class='line'>                        <span class="p">}</span>
+</span><span class='line'>                <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>                <span class="c1">// try to get user media</span>
+</span><span class='line'>                <span class="nx">navigator</span><span class="p">.</span><span class="nx">getUserMedia</span><span class="p">(</span> <span class="nx">constraints</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">stream</span><span class="p">){</span>
+</span><span class='line'>                        <span class="c1">// set the video.src with the userMedia stream</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">URL</span><span class="p">.</span><span class="nx">createObjectURL</span><span class="p">(</span><span class="nx">stream</span><span class="p">);</span>
+</span><span class='line'>                <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">){</span>
+</span><span class='line'>                        <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Cant getUserMedia()! due to &quot;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+</span><span class='line'>                <span class="p">});</span>
+</span><span class='line'>        <span class="p">});</span>
+</span><span class='line'><span class="p">})()</span>
+</span><span class='line'><span class="nt">&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;/body&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-05-10T19:25:00+01:00" pubdate data-updated="true">May 10<span>th</span>, 2015</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ar/'>AR</a>, <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2015/05/10/see-through-effect-for-augmented-reality-on-your-phone/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2015/05/10/see-through-effect-for-augmented-reality-on-your-phone/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/02/16/three-dot-js-online-meeting-with-joclygames/" title="Previous Post: Three.js Online Meeting with JoclyGames">&laquo; Three.js Online Meeting with JoclyGames</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/05/10/see-through-effect-for-augmented-reality-on-your-phone/">See-through Effect for Augmented Reality On Your Phone</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/02/16/three-dot-js-online-meeting-with-joclygames/">Three.js Online Meeting with JoclyGames</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/26/one-threex-a-day-challenge-phase-1-completed/">One Threex a Day Challenge: Phase 1 Completed!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/16/personalized-and-polished-text-for-your-three-dot-js-game-with-threex-dot-text/">Personalized and Polished Text for Your Three.js Game With threex.text</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/15/perlin-terrain-procedural-generation-for-your-game-with-threex-dot-terrain/">Perlin Terrain Procedural Generation For Your Game With threex.terrain</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://learningthreejs.com/blog/2015/05/10/see-through-effect-for-augmented-reality-on-your-phone/';
+        var disqus_url = 'http://learningthreejs.com/blog/2015/05/10/see-through-effect-for-augmented-reality-on-your-phone/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

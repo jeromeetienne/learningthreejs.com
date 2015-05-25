@@ -9,8 +9,14 @@
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="This article is about merging geometry and how it can improve performance.
-It is important for perfomance to reduce the number of WebGL calls as much &hellip;">
+  <meta name="description" content="This post is part of the &#8220;Lets make a 3D game&#8221; series.
+3D and physics simulation always go well together
+even
+more
+so
+with
+marble
+games. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -99,6 +105,102 @@ It is important for perfomance to reduce the number of WebGL calls as much &hell
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/">Lets Make a 3D Game: microphysics.js</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-17T12:36:00+01:00" pubdate data-updated="true">Oct 17<span>th</span>, 2011</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/7/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/7/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is part of the <a href="/blog/categories/tutorial3dgame/">&#8220;Lets make a 3D game&#8221;</a> series.
+3D and physics simulation always go well together
+<a href="http://www.youtube.com/watch?v=Rd7TyU9RdQk">even</a>
+<a href="http://www.youtube.com/watch?v=o_xr8Htj9GI">more</a>
+<a href="http://www.youtube.com/watch?v=Xfrzi-yVcsM">so</a>
+<a href="http://www.youtube.com/watch?v=uvCbc8vFUMo">with</a>
+<a href="http://www.youtube.com/watch?v=7lBUBBW_sF0">marble</a>
+<a href="http://www.youtube.com/watch?v=c7npJ3E-ydA">games</a>.
+One is required for <a href="http://marblesoccer.com">marblesoccer</a> but i wasnt
+convinced by current 3d physics engines. I explain why at the end.
+Fortunatly, <a href="http://twitter.com/#!/pyalot">@pyalot</a> from <a href="http://codeflow.org/">codeflow.org</a>
+has been kind enough to write one taylor-made for us: <strong>microphysics.js</strong>!!</p>
+
+<p>It is bite-sized, elegant and efficient.
+Less than 500 lines at the moment!!
+It is small engouh to be understood, important feature for a tutorial blog.
+It is a work in progress tho.
+We aren&#8217;t aware of any bugs.
+New features will be added and the API is expected to move.
+Currently it implements moving spheres and static boxes (or <a href="http://en.wikipedia.org/wiki/Axis-aligned_bounding_box">AABB</a> as we like to say).
+This is all we need for <a href="http://marblesoccer.com">marblesoccer</a>, the good thing about tailor-made.
+<em>We are in business!!!</em></p>
+
+<p>Below is a screencast of me doing a short introduction of the
+<a href="http://jeromeetienne.github.com/microphysics.js/playground/">playground</a>.
+This just a page for you to experiment with microphysics.js.</p>
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/DI5PV2_sLoM" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+<h2>Let&#8217;s get started</h2>
+
+<p>So lets see how to use it.
+First step, you download it <a href="https://raw.github.com/jeromeetienne/microphysics.js/master/codeflow/physics.js">here</a>.
+Then include it in your own code with this line.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;physics.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -791,76 +893,6 @@ open your browser debugger and look at downloaded images, you will see those 6 i
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/08/14/dat-gui-simple-ui-for-demos/">Dat-gui - Simple UI for Demos</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-08-14T19:42:00+01:00" pubdate data-updated="true">Aug 14<span>th</span>, 2011</time>
-        
-        
-          <div class="sharing" style='text-align: right;'>
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/7/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/7/index.html" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-</div>
-
-        
-     </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://code.google.com/p/dat-gui/">Dat.gui</a>
-is a GUI widget for your demos. It provide way for the user to set parameters of the
-demo to play with it. It is simple to code, yet cool and minimalist on the screen.
-It is the blue vuemeters on the screenshot below. This post is a presentation of
-the library.</p>
-
-<p><img class="right" src="/data/dat_gui_simple_ui_for_demos/datgui_integrated.png" title="Integrated" ></p>
-
-<h2>How to include it</h2>
-
-<p>Simply include the library file in your page. Download it <a href="http://code.google.com/p/dat-gui">there</a></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&#39;text/javascript&#39;</span> <span class="na">src=</span><span class="s">&#39;DAT.GUI.min.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/08/14/dat-gui-simple-ui-for-demos/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/8/">&larr; Older</a>
@@ -878,6 +910,10 @@ the library.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/05/10/see-through-effect-for-augmented-reality-on-your-phone/">See-through Effect for Augmented Reality On Your Phone</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/02/16/three-dot-js-online-meeting-with-joclygames/">Three.js Online Meeting with JoclyGames</a>
       </li>
     
@@ -891,10 +927,6 @@ the library.</p>
     
       <li class="post">
         <a href="/blog/2014/05/15/perlin-terrain-procedural-generation-for-your-game-with-threex-dot-terrain/">Perlin Terrain Procedural Generation For Your Game With threex.terrain</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/05/14/procedural-generated-pool-balls-for-your-three-dot-js-pool-game-with-threex-dot-poolball/">Procedural Generated Pool Balls For Your Three.js Pool Game with threex.poolball</a>
       </li>
     
   </ul>

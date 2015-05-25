@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-05-25T13:19:48+01:00</updated>
+  <updated>2015-05-25T13:22:49+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,279 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[See-through Effect for Augmented Reality On Your Phone]]></title>
+    <link href="http://learningthreejs.com/blog/2015/05/10/see-through-effect-for-augmented-reality-on-your-phone/"/>
+    <updated>2015-05-10T19:25:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/05/10/see-through-effect-for-augmented-reality-on-your-phone</id>
+    <content type="html"><![CDATA[<p>This post shows how to read your phone camera and make it appears as
+transparent, aka to act as a see-through.
+It may seems unrelated to 3d at first but
+it is extremely useful in augmented reality.
+I know it may seem but this see-throught is the base of Augmented
+Reality in a phone.
+This and other AR tech will be the subject of future posts.</p>
+
+<p>It makes your device &#8216;appears as transparent&#8217;
+So when the user is looking at her device, she is seeing the reality.
+You just have to display your augmented part on top
+and you got augmented reality. A Picture is Worth a Thousand Words :)</p>
+
+<!-- more -->
+
+
+
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/q7uRkul5prI" frameborder="0" allowfullscreen></iframe>
+
+
+<h2>How It Is Coded</h2>
+
+<p>Webcams are great for interactivity.
+  We will read the webcam thanks to <a href="http://www.webrtc.org/">WebRTC</a>,
+  html5 API which can be used to do video/audio conferences like  Skype or Hangout.</p>
+
+<p>In our case, we just get the video from the webcam
+  with the <a href="https://w3c.github.io/mediacapture-main/getusermedia.html">getUserMedia() function</a>.
+  we dont need all the network part.
+  It is quite widespread according <a href="http://caniuse.com/#feat=stream">caniuse</a> which is great!
+  You can learn more about it
+  on <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getUserMedia">mdn</a>
+  or <a href="http://www.html5rocks.com/en/tutorials/getusermedia/intro/">html5rocks</a></p>
+
+<p>Now that we know how to get a video, which camera to pick ?
+This demo is intended for phone. They often got multiple cameras nowsadays.
+  typically a front camera for selfies
+  a back camera for the normal photos.
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> will list all the media source available in your browser.
+  In webrtc vocabulary,
+  front camera is called &#8216;user&#8217; facing video
+  back camera is a &#8216;environment&#8217; facing .
+  So we try to get the environment video camera if we can.</p>
+
+<p>For the see-through effect to be convincing, we need to be careful.
+  first we display the video stream in full screen, thus it
+  is more real to the user.
+  We display it in the background of the page with the proper css
+Additionally we ensure we keep a proper
+  <a href="http://en.wikipedia.org/wiki/Aspect_ratio_%28image%29">aspect ratio</a>,
+  no matter the size of the browser window.
+  So it isn&#8217;t streched.
+So it must be robust to window resize and orientation change.
+  All that makes the resize function more subtle than usual.
+  but nothing dramatic</p>
+
+<h2>Source</h2>
+
+<p>Here is the full source of the effect. Enjoy!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span><span class='line'><span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'><span class="nt">&lt;style&gt;</span>
+</span><span class='line'><span class="nt">body</span><span class="o">,</span> <span class="nt">html</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">height</span> <span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nt">&lt;/style&gt;</span>
+</span><span class='line'><span class="nt">&lt;body</span> <span class="na">style=</span><span class="s">&#39;margin: 0px;; overflow: hidden;&#39;</span><span class="nt">&gt;&lt;script&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// shim</span>
+</span><span class='line'><span class="nx">navigator</span><span class="p">.</span><span class="nx">getUserMedia</span> <span class="o">=</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">getUserMedia</span> <span class="o">||</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">webkitGetUserMedia</span> <span class="o">||</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">mozGetUserMedia</span> <span class="o">||</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">msGetUserMedia</span><span class="p">;</span>
+</span><span class='line'><span class="nb">window</span><span class="p">.</span><span class="nx">URL</span>      <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">URL</span> <span class="o">||</span> <span class="nb">window</span><span class="p">.</span><span class="nx">webkitURL</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="p">;(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="s1">&#39;use strict;&#39;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">// create video element</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">video</span>        <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;video&#39;</span><span class="p">)</span>
+</span><span class='line'>        <span class="nx">video</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;autoplay&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+</span><span class='line'>        <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">video</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="cm">/**</span>
+</span><span class='line'><span class="cm">         * Resize video element. </span>
+</span><span class='line'><span class="cm">         * - Made complex to handle the aspect change </span>
+</span><span class='line'><span class="cm">         * - it is frequent when the mobile is changing orientation</span>
+</span><span class='line'><span class="cm">         * - after a search on the internet, it seems hard/impossible to prevent browser from changing orientation :(</span>
+</span><span class='line'><span class="cm">         */</span>
+</span><span class='line'>        <span class="kd">function</span> <span class="nx">onResize</span><span class="p">(){</span>
+</span><span class='line'>                <span class="c1">// is the size of the video available ?</span>
+</span><span class='line'>                <span class="k">if</span><span class="p">(</span> <span class="nx">video</span><span class="p">.</span><span class="nx">videoHeight</span> <span class="o">===</span> <span class="mi">0</span> <span class="p">)</span>   <span class="k">return</span>
+</span><span class='line'>
+</span><span class='line'>                <span class="kd">var</span> <span class="nx">videoAspect</span> <span class="o">=</span> <span class="nx">video</span><span class="p">.</span><span class="nx">videoWidth</span> <span class="o">/</span> <span class="nx">video</span><span class="p">.</span><span class="nx">videoHeight</span>
+</span><span class='line'>                <span class="kd">var</span> <span class="nx">windowAspect</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span> <span class="o">/</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span>
+</span><span class='line'>
+</span><span class='line'>                <span class="c1">// var video = document.querySelector(&#39;video&#39;)</span>
+</span><span class='line'>                <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">position</span> <span class="o">=</span> <span class="s1">&#39;absolute&#39;</span>
+</span><span class='line'>
+</span><span class='line'>                <span class="k">if</span><span class="p">(</span> <span class="nx">videoAspect</span> <span class="o">&lt;</span> <span class="nx">windowAspect</span> <span class="p">){</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span>        <span class="o">=</span> <span class="s1">&#39;0%&#39;</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">width</span>       <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">marginLeft</span>  <span class="o">=</span> <span class="s1">&#39;0px&#39;</span>
+</span><span class='line'>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span>         <span class="o">=</span> <span class="s1">&#39;50%&#39;</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">height</span>      <span class="o">=</span>  <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="o">/</span><span class="nx">videoAspect</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">marginTop</span>   <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="o">/</span><span class="nx">videoAspect</span><span class="p">)</span> <span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span>
+</span><span class='line'>                <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span>         <span class="o">=</span> <span class="s1">&#39;0%&#39;</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">height</span>      <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="o">+</span><span class="s1">&#39;px&#39;</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">marginTop</span>   <span class="o">=</span>  <span class="s1">&#39;0px&#39;</span>
+</span><span class='line'>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span>        <span class="o">=</span> <span class="s1">&#39;50%&#39;</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">width</span>       <span class="o">=</span>  <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="o">*</span><span class="nx">videoAspect</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">marginLeft</span>  <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="o">*</span><span class="nx">videoAspect</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span>
+</span><span class='line'>                <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;resize&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+</span><span class='line'>                <span class="nx">onResize</span><span class="p">()</span>
+</span><span class='line'>        <span class="p">})</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">// just to be sure - resize on mobile is funky to say the least</span>
+</span><span class='line'>        <span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>                <span class="nx">onResize</span><span class="p">()</span>
+</span><span class='line'>        <span class="p">},</span> <span class="mi">1000</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">// get the media sources</span>
+</span><span class='line'>        <span class="nx">MediaStreamTrack</span><span class="p">.</span><span class="nx">getSources</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">sourceInfos</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="c1">// define getUserMedia() constraints</span>
+</span><span class='line'>                <span class="kd">var</span> <span class="nx">constraints</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>                        <span class="nx">audio</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span><span class='line'>                <span class="p">}</span>
+</span><span class='line'>                <span class="c1">// to mirror the video element when it isnt &#39;environment&#39;</span>
+</span><span class='line'>                <span class="c1">// video.style.transform   = &#39;scaleX(-1)&#39;</span>
+</span><span class='line'>
+</span><span class='line'>                <span class="c1">// it it finds the videoSource &#39;environment&#39;, modify constraints.video</span>
+</span><span class='line'>                <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">!=</span> <span class="nx">sourceInfos</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                        <span class="kd">var</span> <span class="nx">sourceInfo</span> <span class="o">=</span> <span class="nx">sourceInfos</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span><span class='line'>                        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;sourceInfo&#39;</span><span class="p">,</span> <span class="nx">sourceInfo</span><span class="p">)</span>
+</span><span class='line'>                        <span class="k">if</span><span class="p">(</span><span class="nx">sourceInfo</span><span class="p">.</span><span class="nx">kind</span> <span class="o">==</span> <span class="s2">&quot;video&quot;</span> <span class="o">&amp;&amp;</span> <span class="nx">sourceInfo</span><span class="p">.</span><span class="nx">facing</span> <span class="o">==</span> <span class="s2">&quot;environment&quot;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                                <span class="nx">constraints</span><span class="p">.</span><span class="nx">video</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>                                        <span class="nx">optional</span><span class="o">:</span> <span class="p">[{</span><span class="nx">sourceId</span><span class="o">:</span> <span class="nx">sourceInfo</span><span class="p">.</span><span class="nx">id</span><span class="p">}]</span>
+</span><span class='line'>                                <span class="p">}</span>
+</span><span class='line'>                                <span class="c1">// not to mirror the video element when it is &#39;environment&#39;</span>
+</span><span class='line'>                                <span class="c1">// video.style.transform   = &#39;&#39;</span>
+</span><span class='line'>                        <span class="p">}</span>
+</span><span class='line'>                <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>                <span class="c1">// try to get user media</span>
+</span><span class='line'>                <span class="nx">navigator</span><span class="p">.</span><span class="nx">getUserMedia</span><span class="p">(</span> <span class="nx">constraints</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">stream</span><span class="p">){</span>
+</span><span class='line'>                        <span class="c1">// set the video.src with the userMedia stream</span>
+</span><span class='line'>                        <span class="nx">video</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">URL</span><span class="p">.</span><span class="nx">createObjectURL</span><span class="p">(</span><span class="nx">stream</span><span class="p">);</span>
+</span><span class='line'>                <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">){</span>
+</span><span class='line'>                        <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Cant getUserMedia()! due to &quot;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+</span><span class='line'>                <span class="p">});</span>
+</span><span class='line'>        <span class="p">});</span>
+</span><span class='line'><span class="p">})()</span>
+</span><span class='line'><span class="nt">&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;/body&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Three.js Online Meeting with JoclyGames]]></title>
@@ -1855,225 +2128,6 @@ Most of the three.js game extensions that I will publish support require.js and 
 <p>I hope you enjoy it :)</p>
 
 <p>That’s all folks!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Have You Seen YourSelf when You Are Drunk ? - making of a fun WebGL Demo]]></title>
-    <link href="http://learningthreejs.com/blog/2014/02/08/have-you-seen-yourself-when-you-are-drunk/"/>
-    <updated>2014-02-08T12:49:00+00:00</updated>
-    <id>http://learningthreejs.com/blog/2014/02/08/have-you-seen-yourself-when-you-are-drunk</id>
-    <content type="html"><![CDATA[<p>This post is about a demo called <a href="https://github.com/jeromeetienne/demo.seenyourselfdrunk">&#8220;Have you seen yourself When you are Drunk ?&#8221;</a>. What is it all about ?
-Well have you seen yourself when you are drunk ?</p>
-
-<p><img class="right" src="http://learningthreejs.com/data/2014-02-08-have-you-seen-yourself-when-you-are-drunk/images/angryBoss.jpg" width="250" height="250"></p>
-
-<p>You don&#8217;t look at your best, but you don&#8217;t remember the morning after, lucky you. So now you are sober, this demo will show you how you look when you are drunk…
-Hopefully this will make you realize that <em>alcohol abuse is a bad thing</em>! And that we could
-<em>save the world by stopping it</em>!</p>
-
-<p><a href='http://jeromeetienne.github.io/demo.seenyourselfdrunk/' target='_blank'><input type="button" value='Try Demo Now' /></a></p>
-
-<p>Or it will just show some cool webgl effects… Honnestly i wasnt that sure of its exact purpose. Well, up to you to pick :)
-In other words, this is a webgl demo which reads your webcam, to show yourself on screen, then it does some screen deformations to give you an idea of what you look like when you are drunk.</p>
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/yl2Qd9T3Lq4" frameborder="0" allowfullscreen></iframe>
-
-
-<p>We will learn how to code that. So first the tools of the trade…</p>
-
-<!-- more -->
-
-
-<h2>Used Tools</h2>
-
-<p>This demo is done with 2 threex extensions
-<a href="https://github.com/jeromeetienne/threex.toxicpproc">threex.toxicpproc</a>
-,
-<a href="https://github.com/jeromeetienne/threex.videotexture">threex.videotexture</a>
-and our lovely
-<a href="http://threejs.org">three.js</a> obviously.
-<a href="https://github.com/jeromeetienne/threex.videotexture">threex.videotexture</a>
-is, according to <a href="http://jeromeetienne.github.io/threex/#threex.videotexture">threex page</a> :</p>
-
-<blockquote><p>handles videos in texture. It is possible to put html5 video output in texture, even put the webcam in it, or to connect it to WebAudio API to get localized sounds.</p></blockquote>
-
-<p>We will use it to read the webcam and display it full page.
-<a href="https://github.com/jeromeetienne/threex.toxicpproc">threex.toxicpproc</a>
-is, according to <a href="http://jeromeetienne.github.io/threex/#threex.toxicpproc">threex page</a> :</p>
-
-<blockquote><p>an intoxicated post-processing effect. You can easily add it in your game to simulate the player is drunk. It provides various levels: sober, drunk, high and wasted.</p></blockquote>
-
-<p>We will use it to deform the video from the webcam and makes you look drunk.</p>
-
-<h2>Webcam For Texture</h2>
-
-<p>So the first thing is to get webcam on fullpage.
-For that we use <a href="https://github.com/jeromeetienne/threex.videotexture">threex.videotexture</a>.
-It does video textures, either you take this video from a url, like this.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>// create the videoTexture
-</span><span class='line'>var videoUrl  = 'sintel.ogv';
-</span><span class='line'>var videoTexture= new THREEx.VideoTexture(videoUrl)
-</span><span class='line'>// on every render, update it
-</span><span class='line'>onRenderFcts.push(function(delta, now){
-</span><span class='line'>      videoTexture.update(delta, now)
-</span><span class='line'>})</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Or you take the video live from the webcam, like this.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>// create the webcamTexture
-</span><span class='line'>var videoTexture  = new THREEx.WebcamTexture()
-</span><span class='line'>// on every render, update it
-</span><span class='line'>onRenderFcts.push(function(delta, now){
-</span><span class='line'>      videoTexture.update(delta, now)
-</span><span class='line'>})    </span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then use <code>videoTexture.texture</code> in your materials to
-have the texture of the webcam. So let&#8217;s see how we will
-compose our scene.</p>
-
-<h2>Scene Composition</h2>
-
-<p>We need a Plane which take the full page, and we will apply our webcam texture to it.
-So first there is an orthographic camera. Perspective is useless in this case, and make computations much more complex :)</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var camera = new THREE.OrthographicCamera(window.innerWidth / -2, window.innerWidth / 2
-</span><span class='line'>     ,  window.innerHeight / 2, window.innerHeight / -2, -100, 100);</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then, there is a <code>THREE.PlaneGeometry</code> mesh
-using full screen for this camera.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var geometry = new THREE.PlaneGeometry( window.innerWidth, window.innerHeight )
-</span><span class='line'>var material  = new THREE.MeshBasicMaterial();
-</span><span class='line'>var mesh  = new THREE.Mesh(geometry, material)
-</span><span class='line'>scene.add(mesh)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then we apply our <code>videoTexture</code> to this material. Thus
-we see the webcam on this plan :)</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>material.map = videoTexture.texture</span></code></pre></td></tr></table></div></figure>
-
-
-<p>So we got our face on full screen, cool for ego i guess :)
-Now let&#8217;s apply some deformation to it!</p>
-
-<h2>Post Processing and Rendering</h2>
-
-<p>Usually to render a scene, we use the following code.
-This is when we render the scene directly on screen.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>renderer.render( scene, camera )</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We will use a post processing chain with <code>THREE.EffectComposer</code>. It process the screen as a 2d texture.
-More specifically, we will use <a href="https://github.com/jeromeetienne/threex.toxicpproc">threex.toxicpproc</a>, a three.js extension which provide post processing of drunk effects. It got 4 presets <em>sober</em>, <em>drunk</em>, <em>high</em> and <em>wasted</em>. There is a nice tweening when you switch between presets so transitions looks smooth.
-Try it yourself in <a href="http://jeromeetienne.github.io/threex.toxicpproc/examples/basic.html">this demo</a>.</p>
-
-<h3>THREEx.ToxicPproc</h3>
-
-<p>So First lets instanciate a <code>THREEx.ToxicPproc.Passes</code>. It will setup the effect composers passes for our effect. We set it to the <code>drunk</code> preset.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var toxicPasses  = new THREEx.ToxicPproc.Passes('drunk')
-</span><span class='line'>// on every render you update it
-</span><span class='line'>onRenderFcts.push(function(delta, now){
-</span><span class='line'>  toxicPasses.update(delta, now)
-</span><span class='line'>})</span></code></pre></td></tr></table></div></figure>
-
-
-<p>If you want to create other presets, it is entirely possible. There is even a <a href="https://code.google.com/p/dat-gui/">Dat.GUI</a> provided for you to tweak buttons until it fits your needs. You see it in <a href="http://jeromeetienne.github.io/threex.toxicpproc/examples/basic.html">the demo</a>.
-You use it like this.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var datGui   = new dat.GUI()
-</span><span class='line'>THREEx.addToxicPasses2DatGui(toxicPasses, datGui)</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>THREE.EffectComposer</h3>
-
-<p>Now that we got the toxicpproc passes, let&#8217;s create the <code>THREE.EffectComposer</code> to run it.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var composer = new THREE.EffectComposer(renderer);</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We render the scene on a texture</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var renderPass   = new THREE.RenderPass( scene, camera );
-</span><span class='line'>composer.addPass( renderPass );</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We send this texture to <code>threex.toxicpproc</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>toxicPasses.addPassesTo(composer)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we just have to tell the composer the last pass is the one to be rendered on screen.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>composer.passes[composer.passes.length -1 ].renderToScreen   = true;</span></code></pre></td></tr></table></div></figure>
-
-
-<p></p>
-
-<h3>Update on each Frame</h3>
-
-<p>We got the rendering to do on each frame. Usually we do</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>renderer.render( scene, camera )</span></code></pre></td></tr></table></div></figure>
-
-
-<p>But here we render thru the effect composer, so we do</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>// render thru composer
-</span><span class='line'>composer.render(delta)</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Conclusion</h2>
-
-<p>Ok so you have learn how to code a demo like
-<a href="https://github.com/jeromeetienne/demo.seenyourselfdrunk">&#8220;Have you seen yourself When you are Drunk ?&#8221;</a>
-Pretty Cool!
-Now you can get more <a href="http://jeromeetienne.github.io/threex/">threex</a> extensions and
-play with it to build your own demos.
-This is All for Today Folks, have fun! :)</p>
 ]]></content>
   </entry>
   
