@@ -7,19 +7,23 @@ categories: [AR, three.js]
 published: false
 ---
 
-This post show how to read your phone camera and make it appears as transparent, aka to act as a see-through.
+This post shows how to read your phone camera and make it appears as 
+transparent, aka to act as a see-through.
 It may seems unrelated to 3d at first but 
 it is extremely useful in augmented reality.
+I know it may seem but this see-throught is the base of Augmented 
+Reality in a phone. 
+This and other AR tech will be the subject of future posts.
+
 It makes your device 'appears as transparent'
 So when the user is looking at her device, she is seeing the reality.
 You just have to display your augmented part on top
 and you got augmented reality. A Picture is Worth a Thousand Words :)
 
-<iframe src="https://vine.co/v/empQIrB7OLO/embed/simple?audio=0" width="600" height="600" frameborder="0" style='text-align:center;'></iframe><script src="https://platform.vine.co/static/scripts/embed.js"></script>
 
 <!-- more -->
 
-<iframe width="420" height="315" src="//www.youtube.com/embed/5nmtV-tX5Ww" frameborder="0" allowfullscreen></iframe>
+<iframe width="420" height="315" src="//www.youtube.com/embed/q7uRkul5prI" frameborder="0" allowfullscreen></iframe>
 
 
 ## How It Is Coded
