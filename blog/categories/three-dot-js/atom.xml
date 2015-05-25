@@ -4,7 +4,7 @@
   <title><![CDATA[Category: three.js | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/three-dot-js/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-05-25T13:22:49+01:00</updated>
+  <updated>2015-05-25T13:36:06+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -31,12 +31,12 @@ So when the user is looking at her device, she is seeing the reality.
 You just have to display your augmented part on top
 and you got augmented reality. A Picture is Worth a Thousand Words :)</p>
 
-<!-- more -->
-
-
-
-
 <iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/q7uRkul5prI" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
 
 
 <h2>How It Is Coded</h2>
