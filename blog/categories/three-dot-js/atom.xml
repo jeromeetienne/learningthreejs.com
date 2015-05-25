@@ -4,7 +4,7 @@
   <title><![CDATA[Category: three.js | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/three-dot-js/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-05-25T21:44:55+01:00</updated>
+  <updated>2015-05-25T21:48:04+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -31,7 +31,7 @@ So when the user is looking at her device, she is seeing the reality.
 You just have to display your augmented part on top
 and you got augmented reality. A Picture is Worth a Thousand Words :)</p>
 
-<p><a href='http://jeromeetienne.github.io/demo.seethroughphone' target='_blank'><input type="button" value='Try Demo Now' /></a> <a href="https://github.com/jeromeetienne/demo.seethroughphone">github repo</a></p>
+<p><a href='http://jeromeetienne.github.io/demo.seethroughphone' target='_blank'><input type="button" value='Try Demo Now' /></a></p>
 
 <iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/q7uRkul5prI" frameborder="0" allowfullscreen></iframe>
 
@@ -79,7 +79,9 @@ So it must be robust to window resize and orientation change.
 
 <h2>Source</h2>
 
-<p>Here is the full source of the effect. Enjoy!</p>
+<p>Here is the full source of the effect.
+It is in a <a href="https://github.com/jeromeetienne/demo.seethroughphone">github repo</a>.
+Enjoy!</p>
 
 <p>```html
 &lt;!DOCTYPE html>
