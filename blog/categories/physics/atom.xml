@@ -4,7 +4,7 @@
   <title><![CDATA[Category: physics | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/physics/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-02-16T11:50:33+01:00</updated>
+  <updated>2015-05-25T13:19:48+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[3D Physics With Three.js and Physijs]]></title>
     <link href="http://learningthreejs.com/blog/2012/06/05/3d-physics-with-three-js-and-physijs/"/>
-    <updated>2012-06-05T12:13:00+02:00</updated>
+    <updated>2012-06-05T12:13:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2012/06/05/3d-physics-with-three-js-and-physijs</id>
     <content type="html"><![CDATA[<p>This is yet another post about physics.
 This one is about
@@ -317,7 +317,7 @@ I will do more on this very soon!</p>
   <entry>
     <title type="html"><![CDATA[Lets Make a 3D Game: microphysics.js, even easier]]></title>
     <link href="http://learningthreejs.com/blog/2011/11/02/lets-make-a-3d-game-helper-for-microphysics-js/"/>
-    <updated>2011-11-02T18:16:00+01:00</updated>
+    <updated>2011-11-02T18:16:00+00:00</updated>
     <id>http://learningthreejs.com/blog/2011/11/02/lets-make-a-3d-game-helper-for-microphysics-js</id>
     <content type="html"><![CDATA[<p>This post is part of the <a href="/blog/categories/tutorial3dgame/">"Lets make a 3D game"</a> series.
 It is a follow up from the previous article on <a href="/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/">microphysics.js</a>.
@@ -449,7 +449,7 @@ That's all for today folks. Have fun :)</p>
   <entry>
     <title type="html"><![CDATA[Lets Make a 3D Game: microphysics.js]]></title>
     <link href="http://learningthreejs.com/blog/2011/10/17/lets-make-a-3d-game-microphysics-js/"/>
-    <updated>2011-10-17T12:36:00+02:00</updated>
+    <updated>2011-10-17T12:36:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2011/10/17/lets-make-a-3d-game-microphysics-js</id>
     <content type="html"><![CDATA[<p>This post is part of the <a href="/blog/categories/tutorial3dgame/">"Lets make a 3D game"</a> series.
 3D and physics simulation always go well together

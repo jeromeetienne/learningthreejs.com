@@ -4,7 +4,7 @@
   <title><![CDATA[Category: animation | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/animation/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-02-16T11:50:33+01:00</updated>
+  <updated>2015-05-25T13:19:48+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Tween.js for Smooth Animation]]></title>
     <link href="http://learningthreejs.com/blog/2011/08/17/tweenjs-for-smooth-animation/"/>
-    <updated>2011-08-17T10:16:00+02:00</updated>
+    <updated>2011-08-17T10:16:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2011/08/17/tweenjs-for-smooth-animation</id>
     <content type="html"><![CDATA[<p>This post presents <a href="https://github.com/sole/tween.js">tween.js</a> and how you can use it to easily smooth your animation.
 <strong>tween.js</strong> is a "super simple, fast and easy to use tweening engine" from <a href="https://github.com/sole">sole</a>.

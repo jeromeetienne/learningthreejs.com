@@ -4,7 +4,7 @@
   <title><![CDATA[Category: postprocessing | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/postprocessing/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-02-16T11:50:33+01:00</updated>
+  <updated>2015-05-25T13:19:48+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Have You Seen YourSelf when You Are Drunk ? - making of a fun WebGL Demo]]></title>
     <link href="http://learningthreejs.com/blog/2014/02/08/have-you-seen-yourself-when-you-are-drunk/"/>
-    <updated>2014-02-08T12:49:00+01:00</updated>
+    <updated>2014-02-08T12:49:00+00:00</updated>
     <id>http://learningthreejs.com/blog/2014/02/08/have-you-seen-yourself-when-you-are-drunk</id>
     <content type="html"><![CDATA[<p>This post is about a demo called <a href="https://github.com/jeromeetienne/demo.seenyourselfdrunk">"Have you seen yourself When you are Drunk ?"</a>. What is it all about ?
 Well have you seen yourself when you are drunk ?</p>

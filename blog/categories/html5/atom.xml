@@ -4,7 +4,7 @@
   <title><![CDATA[Category: html5 | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/html5/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-02-16T11:50:33+01:00</updated>
+  <updated>2015-05-25T13:19:48+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Fun With Live Video in WebGL]]></title>
     <link href="http://learningthreejs.com/blog/2012/02/07/live-video-in-webgl/"/>
-    <updated>2012-02-07T13:41:00+01:00</updated>
+    <updated>2012-02-07T13:41:00+00:00</updated>
     <id>http://learningthreejs.com/blog/2012/02/07/live-video-in-webgl</id>
     <content type="html"><![CDATA[<p>This post is about live video in webgl.
 It is possible in today browsers to read the webcam using a new feature from html5, called WebRTC.
@@ -200,7 +200,7 @@ Let's all for today folks, have fun :)</p>
   <entry>
     <title type="html"><![CDATA[Lets Make a 3D Game: Make It Embedded]]></title>
     <link href="http://learningthreejs.com/blog/2011/11/21/lets-make-a-3d-game-make-it-embedded/"/>
-    <updated>2011-11-21T16:32:00+01:00</updated>
+    <updated>2011-11-21T16:32:00+00:00</updated>
     <id>http://learningthreejs.com/blog/2011/11/21/lets-make-a-3d-game-make-it-embedded</id>
     <content type="html"><![CDATA[<iframe src="http://marblesoccer.com"
     allowfullscreen webkitallowfullscreen mozallowfullscreen
@@ -375,7 +375,7 @@ You are all set! Go embed your game now :)</p>
   <entry>
     <title type="html"><![CDATA[Lets Make a 3D Game: Make It Fullscreen]]></title>
     <link href="http://learningthreejs.com/blog/2011/11/17/lets-make-a-3d-game-make-it-fullscreen/"/>
-    <updated>2011-11-17T07:59:00+01:00</updated>
+    <updated>2011-11-17T07:59:00+00:00</updated>
     <id>http://learningthreejs.com/blog/2011/11/17/lets-make-a-3d-game-make-it-fullscreen</id>
     <content type="html"><![CDATA[<p>This post is part of the <a href="/blog/categories/tutorial3dgame/">"Lets make a 3D game"</a> series.
 It is about the <a href="http://dvcs.w3.org/hg/fullscreen/raw-file/tip/Overview.html">fullscreen API</a>.
@@ -504,7 +504,7 @@ It is usefull when you want to include it in a blog, in facebook or other game p
   <entry>
     <title type="html"><![CDATA[Let's Make a 3D Game: Device Orientation]]></title>
     <link href="http://learningthreejs.com/blog/2011/09/20/lets-make-a-3D-game-device-orientation/"/>
-    <updated>2011-09-20T10:35:00+02:00</updated>
+    <updated>2011-09-20T10:35:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2011/09/20/lets-make-a-3D-game-device-orientation</id>
     <content type="html"><![CDATA[<p>Here is another article of the "Let's Make a 3D Game" <a href="/blog/categories/tutorial3dgame/">series</a>.
 It is about <strong>device orientation</strong>, another input you can use for your games.

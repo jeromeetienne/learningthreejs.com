@@ -4,7 +4,7 @@
   <title><![CDATA[Category: canvas2d | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/canvas2d/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-02-16T11:50:33+01:00</updated>
+  <updated>2015-05-25T13:19:48+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Let’s Make a 3D Game: Supporting Mobile]]></title>
     <link href="http://learningthreejs.com/blog/2011/12/28/let-s-make-a-3d-game-supporting-mobile/"/>
-    <updated>2011-12-28T13:46:00+01:00</updated>
+    <updated>2011-12-28T13:46:00+00:00</updated>
     <id>http://learningthreejs.com/blog/2011/12/28/let-s-make-a-3d-game-supporting-mobile</id>
     <content type="html"><![CDATA[<p>This post is about supporting mobile.
 We will try to port <a href="http://marblesoccer.com">marblesoccer</a> on mobile.

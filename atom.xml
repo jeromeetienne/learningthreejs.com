@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-02-16T11:50:33+01:00</updated>
+  <updated>2015-05-25T13:19:48+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Three.js Online Meeting with JoclyGames]]></title>
     <link href="http://learningthreejs.com/blog/2015/02/16/three-dot-js-online-meeting-with-joclygames/"/>
-    <updated>2015-02-16T11:24:00+01:00</updated>
+    <updated>2015-02-16T11:24:00+00:00</updated>
     <id>http://learningthreejs.com/blog/2015/02/16/three-dot-js-online-meeting-with-joclygames</id>
     <content type="html"><![CDATA[<p>Hello everybody.</p>
 
@@ -41,7 +41,7 @@ They have over 113 web board games with very cool features as you will see.  You
   <entry>
     <title type="html"><![CDATA[One Threex a Day Challenge: Phase 1 Completed!]]></title>
     <link href="http://learningthreejs.com/blog/2014/05/26/one-threex-a-day-challenge-phase-1-completed/"/>
-    <updated>2014-05-26T11:49:00+02:00</updated>
+    <updated>2014-05-26T11:49:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/26/one-threex-a-day-challenge-phase-1-completed</id>
     <content type="html"><![CDATA[<p>Hello everybody!</p>
 
@@ -68,7 +68,7 @@ They have over 113 web board games with very cool features as you will see.  You
   <entry>
     <title type="html"><![CDATA[Personalized and Polished Text for Your Three.js Game With threex.text]]></title>
     <link href="http://learningthreejs.com/blog/2014/05/16/personalized-and-polished-text-for-your-three-dot-js-game-with-threex-dot-text/"/>
-    <updated>2014-05-16T17:55:00+02:00</updated>
+    <updated>2014-05-16T17:55:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/16/personalized-and-polished-text-for-your-three-dot-js-game-with-threex-dot-text</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.text/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.text/master/examples/images/screenshot-threex-text-512x512.jpg" width="250" height="250"></a>
 This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
@@ -157,7 +157,7 @@ for details.</p>
   <entry>
     <title type="html"><![CDATA[Perlin Terrain Procedural Generation For Your Game With threex.terrain]]></title>
     <link href="http://learningthreejs.com/blog/2014/05/15/perlin-terrain-procedural-generation-for-your-game-with-threex-dot-terrain/"/>
-    <updated>2014-05-15T20:21:00+02:00</updated>
+    <updated>2014-05-15T20:21:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/15/perlin-terrain-procedural-generation-for-your-game-with-threex-dot-terrain</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.terrain/examples/planegeometry.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.terrain/master/examples/images/screenshot-threex-terrain-512x512.jpg" width="250" height="250"></a>
 This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
@@ -307,7 +307,7 @@ smoother shading if you want.</p>
   <entry>
     <title type="html"><![CDATA[Procedural Generated Pool Balls For Your Three.js Pool Game with threex.poolball]]></title>
     <link href="http://learningthreejs.com/blog/2014/05/14/procedural-generated-pool-balls-for-your-three-dot-js-pool-game-with-threex-dot-poolball/"/>
-    <updated>2014-05-14T20:21:00+02:00</updated>
+    <updated>2014-05-14T20:21:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/14/procedural-generated-pool-balls-for-your-three-dot-js-pool-game-with-threex-dot-poolball</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.poolball/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.poolball/master/examples/images/screenshot-threex-poolball-512x512.jpg" width="250" height="250"></a>
 This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
@@ -400,7 +400,7 @@ It shows multiple pool balls setup like on a pool table :)</li>
   <entry>
     <title type="html"><![CDATA[Easy Way to Include Transparency In Your Three.js Game with threex.transparency]]></title>
     <link href="http://learningthreejs.com/blog/2014/05/13/easy-way-to-include-transparency-in-your-three-dot-js-game-with-threex-dot-transparency/"/>
-    <updated>2014-05-13T20:21:00+02:00</updated>
+    <updated>2014-05-13T20:21:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/13/easy-way-to-include-transparency-in-your-three-dot-js-game-with-threex-dot-transparency</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.transparency/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.transparency/master/examples/images/screenshot-threex-transparency-512x512.jpg" width="250" height="250"></a>
 This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
@@ -472,7 +472,7 @@ Second you need to update all your objects at every frame.</p>
   <entry>
     <title type="html"><![CDATA[Live Cube Maps Reflections In Your Three.js Game With threex.cubecamera]]></title>
     <link href="http://learningthreejs.com/blog/2014/05/12/live-cube-maps-reflections-in-your-three-dot-js-game-with-threex-dot-cubecamera/"/>
-    <updated>2014-05-12T20:20:00+02:00</updated>
+    <updated>2014-05-12T20:20:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/12/live-cube-maps-reflections-in-your-three-dot-js-game-with-threex-dot-cubecamera</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.cubecamera/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.cubecamera/master/examples/images/screenshot-threex-cubecamera-512x512.jpg" width="250" height="250"></a>
 This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
@@ -580,7 +580,7 @@ We do that like this.</p>
   <entry>
     <title type="html"><![CDATA[Classical Suzanne Monkey From Blender To Get Your Game Started With threex.suzanne]]></title>
     <link href="http://learningthreejs.com/blog/2014/05/09/classical-suzanne-monkey-from-blender-to-get-your-game-started-with-threex-dot-suzanne/"/>
-    <updated>2014-05-09T20:20:00+02:00</updated>
+    <updated>2014-05-09T20:20:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/09/classical-suzanne-monkey-from-blender-to-get-your-game-started-with-threex-dot-suzanne</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.suzanne/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.suzanne/master/examples/images/screenshot-threex-suzanne-512x512.jpg" width="250" height="250"></a>
 This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
@@ -702,7 +702,7 @@ changes made on container, will be reported to the children meshes.</p>
   <entry>
     <title type="html"><![CDATA[Funky Deformation For The Geometry of Your Three.js Game With threex.vertexanimation]]></title>
     <link href="http://learningthreejs.com/blog/2014/05/07/funky-deformation-for-the-geometry-of-your-three-dot-js-game-with-threex-dot-vertexanimation/"/>
-    <updated>2014-05-07T20:20:00+02:00</updated>
+    <updated>2014-05-07T20:20:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/07/funky-deformation-for-the-geometry-of-your-three-dot-js-game-with-threex-dot-vertexanimation</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.vertexanimation/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.vertexanimation/master/examples/images/screenshot-threex-vertexanimation-512x512.jpg" width="250" height="250"></a>
 This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
@@ -785,7 +785,7 @@ It simply add a more shiny example using reflexion and environment map.</li>
   <entry>
     <title type="html"><![CDATA[Three.js Interview: Online 3D Modeling And Rendering With Clara.io]]></title>
     <link href="http://learningthreejs.com/blog/2014/05/07/threejs-interview-online-3d-modeling-and-rendering-with-claraio/"/>
-    <updated>2014-05-07T10:16:00+02:00</updated>
+    <updated>2014-05-07T10:16:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/07/threejs-interview-online-3d-modeling-and-rendering-with-claraio</id>
     <content type="html"><![CDATA[<p><img class="right" src="http://learningthreejs.com/data/2014-05-07-threejs-interview-online-3d-modeling-and-rendering-with-claraio/images/image01.jpg" width="235" height="105"></p>
 
@@ -807,7 +807,7 @@ It simply add a more shiny example using reflexion and environment map.</li>
   <entry>
     <title type="html"><![CDATA[Scary Monster For Your Next FPS Game in Three.js With threex.md2character]]></title>
     <link href="http://learningthreejs.com/blog/2014/05/06/scary-monster-for-your-next-fps-game-in-three-dot-js-with-threex-dot-md2character/"/>
-    <updated>2014-05-06T20:19:00+02:00</updated>
+    <updated>2014-05-06T20:19:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/06/scary-monster-for-your-next-fps-game-in-three-dot-js-with-threex-dot-md2character</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.md2character/examples/select.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.md2character/master/examples/images/screenshot-threex-md2character-512x512.jpg" width="250" height="250"></a>
 This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
@@ -957,7 +957,7 @@ from this <a href="http://threejs.org/examples/webgl_morphtargets_md2.html">webg
   <entry>
     <title type="html"><![CDATA[Simple And Efficient 3 Point Lighting To Get Your Game Started With Threex.basiclighting Game Extension For Three.js]]></title>
     <link href="http://learningthreejs.com/blog/2014/05/05/simple-and-efficient-3-point-lighting-to-get-your-game-started-with-threex-dot-basiclighting-game-extension-for-three-dot-js/"/>
-    <updated>2014-05-05T13:52:00+02:00</updated>
+    <updated>2014-05-05T13:52:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/05/simple-and-efficient-3-point-lighting-to-get-your-game-started-with-threex-dot-basiclighting-game-extension-for-three-dot-js</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.basiclighting/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.basiclighting/master/examples/images/screenshot-threex-basiclighting-512x512.jpg" width="250" height="250"></a>
 This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
@@ -1046,7 +1046,7 @@ It shows a demo of it.</li>
   <entry>
     <title type="html"><![CDATA[Easy to use dynamic texture to write text in your 3d object with threex.dynamictexture game extensions for three.js]]></title>
     <link href="http://learningthreejs.com/blog/2014/05/02/easy-to-use-dynamic-texture-to-write-text-in-your-3d-object-with-threex-dot-dynamictexture-game-extensions-for-three-dot-js/"/>
-    <updated>2014-05-02T13:54:00+02:00</updated>
+    <updated>2014-05-02T13:54:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/02/easy-to-use-dynamic-texture-to-write-text-in-your-3d-object-with-threex-dot-dynamictexture-game-extensions-for-three-dot-js</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.dynamictexture/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.dynamictexture/master/examples/images/screenshot-threex-dynamictexture-512x512.jpg" width="250" height="250"></a>
 This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
@@ -1176,7 +1176,7 @@ to draw a text</p>
   <entry>
     <title type="html"><![CDATA[Easy Way To Integrate Video, or even WebCam, in Your Texture with THREEx.VideoTexture Game Extension for THREE.js]]></title>
     <link href="http://learningthreejs.com/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js/"/>
-    <updated>2014-04-30T13:38:00+02:00</updated>
+    <updated>2014-04-30T13:38:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.videotexture/master/examples/images/screenshot-threex-videotexture-512x512.jpg" width="250" height="250"></a>
 This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
@@ -1354,7 +1354,7 @@ browser, false otherwise.</li>
   <entry>
     <title type="html"><![CDATA[Beautiful Dynamic Laser Beams for Your Space Game with threex.laser Game Extension For Three.js]]></title>
     <link href="http://learningthreejs.com/blog/2014/04/29/beautiful-dynamic-laser-beams-for-your-space-game-with-threex-dot-laser-game-extension-for-three-dot-js/"/>
-    <updated>2014-04-29T13:57:00+02:00</updated>
+    <updated>2014-04-29T13:57:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/04/29/beautiful-dynamic-laser-beams-for-your-space-game-with-threex-dot-laser-game-extension-for-three-dot-js</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.laser/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.laser/master/examples/images/screenshot-threex-laser-512x512.jpg" width="250" height="250"></a>
 This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
@@ -1461,7 +1461,7 @@ It depends on <code>THREEx.LaserBeam</code> so first create it and add it to the
   <entry>
     <title type="html"><![CDATA[Realistic Physics for Your 3D Game with THREEx.Oimo Game Extension For three.js]]></title>
     <link href="http://learningthreejs.com/blog/2014/04/28/realistic-physics-for-your-3d-game-with-threex-dot-oimo/"/>
-    <updated>2014-04-28T17:12:00+02:00</updated>
+    <updated>2014-04-28T17:12:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/04/28/realistic-physics-for-your-3d-game-with-threex-dot-oimo</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.oimo/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.oimo/master/examples/images/screenshot-threex-oimo-512x512.jpg" width="250" height="250"></a>
 This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>. This challenge is to publish every day one game extension for three.js! One per day, every day and that for 2month! In this post, we gonna talk about <a href="http://www.threejsgames.com/extensions/#threex.oimo">threex.oimo</a>.
@@ -1591,7 +1591,7 @@ or
   <entry>
     <title type="html"><![CDATA[Simple and Easy To use Crates Models to Get Your Game Started with THREEx.Crates Game Extension For THREE.js]]></title>
     <link href="http://learningthreejs.com/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js/"/>
-    <updated>2014-04-25T13:44:00+02:00</updated>
+    <updated>2014-04-25T13:44:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/04/25/simple-and-easy-to-use-crates-models-to-get-your-game-started-with-threex-dot-crates-game-extension-for-three-dot-js</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.crates/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.crates/master/examples/images/screenshot-threex-crates-512x512.jpg" width="250" height="250"></a>
 This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
@@ -1677,7 +1677,7 @@ It shows all the balls on a single screen.</li>
   <entry>
     <title type="html"><![CDATA[Crazy Post Processing Color Effects To Change Your Game Ambiance With Threex.coloradjust Game Extension For Three.js]]></title>
     <link href="http://learningthreejs.com/blog/2014/04/24/crazy-post-processing-color-effects-to-change-your-game-ambiance-with-threex-dot-coloradjust-game-extension-for-three-dot-js/"/>
-    <updated>2014-04-24T13:47:00+02:00</updated>
+    <updated>2014-04-24T13:47:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/04/24/crazy-post-processing-color-effects-to-change-your-game-ambiance-with-threex-dot-coloradjust-game-extension-for-three-dot-js</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.coloradjust/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.coloradjust/master/examples/images/screenshot-threex-coloradjust-512x512.jpg" width="250" height="250"></a>
 This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
@@ -1821,7 +1821,7 @@ You can tune the delay like this.</p>
   <entry>
     <title type="html"><![CDATA[One THREEx a Day Gets Your Game On Its Way! A Challenge!]]></title>
     <link href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/"/>
-    <updated>2014-04-22T17:51:00+02:00</updated>
+    <updated>2014-04-22T17:51:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge</id>
     <content type="html"><![CDATA[<p><strong>Update: here is the list of <a href="http://learningthreejs.com/blog/categories/threexaday/">All &#8220;One Threex A Day&#8221; Posts</a></strong></p>
 
@@ -1861,7 +1861,7 @@ Most of the three.js game extensions that I will publish support require.js and 
   <entry>
     <title type="html"><![CDATA[Have You Seen YourSelf when You Are Drunk ? - making of a fun WebGL Demo]]></title>
     <link href="http://learningthreejs.com/blog/2014/02/08/have-you-seen-yourself-when-you-are-drunk/"/>
-    <updated>2014-02-08T12:49:00+01:00</updated>
+    <updated>2014-02-08T12:49:00+00:00</updated>
     <id>http://learningthreejs.com/blog/2014/02/08/have-you-seen-yourself-when-you-are-drunk</id>
     <content type="html"><![CDATA[<p>This post is about a demo called <a href="https://github.com/jeromeetienne/demo.seenyourselfdrunk">&#8220;Have you seen yourself When you are Drunk ?&#8221;</a>. What is it all about ?
 Well have you seen yourself when you are drunk ?</p>

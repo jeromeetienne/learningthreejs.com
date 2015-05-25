@@ -4,7 +4,7 @@
   <title><![CDATA[Category: tquery | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/tquery/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-02-16T11:50:33+01:00</updated>
+  <updated>2015-05-25T13:19:48+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Move a Cube With Your Head or Head-Tracking with WebGL]]></title>
     <link href="http://learningthreejs.com/blog/2013/03/12/move-a-cube-with-your-head/"/>
-    <updated>2013-03-12T13:28:00+01:00</updated>
+    <updated>2013-03-12T13:28:00+00:00</updated>
     <id>http://learningthreejs.com/blog/2013/03/12/move-a-cube-with-your-head</id>
     <content type="html"><![CDATA[<p>This post is about head tracking and how to use it in 3D.
 It is surprisingly easy to do with the suitable libraries.
@@ -264,7 +264,7 @@ For example, one can use it the head as a game controller, or in a artistic expo
   <entry>
     <title type="html"><![CDATA[Minecraft Character in WebGL]]></title>
     <link href="http://learningthreejs.com/blog/2012/07/05/minecraft-character-in-webgl/"/>
-    <updated>2012-07-05T10:22:00+02:00</updated>
+    <updated>2012-07-05T10:22:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2012/07/05/minecraft-character-in-webgl</id>
     <content type="html"><![CDATA[<p>This post is about Minecraft Character.
 We will play with the minecraft character, learn how to do your own and make it move.
@@ -444,7 +444,7 @@ I so love this field and how it make things easier.</p>
   <entry>
     <title type="html"><![CDATA[3D Physics With Three.js and Physijs]]></title>
     <link href="http://learningthreejs.com/blog/2012/06/05/3d-physics-with-three-js-and-physijs/"/>
-    <updated>2012-06-05T12:13:00+02:00</updated>
+    <updated>2012-06-05T12:13:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2012/06/05/3d-physics-with-three-js-and-physijs</id>
     <content type="html"><![CDATA[<p>This is yet another post about physics.
 This one is about
@@ -745,7 +745,7 @@ I will do more on this very soon!</p>
   <entry>
     <title type="html"><![CDATA[Three.js Sport Car on iOS at 40fps]]></title>
     <link href="http://learningthreejs.com/blog/2012/05/29/three-js-sportcar-on-ios/"/>
-    <updated>2012-05-29T13:48:00+02:00</updated>
+    <updated>2012-05-29T13:48:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2012/05/29/three-js-sportcar-on-ios</id>
     <content type="html"><![CDATA[<p>This post is about iOS and three.js.
 It may seem surprising, but <a href="http://en.wikipedia.org/wiki/iOS">iOS</a> supports WebGL since version 4.2.
@@ -844,7 +844,7 @@ Meanwhile you can already play with it, and do minigames with it, thus be ready 
   <entry>
     <title type="html"><![CDATA[Sports Car in WebGL]]></title>
     <link href="http://learningthreejs.com/blog/2012/05/21/sport-car-in-webgl/"/>
-    <updated>2012-05-21T12:16:00+02:00</updated>
+    <updated>2012-05-21T12:16:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2012/05/21/sport-car-in-webgl</id>
     <content type="html"><![CDATA[<p>This post is about sports cars and how cool they can be!
 Once again, we gonna expose gems from three.js examples.

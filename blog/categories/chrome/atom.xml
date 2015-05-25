@@ -4,7 +4,7 @@
   <title><![CDATA[Category: chrome | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/chrome/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-02-16T11:50:33+01:00</updated>
+  <updated>2015-05-25T13:19:48+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Debugging With Chrome's Canvas Inspection]]></title>
     <link href="http://learningthreejs.com/blog/2013/04/05/debugging-with-chromes-canvas-inspection/"/>
-    <updated>2013-04-05T09:15:00+02:00</updated>
+    <updated>2013-04-05T09:15:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2013/04/05/debugging-with-chromes-canvas-inspection</id>
     <content type="html"><![CDATA[<p>This post will present to you how to debug your webgl with  chrome's canvas inspection.
 This is an experimental feature available in chrome devtools.

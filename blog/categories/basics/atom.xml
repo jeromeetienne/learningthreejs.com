@@ -4,7 +4,7 @@
   <title><![CDATA[Category: basics | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/basics/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-02-16T11:50:33+01:00</updated>
+  <updated>2015-05-25T13:19:48+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Screenshot in Javascript]]></title>
     <link href="http://learningthreejs.com/blog/2011/09/03/screenshot-in-javascript/"/>
-    <updated>2011-09-03T10:01:00+02:00</updated>
+    <updated>2011-09-03T10:01:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2011/09/03/screenshot-in-javascript</id>
     <content type="html"><![CDATA[<p>Sometime it would be cool if you could take a screenshot of your demo to share with your friends.
 This post will explain how to do that single a single line.
@@ -107,7 +107,7 @@ For more details, see the <a href="/data/THREEx/docs/THREEx.screenshot.html">ann
   <entry>
     <title type="html"><![CDATA[Lets Do a Sky]]></title>
     <link href="http://learningthreejs.com/blog/2011/08/15/lets-do-a-sky/"/>
-    <updated>2011-08-15T12:26:00+02:00</updated>
+    <updated>2011-08-15T12:26:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2011/08/15/lets-do-a-sky</id>
     <content type="html"><![CDATA[<p>This tutorial is about doing a sky. It makes a nice panorama with a nice immersive effect.
 This is much simpler than people would expect : only 3 steps for a total around 20 lines.

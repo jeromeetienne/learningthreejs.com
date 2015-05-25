@@ -4,7 +4,7 @@
   <title><![CDATA[Category: three.js | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/three-dot-js/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-02-16T11:50:33+01:00</updated>
+  <updated>2015-05-25T13:19:48+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[One Threex a Day Challenge: Phase 1 Completed!]]></title>
     <link href="http://learningthreejs.com/blog/2014/05/26/one-threex-a-day-challenge-phase-1-completed/"/>
-    <updated>2014-05-26T11:49:00+02:00</updated>
+    <updated>2014-05-26T11:49:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/26/one-threex-a-day-challenge-phase-1-completed</id>
     <content type="html"><![CDATA[<p>Hello everybody!</p>
 
@@ -43,7 +43,7 @@
   <entry>
     <title type="html"><![CDATA[Personalized and Polished Text for Your Three.js Game With threex.text]]></title>
     <link href="http://learningthreejs.com/blog/2014/05/16/personalized-and-polished-text-for-your-three-dot-js-game-with-threex-dot-text/"/>
-    <updated>2014-05-16T17:55:00+02:00</updated>
+    <updated>2014-05-16T17:55:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/16/personalized-and-polished-text-for-your-three-dot-js-game-with-threex-dot-text</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.text/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.text/master/examples/images/screenshot-threex-text-512x512.jpg" width="250" height="250"></a>
 This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">'one threex a day' challenge</a>.
@@ -127,7 +127,7 @@ scene.add(mesh)
   <entry>
     <title type="html"><![CDATA[Perlin Terrain Procedural Generation For Your Game With threex.terrain]]></title>
     <link href="http://learningthreejs.com/blog/2014/05/15/perlin-terrain-procedural-generation-for-your-game-with-threex-dot-terrain/"/>
-    <updated>2014-05-15T20:21:00+02:00</updated>
+    <updated>2014-05-15T20:21:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/15/perlin-terrain-procedural-generation-for-your-game-with-threex-dot-terrain</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.terrain/examples/planegeometry.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.terrain/master/examples/images/screenshot-threex-terrain-512x512.jpg" width="250" height="250"></a>
 This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">'one threex a day' challenge</a>.
@@ -256,7 +256,7 @@ document.body.appendChild(canvas)
   <entry>
     <title type="html"><![CDATA[Procedural Generated Pool Balls For Your Three.js Pool Game with threex.poolball]]></title>
     <link href="http://learningthreejs.com/blog/2014/05/14/procedural-generated-pool-balls-for-your-three-dot-js-pool-game-with-threex-dot-poolball/"/>
-    <updated>2014-05-14T20:21:00+02:00</updated>
+    <updated>2014-05-14T20:21:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/14/procedural-generated-pool-balls-for-your-three-dot-js-pool-game-with-threex-dot-poolball</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.poolball/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.poolball/master/examples/images/screenshot-threex-poolball-512x512.jpg" width="250" height="250"></a>
 This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">'one threex a day' challenge</a>.
@@ -345,7 +345,7 @@ scene.add(mesh)
   <entry>
     <title type="html"><![CDATA[Easy Way to Include Transparency In Your Three.js Game with threex.transparency]]></title>
     <link href="http://learningthreejs.com/blog/2014/05/13/easy-way-to-include-transparency-in-your-three-dot-js-game-with-threex-dot-transparency/"/>
-    <updated>2014-05-13T20:21:00+02:00</updated>
+    <updated>2014-05-13T20:21:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2014/05/13/easy-way-to-include-transparency-in-your-three-dot-js-game-with-threex-dot-transparency</id>
     <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.transparency/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.transparency/master/examples/images/screenshot-threex-transparency-512x512.jpg" width="250" height="250"></a>
 This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">'one threex a day' challenge</a>.

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: webrtc | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/webrtc/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-02-16T11:50:33+01:00</updated>
+  <updated>2015-05-25T13:19:48+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Punch A Doom Character in Augmented Reality]]></title>
     <link href="http://learningthreejs.com/blog/2012/05/15/punch-a-doom-character-in-augmented-reality/"/>
-    <updated>2012-05-15T11:59:00+02:00</updated>
+    <updated>2012-05-15T11:59:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2012/05/15/punch-a-doom-character-in-augmented-reality</id>
     <content type="html"><![CDATA[<p>Did you ever dreamed of punching a doom character ? They look evil and killed
 you so many time while you were playing the game. It is revenge time! This
@@ -305,7 +305,7 @@ so short.</p>
   <entry>
     <title type="html"><![CDATA[Augmented Reality 3D Pong]]></title>
     <link href="http://learningthreejs.com/blog/2012/05/02/augmented-reality-3d-pong/"/>
-    <updated>2012-05-02T13:38:00+02:00</updated>
+    <updated>2012-05-02T13:38:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2012/05/02/augmented-reality-3d-pong</id>
     <content type="html"><![CDATA[<p>This post presents a livecoding screencast of <strong>Augmented Reality 3D Pong</strong>.
 This is an experiment to use <a href="https://github.com/jeromeetienne/augmentedgesture.js">augmented gestures</a>
@@ -383,7 +383,7 @@ Anyway publishing it in "publish early, publish often" mood :)</p>
   <entry>
     <title type="html"><![CDATA[Video Conference on Top of WebGL]]></title>
     <link href="http://learningthreejs.com/blog/2012/04/12/video-conference-on-top-of-webgl/"/>
-    <updated>2012-04-12T13:20:00+02:00</updated>
+    <updated>2012-04-12T13:20:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2012/04/12/video-conference-on-top-of-webgl</id>
     <content type="html"><![CDATA[<p>This post presents
 <a href="http://webglmeeting.appspot.com">WebGL Meeting</a>,
@@ -486,7 +486,7 @@ cheap to integrate live video conferences to your own sites.</p>
   <entry>
     <title type="html"><![CDATA[Fun With Live Video in WebGL]]></title>
     <link href="http://learningthreejs.com/blog/2012/02/07/live-video-in-webgl/"/>
-    <updated>2012-02-07T13:41:00+01:00</updated>
+    <updated>2012-02-07T13:41:00+00:00</updated>
     <id>http://learningthreejs.com/blog/2012/02/07/live-video-in-webgl</id>
     <content type="html"><![CDATA[<p>This post is about live video in webgl.
 It is possible in today browsers to read the webcam using a new feature from html5, called WebRTC.

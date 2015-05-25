@@ -4,7 +4,7 @@
   <title><![CDATA[Category: webaudio | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/webaudio/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-02-16T11:50:33+01:00</updated>
+  <updated>2015-05-25T13:19:48+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Sound Visualisation: a Vuemeter in WebGL]]></title>
     <link href="http://learningthreejs.com/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl/"/>
-    <updated>2012-05-08T10:32:00+02:00</updated>
+    <updated>2012-05-08T10:32:00+01:00</updated>
     <id>http://learningthreejs.com/blog/2012/05/08/sound-visualisation-vuemeter-in-webgl</id>
     <content type="html"><![CDATA[<p>This post is about producing a 3D Vuemeter for real time sound.
 We gonna walk thru the code of a

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: library | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/library/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-02-16T11:50:33+01:00</updated>
+  <updated>2015-05-25T13:19:48+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Boilerplate Builder for Three.js]]></title>
     <link href="http://learningthreejs.com/blog/2012/01/19/boilerplate-builder-for-three-js/"/>
-    <updated>2012-01-19T10:59:00+01:00</updated>
+    <updated>2012-01-19T10:59:00+00:00</updated>
     <id>http://learningthreejs.com/blog/2012/01/19/boilerplate-builder-for-three-js</id>
     <content type="html"><![CDATA[<p>We recently introduced a
 <a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>
@@ -167,7 +167,7 @@ Have fun.</p>
   <entry>
     <title type="html"><![CDATA[Let’s Make a 3D Game: Virtual Joystick]]></title>
     <link href="http://learningthreejs.com/blog/2011/12/26/let-s-make-a-3d-game-virtual-joystick/"/>
-    <updated>2011-12-26T12:21:00+01:00</updated>
+    <updated>2011-12-26T12:21:00+00:00</updated>
     <id>http://learningthreejs.com/blog/2011/12/26/let-s-make-a-3d-game-virtual-joystick</id>
     <content type="html"><![CDATA[<p>Here is another article of the "Let's Make a 3D Game"
 <a href="/blog/categories/tutorial3dgame/">series</a>.
@@ -278,7 +278,7 @@ That's all folks, have fun.</p>
   <entry>
     <title type="html"><![CDATA[Boilerplate for Three.js]]></title>
     <link href="http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/"/>
-    <updated>2011-12-20T19:09:00+01:00</updated>
+    <updated>2011-12-20T19:09:00+00:00</updated>
     <id>http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js</id>
     <content type="html"><![CDATA[<p>This post presents
 <a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>.
@@ -434,7 +434,7 @@ That's all folks, have fun :)</p>
   <entry>
     <title type="html"><![CDATA[Particles: Online Editor for Sparks.js]]></title>
     <link href="http://learningthreejs.com/blog/2011/12/19/particles-online-editor-for-sparks-js/"/>
-    <updated>2011-12-19T12:11:00+01:00</updated>
+    <updated>2011-12-19T12:11:00+00:00</updated>
     <id>http://learningthreejs.com/blog/2011/12/19/particles-online-editor-for-sparks-js</id>
     <content type="html"><![CDATA[<p>This post is the second of our <a href="/blog/categories/particles">serie on particles</a>.
 It presents
@@ -538,7 +538,7 @@ That's all folks, have fun :)</p>
   <entry>
     <title type="html"><![CDATA[Particles: Introduction to Sparks.js]]></title>
     <link href="http://learningthreejs.com/blog/2011/12/14/particles-introduction-to-sparks-js/"/>
-    <updated>2011-12-14T12:08:00+01:00</updated>
+    <updated>2011-12-14T12:08:00+00:00</updated>
     <id>http://learningthreejs.com/blog/2011/12/14/particles-introduction-to-sparks-js</id>
     <content type="html"><![CDATA[<p>This post is the first of a <a href="/blog/categories/particles">serie on particles</a>.
 It specifically is about

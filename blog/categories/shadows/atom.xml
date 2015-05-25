@@ -4,7 +4,7 @@
   <title><![CDATA[Category: shadows | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/shadows/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-02-16T11:50:33+01:00</updated>
+  <updated>2015-05-25T13:19:48+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Casting Shadows]]></title>
     <link href="http://learningthreejs.com/blog/2012/01/20/casting-shadows/"/>
-    <updated>2012-01-20T14:44:00+01:00</updated>
+    <updated>2012-01-20T14:44:00+00:00</updated>
     <id>http://learningthreejs.com/blog/2012/01/20/casting-shadows</id>
     <content type="html"><![CDATA[<p>This post is about
 <a href="http://en.wikipedia.org/wiki/Shadow_mapping">shadow casting</a>,
