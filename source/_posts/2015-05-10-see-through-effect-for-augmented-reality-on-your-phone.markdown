@@ -4,15 +4,15 @@ title: "See-through Effect for Augmented Reality On Your Phone"
 date: 2015-05-10 19:25
 comments: true
 categories: [AR, three.js]
-published: false
+published: true
 ---
 
 This post shows how to read your phone camera and make it appears as 
 transparent, aka to act as a see-through.
 It may seems unrelated to 3d at first but 
 it is extremely useful in augmented reality.
-I know it may seem but this see-throught is the base of Augmented 
-Reality in a phone. 
+I know it may seem silly :) 
+But this see-throught is the base of Augmented Reality in a phone. 
 This and other AR tech will be the subject of future posts.
 
 It makes your device 'appears as transparent'
@@ -20,11 +20,12 @@ So when the user is looking at her device, she is seeing the reality.
 You just have to display your augmented part on top
 and you got augmented reality. A Picture is Worth a Thousand Words :)
 
-
-<!-- more -->
+<a href='http://jeromeetienne.github.io/demo.seethroughphone' target='_blank'><input type="button" value='Try Demo Now' /></a> 
 
 <iframe width="420" height="315" src="//www.youtube.com/embed/q7uRkul5prI" frameborder="0" allowfullscreen></iframe>
 
+
+<!-- more -->
 
 ## How It Is Coded
 Webcams are great for interactivity. 
@@ -66,7 +67,9 @@ So it must be robust to window resize and orientation change.
 
 ## Source
 
-Here is the full source of the effect. Enjoy!
+Here is the full source of the effect.
+It is in a [github repo](https://github.com/jeromeetienne/demo.seethroughphone).
+Enjoy!
   
   
 ```html
