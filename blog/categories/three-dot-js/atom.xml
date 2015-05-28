@@ -4,7 +4,7 @@
   <title><![CDATA[Category: three.js | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/three-dot-js/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-05-28T13:22:36+01:00</updated>
+  <updated>2015-05-28T13:24:13+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,71 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[LearningThree.js News: Stay Tuned with Creative 3D Demos]]></title>
+    <link href="http://learningthreejs.com/blog/2015/05/27/learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/"/>
+    <updated>2015-05-27T15:53:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/05/27/learningthree-dot-js-news-stay-tuned-with-creative-3d-demos</id>
+    <content type="html"><![CDATA[<p>This post is about Three.js News, a fun and brief newsletter about demos in three.js. The idea is to present the new and interesting 3D creations on the web. Our goal is to keep the audience up to date and tuned with Three.js most recent developments. We will upload videos and collect information of the latest demos. Let's take a look at this episode</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/DgPv6IIVDFQ" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<p>In this second edition of Three.js news we have collected very creative and funky demos. Some of them  were developed for both desktop and mobile phones. Some are games, some are just pure fun. Using the latest technologies, they are all a clear example of what's possible to do with web 3D today.</p>
+
+<h2>Inconvergent Waves</h2>
+
+<p><img src="/data/2015-05-27-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/inconvergent_waves.png" alt="screen shot 2015-05-26 at 10 42 57" />
+<a href="http://inconvergent.net/waves/">Inconvergent waves</a> is a nicely done demo by <a href="https://twitter.com/inconvergent">Anders Hoff</a>. You can create waves by moving your mouse around. It's like making ripples on the water. This technique is actually used as a method for generating landscapes. It's very reactive and the movements are smooth and natural. Visit the inconvergent <a href="http://inconvergent.net/">website</a> to check out the developing process.</p>
+
+<h2>Interactive WebGL globes</h2>
+
+<p><img src="/data/2015-05-27-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/interactive_webgl_globe.png" alt="screen shot 2015-05-26 at 10 57 30" />
+<a href="http://projects.delimited.io/webgl-globes/example_4_interactive_globe.html">Interactive WebGL</a> globes is a great way to improve your geography skills! This very educational and fun demo is a creation of <a href="https://twitter.com/delimitedtech">Steve Hall</a>. You mouseover the countries that you want and turn around by clicking on the interactive globe. Don't hesitate to read Steve's <a href="http://www.delimited.io/blog/2015/5/16/interactive-webgl-globes-with-threejs-and-d3">blogpost</a> to know more about his implementation of D3 and Three.js.</p>
+
+<h2>Spiral Circle</h2>
+
+<p><img src="/data/2015-05-27-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/spiral_circle.png" alt="screen shot 2015-05-26 at 10 58 52" /></p>
+
+<p><a href="http://projects.delimited.io/subunit/demos/spiral-circle-v2.html">Spiral Circle</a> is another cool demo created by Steve Hall. It is based on <a href="http://bl.ocks.org/mbostock">mbostock’s</a> <a href="http://bl.ocks.org/mbostock/2472e84f78fd03df443f">example</a>. It is extremely hypnotic and it has kind of a disturbing texture, like the skin of a snake monster or something. You can pan to the left to divide the circle in two. Be careful, it's alive!</p>
+
+<h2>Hatsune Miku</h2>
+
+<p><img src="/data/2015-05-27-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/hatsune_miku_threejs.png" alt="screen shot 2015-05-26 at 11 00 53" /></p>
+
+<p><a href="http://en.wikipedia.org/wiki/Hatsune_Miku">Hatsune Miku</a> is a Three.js example <a href="http://takahirox.github.io/three.js/examples/webgl_loader_mmd.html">demo</a> done by <a href="https://twitter.com/superhoge">takahiro</a>. It's a very fun demo even if takahiro is still working on improving it. This very cute blue hair girl is Japan's sweetheart. She dances in holograms and does <a href="https://www.youtube.com/watch?v=YSyWtESoeOc">live concerts</a>...yeah i'm not kidding! We are even trying to bring her to life in <a href="https://twitter.com/LearningThreejs/status/600740523574439937">AR</a>.</p>
+
+<h2>Race Against Oblivion</h2>
+
+<p><img src="/data/2015-05-27-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/race_against_oblivion.png" alt="screen shot 2015-05-26 at 10 59 58" /></p>
+
+<p>Race against oblivion or <a href="http://www.timeshift165.com/game">Timeshift</a> is an  original game made by <a href="http://www.ultranoir.com/en/#!/home/">Utranoir</a>. Inspired on the story of a unique French car : The Delahaye 165, you have to race against time to save this one of a kind automobile. The presentation of the game is outstanding, it has great design, background and effects. Bonus, it can be played on both desktop and mobile!</p>
+
+<h2>A Particle Dream</h2>
+
+<p><img src="/data/2015-05-27-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/a_particle_dream.png" alt="screen shot 2015-05-26 at 11 03 05" />
+A Particle dream is a <a href="https://www.chromeexperiments.com/experiment/particle-dream">demo</a> created by <a href="http://www.iamnop.com/">Nop Jiarathanakul</a>. It is one of the latest Chrome experiments. It is a wonderful simulation of particles moving smoothly around. You can choose the shape you want the particles to morph into. The music and the ambiance mix together for a very relaxing result. Oh and you can actually use <a href="https://www.leapmotion.com/">Leap Motion</a> in this demo.</p>
+
+<h2>Our Galactic Neighbourhood</h2>
+
+<p><img src="/data/2015-05-27-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/our_galactic_neighborhood.png" alt="screen shot 2015-05-26 at 11 02 06" /></p>
+
+<p><a href="http://charliehoey.com/threejs-demos/our-galactic-neighborhood.html">Our Galactic Neighbourhood</a>
+is another very educational demo. Developed by creative coder <a href="http://charliehoey.com/">Charlie Hoey</a> this demo is a simulation of the charted stars in our Galaxy. You are able to explore the stars travelling both in space and time. Have you ever wondered how the stars are like lightyears away from Earth? Or how will they be thousands of years from now? This demo is your interstellar adventure.</p>
+
+<h2>Conclusion</h2>
+
+<p>In this blogpost we reviewed some 3D demos for Three.js News. They are all very diverse. We saw games, educational projects, simulations and funky characters. What they all have in common is their creativity and the use of 3D technology on the web. Some even go further and incorporate fun control sensor like the Leap Motion device. Have fun checking out all these demos. I hope you enjoy them as much as we did.</p>
+
+<p>Stay tuned for more Three.js News and see you next time.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[See-through Effect for Augmented Reality On Your Phone]]></title>
@@ -425,95 +490,6 @@ var y   = THREEx.Terrain.heightMapToHeight(heightMap, x, z)
 var canvas  = THREEx.Terrain.heightMapToCanvas(heightMap)
 document.body.appendChild(canvas)
 </code></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Procedural Generated Pool Balls For Your Three.js Pool Game with threex.poolball]]></title>
-    <link href="http://learningthreejs.com/blog/2014/05/14/procedural-generated-pool-balls-for-your-three-dot-js-pool-game-with-threex-dot-poolball/"/>
-    <updated>2014-05-14T20:21:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2014/05/14/procedural-generated-pool-balls-for-your-three-dot-js-pool-game-with-threex-dot-poolball</id>
-    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.poolball/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.poolball/master/examples/images/screenshot-threex-poolball-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">'one threex a day' challenge</a>.
-This challenge is to publish every day one game extension for three.js!
-One per day, every day and that for 2month!
-In this post, we gonna talk about
-<a href="http://www.threejsgames.com/extensions/#threex.poolball">threex.poolball</a>.
-threex.poolball is a <a href="http://www.threejsgames.com/extensions/">three.js games extension</a> which helps you build pool balls. It provides dynamically generated models of pool balls, so no model download needed. It may be fun to play with when you start with three.js, funnier than a plain sphere for sure :) You can use it for your bar games, having  your characters bet when playing pool, or even your <a href="http://jeromeetienne.github.io/marbleTable/">Marble Table</a> games, as I did, adding cool granular sounds when the balls roll.</p>
-
-<p><a href='http://jeromeetienne.github.io/threex.poolball/examples/demo.html' target='_blank'><input type="button" value='Try Threex.poolball Demo Now' /></a></p>
-
-<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
-<strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
-
-<!-- more -->
-
-
-
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/u_hjrVazLYo" frameborder="0" allowfullscreen></iframe>
-
-
-<h1>Show Don't Tell</h1>
-
-<ul>
-<li><a href="http://jeromeetienne.github.io/threex.poolball/examples/basic.html">examples/basic.html</a>
-[<a href="https://github.com/jeromeetienne/threex.poolball/blob/master/examples/basic.html">view source</a>] :
-It shows a basic usage of this extension</li>
-<li><a href="http://jeromeetienne.github.io/threex.poolball/examples/demo.html">examples/demo.html</a>
-[<a href="https://github.com/jeromeetienne/threex.poolball/blob/master/examples/demo.html">view source</a>] :
-It shows multiple pool balls setup like on a pool table :)</li>
-</ul>
-
-
-<h1>How To Install It</h1>
-
-<p>You can install it via script tag</p>
-
-<p>```html</p>
-
-<script src='threex.poolball.js'></script>
-
-
-<p>```</p>
-
-<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
-
-<p><code>bash
-bower install threex.poolball
-</code></p>
-
-<h1>How To Use It</h1>
-
-<p>Here is the default usages</p>
-
-<p><code>
-var mesh    = THREEx.createPoolBall();
-scene.add(mesh)
-</code></p>
-
-<p>this is with custom arguments</p>
-
-<p>```
-var mesh    = THREEx.createPoolBall({</p>
-
-<pre><code>ballDesc    : '0',  // the text which gonna be written on the ball
-stripped    : true, // true if the ball must be stripped, false otherwise
-textureW    : 512   // the width/height of the created texture for this ball
-</code></pre>
-
-<p>});
-scene.add(mesh)
-```</p>
-
-<p>Some ball description are already done.</p>
-
-<ul>
-<li><code>cue</code> will return an unstripped white ball</li>
-<li><code>black</code> will return an unstripped black ball</li>
-<li><code>1</code> to <code>9</code> will assign the official colors for <a href="http://en.wikipedia.org/wiki/Nine-ball">nine-ball</a> pool</li>
-</ul>
-
 ]]></content>
   </entry>
   
