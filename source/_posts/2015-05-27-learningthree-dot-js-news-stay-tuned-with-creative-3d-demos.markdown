@@ -3,8 +3,8 @@ layout: post
 title: "LearningThree.js News: Stay Tuned with Creative 3D Demos"
 date: 2015-05-27 15:53
 comments: true
-categories: [news]
-published: false
+categories: [three.js, news]
+published: true
 ---
 
 This post is about Three.js News, a fun and brief newsletter about demos in three.js. The idea is to present the new and interesting 3D creations on the web. Our goal is to keep the audience up to date and tuned with Three.js most recent developments. We will upload videos and collect information of the latest demos. Let's take a look at this episode
