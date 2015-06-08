@@ -4,7 +4,7 @@
   <title><![CDATA[Category: news | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/news/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-05-28T13:24:13+01:00</updated>
+  <updated>2015-06-08T13:12:53+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,81 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[LearningThree.js News #3: Stay Tuned with Creative 3D Demos]]></title>
+    <link href="http://learningthreejs.com/blog/2015/06/05/learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/"/>
+    <updated>2015-06-05T15:47:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/06/05/learningthree-dot-js-news-stay-tuned-with-creative-3d-demos</id>
+    <content type="html"><![CDATA[<p>This post presents another edition of Three.js News. In this episode we have gathered some wonderful demos, web documentaries and very artistic experiences. They have all different genres but each of them show a wide range of skills.</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/cC5e8kONBzo" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<p>It is inspiring to see how many great demos are out there in the 3D world. I wish I could make them fit all in one episode. But it's okay, I'll do my best to keep up with your creative minds.</p>
+
+<h3>Nightmarish Tentacles</h3>
+
+<p><img src="/data/2015-06-05-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/screenshots/nightmarish_tentacles.png" alt="screen shot 2015-06-05 at 11 34 41" /></p>
+
+<p>This is <a href="http://grgrdvrt.com/miam/sweet_dream/">demo</a> is so cool. It was created by the imagination of <a href="https://twitter.com/grgrdvrt">Gregoire Divaret</a> and it is fantastically twisted. It is perfect for a Halloween night! You can see the tentacles moving like snakes entwined with each other. Zoom in very close in full screen for a great fright.</p>
+
+<h3>Generative Tree</h3>
+
+<p><img src="/data/2015-06-05-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/screenshots/generative_tree.png" alt="screen shot 2015-06-05 at 11 36 03" /></p>
+
+<p>This is another <a href="http://grgrdvrt.com/miam/treee/">demo</a> developed by Gregoire Divaret. The tree grows from the beginning and expands into shape. It is beautifully designed and it has a really nice lighting. You can turn around and see it from different angles.  Be sure to check out Gregoire's <a href="http://grgrdvrt.com/">website</a> for all his cool experiences with WebGL</p>
+
+<h3>The Fallen of WWII</h3>
+
+<p><img src="/data/2015-06-05-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/screenshots/the_fallen_wwii.png" alt="screen shot 2015-06-05 at 11 38 55" /></p>
+
+<p>The Fallen of WWII or <a href="http://www.fallen.io/ww2/#">fallen.io</a> is a data drive documentary about war and peace. Directed and coded by <a href="https://twitter.com/neilhalloran">Neil Halloran</a> it examines the human cost of the second World War. It can be watched on video through mobile, Apple TV and Chromecast. You can also watch the interactive version which allows you to pause at key moments in the video to interact with charts and numbers. This touching project is a way to remember and never forget the devastating consequences of war.</p>
+
+<h3>Gugelmann Galaxy</h3>
+
+<p><img src="/data/2015-06-05-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/screenshots/gugelmann_galaxy.png" alt="screen shot 2015-06-05 at 11 40 57" /></p>
+
+<p><a href="http://www.mathiasbernhard.ch/gugelmann/">Gugelmann Galaxy</a> is a very artistic experience created by <a href="https://twitter.com/w0rb1t">Matthias Bernhard</a>. This awesome demo is a great way to explore the image galaxy live in the browser with three.js. It is very educational, you can arrange the paintings by color, technique or description. Bonus points since it also has a Google cardboard version. Don't forget to check out the <a href="http://www.mathiasbernhard.ch/gugelmann-galaxy/">blogpost</a> to see how it was developed.</p>
+
+<h3>Procedural Star</h3>
+
+<p><img src="/data/2015-06-05-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/screenshots/procedural_star.png" alt="screen shot 2015-06-05 at 11 42 46" /></p>
+
+<p>Procedural Star is an excellent <a href="http://bruno-simon.com/lab/procedural-star/">demo</a> with great colors and effects. It was designed by <a href="https://twitter.com/bruno_simon">Bruno Simon</a>. The star is great for any space game, you can turn it around, zooming in and out and see the smooth movements it has. You can also change the parameters to customise it as much as you like. Bruno's <a href="http://bruno-simon.com/">website</a> is filled with other amazing projects he has worked on.</p>
+
+<h3>Enough</h3>
+
+<p><img src="/data/2015-06-05-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/screenshots/enough.png" alt="screen shot 2015-06-05 at 11 43 35" /></p>
+
+<p><a href="https://vimeo.com/129003739">Enough</a> is an interactive picture book created by Isaac Cohen or <a href="https://twitter.com/cabbibo">Cabbibo</a>. It is a beautifully artistic and immersive adventure into a world of dreams. It makes the technology appear as if it were alive. It is wonderfully designed and it has a oneiric sense to it. In Cabbibo's <a href="http://cabbi.bo/">website</a> you can see all his other creations and be amazed by his skill.</p>
+
+<h3>Experiment for Google IO 2015</h3>
+
+<p><img src="/data/2015-06-05-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/screenshots/experiment_google_io.png" alt="screen shot 2015-06-05 at 11 46 03" /></p>
+
+<p>This is a very fun and playful <a href="http://www.clicktorelease.com/code/io15/">demo</a> coded by <a href="https://twitter.com/thespite">Jaume Sanchez</a> for the latest Google IO. You play with the Is and the O by clicking on them. They react, with very good physics, by jumping around. There is also an option to change the camera and look at it from different angles.</p>
+
+<h3>Pregoneros de Medellin</h3>
+
+<p><img src="/data/2015-06-05-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/screenshots/pregoneros_de_medellin.png" alt="screen shot 2015-06-05 at 11 47 45" /></p>
+
+<p><a href="http://www.pregonerosdemedellin.com/#en">Pregoneros de Medellin</a> is a breathtaking and very interactive street walk experience developed by <a href="https://twitter.com/tibbb">Thibault Durand</a> and his talented team. It was created using a GoPro and Javascript. You can read the <a href="https://medium.com/@tibbb/how-we-created-an-immersive-street-walk-experience-with-a-gopro-and-javascript-f442cf8aa2dd">post</a> on how it was produced. In this web documentary you walk around Medellin city in Colombia and listen to the street-vendors cries, which are very traditional in the cultural Colombian landscape. You can click on each vendor to watch a video of his typical day to day life. I just loved it!</p>
+
+<h3>Conclusion</h3>
+
+<p>In this blogpost we talked about some wonderful demos and very artistic projects. We were very impressed by the rich experiences that lead to web documentaries and interesting publications. All these demos are very interactive and show the amazing things we can do with 3D on the web.</p>
+
+<p>We also want to thank our readers. We love it when developers out there send us their stuff, new and creative demos that we can share.</p>
+
+<p>Stay tuned for more Three.js news. See you next time.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[LearningThree.js News: Stay Tuned with Creative 3D Demos]]></title>

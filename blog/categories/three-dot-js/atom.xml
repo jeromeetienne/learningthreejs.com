@@ -4,7 +4,7 @@
   <title><![CDATA[Category: three.js | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/three-dot-js/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-05-28T13:24:13+01:00</updated>
+  <updated>2015-06-08T13:12:53+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,81 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[LearningThree.js News #3: Stay Tuned with Creative 3D Demos]]></title>
+    <link href="http://learningthreejs.com/blog/2015/06/05/learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/"/>
+    <updated>2015-06-05T15:47:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/06/05/learningthree-dot-js-news-stay-tuned-with-creative-3d-demos</id>
+    <content type="html"><![CDATA[<p>This post presents another edition of Three.js News. In this episode we have gathered some wonderful demos, web documentaries and very artistic experiences. They have all different genres but each of them show a wide range of skills.</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/cC5e8kONBzo" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<p>It is inspiring to see how many great demos are out there in the 3D world. I wish I could make them fit all in one episode. But it's okay, I'll do my best to keep up with your creative minds.</p>
+
+<h3>Nightmarish Tentacles</h3>
+
+<p><img src="/data/2015-06-05-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/screenshots/nightmarish_tentacles.png" alt="screen shot 2015-06-05 at 11 34 41" /></p>
+
+<p>This is <a href="http://grgrdvrt.com/miam/sweet_dream/">demo</a> is so cool. It was created by the imagination of <a href="https://twitter.com/grgrdvrt">Gregoire Divaret</a> and it is fantastically twisted. It is perfect for a Halloween night! You can see the tentacles moving like snakes entwined with each other. Zoom in very close in full screen for a great fright.</p>
+
+<h3>Generative Tree</h3>
+
+<p><img src="/data/2015-06-05-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/screenshots/generative_tree.png" alt="screen shot 2015-06-05 at 11 36 03" /></p>
+
+<p>This is another <a href="http://grgrdvrt.com/miam/treee/">demo</a> developed by Gregoire Divaret. The tree grows from the beginning and expands into shape. It is beautifully designed and it has a really nice lighting. You can turn around and see it from different angles.  Be sure to check out Gregoire's <a href="http://grgrdvrt.com/">website</a> for all his cool experiences with WebGL</p>
+
+<h3>The Fallen of WWII</h3>
+
+<p><img src="/data/2015-06-05-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/screenshots/the_fallen_wwii.png" alt="screen shot 2015-06-05 at 11 38 55" /></p>
+
+<p>The Fallen of WWII or <a href="http://www.fallen.io/ww2/#">fallen.io</a> is a data drive documentary about war and peace. Directed and coded by <a href="https://twitter.com/neilhalloran">Neil Halloran</a> it examines the human cost of the second World War. It can be watched on video through mobile, Apple TV and Chromecast. You can also watch the interactive version which allows you to pause at key moments in the video to interact with charts and numbers. This touching project is a way to remember and never forget the devastating consequences of war.</p>
+
+<h3>Gugelmann Galaxy</h3>
+
+<p><img src="/data/2015-06-05-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/screenshots/gugelmann_galaxy.png" alt="screen shot 2015-06-05 at 11 40 57" /></p>
+
+<p><a href="http://www.mathiasbernhard.ch/gugelmann/">Gugelmann Galaxy</a> is a very artistic experience created by <a href="https://twitter.com/w0rb1t">Matthias Bernhard</a>. This awesome demo is a great way to explore the image galaxy live in the browser with three.js. It is very educational, you can arrange the paintings by color, technique or description. Bonus points since it also has a Google cardboard version. Don't forget to check out the <a href="http://www.mathiasbernhard.ch/gugelmann-galaxy/">blogpost</a> to see how it was developed.</p>
+
+<h3>Procedural Star</h3>
+
+<p><img src="/data/2015-06-05-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/screenshots/procedural_star.png" alt="screen shot 2015-06-05 at 11 42 46" /></p>
+
+<p>Procedural Star is an excellent <a href="http://bruno-simon.com/lab/procedural-star/">demo</a> with great colors and effects. It was designed by <a href="https://twitter.com/bruno_simon">Bruno Simon</a>. The star is great for any space game, you can turn it around, zooming in and out and see the smooth movements it has. You can also change the parameters to customise it as much as you like. Bruno's <a href="http://bruno-simon.com/">website</a> is filled with other amazing projects he has worked on.</p>
+
+<h3>Enough</h3>
+
+<p><img src="/data/2015-06-05-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/screenshots/enough.png" alt="screen shot 2015-06-05 at 11 43 35" /></p>
+
+<p><a href="https://vimeo.com/129003739">Enough</a> is an interactive picture book created by Isaac Cohen or <a href="https://twitter.com/cabbibo">Cabbibo</a>. It is a beautifully artistic and immersive adventure into a world of dreams. It makes the technology appear as if it were alive. It is wonderfully designed and it has a oneiric sense to it. In Cabbibo's <a href="http://cabbi.bo/">website</a> you can see all his other creations and be amazed by his skill.</p>
+
+<h3>Experiment for Google IO 2015</h3>
+
+<p><img src="/data/2015-06-05-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/screenshots/experiment_google_io.png" alt="screen shot 2015-06-05 at 11 46 03" /></p>
+
+<p>This is a very fun and playful <a href="http://www.clicktorelease.com/code/io15/">demo</a> coded by <a href="https://twitter.com/thespite">Jaume Sanchez</a> for the latest Google IO. You play with the Is and the O by clicking on them. They react, with very good physics, by jumping around. There is also an option to change the camera and look at it from different angles.</p>
+
+<h3>Pregoneros de Medellin</h3>
+
+<p><img src="/data/2015-06-05-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/screenshots/pregoneros_de_medellin.png" alt="screen shot 2015-06-05 at 11 47 45" /></p>
+
+<p><a href="http://www.pregonerosdemedellin.com/#en">Pregoneros de Medellin</a> is a breathtaking and very interactive street walk experience developed by <a href="https://twitter.com/tibbb">Thibault Durand</a> and his talented team. It was created using a GoPro and Javascript. You can read the <a href="https://medium.com/@tibbb/how-we-created-an-immersive-street-walk-experience-with-a-gopro-and-javascript-f442cf8aa2dd">post</a> on how it was produced. In this web documentary you walk around Medellin city in Colombia and listen to the street-vendors cries, which are very traditional in the cultural Colombian landscape. You can click on each vendor to watch a video of his typical day to day life. I just loved it!</p>
+
+<h3>Conclusion</h3>
+
+<p>In this blogpost we talked about some wonderful demos and very artistic projects. We were very impressed by the rich experiences that lead to web documentaries and interesting publications. All these demos are very interactive and show the amazing things we can do with 3D on the web.</p>
+
+<p>We also want to thank our readers. We love it when developers out there send us their stuff, new and creative demos that we can share.</p>
+
+<p>Stay tuned for more Three.js news. See you next time.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[LearningThree.js News: Stay Tuned with Creative 3D Demos]]></title>
@@ -361,135 +436,6 @@ height      : 0.4,
 <p>})
 scene.add(mesh)
 ```</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Perlin Terrain Procedural Generation For Your Game With threex.terrain]]></title>
-    <link href="http://learningthreejs.com/blog/2014/05/15/perlin-terrain-procedural-generation-for-your-game-with-threex-dot-terrain/"/>
-    <updated>2014-05-15T20:21:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2014/05/15/perlin-terrain-procedural-generation-for-your-game-with-threex-dot-terrain</id>
-    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.terrain/examples/planegeometry.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.terrain/master/examples/images/screenshot-threex-terrain-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">'one threex a day' challenge</a>.
-This challenge is to publish every day one game extension for three.js!
-One per day, every day and that for 2month!
-In this post, we gonna talk about
-<a href="http://www.threejsgames.com/extensions/#threex.terrain">threex.terrain</a>.
-threex.terrain is a <a href="http://www.threejsgames.com/extensions/">three.js games extension</a> which provides a procedural terrain generated from a simplex noise, the <a href="http://en.wikipedia.org/wiki/Perlin_noise">Perlin noise</a>. As you can see you have different zones that make the terrain more varied, the blue zone represents water, the green one represents trees or grass and the white zone at the mountain top is snow. Imagine your video game character walking on these 3D mountains or flying over them, pretty cool eh? You can take him through river, forest, wind and snow if you want ;)</p>
-
-<p><a href='http://jeromeetienne.github.io/threex.terrain/examples/planegeometry.html' target='_blank'><input type="button" value='Try Threex.terrain Demo Now' /></a></p>
-
-<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
-<strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
-
-<!-- more -->
-
-
-
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/z_73WDzgBsA" frameborder="0" allowfullscreen></iframe>
-
-
-<h1>Show Don't Tell</h1>
-
-<ul>
-<li><a href="http://jeromeetienne.github.io/threex.terrain/examples/canvas.html">examples/canvas.html</a>
-[<a href="https://github.com/jeromeetienne/threex.terrain/blob/master/examples/canvas.html">view source</a>] :
-It shows a perlin terrain in a canvas 2d.</li>
-<li><a href="http://jeromeetienne.github.io/threex.terrain/examples/planegeometry.html">examples/planegeometry.html</a>
-[<a href="https://github.com/jeromeetienne/threex.terrain/blob/master/examples/planegeometry.html">view source</a>] :
-It displays the terrain in 3d with three.js.</li>
-<li><a href="http://jeromeetienne.github.io/threex.terrain/examples/height.html">examples/height.html</a>
-[<a href="https://github.com/jeromeetienne/threex.terrain/blob/master/examples/height.html">view source</a>] :
-It show how to test the height in a 3d terrain</li>
-<li><a href="http://jeromeetienne.github.io/threex.terrain/examples/minecraft.html">examples/minecraft.html</a>
-[<a href="https://github.com/jeromeetienne/threex.terrain/blob/master/examples/minecraft.html">view source</a>] :
-It show a minecraft character walking on perlin terrain</li>
-</ul>
-
-
-<h1>How To Install It</h1>
-
-<p>You can install it via script tag</p>
-
-<p>```html</p>
-
-<script src='threex.terrain.js'></script>
-
-
-<p>```</p>
-
-<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
-
-<p><code>bash
-bower install threex.terrain
-</code></p>
-
-<h1>How To Use It</h1>
-
-<p>To allocate a heightMap with a width of 100 and a depth of 200, do</p>
-
-<p><code>javascript
-var heightMap   = THREEx.Terrain.allocateHeightMap(100, 200)
-</code></p>
-
-<p>To generate some heights based on a simplex/perlin noise, do</p>
-
-<p><code>javascript
-THREEx.Terrain.simplexHeightMap(heightMap)
-</code></p>
-
-<p>If you want to display it in three.js, built a <code>THREE.PlaneGeometry</code> for it</p>
-
-<p><code>javascript
-// build the geometry
-var geometry    = THREEx.Terrain.heightMapToPlaneGeometry(heightMap)
-// init the material
-var material    = new THREE.MeshPhongMaterial();
-// create the mesh and add it to the scene
-var mesh    = new THREE.Mesh( geometry, material );
-scene.add( mesh );
-</code></p>
-
-<p>To get the ground height of this mesh, use the following</p>
-
-<p><code>javascript
-var y = THREEx.Terrain.planeToHeightMapCoords(heightMap, mesh, x, z)
-</code></p>
-
-<p>It is possible to enhance the rendering of this heightmap with some vertexColor, and a
-smoother shading if you want.</p>
-
-<p>```
-// build the geometry
-var geometry    = THREEx.Terrain.heightMapToPlaneGeometry(heightMap)
-// set the vertexColor in the geometry
-THREEx.Terrain.heightMapToVertexColor(heightMap, geometry)
-// init the material
-var material    = new THREE.MeshPhongMaterial({</p>
-
-<pre><code>shading     : THREE.SmoothShading,
-vertexColors    : THREE.VertexColors,
-</code></pre>
-
-<p>});
-// create the mesh and add it to the scene
-var mesh    = new THREE.Mesh( geometry, material );
-scene.add( mesh );
-```</p>
-
-<p>To get the height with heightMap coordinates, just use</p>
-
-<p><code>javascript
-var y   = THREEx.Terrain.heightMapToHeight(heightMap, x, z)
-</code></p>
-
-<p>If you want to display the result in a canvas 2d, just do</p>
-
-<p><code>javascript
-var canvas  = THREEx.Terrain.heightMapToCanvas(heightMap)
-document.body.appendChild(canvas)
-</code></p>
 ]]></content>
   </entry>
   

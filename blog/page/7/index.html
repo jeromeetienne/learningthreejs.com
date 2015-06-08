@@ -10,8 +10,8 @@
 
   
   <meta name="description" content="This post is part of the &#8220;Lets make a 3D game&#8221; series.
-It is a follow up from the previous article on microphysics.js.
-It will describe &hellip;">
+It is about the fullscreen API.
+This API allows to make DOM elements fullscreen. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -100,6 +100,101 @@ It will describe &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/11/17/lets-make-a-3d-game-make-it-fullscreen/">Lets Make a 3D Game: Make It Fullscreen</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-17T07:59:00+00:00" pubdate data-updated="true">Nov 17<span>th</span>, 2011</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/7/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/7/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is part of the <a href="/blog/categories/tutorial3dgame/">&#8220;Lets make a 3D game&#8221;</a> series.
+It is about the <a href="http://dvcs.w3.org/hg/fullscreen/raw-file/tip/Overview.html">fullscreen API</a>.
+This API allows to make DOM elements fullscreen.
+Fullscreen is quite important for games.
+It provides a larger display so a more immersive experience for your players.
+All that from javascript, so no more needed to ask &#8220;please f11&#8221; to your
+players, isnt that sweet ? :)</p>
+
+<p><img class="right" src="/data/lets-make-a-3d-game-make-it-fullscreen/images/fullscreen-icon.png"></p>
+
+<p>The <a href="http://dvcs.w3.org/hg/fullscreen/raw-file/tip/Overview.html">fullscreen API</a>
+is still in discussion, but the basics are settled. At the time of this writing,
+it is available in
+<a href="http://blog.pearce.org.nz/2011/11/firefoxs-html-full-screen-api-enabled.html">firefox nightly</a>,
+<a href="http://peter.sh/2011/01/javascript-full-screen-api-navigation-timing-and-repeating-css-gradients/">webkit nightly</a>and
+<a href="http://updates.html5rocks.com/2011/10/Let-Your-Content-Do-the-Talking-Fullscreen-API">chrome stable</a>.
+It has been already added in <a href="http://marblesoccer.com">marbleSoccer</a>.
+The icon is from <a href="http://thenounproject.com/">The Noun Project</a>, a source of nice and clean icons.
+Try it out! Click on it to toggle fullscreen state. If you dont see the icon, your browser
+doesn&#8217;t yet have the fullscreen API.</p>
+
+<center>
+    <iframe webkitallowfullscreen mozallowfullscreen allowfullscreen width="100%" height="320" src="http://marblesoccer.com" frameborder="0"></iframe>
+</center>
+
+
+<p>Ok now is time for code :)</p>
+
+<h2>Let&#8217;s get started</h2>
+
+<p>As usual, i provide a little helper to make it easier for you to include it in
+your games. It is called <a href="/data/THREEx/THREEx.FullScreen.js">THREEx.FullScreen.js</a>.
+It hides the prefix of each vendor and the little discrepencies between their API
+implementation.
+You download this file from <a href="/data/THREEx/THREEx.FullScreen.js">here</a> and include
+it in your page like this</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;THREEx.FullScreen.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/11/17/lets-make-a-3d-game-make-it-fullscreen/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -807,85 +902,6 @@ it in your page like this</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/08/17/tweenjs-for-smooth-animation/">Tween.js for Smooth Animation</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-08-17T10:16:00+01:00" pubdate data-updated="true">Aug 17<span>th</span>, 2011</time>
-        
-        
-          <div class="sharing" style='text-align: right;'>
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/7/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/7/index.html" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-</div>
-
-        
-     </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This post presents <a href="https://github.com/sole/tween.js">tween.js</a> and how you can use it to easily smooth your animation.
-<strong>tween.js</strong> is a &#8220;super simple, fast and easy to use tweening engine&#8221; from <a href="https://github.com/sole">sole</a>.
-It provides tweening and full blown animations thanks to chaining. Let&#8217;s get started!
-But first, here is a <a href="/data/tweenjs_for_smooth_animation/tweenjs_for_smooth_animation.html">demo</a>
-using tween.js. It has basic parameters for you to play with and get a feel of what tweening
-may be.</p>
-
-<h2>Tweening&#8230; what&#8217;s that?</h2>
-
-<p><img class="right" src="/data/tweenjs_for_smooth_animation/images/tweenjs-linear-easenone.png" title="Linear" ></p>
-
-<p>From <a href="http://en.wikipedia.org/wiki/Tweening">wikipedia article</a>, <em>tweening</em> is an abreviation of <em>inbetweening</em>, i
-dont know why but i find that funny maybe because <em>inbetweening</em> isnt a word to begin with.
-Let&#8217;s get back to business, what is a tween? It is a interpolation between 2 values,
-from the <code>source</code> to the <code>target</code>.
-The tween will simply generate the needed values needed inbetween those 2 limits. The key is <strong>where</strong>
-are those values.
-This is done with the <strong>ease function</strong>. The most obvious one is to go straight from <code>source</code>
-to <code>target</code>. This is the linear function you see on on the right.</p>
-
-<p><img class="right" src="/data/tweenjs_for_smooth_animation/images/tweenjs-cubic-easeinout.png" title="Cubic EaseInOut" >
-<img class="left" src="/data/tweenjs_for_smooth_animation/images/tweenjs-elastic-easeinout.png" title="Elastic EaseInOut" >
-But some are more funky, you can
-see <em>Elastic EaseInOut</em> on the left
-and
-see <em>Cubic EaseInOut</em> on the right.
-Many others exist for our delight as you can see <a href="http://sole.github.com/tween.js/examples/03_graphs.html">here</a>.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/08/17/tweenjs-for-smooth-animation/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/8/">&larr; Older</a>
@@ -903,6 +919,10 @@ Many others exist for our delight as you can see <a href="http://sole.github.com
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/06/05/learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/">LearningThree.js News #3: Stay Tuned with Creative 3D Demos</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/05/27/learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/">LearningThree.js News: Stay Tuned with Creative 3D Demos</a>
       </li>
     
@@ -916,10 +936,6 @@ Many others exist for our delight as you can see <a href="http://sole.github.com
     
       <li class="post">
         <a href="/blog/2014/05/26/one-threex-a-day-challenge-phase-1-completed/">One Threex a Day Challenge: Phase 1 Completed!</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/05/16/personalized-and-polished-text-for-your-three-dot-js-game-with-threex-dot-text/">Personalized and Polished Text for Your Three.js Game With threex.text</a>
       </li>
     
   </ul>

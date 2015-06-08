@@ -9,8 +9,13 @@
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="Ever dreamed of a object3d.on(&#8216;click&#8217;, function(){ &#8230; });? I have :) This post presents a little experiment.
-What about implementing &hellip;">
+  <meta name="description" content="We recently introduced a
+boilerplate for three.js
+in a
+previous post.
+It aims to ease your first contact with
+three.js.
+It contains a template for a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -99,6 +104,90 @@ What about implementing &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/01/19/boilerplate-builder-for-three-js/">Boilerplate Builder for Three.js</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-19T10:59:00+00:00" pubdate data-updated="true">Jan 19<span>th</span>, 2012</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/6/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/6/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>We recently introduced a
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>
+in a
+<a href="/blog/2011/12/20/boilerplate-for-three-js/">previous post</a>.
+It aims to ease your first contact with
+<a href="https://github.com/mrdoob/three.js/">three.js</a>.
+It contains a template for a simple project,
+a sample on which we already applied good practices.
+You download it and run it in a matter of minutes.
+Thus you can immediatly focus on your own things.
+In short, it aims for <em>Fast bootstrap + Good Practices</em>.</p>
+
+<p>It seems nice, hey ?
+Well there is a glitch.
+The
+<a href="https://github.com/jeromeetienne/threejsboilerplate">boilerplate for three.js</a>
+needs more flexibily.
+In a way, it acts as a ground on top of which you start your own thing.
+We do our best to provide good defaults, but they are only defaults.
+What if you got specific requirements ?
+How to start your project then ?
+The
+<a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">boilerplate builder</a>
+has been written for you :)</p>
+
+<p><a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">Try it out</a>.
+Go ahead, play with the options,
+discover what they do and customize your own boilerplate.
+The
+<a href="http://www.youtube.com/watch?v=ANnPWZGRsGk">screencast</a>
+below is short introduction where i describe the
+<a href="http://jeromeetienne.github.com/threejsboilerplatebuilder/">boilerplate builder</a>.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/01/19/boilerplate-builder-for-three-js/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -804,101 +893,6 @@ Let&#8217;s declare it.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/11/17/lets-make-a-3d-game-make-it-fullscreen/">Lets Make a 3D Game: Make It Fullscreen</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-11-17T07:59:00+00:00" pubdate data-updated="true">Nov 17<span>th</span>, 2011</time>
-        
-        
-          <div class="sharing" style='text-align: right;'>
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/6/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/6/index.html" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-</div>
-
-        
-     </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This post is part of the <a href="/blog/categories/tutorial3dgame/">&#8220;Lets make a 3D game&#8221;</a> series.
-It is about the <a href="http://dvcs.w3.org/hg/fullscreen/raw-file/tip/Overview.html">fullscreen API</a>.
-This API allows to make DOM elements fullscreen.
-Fullscreen is quite important for games.
-It provides a larger display so a more immersive experience for your players.
-All that from javascript, so no more needed to ask &#8220;please f11&#8221; to your
-players, isnt that sweet ? :)</p>
-
-<p><img class="right" src="/data/lets-make-a-3d-game-make-it-fullscreen/images/fullscreen-icon.png"></p>
-
-<p>The <a href="http://dvcs.w3.org/hg/fullscreen/raw-file/tip/Overview.html">fullscreen API</a>
-is still in discussion, but the basics are settled. At the time of this writing,
-it is available in
-<a href="http://blog.pearce.org.nz/2011/11/firefoxs-html-full-screen-api-enabled.html">firefox nightly</a>,
-<a href="http://peter.sh/2011/01/javascript-full-screen-api-navigation-timing-and-repeating-css-gradients/">webkit nightly</a>and
-<a href="http://updates.html5rocks.com/2011/10/Let-Your-Content-Do-the-Talking-Fullscreen-API">chrome stable</a>.
-It has been already added in <a href="http://marblesoccer.com">marbleSoccer</a>.
-The icon is from <a href="http://thenounproject.com/">The Noun Project</a>, a source of nice and clean icons.
-Try it out! Click on it to toggle fullscreen state. If you dont see the icon, your browser
-doesn&#8217;t yet have the fullscreen API.</p>
-
-<center>
-    <iframe webkitallowfullscreen mozallowfullscreen allowfullscreen width="100%" height="320" src="http://marblesoccer.com" frameborder="0"></iframe>
-</center>
-
-
-<p>Ok now is time for code :)</p>
-
-<h2>Let&#8217;s get started</h2>
-
-<p>As usual, i provide a little helper to make it easier for you to include it in
-your games. It is called <a href="/data/THREEx/THREEx.FullScreen.js">THREEx.FullScreen.js</a>.
-It hides the prefix of each vendor and the little discrepencies between their API
-implementation.
-You download this file from <a href="/data/THREEx/THREEx.FullScreen.js">here</a> and include
-it in your page like this</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;THREEx.FullScreen.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/11/17/lets-make-a-3d-game-make-it-fullscreen/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/7/">&larr; Older</a>
@@ -916,6 +910,10 @@ it in your page like this</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/06/05/learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/">LearningThree.js News #3: Stay Tuned with Creative 3D Demos</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/05/27/learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/">LearningThree.js News: Stay Tuned with Creative 3D Demos</a>
       </li>
     
@@ -929,10 +927,6 @@ it in your page like this</p>
     
       <li class="post">
         <a href="/blog/2014/05/26/one-threex-a-day-challenge-phase-1-completed/">One Threex a Day Challenge: Phase 1 Completed!</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/05/16/personalized-and-polished-text-for-your-three-dot-js-game-with-threex-dot-text/">Personalized and Polished Text for Your Three.js Game With threex.text</a>
       </li>
     
   </ul>
