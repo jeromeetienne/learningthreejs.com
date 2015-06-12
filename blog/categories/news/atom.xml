@@ -4,7 +4,7 @@
   <title><![CDATA[Category: news | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/news/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-06-12T12:47:34+01:00</updated>
+  <updated>2015-06-12T13:06:14+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -62,7 +62,7 @@
 
 <p><img src="/data/2015-06-12-learningthree-dot-js-news-number-4-stay-tuned-with-creative-3d-demos/screenshots/sanorans_valley.jpg" alt="screen shot 2015-06-11 at 15 33 27" /></p>
 
-<p><a href="http://www.sonorans-valley.com/">Sanoran's Valley</a> is an exceptional experience imagined by <a href="https://twitter.com/Samsyyyy">Samuel Honigstein</a>. It is a desert vision of the city inspired by Alberts Camus quote about the big city "being the desert we should seek to remedy life in society". Very philosophical! It has great shader effects and it actually uses Google Street View, so you can tap in any address you want and see how would it be like transformed into a desert. Check out Sam's <a href="http://samsy.herokuapp.com/">portfolio</a> to take a look at his other creations.</p>
+<p><a href="http://www.sonorans-valley.com/">Sanoran's Valley</a> is an exceptional experience imagined by <a href="https://twitter.com/Samsyyyy">Samuel Honigstein</a>. It is a desert vision of the city inspired by Alberts Camus quote about the big city "being the desert we should seek to remedy life in society". Very philosophical! It has great shader effects and it actually uses Google Street View, so you can tap in any address you want and see how would it be like transformed into a desert. Check out Sam's <a href="http://samsy.ninja/">portfolio</a> to take a look at his other creations.</p>
 
 <h3>Box Physics</h3>
 
