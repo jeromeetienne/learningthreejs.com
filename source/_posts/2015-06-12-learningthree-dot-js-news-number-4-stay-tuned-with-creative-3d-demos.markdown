@@ -41,7 +41,7 @@ Simple Ball is a traditional pinpall [game](http://cwar.de/pinball/simpleball.ht
 ### Sanoran's Valley 
 ![screen shot 2015-06-11 at 15 33 27](/data/2015-06-12-learningthree-dot-js-news-number-4-stay-tuned-with-creative-3d-demos/screenshots/sanorans_valley.jpg)
 
-[Sanoran's Valley](http://www.sonorans-valley.com/) is an exceptional experience imagined by [Samuel Honigstein](https://twitter.com/Samsyyyy). It is a desert vision of the city inspired by Alberts Camus quote about the big city "being the desert we should seek to remedy life in society". Very philosophical! It has great shader effects and it actually uses Google Street View, so you can tap in any address you want and see how would it be like transformed into a desert. Check out Sam's [portfolio](http://samsy.herokuapp.com/) to take a look at his other creations. 
+[Sanoran's Valley](http://www.sonorans-valley.com/) is an exceptional experience imagined by [Samuel Honigstein](https://twitter.com/Samsyyyy). It is a desert vision of the city inspired by Alberts Camus quote about the big city "being the desert we should seek to remedy life in society". Very philosophical! It has great shader effects and it actually uses Google Street View, so you can tap in any address you want and see how would it be like transformed into a desert. Check out Sam's [portfolio](http://samsy.ninja/) to take a look at his other creations. 
 
 ### Box Physics 
 ![screen shot 2015-06-11 at 15 47 59](/data/2015-06-12-learningthree-dot-js-news-number-4-stay-tuned-with-creative-3d-demos/screenshots/box_physics.jpg)
