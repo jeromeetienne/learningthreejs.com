@@ -9,9 +9,7 @@
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="This post is part of the &#8220;Lets make a 3D game&#8221; series.
-It is about the fullscreen API.
-This API allows to make DOM elements fullscreen. &hellip;">
+  <meta name="description" content="<iframe src="http://marblesoccer.com" allowfullscreen webkitallowfullscreen mozallowfullscreen width="420" height="315" frameborder="0" style="float &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -100,6 +98,105 @@ This API allows to make DOM elements fullscreen. &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/11/21/lets-make-a-3d-game-make-it-embedded/">Lets Make a 3D Game: Make It Embedded</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-21T16:32:00+00:00" pubdate data-updated="true">Nov 21<span>st</span>, 2011</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/7/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/7/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+  <div class="entry-content"><iframe src="http://marblesoccer.com"
+    allowfullscreen webkitallowfullscreen mozallowfullscreen
+    width="420" height="315" frameborder="0" style="float: right; margin-left: 1em;">
+</iframe>
+
+
+<p>This post is part of the <a href="/blog/categories/tutorial3dgame/">&#8220;Let&#8217;s make a 3D game&#8221;</a> series.
+The previous post was on
+<a href="/blog/2011/11/17/lets-make-a-3d-game-make-it-fullscreen/">fullscreen API</a>.
+Here is another one on resizing the display area.
+This post is about embedding your game in another page.
+It is usefull to include it in a blog, in facebook, iGoogle or other game plateforms.</p>
+
+<p><a href="http://marblesoccer.com">MarbleSoccer</a>
+now contains all the tricks explained in this post.
+<em>Show dont tell</em>, you can see it embedded on the left.
+Embedding your game implies various things.
+As your game is hosted in another page, it likely got a smaller display area.
+HTML5
+<a href="http://www.w3.org/TR/css3-mediaqueries/">CSS media query</a>
+makes it easy to fit various sizes.
+Another part are the
+<a href="http://en.wikipedia.org/wiki/DOM_events">DOM events</a>
+from the iframe.
+They will be propagated to the host page and may produce undesirable effects.
+We see how to shield them.
+But first let&#8217;s see about
+<a href="http://en.wikipedia.org/wiki/HTML_element#Frames">iframe</a></p>
+
+<h2>Let&#8217;s go play in an iframe</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/HTML_element#Frames">iframe</a>
+is an easy and secure way to embed a page in another.
+Let&#8217;s declare it.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;iframe</span> <span class="na">src=</span><span class="s">&quot;http://marblesoccer.com&quot;</span>
+</span><span class='line'>  <span class="na">allowfullscreen</span> <span class="na">webkitallowfullscreen</span> <span class="na">mozallowfullscreen</span>
+</span><span class='line'>  <span class="na">width=</span><span class="s">&quot;480&quot;</span> <span class="na">height=</span><span class="s">&quot;320&quot;</span> <span class="na">frameborder=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'><span class="nt">&lt;/iframe&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/11/21/lets-make-a-3d-game-make-it-embedded/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -833,75 +930,6 @@ on this element to get the screenshot.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/08/30/window-resize-for-your-demos/">Window Resize for Your Demos</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-08-30T11:24:00+01:00" pubdate data-updated="true">Aug 30<span>th</span>, 2011</time>
-        
-        
-          <div class="sharing" style='text-align: right;'>
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/7/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/7/index.html" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-</div>
-
-        
-     </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>It is cool when you look at a demo and it is resized automatically
-when you change the dimension of the browser&#8217;s window. To switch it fullscreen
-or such.
-<a href="/data/THREEx/THREEx.WindowResize.js">THREEx.WindowResize</a> is an little piece of code.
-It helps you do exactly that on your own demos in a single line.</p>
-
-<h2>Let&#8217;s include the script</h2>
-
-<p>You download it from <a href="/data/THREEx/THREEx.WindowResize.js">here</a> and include
-it in your page like this</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;THREEx.WindowResize.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/08/30/window-resize-for-your-demos/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/8/">&larr; Older</a>
@@ -919,11 +947,15 @@ it in your page like this</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/06/12/learningthree-dot-js-news-number-4-stay-tuned-with-creative-3d-demos/">LearningThree.js News #4: Stay Tuned With Creative 3D Demos</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/06/05/learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/">LearningThree.js News #3: Stay Tuned with Creative 3D Demos</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2015/05/27/learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/">LearningThree.js News: Stay Tuned with Creative 3D Demos</a>
+        <a href="/blog/2015/05/27/learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/">LearningThree.js News #2: Stay Tuned with Creative 3D Demos</a>
       </li>
     
       <li class="post">
@@ -932,10 +964,6 @@ it in your page like this</p>
     
       <li class="post">
         <a href="/blog/2015/02/16/three-dot-js-online-meeting-with-joclygames/">Three.js Online Meeting with JoclyGames</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/05/26/one-threex-a-day-challenge-phase-1-completed/">One Threex a Day Challenge: Phase 1 Completed!</a>
       </li>
     
   </ul>

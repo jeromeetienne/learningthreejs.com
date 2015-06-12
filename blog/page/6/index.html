@@ -9,13 +9,10 @@
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="We recently introduced a
-boilerplate for three.js
-in a
-previous post.
-It aims to ease your first contact with
-three.js.
-It contains a template for a &hellip;">
+  <meta name="description" content="This post is about
+shadow casting,
+a technique which approximates the effect you see in real life everyday.
+They may be tricky to tune but they looks &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -104,6 +101,71 @@ It contains a template for a &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/01/20/casting-shadows/">Casting Shadows</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-20T14:44:00+00:00" pubdate data-updated="true">Jan 20<span>th</span>, 2012</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/6/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/6/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is about
+<a href="http://en.wikipedia.org/wiki/Shadow_mapping">shadow casting</a>,
+a technique which approximates the effect you see in real life everyday.
+They may be tricky to tune but they looks so good, it worths it.
+Shadows are an efficient tool when you to make your scene more realistic.
+We will see how they can be used inside
+<a href="https://github.com/mrdoob/three.js/">three.js</a>
+and see more about lights while we are at it.</p>
+
+<p>As usual, there is a <a href="/data/casting-shadows/">demo</a>.
+It is kept it real simple thus you can read the code more easily.
+The scene is a simple object in the middle, a spotlight moving around and a plane
+to receive the object shadow. The light frustum is left visible in orange.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/01/20/casting-shadows/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -794,105 +856,6 @@ with it and have a feel of the various operations.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/11/21/lets-make-a-3d-game-make-it-embedded/">Lets Make a 3D Game: Make It Embedded</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-11-21T16:32:00+00:00" pubdate data-updated="true">Nov 21<span>st</span>, 2011</time>
-        
-        
-          <div class="sharing" style='text-align: right;'>
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/6/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/6/index.html" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-</div>
-
-        
-     </p>
-    
-  </header>
-
-
-  <div class="entry-content"><iframe src="http://marblesoccer.com"
-    allowfullscreen webkitallowfullscreen mozallowfullscreen
-    width="420" height="315" frameborder="0" style="float: right; margin-left: 1em;">
-</iframe>
-
-
-<p>This post is part of the <a href="/blog/categories/tutorial3dgame/">&#8220;Let&#8217;s make a 3D game&#8221;</a> series.
-The previous post was on
-<a href="/blog/2011/11/17/lets-make-a-3d-game-make-it-fullscreen/">fullscreen API</a>.
-Here is another one on resizing the display area.
-This post is about embedding your game in another page.
-It is usefull to include it in a blog, in facebook, iGoogle or other game plateforms.</p>
-
-<p><a href="http://marblesoccer.com">MarbleSoccer</a>
-now contains all the tricks explained in this post.
-<em>Show dont tell</em>, you can see it embedded on the left.
-Embedding your game implies various things.
-As your game is hosted in another page, it likely got a smaller display area.
-HTML5
-<a href="http://www.w3.org/TR/css3-mediaqueries/">CSS media query</a>
-makes it easy to fit various sizes.
-Another part are the
-<a href="http://en.wikipedia.org/wiki/DOM_events">DOM events</a>
-from the iframe.
-They will be propagated to the host page and may produce undesirable effects.
-We see how to shield them.
-But first let&#8217;s see about
-<a href="http://en.wikipedia.org/wiki/HTML_element#Frames">iframe</a></p>
-
-<h2>Let&#8217;s go play in an iframe</h2>
-
-<p><a href="http://en.wikipedia.org/wiki/HTML_element#Frames">iframe</a>
-is an easy and secure way to embed a page in another.
-Let&#8217;s declare it.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;iframe</span> <span class="na">src=</span><span class="s">&quot;http://marblesoccer.com&quot;</span>
-</span><span class='line'>  <span class="na">allowfullscreen</span> <span class="na">webkitallowfullscreen</span> <span class="na">mozallowfullscreen</span>
-</span><span class='line'>  <span class="na">width=</span><span class="s">&quot;480&quot;</span> <span class="na">height=</span><span class="s">&quot;320&quot;</span> <span class="na">frameborder=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'><span class="nt">&lt;/iframe&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/11/21/lets-make-a-3d-game-make-it-embedded/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/7/">&larr; Older</a>
@@ -910,11 +873,15 @@ Let&#8217;s declare it.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/06/12/learningthree-dot-js-news-number-4-stay-tuned-with-creative-3d-demos/">LearningThree.js News #4: Stay Tuned With Creative 3D Demos</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/06/05/learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/">LearningThree.js News #3: Stay Tuned with Creative 3D Demos</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2015/05/27/learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/">LearningThree.js News: Stay Tuned with Creative 3D Demos</a>
+        <a href="/blog/2015/05/27/learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/">LearningThree.js News #2: Stay Tuned with Creative 3D Demos</a>
       </li>
     
       <li class="post">
@@ -923,10 +890,6 @@ Let&#8217;s declare it.</p>
     
       <li class="post">
         <a href="/blog/2015/02/16/three-dot-js-online-meeting-with-joclygames/">Three.js Online Meeting with JoclyGames</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/05/26/one-threex-a-day-challenge-phase-1-completed/">One Threex a Day Challenge: Phase 1 Completed!</a>
       </li>
     
   </ul>
