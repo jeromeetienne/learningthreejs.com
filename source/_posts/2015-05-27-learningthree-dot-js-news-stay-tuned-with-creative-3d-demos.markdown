@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "LearningThree.js News: Stay Tuned with Creative 3D Demos"
+title: "LearningThree.js News #2: Stay Tuned with Creative 3D Demos"
 date: 2015-05-27 15:53
 comments: true
 categories: [three.js, news]

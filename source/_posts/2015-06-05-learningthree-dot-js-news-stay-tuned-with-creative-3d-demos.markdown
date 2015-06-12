@@ -4,10 +4,10 @@ title: "LearningThree.js News #3: Stay Tuned with Creative 3D Demos"
 date: 2015-06-05 15:47
 comments: true
 categories: [three.js, news]
-published: false
+published: true
 ---
 
-This post presents another edition of Three.js News. In this episode we have gathered some wonderful demos, web documentaries and very artistic experiences. They have all different genres but each of them shows a wide range of skills. 
+This post presents another edition of Three.js News. In this episode we have gathered some wonderful demos, web documentaries and very artistic experiences. They have all different genres but each of them show a wide range of skills. 
 
 <iframe width="420" height="315" src="//www.youtube.com/embed/cC5e8kONBzo" frameborder="0" allowfullscreen></iframe>
 
@@ -38,7 +38,7 @@ The Fallen of WWII or [fallen.io](http://www.fallen.io/ww2/#) is a data drive do
 ### Procedural Star
 ![screen shot 2015-06-05 at 11 42 46](/data/2015-06-05-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/screenshots/procedural_star.png)
 
-Procedural Star is an excellent [demo](http://bruno-simon.com/lab/procedural-star/) with great colors and effects. It was designed by [Bruno Simon](https://twitter.com/bruno_simon). The star is great for any space game, you can turn it around, zooming in and out and see the smooth movement. You can also change the parameters to customise as much as you like. Bruno's [website](http://bruno-simon.com/) is filled with other amazing projects he has worked on. 
+Procedural Star is an excellent [demo](http://bruno-simon.com/lab/procedural-star/) with great colors and effects. It was designed by [Bruno Simon](https://twitter.com/bruno_simon). The star is great for any space game, you can turn it around, zooming in and out and see the smooth movements it has. You can also change the parameters to customise it as much as you like. Bruno's [website](http://bruno-simon.com/) is filled with other amazing projects he has worked on. 
 
 ### Enough 
 ![screen shot 2015-06-05 at 11 43 35](/data/2015-06-05-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/screenshots/enough.png)
@@ -56,11 +56,11 @@ This is a very fun and playful [demo](http://www.clicktorelease.com/code/io15/) 
 [Pregoneros de Medellin](http://www.pregonerosdemedellin.com/#en) is a breathtaking and very interactive street walk experience developed by [Thibault Durand](https://twitter.com/tibbb) and his talented team. It was created using a GoPro and Javascript. You can read the [post](https://medium.com/@tibbb/how-we-created-an-immersive-street-walk-experience-with-a-gopro-and-javascript-f442cf8aa2dd) on how it was produced. In this web documentary you walk around Medellin city in Colombia and listen to the street-vendors cries, which are very traditional in the cultural Colombian landscape. You can click on each vendor to watch a video of his typical day to day life. I just loved it! 
 
 ### Conclusion
-In this blogpost we talked about some wonderful demos and very artistic projects. We were very impressed by the rich experiences that lead to web documentaries and interesting publications. All these demos are very interactive and show is the amazing things we can do with 3D on the web. 
+In this blogpost we talked about some wonderful demos and very artistic projects. We were very impressed by the rich experiences that lead to web documentaries and interesting publications. All these demos are very interactive and show the amazing things we can do with 3D on the web. 
 
 We also want to thank our readers. We love it when developers out there send us their stuff, new and creative demos that we can share. 
 
-Stay tuned for more Three.js news. See you next time 
+Stay tuned for more Three.js news. See you next time. 
 
 
  
