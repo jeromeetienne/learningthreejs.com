@@ -4,7 +4,7 @@
   <title><![CDATA[Category: news | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/news/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-06-12T13:06:14+01:00</updated>
+  <updated>2015-06-18T13:57:23+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,65 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[LearningThree.js News #5: Stay Tuned with Creative 3D Demos]]></title>
+    <link href="http://learningthreejs.com/blog/2015/06/18/learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos/"/>
+    <updated>2015-06-18T11:33:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/06/18/learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos</id>
+    <content type="html"><![CDATA[<p>This post explores original demos with lots of knowledge. In this episode of Three.js News we will take a tour around 4D dimensions and creative subdivisions. We will also travel over webs of information and have fun with wildlife games. There is a lot of diversity in these projects, but one thing is for sure, they are all developed with the utmost skill and created for the maximum effect.</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/oSDdZyM9cYU" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<h3>Paranoid vs. Shy Birds</h3>
+
+<p><img src="/data/2015-06-18-learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos/screenshots/paranoid_vs_shy_birds.jpg" alt="screen shot 2015-06-17 at 11 00 12" /></p>
+
+<p>This is a very fun <a href="http://codepen.io/Yakudoo/pen/LVyJXw">demo</a> created by <a href="https://twitter.com/yakudoo">Yakudoo</a> on CodePen. The bird characters are so cute. The one in the middle is the paranoid one. You can move his head around and see how he interacts with the small shy birds. The HTML, CSS and Javascript are visible on the scene.</p>
+
+<h3>Threepark</h3>
+
+<p><img src="/data/2015-06-18-learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos/screenshots/threepark.jpg" alt="screen shot 2015-06-17 at 11 00 12" /></p>
+
+<p><a href="http://threepark.net/English">Threepark</a> is a cool editor developed by <a href="https://github.com/liguocn">liguocn</a>. Easy to understand and to use, great for artists and 3d lovers. You can create different models and designs. You even have a library of templates to use. Subdivide a model as many times as you like in the <a href="http://threepark.net/English/cagemodeling">cagemodeling</a> canvas. You can also store your models in the cloud and export them into 3d printing format. Great way to unleash your creativity.</p>
+
+<h3>Parrot Hunt</h3>
+
+<p><img src="/data/2015-06-18-learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos/screenshots/parrot_hunt.jpg" alt="screen shot 2015-06-17 at 11 00 12" /></p>
+
+<p>Very funky retro <a href="http://parrothunt.nergal.se:8080/">game</a>, and also a Chrome Experiment, created by  Magnus Persson aka <a href="https://twitter.com/lallassu">nergal</a> . The idea is to shoot only the parrots, not the flamingos. You can move around and reload your rifle to keep shooting at your prey. Fortunately its not real hunting! You can get really serious and try to improve your score every time like I did! It's really enjoyable and it makes you feel like a great aim.</p>
+
+<h3>Ntype</h3>
+
+<p><img src="/data/2015-06-18-learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos/screenshots/ntype.jpg" alt="screen shot 2015-06-17 at 11 00 12" /></p>
+
+<p><a href="http://ntype.blue/#speed=0.015707963267948967&amp;rotationPlanes=xw,xz,yw,yz,zw&amp;fpr=100&amp;string=NTYPE&amp;drawForms=true&amp;drawTrails=false">Ntype</a> is another Chrome Experiment demo developed by <a href="https://twitter.com/kevinzweerink">Kevin Zweerink</a>. It shows us a compelling and interesting way to explore 4D. The typography is extruded into the 4d dimension. You can change the parameters and settings and customise the rotation planes. You can even modify the trails that the letters leave behind them. There are also a lot of other designs to explore in Kevin's <a href="http://kevinzweerink.com/">homepage</a></p>
+
+<h3>WikiGalaxy</h3>
+
+<p><img src="/data/2015-06-18-learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos/screenshots/wiki_galaxy.jpg" alt="screen shot 2015-06-17 at 11 00 12" /></p>
+
+<p><a href="http://wiki.polyfra.me/#">WikiGalaxy</a> is a beautiful and original demo created by <a href="https://twitter.com/WikiGalaxy">Owen Cornec</a>. This experiment takes us to a fantastic space that we actually already use everyday life. We can visualise Wikipedia as a galactic web of information. It's a marvellous world of knowledge. There is a map where you can fly over the planets, zoom and search. Wikipedia articles are stars, interests are nebulas. Have a good time learning! You can see more WebGL visualisations  in Owen's <a href="http://www.polyfra.me/">portfolio</a></p>
+
+<h3>Multivers3D</h3>
+
+<p><img src="/data/2015-06-18-learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos/screenshots/multivers3d.jpg" alt="screen shot 2015-06-17 at 11 00 12" /></p>
+
+<p>This is the first <a href="https://multivers3d.fr/#/51184/Home.html">video game demo</a> released by the <a href="https://twitter.com/INF1N1T">multivers3d</a> team. It supports multi-users, cross platforms and it has zero install. This first episode is called Earth Creed. You are a honey bee and you need to harvest pollen and nectar from your environment. You have to use your judgement to equilibrate the balance of the ecosystem. This game will definitely make you love nature.</p>
+
+<h3>Conclusion</h3>
+
+<p>In this post, we discovered some varied and original demos. We traveled through a space of information and explored 4D dimensions. We also played very funky games and designed 3D models with various subdivisions. The experience each of these demos give us is unique. Keep creating such wonderful projects.</p>
+
+<p>Stay tuned for more Three.js News. See you next time.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[LearningThree.js News #4: Stay Tuned With Creative 3D Demos]]></title>

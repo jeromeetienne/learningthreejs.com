@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-06-12T13:06:14+01:00</updated>
+  <updated>2015-06-18T13:57:23+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,65 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[LearningThree.js News #5: Stay Tuned with Creative 3D Demos]]></title>
+    <link href="http://learningthreejs.com/blog/2015/06/18/learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos/"/>
+    <updated>2015-06-18T11:33:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/06/18/learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos</id>
+    <content type="html"><![CDATA[<p>This post explores original demos with lots of knowledge. In this episode of Three.js News we will take a tour around 4D dimensions and creative subdivisions. We will also travel over webs of information and have fun with wildlife games. There is a lot of diversity in these projects, but one thing is for sure, they are all developed with the utmost skill and created for the maximum effect.</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/oSDdZyM9cYU" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<h3>Paranoid vs. Shy Birds</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-06-18-learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos/screenshots/paranoid_vs_shy_birds.jpg" alt="screen shot 2015-06-17 at 11 00 12" /></p>
+
+<p>This is a very fun <a href="http://codepen.io/Yakudoo/pen/LVyJXw">demo</a> created by <a href="https://twitter.com/yakudoo">Yakudoo</a> on CodePen. The bird characters are so cute. The one in the middle is the paranoid one. You can move his head around and see how he interacts with the small shy birds. The HTML, CSS and Javascript are visible on the scene.</p>
+
+<h3>Threepark</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-06-18-learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos/screenshots/threepark.jpg" alt="screen shot 2015-06-17 at 11 00 12" /></p>
+
+<p><a href="http://threepark.net/English">Threepark</a> is a cool editor developed by <a href="https://github.com/liguocn">liguocn</a>. Easy to understand and to use, great for artists and 3d lovers. You can create different models and designs. You even have a library of templates to use. Subdivide a model as many times as you like in the <a href="http://threepark.net/English/cagemodeling">cagemodeling</a> canvas. You can also store your models in the cloud and export them into 3d printing format. Great way to unleash your creativity.</p>
+
+<h3>Parrot Hunt</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-06-18-learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos/screenshots/parrot_hunt.jpg" alt="screen shot 2015-06-17 at 11 00 12" /></p>
+
+<p>Very funky retro <a href="http://parrothunt.nergal.se:8080/">game</a>, and also a Chrome Experiment, created by  Magnus Persson aka <a href="https://twitter.com/lallassu">nergal</a> . The idea is to shoot only the parrots, not the flamingos. You can move around and reload your rifle to keep shooting at your prey. Fortunately its not real hunting! You can get really serious and try to improve your score every time like I did! It&#8217;s really enjoyable and it makes you feel like a great aim.</p>
+
+<h3>Ntype</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-06-18-learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos/screenshots/ntype.jpg" alt="screen shot 2015-06-17 at 11 00 12" /></p>
+
+<p><a href="http://ntype.blue/#speed=0.015707963267948967&amp;rotationPlanes=xw,xz,yw,yz,zw&amp;fpr=100&amp;string=NTYPE&amp;drawForms=true&amp;drawTrails=false">Ntype</a> is another Chrome Experiment demo developed by <a href="https://twitter.com/kevinzweerink">Kevin Zweerink</a>. It shows us a compelling and interesting way to explore 4D. The typography is extruded into the 4d dimension. You can change the parameters and settings and customise the rotation planes. You can even modify the trails that the letters leave behind them. There are also a lot of other designs to explore in Kevin&#8217;s <a href="http://kevinzweerink.com/">homepage</a></p>
+
+<h3>WikiGalaxy</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-06-18-learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos/screenshots/wiki_galaxy.jpg" alt="screen shot 2015-06-17 at 11 00 12" /></p>
+
+<p><a href="http://wiki.polyfra.me/#">WikiGalaxy</a> is a beautiful and original demo created by <a href="https://twitter.com/WikiGalaxy">Owen Cornec</a>. This experiment takes us to a fantastic space that we actually already use everyday life. We can visualise Wikipedia as a galactic web of information. It&#8217;s a marvellous world of knowledge. There is a map where you can fly over the planets, zoom and search. Wikipedia articles are stars, interests are nebulas. Have a good time learning! You can see more WebGL visualisations  in Owen&#8217;s <a href="http://www.polyfra.me/">portfolio</a></p>
+
+<h3>Multivers3D</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-06-18-learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos/screenshots/multivers3d.jpg" alt="screen shot 2015-06-17 at 11 00 12" /></p>
+
+<p>This is the first <a href="https://multivers3d.fr/#/51184/Home.html">video game demo</a> released by the <a href="https://twitter.com/INF1N1T">multivers3d</a> team. It supports multi-users, cross platforms and it has zero install. This first episode is called Earth Creed. You are a honey bee and you need to harvest pollen and nectar from your environment. You have to use your judgement to equilibrate the balance of the ecosystem. This game will definitely make you love nature.</p>
+
+<h3>Conclusion</h3>
+
+<p>In this post, we discovered some varied and original demos. We traveled through a space of information and explored 4D dimensions. We also played very funky games and designed 3D models with various subdivisions. The experience each of these demos give us is unique. Keep creating such wonderful projects.</p>
+
+<p>Stay tuned for more Three.js News. See you next time.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[LearningThree.js News #4: Stay Tuned With Creative 3D Demos]]></title>
@@ -1942,136 +2001,6 @@ It depends on <code>THREEx.LaserBeam</code> so first create it and add it to the
 </span><span class='line'>    <span class="nx">laserCooked</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="nx">now</span><span class="p">)</span>
 </span><span class='line'><span class="p">})</span>
 </span></code></pre></td></tr></table></div></figure>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Realistic Physics for Your 3D Game with THREEx.Oimo Game Extension For three.js]]></title>
-    <link href="http://learningthreejs.com/blog/2014/04/28/realistic-physics-for-your-3d-game-with-threex-dot-oimo/"/>
-    <updated>2014-04-28T17:12:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2014/04/28/realistic-physics-for-your-3d-game-with-threex-dot-oimo</id>
-    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.oimo/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.oimo/master/examples/images/screenshot-threex-oimo-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>. This challenge is to publish every day one game extension for three.js! One per day, every day and that for 2month! In this post, we gonna talk about <a href="http://www.threejsgames.com/extensions/#threex.oimo">threex.oimo</a>.
-threex.oimo is a <a href="http://www.threejsgames.com/extensions/">threex game extension for three.js</a>. It provides a <a href="http://en.wikipedia.org/wiki/Game_physics">realistic physics</a> easy to include in your own games. So you can take objects in your game and make them fall as if it was the real world! You can code a <a href="http://en.wikipedia.org/wiki/Pool_(cue_sports)">pool game</a> in a day!
-You make rocks fall from the sky in a realistic fashion! Sky is the limit!
-It is a warper over the excelent library <a href="https://github.com/lo-th/Oimo.js">oimo.js</a> physics library. <a href="https://plus.google.com/114170447432405103307/posts">lo-th</a>, the author does <a href="http://3dflashlo.wordpress.com/">a lot of crazy things</a>! Be sure to check it out!</p>
-
-<p><a href='http://jeromeetienne.github.io/threex.oimo/examples/demo.html' target='_blank'><input type="button" value='Try Threex.oimo Demo Now'></a></p>
-
-<p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto! <strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
-
-<!-- more -->
-
-
-
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/wESF0NdMWBE" frameborder="0" allowfullscreen></iframe>
-
-
-<h1>Show Don&#8217;t Tell</h1>
-
-<ul>
-<li><a href="http://jeromeetienne.github.io/threex.oimo/examples/crates.html">examples/crates.html</a>
-[<a href="https://github.com/jeromeetienne/threex.oimo/blob/master/examples/crates.html">view source</a>] :
-It shows a slow motion demo of a football hitting a wall of crates.</li>
-<li><a href="http://jeromeetienne.github.io/threex.oimo/examples/basic.html">examples/basic.html</a>
-[<a href="https://github.com/jeromeetienne/threex.oimo/blob/master/examples/basic.html">view source</a>] :
-It shows a bunch of cube and sphere falling on a ground.</li>
-<li><a href="http://jeromeetienne.github.io/threex.oimo/examples/demo.html">examples/demo.html</a>
-[<a href="https://github.com/jeromeetienne/threex.oimo/blob/master/examples/demo.html">view source</a>] :
-It shows a more elaborate rendering. Planets falling down a pyramid in space.</li>
-</ul>
-
-
-<h1>How To Install It</h1>
-
-<p>You can install it via script tag</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'> &lt;script src='threex.oimo.js'&gt;&lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>bower install threex.oimo</span></code></pre></td></tr></table></div></figure>
-
-
-<h1>How To Use It</h1>
-
-<p>Well first you need to create a oimo.js world. You do that like this</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var world   = new OIMO.World()</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then, at every frame, update your mesh position/rotation.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>world.step()</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then you need to create physics bodies and make them move</p>
-
-<h2>.createBodyFromMesh()</h2>
-
-<p>It will create the <code>IOMO.Body</code> from a three.js mesh you give it.
-Currently it support <code>THREE.CubeGeometry</code> and <code>THREE.SphereGeometry</code>. First create a normal <code>THREE.Mesh</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var geometry    = new THREE.CubeGeometry(1,1,1)
-</span><span class='line'>var material    = new THREE.MeshNormalMaterial()
-</span><span class='line'>var mesh    = new THREE.Mesh( geometry, material )
-</span><span class='line'>scene.add(mesh)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then you create the <code>IOMO.Body</code> for it</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var body    = THREEx.Iomo.createBodyFromMesh(world, mesh)</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>.Body2MeshUpdater()</h2>
-
-<p>It will update the position/rotation of a <code>THREE.Mesh</code>
-based on a position/rotation of a <code>IOMO.Body</code>. You need
-this to see your meshes moves according to oimo.js physics.
-First you create the object</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var updater = new THREEx.Iomo.Body2MeshUpdater(body, mesh)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then, at every frame, update your mesh position/rotation.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>updater.update()</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>.Stats()</h2>
-
-<p>It will display statistic from oimo.js, it may be useful to know what is going on.
-It acts very much like
-<a href="">mrdoob&#8217;s stats</a>
-or
-<a href="">threex.rendererstats</a>.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var oimoStats   = new THREEx.Iomo.Stats(world)
-</span><span class='line'>document.body.appendChild(oimoStats.domElement)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then, at every frame, update it.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>oimoStats.update()</span></code></pre></td></tr></table></div></figure>
-
-
 
 ]]></content>
   </entry>
