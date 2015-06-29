@@ -395,16 +395,22 @@
         <lastmod>2015-06-18T12:24:48+01:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://learningthreejs.com/blog/2015/06/29/learningthree-dot-js-news-number-6-stay-tuned-with-creative-3d-demos/
+        </loc>
+        <lastmod>2015-06-29T12:34:10+01:00</lastmod>
+    </url>
+    <url>
         <loc>http://learningthreejs.com/about/</loc>
         <lastmod>2013-03-06T11:45:11+00:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/blog/archives/</loc>
-        <lastmod>2015-06-18T12:24:48+01:00</lastmod>
+        <lastmod>2015-06-29T12:34:10+01:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/</loc>
-        <lastmod>2015-06-18T12:24:48+01:00</lastmod>
+        <lastmod>2015-06-29T12:34:10+01:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/robots.txt</loc>
