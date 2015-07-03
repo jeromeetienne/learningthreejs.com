@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-06-29T12:34:27+01:00</updated>
+  <updated>2015-07-03T15:40:25+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,83 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[LearningThree.js News #7: Stay Tuned with Creative 3D Demos]]></title>
+    <link href="http://learningthreejs.com/blog/2015/07/03/learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/"/>
+    <updated>2015-07-03T12:13:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/07/03/learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos</id>
+    <content type="html"><![CDATA[<p>This post is part of the Three.js News series. In this episode we will see some very cool editors, we can  share assets and create WebGL experiments with. They are useful, practical and easy to use; they are also a great way to start designing your own 3D models. We will take a look at some impressive demos with cute animals, multiple icons, shaders and crazy skills. All these projects are very fun to play with!</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/6AXl6gwwlCc" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<h3>Poonya</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/poonya.jpg" alt="screen shot 2015-07-03 at 08 37 42" /></p>
+
+<p><a href="http://community.poonya.com/156">Poonya</a> is an active community and a cool portal for sharing assets. That is, you will be able to share models, material, textures, animations and scripts with <a href="https://twitter.com/sea3dformat">SEA3D</a> Studio for web. An easy to use editor that allows you to create models and to share them with others. You have a wide range of tutorials to help you get started and discover all the functionalities. You can also take a look at all the projects, contributions from other developers.</p>
+
+<h3>Chill de lion</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/chill_the_lion.jpg" alt="screen shot 2015-07-03 at 11 39 39" /></p>
+
+<p>Beautiful <a href="http://codepen.io/Yakudoo/pen/YXxmYR?utm_content=buffer71fab&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer">demo</a> created by <a href="https://twitter.com/yakudoo">Yakudoo</a>. We saw paranoid birds in another three.js news. Now its time for the king of the jungle. You will see a very cute animation of a lion who is in desperate need of chillin&#8217; and refreshment. It must be a very warm summer day for him. By clicking you activate the ventilation and  when turning around with your mouse you make wind blow in every direction. The lion will definitely appreciate. He will actually smile.</p>
+
+<h3>Holy Running Cow</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/holy_running_cow.jpg" alt="screen shot 2015-07-03 at 11 40 36" /></p>
+
+<p>This is another <a href="http://codepen.io/Yakudoo/pen/rVGraP">demo</a> done by Yakudoo. He really has a talent for creating fun animal characters! You can see  a very cute cow running around. When you press and drag the scene rotates, and the cow tries to pick up the pace.</p>
+
+<h3>Mighty Fish</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/mighty_fish.jpg" alt="screen shot 2015-07-03 at 11 41 24" /></p>
+
+<p>We just love Yakudoo&#8217;s demos. This one is called <a href="http://codepen.io/Yakudoo/pen/BNNGBq">Mighty Fish</a>. In it you will see a very determined fish, swimming with or against the current. Kind of Nemo&#8217;s father when he couldn&#8217;t find Nemo. You can move your mouse to change speed and direction and see how adorably funny it is.</p>
+
+<h3>Many Icons Using Three.js</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/many_icons_using_threejs.jpg" alt="screen shot 2015-07-03 at 11 42 27" /></p>
+
+<p>Funky <a href="http://codepen.io/clockmaker/details/gpozrX/">demo</a> created by Yasunobu Ikeda in <a href="http://codepen.io/clockmaker/">codepen.io</a>. It shows various icons and letters that come together and turn into one, flowing in a replaying cycle. It changes color every time and it sometimes gives you the impression of being inside the Matrix. This demo was created using the Time Remap effect with Three.js and TweenMax. You can visit the Clock Maker <a href="http://clockmaker.jp/labs/">website</a> to see all Yasunobu&#8217;s experiences in this interactive motion lab.</p>
+
+<h3>Unstable Clock</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/unstable_clock.jpg" alt="screen shot 2015-07-03 at 11 42 51" /></p>
+
+<p>This one is a captivating <a href="http://freelance-html-developer.com/clock/">demo</a> and a Chrome Experiment developed by <a href="http://freelance-html-developer.com/">Tomasz Slawnikowski</a>, a freelance html developer. It measures time in an original frame. Every second is drawn according to the hour passing by. If you look a it for a while you will feel in a state of unreality, in a haze, hypnotic state. Even if it appears unstable, the clock is ticking!</p>
+
+<h3>Crazy Skills</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/crazy_skills.jpg" alt="screen shot 2015-07-03 at 11 43 42" /></p>
+
+<p><a href="https://crazyskills.panasonic.com/en/">Crazy Skills</a> is a very cool project created by <a href="@panasonic_njr">Panasonic</a>. If you are a football fan you are definitely gonna enjoy it. It is an awesome presentation of football player <a href="@neymarjr">Neymar</a> incredible sport skills. Just in case you don&#8217;t know him, Neymar is a recognised and adored Brazilian football player who plays for FC Barcelona and is captain of the Brazilian national team. He is very talented as you can see it in this motion museum dedicated to him.  There a a set of skills you can click on and see how Neymar&#8217;s avatar plays on the field.</p>
+
+<h3>Fiddling with shaders</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/fiddling_with_shaders.jpg" alt="screen shot 2015-07-03 at 11 48 33" /></p>
+
+<p>Very kaleidoscopic <a href="http://chrisirhc.github.io/_experiment-sand-webgl/push-field.html">experiment</a> created by <a href="https://twitter.com/chrisirhc">Chris Chua</a>. In this demo Chris plays around with shaders in WebGL to simulate force over an area. You can click and drag your mouse around to see how a trail is designed, go faster or slower. It almost resembles a small fish in the water.</p>
+
+<h3>I&#8217;ll be back</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/ill_be_back.jpg" alt="screen shot 2015-07-03 at 11 45 27" /></p>
+
+<p>Amazing <a href="https://c1.goote.ch/b9cca08d92a744e79a6772e13d624200.scene/">project</a> brought to us by the team at <a href="https://twitter.com/GooTechnologies">Goo Create</a>. Here is another cinematic and life like demo inspired by the last Terminator film. The effects and sound intensify the experience and the ambiance around is purely immersive. On their <a href="http://goocreate.com/">website</a> you can try out their great WebGL creation tool for ads, games and interactive experiences. Their editor is impressive by its simplicity and accessibility.</p>
+
+<h3>Conclusion</h3>
+
+<p>In this episode of Three.js News we discovered some great ways to create 3D models and share assets. There are vast possibilities when using great editors and tools. We discovered letters and numbers that form together in time and space. We also played with fun and lovable characters and professional football skills. We hope that you will really enjoy experimenting with all these projects.</p>
+
+<p>Stay tuned for more Three.js News. See you next time</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[LearningThree.js News #6: Stay Tuned with Creative 3D Demos]]></title>
@@ -1786,184 +1863,6 @@ to draw a text</p>
 
 
 <p></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Easy Way To Integrate Video, or even WebCam, in Your Texture with THREEx.VideoTexture Game Extension for THREE.js]]></title>
-    <link href="http://learningthreejs.com/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js/"/>
-    <updated>2014-04-30T13:38:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2014/04/30/easy-way-to-integrate-video-or-even-webcam-in-your-texture-with-threex-dot-videotexture-game-extension-for-three-dot-js</id>
-    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.videotexture/master/examples/images/screenshot-threex-videotexture-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
-This challenge is to publish every day one game extension for three.js!
-One per day, every day and that for 2month!
-In this post, we gonna talk about
-<a href="http://www.threejsgames.com/extensions/#threex.videotexture">threex.videotexture</a>.
-threex.videotexture is a <a href="http://www.threejsgames.com/extensions/">threex game extension for three.js</a>.
-It provides help to handle videos in texture.
-It is possible to put html5 <code>&lt;video&gt;</code> output in texture with <code>threex.videotexture.js</code>.
-You can even put the webcam in a texture with <code>threex.webcamtexture.js</code>.
-It is cool if you want to make a tv screen in your game, You can easily use this extension. You pick the video to play and you are ready to go.
-The screen surface will use your video texture making it look like a TV set.
-If you need it, you can try <code>threex.audiovideotexture.js</code> where the
-video is mapped on the texture and additionnally the sound of the video
-is handled via
-<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">web audio API</a>.
-Thus you can have localized sound, which is neat in the 3d environment.</p>
-
-<p><a href='http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html' target='_blank'><input type="button" value='Try Threex.videotexture Demo Now' /></a></p>
-
-<p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
-<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
-
-<!-- more -->
-
-
-
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/O5ae0FhrOEo" frameborder="0" allowfullscreen></iframe>
-
-
-<h1>Show Don&#8217;t Tell</h1>
-
-<ul>
-<li>Here is a <a href="http://jeromeetienne.github.io/threex.videotexture/examples/videotexture.html">videotexture example</a> and its <a href="https://github.com/jeromeetienne/threex.videotexture/blob/master/examples/videotexture.html">source</a>.
-It read the video from a file via video dom element and display it in a texture</li>
-<li>Here is a <a href="http://jeromeetienne.github.io/threex.videotexture/examples/audiovideotexture.html">audio/video texture example with WebAudio API</a>and its <a href="https://github.com/jeromeetienne/threex.videotexture/blob/master/examples/audiovideotexture.html">source</a>.
-It shows how to plug the video sound into the WebAudio API because you get localised sounds.
-This is particularly useful in 3D.
-&#8220;Audio/Video&#8221; texture is a texture where the sound comes from the object3d on which
-the texture is mapped.</li>
-<li>Here is another <a href="http://jeromeetienne.github.io/threex.videotexture/examples/webcamtexture.html">webcam example</a> and its <a href="https://github.com/jeromeetienne/threex.videotexture/blob/master/examples/webcamtexture.html">source</a>.
-It reads the webcam thru getUserMedia and put it in a texture.</li>
-</ul>
-
-
-<h1>How To Install It</h1>
-
-<p>You can install it manually. Just do</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.videotexture.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You can install with <a href="http://bower.io/">bower</a>.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.videotexture
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>then you add that in your html</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;bower_components/threex.videotexture/threex.videotexture.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h1>How To Use it</h1>
-
-<h2>threex.videotexture.js</h2>
-
-<p>First you instanciate the texture itself</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// create the videoTexture</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">videoTexture</span><span class="o">=</span> <span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">VideoTexture</span><span class="p">(</span><span class="s1">&#39;videos/sintel.ogv&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="nx">updateFcts</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="nx">now</span><span class="p">){</span>
-</span><span class='line'>    <span class="c1">// to update the texture are every frame</span>
-</span><span class='line'>    <span class="nx">videoTexture</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="nx">now</span><span class="p">)</span>
-</span><span class='line'><span class="p">})</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then you use it in a mesh like this.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// use the texture in a THREE.Mesh</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">geometry</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">CubeGeometry</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">material</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshBasicMaterial</span><span class="p">({</span>
-</span><span class='line'>    <span class="nx">map</span> <span class="o">:</span> <span class="nx">videoTexture</span><span class="p">.</span><span class="nx">texture</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">mesh</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">);</span>
-</span><span class='line'><span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span> <span class="nx">mesh</span> <span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Here is the detailled API:</p>
-
-<ul>
-<li><code>videoTexture.video</code>: the video dom element from which the video is used</li>
-<li><code>videoTexture.texture</code>: the generated <code>THREE.Texture</code></li>
-<li><code>videoTexture.update(delta, now)</code>: update the texture from the video element</li>
-<li><code>videoTexture.destroy()</code>: destroy the object</li>
-</ul>
-
-
-<h2>threex.webcamtexture.js</h2>
-
-<p>It will read the webcam using
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator.getUserMedia">getUserMedia</a>.
-The browser
-will likely ask for permissions to the users.
-Let&#8217;s see how to use it. You instanciate the texture itself.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">webcamTexture</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">WebcamTexture</span><span class="p">()</span>
-</span><span class='line'><span class="nx">updateFcts</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="nx">now</span><span class="p">){</span>
-</span><span class='line'>    <span class="c1">// to update the texture are every frame</span>
-</span><span class='line'>    <span class="nx">webcamTexture</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="nx">now</span><span class="p">)</span>
-</span><span class='line'><span class="p">})</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then you use it in a mesh</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// use the texture in a THREE.Mesh</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">geometry</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">CubeGeometry</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">material</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshBasicMaterial</span><span class="p">({</span>
-</span><span class='line'>    <span class="nx">map</span> <span class="o">:</span> <span class="nx">videoTexture</span><span class="p">.</span><span class="nx">texture</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">mesh</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">);</span>
-</span><span class='line'><span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span> <span class="nx">mesh</span> <span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Here is the detailled API:</p>
-
-<ul>
-<li><code>videoTexture.video</code>: the video dom element from which the video is used</li>
-<li><code>videoTexture.texture</code>: the generated <code>THREE.Texture</code></li>
-<li><code>videoTexture.update(delta, now)</code>: update the texture from the video element</li>
-<li><code>videoTexture.destroy()</code>: destroy the object</li>
-<li><code>THREEx.WebcamTexture.available</code>: true if <code>getUserMedia</code> is available on this
-browser, false otherwise.</li>
-</ul>
-
 ]]></content>
   </entry>
   

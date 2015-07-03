@@ -4,7 +4,7 @@
   <title><![CDATA[Category: three.js | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/three-dot-js/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-06-29T12:34:27+01:00</updated>
+  <updated>2015-07-03T15:40:25+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,83 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[LearningThree.js News #7: Stay Tuned with Creative 3D Demos]]></title>
+    <link href="http://learningthreejs.com/blog/2015/07/03/learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/"/>
+    <updated>2015-07-03T12:13:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/07/03/learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos</id>
+    <content type="html"><![CDATA[<p>This post is part of the Three.js News series. In this episode we will see some very cool editors, we can  share assets and create WebGL experiments with. They are useful, practical and easy to use; they are also a great way to start designing your own 3D models. We will take a look at some impressive demos with cute animals, multiple icons, shaders and crazy skills. All these projects are very fun to play with!</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/6AXl6gwwlCc" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<h3>Poonya</h3>
+
+<p><img src="/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/poonya.jpg" alt="screen shot 2015-07-03 at 08 37 42" /></p>
+
+<p><a href="http://community.poonya.com/156">Poonya</a> is an active community and a cool portal for sharing assets. That is, you will be able to share models, material, textures, animations and scripts with <a href="https://twitter.com/sea3dformat">SEA3D</a> Studio for web. An easy to use editor that allows you to create models and to share them with others. You have a wide range of tutorials to help you get started and discover all the functionalities. You can also take a look at all the projects, contributions from other developers.</p>
+
+<h3>Chill de lion</h3>
+
+<p><img src="/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/chill_the_lion.jpg" alt="screen shot 2015-07-03 at 11 39 39" /></p>
+
+<p>Beautiful <a href="http://codepen.io/Yakudoo/pen/YXxmYR?utm_content=buffer71fab&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer">demo</a> created by <a href="https://twitter.com/yakudoo">Yakudoo</a>. We saw paranoid birds in another three.js news. Now its time for the king of the jungle. You will see a very cute animation of a lion who is in desperate need of chillin' and refreshment. It must be a very warm summer day for him. By clicking you activate the ventilation and  when turning around with your mouse you make wind blow in every direction. The lion will definitely appreciate. He will actually smile.</p>
+
+<h3>Holy Running Cow</h3>
+
+<p><img src="/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/holy_running_cow.jpg" alt="screen shot 2015-07-03 at 11 40 36" /></p>
+
+<p>This is another <a href="http://codepen.io/Yakudoo/pen/rVGraP">demo</a> done by Yakudoo. He really has a talent for creating fun animal characters! You can see  a very cute cow running around. When you press and drag the scene rotates, and the cow tries to pick up the pace.</p>
+
+<h3>Mighty Fish</h3>
+
+<p><img src="/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/mighty_fish.jpg" alt="screen shot 2015-07-03 at 11 41 24" /></p>
+
+<p>We just love Yakudoo's demos. This one is called <a href="http://codepen.io/Yakudoo/pen/BNNGBq">Mighty Fish</a>. In it you will see a very determined fish, swimming with or against the current. Kind of Nemo's father when he couldn't find Nemo. You can move your mouse to change speed and direction and see how adorably funny it is.</p>
+
+<h3>Many Icons Using Three.js</h3>
+
+<p><img src="/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/many_icons_using_threejs.jpg" alt="screen shot 2015-07-03 at 11 42 27" /></p>
+
+<p>Funky <a href="http://codepen.io/clockmaker/details/gpozrX/">demo</a> created by Yasunobu Ikeda in <a href="http://codepen.io/clockmaker/">codepen.io</a>. It shows various icons and letters that come together and turn into one, flowing in a replaying cycle. It changes color every time and it sometimes gives you the impression of being inside the Matrix. This demo was created using the Time Remap effect with Three.js and TweenMax. You can visit the Clock Maker <a href="http://clockmaker.jp/labs/">website</a> to see all Yasunobu's experiences in this interactive motion lab.</p>
+
+<h3>Unstable Clock</h3>
+
+<p><img src="/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/unstable_clock.jpg" alt="screen shot 2015-07-03 at 11 42 51" /></p>
+
+<p>This one is a captivating <a href="http://freelance-html-developer.com/clock/">demo</a> and a Chrome Experiment developed by <a href="http://freelance-html-developer.com/">Tomasz Slawnikowski</a>, a freelance html developer. It measures time in an original frame. Every second is drawn according to the hour passing by. If you look a it for a while you will feel in a state of unreality, in a haze, hypnotic state. Even if it appears unstable, the clock is ticking!</p>
+
+<h3>Crazy Skills</h3>
+
+<p><img src="/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/crazy_skills.jpg" alt="screen shot 2015-07-03 at 11 43 42" /></p>
+
+<p><a href="https://crazyskills.panasonic.com/en/">Crazy Skills</a> is a very cool project created by <a href="@panasonic_njr">Panasonic</a>. If you are a football fan you are definitely gonna enjoy it. It is an awesome presentation of football player <a href="@neymarjr">Neymar</a> incredible sport skills. Just in case you don't know him, Neymar is a recognised and adored Brazilian football player who plays for FC Barcelona and is captain of the Brazilian national team. He is very talented as you can see it in this motion museum dedicated to him.  There a a set of skills you can click on and see how Neymar's avatar plays on the field.</p>
+
+<h3>Fiddling with shaders</h3>
+
+<p><img src="/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/fiddling_with_shaders.jpg" alt="screen shot 2015-07-03 at 11 48 33" /></p>
+
+<p>Very kaleidoscopic <a href="http://chrisirhc.github.io/_experiment-sand-webgl/push-field.html">experiment</a> created by <a href="https://twitter.com/chrisirhc">Chris Chua</a>. In this demo Chris plays around with shaders in WebGL to simulate force over an area. You can click and drag your mouse around to see how a trail is designed, go faster or slower. It almost resembles a small fish in the water.</p>
+
+<h3>I'll be back</h3>
+
+<p><img src="/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/ill_be_back.jpg" alt="screen shot 2015-07-03 at 11 45 27" /></p>
+
+<p>Amazing <a href="https://c1.goote.ch/b9cca08d92a744e79a6772e13d624200.scene/">project</a> brought to us by the team at <a href="https://twitter.com/GooTechnologies">Goo Create</a>. Here is another cinematic and life like demo inspired by the last Terminator film. The effects and sound intensify the experience and the ambiance around is purely immersive. On their <a href="http://goocreate.com/">website</a> you can try out their great WebGL creation tool for ads, games and interactive experiences. Their editor is impressive by its simplicity and accessibility.</p>
+
+<h3>Conclusion</h3>
+
+<p>In this episode of Three.js News we discovered some great ways to create 3D models and share assets. There are vast possibilities when using great editors and tools. We discovered letters and numbers that form together in time and space. We also played with fun and lovable characters and professional football skills. We hope that you will really enjoy experimenting with all these projects.</p>
+
+<p>Stay tuned for more Three.js News. See you next time</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[LearningThree.js News #6: Stay Tuned with Creative 3D Demos]]></title>
@@ -284,71 +361,6 @@
 <p>We also want to thank our readers. We love it when developers out there send us their stuff, new and creative demos that we can share.</p>
 
 <p>Stay tuned for more Three.js news. See you next time.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[LearningThree.js News #2: Stay Tuned with Creative 3D Demos]]></title>
-    <link href="http://learningthreejs.com/blog/2015/05/27/learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/"/>
-    <updated>2015-05-27T15:53:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2015/05/27/learningthree-dot-js-news-stay-tuned-with-creative-3d-demos</id>
-    <content type="html"><![CDATA[<p>This post is about Three.js News, a fun and brief newsletter about demos in three.js. The idea is to present the new and interesting 3D creations on the web. Our goal is to keep the audience up to date and tuned with Three.js most recent developments. We will upload videos and collect information of the latest demos. Let's take a look at this episode</p>
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/DgPv6IIVDFQ" frameborder="0" allowfullscreen></iframe>
-
-
-
-
-<!-- more -->
-
-
-<p>In this second edition of Three.js news we have collected very creative and funky demos. Some of them  were developed for both desktop and mobile phones. Some are games, some are just pure fun. Using the latest technologies, they are all a clear example of what's possible to do with web 3D today.</p>
-
-<h2>Inconvergent Waves</h2>
-
-<p><img src="/data/2015-05-27-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/inconvergent_waves.png" alt="screen shot 2015-05-26 at 10 42 57" />
-<a href="http://inconvergent.net/waves/">Inconvergent waves</a> is a nicely done demo by <a href="https://twitter.com/inconvergent">Anders Hoff</a>. You can create waves by moving your mouse around. It's like making ripples on the water. This technique is actually used as a method for generating landscapes. It's very reactive and the movements are smooth and natural. Visit the inconvergent <a href="http://inconvergent.net/">website</a> to check out the developing process.</p>
-
-<h2>Interactive WebGL globes</h2>
-
-<p><img src="/data/2015-05-27-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/interactive_webgl_globe.png" alt="screen shot 2015-05-26 at 10 57 30" />
-<a href="http://projects.delimited.io/webgl-globes/example_4_interactive_globe.html">Interactive WebGL</a> globes is a great way to improve your geography skills! This very educational and fun demo is a creation of <a href="https://twitter.com/delimitedtech">Steve Hall</a>. You mouseover the countries that you want and turn around by clicking on the interactive globe. Don't hesitate to read Steve's <a href="http://www.delimited.io/blog/2015/5/16/interactive-webgl-globes-with-threejs-and-d3">blogpost</a> to know more about his implementation of D3 and Three.js.</p>
-
-<h2>Spiral Circle</h2>
-
-<p><img src="/data/2015-05-27-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/spiral_circle.png" alt="screen shot 2015-05-26 at 10 58 52" /></p>
-
-<p><a href="http://projects.delimited.io/subunit/demos/spiral-circle-v2.html">Spiral Circle</a> is another cool demo created by Steve Hall. It is based on <a href="http://bl.ocks.org/mbostock">mbostock’s</a> <a href="http://bl.ocks.org/mbostock/2472e84f78fd03df443f">example</a>. It is extremely hypnotic and it has kind of a disturbing texture, like the skin of a snake monster or something. You can pan to the left to divide the circle in two. Be careful, it's alive!</p>
-
-<h2>Hatsune Miku</h2>
-
-<p><img src="/data/2015-05-27-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/hatsune_miku_threejs.png" alt="screen shot 2015-05-26 at 11 00 53" /></p>
-
-<p><a href="http://en.wikipedia.org/wiki/Hatsune_Miku">Hatsune Miku</a> is a Three.js example <a href="http://takahirox.github.io/three.js/examples/webgl_loader_mmd.html">demo</a> done by <a href="https://twitter.com/superhoge">takahiro</a>. It's a very fun demo even if takahiro is still working on improving it. This very cute blue hair girl is Japan's sweetheart. She dances in holograms and does <a href="https://www.youtube.com/watch?v=YSyWtESoeOc">live concerts</a>...yeah i'm not kidding! We are even trying to bring her to life in <a href="https://twitter.com/LearningThreejs/status/600740523574439937">AR</a>.</p>
-
-<h2>Race Against Oblivion</h2>
-
-<p><img src="/data/2015-05-27-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/race_against_oblivion.png" alt="screen shot 2015-05-26 at 10 59 58" /></p>
-
-<p>Race against oblivion or <a href="http://www.timeshift165.com/game">Timeshift</a> is an  original game made by <a href="http://www.ultranoir.com/en/#!/home/">Utranoir</a>. Inspired on the story of a unique French car : The Delahaye 165, you have to race against time to save this one of a kind automobile. The presentation of the game is outstanding, it has great design, background and effects. Bonus, it can be played on both desktop and mobile!</p>
-
-<h2>A Particle Dream</h2>
-
-<p><img src="/data/2015-05-27-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/a_particle_dream.png" alt="screen shot 2015-05-26 at 11 03 05" />
-A Particle dream is a <a href="https://www.chromeexperiments.com/experiment/particle-dream">demo</a> created by <a href="http://www.iamnop.com/">Nop Jiarathanakul</a>. It is one of the latest Chrome experiments. It is a wonderful simulation of particles moving smoothly around. You can choose the shape you want the particles to morph into. The music and the ambiance mix together for a very relaxing result. Oh and you can actually use <a href="https://www.leapmotion.com/">Leap Motion</a> in this demo.</p>
-
-<h2>Our Galactic Neighbourhood</h2>
-
-<p><img src="/data/2015-05-27-learningthree-dot-js-news-stay-tuned-with-creative-3d-demos/our_galactic_neighborhood.png" alt="screen shot 2015-05-26 at 11 02 06" /></p>
-
-<p><a href="http://charliehoey.com/threejs-demos/our-galactic-neighborhood.html">Our Galactic Neighbourhood</a>
-is another very educational demo. Developed by creative coder <a href="http://charliehoey.com/">Charlie Hoey</a> this demo is a simulation of the charted stars in our Galaxy. You are able to explore the stars travelling both in space and time. Have you ever wondered how the stars are like lightyears away from Earth? Or how will they be thousands of years from now? This demo is your interstellar adventure.</p>
-
-<h2>Conclusion</h2>
-
-<p>In this blogpost we reviewed some 3D demos for Three.js News. They are all very diverse. We saw games, educational projects, simulations and funky characters. What they all have in common is their creativity and the use of 3D technology on the web. Some even go further and incorporate fun control sensor like the Leap Motion device. Have fun checking out all these demos. I hope you enjoy them as much as we did.</p>
-
-<p>Stay tuned for more Three.js News and see you next time.</p>
 ]]></content>
   </entry>
   
