@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-07-03T15:40:25+01:00</updated>
+  <updated>2015-07-10T13:14:18+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,75 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[LearningThree.js News #8: Stay Tuned With Creative 3D Demos]]></title>
+    <link href="http://learningthreejs.com/blog/2015/07/10/learningthree-dot-js-news-number-8-stay-tuned-with-creative-3d-demos/"/>
+    <updated>2015-07-10T12:52:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/07/10/learningthree-dot-js-news-number-8-stay-tuned-with-creative-3d-demos</id>
+    <content type="html"><![CDATA[<p>This is another post for Three.js News. In this eighth edition we are going to travel and dance with cubes, discover Swiss ground with points, and do some commuting with lines. We have a couple of educational viewers, one for asteroids and another, less space related but equally exact, for terrains. We will enjoy turning around with funky vertex and spinning helix. We will discover some beautiful models skillfully displayed in Three.js. We will also be able to measure and forecast happiness.</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/5vPtKBlyQsA" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<h3>The Happy Forecast</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-10-learningthree-dot-js-news-number-8-stay-tuned-with-creative-3d-demos/screenshots/the_happy_forecast.jpg" alt="the_happy_forecast" /></p>
+
+<p><a href="http://www.thehappyforecast.com/?utm_content=bufferdcbd0&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer">The Happy Forecast</a> is a beautifully made and innovative social experiment. It was created by the team at <a href="https://twitter.com/weareclubhouse">Clubhouse</a>, an interactive design studio. In this project they measure happiness in every region and postcode of London. They did this with over a year social wellbeing research. Everything from public interactions to body language and audio factors are taken into account. You can visit their <a href="http://weareclubhouse.com/">website</a> to learn more about their cool projects</p>
+
+<h3>Point Cloud Viewer</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-10-learningthree-dot-js-news-number-8-stay-tuned-with-creative-3d-demos/screenshots/point_cloud_viewer.jpg" alt="point_cloud_viewer" /></p>
+
+<p>The <a href="http://sitn.ne.ch/lidar/">point cloud viewer</a> experiment is amazing. It  measures the exactness of land, making an accurate replica of it. They have displayed the Swiss canton of Neufchatel. You can navigate through it, keeping above ground, increasing the moving speed, flying or changing controls. The ground will materialize before your eyes.</p>
+
+<h3>Double Helix Spin</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-10-learningthree-dot-js-news-number-8-stay-tuned-with-creative-3d-demos/screenshots/double_helix_spin.jpg" alt="double_helix_spin" /></p>
+
+<p>This fun <a href="http://codepen.io/tdhooper/pen/NqyQQe">demo</a> was created by <a href="https://twitter.com/tdhooper">Thomas Hooper</a>. The helix have a predefined motion, their trajectory is spiral and never ending. You can see them entwined as snakes each with a different color, it is a very cool effect! You can see some of Thomas very artistic projects on his website <a href="http://www.stainlessvision.com/">stainless vision</a></p>
+
+<h3>Fluuuu</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-10-learningthree-dot-js-news-number-8-stay-tuned-with-creative-3d-demos/screenshots/fluuu.jpg" alt="fluuu" /></p>
+
+<p><a href="http://labs.fluuu.id/iso2/">Fluuuu</a> is a fun and rythmic demo created by <a href="https://twitter.com/silviopaganini">Silvio Paganini</a>. Silvio is a very talented developer, we featured him in previous Three.js news. In this demo, you can see cubes dancing as if to a beat. They were inspired by Conway&#8217;s game of life. You can change their size and color. Silvio did this for <a href="http://fluuu.id/">FLUUUID</a>, a London creative-tech collective that converges art and technology.</p>
+
+<h3>Asteroid Model Viewer</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-10-learningthree-dot-js-news-number-8-stay-tuned-with-creative-3d-demos/screenshots/asteroid_model_viewer.jpg" alt="asteroid_model_viewer" /></p>
+
+<p>This educational <a href="https://www.chromeexperiments.com/experiment/asteroid-viewer">demo</a> was developed by <a href="https://twitter.com/iwebst">Ian Webster</a>. We featured his Ancient Earth project, which we loved, in previous episodes. Now Ian has created an asteroid viewer with lots of models to choose from. You can see various types of asteroids; a lot of research has been put into this demo. You can even see them in wireframe mode.</p>
+
+<h3>Metrogram3D</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-10-learningthree-dot-js-news-number-8-stay-tuned-with-creative-3d-demos/screenshots/metrogram_3d.jpg" alt="metrogram_3d" /></p>
+
+<p><a href="https://www.chromeexperiments.com/experiment/metrogram3d">Metrogram3d</a> is a wildly interactive and creative demo by <a href="https://twitter.com/nulldesign">nulldesign</a>. It is a time lapse simulation of the Tokyo metro. You can see what is happening in the web of lines in real time. It makes you feel dizzy sometimes. We can realize the pace we are living at when we commute every morning&#8230;maybe we should slow down a bit!</p>
+
+<h3>Cube Travelling</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-10-learningthree-dot-js-news-number-8-stay-tuned-with-creative-3d-demos/screenshots/cube_travelling.jpg" alt="cube_travelling" /></p>
+
+<p><a href="http://codepen.io/raurir/full/IAtie/">Cube Travelling</a> is a very cool interactive demo created by <a href="https://twitter.com/raurir">Rauri</a> on Codepen.io. The effect of the cubes or bars, depending on which was you see them, is fantastic. In this version, you can change the camera perspective and view. You can also toggle the colours. The motion is very fast and the effect is enthralling. In his funky vector <a href="http://www.funkyvector.com/javascript/#">website</a> you can check out all the demos Rauri has developed.</p>
+
+<h3>Maya models converted to Three.js</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-10-learningthree-dot-js-news-number-8-stay-tuned-with-creative-3d-demos/screenshots/maya_to_threejs.jpg" alt="maya_to_threejs" /></p>
+
+<p>This <a href="https://alexstockdale.com/3D/">demo</a> was created by <a href="https://twitter.com/ALIXPLOX">Alex Stockdale</a>. You can see custom Maya models and materials beautifully and skillfully converted to Three.js. You can turn around the models set on the table, zoom in to see them more closely. There is also some great shadow casting in this demo. Alex is an interactive artist, we can see that in his <a href="https://alexstockdale.com/">portfolio</a> where he mixes code and creativity in his projects.</p>
+
+<h3>Conclusion</h3>
+
+<p>In this edition of Three.js News we travelled with cubes, points and lines. We discovered how happiness can be measured and forecasted in a determined region. We enjoyed dancing, spinning and converting models to Three.js. All of these projects reflect researched studies, skills and creativity, and the elliptical never ending wonderment of web 3D.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[LearningThree.js News #7: Stay Tuned with Creative 3D Demos]]></title>
@@ -1733,136 +1802,6 @@ It shows a demo of it.</li>
 </span><span class='line'><span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">lighting</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Easy to use dynamic texture to write text in your 3d object with threex.dynamictexture game extensions for three.js]]></title>
-    <link href="http://learningthreejs.com/blog/2014/05/02/easy-to-use-dynamic-texture-to-write-text-in-your-3d-object-with-threex-dot-dynamictexture-game-extensions-for-three-dot-js/"/>
-    <updated>2014-05-02T13:54:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2014/05/02/easy-to-use-dynamic-texture-to-write-text-in-your-3d-object-with-threex-dot-dynamictexture-game-extensions-for-three-dot-js</id>
-    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.dynamictexture/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.dynamictexture/master/examples/images/screenshot-threex-dynamictexture-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
-This challenge is to publish every day one game extension for three.js!
-One per day, every day and that for 2month!
-In this post, we gonna talk about
-<a href="http://www.threejsgames.com/extensions/#threex.dynamictexture">threex.dynamictexture</a>.
-threex.dynamictexture is a <a href="http://www.threejsgames.com/extensions/">threex game extension for three.js</a>. It provides an easy way to handle dynamically generated texture.
-Inspiration came from
-the excelent <a href="http://www.babylonjs.com">babylon.js</a>
-which got
-<a href="https://github.com/BabylonJS/Babylon.js/blob/master/Babylon/Materials/textures/babylon.dynamicTexture.js">BABYLON.DynamicTexture</a>.
-It is mainly used to write text in texture. Say you got a character which says something, you may want to put that in a texture and display that above your character. threex.dynamictexture will make it easy for you.</p>
-
-<p><a href='http://jeromeetienne.github.io/threex.dynamictexture/examples/basic.html' target='_blank'><input type="button" value='Try Threex.dynamictexture Demo Now' /></a></p>
-
-<p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
-<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
-
-<!-- more -->
-
-
-
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/lSR-6Q4oinU" frameborder="0" allowfullscreen></iframe>
-
-
-<h1>Show Don&#8217;t Tell</h1>
-
-<ul>
-<li><a href="http://jeromeetienne.github.io/threex.dynamictexture/examples/basic.html">examples/basic.html</a>
-[<a href="https://github.com/jeromeetienne/threex.dynamictexture/blob/master/examples/basic.html">view source</a>] :
-It shows this feature, and that one which is coded like that.</li>
-</ul>
-
-
-<h1>How To Install It</h1>
-
-<p>You can install it manually or with
-<a href="http://bower.io/">bower</a>.
-for the manual version, first include <code>threex.dynamictexture.js</code> with the usual</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.dynamictexture.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>or with
-<a href="http://bower.io/">bower</a>
-you type the following to install the package.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.dynamictexture
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>then you add that in your html</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;bower_components/threex.dynamictexture/threex.dynamictexture.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h1>How To Use It ? </h1>
-
-<p>You instanciate the texture, say it is 512 pixel width, and 512 pixel high.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'>var dynamicTexture  = new THREEx.DynamicTexture(512,512)
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li><code>dynamicTexture.canvas</code> the underlying canvas</li>
-<li><code>dynamicTexture.context</code> the context of the underlying canvas</li>
-<li><code>dynamicTexture.texture</code> the <code>THREE.Texture</code> created</li>
-</ul>
-
-
-<p>To use the texture on a <code>THREE.Material</code></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">geometry</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">CubeGeometry</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">material</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshBasicMaterial</span><span class="p">({</span>
-</span><span class='line'>    <span class="nx">map</span> <span class="o">:</span> <span class="nx">dynamicTexture</span><span class="p">.</span><span class="nx">texture</span>
-</span><span class='line'><span class="p">})</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">mesh</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">);</span>
-</span><span class='line'><span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span> <span class="nx">mesh</span> <span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>When you update a texture be sure to do</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">dynamicTexture</span><span class="p">.</span><span class="nx">texture</span><span class="p">.</span><span class="nx">needsUpdate</span>  <span class="o">=</span> <span class="kc">true</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Helpers Functions</h2>
-
-<p>Some helpers functions are provided to draw in this canvas.</p>
-
-<p><strong>To clear the underlying canvas</strong></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">dynamicTexture</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>To Draw a Text</strong>
-to draw a text</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">dynamicTexture</span><span class="p">.</span><span class="nx">drawText</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p></p>
 ]]></content>
   </entry>
   
