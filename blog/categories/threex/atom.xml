@@ -4,7 +4,7 @@
   <title><![CDATA[Category: threex | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/threex/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-07-16T13:04:05+01:00</updated>
+  <updated>2015-07-16T13:37:58+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -30,8 +30,8 @@ support WebGL and WebRTC.
 The screenshot on the right is made on a nexus.
 So we can do augmented reality within the browser on mobile</p>
 
-<blockquote><p>We can do augmented reality within the browser on currently deployed mobile phones.
-There is  nothing to wait for.</p></blockquote>
+<blockquote><p>We can do augmented reality within the browser on currently deployed mobile phones today!
+There is nothing to wait for.</p></blockquote>
 
 <iframe src="https://vine.co/v/eApD5rPtKxT/embed/simple" width="600" height="600" frameborder="0"></iframe>
 
@@ -90,7 +90,7 @@ I love her!</p>
 Here is how to do it.
 First you put the <a href="http://jeromeetienne.github.io/demo.hatsunemiku-augmentedreality">demo url</a> in your browser.
 It will read your webcam using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getUserMedia">getUserMedia</a>. When it asks for permission, allow it :)
-Then you need to put this <a href="http://jeromeetienne.github.io/threex.webar/demo.hatsunemiku-augmentedreality/image-marker-265.html">AR marker</a> in front of the camera.
+Then you need to put this <a href="http://jeromeetienne.github.io/demo.hatsunemiku-augmentedreality/marker/image-marker-265.html">AR marker</a> in front of the camera.
 You can print it and point the camera toward the paper
 or you can load the marker web page and put the phone in front of the camera.
 And now you can see Hatsune Mike Dancing in Augmented Reality.</p>
