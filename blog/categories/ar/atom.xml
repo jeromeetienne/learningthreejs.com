@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: AR | Learning Three.js]]></title>
+  <title><![CDATA[Category: ar | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/ar/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-07-10T13:14:18+01:00</updated>
+  <updated>2015-07-16T13:04:05+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -14,177 +14,100 @@
 
   
   <entry>
-    <title type="html"><![CDATA[See-through Effect for Augmented Reality On Your Phone]]></title>
-    <link href="http://learningthreejs.com/blog/2015/05/10/see-through-effect-for-augmented-reality-on-your-phone/"/>
-    <updated>2015-05-10T19:25:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2015/05/10/see-through-effect-for-augmented-reality-on-your-phone</id>
-    <content type="html"><![CDATA[<p>This post shows how to read your phone camera and make it appears as
-transparent, aka to act as a see-through.
-It may seems unrelated to 3d at first but
-it is extremely useful in augmented reality.
-I know it may seem silly :)
-But this see-throught is the base of Augmented Reality in a phone.
-This and other AR tech will be the subject of future posts.</p>
+    <title type="html"><![CDATA[Hatsune Miku Dancing In Augmented Reality]]></title>
+    <link href="http://learningthreejs.com/blog/2015/07/16/hatsune-miku-dancing-in-augmented-reality/"/>
+    <updated>2015-07-16T08:47:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/07/16/hatsune-miku-dancing-in-augmented-reality</id>
+    <content type="html"><![CDATA[<p>This demo shows Hatsune Miku dancing in augmented reality within
+your browser! This is great and surprisingly easy to do.
+All that running on your browser, based on web standards.
+I did it to show it was possible to do AR within the browser. I wanted to share the code to see what you guys can do with it.</p>
 
-<p>It makes your device 'appears as transparent'
-So when the user is looking at her device, she is seeing the reality.
-You just have to display your augmented part on top
-and you got augmented reality. A Picture is Worth a Thousand Words :)</p>
+<p><img class="right" src="http://learningthreejs.com/data/2015-07-16-hatsune-miku-dancing-in-augmented-reality/screenshots/screenshot-nexus9.png" width="350"></p>
 
-<p><a href='http://jeromeetienne.github.io/demo.seethroughphone' target='_blank'><input type="button" value='Try Demo Now' /></a></p>
+<p>Best of all, it even runs on mobile phones that
+support WebGL and WebRTC.
+The screenshot on the right is made on a nexus.
+So we can do augmented reality within the browser on mobile</p>
 
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/q7uRkul5prI" frameborder="0" allowfullscreen></iframe>
+<blockquote><p>We can do augmented reality within the browser on currently deployed mobile phones.
+There is  nothing to wait for.</p></blockquote>
 
-
+<iframe src="https://vine.co/v/eApD5rPtKxT/embed/simple" width="600" height="600" frameborder="0"></iframe>
 
 
-<!-- more -->
+<script src="https://platform.vine.co/static/scripts/embed.js"></script>
 
 
-<h2>How It Is Coded</h2>
+<h2>How is it coded ?</h2>
 
-<p>Webcams are great for interactivity.
-  We will read the webcam thanks to <a href="http://www.webrtc.org/">WebRTC</a>,
-  html5 API which can be used to do video/audio conferences like  Skype or Hangout.</p>
+<p>It is mainly a link of 2 parts.
+First <a href="https://github.com/jeromeetienne/threex.webar">webar extensions</a>
+for three.js. They bundle what is needed to handle augmented reality with three.js, from the webcam setup to the marker localisation.
+Second part is the <a href="http://takahirox.github.io/three.js/examples/#webgl_loader_mmd">mmd loader</a> which loads the model. It loads the Hatsune Miku model and its animations.</p>
 
-<p>In our case, we just get the video from the webcam
-  with the <a href="https://w3c.github.io/mediacapture-main/getusermedia.html">getUserMedia() function</a>.
-  we dont need all the network part.
-  It is quite widespread according <a href="http://caniuse.com/#feat=stream">caniuse</a> which is great!
-  You can learn more about it
-  on <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getUserMedia">mdn</a>
-  or <a href="http://www.html5rocks.com/en/tutorials/getusermedia/intro/">html5rocks</a></p>
+<p>Once you got those 2 parts, things are simple :) you just have to display your model where your marker is.
+To know the tech details, you will have to dig in <a href="http://takahirox.github.io/three.js/examples/#webgl_loader_mmd">the</a>
+<a href="https://github.com/jeromeetienne/threex.webar">code</a>.
+I will likely talk more about AR tho.</p>
 
-<p>Now that we know how to get a video, which camera to pick ?
-This demo is intended for phone. They often got multiple cameras nowsadays.
-  typically a front camera for selfies
-  a back camera for the normal photos.
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> will list all the media source available in your browser.
-  In webrtc vocabulary,
-  front camera is called 'user' facing video
-  back camera is a 'environment' facing .
-  So we try to get the environment video camera if we can.</p>
+<h2>Now Let's Do a Bit of History</h2>
 
-<p>For the see-through effect to be convincing, we need to be careful.
-  first we display the video stream in full screen, thus it
-  is more real to the user.
-  We display it in the background of the page with the proper css
-Additionally we ensure we keep a proper
-  <a href="http://en.wikipedia.org/wiki/Aspect_ratio_%28image%29">aspect ratio</a>,
-  no matter the size of the browser window.
-  So it isn't streched.
-So it must be robust to window resize and orientation change.
-  All that makes the resize function more subtle than usual.
-  but nothing dramatic</p>
+<p>I did this to show it was possible to do AR within the browser and to share the code to see what you guys can do with it.
+It was for a <a href="http://daqri.com/dublinhacks/">AR oriented hackathon</a> in Dublin.
+It recently landed a <a href="https://twitter.com/jerome_etienne/status/572435641079877632">new job</a> at <a href="http://daqri.com">Daqri</a>. Part of my job is developer relations, so I get to help people doing AR. I love it :)</p>
 
-<h2>Source</h2>
+<p>All the code to handle Hatsune Miku is from
+<a href="https://www.linkedin.com/pub/takahiro-aoyagi/96/10a/41a">Takahiro Aoyagi</a>.
+He did a <a href="http://github.io/takahirox/three.js">fork on three.js</a> to load mmd formats, the format used to store Hatsune Miku.
+It may be included in three.js soon.
+Here is his <a href="http://takahirox.github.io/three.js/examples/#webgl_loader_mmd">example for three.js</a>
+It all started with his <a href="http://takahirox.github.io/mmd-viewer-js/">mmd viewer</a> in pure webgl.
+The original contains a LOT of neat features like inverse kinetic, physics for the hair,
+a toon shader to make the color more cartoonish, a edge shader to enhance the outline of the model
+like a drawing.
+He is doing excellent work. Check him out on twitter as <a href="https://twitter.com/superhoge">@superhoge</a>.</p>
 
-<p>Here is the full source of the effect.
-It is in a <a href="https://github.com/jeromeetienne/demo.seethroughphone">github repo</a>.
-Enjoy!</p>
+<p>Let's have a word about <a href="https://en.wikipedia.org/wiki/Hatsune_Miku">Hatsune Miku</a> herself.
+It is such a nice story.
+She is a Japanese star but she is purely virtual.
+She is a humanoid persona which appears as a drawing or as a hologram.
+There is no human behind, even for the voice!
+When she sings, what you hear is a voice synthesizer from <a href="https://en.wikipedia.org/wiki/Crypton_Future_Media">crypton</a>
+All that is crazy but true :)</p>
 
-<p>```html
-&lt;!DOCTYPE html>
-<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"></p>
+<p>She even does <a href="https://www.youtube.com/watch?v=pEaBqiLeCu0">concerts</a> where thousand of fans are go to see her.
+Actual human fans I mean, not virtual ones.
+As you can see, Hatsune Miku is no stranger to augmented reality.
+I love her!</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/pEaBqiLeCu0" frameborder="0" allowfullscreen></iframe>
 
 
+<h2>How To Run The Demo ?</h2>
 
-<p><body style='margin: 0px;; overflow: hidden;'><script></p>
+<p>You may want to run this demo obviously.
+Here is how to do it.
+First you put the <a href="http://jeromeetienne.github.io/demo.hatsunemiku-augmentedreality">demo url</a> in your browser.
+It will read your webcam using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getUserMedia">getUserMedia</a>. When it asks for permission, allow it :)
+Then you need to put this <a href="http://jeromeetienne.github.io/threex.webar/demo.hatsunemiku-augmentedreality/image-marker-265.html">AR marker</a> in front of the camera.
+You can print it and point the camera toward the paper
+or you can load the marker web page and put the phone in front of the camera.
+And now you can see Hatsune Mike Dancing in Augmented Reality.</p>
 
-<p>// shim
-navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-window.URL      = window.URL || window.webkitURL;</p>
+<p>Now let's look at it in action in this little screencast.</p>
 
-<p>;(function(){</p>
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/ObVR2mOM-3Y" frameborder="0" allowfullscreen></iframe>
 
-<pre><code>    'use strict;'
 
-    // create video element
-    var video        = document.createElement('video')
-    video.setAttribute('autoplay', true)
-    document.body.appendChild(video)
+<h2>Conclusion</h2>
 
-    /**
-     * Resize video element. 
-     * - Made complex to handle the aspect change 
-     * - it is frequent when the mobile is changing orientation
-     * - after a search on the internet, it seems hard/impossible to prevent browser from changing orientation :(
-     */
-    function onResize(){
-            // is the size of the video available ?
-            if( video.videoHeight === 0 )   return
+<p>If you want to experiment with augmented reality and three.js, checkout <a href="https://github.com/jeromeetienne/threex.webar">threex.webar</a>.
+It is so cool to make augmented reality on the web!
+I hope you have as much fun as I had doing it :)
+I can't wait to see what augmented reality will do on mobile's browsers.</p>
 
-            var videoAspect = video.videoWidth / video.videoHeight
-            var windowAspect = window.innerWidth / window.innerHeight
-
-            // var video = document.querySelector('video')
-            video.style.position = 'absolute'
-
-            if( videoAspect &lt; windowAspect ){
-                    video.style.left        = '0%'
-                    video.style.width       = window.innerWidth + 'px'
-                    video.style.marginLeft  = '0px'
-
-                    video.style.top         = '50%'
-                    video.style.height      =  (window.innerWidth/videoAspect) + 'px'
-                    video.style.marginTop   = -(window.innerWidth/videoAspect) /2 + 'px'                        
-            }else{
-                    video.style.top         = '0%'
-                    video.style.height      = window.innerHeight+'px'
-                    video.style.marginTop   =  '0px'
-
-                    video.style.left        = '50%'
-                    video.style.width       =  (window.innerHeight*videoAspect) + 'px'
-                    video.style.marginLeft  = -(window.innerHeight*videoAspect)/2 + 'px'
-            }
-    }
-
-    window.addEventListener('resize', function(event){
-            onResize()
-    })
-
-    // just to be sure - resize on mobile is funky to say the least
-    setInterval(function(){
-            onResize()
-    }, 1000)
-
-    // get the media sources
-    MediaStreamTrack.getSources(function(sourceInfos) {
-            // define getUserMedia() constraints
-            var constraints = {
-                    video: true,
-                    audio: false,                        
-            }
-            // to mirror the video element when it isnt 'environment'
-            // video.style.transform   = 'scaleX(-1)'
-
-            // it it finds the videoSource 'environment', modify constraints.video
-            for (var i = 0; i != sourceInfos.length; ++i) {
-                    var sourceInfo = sourceInfos[i];
-                    console.log('sourceInfo', sourceInfo)
-                    if(sourceInfo.kind == "video" &amp;&amp; sourceInfo.facing == "environment") {
-                            constraints.video = {
-                                    optional: [{sourceId: sourceInfo.id}]
-                            }
-                            // not to mirror the video element when it is 'environment'
-                            // video.style.transform   = ''
-                    }
-            }
-
-            // try to get user media
-            navigator.getUserMedia( constraints, function(stream){
-                    // set the video.src with the userMedia stream
-                    video.src = URL.createObjectURL(stream);
-            }, function(error){
-                    console.error("Cant getUserMedia()! due to ", error);
-            });
-    });
-</code></pre>
-
-<p>})()
-</script>
-</body>
-```</p>
+<p>That's all folks. Have fun.</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: threex | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/threex/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-07-10T13:14:18+01:00</updated>
+  <updated>2015-07-16T13:04:05+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,104 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Hatsune Miku Dancing In Augmented Reality]]></title>
+    <link href="http://learningthreejs.com/blog/2015/07/16/hatsune-miku-dancing-in-augmented-reality/"/>
+    <updated>2015-07-16T08:47:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/07/16/hatsune-miku-dancing-in-augmented-reality</id>
+    <content type="html"><![CDATA[<p>This demo shows Hatsune Miku dancing in augmented reality within
+your browser! This is great and surprisingly easy to do.
+All that running on your browser, based on web standards.
+I did it to show it was possible to do AR within the browser. I wanted to share the code to see what you guys can do with it.</p>
+
+<p><img class="right" src="http://learningthreejs.com/data/2015-07-16-hatsune-miku-dancing-in-augmented-reality/screenshots/screenshot-nexus9.png" width="350"></p>
+
+<p>Best of all, it even runs on mobile phones that
+support WebGL and WebRTC.
+The screenshot on the right is made on a nexus.
+So we can do augmented reality within the browser on mobile</p>
+
+<blockquote><p>We can do augmented reality within the browser on currently deployed mobile phones.
+There is  nothing to wait for.</p></blockquote>
+
+<iframe src="https://vine.co/v/eApD5rPtKxT/embed/simple" width="600" height="600" frameborder="0"></iframe>
+
+
+<script src="https://platform.vine.co/static/scripts/embed.js"></script>
+
+
+<h2>How is it coded ?</h2>
+
+<p>It is mainly a link of 2 parts.
+First <a href="https://github.com/jeromeetienne/threex.webar">webar extensions</a>
+for three.js. They bundle what is needed to handle augmented reality with three.js, from the webcam setup to the marker localisation.
+Second part is the <a href="http://takahirox.github.io/three.js/examples/#webgl_loader_mmd">mmd loader</a> which loads the model. It loads the Hatsune Miku model and its animations.</p>
+
+<p>Once you got those 2 parts, things are simple :) you just have to display your model where your marker is.
+To know the tech details, you will have to dig in <a href="http://takahirox.github.io/three.js/examples/#webgl_loader_mmd">the</a>
+<a href="https://github.com/jeromeetienne/threex.webar">code</a>.
+I will likely talk more about AR tho.</p>
+
+<h2>Now Let's Do a Bit of History</h2>
+
+<p>I did this to show it was possible to do AR within the browser and to share the code to see what you guys can do with it.
+It was for a <a href="http://daqri.com/dublinhacks/">AR oriented hackathon</a> in Dublin.
+It recently landed a <a href="https://twitter.com/jerome_etienne/status/572435641079877632">new job</a> at <a href="http://daqri.com">Daqri</a>. Part of my job is developer relations, so I get to help people doing AR. I love it :)</p>
+
+<p>All the code to handle Hatsune Miku is from
+<a href="https://www.linkedin.com/pub/takahiro-aoyagi/96/10a/41a">Takahiro Aoyagi</a>.
+He did a <a href="http://github.io/takahirox/three.js">fork on three.js</a> to load mmd formats, the format used to store Hatsune Miku.
+It may be included in three.js soon.
+Here is his <a href="http://takahirox.github.io/three.js/examples/#webgl_loader_mmd">example for three.js</a>
+It all started with his <a href="http://takahirox.github.io/mmd-viewer-js/">mmd viewer</a> in pure webgl.
+The original contains a LOT of neat features like inverse kinetic, physics for the hair,
+a toon shader to make the color more cartoonish, a edge shader to enhance the outline of the model
+like a drawing.
+He is doing excellent work. Check him out on twitter as <a href="https://twitter.com/superhoge">@superhoge</a>.</p>
+
+<p>Let's have a word about <a href="https://en.wikipedia.org/wiki/Hatsune_Miku">Hatsune Miku</a> herself.
+It is such a nice story.
+She is a Japanese star but she is purely virtual.
+She is a humanoid persona which appears as a drawing or as a hologram.
+There is no human behind, even for the voice!
+When she sings, what you hear is a voice synthesizer from <a href="https://en.wikipedia.org/wiki/Crypton_Future_Media">crypton</a>
+All that is crazy but true :)</p>
+
+<p>She even does <a href="https://www.youtube.com/watch?v=pEaBqiLeCu0">concerts</a> where thousand of fans are go to see her.
+Actual human fans I mean, not virtual ones.
+As you can see, Hatsune Miku is no stranger to augmented reality.
+I love her!</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/pEaBqiLeCu0" frameborder="0" allowfullscreen></iframe>
+
+
+<h2>How To Run The Demo ?</h2>
+
+<p>You may want to run this demo obviously.
+Here is how to do it.
+First you put the <a href="http://jeromeetienne.github.io/demo.hatsunemiku-augmentedreality">demo url</a> in your browser.
+It will read your webcam using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getUserMedia">getUserMedia</a>. When it asks for permission, allow it :)
+Then you need to put this <a href="http://jeromeetienne.github.io/threex.webar/demo.hatsunemiku-augmentedreality/image-marker-265.html">AR marker</a> in front of the camera.
+You can print it and point the camera toward the paper
+or you can load the marker web page and put the phone in front of the camera.
+And now you can see Hatsune Mike Dancing in Augmented Reality.</p>
+
+<p>Now let's look at it in action in this little screencast.</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/ObVR2mOM-3Y" frameborder="0" allowfullscreen></iframe>
+
+
+<h2>Conclusion</h2>
+
+<p>If you want to experiment with augmented reality and three.js, checkout <a href="https://github.com/jeromeetienne/threex.webar">threex.webar</a>.
+It is so cool to make augmented reality on the web!
+I hope you have as much fun as I had doing it :)
+I can't wait to see what augmented reality will do on mobile's browsers.</p>
+
+<p>That's all folks. Have fun.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[One Threex a Day Challenge: Phase 1 Completed!]]></title>
@@ -339,77 +437,6 @@ scene.add(mesh)
 <li><code>1</code> to <code>9</code> will assign the official colors for <a href="http://en.wikipedia.org/wiki/Nine-ball">nine-ball</a> pool</li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Easy Way to Include Transparency In Your Three.js Game with threex.transparency]]></title>
-    <link href="http://learningthreejs.com/blog/2014/05/13/easy-way-to-include-transparency-in-your-three-dot-js-game-with-threex-dot-transparency/"/>
-    <updated>2014-05-13T20:21:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2014/05/13/easy-way-to-include-transparency-in-your-three-dot-js-game-with-threex-dot-transparency</id>
-    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.transparency/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.transparency/master/examples/images/screenshot-threex-transparency-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">'one threex a day' challenge</a>.
-This challenge is to publish every day one game extension for three.js!
-One per day, every day and that for 2month!
-In this post, we gonna talk about
-<a href="http://www.threejsgames.com/extensions/#threex.transparency">threex.transparency</a>.
-threex.transparency is a <a href="http://www.threejsgames.com/extensions/">three.js games extension</a> to easily handle transparency. Transparency is a tricky business in Webgl, but this extension makes it approachable. It is worth trying. Do you remember the transparency between the leaves of a tree in 3D games? Well, with this extension you will be able to add it to your own game. You can also make clouds appear transparent in the sky you have created for your game. It is easy to include and it gives a nice polish finish, a professional touch.</p>
-
-<p><a href='http://jeromeetienne.github.io/threex.transparency/examples/basic.html' target='_blank'><input type="button" value='Try Threex.transparency Demo Now' /></a></p>
-
-<p>To see the <a href="/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
-<strong>"A THREEx extension a day, gets your game on its way!"</strong></p>
-
-<!-- more -->
-
-
-
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/mP_8EHnZUTo" frameborder="0" allowfullscreen></iframe>
-
-
-<h1>Show Don't Tell</h1>
-
-<ul>
-<li><a href="http://jeromeetienne.github.io/threex.transparency/examples/basic.html">examples/basic.html</a>
-[<a href="https://github.com/jeromeetienne/threex.transparency/blob/master/examples/basic.html">view source</a>] :
-It shows a basic usage of this extension.</li>
-</ul>
-
-
-<h1>How To Install It</h1>
-
-<p>You can install it via script tag</p>
-
-<p>```html</p>
-
-<script src='threex.transparency.js'></script>
-
-
-<p>```</p>
-
-<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
-
-<p><code>bash
-bower install threex.transparency
-</code></p>
-
-<h2>How To Use It ?</h2>
-
-<p>The algo is well described in this
-<a href="http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-10-transparency/">opengl tutorial about transparency</a>. We just adapt it to fit three.js.
-First you setup all the objects that you want to be transparent</p>
-
-<p><code>
-THREEx.Transparency.init(objects)
-</code></p>
-
-<p>It will change the <code>THREE.Material</code> to make it support transparent.
-Second you need to update all your objects at every frame.</p>
-
-<p><code>
-THREEx.Transparency.update(objects, camera)
-</code></p>
 ]]></content>
   </entry>
   
