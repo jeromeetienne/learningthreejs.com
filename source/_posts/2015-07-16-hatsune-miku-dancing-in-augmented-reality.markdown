@@ -18,8 +18,8 @@ support WebGL and WebRTC.
 The screenshot on the right is made on a nexus.
 So we can do augmented reality within the browser on mobile
 
-> We can do augmented reality within the browser on currently deployed mobile phones. 
-> There is  nothing to wait for. 
+> We can do augmented reality within the browser on currently deployed mobile phones today! 
+> There is nothing to wait for. 
 
 <iframe src="https://vine.co/v/eApD5rPtKxT/embed/simple" width="600" height="600" frameborder="0"></iframe><script src="https://platform.vine.co/static/scripts/embed.js"></script>
 
@@ -74,7 +74,7 @@ You may want to run this demo obviously.
 Here is how to do it.
 First you put the [demo url](http://jeromeetienne.github.io/demo.hatsunemiku-augmentedreality) in your browser.
 It will read your webcam using [getUserMedia](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getUserMedia). When it asks for permission, allow it :)
-Then you need to put this [AR marker](http://jeromeetienne.github.io/threex.webar/demo.hatsunemiku-augmentedreality/image-marker-265.html) in front of the camera. 
+Then you need to put this [AR marker](http://jeromeetienne.github.io/demo.hatsunemiku-augmentedreality/marker/image-marker-265.html) in front of the camera. 
 You can print it and point the camera toward the paper
 or you can load the marker web page and put the phone in front of the camera.
 And now you can see Hatsune Mike Dancing in Augmented Reality.
