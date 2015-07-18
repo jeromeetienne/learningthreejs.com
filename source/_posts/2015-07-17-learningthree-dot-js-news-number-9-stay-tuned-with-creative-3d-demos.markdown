@@ -6,7 +6,7 @@ comments: true
 categories: 
 ---
 
-This post is part of the Three.js News series. If you have a taste for innovation and digital creativity in 3D this series is for you. For this edition we have collected some very artistic demos. We will take a look at some unique projects. Everything from subversive and divergent experiences to particle libraries has a place in this post. We will play around with funny and endearing characters and explore objects around Earth's orbit. We will spin around colourful cities and visit impressive one man portfolio. All of these developers are taking creativity one step further. 
+This post is part of the Three.js News series. If you have a taste for innovation and digital creativity in 3D, this series is for you. For this edition we have collected some very artistic demos. We will take a look at some unique projects. Everything from subversive and divergent experiences to particle libraries has a place in this post. We will play around with funny and endearing characters and explore objects around Earth's orbit. We will spin around colorful cities and visit impressive one man portfolio. All of these developers are taking creativity one step further. 
 
 <iframe width="420" height="315" src="//www.youtube.com/embed/1Z-EEEggGFM" frameborder="0" allowfullscreen></iframe>
 
@@ -35,17 +35,17 @@ In this [project](https://72b997d8354420ca04edc7734b26b346e696c605.googledrive.c
 ### Christmas experiments 
 ![christmas_experiment](/data/2015-07-17-learningthree-dot-js-news-number-9-stay-tuned-with-creative-3d-demos/screenshots/christmas_experiment.jpg)
 
-[Christmas Experiments](http://christmasexperiments.com/experiments/7) is an advent calendar which features digital artists from the creative coding community and their web experiments each day leading up until Christmas. Some of the artists include [Michael Anthony](https://twitter.com/michaeltheory), [Damien Mortini](https://twitter.com/dmmn_), [Matt DesLauriers](https://twitter.com/mattdesl) and [Eiji Muroichi](https://twitter.com/muroicci). There are so much more experiments and artists you can  choose from. The experience is magical, wonderful and it will make you jolly with Christmas spirit. 
+[Christmas Experiments](http://christmasexperiments.com/experiments/7) is an advent calendar which features digital artists from the creative coding community and their web experiments each day leading up until Christmas. Some of the artists include [Michael Anthony](https://twitter.com/michaeltheory), [Damien Mortini](https://twitter.com/dmmn_), [Matt DesLauriers](https://twitter.com/mattdesl) and [Eiji Muroichi](https://twitter.com/muroicci). There many experiments and artists you can choose from. Each experience is magical, wonderful and it will make you jolly with Christmas spirit. 
 
 ### My shards
 ![my_shards](/data/2015-07-17-learningthree-dot-js-news-number-9-stay-tuned-with-creative-3d-demos/screenshots/my_shards.jpg)
 
-[My shards](http://myshards.com/?utm_content=buffer42e96&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer) is an abstract experience developed by internet artist [Ezra Miller](http://ezramiller.biz/). It is diverse, divergent and very creative. Every time you click you will get a new texture on the screen. The change in colour and design is amazing.
+[My shards](http://myshards.com/?utm_content=buffer42e96&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer) is an abstract experience developed by internet artist [Ezra Miller](http://ezramiller.biz/). It is diverse, divergent and very creative. Every time you click on it you will get a new texture on the screen. The change in color and design are awesome.
 
 ### Bruno Quintela's profile 
 ![bruno_quintela-portfolio](/data/2015-07-17-learningthree-dot-js-news-number-9-stay-tuned-with-creative-3d-demos/screenshots/bruno_quintela_portfolio.jpg)
 
-This is the impressive [portfolio](http://brunoquintela.com/) of [Bruno Quintela](https://twitter.com/bruno_quintela). You can take a tour around his website and see the wonderful forms contribute to the digital adventure. The WebGL aesthetics is amazing. It is polished and beautifully presented. A true masterpiece. 
+This is the impressive [portfolio](http://brunoquintela.com/) of [Bruno Quintela](https://twitter.com/bruno_quintela). You can take a tour around his website and see the wonderful forms that contribute to the digital adventure. The WebGL aesthetics is amazing. It is polished and beautifully presented. A true masterpiece. 
 
 ### Stuff in Space 
 ![stuff_in_space](/data/2015-07-17-learningthree-dot-js-news-number-9-stay-tuned-with-creative-3d-demos/screenshots/stuff_in_space.jpg)
