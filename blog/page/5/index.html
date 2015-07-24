@@ -9,9 +9,9 @@
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="This post is about Minecraft Character.
-We will play with the minecraft character, learn how to do your own and make it move.
-I recently saw this &hellip;">
+  <meta name="description" content="This post is about head tracking and how to use it in 3D.
+It is surprisingly easy to do with the suitable libraries.
+We will experiment with &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -100,6 +100,84 @@ I recently saw this &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/03/12/move-a-cube-with-your-head/">Move a Cube With Your Head or Head-Tracking With WebGL</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-12T13:28:00+00:00" pubdate data-updated="true">Mar 12<span>th</span>, 2013</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/5/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/5/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is about head tracking and how to use it in 3D.
+It is surprisingly easy to do with the suitable libraries.
+We will experiment with
+<a href="https://github.com/auduno/headtrackr">headtrackr.js</a> and
+<a href="http://github.com/mrdoob/three.js/">three.js</a>.
+<a href="https://github.com/auduno/headtrackr">headtrackr.js</a>
+is a nice library from
+<a href="https://github.com/auduno">auduno</a> to do head tracking in the browser.
+You will learn how to do head tracking in webgl in only 20lines of javascript.
+I love the web and how easy it is :)</p>
+
+<h2>tl;dr; links</h2>
+
+<ul>
+<li>For a simple example. see the <a href="http://jeromeetienne.github.com/tquery/plugins/headtrackr/examples/index.html">&#8220;move a cube with your head&#8221;</a> demo</li>
+<li>To mess with the code now without any installation, see this <a href="http://jsfiddle.net/jetienne/tSQQ8/">jsfiddle example</a></li>
+<li>for an attempt to make 3d more immersive by using head tracking, see this <a href="http://jeromeetienne.github.com/tquery/plugins/headtrackr/examples/demo.html">demo</a></li>
+</ul>
+
+
+<center>
+    <iframe width="425" height="349" src="http://www.youtube.com/embed/gnVfqfjXxmM" frameborder="0" allowfullscreen></iframe>
+</center>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/03/12/move-a-cube-with-your-head/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -770,87 +848,6 @@ below is short demo of it.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/03/20/sounds-for-more-realistic-3d/">tQuery WebAudio for More Realistic 3D</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-03-20T01:08:00+00:00" pubdate data-updated="true">Mar 20<span>th</span>, 2012</time>
-        
-        
-          <div class="sharing" style='text-align: right;'>
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/5/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/5/index.html" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-</div>
-
-        
-     </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This post is about
-<a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">Web Audio API</a>.
-It is a new HTML5 api which provide great controls on the audio layer.
-It is much better than the
-<a href="http://www.w3.org/TR/html5/the-iframe-element.html#the-audio-element">audio tag</a>.
-It is more suitable for games or music software.
-As 3D lovers, the one feature that we care about is
-<a href="http://en.wikipedia.org/wiki/3D_audio_effect">audio spacialization</a>.
-This makes Web Audio a complement to webgl.
-It implements positional sounds, so you
-get
-<a href="http://en.wikipedia.org/wiki/Panning_(audio)">panning</a>,
-<a href="http://en.wikipedia.org/wiki/Doppler_effect">dopler</a>
-and all.
-It makes the scene so much more realistic.</p>
-
-<p>The user tends to associate 3D to reality, so efficient 3D is a lot about realism.
-The brain identifies 2D as artificial while 3D seems immediatly more natural.
-Anything which appears close to reality increase this effect.
-Feeding this illusion creates a more immersive experience to the user.
-Realistic physics is one (stay tuned :).
-Web Audio audio spacialization is another.</p>
-
-<p>The
-<a href="http://youtu.be/QjRF0_KENQ8">screencast</a>
-below is a live coding session using <code>tQuery.WebAudio</code>.
-If you want, you can experiment with this code in our playground. Just click
-<a href="http://bit.ly/GApgWg">here</a>
-and start coding :)</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/03/20/sounds-for-more-realistic-3d/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/6/">&larr; Older</a>
@@ -868,6 +865,10 @@ and start coding :)</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/07/24/learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/">LearningThree.js News #10: Stay Tuned With Creative 3D Demos</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/07/17/learningthree-dot-js-news-number-9-stay-tuned-with-creative-3d-demos/">LearningThree.js News # 9: Stay Tuned With Creative 3D Demos</a>
       </li>
     
@@ -881,10 +882,6 @@ and start coding :)</p>
     
       <li class="post">
         <a href="/blog/2015/07/03/learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/">LearningThree.js News #7: Stay Tuned with Creative 3D Demos</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/06/29/learningthree-dot-js-news-number-6-stay-tuned-with-creative-3d-demos/">LearningThree.js News #6: Stay Tuned with Creative 3D Demos</a>
       </li>
     
   </ul>

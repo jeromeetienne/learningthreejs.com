@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-07-17T13:38:43+01:00</updated>
+  <updated>2015-07-24T13:47:26+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,92 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[LearningThree.js News #10: Stay Tuned With Creative 3D Demos]]></title>
+    <link href="http://learningthreejs.com/blog/2015/07/24/learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/"/>
+    <updated>2015-07-24T13:28:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/07/24/learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos</id>
+    <content type="html"><![CDATA[<p>This post is about the 10th episode of Three.js News. We are very happy to share exceptional demos with you every week. In all the 3D experiences we have shared on previous episodes, we have witnessed talent, dedication and skill. Without so many creative projects we wouldn&#8217;t have been able to continue with the news. So, to celebrate this 10th edition, we are going to travel through space, time and even dimensions.</p>
+
+<p>In this episode, we will explore other worlds and make musical journeys across decades and light years. We will wonder around the Parisian metro in a different light and be amazed by the simple beauty of land and stone. We will interact with the futuristic and be repelled by the terrestrial. We will learn to safeguard and preserve our cultural heritage through online 3D, and finally, take a walk through the magical woods of the imagination.</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/633x6HwnGPE" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<h3>Metropolitan IO</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-24-learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/screenshots/metropolitan_io.jpg" alt="metropolitan_io" /></p>
+
+<p>This <a href="http://metropolitain.io/">project</a> by <a href="https://twitter.com/dataveyes/">Dataveyes</a> was made to represent the metro network of the Parisian underground. It is a Webgl data visualisation experience. It gives commuters information about the metro system, like journey times and people touching in at each station. It is dynamic and interactive. <a href="http://dataveyes.com/?em_x=22#!/en">Dataveyes&#8217; mission</a> is to transform human data into the best user experiences.</p>
+
+<h3>I Want To See Other Worlds</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-24-learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/screenshots/i_want_to_see_other_worlds.jpg" alt="i_want_to_see_other_worlds" /></p>
+
+<p><a href="http://primitive.be/prods/IWTSOW/">I want to see other worlds</a> by <a href="http://primitive.be/">Primitive</a>. Have you ever dreamed about traveling through space and time? If the answer is yes, then you are gonna love this demo. Primitive is a demo group with outstanding projects in their record. In this webgl demo you can see various elements floating through space. It is raw and pure at the same time. You will see transformations, visit fantastic universes and be driven through planets of the imagination</p>
+
+<h3>Everything Is Fashion</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-24-learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/screenshots/everything_is_fashion.jpg" alt="everything_is_fashion" /></p>
+
+<p><a href="http://stianj.com/fashion/">Everything is fashion</a> is a design and rhythmic demo created by <a href="http://www.pouet.net/prod.php?which=65978">Ninjadev</a>. It is colourful, fun and its got style. You feel as if you are travelling through time with the music. You go through decades, 80&#8217;s, 90&#8217;s&#8230;etc. The transitions are impressive and keep up with the beat, great and simple effects. It is both old-school and futuristic</p>
+
+<h3>Light Year</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-24-learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/screenshots/lightyear.jpg" alt="lightyear" /></p>
+
+<p><a href="http://lightyear.fm/">Lightyear</a> is a very cool experience developed by <a href="https://twitter.com/mikelacher">Mike Lacher</a>, <a href="https://twitter.com/blackmika">Mika Chernov</a>, <a href="https://twitter.com/lanewinfield">Brian Moore</a> and <a href="https://twitter.com/ilovechrisbaker">Chris Baker</a>. In this awesome demo you can hear how far music hits have travelled through Space. Music waves from radio broadcasts leave Earth at the speed of light. You can scroll to move away from Earth and you will hear songs that go way back &#8230;.even 100 light years.</p>
+
+<h3>Bon Appetit</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-24-learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/screenshots/bon_appetit.jpg" alt="bon_appetit" /></p>
+
+<p><a href="http://quasimondo.com/threejs/bon_appetit.html">Bon appetit</a> is a &#8220;creeping on your skin&#8221; demo by creative coder <a href="https://twitter.com/quasimondo">Mario Klingemann</a>. It will truly make you loose your appetite. It is a realistic and big slimy worm crawling on your screen. The texture is very cool and life-like. The slithering creature is in the form of a torus knot which makes it even more disturbing when it moves!</p>
+
+<h3>Future Citizen</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-24-learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/screenshots/future_citizen.jpg" alt="future_citizen" /></p>
+
+<p>This <a href="http://ftrctzn.com/">demo</a> is a funky presentation of Future citizen, a studio making interactive web experiences for brands. It is creative and hypnotic. You can see the net of waves flow towards and against the letters. If you move your mouse around to trigger the effect, you will see that the interactions are pretty neat.</p>
+
+<h3>Kessler Syndrome</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-24-learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/screenshots/kessler_syndrome.jpg" alt="kessler_syndrome" /></p>
+
+<p><a href="https://www.chromeexperiments.com/experiment/kessler-syndrome">Kessler Syndrome</a> is a Chrome Experiment developed by <a href="https://twitter.com/wj_field">Will Field</a>. In this demo we can see the amounts of space trash that have been produced by space travel. The idea is to track some of that trash in real time. The red dots are points where the debris fly past each other at close range. In the bottom left we can fast forward to see all the potential future collisions of trash around Earth.</p>
+
+<h3>Red Stone</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-24-learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/screenshots/red_stone.jpg" alt="red_stone" /></p>
+
+<p><a href="http://potemkin.se/redstone/">Red Stone</a> is a beautifully polished demo made with <a href="http://goocreate.com/">Goo Create</a>. It was done by <a href="https://twitter.com/herrpotemkin">Magnus Östergren</a>, their creative director. The scene is like a desert with some subtle wildlife on it. It has wonderful lighting and shadow casting moving around the stone. It was made with an iphone 6. This is just an example of the cool things you can do with the Goo Create tool.</p>
+
+<h3>Mount Rushmore</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-24-learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/screenshots/mount_rushmore.jpg" alt="mount_rushmore" /></p>
+
+<p><a href="http://www.cyark.org/projects/mount-rushmore-national-memorial/mount-rushmore">Mount Rushmore</a> is a 3D representation of the famous national memorial in the US South Dakota state. It was created by <a href="https://twitter.com/cyark">CyArk</a>, an organisation using digital technology to create and share 3D online libraries of the world&#8217;s cultural heritage sites. Their mission is inspiring, they want to safeguard and preserve these sites to assure their existence for future generations. Visit their <a href="http://www.cyark.org/projects/">website</a> to learn more.</p>
+
+<h3>Way to go</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-07-24-learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/screenshots/way_to_go.jpg" alt="way_to_go" /></p>
+
+<p><a href="http://a-way-to-go.com/">Way to go</a> is an interactive experience created by <a href="https://twitter.com/vmorisset">Vincent Morisset</a> and his team: Philippe Lambert, Edouard Lanctot-Benoit and Caroline Robert. It is a magical walk in the woods which everybody can enjoy. It is fresh and fascinating with its wonderful animation, great old-school characters and 360° video. You can discover the world around you, interact with nature and explore your surroundings admiring the breathtaking effects.</p>
+
+<h3>Conclusion</h3>
+
+<p>In this episode we travelled far far away, through some exceptional worlds. We experienced fashion extravaganza and music playing in distant light years from Earth. Our journey took us from underground Paris to primitive and futuristic worlds. We explored possible collisions and beautiful life-like scenes. We also protected our cultural heritage and discovered, in the woods, a magical way to go.</p>
+
+<p>Thank you for your contributions. Keep them coming!
+Stay tuned and see you next time.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[LearningThree.js News # 9: Stay Tuned With Creative 3D Demos]]></title>
@@ -1715,28 +1801,6 @@ It simply add a more shiny example using reflexion and environment map.</li>
 </span><span class='line'>    <span class="nx">animation</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="nx">now</span><span class="p">)</span>
 </span><span class='line'><span class="p">})</span>
 </span></code></pre></td></tr></table></div></figure>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Three.js Interview: Online 3D Modeling And Rendering With Clara.io]]></title>
-    <link href="http://learningthreejs.com/blog/2014/05/07/threejs-interview-online-3d-modeling-and-rendering-with-claraio/"/>
-    <updated>2014-05-07T10:16:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2014/05/07/threejs-interview-online-3d-modeling-and-rendering-with-claraio</id>
-    <content type="html"><![CDATA[<p><img class="right" src="http://learningthreejs.com/data/2014-05-07-threejs-interview-online-3d-modeling-and-rendering-with-claraio/images/image01.jpg" width="235" height="105"></p>
-
-<p>Hello everybody! This is my first <em>Three.js Interview</em> video. The inspiration came from all those great people out there doing <a href="http://threejs.org">very cool projects with three.js</a>. I want to share their innovations with others. If you know me, you know that I love talking about three.js. So, I would like everybody to have the opportunity to enjoy and learn from these <a href="http://learningthreejs.com/blog/categories/threejsInterview/">three.js interviews</a>. So three.js interviews are videos of around one hour where people are talking about cool things they do with three.js . Maybe you could get some ideas for your own project or simply partake on a subject you&#8217;re passionate about.</p>
-
-<p><a href='https://news.ycombinator.com/item?id=7709928' target='_blank'><input type="button" value='discuss it on hacker news' /></a></p>
-
-<p><img class="left" src="http://learningthreejs.com/data/2014-05-07-threejs-interview-online-3d-modeling-and-rendering-with-claraio/images/image03.jpg" width="320" height="240"></p>
-
-<p>The idea is to have interesting people come and talk about cool things that they&#8217;ve done with three.js. Like <a href="https://twitter.com/BenAtExocortex">Ben Houston</a>, who is our guest in this first video. Ben is the Team Leader for <a href="http://clara.io/">Clara.io</a>, a online 3D modeling and rendering tool that you can use inside you browser. Ben talks to us about the creation and the evolution of <a href="http://clara.io/">Clara.io</a> and about all the interesting features it&#8217;s got!</p>
-
-<p>I hope you enjoy it and stay tuned for the next Three.js Interview :)</p>
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/5pdxh9pjKzQ" frameborder="0" allowfullscreen></iframe>
 
 ]]></content>
   </entry>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: three.js | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/three-dot-js/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-07-17T13:38:43+01:00</updated>
+  <updated>2015-07-24T13:47:26+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,169 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[LearningThree.js News #10: Stay Tuned With Creative 3D Demos]]></title>
+    <link href="http://learningthreejs.com/blog/2015/07/24/learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/"/>
+    <updated>2015-07-24T13:28:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/07/24/learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos</id>
+    <content type="html"><![CDATA[<p>This post is about the 10th episode of Three.js News. We are very happy to share exceptional demos with you every week. In all the 3D experiences we have shared on previous episodes, we have witnessed talent, dedication and skill. Without so many creative projects we wouldn't have been able to continue with the news. So, to celebrate this 10th edition, we are going to travel through space, time and even dimensions.</p>
+
+<p>In this episode, we will explore other worlds and make musical journeys across decades and light years. We will wonder around the Parisian metro in a different light and be amazed by the simple beauty of land and stone. We will interact with the futuristic and be repelled by the terrestrial. We will learn to safeguard and preserve our cultural heritage through online 3D, and finally, take a walk through the magical woods of the imagination.</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/633x6HwnGPE" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<h3>Metropolitan IO</h3>
+
+<p><img src="/data/2015-07-24-learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/screenshots/metropolitan_io.jpg" alt="metropolitan_io" /></p>
+
+<p>This <a href="http://metropolitain.io/">project</a> by <a href="https://twitter.com/dataveyes/">Dataveyes</a> was made to represent the metro network of the Parisian underground. It is a Webgl data visualisation experience. It gives commuters information about the metro system, like journey times and people touching in at each station. It is dynamic and interactive. <a href="http://dataveyes.com/?em_x=22#!/en">Dataveyes' mission</a> is to transform human data into the best user experiences.</p>
+
+<h3>I Want To See Other Worlds</h3>
+
+<p><img src="/data/2015-07-24-learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/screenshots/i_want_to_see_other_worlds.jpg" alt="i_want_to_see_other_worlds" /></p>
+
+<p><a href="http://primitive.be/prods/IWTSOW/">I want to see other worlds</a> by <a href="http://primitive.be/">Primitive</a>. Have you ever dreamed about traveling through space and time? If the answer is yes, then you are gonna love this demo. Primitive is a demo group with outstanding projects in their record. In this webgl demo you can see various elements floating through space. It is raw and pure at the same time. You will see transformations, visit fantastic universes and be driven through planets of the imagination</p>
+
+<h3>Everything Is Fashion</h3>
+
+<p><img src="/data/2015-07-24-learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/screenshots/everything_is_fashion.jpg" alt="everything_is_fashion" /></p>
+
+<p><a href="http://stianj.com/fashion/">Everything is fashion</a> is a design and rhythmic demo created by <a href="http://www.pouet.net/prod.php?which=65978">Ninjadev</a>. It is colourful, fun and its got style. You feel as if you are travelling through time with the music. You go through decades, 80's, 90's...etc. The transitions are impressive and keep up with the beat, great and simple effects. It is both old-school and futuristic</p>
+
+<h3>Light Year</h3>
+
+<p><img src="/data/2015-07-24-learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/screenshots/lightyear.jpg" alt="lightyear" /></p>
+
+<p><a href="http://lightyear.fm/">Lightyear</a> is a very cool experience developed by <a href="https://twitter.com/mikelacher">Mike Lacher</a>, <a href="https://twitter.com/blackmika">Mika Chernov</a>, <a href="https://twitter.com/lanewinfield">Brian Moore</a> and <a href="https://twitter.com/ilovechrisbaker">Chris Baker</a>. In this awesome demo you can hear how far music hits have travelled through Space. Music waves from radio broadcasts leave Earth at the speed of light. You can scroll to move away from Earth and you will hear songs that go way back ....even 100 light years.</p>
+
+<h3>Bon Appetit</h3>
+
+<p><img src="/data/2015-07-24-learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/screenshots/bon_appetit.jpg" alt="bon_appetit" /></p>
+
+<p><a href="http://quasimondo.com/threejs/bon_appetit.html">Bon appetit</a> is a "creeping on your skin" demo by creative coder <a href="https://twitter.com/quasimondo">Mario Klingemann</a>. It will truly make you loose your appetite. It is a realistic and big slimy worm crawling on your screen. The texture is very cool and life-like. The slithering creature is in the form of a torus knot which makes it even more disturbing when it moves!</p>
+
+<h3>Future Citizen</h3>
+
+<p><img src="/data/2015-07-24-learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/screenshots/future_citizen.jpg" alt="future_citizen" /></p>
+
+<p>This <a href="http://ftrctzn.com/">demo</a> is a funky presentation of Future citizen, a studio making interactive web experiences for brands. It is creative and hypnotic. You can see the net of waves flow towards and against the letters. If you move your mouse around to trigger the effect, you will see that the interactions are pretty neat.</p>
+
+<h3>Kessler Syndrome</h3>
+
+<p><img src="/data/2015-07-24-learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/screenshots/kessler_syndrome.jpg" alt="kessler_syndrome" /></p>
+
+<p><a href="https://www.chromeexperiments.com/experiment/kessler-syndrome">Kessler Syndrome</a> is a Chrome Experiment developed by <a href="https://twitter.com/wj_field">Will Field</a>. In this demo we can see the amounts of space trash that have been produced by space travel. The idea is to track some of that trash in real time. The red dots are points where the debris fly past each other at close range. In the bottom left we can fast forward to see all the potential future collisions of trash around Earth.</p>
+
+<h3>Red Stone</h3>
+
+<p><img src="/data/2015-07-24-learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/screenshots/red_stone.jpg" alt="red_stone" /></p>
+
+<p><a href="http://potemkin.se/redstone/">Red Stone</a> is a beautifully polished demo made with <a href="http://goocreate.com/">Goo Create</a>. It was done by <a href="https://twitter.com/herrpotemkin">Magnus Östergren</a>, their creative director. The scene is like a desert with some subtle wildlife on it. It has wonderful lighting and shadow casting moving around the stone. It was made with an iphone 6. This is just an example of the cool things you can do with the Goo Create tool.</p>
+
+<h3>Mount Rushmore</h3>
+
+<p><img src="/data/2015-07-24-learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/screenshots/mount_rushmore.jpg" alt="mount_rushmore" /></p>
+
+<p><a href="http://www.cyark.org/projects/mount-rushmore-national-memorial/mount-rushmore">Mount Rushmore</a> is a 3D representation of the famous national memorial in the US South Dakota state. It was created by <a href="https://twitter.com/cyark">CyArk</a>, an organisation using digital technology to create and share 3D online libraries of the world's cultural heritage sites. Their mission is inspiring, they want to safeguard and preserve these sites to assure their existence for future generations. Visit their <a href="http://www.cyark.org/projects/">website</a> to learn more.</p>
+
+<h3>Way to go</h3>
+
+<p><img src="/data/2015-07-24-learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/screenshots/way_to_go.jpg" alt="way_to_go" /></p>
+
+<p><a href="http://a-way-to-go.com/">Way to go</a> is an interactive experience created by <a href="https://twitter.com/vmorisset">Vincent Morisset</a> and his team: Philippe Lambert, Edouard Lanctot-Benoit and Caroline Robert. It is a magical walk in the woods which everybody can enjoy. It is fresh and fascinating with its wonderful animation, great old-school characters and 360° video. You can discover the world around you, interact with nature and explore your surroundings admiring the breathtaking effects.</p>
+
+<h3>Conclusion</h3>
+
+<p>In this episode we travelled far far away, through some exceptional worlds. We experienced fashion extravaganza and music playing in distant light years from Earth. Our journey took us from underground Paris to primitive and futuristic worlds. We explored possible collisions and beautiful life-like scenes. We also protected our cultural heritage and discovered, in the woods, a magical way to go.</p>
+
+<p>Thank you for your contributions. Keep them coming!
+Stay tuned and see you next time.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[LearningThree.js News # 9: Stay Tuned With Creative 3D Demos]]></title>
+    <link href="http://learningthreejs.com/blog/2015/07/17/learningthree-dot-js-news-number-9-stay-tuned-with-creative-3d-demos/"/>
+    <updated>2015-07-17T13:17:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/07/17/learningthree-dot-js-news-number-9-stay-tuned-with-creative-3d-demos</id>
+    <content type="html"><![CDATA[<p>This post is part of the Three.js News series. If you have a taste for innovation and digital creativity in 3D, this series is for you. For this edition we have collected some very artistic demos. We will take a look at some unique projects. Everything from subversive and divergent experiences to particle libraries has a place in this post. We will play around with funny and endearing characters and explore objects around Earth's orbit. We will spin around colorful cities and visit impressive one man portfolio. All of these developers are taking creativity one step further.</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/1Z-EEEggGFM" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<h3>Like to Death</h3>
+
+<p><img src="/data/2015-07-17-learningthree-dot-js-news-number-9-stay-tuned-with-creative-3d-demos/screenshots/like_to_death.jpg" alt="like_to_death" /></p>
+
+<p>This <a href="http://www.liketodeath.com/">demo</a> is a subversively intelligent project to show us the sometimes empty shell of social media 'likes'. It was created by <a href="http://www.geoffreylillemon.com/website/">Geoffrey Lillemon</a> and <a href="http://www.stooki.co.uk/">Stööki</a>, an independent design collective. How many times a day do we "like" something on the web? These clicks have a lot of power over us. In the demo you can see the figure of death and her demons on the middle. As more and more people like the project, it will get destroyed. Our "likes" will totally disintegrate the scene.</p>
+
+<h3>Particulate.js</h3>
+
+<p><img src="/data/2015-07-17-learningthree-dot-js-news-number-9-stay-tuned-with-creative-3d-demos/screenshots/particulatejs.jpg" alt="screen shot 2015-07-16 at 16 31 06" /></p>
+
+<p><a href="http://particulatejs.org/">Particulate.js</a> is a JavaScript particle physics micro library. Developed by <a href="https://twitter.com/jpweeks/">Jay Weeks</a>, it is simple, fast and stable. The movement of the particles is amazing, you can see them flowing in and out and control them with your mouse. They come together in a compact cloud of matter.</p>
+
+<h3>Sneeze the Dragon</h3>
+
+<p><img src="/data/2015-07-17-learningthree-dot-js-news-number-9-stay-tuned-with-creative-3d-demos/screenshots/sneeze_the_dragon.jpg" alt="sneeze_the_dragon" /></p>
+
+<p>This creative, fun and very interactive <a href="http://codepen.io/Yakudoo/pen/yNjRRL">demo</a> was created by <a href="https://twitter.com/yakudoo">Yakudoo</a> on Codepen.io. Yakudoo is a very talented developer who truly has a gift when it comes to imagining fun demos like this one. The more you keep clicking the harder the dragon sneezes, be careful, that's fire he is breathing out!</p>
+
+<h3>Blend4Web Player</h3>
+
+<p><img src="/data/2015-07-17-learningthree-dot-js-news-number-9-stay-tuned-with-creative-3d-demos/screenshots/blend4web.jpg" alt="blend4web" /></p>
+
+<p>In this <a href="https://72b997d8354420ca04edc7734b26b346e696c605.googledrive.com/host/0B7Ss2VkVPiUHOE9SMjdlaHFQSmM">project</a> we can see a great real time cartoon model created by <a href="https://twitter.com/_Yadoob">Yadoob</a> for <a href="https://twitter.com/blend4web">Blend4Web</a>,  a tool for interactive 3D visualization on the internet. You can turn this funny Yoda like character around and look at the awesome shadows the model casts. Visit the Blend4Web <a href="https://www.blend4web.com/en/">website</a> to see all their different demos and designs.</p>
+
+<h3>Christmas experiments</h3>
+
+<p><img src="/data/2015-07-17-learningthree-dot-js-news-number-9-stay-tuned-with-creative-3d-demos/screenshots/christmas_experiment.jpg" alt="christmas_experiment" /></p>
+
+<p><a href="http://christmasexperiments.com/experiments/7">Christmas Experiments</a> is an advent calendar which features digital artists from the creative coding community and their web experiments each day leading up until Christmas. Some of the artists include <a href="https://twitter.com/michaeltheory">Michael Anthony</a>, <a href="https://twitter.com/dmmn_">Damien Mortini</a>, <a href="https://twitter.com/mattdesl">Matt DesLauriers</a> and <a href="https://twitter.com/muroicci">Eiji Muroichi</a>. There many experiments and artists you can choose from. Each experience is magical, wonderful and it will make you jolly with Christmas spirit.</p>
+
+<h3>My shards</h3>
+
+<p><img src="/data/2015-07-17-learningthree-dot-js-news-number-9-stay-tuned-with-creative-3d-demos/screenshots/my_shards.jpg" alt="my_shards" /></p>
+
+<p><a href="http://myshards.com/?utm_content=buffer42e96&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer">My shards</a> is an abstract experience developed by internet artist <a href="http://ezramiller.biz/">Ezra Miller</a>. It is diverse, divergent and very creative. Every time you click on it you will get a new texture on the screen. The change in color and design are awesome.</p>
+
+<h3>Bruno Quintela's profile</h3>
+
+<p><img src="/data/2015-07-17-learningthree-dot-js-news-number-9-stay-tuned-with-creative-3d-demos/screenshots/bruno_quintela_portfolio.jpg" alt="bruno_quintela-portfolio" /></p>
+
+<p>This is the impressive <a href="http://brunoquintela.com/">portfolio</a> of <a href="https://twitter.com/bruno_quintela">Bruno Quintela</a>. You can take a tour around his website and see the wonderful forms that contribute to the digital adventure. The WebGL aesthetics is amazing. It is polished and beautifully presented. A true masterpiece.</p>
+
+<h3>Stuff in Space</h3>
+
+<p><img src="/data/2015-07-17-learningthree-dot-js-news-number-9-stay-tuned-with-creative-3d-demos/screenshots/stuff_in_space.jpg" alt="stuff_in_space" /></p>
+
+<p><a href="http://stuffin.space/">Stuff in Space</a> is a sideral demo created by <a href="https://github.com/jeyoder">James Yoder</a>. It is a realtime 3d map of objects that are in Earth's orbit. You can explore  all the waves and transmissions surrounding our planet. The website updates daily with data from <a href="https://www.space-track.org/auth/login">space track</a> and uses <a href="https://github.com/shashwatak/satellite-js">satellite.js</a> a cool Javascript library to calculate satellite positions.</p>
+
+<h3>Circular City</h3>
+
+<p><img src="/data/2015-07-17-learningthree-dot-js-news-number-9-stay-tuned-with-creative-3d-demos/screenshots/circular_city.jpg" alt="circular_city" /></p>
+
+<p>This interactive <a href="http://codepen.io/Mombasa/pen/NqMMLX/">demo</a> was developed by <a href="http://codepen.io/Mombasa/">Mombasa</a> on Codepen.io. You can follow the movement of  a very colourful and revolving city. Nice way to build it using three.js You can see the streets and buildings closer to you as it moves around and uncovers itself. <a href="http://codepen.io/">Codepen.io</a> is a code editor in your browser, excellent for designers and developers to create wonderful projects.</p>
+
+<h3>Conclusion</h3>
+
+<p>In this episode of the Three.js News series we saw demos bursting with artistic innovation and creativity. All developers featured here are true artists of the digital and 3D world. Their characters are memorable. Their ideas and profiles are designed to make a lasting impression in our minds. Their creations are aesthetic, useful, inspirational, filled with knowledge and skill. I hope you appreciate and enjoy their talents.</p>
+
+<p>Stay tuned for more Three.js News. See you next time</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Hatsune Miku Dancing In Augmented Reality]]></title>
@@ -254,134 +417,6 @@ I can't wait to see what augmented reality will do on mobile's browsers.</p>
 <p>In this episode of Three.js News we discovered some great ways to create 3D models and share assets. There are vast possibilities when using great editors and tools. We discovered letters and numbers that form together in time and space. We also played with fun and lovable characters and professional football skills. We hope that you will really enjoy experimenting with all these projects.</p>
 
 <p>Stay tuned for more Three.js News. See you next time</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[LearningThree.js News #6: Stay Tuned with Creative 3D Demos]]></title>
-    <link href="http://learningthreejs.com/blog/2015/06/29/learningthree-dot-js-news-number-6-stay-tuned-with-creative-3d-demos/"/>
-    <updated>2015-06-29T12:13:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2015/06/29/learningthree-dot-js-news-number-6-stay-tuned-with-creative-3d-demos</id>
-    <content type="html"><![CDATA[<p>This post is our new edition of Three.js News. In this episode we will be amazed by cinematographic experiences and awesome effects. Some of them will even give you goosebumps or make your hairs stand on end. We will explore physics engines, blockbuster movies coming soon, particles, portfolios. We will take a look at everything from a manga universe to a world of change. There is also a show off, a very special mention to a great experience that we found, combining 3d animation, motion capture and projection. These vivid experiences are unforgettable and all too real.</p>
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/mSJA2ZLWBfc" frameborder="0" allowfullscreen></iframe>
-
-
-
-
-<!-- more -->
-
-
-<h3>Cardboard With Oimo</h3>
-
-<p><img src="/data/2015-06-29-learningthree-dot-js-news-number-6-stay-tuned-with-creative-3d-demos/screenshots/cardboard_with_oimo.jpg" alt="cardboard_with_oimo" /></p>
-
-<p>This is a very fun and colourful <a href="http://puga.com.br/play/cardboard-oimo/">demo</a> created by <a href="https://twitter.com/marciopuga">Marcio Puga</a> using oimo.js. <a href="http://lo-th.github.io/Oimo.js/">Oimo</a> is a great physics engine developed by lo-th. In this demo you can see how the spheres change color and react when they touch each other and the surface around them. It's very cool and you also have a view for google cardboard.</p>
-
-<h3>Insidious movie experience</h3>
-
-<p><img src="/data/2015-06-29-learningthree-dot-js-news-number-6-stay-tuned-with-creative-3d-demos/screenshots/insidious_movie_experience.jpg" alt="insidious_movie_experience" /></p>
-
-<p>This awesome cinematographic <a href="http://www.insidious-movie.net/entertheroom/">experience</a> will make your hairs stand on end. The first two episodes of the Insidious movie saga really frightened me. I'm anxiously waiting for the new one. This demo is not reassuring. I think i'm gonna be even more scared! You explore the room around you and click on the hot spots, the story will develop with each click. The effects will have you screaming your heart out!</p>
-
-<h3>1 Million Particles</h3>
-
-<p><img src="/data/2015-06-29-learningthree-dot-js-news-number-6-stay-tuned-with-creative-3d-demos/screenshots/1million_particles.jpg" alt="1million_particles" /></p>
-
-<p>This <a href="http://codepen.io/edankwan/pen/QbMxWp">demo</a> shows us a beautiful and subtile way of creating particles in codepen.io. Developed by <a href="https://twitter.com/edankwan">Edan Kwan</a> using curl noise and fbo on three.js. He produced a very professional and fascinating effect. You can change the color of the particles, the size, the speed.</p>
-
-<h3>Aaron Meyers portfolio</h3>
-
-<p><img src="/data/2015-06-29-learningthree-dot-js-news-number-6-stay-tuned-with-creative-3d-demos/screenshots/aaron_meyers_portfolio.jpg" alt="aaron_meyers_portfolio" /></p>
-
-<p>In his <a href="http://aaron-meyers.com/!/">portfolio</a> <a href="https://twitter.com/aarontweets">Aaron Meyers</a> creates a very cool environment. We can see his skills as a developer in this original homepage.Turn around in the room and by clicking on each TV screen you can explore the works he has done. You can also click on Aaron himself to know a bit more about him. This is hands down one of the most creative portfolios I have seen.</p>
-
-<h3>Realize project</h3>
-
-<p><img src="/data/2015-06-29-learningthree-dot-js-news-number-6-stay-tuned-with-creative-3d-demos/screenshots/realize_project.jpg" alt="realize_project" /></p>
-
-<p>If you liked the movie Ghost in the Shell you are going to love this <a href="http://www.realize-project.jp/">project</a> It is an homage made by true fans. <a href="https://en.wikipedia.org/wiki/Ghost_in_the_Shell">Ghost in the Shell</a> is a manga by Masamune Shirow, there was also a movie made of it. This demo captures the universe of the manga pretty well. You can turn around and decide which icon to pop-up. There are very cool neon lights in the space, it gives it kind of a Tron aspect. You can also take a look at posts on VR and AI from other news-based sites.</p>
-
-<h3>A world of change</h3>
-
-<p><img src="/data/2015-06-29-learningthree-dot-js-news-number-6-stay-tuned-with-creative-3d-demos/screenshots/a_world_of_change.jpg" alt="a_world_of_change" /></p>
-
-<p>This <a href="http://news-lab-trends-experiment.appspot.com/">demo</a> is part of <a href="https://www.google.com/trends/">Google Trends</a>. It is a great idea for social impact. Through google search you can click on topic (recycling, energy, water, natural environment, pollution) or a city, and see how those searches reflect the way the world thinks about climate change. You can discover what certain cities are doing about the environment. It is an eye opener and a great way to encourage sustainable development</p>
-
-<h3>Terminator Genisys</h3>
-
-<p><img src="/data/2015-06-29-learningthree-dot-js-news-number-6-stay-tuned-with-creative-3d-demos/screenshots/terminator_genisys.jpg" alt="terminator_genisys" /></p>
-
-<p><a href="http://www.terminatorgenisysmovie.co.uk/insidelook/">Terminator Genisys</a> is another successful and  cinema based demo created my <a href="https://twitter.com/ParamountUK">Paramount Pictures</a>. You can get an amazing inside of the characters by rotating the camera to explore 3d models. You can also zoom in and click on hotspots for information and videos about the movie coming soon. It is very fun.</p>
-
-<h3>Show Off "Le Petit Chef"</h3>
-
-<p><img src="/data/2015-06-29-learningthree-dot-js-news-number-6-stay-tuned-with-creative-3d-demos/screenshots/le_petit_chef.jpg" alt="le_petit_chef" /></p>
-
-<p>Special mention to this great experience that we found. <a href="https://www.youtube.com/watch?v=yBJEP4lsRFY&amp;feature=youtu.be">Le Petit Chef</a> is a masterpiece created by the guys at <a href="http://www.skullmapping.com/">Skull Mapping</a>, <a href="http://www.filipsterckx.be/">Filip Sterckx</a> and <a href="http://www.antoon.be/">Antoon Verbeek</a>. They experimented with projection on a dinner table. Combining 3d animation and motion capture, a miniature chef turns your dish into a grill and cooks right in front of your astonished eyes. I wish I could book a place at this table! It is an awesome experience that I'm sure you will love.</p>
-
-<h2>Conclusion</h2>
-
-<p>In this episode of Three.js News we have seen awesome projects. All very vivid and lifelike. Some movie related and some really scary, others more realistic and down to protecting earth. They all have their own universe. We experienced physics and particles, projection and motion capture. Regardless of how or by whom they were developed, all these experiences show us what is possible to create in the amazing universe of 3D.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[LearningThree.js News #5: Stay Tuned with Creative 3D Demos]]></title>
-    <link href="http://learningthreejs.com/blog/2015/06/18/learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos/"/>
-    <updated>2015-06-18T11:33:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2015/06/18/learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos</id>
-    <content type="html"><![CDATA[<p>This post explores original demos with lots of knowledge. In this episode of Three.js News we will take a tour around 4D dimensions and creative subdivisions. We will also travel over webs of information and have fun with wildlife games. There is a lot of diversity in these projects, but one thing is for sure, they are all developed with the utmost skill and created for the maximum effect.</p>
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/oSDdZyM9cYU" frameborder="0" allowfullscreen></iframe>
-
-
-
-
-<!-- more -->
-
-
-<h3>Paranoid vs. Shy Birds</h3>
-
-<p><img src="/data/2015-06-18-learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos/screenshots/paranoid_vs_shy_birds.jpg" alt="screen shot 2015-06-17 at 11 00 12" /></p>
-
-<p>This is a very fun <a href="http://codepen.io/Yakudoo/pen/LVyJXw">demo</a> created by <a href="https://twitter.com/yakudoo">Yakudoo</a> on CodePen. The bird characters are so cute. The one in the middle is the paranoid one. You can move his head around and see how he interacts with the small shy birds. The HTML, CSS and Javascript are visible on the scene.</p>
-
-<h3>Threepark</h3>
-
-<p><img src="/data/2015-06-18-learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos/screenshots/threepark.jpg" alt="screen shot 2015-06-17 at 11 00 12" /></p>
-
-<p><a href="http://threepark.net/English">Threepark</a> is a cool editor developed by <a href="https://github.com/liguocn">liguocn</a>. Easy to understand and to use, great for artists and 3d lovers. You can create different models and designs. You even have a library of templates to use. Subdivide a model as many times as you like in the <a href="http://threepark.net/English/cagemodeling">cagemodeling</a> canvas. You can also store your models in the cloud and export them into 3d printing format. Great way to unleash your creativity.</p>
-
-<h3>Parrot Hunt</h3>
-
-<p><img src="/data/2015-06-18-learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos/screenshots/parrot_hunt.jpg" alt="screen shot 2015-06-17 at 11 00 12" /></p>
-
-<p>Very funky retro <a href="http://parrothunt.nergal.se:8080/">game</a>, and also a Chrome Experiment, created by  Magnus Persson aka <a href="https://twitter.com/lallassu">nergal</a> . The idea is to shoot only the parrots, not the flamingos. You can move around and reload your rifle to keep shooting at your prey. Fortunately its not real hunting! You can get really serious and try to improve your score every time like I did! It's really enjoyable and it makes you feel like a great aim.</p>
-
-<h3>Ntype</h3>
-
-<p><img src="/data/2015-06-18-learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos/screenshots/ntype.jpg" alt="screen shot 2015-06-17 at 11 00 12" /></p>
-
-<p><a href="http://ntype.blue/#speed=0.015707963267948967&amp;rotationPlanes=xw,xz,yw,yz,zw&amp;fpr=100&amp;string=NTYPE&amp;drawForms=true&amp;drawTrails=false">Ntype</a> is another Chrome Experiment demo developed by <a href="https://twitter.com/kevinzweerink">Kevin Zweerink</a>. It shows us a compelling and interesting way to explore 4D. The typography is extruded into the 4d dimension. You can change the parameters and settings and customise the rotation planes. You can even modify the trails that the letters leave behind them. There are also a lot of other designs to explore in Kevin's <a href="http://kevinzweerink.com/">homepage</a></p>
-
-<h3>WikiGalaxy</h3>
-
-<p><img src="/data/2015-06-18-learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos/screenshots/wiki_galaxy.jpg" alt="screen shot 2015-06-17 at 11 00 12" /></p>
-
-<p><a href="http://wiki.polyfra.me/#">WikiGalaxy</a> is a beautiful and original demo created by <a href="https://twitter.com/WikiGalaxy">Owen Cornec</a>. This experiment takes us to a fantastic space that we actually already use everyday life. We can visualise Wikipedia as a galactic web of information. It's a marvellous world of knowledge. There is a map where you can fly over the planets, zoom and search. Wikipedia articles are stars, interests are nebulas. Have a good time learning! You can see more WebGL visualisations  in Owen's <a href="http://www.polyfra.me/">portfolio</a></p>
-
-<h3>Multivers3D</h3>
-
-<p><img src="/data/2015-06-18-learningthree-dot-js-news-number-5-stay-tuned-with-creative-3d-demos/screenshots/multivers3d.jpg" alt="screen shot 2015-06-17 at 11 00 12" /></p>
-
-<p>This is the first <a href="https://multivers3d.fr/#/51184/Home.html">video game demo</a> released by the <a href="https://twitter.com/INF1N1T">multivers3d</a> team. It supports multi-users, cross platforms and it has zero install. This first episode is called Earth Creed. You are a honey bee and you need to harvest pollen and nectar from your environment. You have to use your judgement to equilibrate the balance of the ecosystem. This game will definitely make you love nature.</p>
-
-<h3>Conclusion</h3>
-
-<p>In this post, we discovered some varied and original demos. We traveled through a space of information and explored 4D dimensions. We also played very funky games and designed 3D models with various subdivisions. The experience each of these demos give us is unique. Keep creating such wonderful projects.</p>
-
-<p>Stay tuned for more Three.js News. See you next time.</p>
 ]]></content>
   </entry>
   
