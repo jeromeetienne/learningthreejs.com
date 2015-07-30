@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-07-24T13:47:26+01:00</updated>
+  <updated>2015-07-30T13:41:50+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Three.js Inspector in Chrome Devtools]]></title>
+    <link href="http://learningthreejs.com/blog/2015/07/30/three-dot-js-inspector-in-chrome-devtools/"/>
+    <updated>2015-07-30T13:21:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/07/30/three-dot-js-inspector-in-chrome-devtools</id>
+    <content type="html"><![CDATA[<p>Hey guys,</p>
+
+<p>Recently people started to experiment with three.js and Chrome devtools. The excellent <a href="https://twitter.com/thespite">@thespite</a> first did <a href="https://github.com/spite/ShaderEditorExtension">Shader Editor Extension</a> and then <a href="https://twitter.com/thespite/status/624256879766712320">Three.js Editor Extension</a>. <a href="https://twitter.com/mrdoob">@mrdoob</a> did it too <a href="https://twitter.com/mrdoob/status/616042217464012800">here</a> where he links directly to the <a href="http://threejs.org/editor">three.js editor</a> itself. The goal is to make an extension which allows to inspect your page when you are debugging three.js.</p>
+
+<p>All that is very early work, but the concept seems really promising. It will allow to interact with almost all three.js demos out there. It is a great tool to debug your own work, or to understand how a demo is done. You can even use it to fine tune your parameters.</p>
+
+<p>I loved it so I decided to give it a shot. I forked @thespite work and looked at it over the last weekend. I reused the UI layer from the three.js editor, improved the UI a bit, and applied it to the Chrome Dev tools. The implementation still clearly has some quirks, but I love the concept. I believe it can be a very strong tool to debug three.js.</p>
+
+<p>You can find the <a href="https://chrome.google.com/webstore/detail/threejs-inspector/dnhjfclbfhcbcdfpjaeacomhbdfjbebi">Three.js Inspector Extension</a> on chrome app store and play with it.</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/0GQlp9IdLjM" frameborder="0" allowfullscreen></iframe>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[LearningThree.js News #10: Stay Tuned With Creative 3D Demos]]></title>
@@ -1716,89 +1736,6 @@ changes made on container, will be reported to the children meshes.</p>
 </span><span class='line'>    <span class="kd">var</span> <span class="nx">mesh</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">)</span>
 </span><span class='line'>    <span class="c1">// attach mesh to the container</span>
 </span><span class='line'>    <span class="nx">container</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">mesh</span><span class="p">)</span>
-</span><span class='line'><span class="p">})</span>
-</span></code></pre></td></tr></table></div></figure>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Funky Deformation For The Geometry of Your Three.js Game With threex.vertexanimation]]></title>
-    <link href="http://learningthreejs.com/blog/2014/05/07/funky-deformation-for-the-geometry-of-your-three-dot-js-game-with-threex-dot-vertexanimation/"/>
-    <updated>2014-05-07T20:20:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2014/05/07/funky-deformation-for-the-geometry-of-your-three-dot-js-game-with-threex-dot-vertexanimation</id>
-    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.vertexanimation/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.vertexanimation/master/examples/images/screenshot-threex-vertexanimation-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
-This challenge is to publish every day one game extension for three.js!
-One per day, every day and that for 2month!
-In this post, we gonna talk about
-<a href="http://www.threejsgames.com/extensions/#threex.vertexanimation">threex.vertexanimation</a>.
-threex.vertexanimation is a <a href="http://www.threejsgames.com/extensions/">three.js games extension</a> which provides easy vertex animation. You can see your object move as if it&#8217;s got a life of its own! You can use it to make the objects in your game bounce, dance or move in funky ways. You can add it in your games to get a <a href="http://en.wikipedia.org/wiki/Flubber_(film)">Flubber</a> effect. The best part about it is that you can get creative. You can morph or deform your objects to transform them into other objects. It is really fun to experiment with!</p>
-
-<p><a href='http://jeromeetienne.github.io/threex.vertexanimation/examples/demo.html' target='_blank'><input type="button" value='Try Threex.vertexanimation Demo Now' /></a></p>
-
-<p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
-<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
-
-<!-- more -->
-
-
-
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/FjsMzOI3eRw" frameborder="0" allowfullscreen></iframe>
-
-
-<h1>Show Don&#8217;t Tell</h1>
-
-<ul>
-<li><a href="http://jeromeetienne.github.io/threex.vertexanimation/examples/basic.html">examples/basic.html</a>
-[<a href="https://github.com/jeromeetienne/threex.vertexanimation/blob/master/examples/basic.html">view source</a>] :
-It shows a basic usage of the module.</li>
-<li><a href="http://jeromeetienne.github.io/threex.vertexanimation/examples/demo.html">examples/demo.html</a>
-[<a href="https://github.com/jeromeetienne/threex.vertexanimation/blob/master/examples/demo.html">view source</a>] :
-It simply add a more shiny example using reflexion and environment map.</li>
-</ul>
-
-
-<h1>How To Install It</h1>
-
-<p>You can install it via script tag</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.vertexanimation.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.vertexanimation
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h1>How To Use It</h1>
-
-<p>Here is a typical usage</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// instanciate the animation object</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">animation</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">VertexAnimation</span><span class="p">(</span><span class="nx">geometry</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">origin</span><span class="p">,</span> <span class="nx">position</span><span class="p">,</span> <span class="nx">delta</span><span class="p">,</span> <span class="nx">now</span><span class="p">){</span>
-</span><span class='line'>    <span class="c1">// here you put your formula, something clever which fit your needs</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">angle</span>   <span class="o">=</span> <span class="nx">now</span><span class="o">*</span><span class="mi">2</span> <span class="o">+</span> <span class="nx">position</span><span class="p">.</span><span class="nx">y</span>     <span class="o">*</span> <span class="mi">10</span><span class="p">;</span>
-</span><span class='line'>    <span class="nx">position</span><span class="p">.</span><span class="nx">x</span>  <span class="o">=</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">angle</span><span class="p">)</span><span class="o">*</span><span class="mf">0.1</span><span class="p">;</span>
-</span><span class='line'><span class="p">})</span>
-</span><span class='line'><span class="c1">// update the animation at every frame</span>
-</span><span class='line'><span class="nx">updateFcts</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="nx">now</span><span class="p">){</span>
-</span><span class='line'>    <span class="nx">animation</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="nx">now</span><span class="p">)</span>
 </span><span class='line'><span class="p">})</span>
 </span></code></pre></td></tr></table></div></figure>
 

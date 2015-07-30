@@ -4,7 +4,7 @@
   <title><![CDATA[Category: three.js | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/three-dot-js/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-07-24T13:47:26+01:00</updated>
+  <updated>2015-07-30T13:41:50+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Three.js Inspector in Chrome Devtools]]></title>
+    <link href="http://learningthreejs.com/blog/2015/07/30/three-dot-js-inspector-in-chrome-devtools/"/>
+    <updated>2015-07-30T13:21:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/07/30/three-dot-js-inspector-in-chrome-devtools</id>
+    <content type="html"><![CDATA[<p>Hey guys,</p>
+
+<p>Recently people started to experiment with three.js and Chrome devtools. The excellent <a href="https://twitter.com/thespite">@thespite</a> first did <a href="https://github.com/spite/ShaderEditorExtension">Shader Editor Extension</a> and then <a href="https://twitter.com/thespite/status/624256879766712320">Three.js Editor Extension</a>. <a href="https://twitter.com/mrdoob">@mrdoob</a> did it too <a href="https://twitter.com/mrdoob/status/616042217464012800">here</a> where he links directly to the <a href="http://threejs.org/editor">three.js editor</a> itself. The goal is to make an extension which allows to inspect your page when you are debugging three.js.</p>
+
+<p>All that is very early work, but the concept seems really promising. It will allow to interact with almost all three.js demos out there. It is a great tool to debug your own work, or to understand how a demo is done. You can even use it to fine tune your parameters.</p>
+
+<p>I loved it so I decided to give it a shot. I forked @thespite work and looked at it over the last weekend. I reused the UI layer from the three.js editor, improved the UI a bit, and applied it to the Chrome Dev tools. The implementation still clearly has some quirks, but I love the concept. I believe it can be a very strong tool to debug three.js.</p>
+
+<p>You can find the <a href="https://chrome.google.com/webstore/detail/threejs-inspector/dnhjfclbfhcbcdfpjaeacomhbdfjbebi">Three.js Inspector Extension</a> on chrome app store and play with it.</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/0GQlp9IdLjM" frameborder="0" allowfullscreen></iframe>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[LearningThree.js News #10: Stay Tuned With Creative 3D Demos]]></title>
@@ -340,83 +360,6 @@ I can't wait to see what augmented reality will do on mobile's browsers.</p>
 <h3>Conclusion</h3>
 
 <p>In this edition of Three.js News we travelled with cubes, points and lines. We discovered how happiness can be measured and forecasted in a determined region. We enjoyed dancing, spinning and converting models to Three.js. All of these projects reflect researched studies, skills and creativity, and the elliptical never ending wonderment of web 3D.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[LearningThree.js News #7: Stay Tuned with Creative 3D Demos]]></title>
-    <link href="http://learningthreejs.com/blog/2015/07/03/learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/"/>
-    <updated>2015-07-03T12:13:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2015/07/03/learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos</id>
-    <content type="html"><![CDATA[<p>This post is part of the Three.js News series. In this episode we will see some very cool editors, we can  share assets and create WebGL experiments with. They are useful, practical and easy to use; they are also a great way to start designing your own 3D models. We will take a look at some impressive demos with cute animals, multiple icons, shaders and crazy skills. All these projects are very fun to play with!</p>
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/6AXl6gwwlCc" frameborder="0" allowfullscreen></iframe>
-
-
-
-
-<!-- more -->
-
-
-<h3>Poonya</h3>
-
-<p><img src="/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/poonya.jpg" alt="screen shot 2015-07-03 at 08 37 42" /></p>
-
-<p><a href="http://community.poonya.com/156">Poonya</a> is an active community and a cool portal for sharing assets. That is, you will be able to share models, material, textures, animations and scripts with <a href="https://twitter.com/sea3dformat">SEA3D</a> Studio for web. An easy to use editor that allows you to create models and to share them with others. You have a wide range of tutorials to help you get started and discover all the functionalities. You can also take a look at all the projects, contributions from other developers.</p>
-
-<h3>Chill de lion</h3>
-
-<p><img src="/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/chill_the_lion.jpg" alt="screen shot 2015-07-03 at 11 39 39" /></p>
-
-<p>Beautiful <a href="http://codepen.io/Yakudoo/pen/YXxmYR?utm_content=buffer71fab&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer">demo</a> created by <a href="https://twitter.com/yakudoo">Yakudoo</a>. We saw paranoid birds in another three.js news. Now its time for the king of the jungle. You will see a very cute animation of a lion who is in desperate need of chillin' and refreshment. It must be a very warm summer day for him. By clicking you activate the ventilation and  when turning around with your mouse you make wind blow in every direction. The lion will definitely appreciate. He will actually smile.</p>
-
-<h3>Holy Running Cow</h3>
-
-<p><img src="/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/holy_running_cow.jpg" alt="screen shot 2015-07-03 at 11 40 36" /></p>
-
-<p>This is another <a href="http://codepen.io/Yakudoo/pen/rVGraP">demo</a> done by Yakudoo. He really has a talent for creating fun animal characters! You can see  a very cute cow running around. When you press and drag the scene rotates, and the cow tries to pick up the pace.</p>
-
-<h3>Mighty Fish</h3>
-
-<p><img src="/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/mighty_fish.jpg" alt="screen shot 2015-07-03 at 11 41 24" /></p>
-
-<p>We just love Yakudoo's demos. This one is called <a href="http://codepen.io/Yakudoo/pen/BNNGBq">Mighty Fish</a>. In it you will see a very determined fish, swimming with or against the current. Kind of Nemo's father when he couldn't find Nemo. You can move your mouse to change speed and direction and see how adorably funny it is.</p>
-
-<h3>Many Icons Using Three.js</h3>
-
-<p><img src="/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/many_icons_using_threejs.jpg" alt="screen shot 2015-07-03 at 11 42 27" /></p>
-
-<p>Funky <a href="http://codepen.io/clockmaker/details/gpozrX/">demo</a> created by Yasunobu Ikeda in <a href="http://codepen.io/clockmaker/">codepen.io</a>. It shows various icons and letters that come together and turn into one, flowing in a replaying cycle. It changes color every time and it sometimes gives you the impression of being inside the Matrix. This demo was created using the Time Remap effect with Three.js and TweenMax. You can visit the Clock Maker <a href="http://clockmaker.jp/labs/">website</a> to see all Yasunobu's experiences in this interactive motion lab.</p>
-
-<h3>Unstable Clock</h3>
-
-<p><img src="/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/unstable_clock.jpg" alt="screen shot 2015-07-03 at 11 42 51" /></p>
-
-<p>This one is a captivating <a href="http://freelance-html-developer.com/clock/">demo</a> and a Chrome Experiment developed by <a href="http://freelance-html-developer.com/">Tomasz Slawnikowski</a>, a freelance html developer. It measures time in an original frame. Every second is drawn according to the hour passing by. If you look a it for a while you will feel in a state of unreality, in a haze, hypnotic state. Even if it appears unstable, the clock is ticking!</p>
-
-<h3>Crazy Skills</h3>
-
-<p><img src="/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/crazy_skills.jpg" alt="screen shot 2015-07-03 at 11 43 42" /></p>
-
-<p><a href="https://crazyskills.panasonic.com/en/">Crazy Skills</a> is a very cool project created by <a href="@panasonic_njr">Panasonic</a>. If you are a football fan you are definitely gonna enjoy it. It is an awesome presentation of football player <a href="@neymarjr">Neymar</a> incredible sport skills. Just in case you don't know him, Neymar is a recognised and adored Brazilian football player who plays for FC Barcelona and is captain of the Brazilian national team. He is very talented as you can see it in this motion museum dedicated to him.  There a a set of skills you can click on and see how Neymar's avatar plays on the field.</p>
-
-<h3>Fiddling with shaders</h3>
-
-<p><img src="/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/fiddling_with_shaders.jpg" alt="screen shot 2015-07-03 at 11 48 33" /></p>
-
-<p>Very kaleidoscopic <a href="http://chrisirhc.github.io/_experiment-sand-webgl/push-field.html">experiment</a> created by <a href="https://twitter.com/chrisirhc">Chris Chua</a>. In this demo Chris plays around with shaders in WebGL to simulate force over an area. You can click and drag your mouse around to see how a trail is designed, go faster or slower. It almost resembles a small fish in the water.</p>
-
-<h3>I'll be back</h3>
-
-<p><img src="/data/2015-07-03-learningthree-dot-js-news-number-7-stay-tuned-with-creative-3d-demos/screenshots/ill_be_back.jpg" alt="screen shot 2015-07-03 at 11 45 27" /></p>
-
-<p>Amazing <a href="https://c1.goote.ch/b9cca08d92a744e79a6772e13d624200.scene/">project</a> brought to us by the team at <a href="https://twitter.com/GooTechnologies">Goo Create</a>. Here is another cinematic and life like demo inspired by the last Terminator film. The effects and sound intensify the experience and the ambiance around is purely immersive. On their <a href="http://goocreate.com/">website</a> you can try out their great WebGL creation tool for ads, games and interactive experiences. Their editor is impressive by its simplicity and accessibility.</p>
-
-<h3>Conclusion</h3>
-
-<p>In this episode of Three.js News we discovered some great ways to create 3D models and share assets. There are vast possibilities when using great editors and tools. We discovered letters and numbers that form together in time and space. We also played with fun and lovable characters and professional football skills. We hope that you will really enjoy experimenting with all these projects.</p>
-
-<p>Stay tuned for more Three.js News. See you next time</p>
 ]]></content>
   </entry>
   

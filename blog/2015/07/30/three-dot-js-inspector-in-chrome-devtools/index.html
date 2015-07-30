@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Three.js Inspector in Chrome Devtools - Learning Three.js</title>
+  <meta name="author" content="Jerome Etienne">
+
+  
+  <meta name="description" content="Hey guys, Recently people started to experiment with three.js and Chrome devtools. The excellent @thespite first did Shader Editor Extension and then &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://learningthreejs.com/blog/2015/07/30/three-dot-js-inspector-in-chrome-devtools/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-19']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+	<style>
+		#linksPerso {
+			float	: right;
+			height	: 128px;
+		}
+		#linksPerso .wrapper {
+			height	: 128px;
+			overflow-y:hidden;
+
+		}
+		#linksPerso img {
+			width	: 128px;
+		}
+	</style>
+	<div id='linksPerso' style='display: block;'>
+		<a href='mailto:jerome.etienne@gmail.com?Subject=query%20from%20learningthreejs' target='_blank'>
+			<img src='/data/images/jetienne-hire-me-256x256.png'/>
+		</a>
+	</div>
+
+  <h1><a href="/">Learning Three.js</a></h1>
+  
+    <h2>or WebGL for Dummies</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/LearningThreejs" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:learningthreejs.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="http://jeromeetienne.github.io/videobrowser4learningthreejs/">Videos</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Three.js Inspector in Chrome Devtools</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-07-30T13:21:00+01:00" pubdate data-updated="true">Jul 30<span>th</span>, 2015</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2015/07/30/three-dot-js-inspector-in-chrome-devtools/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2015/07/30/three-dot-js-inspector-in-chrome-devtools/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Hey guys,</p>
+
+<p>Recently people started to experiment with three.js and Chrome devtools. The excellent <a href="https://twitter.com/thespite">@thespite</a> first did <a href="https://github.com/spite/ShaderEditorExtension">Shader Editor Extension</a> and then <a href="https://twitter.com/thespite/status/624256879766712320">Three.js Editor Extension</a>. <a href="https://twitter.com/mrdoob">@mrdoob</a> did it too <a href="https://twitter.com/mrdoob/status/616042217464012800">here</a> where he links directly to the <a href="http://threejs.org/editor">three.js editor</a> itself. The goal is to make an extension which allows to inspect your page when you are debugging three.js.</p>
+
+<p>All that is very early work, but the concept seems really promising. It will allow to interact with almost all three.js demos out there. It is a great tool to debug your own work, or to understand how a demo is done. You can even use it to fine tune your parameters.</p>
+
+<p>I loved it so I decided to give it a shot. I forked @thespite work and looked at it over the last weekend. I reused the UI layer from the three.js editor, improved the UI a bit, and applied it to the Chrome Dev tools. The implementation still clearly has some quirks, but I love the concept. I believe it can be a very strong tool to debug three.js.</p>
+
+<p>You can find the <a href="https://chrome.google.com/webstore/detail/threejs-inspector/dnhjfclbfhcbcdfpjaeacomhbdfjbebi">Three.js Inspector Extension</a> on chrome app store and play with it.</p>
+
+<iframe width="420" height="315" src="//www.youtube.com/embed/0GQlp9IdLjM" frameborder="0" allowfullscreen></iframe>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-07-30T13:21:00+01:00" pubdate data-updated="true">Jul 30<span>th</span>, 2015</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/debug/'>debug</a>, <a class='category' href='/blog/categories/devtools/'>devtools</a>, <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2015/07/30/three-dot-js-inspector-in-chrome-devtools/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2015/07/30/three-dot-js-inspector-in-chrome-devtools/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/07/24/learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/" title="Previous Post: LearningThree.js News #10: Stay Tuned With Creative 3D Demos">&laquo; LearningThree.js News #10: Stay Tuned With Creative 3D Demos</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/07/30/three-dot-js-inspector-in-chrome-devtools/">Three.js Inspector in Chrome Devtools</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/07/24/learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/">LearningThree.js News #10: Stay Tuned With Creative 3D Demos</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/07/17/learningthree-dot-js-news-number-9-stay-tuned-with-creative-3d-demos/">LearningThree.js News # 9: Stay Tuned With Creative 3D Demos</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/07/16/hatsune-miku-dancing-in-augmented-reality/">Hatsune Miku Dancing In Augmented Reality</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/07/10/learningthree-dot-js-news-number-8-stay-tuned-with-creative-3d-demos/">LearningThree.js News #8: Stay Tuned With Creative 3D Demos</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LearningThreejs", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LearningThreejs" class="twitter-follow-button" data-show-count="false">Follow @LearningThreejs</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Jerome Etienne -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'learningthreejs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://learningthreejs.com/blog/2015/07/30/three-dot-js-inspector-in-chrome-devtools/';
+        var disqus_url = 'http://learningthreejs.com/blog/2015/07/30/three-dot-js-inspector-in-chrome-devtools/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

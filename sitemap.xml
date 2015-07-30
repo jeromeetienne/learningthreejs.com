@@ -431,16 +431,22 @@
         <lastmod>2015-07-24T13:46:33+01:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://learningthreejs.com/blog/2015/07/30/three-dot-js-inspector-in-chrome-devtools/
+        </loc>
+        <lastmod>2015-07-30T13:31:55+01:00</lastmod>
+    </url>
+    <url>
         <loc>http://learningthreejs.com/about/</loc>
         <lastmod>2013-03-06T11:45:11+00:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/blog/archives/</loc>
-        <lastmod>2015-07-24T13:46:33+01:00</lastmod>
+        <lastmod>2015-07-30T13:31:55+01:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/</loc>
-        <lastmod>2015-07-24T13:46:33+01:00</lastmod>
+        <lastmod>2015-07-30T13:31:55+01:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/robots.txt</loc>

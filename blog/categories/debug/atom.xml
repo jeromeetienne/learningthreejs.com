@@ -4,7 +4,7 @@
   <title><![CDATA[Category: debug | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/debug/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-07-24T13:47:26+01:00</updated>
+  <updated>2015-07-30T13:41:50+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Three.js Inspector in Chrome Devtools]]></title>
+    <link href="http://learningthreejs.com/blog/2015/07/30/three-dot-js-inspector-in-chrome-devtools/"/>
+    <updated>2015-07-30T13:21:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/07/30/three-dot-js-inspector-in-chrome-devtools</id>
+    <content type="html"><![CDATA[<p>Hey guys,</p>
+
+<p>Recently people started to experiment with three.js and Chrome devtools. The excellent <a href="https://twitter.com/thespite">@thespite</a> first did <a href="https://github.com/spite/ShaderEditorExtension">Shader Editor Extension</a> and then <a href="https://twitter.com/thespite/status/624256879766712320">Three.js Editor Extension</a>. <a href="https://twitter.com/mrdoob">@mrdoob</a> did it too <a href="https://twitter.com/mrdoob/status/616042217464012800">here</a> where he links directly to the <a href="http://threejs.org/editor">three.js editor</a> itself. The goal is to make an extension which allows to inspect your page when you are debugging three.js.</p>
+
+<p>All that is very early work, but the concept seems really promising. It will allow to interact with almost all three.js demos out there. It is a great tool to debug your own work, or to understand how a demo is done. You can even use it to fine tune your parameters.</p>
+
+<p>I loved it so I decided to give it a shot. I forked @thespite work and looked at it over the last weekend. I reused the UI layer from the three.js editor, improved the UI a bit, and applied it to the Chrome Dev tools. The implementation still clearly has some quirks, but I love the concept. I believe it can be a very strong tool to debug three.js.</p>
+
+<p>You can find the <a href="https://chrome.google.com/webstore/detail/threejs-inspector/dnhjfclbfhcbcdfpjaeacomhbdfjbebi">Three.js Inspector Extension</a> on chrome app store and play with it.</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/0GQlp9IdLjM" frameborder="0" allowfullscreen></iframe>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Debugging With Chrome's Canvas Inspection]]></title>
