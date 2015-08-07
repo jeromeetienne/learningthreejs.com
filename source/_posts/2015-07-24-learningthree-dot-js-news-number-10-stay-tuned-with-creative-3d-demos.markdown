@@ -4,6 +4,7 @@ title: "LearningThree.js News #10: Stay Tuned With Creative 3D Demos"
 date: 2015-07-24 13:28
 comments: true
 categories: [three.js, news]
+author: Alexandra Etienne and Jerome Etienne
 ---
 
 This post is about the 10th episode of Three.js News. We are very happy to share exceptional demos with you every week. In all the 3D experiences we have shared on previous episodes, we have witnessed talent, dedication and skill. Without so many creative projects we wouldn't have been able to continue with the news. So, to celebrate this 10th edition, we are going to travel through space, time and even dimensions. 

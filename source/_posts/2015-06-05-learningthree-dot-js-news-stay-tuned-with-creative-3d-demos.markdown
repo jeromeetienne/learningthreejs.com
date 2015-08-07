@@ -5,6 +5,7 @@ date: 2015-06-05 15:47
 comments: true
 categories: [three.js, news]
 published: true
+author: Alexandra Etienne and Jerome Etienne
 ---
 
 This post presents another edition of Three.js News. In this episode we have gathered some wonderful demos, web documentaries and very artistic experiences. They have all different genres but each of them show a wide range of skills. 

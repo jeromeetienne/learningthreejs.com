@@ -5,6 +5,7 @@ date: 2015-07-03 12:13
 comments: true
 categories: [three.js, news]
 published: true 
+author: Alexandra Etienne and Jerome Etienne
 ---
 
 This post is part of the Three.js News series. In this episode we will see some very cool editors, we can  share assets and create WebGL experiments with. They are useful, practical and easy to use; they are also a great way to start designing your own 3D models. We will take a look at some impressive demos with cute animals, multiple icons, shaders and crazy skills. All these projects are very fun to play with! 

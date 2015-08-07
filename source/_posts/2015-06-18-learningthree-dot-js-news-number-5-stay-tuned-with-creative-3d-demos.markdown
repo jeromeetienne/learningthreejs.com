@@ -5,6 +5,7 @@ date: 2015-06-18 11:33
 comments: true
 categories: [three.js, news]
 published: true 
+author: Alexandra Etienne and Jerome Etienne
 ---
 
 This post explores original demos with lots of knowledge. In this episode of Three.js News we will take a tour around 4D dimensions and creative subdivisions. We will also travel over webs of information and have fun with wildlife games. There is a lot of diversity in these projects, but one thing is for sure, they are all developed with the utmost skill and created for the maximum effect. 
