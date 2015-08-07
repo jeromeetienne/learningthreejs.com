@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-07-30T13:41:50+01:00</updated>
+  <updated>2015-08-07T11:48:50+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,65 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[LearningThree.js News # 11: Stay Tuned With Creative 3D Demos]]></title>
+    <link href="http://learningthreejs.com/blog/2015/08/07/learningthree-dot-js-news-number-11-stay-tuned-with-creative-3d-demos/"/>
+    <updated>2015-08-07T11:02:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/08/07/learningthree-dot-js-news-number-11-stay-tuned-with-creative-3d-demos</id>
+    <content type="html"><![CDATA[<p>This post is another edition of Three.js News. We have collected some original demos with skilful effects and lots of style. There is a high degree of talent displayed on these projects. In this episode, we will cycle through the daring climbs of the Tour de France. We will turn around decadent blue worlds, play with colourful Rubik&#8217;s cube and take the new Renault Espace for a test run. We will also merge and morph with creative experiences and investigate fascinating generative compositions.</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/jaVdFWl_PIo" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<h3>Metropolis</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-08-07-learningthree-dot-js-news-number-11-stay-tuned-with-creative-3d-demos/screenshots/metropolis.jpg" alt="metropolis" /></p>
+
+<p><a href="https://alexstockdale.com/metropolis/">Metropolis</a> is an impressive demo by <a href="https://twitter.com/ALIXPLOX">Alex Stockdale</a>. It is a spheric vision of an urban world in destruction, or construction, depending on how you see it. It has a decadent aspect to it, the light is like the shadow of a dream and there is a hazy bluish shade in the atmosphere. This project is not only interactive and skilful but it is also a great example of what we can do with three.js.</p>
+
+<h3>The Climb of Alpe d&#8217;Huez</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-08-07-learningthree-dot-js-news-number-11-stay-tuned-with-creative-3d-demos/screenshots/the_climb_alpe_huez.jpg" alt="the_climb_alpe_huez" /></p>
+
+<p>This <a href="http://www.theguardian.com/sport/ng-interactive/2015/jul/23/tour-de-france-the-climb-of-alpe-dhuez-interactive">demo</a> by <a href="https://twitter.com/amason">Andrew Mason</a>, Troy Griggs and Lawrence Ostlere, is a 3D representation of the Tour de France. We cycle a trail following the iconic Alpe d&#8217;huez climb. Step by step we learn about its history, about details of the trickiest passings and challenges to get to the summit&#8230;.wonderful work by the talented devs at the guardian!</p>
+
+<h3>Roobix</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-08-07-learningthree-dot-js-news-number-11-stay-tuned-with-creative-3d-demos/screenshots/roobix.jpg" alt="roobix" /></p>
+
+<p><a href="http://playcanv.as/p/V9B7k46n">Roobix</a> is a very fun game created by <a href="https://twitter.com/marquizzo">Marco del Valle</a> on <a href="https://playcanvas.com/">Play Canvas</a>. It is a Rubik&#8217;s cube simulator with great animations. The rotations and puzzle combinations are extremely fun to play with. The cube is very reactive and the twinkling colours are part of the features that make this game unique.</p>
+
+<h3>Renault Espace</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-08-07-learningthree-dot-js-news-number-11-stay-tuned-with-creative-3d-demos/screenshots/renault_espace.jpg" alt="renault_espace" /></p>
+
+<p>This <a href="http://www.littleworkshop.fr/renaultespace/">demo</a> is an interactive prototype of the New Renault Space by <a href="https://twitter.com/glecollinet">Guillaume Collinet</a>. It is a webgl visualizer using real time 3d. You can go inside the car as if you were gonna take it out for a test drive. The interior and animations are life-like and will make you feel like you own it! You can visit Guillaume&#8217;s <a href="http://www.littleworkshop.fr/">little workshop</a> for more stylish experiences.</p>
+
+<h3>Omm Experience</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-08-07-learningthree-dot-js-news-number-11-stay-tuned-with-creative-3d-demos/screenshots/omm_experience.jpg" alt="omm_experience" /></p>
+
+<p><a href="http://ommexperience.com/">Omm Experience</a> shows us the fantastic world created by <a href="https://twitter.com/jhelf">Jean Helfenstein</a>. At first, there is an awesome lens flare effect with a halo of light glowing around a revolving asteroid. As the demo evolves, there are 3 chapters about creativity with great morphing and merging animations that transform and deform the object as if it was a ball of water.</p>
+
+<h3>Gridiron</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-08-07-learningthree-dot-js-news-number-11-stay-tuned-with-creative-3d-demos/screenshots/gridiron.jpg" alt="gridiron" /></p>
+
+<p><a href="http://haptic-data.com/project/gridiron">Gridiron</a> is &#8220;an exploration of generative compositions based on vertical structures fighting for space&#8221; developed by <a href="https://twitter.com/hapticdata">Kyle Phillips</a>. We can see procedurally generated geometries that rain up and fill the screen. We can also modify their properties and play with the effects. It kind of reminds me of chemistry class.</p>
+
+<h3>Conclusion</h3>
+
+<p>In this edition of Three.js News we saw the talent behind daring and challenging experiences like the Tour de France, behind life-like animations and reactive games like Rubik&#8217;s cube. We floated through procedurally generated worlds and through spheric decadent visions of a city. We took a drive around our imagination and witnessed creativity in its abstract form.</p>
+
+<p>Thanks for sharing. Stay tuned for more Three.js News and see you next time.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Three.js Inspector in Chrome Devtools]]></title>
@@ -1617,128 +1676,6 @@ We do that like this.</p>
 
 
 <p>This is it! Now you got the live texture cube on your sphere :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Classical Suzanne Monkey From Blender To Get Your Game Started With threex.suzanne]]></title>
-    <link href="http://learningthreejs.com/blog/2014/05/09/classical-suzanne-monkey-from-blender-to-get-your-game-started-with-threex-dot-suzanne/"/>
-    <updated>2014-05-09T20:20:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2014/05/09/classical-suzanne-monkey-from-blender-to-get-your-game-started-with-threex-dot-suzanne</id>
-    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.suzanne/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.suzanne/master/examples/images/screenshot-threex-suzanne-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
-This challenge is to publish every day one game extension for three.js!
-One per day, every day and that for 2month!
-In this post, we gonna talk about
-<a href="http://www.threejsgames.com/extensions/#threex.suzanne">threex.suzanne</a>.
-Suzanne is a classic. She is the blender famous model familiar to all blender users. It is also a <a href="http://www.threejsgames.com/extensions/">three.js games extension</a> extension which provides you with a monkey model. Blender wanted to create a less common test model, so Suzanne was born. She is more precisely a 3D model of a chimpanzee head. It is pretty basic but you can easily add it as a funky animal character and install it in your platform games!</p>
-
-<p><a href='http://jeromeetienne.github.io/threex.suzanne/examples/basic.html' target='_blank'><input type="button" value='Try Threex.suzanne Demo Now' /></a></p>
-
-<p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
-<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
-
-<!-- more -->
-
-
-
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/RYrAktdkEUo" frameborder="0" allowfullscreen></iframe>
-
-
-<h1>Show Don&#8217;t Tell</h1>
-
-<ul>
-<li><a href="http://jeromeetienne.github.io/threex.suzanne/examples/basic.html">examples/basic.html</a>
-[<a href="https://github.com/jeromeetienne/threex.suzanne/blob/master/examples/basic.html">view source</a>] :
-It shows a basic usage of the extension.</li>
-</ul>
-
-
-<h1>How To Install It</h1>
-
-<p>You can install it via script tag</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.suzanne.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.suzanne
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h1>How To Use It</h1>
-
-<h3>How to load the geometry ?</h3>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Suzanne</span><span class="p">.</span><span class="nx">GeometryLoader</span><span class="p">(</span><span class="kd">function</span> <span class="nx">onLoad</span><span class="p">(</span><span class="nx">geometry</span><span class="p">){</span>
-</span><span class='line'>    <span class="c1">// this function is notified when the geometry is actually loaded</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">// geometry is a THREE.Geometry of suzanne model</span>
-</span><span class='line'><span class="p">})</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>How to create a mesh with it ?</h3>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Suzanne</span><span class="p">.</span><span class="nx">GeometryLoader</span><span class="p">(</span><span class="kd">function</span> <span class="nx">onLoad</span><span class="p">(</span><span class="nx">geometry</span><span class="p">){</span>
-</span><span class='line'>    <span class="c1">// create a mesh with the geometry</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">material</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshNormalMaterial</span><span class="p">()</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">mesh</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">)</span>
-</span><span class='line'>    <span class="c1">// attach mesh to the scene</span>
-</span><span class='line'>    <span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">mesh</span><span class="p">)</span>
-</span><span class='line'><span class="p">})</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Sometime it is not desirable to wait for the loading to complete before
-adding the object to the scene. To avoid this, we create a container
-which will contains the model once loading is completed.
-Thanks to the scene graph inheritance, any position/quaternion/scale
-changes made on container, will be reported to the children meshes.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// create the container</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">container</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Object3D</span><span class="p">();</span>
-</span><span class='line'><span class="c1">// add the container to the scene without waiting the end of loading</span>
-</span><span class='line'><span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">container</span><span class="p">)</span>
-</span><span class='line'><span class="c1">// start to load the geometry</span>
-</span><span class='line'><span class="k">new</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Suzanne</span><span class="p">.</span><span class="nx">GeometryLoader</span><span class="p">(</span><span class="kd">function</span> <span class="nx">onLoad</span><span class="p">(</span><span class="nx">geometry</span><span class="p">){</span>
-</span><span class='line'>    <span class="c1">// create a mesh with it</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">material</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshNormalMaterial</span><span class="p">()</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">mesh</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">)</span>
-</span><span class='line'>    <span class="c1">// attach mesh to the container</span>
-</span><span class='line'>    <span class="nx">container</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">mesh</span><span class="p">)</span>
-</span><span class='line'><span class="p">})</span>
-</span></code></pre></td></tr></table></div></figure>
-
 ]]></content>
   </entry>
   

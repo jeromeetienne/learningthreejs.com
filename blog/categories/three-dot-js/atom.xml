@@ -4,7 +4,7 @@
   <title><![CDATA[Category: three.js | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/three-dot-js/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-07-30T13:41:50+01:00</updated>
+  <updated>2015-08-07T11:48:50+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,65 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[LearningThree.js News # 11: Stay Tuned With Creative 3D Demos]]></title>
+    <link href="http://learningthreejs.com/blog/2015/08/07/learningthree-dot-js-news-number-11-stay-tuned-with-creative-3d-demos/"/>
+    <updated>2015-08-07T11:02:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/08/07/learningthree-dot-js-news-number-11-stay-tuned-with-creative-3d-demos</id>
+    <content type="html"><![CDATA[<p>This post is another edition of Three.js News. We have collected some original demos with skilful effects and lots of style. There is a high degree of talent displayed on these projects. In this episode, we will cycle through the daring climbs of the Tour de France. We will turn around decadent blue worlds, play with colourful Rubik's cube and take the new Renault Espace for a test run. We will also merge and morph with creative experiences and investigate fascinating generative compositions.</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/jaVdFWl_PIo" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<h3>Metropolis</h3>
+
+<p><img src="/data/2015-08-07-learningthree-dot-js-news-number-11-stay-tuned-with-creative-3d-demos/screenshots/metropolis.jpg" alt="metropolis" /></p>
+
+<p><a href="https://alexstockdale.com/metropolis/">Metropolis</a> is an impressive demo by <a href="https://twitter.com/ALIXPLOX">Alex Stockdale</a>. It is a spheric vision of an urban world in destruction, or construction, depending on how you see it. It has a decadent aspect to it, the light is like the shadow of a dream and there is a hazy bluish shade in the atmosphere. This project is not only interactive and skilful but it is also a great example of what we can do with three.js.</p>
+
+<h3>The Climb of Alpe d'Huez</h3>
+
+<p><img src="/data/2015-08-07-learningthree-dot-js-news-number-11-stay-tuned-with-creative-3d-demos/screenshots/the_climb_alpe_huez.jpg" alt="the_climb_alpe_huez" /></p>
+
+<p>This <a href="http://www.theguardian.com/sport/ng-interactive/2015/jul/23/tour-de-france-the-climb-of-alpe-dhuez-interactive">demo</a> by <a href="https://twitter.com/amason">Andrew Mason</a>, Troy Griggs and Lawrence Ostlere, is a 3D representation of the Tour de France. We cycle a trail following the iconic Alpe d'huez climb. Step by step we learn about its history, about details of the trickiest passings and challenges to get to the summit....wonderful work by the talented devs at the guardian!</p>
+
+<h3>Roobix</h3>
+
+<p><img src="/data/2015-08-07-learningthree-dot-js-news-number-11-stay-tuned-with-creative-3d-demos/screenshots/roobix.jpg" alt="roobix" /></p>
+
+<p><a href="http://playcanv.as/p/V9B7k46n">Roobix</a> is a very fun game created by <a href="https://twitter.com/marquizzo">Marco del Valle</a> on <a href="https://playcanvas.com/">Play Canvas</a>. It is a Rubik's cube simulator with great animations. The rotations and puzzle combinations are extremely fun to play with. The cube is very reactive and the twinkling colours are part of the features that make this game unique.</p>
+
+<h3>Renault Espace</h3>
+
+<p><img src="/data/2015-08-07-learningthree-dot-js-news-number-11-stay-tuned-with-creative-3d-demos/screenshots/renault_espace.jpg" alt="renault_espace" /></p>
+
+<p>This <a href="http://www.littleworkshop.fr/renaultespace/">demo</a> is an interactive prototype of the New Renault Space by <a href="https://twitter.com/glecollinet">Guillaume Collinet</a>. It is a webgl visualizer using real time 3d. You can go inside the car as if you were gonna take it out for a test drive. The interior and animations are life-like and will make you feel like you own it! You can visit Guillaume's <a href="http://www.littleworkshop.fr/">little workshop</a> for more stylish experiences.</p>
+
+<h3>Omm Experience</h3>
+
+<p><img src="/data/2015-08-07-learningthree-dot-js-news-number-11-stay-tuned-with-creative-3d-demos/screenshots/omm_experience.jpg" alt="omm_experience" /></p>
+
+<p><a href="http://ommexperience.com/">Omm Experience</a> shows us the fantastic world created by <a href="https://twitter.com/jhelf">Jean Helfenstein</a>. At first, there is an awesome lens flare effect with a halo of light glowing around a revolving asteroid. As the demo evolves, there are 3 chapters about creativity with great morphing and merging animations that transform and deform the object as if it was a ball of water.</p>
+
+<h3>Gridiron</h3>
+
+<p><img src="/data/2015-08-07-learningthree-dot-js-news-number-11-stay-tuned-with-creative-3d-demos/screenshots/gridiron.jpg" alt="gridiron" /></p>
+
+<p><a href="http://haptic-data.com/project/gridiron">Gridiron</a> is "an exploration of generative compositions based on vertical structures fighting for space" developed by <a href="https://twitter.com/hapticdata">Kyle Phillips</a>. We can see procedurally generated geometries that rain up and fill the screen. We can also modify their properties and play with the effects. It kind of reminds me of chemistry class.</p>
+
+<h3>Conclusion</h3>
+
+<p>In this edition of Three.js News we saw the talent behind daring and challenging experiences like the Tour de France, behind life-like animations and reactive games like Rubik's cube. We floated through procedurally generated worlds and through spheric decadent visions of a city. We took a drive around our imagination and witnessed creativity in its abstract form.</p>
+
+<p>Thanks for sharing. Stay tuned for more Three.js News and see you next time.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Three.js Inspector in Chrome Devtools]]></title>
@@ -291,75 +350,6 @@ I hope you have as much fun as I had doing it :)
 I can't wait to see what augmented reality will do on mobile's browsers.</p>
 
 <p>That's all folks. Have fun.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[LearningThree.js News #8: Stay Tuned With Creative 3D Demos]]></title>
-    <link href="http://learningthreejs.com/blog/2015/07/10/learningthree-dot-js-news-number-8-stay-tuned-with-creative-3d-demos/"/>
-    <updated>2015-07-10T12:52:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2015/07/10/learningthree-dot-js-news-number-8-stay-tuned-with-creative-3d-demos</id>
-    <content type="html"><![CDATA[<p>This is another post for Three.js News. In this eighth edition we are going to travel and dance with cubes, discover Swiss ground with points, and do some commuting with lines. We have a couple of educational viewers, one for asteroids and another, less space related but equally exact, for terrains. We will enjoy turning around with funky vertex and spinning helix. We will discover some beautiful models skillfully displayed in Three.js. We will also be able to measure and forecast happiness.</p>
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/5vPtKBlyQsA" frameborder="0" allowfullscreen></iframe>
-
-
-
-
-<!-- more -->
-
-
-<h3>The Happy Forecast</h3>
-
-<p><img src="/data/2015-07-10-learningthree-dot-js-news-number-8-stay-tuned-with-creative-3d-demos/screenshots/the_happy_forecast.jpg" alt="the_happy_forecast" /></p>
-
-<p><a href="http://www.thehappyforecast.com/?utm_content=bufferdcbd0&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer">The Happy Forecast</a> is a beautifully made and innovative social experiment. It was created by the team at <a href="https://twitter.com/weareclubhouse">Clubhouse</a>, an interactive design studio. In this project they measure happiness in every region and postcode of London. They did this with over a year social wellbeing research. Everything from public interactions to body language and audio factors are taken into account. You can visit their <a href="http://weareclubhouse.com/">website</a> to learn more about their cool projects</p>
-
-<h3>Point Cloud Viewer</h3>
-
-<p><img src="/data/2015-07-10-learningthree-dot-js-news-number-8-stay-tuned-with-creative-3d-demos/screenshots/point_cloud_viewer.jpg" alt="point_cloud_viewer" /></p>
-
-<p>The <a href="http://sitn.ne.ch/lidar/">point cloud viewer</a> experiment is amazing. It  measures the exactness of land, making an accurate replica of it. They have displayed the Swiss canton of Neufchatel. You can navigate through it, keeping above ground, increasing the moving speed, flying or changing controls. The ground will materialize before your eyes.</p>
-
-<h3>Double Helix Spin</h3>
-
-<p><img src="/data/2015-07-10-learningthree-dot-js-news-number-8-stay-tuned-with-creative-3d-demos/screenshots/double_helix_spin.jpg" alt="double_helix_spin" /></p>
-
-<p>This fun <a href="http://codepen.io/tdhooper/pen/NqyQQe">demo</a> was created by <a href="https://twitter.com/tdhooper">Thomas Hooper</a>. The helix have a predefined motion, their trajectory is spiral and never ending. You can see them entwined as snakes each with a different color, it is a very cool effect! You can see some of Thomas very artistic projects on his website <a href="http://www.stainlessvision.com/">stainless vision</a></p>
-
-<h3>Fluuuu</h3>
-
-<p><img src="/data/2015-07-10-learningthree-dot-js-news-number-8-stay-tuned-with-creative-3d-demos/screenshots/fluuu.jpg" alt="fluuu" /></p>
-
-<p><a href="http://labs.fluuu.id/iso2/">Fluuuu</a> is a fun and rythmic demo created by <a href="https://twitter.com/silviopaganini">Silvio Paganini</a>. Silvio is a very talented developer, we featured him in previous Three.js news. In this demo, you can see cubes dancing as if to a beat. They were inspired by Conway's game of life. You can change their size and color. Silvio did this for <a href="http://fluuu.id/">FLUUUID</a>, a London creative-tech collective that converges art and technology.</p>
-
-<h3>Asteroid Model Viewer</h3>
-
-<p><img src="/data/2015-07-10-learningthree-dot-js-news-number-8-stay-tuned-with-creative-3d-demos/screenshots/asteroid_model_viewer.jpg" alt="asteroid_model_viewer" /></p>
-
-<p>This educational <a href="https://www.chromeexperiments.com/experiment/asteroid-viewer">demo</a> was developed by <a href="https://twitter.com/iwebst">Ian Webster</a>. We featured his Ancient Earth project, which we loved, in previous episodes. Now Ian has created an asteroid viewer with lots of models to choose from. You can see various types of asteroids; a lot of research has been put into this demo. You can even see them in wireframe mode.</p>
-
-<h3>Metrogram3D</h3>
-
-<p><img src="/data/2015-07-10-learningthree-dot-js-news-number-8-stay-tuned-with-creative-3d-demos/screenshots/metrogram_3d.jpg" alt="metrogram_3d" /></p>
-
-<p><a href="https://www.chromeexperiments.com/experiment/metrogram3d">Metrogram3d</a> is a wildly interactive and creative demo by <a href="https://twitter.com/nulldesign">nulldesign</a>. It is a time lapse simulation of the Tokyo metro. You can see what is happening in the web of lines in real time. It makes you feel dizzy sometimes. We can realize the pace we are living at when we commute every morning...maybe we should slow down a bit!</p>
-
-<h3>Cube Travelling</h3>
-
-<p><img src="/data/2015-07-10-learningthree-dot-js-news-number-8-stay-tuned-with-creative-3d-demos/screenshots/cube_travelling.jpg" alt="cube_travelling" /></p>
-
-<p><a href="http://codepen.io/raurir/full/IAtie/">Cube Travelling</a> is a very cool interactive demo created by <a href="https://twitter.com/raurir">Rauri</a> on Codepen.io. The effect of the cubes or bars, depending on which was you see them, is fantastic. In this version, you can change the camera perspective and view. You can also toggle the colours. The motion is very fast and the effect is enthralling. In his funky vector <a href="http://www.funkyvector.com/javascript/#">website</a> you can check out all the demos Rauri has developed.</p>
-
-<h3>Maya models converted to Three.js</h3>
-
-<p><img src="/data/2015-07-10-learningthree-dot-js-news-number-8-stay-tuned-with-creative-3d-demos/screenshots/maya_to_threejs.jpg" alt="maya_to_threejs" /></p>
-
-<p>This <a href="https://alexstockdale.com/3D/">demo</a> was created by <a href="https://twitter.com/ALIXPLOX">Alex Stockdale</a>. You can see custom Maya models and materials beautifully and skillfully converted to Three.js. You can turn around the models set on the table, zoom in to see them more closely. There is also some great shadow casting in this demo. Alex is an interactive artist, we can see that in his <a href="https://alexstockdale.com/">portfolio</a> where he mixes code and creativity in his projects.</p>
-
-<h3>Conclusion</h3>
-
-<p>In this edition of Three.js News we travelled with cubes, points and lines. We discovered how happiness can be measured and forecasted in a determined region. We enjoyed dancing, spinning and converting models to Three.js. All of these projects reflect researched studies, skills and creativity, and the elliptical never ending wonderment of web 3D.</p>
 ]]></content>
   </entry>
   
