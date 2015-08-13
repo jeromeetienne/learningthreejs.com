@@ -5,14 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Let's Make a 3D Game: Map Editor - Learning Three.js</title>
+  <title>Three.js Inspector in Chrome Devtools: v1.2.5 Released - Learning Three.js</title>
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="This is a new article of the &#8220;Let&#8217;s Make a 3D Game&#8221; series.
-In the previous one, we focused
-on keyboard. We will
-focus on map &hellip;">
+  <meta name="description" content="Hey everybody, We recently announced three.js inspector. This chrome devtools extension allows you to inspect the three.js within your page, directly &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +18,7 @@ focus on map &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://learningthreejs.com/blog/2011/09/14/lets-make-a-3D-game-map-editor/">
+  <link rel="canonical" href="http://learningthreejs.com/blog/2015/08/13/three-dot-js-inspector-in-chrome-devtools-v1-dot-2-5-released/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/LearningThreejs" rel="alternate" title="Learning Three.js" type="application/atom+xml">
@@ -104,7 +101,7 @@ focus on map &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Let's Make a 3D Game: Map Editor</h1>
+      <h1 class="entry-title">Three.js Inspector in Chrome Devtools: v1.2.5 Released</h1>
     
     
       <p class="meta">
@@ -120,12 +117,12 @@ focus on map &hellip;">
   
 
 
-<time datetime="2011-09-14T19:07:00+01:00" pubdate data-updated="true">Sep 14<span>th</span>, 2011</time>
+<time datetime="2015-08-13T14:33:00+01:00" pubdate data-updated="true">Aug 13<span>th</span>, 2015</time>
         
         
           <div class="sharing" style='text-align: right;'>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2011/09/14/lets-make-a-3D-game-map-editor/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2011/09/14/lets-make-a-3D-game-map-editor/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2015/08/13/three-dot-js-inspector-in-chrome-devtools-v1-dot-2-5-released/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2015/08/13/three-dot-js-inspector-in-chrome-devtools-v1-dot-2-5-released/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -139,78 +136,66 @@ focus on map &hellip;">
   </header>
 
 
-<div class="entry-content"><p>This is a new article of the &#8220;Let&#8217;s Make a 3D Game&#8221; <a href="/blog/categories/tutorial3dgame/">series</a>.
-In the previous one, we focused
-on <a href="/blog/2011/09/12/lets-Make-a-3D-game-keyboard/">keyboard</a>. We will
-focus on <em>map editor</em> for this one.
-In most games, the player moves around a map, sometime they are
-called <a href="http://en.wikipedia.org/wiki/Level_(video_gaming)">levels</a>.
-<em>Maps</em> are a key part of a game. They describes the world the player lives in,
-its rules, its limits, its geography.
-Additionnaly when a player completes a map, he
-goes in another better/harder map. It gives a sense
-progression which is fun. Players like fun things :)</p>
+<div class="entry-content"><p>Hey everybody,</p>
 
-<h2>So let&#8217;s make a map editor</h2>
+<p>We recently <a href="http://learningthreejs.com/blog/2015/07/30/three-dot-js-inspector-in-chrome-devtools/">announced three.js inspector</a>. This chrome devtools extension allows you to inspect the three.js within your page, directly from devtools.</p>
 
-<p><img class="right" src="/data/lets_make_a_game_map_editor/images/200px-Voxels.svg.png" title="Example" ></p>
+<p>It is also a great debugging tool! With it you can learn how three.js demos are made, interact with them and modify their parameters. You can grab it on <a href="https://chrome.google.com/webstore/detail/threejs-inspector/dnhjfclbfhcbcdfpjaeacomhbdfjbebi">chrome web store</a> and give it a try. It is definitely fun to work on :) We had some long week ends with sleepless nights, and now the <a href="https://chrome.google.com/webstore/detail/threejs-inspector/dnhjfclbfhcbcdfpjaeacomhbdfjbebi">Three.js Inspector 1.2.5</a> is released !</p>
 
-<p>So i searched for a way to do map for our <em>marble game</em>.
-I wanted something <strong>very reusable and hackable</strong>,
-something you could easily use in your own games.
-I picked <a href="http://en.wikipedia.org/wiki/Voxel">voxels</a>.
-The illustration from <a href="http://en.wikipedia.org/wiki/File:Voxels.svg">wikipedia</a>
-on the right, may help understanding.
-They are easy to code, simple to understand, yet efficient and flexible.
-On top of that, one of <a href="https://github.com/mrdoob/three.js/tree/master/examples">three.js examples</a> is a
-<a href="http://mrdoob.github.com/three.js/examples/webgl_interactive_voxelpainter.html">voxel painter</a>
-in WebGL. So most of the work was already done for us!</p>
+<h3><a href="https://chrome.google.com/webstore/detail/threejs-inspector/dnhjfclbfhcbcdfpjaeacomhbdfjbebi">Install THREE.js Inspector</a></h3>
 
-<p>Only two features were missing to make it a <a href="http://en.wikipedia.org/wiki/Level_editor">map editor</a>.
-<strong>First</strong>, we need to load and save those maps.
-Thus we can edit those maps, and tune them until to get a good <a href="http://en.wikipedia.org/wiki/Gameplay">gameplay</a>.
-<strong>Second</strong>, the map must be composed of various type of cubes.
-Different type of cubes will have different purposes in the game. e.g. one cube
-may be wood or be water, one may make your explode on contact, one may
-make you teleport, anything you want.
-So i did those modifications and came up with
-this <a href="http://jeromeetienne.github.com/marbleGame/editor">editor</a>.</p>
+<iframe width="420" height="315" src="//www.youtube.com/embed/q-c0i0nQn5M" frameborder="0" allowfullscreen></iframe>
+
+
+
 
 <!-- more -->
 
 
-<h2>Now Let&#8217;s Use This Editor</h2>
+<p>Some of these new features include cool stuff with textures, material shading, shadow casting and practical exporting and tuning options. We will be writing posts to highlight each of these new features. Here is the ChangeLog with the features recently added to version <a href="https://chrome.google.com/webstore/detail/threejs-inspector/dnhjfclbfhcbcdfpjaeacomhbdfjbebi">Three.js Inspector 1.2.5</a>, revised and improved.</p>
 
-<p><img class="right" src="/data/lets_make_a_game_map_editor/images/webgl-rocks.png" title="Example" ></p>
+<p><strong>ChangeLog</strong>
+- massive cleanup of the scene capture code
+- added range limit to material.opacity
+- added ability to create a texture from material popup menu
+- added export-in-console for material and geometry
+- added upload support for texture
+- added dragdrop support for texture
+- added &#8220;about&#8221; tab
+- added texture.sourceFile it is now possible to change texture
+  - external texture needs to be on a CORS server
+- added &#8216;visibility toggle&#8217;/&#8217;export to console&#8217; and better css on treeview
+- added an object is now relative to the selected parent
+  - better controls over the scene tree when you build something
+- added support for face material
+- added texture.anisotropy
+- added texture handling - repeat/offset/wrapS/wrapT
+- added help button linking to three.js documentation
+  - good for learning
+- added object3d.castShadow / receiveShadow
+- added material.shadding
+- added left/right/top/bottom for ortho camera
+- fixed Sprites crash + castShadow support
+- added viewVertices + viewFaces in geometry menu
+- added a Config.js and save autoRefresh
+- added bounding sphere in geometry
+- added linewidth, dashSize in material
+- added auto refresh to on by default
+- fixed bug in case of typedGeometry, PointCloud
+- &#8216;export in console&#8217; in object3d inspector popup menu
+- implemented a tab for setting
+- added autoRefresh setting to periodically refresh the inspector
+- added the &#8216;no&#8217; panels for a better visibility in the UI
+  - simply show it with a object3d selected and without
+- uniform live tuning for shader material
+- implemented better number tuning with the mouse.
+  - if shift is pressed, it goes 10 times faster
+  - it meta is pressed, it goes 100 times faster
+  - if shift+meta are pressed, it goes 1000 times faster</p>
 
-<p>The <a href="http://jeromeetienne.github.com/marbleGame/editor">editor</a>
-got an inline help on top. So it should be rather simple.
-Once you are done, you save the map, the editor
-will open a window containing a string
-describing the saved data. Just copy this data in a file.
-To load it back, you just have to drag/drop this file on the
-editor window. It is as simple as that.</p>
+<p>Do not hesitate to try it out. If you have any suggestions, feedback or questions please contact us.</p>
 
-<h2>How To Use Saved Maps</h2>
-
-<p>You load the file you saved into your javascript.
-Maps are stored in <a href="http://en.wikipedia.org/wiki/JSON">JSON</a>. It is a data format
-which fits well with javascript.
-&#8220;Everything should be made as simple as possible, but no simpler&#8221;
-as a <a href="http://en.wikipedia.org/wiki/Albert_Einstein">cool guy</a> said.
-So following the <a href="http://en.wikipedia.org/wiki/Occam%27s_razor">occam razor</a>,
-this format is just
-an <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array">Array</a> with
-each element is one <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object">Object</a>
-representing a voxel.
-The object properties are: <code>x</code>, <code>y</code>, <code>z</code>being the
-coordinates of this voxel, and <code>t</code> being its type.</p>
-
-<h2>Progress</h2>
-
-<p>Yesterday, i started coding <a href="http://jeromeetienne.github.com/marbleGame">early visuals</a>
-for the game. Ok it takes some imaginations to see where it will goes. But it
-will improve i promise :)</p>
+<p>Thanks for sharing this project :)</p>
 </div>
 
 
@@ -233,21 +218,15 @@ will improve i promise :)</p>
   
 
 
-<time datetime="2011-09-14T19:07:00+01:00" pubdate data-updated="true">Sep 14<span>th</span>, 2011</time>
+<time datetime="2015-08-13T14:33:00+01:00" pubdate data-updated="true">Aug 13<span>th</span>, 2015</time>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/three-dot-js/'>three.js</a>, <a class='category' href='/blog/categories/tutorial3dgame/'>tutorial3dgame</a>
-  
-</span>
 
 
     </p>
     
       <div class="sharing" style='text-align: right;'>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2011/09/14/lets-make-a-3D-game-map-editor/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2011/09/14/lets-make-a-3D-game-map-editor/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/2015/08/13/three-dot-js-inspector-in-chrome-devtools-v1-dot-2-5-released/" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/2015/08/13/three-dot-js-inspector-in-chrome-devtools-v1-dot-2-5-released/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -258,10 +237,8 @@ will improve i promise :)</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2011/09/12/lets-Make-a-3D-game-keyboard/" title="Previous Post: Let's Make a 3D Game: Keyboard">&laquo; Let's Make a 3D Game: Keyboard</a>
+        <a class="basic-alignment left" href="/blog/2015/08/07/learningthree-dot-js-news-number-11-stay-tuned-with-creative-3d-demos/" title="Previous Post: LearningThree.js News # 11: Stay Tuned With Creative 3D Demos">&laquo; LearningThree.js News # 11: Stay Tuned With Creative 3D Demos</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2011/09/16/performance-caching-material/" title="Next Post: Performance: Caching Material">Performance: Caching Material &raquo;</a>
       
     </p>
   </footer>
@@ -344,8 +321,8 @@ will improve i promise :)</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://learningthreejs.com/blog/2011/09/14/lets-make-a-3D-game-map-editor/';
-        var disqus_url = 'http://learningthreejs.com/blog/2011/09/14/lets-make-a-3D-game-map-editor/';
+        var disqus_identifier = 'http://learningthreejs.com/blog/2015/08/13/three-dot-js-inspector-in-chrome-devtools-v1-dot-2-5-released/';
+        var disqus_url = 'http://learningthreejs.com/blog/2015/08/13/three-dot-js-inspector-in-chrome-devtools-v1-dot-2-5-released/';
         var disqus_script = 'embed.js';
       
     (function () {

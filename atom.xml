@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-08-07T19:18:34+01:00</updated>
+  <updated>2015-08-13T14:42:39+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,74 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Three.js Inspector in Chrome Devtools: v1.2.5 Released]]></title>
+    <link href="http://learningthreejs.com/blog/2015/08/13/three-dot-js-inspector-in-chrome-devtools-v1-dot-2-5-released/"/>
+    <updated>2015-08-13T14:33:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/08/13/three-dot-js-inspector-in-chrome-devtools-v1-dot-2-5-released</id>
+    <content type="html"><![CDATA[<p>Hey everybody,</p>
+
+<p>We recently <a href="http://learningthreejs.com/blog/2015/07/30/three-dot-js-inspector-in-chrome-devtools/">announced three.js inspector</a>. This chrome devtools extension allows you to inspect the three.js within your page, directly from devtools.</p>
+
+<p>It is also a great debugging tool! With it you can learn how three.js demos are made, interact with them and modify their parameters. You can grab it on <a href="https://chrome.google.com/webstore/detail/threejs-inspector/dnhjfclbfhcbcdfpjaeacomhbdfjbebi">chrome web store</a> and give it a try. It is definitely fun to work on :) We had some long week ends with sleepless nights, and now the <a href="https://chrome.google.com/webstore/detail/threejs-inspector/dnhjfclbfhcbcdfpjaeacomhbdfjbebi">Three.js Inspector 1.2.5</a> is released !</p>
+
+<h3><a href="https://chrome.google.com/webstore/detail/threejs-inspector/dnhjfclbfhcbcdfpjaeacomhbdfjbebi">Install THREE.js Inspector</a></h3>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/q-c0i0nQn5M" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<p>Some of these new features include cool stuff with textures, material shading, shadow casting and practical exporting and tuning options. We will be writing posts to highlight each of these new features. Here is the ChangeLog with the features recently added to version <a href="https://chrome.google.com/webstore/detail/threejs-inspector/dnhjfclbfhcbcdfpjaeacomhbdfjbebi">Three.js Inspector 1.2.5</a>, revised and improved.</p>
+
+<p><strong>ChangeLog</strong>
+- massive cleanup of the scene capture code
+- added range limit to material.opacity
+- added ability to create a texture from material popup menu
+- added export-in-console for material and geometry
+- added upload support for texture
+- added dragdrop support for texture
+- added &#8220;about&#8221; tab
+- added texture.sourceFile it is now possible to change texture
+  - external texture needs to be on a CORS server
+- added &#8216;visibility toggle&#8217;/&#8217;export to console&#8217; and better css on treeview
+- added an object is now relative to the selected parent
+  - better controls over the scene tree when you build something
+- added support for face material
+- added texture.anisotropy
+- added texture handling - repeat/offset/wrapS/wrapT
+- added help button linking to three.js documentation
+  - good for learning
+- added object3d.castShadow / receiveShadow
+- added material.shadding
+- added left/right/top/bottom for ortho camera
+- fixed Sprites crash + castShadow support
+- added viewVertices + viewFaces in geometry menu
+- added a Config.js and save autoRefresh
+- added bounding sphere in geometry
+- added linewidth, dashSize in material
+- added auto refresh to on by default
+- fixed bug in case of typedGeometry, PointCloud
+- &#8216;export in console&#8217; in object3d inspector popup menu
+- implemented a tab for setting
+- added autoRefresh setting to periodically refresh the inspector
+- added the &#8216;no&#8217; panels for a better visibility in the UI
+  - simply show it with a object3d selected and without
+- uniform live tuning for shader material
+- implemented better number tuning with the mouse.
+  - if shift is pressed, it goes 10 times faster
+  - it meta is pressed, it goes 100 times faster
+  - if shift+meta are pressed, it goes 1000 times faster</p>
+
+<p>Do not hesitate to try it out. If you have any suggestions, feedback or questions please contact us.</p>
+
+<p>Thanks for sharing this project :)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[LearningThree.js News # 11: Stay Tuned With Creative 3D Demos]]></title>
@@ -1568,114 +1636,6 @@ Second you need to update all your objects at every frame.</p>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>THREEx.Transparency.update<span class="o">(</span>objects, camera<span class="o">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Live Cube Maps Reflections In Your Three.js Game With threex.cubecamera]]></title>
-    <link href="http://learningthreejs.com/blog/2014/05/12/live-cube-maps-reflections-in-your-three-dot-js-game-with-threex-dot-cubecamera/"/>
-    <updated>2014-05-12T20:20:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2014/05/12/live-cube-maps-reflections-in-your-three-dot-js-game-with-threex-dot-cubecamera</id>
-    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.cubecamera/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.cubecamera/master/examples/images/screenshot-threex-cubecamera-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
-This challenge is to publish every day one game extension for three.js!
-One per day, every day and that for 2month!
-In this post, we gonna talk about
-<a href="http://www.threejsgames.com/extensions/#threex.cubecamera">threex.cubecamera</a>.
-threex.cubecamera is a <a href="http://www.threejsgames.com/extensions/">three.js games extension</a> which provides a helper for cube cameras. It is very useful when a given object must reflect a texture cube live. Just look at it, you can see the reflection as clear as a real life mirror! You can give your texture the color you want, for example in the demo I created a &#8220;gold&#8221; sphere to give it a shinier look. Be careful though, this requires 6 renderings of the scene every time you update it. It becomes expensive fast.</p>
-
-<p><a href='http://jeromeetienne.github.io/threex.cubecamera/examples/demo.html' target='_blank'><input type="button" value='Try Threex.cubecamera Demo Now' /></a></p>
-
-<p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
-<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
-
-<!-- more -->
-
-
-
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/tUnyNECDgFE" frameborder="0" allowfullscreen></iframe>
-
-
-<h1>Show Don&#8217;t Tell</h1>
-
-<ul>
-<li><a href="http://jeromeetienne.github.io/threex.cubecamera/examples/basic.html">examples/basic.html</a>
-[<a href="https://github.com/jeromeetienne/threex.cubecamera/blob/master/examples/basic.html">view source</a>] :
-It shows the most basic usage of this extension.</li>
-<li><a href="http://jeromeetienne.github.io/threex.cubecamera/examples/demo.html">examples/demo.html</a>
-[<a href="https://github.com/jeromeetienne/threex.cubecamera/blob/master/examples/demo.html">view source</a>] :
-It shows a little bit shinier demo.</li>
-<li><a href="http://jeromeetienne.github.io/threex.cubecamera/examples/discoball.html">examples/discoball.html</a>
-[<a href="https://github.com/jeromeetienne/threex.cubecamera/blob/master/examples/discoball.html">view source</a>] :
-It shows a little bit shinier discoball.
-TODO to port in its own demo.
-It doesnt even use live rendering.
-Use the &#8220;minecraft goes party&#8221; from nextgamefrontier talk.</li>
-</ul>
-
-
-<h1>How To Install It</h1>
-
-<p>You can install it via script tag</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.cubecamera.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.cubecamera
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h1>How To Use It</h1>
-
-<p>First you need to create a classic mesh, the one which gonna reflect the live texture cube.
-In this example, we gonna create sphere with the color &#8216;gold&#8217; like this.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">geometry</span>    <span class="o">=</span> new THREE.SphereGeometry<span class="o">(</span>0.5, 32, 16<span class="o">)</span>
-</span><span class='line'>var <span class="nv">material</span>    <span class="o">=</span> new THREE.MeshPhongMaterial<span class="o">({</span>
-</span><span class='line'>    color   : <span class="s1">&#39;gold&#39;</span>
-</span><span class='line'><span class="o">})</span>
-</span><span class='line'>var <span class="nv">mesh</span>    <span class="o">=</span> new THREE.Mesh<span class="o">(</span>geometry, material<span class="o">)</span>
-</span><span class='line'>scene.add<span class="o">(</span> mesh <span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now we needs to create the cube camera which gonna update the texture cube live.
-We do that like this.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">cubeCamera</span>  <span class="o">=</span> new THREEx.CubeCamera<span class="o">(</span>mesh<span class="o">)</span>
-</span><span class='line'>scene.add<span class="o">(</span>cubeCamera.object3d<span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Don&#8217;t forget to update it when needed (likely at every frame)</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>cubeCamera.update<span class="o">(</span>renderer, scene<span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now that we got the textureCube, we set the mesh material to reflect this texture cube.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>material.envMap <span class="o">=</span> cubeCamera.textureCube
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This is it! Now you got the live texture cube on your sphere :)</p>
 ]]></content>
   </entry>
   
