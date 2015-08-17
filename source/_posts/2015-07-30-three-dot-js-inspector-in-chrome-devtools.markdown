@@ -16,4 +16,7 @@ I loved it so I decided to give it a shot. I forked @thespite work and looked at
 
 You can find the [Three.js Inspector Extension](https://chrome.google.com/webstore/detail/threejs-inspector/dnhjfclbfhcbcdfpjaeacomhbdfjbebi) on chrome app store and play with it.
 
+
+### [Install THREE.js Inspector](https://chrome.google.com/webstore/detail/threejs-inspector/dnhjfclbfhcbcdfpjaeacomhbdfjbebi)
+
 <iframe width="420" height="315" src="//www.youtube.com/embed/0GQlp9IdLjM" frameborder="0" allowfullscreen></iframe>
