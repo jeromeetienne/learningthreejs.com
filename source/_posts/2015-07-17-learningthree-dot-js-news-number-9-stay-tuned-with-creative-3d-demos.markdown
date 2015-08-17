@@ -4,7 +4,7 @@ title: "LearningThree.js News # 9: Stay Tuned With Creative 3D Demos"
 date: 2015-07-17 13:17
 comments: true
 categories: [three.js, news]
-author: Alexandra Etienne and Jerome Etienne
+author: <a href='http://twitter.com/andraconnect' target='_blank'>Alexandra Etienne</a> and <a href='http://twitter.com/jerome_etienne' target='_blank'>Jerome Etienne</a>
 ---
 
 This post is part of the Three.js News series. If you have a taste for innovation and digital creativity in 3D, this series is for you. For this edition we have collected some very artistic demos. We will take a look at some unique projects. Everything from subversive and divergent experiences to particle libraries has a place in this post. We will play around with funny and endearing characters and explore objects around Earth's orbit. We will spin around colorful cities and visit impressive one man portfolio. All of these developers are taking creativity one step further. 

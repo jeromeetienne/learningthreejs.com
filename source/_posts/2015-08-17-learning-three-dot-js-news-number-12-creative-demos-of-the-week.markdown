@@ -4,11 +4,12 @@ title: "Learning Three.js News #12: Creative demos of the week"
 date: 2015-08-17 13:07
 comments: true
 categories: [three.js, news]
+author: <a href='http://twitter.com/andraconnect' target='_blank'>Alexandra Etienne</a> and <a href='http://twitter.com/jerome_etienne' target='_blank'>Jerome Etienne</a>
 ---
 
 Hello everybody, 
 
-This post is a special edition of Three.js News. We have decided to change the format a bit. We will continue publishing the most interesting and creative demos in web 3D. We will collect the ones that we have tweeted during the week and highlight each one. It's more of a Newsletter kind of style. Hope you like it :) 
+This post is a special edition of Three.js News. We have decided to change the format a bit. We will continue publishing the most interesting and creative 3D demos on the web. We will collect the ones that we have tweeted during the week and highlight each one. It's more of a Newsletter kind of style. Hope you like it :) 
 
 ### Icosahedron Snake 
 ![screen shot 2015-08-10 at 10 43 09](/data/2015-08-17-learning-three-dot-js-news-number-12-creative-demos-of-the-week/screenshots/icosahedron_snake.jpg)
@@ -43,10 +44,10 @@ Shiny shader based [particles](http://pwambach.github.io/threejs-particle-shader
 ### The Thing From Limbo
 ![screen shot 2015-08-13 at 11 09 20](/data/2015-08-17-learning-three-dot-js-news-number-12-creative-demos-of-the-week/screenshots/the_thing_from_limbo.jpg)
 
-Cool 3d [design](http://thewebdesignerpro.com/glslshader.html) and animation by [Army Chiu](https://twitter.com/armychiu) for the [WebDesignerPro](http://thewebdesignerpro.com/). It's got good use of shaders and shadow. 
+Cool 3d [design](http://thewebdesignerpro.com/glslshader.html) and animation by [Army Chiu](https://twitter.com/armychiu) for the [WebDesignerPro](http://thewebdesignerpro.com/). It's got good use of shaders and shadows. 
 
 ### Conclusion
 
-Okay guys, that's all for this week. The demos featured here are all wonderful projects that deserve to be recognised and shared. So don't hesitate to check them out. 
+Okay guys, that's all for this week. The demos featured here are all awesome projects that deserve to be recognised and shared. So don't hesitate to check them out. 
 
 Stay tuned and see ya next time. 

@@ -5,7 +5,7 @@ date: 2015-06-12 09:48
 comments: true
 categories: [three.js, news]
 published: true
-author: Alexandra Etienne and Jerome Etienne
+author: <a href='http://twitter.com/andraconnect' target='_blank'>Alexandra Etienne</a> and <a href='http://twitter.com/jerome_etienne' target='_blank'>Jerome Etienne</a>
 ---
 
 This post introduces another episode of Three.js News. In this edition we explore dynamic and constantly changing experiences. With the featured demos we will travel through time, discover new worlds and parallel universes. We will also get into fun and procedurally generated experiences that never repeat themselves twice; they are different every time, no matter how much you try them out. We will enjoy psychedelic effects and interactive experiments. 

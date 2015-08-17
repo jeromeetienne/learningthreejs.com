@@ -5,7 +5,7 @@ date: 2015-06-29 12:13
 comments: true
 categories: [three.js, news]
 published: true
-author: Alexandra Etienne and Jerome Etienne
+author: <a href='http://twitter.com/andraconnect' target='_blank'>Alexandra Etienne</a> and <a href='http://twitter.com/jerome_etienne' target='_blank'>Jerome Etienne</a>
 ---
 
 This post is our new edition of Three.js News. In this episode we will be amazed by cinematographic experiences and awesome effects. Some of them will even give you goosebumps or make your hairs stand on end. We will explore physics engines, blockbuster movies coming soon, particles, portfolios. We will take a look at everything from a manga universe to a world of change. There is also a show off, a very special mention to a great experience that we found, combining 3d animation, motion capture and projection. These vivid experiences are unforgettable and all too real.

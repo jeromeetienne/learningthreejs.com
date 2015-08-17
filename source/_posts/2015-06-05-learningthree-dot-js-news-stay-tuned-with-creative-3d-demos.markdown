@@ -5,7 +5,7 @@ date: 2015-06-05 15:47
 comments: true
 categories: [three.js, news]
 published: true
-author: Alexandra Etienne and Jerome Etienne
+author: <a href='http://twitter.com/andraconnect' target='_blank'>Alexandra Etienne</a> and <a href='http://twitter.com/jerome_etienne' target='_blank'>Jerome Etienne</a>
 ---
 
 This post presents another edition of Three.js News. In this episode we have gathered some wonderful demos, web documentaries and very artistic experiences. They have all different genres but each of them show a wide range of skills. 

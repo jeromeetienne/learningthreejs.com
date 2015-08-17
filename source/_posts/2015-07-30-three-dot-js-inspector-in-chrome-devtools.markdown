@@ -4,6 +4,7 @@ title: "Three.js Inspector in Chrome Devtools"
 date: 2015-07-30 13:21
 comments: true
 categories: [three.js, debug, devtools]
+author: <a href='http://twitter.com/andraconnect' target='_blank'>Alexandra Etienne</a> and <a href='http://twitter.com/jerome_etienne' target='_blank'>Jerome Etienne</a>
 ---
 
 Hey guys, 
