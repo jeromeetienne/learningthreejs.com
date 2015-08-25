@@ -452,7 +452,13 @@
         <loc>
             http://learningthreejs.com/blog/2015/08/17/learning-three-dot-js-news-number-12-creative-demos-of-the-week/
         </loc>
-        <lastmod>2015-08-17T13:31:30+01:00</lastmod>
+        <lastmod>2015-08-25T13:31:51+01:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://learningthreejs.com/blog/2015/08/25/learning-three-dot-js-news-number-13-creative-demos-of-the-week/
+        </loc>
+        <lastmod>2015-08-25T13:36:56+01:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/about/</loc>
@@ -460,11 +466,11 @@
     </url>
     <url>
         <loc>http://learningthreejs.com/blog/archives/</loc>
-        <lastmod>2015-08-17T13:32:31+01:00</lastmod>
+        <lastmod>2015-08-25T13:36:56+01:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/</loc>
-        <lastmod>2015-08-17T13:32:31+01:00</lastmod>
+        <lastmod>2015-08-25T13:36:56+01:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/robots.txt</loc>

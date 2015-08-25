@@ -9,8 +9,10 @@
   <meta name="author" content="Jerome Etienne">
 
   
-  <meta name="description" content="Sometime it would be cool if you could take a screenshot of your demo to share with your friends.
-This post will explain how to do that single a &hellip;">
+  <meta name="description" content="This post is the first of a series Let&#8217;s Make a 3d game.
+The series will walk you down the path of
+game developement.
+It will describe the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -99,6 +101,104 @@ This post will explain how to do that single a &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/09/12/lets-Make-a-3D-game-keyboard/">Let&#8217;s Make a 3D Game: Keyboard</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-12T17:31:00+01:00" pubdate data-updated="true">Sep 12<span>th</span>, 2011</time>
+        
+        
+          <div class="sharing" style='text-align: right;'>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://learningthreejs.com/blog/page/9/index.html" data-via="LearningThreejs" data-counturl="http://learningthreejs.com/blog/page/9/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+        
+     </p>
+    
+    
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jerome Etienne</span></span>
+
+  </header>
+
+
+  <div class="entry-content"><p>This post is the first of a series <strong>Let&#8217;s Make a 3d game</strong>.
+The <a href="/blog/categories/tutorial3dgame/">series</a> will walk you down the path of
+game developement.
+It will describe the various parts of a web game: input handling, map generation,
+collision, physics, sounds, graphics etc&#8230;
+Obviously we will glue them to make an actual game. Quite a bit of work
+but im super excited !</p>
+
+<p>It will be a <a href="http://en.wikipedia.org/wiki/Marble_Madness">marble</a>
+game. Not sure which kind yet, but they are
+<a href="http://www.youtube.com/results?search_query=marble+video+game">many</a>.
+I did <a href="http://pacmaze.com">pacmaze</a>, a pacman in 3D  and <a href="http://buddymaze.com">buddymaze</a>,
+a multi-player first personn shooter. But this one gonna be from scratch, thus we will
+discover things as together :)</p>
+
+<p>We will try to code each part of the game to be as reusable as possible.
+The first part will be the <strong>keyboard handling</strong>. It isnt the hardest, nor the most important, but it is
+super simple. Perfect to get us started.</p>
+
+<h2>Let&#8217;s get started</h2>
+
+<p>In a game, a keyboard handler is a bit special. Usually this is done with events
+, e.g. <a href="http://api.jquery.com/bind/">jQuery.bind()</a>
+or <a href="https://github.com/jeresig/jquery.hotkeys">hotkeys</a>.
+But we are doing a game and all games revolve around a <a href="http://en.wikipedia.org/wiki/Game_programming#Game_structure">game loop</a>.
+So the keyboard must be queryable at any time during this loop, as opposed
+to <a href="http://en.wikipedia.org/wiki/Event-driven_architecture">event-driven</a>.
+Our code should keep tracks of which key and which modifier is pressed.
+Let&#8217;s call it <em>KeyboardState</em>.</p>
+
+<h2>Let&#8217;s include the script</h2>
+
+<p>You download it from <a href="/data/THREEx/THREEx.KeyboardState.js">here</a> and include
+it in your page like this</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;THREEx.KeyboardState.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/09/12/lets-Make-a-3D-game-keyboard/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -716,6 +816,10 @@ a web server on it, and go in <code>/examples</code>.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/08/25/learning-three-dot-js-news-number-13-creative-demos-of-the-week/">Learning Three.js News #13: Creative demos of the week</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/08/17/learning-three-dot-js-news-number-12-creative-demos-of-the-week/">Learning Three.js News #12: Creative demos of the week</a>
       </li>
     
@@ -729,10 +833,6 @@ a web server on it, and go in <code>/examples</code>.</p>
     
       <li class="post">
         <a href="/blog/2015/07/30/three-dot-js-inspector-in-chrome-devtools/">Three.js Inspector in Chrome Devtools</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/07/24/learningthree-dot-js-news-number-10-stay-tuned-with-creative-3d-demos/">LearningThree.js News #10: Stay Tuned With Creative 3D Demos</a>
       </li>
     
   </ul>

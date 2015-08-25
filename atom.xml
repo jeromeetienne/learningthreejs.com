@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-08-17T13:33:50+01:00</updated>
+  <updated>2015-08-25T13:37:31+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,68 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Learning Three.js News #13: Creative demos of the week]]></title>
+    <link href="http://learningthreejs.com/blog/2015/08/25/learning-three-dot-js-news-number-13-creative-demos-of-the-week/"/>
+    <updated>2015-08-25T13:30:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/08/25/learning-three-dot-js-news-number-13-creative-demos-of-the-week</id>
+    <content type="html"><![CDATA[<p>Hello everybody</p>
+
+<p>Welcome to a new episode of Three.js News. This time we will discover some artistic and abstract demos. We will go through them at fast speed, see them grow, expand and dissolve. We will also get a bit spooked by a creepy head!</p>
+
+<h3>Bjork&#8217;s website</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-08-25-learning-three-dot-js-news-number-13-creative-demos-of-the-week/screenshots/bjork.jpg" alt="bjork" /></p>
+
+<p>Beause arty design is also a three.js matter, here is a beautiful <a href="http://bjork.com/">demo</a> created by Vince Mckelvie from <a href="https://twitter.com/mmparisdotcom">M/M</a> design agency in Paris. It&#8217;s singer Bjork&#8217;s new website.</p>
+
+<!-- more -->
+
+
+<h3>Fluid Experiment</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-08-25-learning-three-dot-js-news-number-13-creative-demos-of-the-week/screenshots/fluid_experiment.jpg" alt="fluid_experiment" /></p>
+
+<p>This <a href="http://haxiomic.github.io/GPU-Fluid-Experiments/html5/?q=UltraHigh">demo</a> is an experiment with Fluid particles in Webgl. It was developed by <a href="https://twitter.com/Haxiomic">George Corney</a> and it has great effects. It is both hypnotic and mesmerising.</p>
+
+<h3>Meander</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-08-25-learning-three-dot-js-news-number-13-creative-demos-of-the-week/screenshots/meander.jpg" alt="meander" /></p>
+
+<p><a href="http://codedoodl.es/_/inconvergent/meander">Meander</a> consists of randomly generated organic sand-storm clouds that dance around the screen. Its author, <a href="https://twitter.com/inconvergent">Anders Hoff</a> shared this via <a href="http://codedoodl.es/">Codedoodl</a> a tool to create original code sketches.</p>
+
+<h3>Arrows</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-08-25-learning-three-dot-js-news-number-13-creative-demos-of-the-week/screenshots/arrows.jpg" alt="arrows" /></p>
+
+<p>Like a painting in a canvas, this <a href="http://codedoodl.es/_/cabbibo/arrows">demo</a> by <a href="https://twitter.com/Cabbibo">Cabbibo</a> is abstract and bursting with colour. The arrows wander around like small brush strokes in 3D. You can also find it at <a href="http://codedoodl.es/">Codedoodl</a>.</p>
+
+<h3>Signal barrel</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-08-25-learning-three-dot-js-news-number-13-creative-demos-of-the-week/screenshots/signal_barrel.jpg" alt="signal_barrel" /></p>
+
+<p><a href="http://codepen.io/austinmayer/full/oXRGez/">Signal barrel</a> is a demo created by <a href="https://twitter.com/amayer_">Austin Mayer</a> and inspired by a similar project by <a href="https://twitter.com/beeple">Beeple</a>. It is a very cool tunnel like recreation on <a href="http://codepen.io/">CodePen</a>. You will want to follow it &#8216;til the end.</p>
+
+<h3>Fungal State</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-08-25-learning-three-dot-js-news-number-13-creative-demos-of-the-week/screenshots/fungal_state.jpg" alt="fungal_state" /></p>
+
+<p>This evolutive <a href="http://gregtatum.com/poems/growth/#/2-fungus">demo</a> was created by the talented <a href="https://twitter.com/TatumCreative">Greg Tatum</a>. It shows us a dynamic and realtime growing fungus shape. It is part of Greg&#8217;s <a href="http://gregtatum.com/blog/">Growth series</a>.</p>
+
+<h3>Creepy Head</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-08-25-learning-three-dot-js-news-number-13-creative-demos-of-the-week/screenshots/creepy_head.jpg" alt="creepy_head" /></p>
+
+<p>This <a href="http://codepen.io/SaschaSigl/full/MwMOag/">demo</a> is a creepy morph animation made with javascript. It was created by <a href="https://twitter.com/SaschaSigl">Sascha Sigl</a> on <a href="http://codepen.io/">CodePen</a>. The way the mouth moves and the eyes follow you is kind of disturbing and spooky :)</p>
+
+<h3>Conclusion</h3>
+
+<p>Okay guys, that&#8217;s all the news for this week. We discovered some very artistic, abstract and fast paced projects. Some evolving and expanding, morphing and growing&#8230;and some freaking us out! In any case, they are all creative and fun.</p>
+
+<p>Stay tuned and see you next time.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Learning Three.js News #12: Creative demos of the week]]></title>
@@ -27,6 +89,9 @@
 <p><img src="http://learningthreejs.com/data/2015-08-17-learning-three-dot-js-news-number-12-creative-demos-of-the-week/screenshots/icosahedron_snake.jpg" alt="screen shot 2015-08-10 at 10 43 09" /></p>
 
 <p>Fun and twisty three.js <a href="http://codepen.io/tdhooper/full/ZGPOQJ/">demo</a> by <a href="https://twitter.com/tdhooper">Thomas Hooper</a> on Codepen.io. It&#8217;s a spiral snake making its way in a funky pink background.</p>
+
+<!-- more -->
+
 
 <h3>Vortex Pair Warp</h3>
 
@@ -1555,99 +1620,6 @@ smoother shading if you want.</p>
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">canvas</span>  <span class="o">=</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">heightMapToCanvas</span><span class="p">(</span><span class="nx">heightMap</span><span class="p">)</span>
 </span><span class='line'><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">canvas</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Procedural Generated Pool Balls For Your Three.js Pool Game with threex.poolball]]></title>
-    <link href="http://learningthreejs.com/blog/2014/05/14/procedural-generated-pool-balls-for-your-three-dot-js-pool-game-with-threex-dot-poolball/"/>
-    <updated>2014-05-14T20:21:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2014/05/14/procedural-generated-pool-balls-for-your-three-dot-js-pool-game-with-threex-dot-poolball</id>
-    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.poolball/examples/demo.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.poolball/master/examples/images/screenshot-threex-poolball-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
-This challenge is to publish every day one game extension for three.js!
-One per day, every day and that for 2month!
-In this post, we gonna talk about
-<a href="http://www.threejsgames.com/extensions/#threex.poolball">threex.poolball</a>.
-threex.poolball is a <a href="http://www.threejsgames.com/extensions/">three.js games extension</a> which helps you build pool balls. It provides dynamically generated models of pool balls, so no model download needed. It may be fun to play with when you start with three.js, funnier than a plain sphere for sure :) You can use it for your bar games, having  your characters bet when playing pool, or even your <a href="http://jeromeetienne.github.io/marbleTable/">Marble Table</a> games, as I did, adding cool granular sounds when the balls roll.</p>
-
-<p><a href='http://jeromeetienne.github.io/threex.poolball/examples/demo.html' target='_blank'><input type="button" value='Try Threex.poolball Demo Now' /></a></p>
-
-<p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
-<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
-
-<!-- more -->
-
-
-
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/u_hjrVazLYo" frameborder="0" allowfullscreen></iframe>
-
-
-<h1>Show Don&#8217;t Tell</h1>
-
-<ul>
-<li><a href="http://jeromeetienne.github.io/threex.poolball/examples/basic.html">examples/basic.html</a>
-[<a href="https://github.com/jeromeetienne/threex.poolball/blob/master/examples/basic.html">view source</a>] :
-It shows a basic usage of this extension</li>
-<li><a href="http://jeromeetienne.github.io/threex.poolball/examples/demo.html">examples/demo.html</a>
-[<a href="https://github.com/jeromeetienne/threex.poolball/blob/master/examples/demo.html">view source</a>] :
-It shows multiple pool balls setup like on a pool table :)</li>
-</ul>
-
-
-<h1>How To Install It</h1>
-
-<p>You can install it via script tag</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.poolball.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.poolball
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h1>How To Use It</h1>
-
-<p>Here is the default usages</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">mesh</span>    <span class="o">=</span> THREEx.createPoolBall<span class="o">()</span>;
-</span><span class='line'>scene.add<span class="o">(</span>mesh<span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>this is with custom arguments</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">mesh</span>    <span class="o">=</span> THREEx.createPoolBall<span class="o">({</span>
-</span><span class='line'>    ballDesc    : <span class="s1">&#39;0&#39;</span>,  // the text which gonna be written on the ball
-</span><span class='line'>    stripped    : <span class="nb">true</span>, // <span class="nb">true </span><span class="k">if </span>the ball must be stripped, <span class="nb">false </span>otherwise
-</span><span class='line'>    textureW    : 512   // the width/height of the created texture <span class="k">for </span>this ball
-</span><span class='line'><span class="o">})</span>;
-</span><span class='line'>scene.add<span class="o">(</span>mesh<span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Some ball description are already done.</p>
-
-<ul>
-<li><code>cue</code> will return an unstripped white ball</li>
-<li><code>black</code> will return an unstripped black ball</li>
-<li><code>1</code> to <code>9</code> will assign the official colors for <a href="http://en.wikipedia.org/wiki/Nine-ball">nine-ball</a> pool</li>
-</ul>
 
 ]]></content>
   </entry>
