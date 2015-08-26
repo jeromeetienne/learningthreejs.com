@@ -16,6 +16,8 @@ This post is a special edition of Three.js News. We have decided to change the f
 
 Fun and twisty three.js [demo](http://codepen.io/tdhooper/full/ZGPOQJ/) by [Thomas Hooper](https://twitter.com/tdhooper) on Codepen.io. It's a spiral snake making its way in a funky pink background.
 
+<!-- more -->
+
 ### Vortex Pair Warp
 ![screen shot 2015-08-10 at 10 51 34](/data/2015-08-17-learning-three-dot-js-news-number-12-creative-demos-of-the-week/screenshots/vortex_pair_warp.jpg)
 
