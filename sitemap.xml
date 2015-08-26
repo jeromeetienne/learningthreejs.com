@@ -461,16 +461,22 @@
         <lastmod>2015-08-25T13:36:56+01:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://learningthreejs.com/blog/2015/08/26/introducing-three-dot-js-office-hours-post-your-questions-on-number-learningthreejs/
+        </loc>
+        <lastmod>2015-08-26T13:00:31+01:00</lastmod>
+    </url>
+    <url>
         <loc>http://learningthreejs.com/about/</loc>
         <lastmod>2015-08-07T11:23:14+01:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/blog/archives/</loc>
-        <lastmod>2015-08-25T13:36:56+01:00</lastmod>
+        <lastmod>2015-08-26T13:00:31+01:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/</loc>
-        <lastmod>2015-08-25T13:36:56+01:00</lastmod>
+        <lastmod>2015-08-26T13:00:31+01:00</lastmod>
     </url>
     <url>
         <loc>http://learningthreejs.com/robots.txt</loc>

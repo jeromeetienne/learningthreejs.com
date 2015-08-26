@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-08-25T13:37:31+01:00</updated>
+  <updated>2015-08-26T13:05:07+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Introducing Three.js Office Hours]]></title>
+    <link href="http://learningthreejs.com/blog/2015/08/26/introducing-three-dot-js-office-hours-post-your-questions-on-number-learningthreejs/"/>
+    <updated>2015-08-26T12:53:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/08/26/introducing-three-dot-js-office-hours-post-your-questions-on-number-learningthreejs</id>
+    <content type="html"><![CDATA[<p>This post is to announce Three.js office hours. A practical and easy way to get answers to your questions.
+The principle is simple: you post your questions on twitter with #learningthreejs <a href="https://twitter.com/search?q=%23learningthreejs">#learningthreejs hashtag</a>
+and we will try to answer them.</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/UTl8kjnFo08" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<p>It is a direct channel for the three.js community.  We told ourselves that since our blog is about learning three.js, our mission is to coach and guide willing learners. We are starting it as an experiment, we will try it out and see how it goes. We noticed that people out there have many queries. Whether you are working with it as part of a project, or experimenting with it as a hobby, three.js can be tricky. We have been receiving emails and notifications with kind words (thank you for that!)&#8230; and a lot of questions too :) You expect answers and we want to deliver them.</p>
+
+<p>So the idea behind Three.js office hours is to help you get around your troublesome issues. If you are stuck and don&#8217;t understand something we encourage you to post your questions in the Twitter hashtag <a href="https://twitter.com/search?q=%23learningthreejs">#learningthreejs</a>. If you have sent us queries before and we have overlooked them (sorry for that), please don&#8217;t hesitate to ask about it on the hashtag.</p>
+
+<p>We will then pick up questions that you guys posted and record a short video. We will answer them one by one, giving you detailed advice and useful pointers. In addition to that, we will write a blogpost about the content of the video, and publish it so you can come back to it whenever you want.</p>
+
+<p>Thanks for participating in this experience with us. We are sure your questions will benefit the whole three.js community, so don&#8217;t be shy!</p>
+
+<p>There is always something new to learn ;)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Learning Three.js News #13: Creative demos of the week]]></title>
@@ -1469,156 +1498,6 @@ for details.</p>
 </span><span class='line'>    height      : 0.4,
 </span><span class='line'><span class="o">})</span>
 </span><span class='line'>scene.add<span class="o">(</span>mesh<span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Perlin Terrain Procedural Generation For Your Game With threex.terrain]]></title>
-    <link href="http://learningthreejs.com/blog/2014/05/15/perlin-terrain-procedural-generation-for-your-game-with-threex-dot-terrain/"/>
-    <updated>2014-05-15T20:21:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2014/05/15/perlin-terrain-procedural-generation-for-your-game-with-threex-dot-terrain</id>
-    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.terrain/examples/planegeometry.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.terrain/master/examples/images/screenshot-threex-terrain-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
-This challenge is to publish every day one game extension for three.js!
-One per day, every day and that for 2month!
-In this post, we gonna talk about
-<a href="http://www.threejsgames.com/extensions/#threex.terrain">threex.terrain</a>.
-threex.terrain is a <a href="http://www.threejsgames.com/extensions/">three.js games extension</a> which provides a procedural terrain generated from a simplex noise, the <a href="http://en.wikipedia.org/wiki/Perlin_noise">Perlin noise</a>. As you can see you have different zones that make the terrain more varied, the blue zone represents water, the green one represents trees or grass and the white zone at the mountain top is snow. Imagine your video game character walking on these 3D mountains or flying over them, pretty cool eh? You can take him through river, forest, wind and snow if you want ;)</p>
-
-<p><a href='http://jeromeetienne.github.io/threex.terrain/examples/planegeometry.html' target='_blank'><input type="button" value='Try Threex.terrain Demo Now' /></a></p>
-
-<p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
-<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
-
-<!-- more -->
-
-
-
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/z_73WDzgBsA" frameborder="0" allowfullscreen></iframe>
-
-
-<h1>Show Don&#8217;t Tell</h1>
-
-<ul>
-<li><a href="http://jeromeetienne.github.io/threex.terrain/examples/canvas.html">examples/canvas.html</a>
-[<a href="https://github.com/jeromeetienne/threex.terrain/blob/master/examples/canvas.html">view source</a>] :
-It shows a perlin terrain in a canvas 2d.</li>
-<li><a href="http://jeromeetienne.github.io/threex.terrain/examples/planegeometry.html">examples/planegeometry.html</a>
-[<a href="https://github.com/jeromeetienne/threex.terrain/blob/master/examples/planegeometry.html">view source</a>] :
-It displays the terrain in 3d with three.js.</li>
-<li><a href="http://jeromeetienne.github.io/threex.terrain/examples/height.html">examples/height.html</a>
-[<a href="https://github.com/jeromeetienne/threex.terrain/blob/master/examples/height.html">view source</a>] :
-It show how to test the height in a 3d terrain</li>
-<li><a href="http://jeromeetienne.github.io/threex.terrain/examples/minecraft.html">examples/minecraft.html</a>
-[<a href="https://github.com/jeromeetienne/threex.terrain/blob/master/examples/minecraft.html">view source</a>] :
-It show a minecraft character walking on perlin terrain</li>
-</ul>
-
-
-<h1>How To Install It</h1>
-
-<p>You can install it via script tag</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.terrain.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.terrain
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h1>How To Use It</h1>
-
-<p>To allocate a heightMap with a width of 100 and a depth of 200, do</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">heightMap</span>   <span class="o">=</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">allocateHeightMap</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>To generate some heights based on a simplex/perlin noise, do</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">simplexHeightMap</span><span class="p">(</span><span class="nx">heightMap</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>If you want to display it in three.js, built a <code>THREE.PlaneGeometry</code> for it</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// build the geometry</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">geometry</span>    <span class="o">=</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">heightMapToPlaneGeometry</span><span class="p">(</span><span class="nx">heightMap</span><span class="p">)</span>
-</span><span class='line'><span class="c1">// init the material</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">material</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshPhongMaterial</span><span class="p">();</span>
-</span><span class='line'><span class="c1">// create the mesh and add it to the scene</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">mesh</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">);</span>
-</span><span class='line'><span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span> <span class="nx">mesh</span> <span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>To get the ground height of this mesh, use the following</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">planeToHeightMapCoords</span><span class="p">(</span><span class="nx">heightMap</span><span class="p">,</span> <span class="nx">mesh</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">z</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>It is possible to enhance the rendering of this heightmap with some vertexColor, and a
-smoother shading if you want.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// build the geometry</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">geometry</span>    <span class="o">=</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">heightMapToPlaneGeometry</span><span class="p">(</span><span class="nx">heightMap</span><span class="p">)</span>
-</span><span class='line'><span class="c1">// set the vertexColor in the geometry</span>
-</span><span class='line'><span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">heightMapToVertexColor</span><span class="p">(</span><span class="nx">heightMap</span><span class="p">,</span> <span class="nx">geometry</span><span class="p">)</span>
-</span><span class='line'><span class="c1">// init the material</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">material</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshPhongMaterial</span><span class="p">({</span>
-</span><span class='line'>    <span class="nx">shading</span>     <span class="o">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">SmoothShading</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">vertexColors</span>    <span class="o">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">VertexColors</span><span class="p">,</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'><span class="c1">// create the mesh and add it to the scene</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">mesh</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">);</span>
-</span><span class='line'><span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span> <span class="nx">mesh</span> <span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>To get the height with heightMap coordinates, just use</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">y</span>   <span class="o">=</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">heightMapToHeight</span><span class="p">(</span><span class="nx">heightMap</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">z</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>If you want to display the result in a canvas 2d, just do</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">canvas</span>  <span class="o">=</span> <span class="nx">THREEx</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">.</span><span class="nx">heightMapToCanvas</span><span class="p">(</span><span class="nx">heightMap</span><span class="p">)</span>
-</span><span class='line'><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">canvas</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 ]]></content>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: three.js | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/three-dot-js/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-08-25T13:37:31+01:00</updated>
+  <updated>2015-08-26T13:05:07+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Introducing Three.js Office Hours]]></title>
+    <link href="http://learningthreejs.com/blog/2015/08/26/introducing-three-dot-js-office-hours-post-your-questions-on-number-learningthreejs/"/>
+    <updated>2015-08-26T12:53:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/08/26/introducing-three-dot-js-office-hours-post-your-questions-on-number-learningthreejs</id>
+    <content type="html"><![CDATA[<p>This post is to announce Three.js office hours. A practical and easy way to get answers to your questions.
+The principle is simple: you post your questions on twitter with #learningthreejs <a href="https://twitter.com/search?q=%23learningthreejs">#learningthreejs hashtag</a>
+and we will try to answer them.</p>
+
+<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/UTl8kjnFo08" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<!-- more -->
+
+
+<p>It is a direct channel for the three.js community.  We told ourselves that since our blog is about learning three.js, our mission is to coach and guide willing learners. We are starting it as an experiment, we will try it out and see how it goes. We noticed that people out there have many queries. Whether you are working with it as part of a project, or experimenting with it as a hobby, three.js can be tricky. We have been receiving emails and notifications with kind words (thank you for that!)... and a lot of questions too :) You expect answers and we want to deliver them.</p>
+
+<p>So the idea behind Three.js office hours is to help you get around your troublesome issues. If you are stuck and don't understand something we encourage you to post your questions in the Twitter hashtag <a href="https://twitter.com/search?q=%23learningthreejs">#learningthreejs</a>. If you have sent us queries before and we have overlooked them (sorry for that), please don't hesitate to ask about it on the hashtag.</p>
+
+<p>We will then pick up questions that you guys posted and record a short video. We will answer them one by one, giving you detailed advice and useful pointers. In addition to that, we will write a blogpost about the content of the video, and publish it so you can come back to it whenever you want.</p>
+
+<p>Thanks for participating in this experience with us. We are sure your questions will benefit the whole three.js community, so don't be shy!</p>
+
+<p>There is always something new to learn ;)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Learning Three.js News #13: Creative demos of the week]]></title>
@@ -285,28 +314,6 @@
 <p>In this edition of Three.js News we saw the talent behind daring and challenging experiences like the Tour de France, behind life-like animations and reactive games like Rubik's cube. We floated through procedurally generated worlds and through spheric decadent visions of a city. We took a drive around our imagination and witnessed creativity in its abstract form.</p>
 
 <p>Thanks for sharing. Stay tuned for more Three.js News and see you next time.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Three.js Inspector in Chrome Devtools]]></title>
-    <link href="http://learningthreejs.com/blog/2015/07/30/three-dot-js-inspector-in-chrome-devtools/"/>
-    <updated>2015-07-30T13:21:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2015/07/30/three-dot-js-inspector-in-chrome-devtools</id>
-    <content type="html"><![CDATA[<p>Hey guys,</p>
-
-<p>Recently people started to experiment with three.js and Chrome devtools. The excellent <a href="https://twitter.com/thespite">@thespite</a> first did <a href="https://github.com/spite/ShaderEditorExtension">Shader Editor Extension</a> and then <a href="https://twitter.com/thespite/status/624256879766712320">Three.js Editor Extension</a>. <a href="https://twitter.com/mrdoob">@mrdoob</a> did it too <a href="https://twitter.com/mrdoob/status/616042217464012800">here</a> where he links directly to the <a href="http://threejs.org/editor">three.js editor</a> itself. The goal is to make an extension which allows to inspect your page when you are debugging three.js.</p>
-
-<p>All that is very early work, but the concept seems really promising. It will allow to interact with almost all three.js demos out there. It is a great tool to debug your own work, or to understand how a demo is done. You can even use it to fine tune your parameters.</p>
-
-<p>I loved it so I decided to give it a shot. I forked @thespite work and looked at it over the last weekend. I reused the UI layer from the three.js editor, improved the UI a bit, and applied it to the Chrome Dev tools. The implementation still clearly has some quirks, but I love the concept. I believe it can be a very strong tool to debug three.js.</p>
-
-<p>You can find the <a href="https://chrome.google.com/webstore/detail/threejs-inspector/dnhjfclbfhcbcdfpjaeacomhbdfjbebi">Three.js Inspector Extension</a> on chrome app store and play with it.</p>
-
-<h3><a href="https://chrome.google.com/webstore/detail/threejs-inspector/dnhjfclbfhcbcdfpjaeacomhbdfjbebi">Install THREE.js Inspector</a></h3>
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/0GQlp9IdLjM" frameborder="0" allowfullscreen></iframe>
-
 ]]></content>
   </entry>
   
