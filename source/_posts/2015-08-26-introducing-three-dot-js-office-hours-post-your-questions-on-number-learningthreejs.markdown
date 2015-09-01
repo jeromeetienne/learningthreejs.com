@@ -8,8 +8,8 @@ author: <a href='http://twitter.com/andraconnect' target='_blank'>Alexandra Etie
 ---
 
 This post is to announce Three.js office hours. A practical and easy way to get answers to your questions. 
-The principle is simple: you post your questions on twitter with #learningthreejs [#learningthreejs hashtag](https://twitter.com/search?q=%23learningthreejs)
-and we will try to answer them. 
+The principle is simple: you post your questions on twitter with [#learningthreejs](https://twitter.com/search?q=%23learningthreejs)
+hashtag and we will try to answer them. 
 
 <iframe width="420" height="315" src="//www.youtube.com/embed/UTl8kjnFo08" frameborder="0" allowfullscreen></iframe>
 
