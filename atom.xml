@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-08-26T13:05:07+01:00</updated>
+  <updated>2015-09-01T13:34:07+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -12,6 +12,74 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Learning Three.js News #14: Creative demos of the week]]></title>
+    <link href="http://learningthreejs.com/blog/2015/09/01/learning-three-dot-js-news-number-14-creative-demos-of-the-week/"/>
+    <updated>2015-09-01T13:26:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/09/01/learning-three-dot-js-news-number-14-creative-demos-of-the-week</id>
+    <content type="html"><![CDATA[<p>Hello everybody!</p>
+
+<p>This post is about edition 14 of Three.js News. Our favorite demos of last week were very fun to play around with. There were some set above the clouds, staring directly at the sun. Some were cool webgl experiences inspired by games and movies. Some showed a brilliant use of shaders and VR technology. And we even met a three.js sock puppet!</p>
+
+<h3>Evolution</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-09-01-learning-three-dot-js-news-number-14-creative-demos-of-the-week/screenshots/evolution.jpg" alt="evolution" /></p>
+
+<p>This breathtaking <a href="http://vrse.com/watch/?id=6">project</a> is a photo-realistic CGI-rendered 3D Virtual Reality film on three.js player. &#8220;It takes the viewer on a journey from one beginning to a new beginning.&#8221; It was made for <a href="https://twitter.com/vrse">Vrse</a>.</p>
+
+<!-- more -->
+
+
+<h3>Above The Clouds</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-09-01-learning-three-dot-js-news-number-14-creative-demos-of-the-week/screenshots/above_the_clouds.jpg" alt="above_the_clouds" /></p>
+
+<p>Mesmerising <a href="http://earth.plus360degrees.com/">journey</a> above Earth, interactive experience created by <a href="https://twitter.com/plus360degrees">Plus 360 Degrees</a> where you travel around the world, floating with the clouds.</p>
+
+<h3>Auto Exposure</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-09-01-learning-three-dot-js-news-number-14-creative-demos-of-the-week/screenshots/auto_exposure.jpg" alt="auto_exposure" /></p>
+
+<p>A wonderful sunny <a href="https://c1.goote.ch/3e24b2dd50cf43069a1215f124520630.scene/">demo</a> developed by <a href="https://twitter.com/RasmusCoder">Rasmus Karlsson</a>. A scene with only a camera, you turn around the field, look up at the sky and see the light.</p>
+
+<h3>Share The Force</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-09-01-learning-three-dot-js-news-number-14-creative-demos-of-the-week/screenshots/share_the_force.jpg" alt="share_the_force.jpg" /></p>
+
+<p>With this webgl <a href="https://sharetheforce.target.com/">experience</a> made for <a href="https://twitter.com/Target">Target</a> you can explore Star War memories. If you are a fan you are gonna love it. Type in your favorite character to discover its universe.</p>
+
+<h3>Casino</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-09-01-learning-three-dot-js-news-number-14-creative-demos-of-the-week/screenshots/share_the_force.jpg" alt="share_the_force.jpg" /></p>
+
+<p><a href="http://playcanv.as/p/LpmXGUe6?overlay=false&amp;scrolling=true">Casino</a> is an extremely accomplished and interactive experiment released by <a href="https://twitter.com/playcanvas">PlayCanvas</a>. The quality of the rendering and the level of detail are excellent.</p>
+
+<h3>Small Island</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-09-01-learning-three-dot-js-news-number-14-creative-demos-of-the-week/screenshots/share_the_force.jpg" alt="share_the_force.jpg" /></p>
+
+<p>This is a fun <a href="http://codepen.io/chribbe/full/19f4a710bd771da41bcc79b814341b8d">project</a> by <a href="https://twitter.com/chribbe1">Christian Östman</a> on Codepen.io. Small islands are randomly generated every time you load. You can ass trees, mountains and clouds to the scene.</p>
+
+<h3>Flux Core</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-09-01-learning-three-dot-js-news-number-14-creative-demos-of-the-week/screenshots/flux_core.jpg" alt="flux_core.jpg" /></p>
+
+<p><a href="https://www.shadertoy.com/view/ltlSWf">Flux Core</a> amplifies and concentrates energy. This powerful demo was created by otaviogood on <a href="https://twitter.com/shadertoy">ShaderToy</a>. Be sure to try out the high-quality non-realtime renderer and use it for your shaders.</p>
+
+<h3>Puppetic</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-09-01-learning-three-dot-js-news-number-14-creative-demos-of-the-week/screenshots/puppetic.jpg" alt="puppetic.jpg" /></p>
+
+<p>This charming character is a three.js <a href="http://www.mediosyproyectos.com/puppetic/">sock puppet</a>. This interactive demo is a creation of <a href="https://twitter.com/wearemyp">mediosyproyectos</a>, they&#8217;ve got a cool <a href="http://www.mediosyproyectos.com/">website</a>. You can make him move the way you choose and change his mood.</p>
+
+<h3>Conclusion</h3>
+
+<p>Okay guys, that&#8217;s all for this time. We hope you will play around with these demos and become a fan! You can even get inspire and try out your own :) Thanks for sharing and see you next time.</p>
+
+<p>Stay tuned for more Three.js News.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Introducing Three.js Office Hours]]></title>
@@ -1411,95 +1479,6 @@ They have over 113 web board games with very cool features as you will see.  You
 <p>I stopped publication last week, but wait&#8230;I&#8217;m not saying I&#8217;m giving up though. Far from it. I have promised myself, and I promise my readers, to come back with more three.js extensions. Especially, because I still have a lot to publish, there are still some tricks up my sleeve ;)  For the moment I will concentrate on regaining my strength, writing more code and documenting it for the next threex batch. I hope to deliver and publish it soon.</p>
 
 <p>Stay tuned! I&#8217;ll be back.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Personalized and Polished Text for Your Three.js Game With threex.text]]></title>
-    <link href="http://learningthreejs.com/blog/2014/05/16/personalized-and-polished-text-for-your-three-dot-js-game-with-threex-dot-text/"/>
-    <updated>2014-05-16T17:55:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2014/05/16/personalized-and-polished-text-for-your-three-dot-js-game-with-threex-dot-text</id>
-    <content type="html"><![CDATA[<p><a href='http://jeromeetienne.github.io/threex.text/examples/basic.html' target='_blank'><img class="right" src="https://raw.githubusercontent.com/jeromeetienne/threex.text/master/examples/images/screenshot-threex-text-512x512.jpg" width="250" height="250"></a>
-This is post is part of the <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8216;one threex a day&#8217; challenge</a>.
-This challenge is to publish every day one game extension for three.js!
-One per day, every day and that for 2month!
-In this post, we gonna talk about
-<a href="http://www.threejsgames.com/extensions/#threex.text">threex.text</a>.
-threex.text is a <a href="http://jeromeetienne.github.io/threex/">threex game extension for three.js</a> which makes it easy to add 3d text in your game. You can use it to create a big logo on top of a shop or a big sign of any kind Las Vegas style. Up to you to see :) It is very flexible. You can fine tune lots of parameters to make it fit your needs. You can choose the fonts, the size, the bevel, the weight etc&#8230;</p>
-
-<p><a href='http://jeromeetienne.github.io/threex.text/examples/basic.html' target='_blank'><input type="button" value='Try Threex.text Demo Now' /></a></p>
-
-<p>To see the <a href="http://learningthreejs.com/blog/categories/threexaday/">other posts about one threex a day</a> and forget our moto!
-<strong>&#8220;A THREEx extension a day, gets your game on its way!&#8221;</strong></p>
-
-<!-- more -->
-
-
-
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/skjX1Dl7e0Y" frameborder="0" allowfullscreen></iframe>
-
-
-<h1>Show Don&#8217;t Tell</h1>
-
-<ul>
-<li><a href="http://jeromeetienne.github.io/threex.text/examples/basic.html">examples/basic.html</a>
-[<a href="https://github.com/jeromeetienne/threex.text/blob/master/examples/basic.html">view source</a>] :
-It shows a 3d text.</li>
-<li><a href="http://jeromeetienne.github.io/threex.text/examples/requirejs.html">examples/requirejs.html</a>
-[<a href="https://github.com/jeromeetienne/threex.text/blob/master/examples/requirejs.html">view source</a>] :
-It show a 3d text and it is all loaded thru require.js</li>
-</ul>
-
-
-<h1>How To Install It</h1>
-
-<p>You can install it via script tag</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&#39;threex.text.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Or you can install with <a href="http://bower.io/">bower</a>, as you wish.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>bower install threex.text
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h1>How To Use It</h1>
-
-<p>Here is a very basic usage</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">mesh</span>    <span class="o">=</span> new THREEx.Text<span class="o">(</span><span class="s1">&#39;THREEx&#39;</span><span class="o">)</span>
-</span><span class='line'>scene.add<span class="o">(</span>mesh<span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Here is another example with more parameters. The options are passed directly
-to  <code>THREE.TextGeometry</code>.
-See <a href="http://threejs.org/docs/#Reference/Extras.Geometries/TextGeometry">three.js docs</a>
-for details.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>var <span class="nv">mesh</span>    <span class="o">=</span> new THREEx.Text<span class="o">(</span><span class="s1">&#39;THREEx&#39;</span>, <span class="o">{</span>
-</span><span class='line'>    font        : <span class="s2">&quot;droid serif&quot;</span>,
-</span><span class='line'>    weight      : <span class="s2">&quot;bold&quot;</span>,
-</span><span class='line'>    size        : 1,
-</span><span class='line'>    height      : 0.4,
-</span><span class='line'><span class="o">})</span>
-</span><span class='line'>scene.add<span class="o">(</span>mesh<span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
 ]]></content>
   </entry>
   
