@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-09-01T13:36:39+01:00</updated>
+  <updated>2015-09-01T20:07:22+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Jerome Etienne]]></name>
@@ -51,13 +51,13 @@
 
 <h3>Casino</h3>
 
-<p><img src="http://learningthreejs.com/data/2015-09-01-learning-three-dot-js-news-number-14-creative-demos-of-the-week/screenshots/share_the_force.jpg" alt="share_the_force.jpg" /></p>
+<p><img src="http://learningthreejs.com/data/2015-09-01-learning-three-dot-js-news-number-14-creative-demos-of-the-week/screenshots/casino.jpg" alt="casino.jpg" /></p>
 
 <p><a href="http://playcanv.as/p/LpmXGUe6?overlay=false&amp;scrolling=true">Casino</a> is an extremely accomplished and interactive experiment released by <a href="https://twitter.com/playcanvas">PlayCanvas</a>. The quality of the rendering and the level of detail are excellent.</p>
 
 <h3>Small Island</h3>
 
-<p><img src="http://learningthreejs.com/data/2015-09-01-learning-three-dot-js-news-number-14-creative-demos-of-the-week/screenshots/share_the_force.jpg" alt="share_the_force.jpg" /></p>
+<p><img src="http://learningthreejs.com/data/2015-09-01-learning-three-dot-js-news-number-14-creative-demos-of-the-week/screenshots/small_island.jpg" alt="small_island.jpg" /></p>
 
 <p>This is a fun <a href="http://codepen.io/chribbe/full/19f4a710bd771da41bcc79b814341b8d">project</a> by <a href="https://twitter.com/chribbe1">Christian Östman</a> on Codepen.io. Small islands are randomly generated every time you load. You can ass trees, mountains and clouds to the scene.</p>
 
