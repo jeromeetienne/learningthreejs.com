@@ -37,12 +37,12 @@ A wonderful sunny [demo](https://c1.goote.ch/3e24b2dd50cf43069a1215f124520630.sc
 With this webgl [experience](https://sharetheforce.target.com/) made for [Target](https://twitter.com/Target) you can explore Star War memories. If you are a fan you are gonna love it. Type in your favorite character to discover its universe. 
 
 ### Casino 
-![share_the_force.jpg](/data/2015-09-01-learning-three-dot-js-news-number-14-creative-demos-of-the-week/screenshots/share_the_force.jpg)
+![casino.jpg](/data/2015-09-01-learning-three-dot-js-news-number-14-creative-demos-of-the-week/screenshots/casino.jpg)
 
 [Casino](http://playcanv.as/p/LpmXGUe6?overlay=false&scrolling=true) is an extremely accomplished and interactive experiment released by [PlayCanvas](https://twitter.com/playcanvas). The quality of the rendering and the level of detail are excellent. 
 
 ### Small Island 
-![share_the_force.jpg](/data/2015-09-01-learning-three-dot-js-news-number-14-creative-demos-of-the-week/screenshots/share_the_force.jpg)
+![small_island.jpg](/data/2015-09-01-learning-three-dot-js-news-number-14-creative-demos-of-the-week/screenshots/small_island.jpg)
 
 
 This is a fun [project](http://codepen.io/chribbe/full/19f4a710bd771da41bcc79b814341b8d) by [Christian Östman](https://twitter.com/chribbe1) on Codepen.io. Small islands are randomly generated every time you load. You can ass trees, mountains and clouds to the scene. 
