@@ -1,0 +1,5 @@
+<!-- twitter cards https://dev.twitter.com/cards/types/summary -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@learningthreejs" />
+<meta name="twitter:title" content="{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}" />
+<meta name="twitter:description" content="{{ description | strip_html | condense_spaces | truncate:150 }}" />
