@@ -4,7 +4,6 @@ title: "Learning Three.js News #12: Creative demos of the week"
 date: 2015-08-17 13:07
 comments: true
 categories: [three.js, news]
-author: <a href='http://twitter.com/andraconnect' target='_blank'>Alexandra Etienne</a> and <a href='http://twitter.com/jerome_etienne' target='_blank'>Jerome Etienne</a>
 ---
 
 Hello everybody, 

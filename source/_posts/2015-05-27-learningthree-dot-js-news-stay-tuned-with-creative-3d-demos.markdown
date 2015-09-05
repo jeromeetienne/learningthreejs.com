@@ -4,8 +4,6 @@ title: "LearningThree.js News #2: Stay Tuned with Creative 3D Demos"
 date: 2015-05-27 15:53
 comments: true
 categories: [three.js, news]
-published: true
-author: <a href='http://twitter.com/andraconnect' target='_blank'>Alexandra Etienne</a> and <a href='http://twitter.com/jerome_etienne' target='_blank'>Jerome Etienne</a>
 ---
 
 This post is about Three.js News, a fun and brief newsletter about demos in three.js. The idea is to present the new and interesting 3D creations on the web. Our goal is to keep the audience up to date and tuned with Three.js most recent developments. We will upload videos and collect information of the latest demos. Let's take a look at this episode

@@ -4,7 +4,6 @@ title: "Hatsune Miku Dancing In Augmented Reality"
 date: 2015-07-16 08:47
 comments: true
 categories: [demo, ar, three.js, threex]
-author: <a href='http://twitter.com/andraconnect' target='_blank'>Alexandra Etienne</a> and <a href='http://twitter.com/jerome_etienne' target='_blank'>Jerome Etienne</a>
 ---
 
 This demo shows Hatsune Miku dancing in augmented reality within 

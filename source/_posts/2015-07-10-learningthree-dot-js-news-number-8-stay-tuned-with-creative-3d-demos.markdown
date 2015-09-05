@@ -3,8 +3,6 @@ layout: post
 title: "LearningThree.js News #8: Stay Tuned With Creative 3D Demos"
 date: 2015-07-10 12:52
 categories: [three.js, news]
-published: true 
-author: <a href='http://twitter.com/andraconnect' target='_blank'>Alexandra Etienne</a> and <a href='http://twitter.com/jerome_etienne' target='_blank'>Jerome Etienne</a>
 ---
 
 This is another post for Three.js News. In this eighth edition we are going to travel and dance with cubes, discover Swiss ground with points, and do some commuting with lines. We have a couple of educational viewers, one for asteroids and another, less space related but equally exact, for terrains. We will enjoy turning around with funky vertex and spinning helix. We will discover some beautiful models skillfully displayed in Three.js. We will also be able to measure and forecast happiness.  

@@ -4,7 +4,6 @@ title: "Three.js Inspector in Chrome Devtools: v1.2.5 Released"
 date: 2015-08-13 14:33
 comments: true
 categories: [three.js, debug, devtools]
-author: <a href='http://twitter.com/andraconnect' target='_blank'>Alexandra Etienne</a> and <a href='http://twitter.com/jerome_etienne' target='_blank'>Jerome Etienne</a>
 ---
 
 

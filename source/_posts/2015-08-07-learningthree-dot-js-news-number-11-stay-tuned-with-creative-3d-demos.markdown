@@ -4,7 +4,6 @@ title: "LearningThree.js News # 11: Stay Tuned With Creative 3D Demos"
 date: 2015-08-07 11:02
 comments: true
 categories: [three.js, news]
-author: <a href='http://twitter.com/andraconnect' target='_blank'>Alexandra Etienne</a> and <a href='http://twitter.com/jerome_etienne' target='_blank'>Jerome Etienne</a>
 ---
 
 This post is another edition of Three.js News. We have collected some original demos with skilful effects and lots of style. There is a high degree of talent displayed on these projects. In this episode, we will cycle through the daring climbs of the Tour de France. We will turn around decadent blue worlds, play with colourful Rubik's cube and take the new Renault Espace for a test run. We will also merge and morph with creative experiences and investigate fascinating generative compositions. 

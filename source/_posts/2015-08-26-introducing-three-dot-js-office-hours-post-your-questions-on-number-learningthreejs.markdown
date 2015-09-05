@@ -4,7 +4,6 @@ title: "Introducing Three.js Office Hours"
 date: 2015-08-26 12:53
 comments: true
 categories: [three.js, officehour]
-author: <a href='http://twitter.com/andraconnect' target='_blank'>Alexandra Etienne</a> and <a href='http://twitter.com/jerome_etienne' target='_blank'>Jerome Etienne</a>
 ---
 
 This post is to announce Three.js office hours. A practical and easy way to get answers to your questions. 
