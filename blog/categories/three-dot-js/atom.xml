@@ -4,7 +4,7 @@
   <title><![CDATA[Category: three.js | Learning Three.js]]></title>
   <link href="http://learningthreejs.com/blog/categories/three-dot-js/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-09-05T12:49:31+01:00</updated>
+  <updated>2015-09-24T13:37:34+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Alexandra Etienne and Jerome Etienne]]></name>
@@ -12,6 +12,66 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Learning Three.js News # 15: Creative 3D demos of the week]]></title>
+    <link href="http://learningthreejs.com/blog/2015/09/24/learning-three-dot-js-news-number-15-creative-3d-demos-of-the-week/"/>
+    <updated>2015-09-24T13:19:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/09/24/learning-three-dot-js-news-number-15-creative-3d-demos-of-the-week</id>
+    <content type="html"><![CDATA[<p>Hello everybody</p>
+
+<p>Welcome to a new edition of Three.js News. In this episode we have gathered some of the most impressive demos of the past weeks. We will play with fun webgl games, matrix-like maps and visit beautiful landscapes. We will also discover apocalyptic experiences, large terrains and original animations.</p>
+
+<h3>Vortex Spheres</h3>
+
+<p><img src="/data/2015-09-24-learning-three-dot-js-news-number-15-creative-3d-demos-of-the-week/screenshots/vortex_spheres.jpg" alt="vortex_spheres" /></p>
+
+<p><a href="http://david.li/vortexspheres/">Vortex Spheres</a> is a swirly webgl demo by <a href="https://twitter.com/daviddotli">David Li</a>. It is a wild vertically growing mass of green and blueish spheres. You can tune variation, radius or just let it drop.</p>
+
+<!-- more -->
+
+
+<h3>LOD terrain</h3>
+
+<p><img src="/data/2015-09-24-learning-three-dot-js-news-number-15-creative-3d-demos-of-the-week/screenshots/lod_terrain.jpg" alt="lod_terrain" /></p>
+
+<p><a href="http://felixpalmer.github.io/lod-terrain/">LOD terrain</a> is a great example of how to efficiently render a large terrain in 3D. You can check out <a href="https://twitter.com/pheeelicks">Felix Palmer's</a> detailed <a href="http://www.pheelicks.com/2014/03/rendering-large-terrains/">tutorial</a> on how to build it using webgl and three.js.</p>
+
+<h3>Spring</h3>
+
+<p><img src="/data/2015-09-24-learning-three-dot-js-news-number-15-creative-3d-demos-of-the-week/screenshots/spring.jpg" alt="spring" /></p>
+
+<p>Beautiful webgl <a href="http://oos.moxiecode.com/js_webgl/spring/">spring</a>. Great light sets the natural mood on the landscape. You will feel like walking barefoot on the grass. Created by <a href="https://twitter.com/oosmoxiecode">OutofSociety moxiecode</a>.</p>
+
+<h3>Reshaping Excellence</h3>
+
+<p><img src="/data/2015-09-24-learning-three-dot-js-news-number-15-creative-3d-demos-of-the-week/screenshots/reshaping_excellence.jpg" alt="reshaping_excellence" /></p>
+
+<p>This project is Sennheiser's own <a href="http://www.sennheiser-reshapingexcellence.com/en">webgl experience</a>. It takes us to an apocalyptic and inspiring world. Descending monoliths carry us to a monument of sound. Done by <a href="https://twitter.com/SEHSUCHT">Sehsucht</a>, there is also a mobile version that you can try out.</p>
+
+<h3>Mapzen</h3>
+
+<p><img src="/data/2015-09-24-learning-three-dot-js-news-number-15-creative-3d-demos-of-the-week/screenshots/mapzen.jpg" alt="mapzen" /></p>
+
+<p>This matrix-like <a href="http://tangrams.github.io/tangram-sandbox/tangram.html?styles/tilt-ikeda#17/53.33463/-6.22539">demo</a> is developed by <a href="https://twitter.com/mapzen">Mapzen</a>, an open source mapping lab. Tangram is a flexible mapping engine, designed for real-time rendering. It is a new wireframe way to look at your city with a wow effect.</p>
+
+<h3>Keep Out</h3>
+
+<p><img src="/data/2015-09-24-learning-three-dot-js-news-number-15-creative-3d-demos-of-the-week/screenshots/keep_out.jpg" alt="keep_out" /></p>
+
+<p><a href="http://www.playkeepout.com/">Keep Out</a> is a fun dungeon game for the brave. It was created by <a href="http://www.littleworkshop.fr/">Little Workshop</a>, company crafting fine experiences and games for webgl. There is a lot of action, monsters to kill, gold to loot, weapons to win and levels to clear!</p>
+
+<h3>Cycle Through The Night</h3>
+
+<p><img src="/data/2015-09-24-learning-three-dot-js-news-number-15-creative-3d-demos-of-the-week/screenshots/cycle_through_the_night.jpg" alt="cycle_through_the_night" /></p>
+
+<p>This original Codepen <a href="http://codepen.io/SaschaSigl/pen/dYMYKg">demo</a> was developed by <a href="https://twitter.com/SaschaSigl">Sascha Sigl</a>. It's a skeletal animation made in three.js. A modern dandy riding a high wheel bicycle towards a full grey moon gives it an intelligently comic atmosphere.</p>
+
+<h3>Conclusion</h3>
+
+<p>Ok guys, that's all for this edition. There were some awesome demos these weeks and featuring them all in a post is a challenge. The ones we listed here are our personal favorites. We will be back soon with more Three.js News...stay tuned.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Learning Three.js News #14: Creative demos of the week]]></title>
@@ -231,98 +291,6 @@ hashtag and we will try to answer them.</p>
 <p>Okay guys, that's all for this week. The demos featured here are all awesome projects that deserve to be recognised and shared. So don't hesitate to check them out.</p>
 
 <p>Stay tuned and see ya next time.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Three.js Inspector in Chrome Devtools: v1.2.5 Released]]></title>
-    <link href="http://learningthreejs.com/blog/2015/08/13/three-dot-js-inspector-in-chrome-devtools-v1-dot-2-5-released/"/>
-    <updated>2015-08-13T14:33:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2015/08/13/three-dot-js-inspector-in-chrome-devtools-v1-dot-2-5-released</id>
-    <content type="html"><![CDATA[<p>Hey everybody,</p>
-
-<p>We recently <a href="http://learningthreejs.com/blog/2015/07/30/three-dot-js-inspector-in-chrome-devtools/">announced three.js inspector</a>. This chrome devtools extension allows you to inspect the three.js within your page, directly from devtools.</p>
-
-<p>It is also a great debugging tool! With it you can learn how three.js demos are made, interact with them and modify their parameters. You can grab it on <a href="https://chrome.google.com/webstore/detail/threejs-inspector/dnhjfclbfhcbcdfpjaeacomhbdfjbebi">chrome web store</a> and give it a try. It is definitely fun to work on :) We had some long week ends with sleepless nights, and now the <a href="https://chrome.google.com/webstore/detail/threejs-inspector/dnhjfclbfhcbcdfpjaeacomhbdfjbebi">Three.js Inspector 1.2.5</a> is released !</p>
-
-<h3><a href="https://chrome.google.com/webstore/detail/threejs-inspector/dnhjfclbfhcbcdfpjaeacomhbdfjbebi">Install THREE.js Inspector</a></h3>
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/q-c0i0nQn5M" frameborder="0" allowfullscreen></iframe>
-
-
-
-
-<!-- more -->
-
-
-<p>Some of these new features include cool stuff with textures, material shading, shadow casting and practical exporting and tuning options. We will be writing posts to highlight each of these new features. Here is the ChangeLog with the features recently added to version <a href="https://chrome.google.com/webstore/detail/threejs-inspector/dnhjfclbfhcbcdfpjaeacomhbdfjbebi">Three.js Inspector 1.2.5</a>, revised and improved.</p>
-
-<h3>ChangeLog</h3>
-
-<ul>
-<li>massive cleanup of the scene capture code</li>
-<li>added range limit to material.opacity</li>
-<li>added ability to create a texture from material popup menu</li>
-<li>added export-in-console for material and geometry</li>
-<li>added upload support for texture</li>
-<li>added dragdrop support for texture</li>
-<li>added "about" tab</li>
-<li>added texture.sourceFile it is now possible to change texture
-
-<ul>
-<li>external texture needs to be on a CORS server</li>
-</ul>
-</li>
-<li>added 'visibility toggle'/'export to console' and better css on treeview</li>
-<li>added an object is now relative to the selected parent
-
-<ul>
-<li>better controls over the scene tree when you build something</li>
-</ul>
-</li>
-<li>added support for face material</li>
-<li>added texture.anisotropy</li>
-<li>added texture handling - repeat/offset/wrapS/wrapT</li>
-<li>added help button linking to three.js documentation
-
-<ul>
-<li>good for learning</li>
-</ul>
-</li>
-<li>added object3d.castShadow / receiveShadow</li>
-<li>added material.shadding</li>
-<li>added left/right/top/bottom for ortho camera</li>
-<li>fixed Sprites crash + castShadow support</li>
-<li>added viewVertices + viewFaces in geometry menu</li>
-<li>added a Config.js and save autoRefresh</li>
-<li>added bounding sphere in geometry</li>
-<li>added linewidth, dashSize in material</li>
-<li>added auto refresh to on by default</li>
-<li>fixed bug in case of typedGeometry, PointCloud</li>
-<li>'export in console' in object3d inspector popup menu</li>
-<li>implemented a tab for setting</li>
-<li>added autoRefresh setting to periodically refresh the inspector</li>
-<li>added the 'no' panels for a better visibility in the UI
-
-<ul>
-<li>simply show it with a object3d selected and without</li>
-</ul>
-</li>
-<li>uniform live tuning for shader material</li>
-<li>implemented better number tuning with the mouse.
-
-<ul>
-<li>if shift is pressed, it goes 10 times faster</li>
-<li>it meta is pressed, it goes 100 times faster</li>
-<li>if shift+meta are pressed, it goes 1000 times faster</li>
-</ul>
-</li>
-</ul>
-
-
-<p>Do not hesitate to try it out. If you have any suggestions, feedback or questions please contact us.</p>
-
-<p>Thanks for sharing this project :)</p>
 ]]></content>
   </entry>
   

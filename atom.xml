@@ -4,7 +4,7 @@
   <title><![CDATA[Learning Three.js]]></title>
   <link href="http://learningthreejs.com/atom.xml" rel="self"/>
   <link href="http://learningthreejs.com/"/>
-  <updated>2015-09-05T12:49:31+01:00</updated>
+  <updated>2015-09-24T13:37:34+01:00</updated>
   <id>http://learningthreejs.com/</id>
   <author>
     <name><![CDATA[Alexandra Etienne and Jerome Etienne]]></name>
@@ -12,6 +12,66 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Learning Three.js News # 15: Creative 3D demos of the week]]></title>
+    <link href="http://learningthreejs.com/blog/2015/09/24/learning-three-dot-js-news-number-15-creative-3d-demos-of-the-week/"/>
+    <updated>2015-09-24T13:19:00+01:00</updated>
+    <id>http://learningthreejs.com/blog/2015/09/24/learning-three-dot-js-news-number-15-creative-3d-demos-of-the-week</id>
+    <content type="html"><![CDATA[<p>Hello everybody</p>
+
+<p>Welcome to a new edition of Three.js News. In this episode we have gathered some of the most impressive demos of the past weeks. We will play with fun webgl games, matrix-like maps and visit beautiful landscapes. We will also discover apocalyptic experiences, large terrains and original animations.</p>
+
+<h3>Vortex Spheres</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-09-24-learning-three-dot-js-news-number-15-creative-3d-demos-of-the-week/screenshots/vortex_spheres.jpg" alt="vortex_spheres" /></p>
+
+<p><a href="http://david.li/vortexspheres/">Vortex Spheres</a> is a swirly webgl demo by <a href="https://twitter.com/daviddotli">David Li</a>. It is a wild vertically growing mass of green and blueish spheres. You can tune variation, radius or just let it drop.</p>
+
+<!-- more -->
+
+
+<h3>LOD terrain</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-09-24-learning-three-dot-js-news-number-15-creative-3d-demos-of-the-week/screenshots/lod_terrain.jpg" alt="lod_terrain" /></p>
+
+<p><a href="http://felixpalmer.github.io/lod-terrain/">LOD terrain</a> is a great example of how to efficiently render a large terrain in 3D. You can check out <a href="https://twitter.com/pheeelicks">Felix Palmer&#8217;s</a> detailed <a href="http://www.pheelicks.com/2014/03/rendering-large-terrains/">tutorial</a> on how to build it using webgl and three.js.</p>
+
+<h3>Spring</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-09-24-learning-three-dot-js-news-number-15-creative-3d-demos-of-the-week/screenshots/spring.jpg" alt="spring" /></p>
+
+<p>Beautiful webgl <a href="http://oos.moxiecode.com/js_webgl/spring/">spring</a>. Great light sets the natural mood on the landscape. You will feel like walking barefoot on the grass. Created by <a href="https://twitter.com/oosmoxiecode">OutofSociety moxiecode</a>.</p>
+
+<h3>Reshaping Excellence</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-09-24-learning-three-dot-js-news-number-15-creative-3d-demos-of-the-week/screenshots/reshaping_excellence.jpg" alt="reshaping_excellence" /></p>
+
+<p>This project is Sennheiser&#8217;s own <a href="http://www.sennheiser-reshapingexcellence.com/en">webgl experience</a>. It takes us to an apocalyptic and inspiring world. Descending monoliths carry us to a monument of sound. Done by <a href="https://twitter.com/SEHSUCHT">Sehsucht</a>, there is also a mobile version that you can try out.</p>
+
+<h3>Mapzen</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-09-24-learning-three-dot-js-news-number-15-creative-3d-demos-of-the-week/screenshots/mapzen.jpg" alt="mapzen" /></p>
+
+<p>This matrix-like <a href="http://tangrams.github.io/tangram-sandbox/tangram.html?styles/tilt-ikeda#17/53.33463/-6.22539">demo</a> is developed by <a href="https://twitter.com/mapzen">Mapzen</a>, an open source mapping lab. Tangram is a flexible mapping engine, designed for real-time rendering. It is a new wireframe way to look at your city with a wow effect.</p>
+
+<h3>Keep Out</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-09-24-learning-three-dot-js-news-number-15-creative-3d-demos-of-the-week/screenshots/keep_out.jpg" alt="keep_out" /></p>
+
+<p><a href="http://www.playkeepout.com/">Keep Out</a> is a fun dungeon game for the brave. It was created by <a href="http://www.littleworkshop.fr/">Little Workshop</a>, company crafting fine experiences and games for webgl. There is a lot of action, monsters to kill, gold to loot, weapons to win and levels to clear!</p>
+
+<h3>Cycle Through The Night</h3>
+
+<p><img src="http://learningthreejs.com/data/2015-09-24-learning-three-dot-js-news-number-15-creative-3d-demos-of-the-week/screenshots/cycle_through_the_night.jpg" alt="cycle_through_the_night" /></p>
+
+<p>This original Codepen <a href="http://codepen.io/SaschaSigl/pen/dYMYKg">demo</a> was developed by <a href="https://twitter.com/SaschaSigl">Sascha Sigl</a>. It&#8217;s a skeletal animation made in three.js. A modern dandy riding a high wheel bicycle towards a full grey moon gives it an intelligently comic atmosphere.</p>
+
+<h3>Conclusion</h3>
+
+<p>Ok guys, that&#8217;s all for this edition. There were some awesome demos these weeks and featuring them all in a post is a challenge. The ones we listed here are our personal favorites. We will be back soon with more Three.js News&#8230;stay tuned.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Learning Three.js News #14: Creative demos of the week]]></title>
@@ -1452,33 +1512,6 @@ They have over 113 web board games with very cool features as you will see.  You
 
 <iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/Di4Yomm530g" frameborder="0" allowfullscreen></iframe>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[One Threex a Day Challenge: Phase 1 Completed!]]></title>
-    <link href="http://learningthreejs.com/blog/2014/05/26/one-threex-a-day-challenge-phase-1-completed/"/>
-    <updated>2014-05-26T11:49:00+01:00</updated>
-    <id>http://learningthreejs.com/blog/2014/05/26/one-threex-a-day-challenge-phase-1-completed</id>
-    <content type="html"><![CDATA[<p>Hello everybody!</p>
-
-<p>It&#8217;s been nearly a month since I started publishing <a href="http://learningthreejs.com/blog/2014/04/22/one-threex-a-day-gets-your-game-on-its-way-a-challenge/">&#8220;One threex a day&#8221; challenge</a>. The idea was to share with you the many <a href="http://www.threejsgames.com/extensions/">three.js games extensions</a> that I had written over time. I wanted to show you how they could be useful, fun and easy to include in your very own three.js game. I came up with a motto &#8220;One threex a day gets your game on its way&#8221;. I was all set up and ready to go. This was a challenge inspired by John Resig&#8217;s article called <a href="http://ejohn.org/blo!/write-code-every-day/">&#8220;Write code everyday&#8221;</a>. I deeply agree with his theory for making progress, increasing productivity and getting the work done. I wished to try something similar on myself.</p>
-
-<p>Let me tell you though&#8230; it WAS challenging! Keeping the publication rhythm was hard. It takes a lot of discipline and organization to get it done everyday. I had the best intentions, but unfortunately I got sick and I felt bad for most of last week. Additionally I had some day work on the side that I needed to get done. At this rate of publication, it was very hard to keep up! At first I wanted to publish the threex extensions for a period of two months but I think it is best to rest for a while. So a week ago I published the last three.js game extension of phase 1.</p>
-
-<!-- more -->
-
-
-
-
-<iframe width="420" height="315" src="http://learningthreejs.com//www.youtube.com/embed/p7xM5X7dkeI" frameborder="0" allowfullscreen></iframe>
-
-
-<p>The good news is that I&#8217;ve had a very interesting experience. I&#8217;m pleased with the results. Obviously, some posts got more attention than others. I think this was because the three.js game extensions I published weren&#8217;t all for hard-core developers or game creators. Some were pretty basic, but still had educational value for people just starting with three.js. I wanted them to be directed to all kinds of audience, amateurs and experts alike. I really appreciated the process of sharing these extensions, and overall I had a great response. I got some <a href="https://plus.google.com/104300307601542851567/posts/RhabZY19TSq">very</a> <a href="https://plus.google.com/104300307601542851567/posts/RqDbZNeJEkW">cool</a> <a href="https://twitter.com/siggraph/status/464238273582211072">retweets</a> and a lot of positive echo from you guys. Thanks a lot! Don&#8217;t hesitate to contact me and give me some more feedback.</p>
-
-<p>I stopped publication last week, but wait&#8230;I&#8217;m not saying I&#8217;m giving up though. Far from it. I have promised myself, and I promise my readers, to come back with more three.js extensions. Especially, because I still have a lot to publish, there are still some tricks up my sleeve ;)  For the moment I will concentrate on regaining my strength, writing more code and documenting it for the next threex batch. I hope to deliver and publish it soon.</p>
-
-<p>Stay tuned! I&#8217;ll be back.</p>
 ]]></content>
   </entry>
   
